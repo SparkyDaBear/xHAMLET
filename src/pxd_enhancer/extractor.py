@@ -18,6 +18,7 @@ from .xi_config_generator import XiConfigGenerator
 from .raw_processor import RawFileProcessor
 from .assessor_runner import AssessorRunner
 from .sdrf_writer import SDRFWriter
+from .relink_runner import ReLinkRunner
 
 logger = logging.getLogger(__name__)
 
@@ -76,6 +77,7 @@ class PXDMetadataEnhancer:
         self.llm = LLMClient(model=llm_model)
         self.prompts = PromptTemplates(prompts_dir=prompts_dir)
         self.xi_config_gen = XiConfigGenerator()
+        self.relink_runner = ReLinkRunner(relink_dir="./tools/relink")
         self.publication_source = "pmc"  # Hardcoded to PMC for full-text access
         
         logger.info(f"PXDMetadataEnhancer initialized")
@@ -83,6 +85,7 @@ class PXDMetadataEnhancer:
         logger.info(f"  Publication source: pmc (PMC BioC API - hardcoded for full-text)")
         logger.info(f"  LLM model: {llm_model}")
         logger.info(f"  Xi config generation: enabled")
+        logger.info("  ReLink stage: available (opt-in with --relink)")
     
     def process_pxd(
         self,
@@ -99,9 +102,12 @@ class PXDMetadataEnhancer:
         skip_sdrf: bool = False,
         skip_xi: bool = False,
         assessor_files_per_cluster: int = 1,
+        relink: bool = False,
+        relink_profile: str = "docker",
+        relink_resume: bool = False,
     ) -> Dict[str, Any]:
         """
-        Main workflow: Process a single PXD end-to-end (9-stage pipeline).
+        Main workflow: Process a single PXD end-to-end (10-stage pipeline).
 
         Stages
         ------
@@ -114,7 +120,8 @@ class PXDMetadataEnhancer:
         6  SDRF generation      — SDRFWriter writes {pxd}.sdrf.tsv
         7  SDRF validation      — parse_sdrf crosslinking template check
         8  Xi config generation — crosslinking + linear search configs
-        9  Final save           — enhanced/metadata.json
+        9  ReLink quantification — ReLink Nextflow run from RAW + SDRF taxid FASTA
+        10 Final save           — enhanced/metadata.json
 
         Args:
             pxd:                        PRIDE project accession (e.g. 'PXD000001').
@@ -130,6 +137,9 @@ class PXDMetadataEnhancer:
             skip_sdrf:                  Skip Stage 6 (SDRF generation).
             skip_xi:                    Skip Stage 8 (Xi config generation).
             assessor_files_per_cluster: How many files per cluster to download+assess (default: 1).
+            relink:                     Run ReLink quantification stage (default: False).
+            relink_profile:             Nextflow profile for ReLink (default: docker).
+            relink_resume:              Use Nextflow -resume when running ReLink.
 
         Returns:
             Dict with complete enriched metadata.
@@ -151,9 +161,15 @@ class PXDMetadataEnhancer:
             subdirs = self.store.get_subdirs(pxd)
             pxd_dir = self.store.get_pxd_dir(pxd)
 
+            if relink and clean_raw:
+                logger.warning(
+                    "--relink requested: overriding clean_raw=True to preserve RAW inputs"
+                )
+                clean_raw = False
+
             ###########################################################
             # Stage 1: Fetch PRIDE data (metadata + file list)
-            logger.info("[Stage 1/9] Fetching PRIDE project metadata...")
+            logger.info("[Stage 1/10] Fetching PRIDE project metadata...")
             pride_data = self._fetch_and_cache_pride(pxd, force_refresh)
             result["stages"]["pride"] = "success" if pride_data else "failed"
 
@@ -163,7 +179,7 @@ class PXDMetadataEnhancer:
 
             ###########################################################
             # Stage 2: Get publication info + fetch text
-            logger.info("[Stage 2/9] Extracting publication information...")
+            logger.info("[Stage 2/10] Extracting publication information...")
             doi, pubmed_ids = self._extract_publication_info(pride_data)
             logger.info("Extracted DOI: %s", doi)
             logger.info("Extracted PubMed IDs: %s", pubmed_ids)
@@ -204,7 +220,7 @@ class PXDMetadataEnhancer:
 
             ###########################################################
             # Stage 2.5: File clustering by biological condition
-            logger.info("[Stage 2.5/9] Clustering files by biological condition...")
+            logger.info("[Stage 2.5/10] Clustering files by biological condition...")
             file_assignments = self._cluster_files(
                 pxd=pxd,
                 pride_data=pride_data,
@@ -238,12 +254,12 @@ class PXDMetadataEnhancer:
             ###########################################################
             # Stage 3: Raw file processing (download → thermorawfileparser → mzML)
             if no_download:
-                logger.info("[Stage 3/9] Skipped (--no-download)")
+                logger.info("[Stage 3/10] Skipped (--no-download)")
                 result["stages"]["raw_processing"] = "skipped_no_download"
                 file_list = []
                 raw_result = None
             else:
-                logger.info("[Stage 3/9] Raw file processing...")
+                logger.info("[Stage 3/10] Raw file processing...")
                 files_meta = pride_data.get("files", {}) or {}
                 file_list = files_meta.get("files", []) if isinstance(files_meta, dict) else []
 
@@ -290,7 +306,7 @@ class PXDMetadataEnhancer:
                 result["stages"]["spectral_merge"] = "success_cached"
             else:
                 # Build summary from any existing per-file assessment JSONs
-                logger.info("[Stage 4/9] Building spectral summary from assessment files...")
+                logger.info("[Stage 4/10] Building spectral summary from assessment files...")
                 runner = AssessorRunner(assessment_dir)
                 spectral_summary = runner.build_spectral_summary(
                     pride_data=pride_data,
@@ -307,7 +323,7 @@ class PXDMetadataEnhancer:
 
             ###########################################################
             # Stage 5: LLM extraction
-            logger.info("[Stage 5/9] Querying LLM with configured prompts...")
+            logger.info("[Stage 5/10] Querying LLM with configured prompts...")
             if publication_data:
                 logger.info("Using publication text for LLM analysis")
                 text_sections = self.pmc.extract_text_sections(publication_data)
@@ -327,10 +343,10 @@ class PXDMetadataEnhancer:
             ###########################################################
             # Stage 6: SDRF generation
             if skip_sdrf:
-                logger.info("[Stage 6/9] Skipped (--skip-sdrf)")
+                logger.info("[Stage 6/10] Skipped (--skip-sdrf)")
                 result["stages"]["sdrf"] = "skipped"
             else:
-                logger.info("[Stage 6/9] Generating SDRF TSV...")
+                logger.info("[Stage 6/10] Generating SDRF TSV...")
                 sdrf_dir = subdirs["sdrf"]
                 sdrf_path = sdrf_dir / f"{pxd}.sdrf.tsv"
                 try:
@@ -365,7 +381,7 @@ class PXDMetadataEnhancer:
             if skip_sdrf or result["stages"].get("sdrf") != "success":
                 result["stages"]["sdrf_validation"] = "skipped"
             else:
-                logger.info("[Stage 7/9] Validating SDRF with parse_sdrf...")
+                logger.info("[Stage 7/10] Validating SDRF with parse_sdrf...")
                 try:
                     val_proc = subprocess.run(
                         [
@@ -400,10 +416,10 @@ class PXDMetadataEnhancer:
             ###########################################################
             # Stage 8: Xi config generation
             if skip_xi:
-                logger.info("[Stage 8/9] Skipped (--skip-xi)")
+                logger.info("[Stage 8/10] Skipped (--skip-xi)")
                 result["stages"]["xi_configs"] = "skipped"
             else:
-                logger.info("[Stage 8/9] Generating Xi configuration files...")
+                logger.info("[Stage 8/10] Generating Xi configuration files...")
                 try:
                     config_xl, config_linear = self.xi_config_gen.generate_configs(
                         pxd, llm_responses, pride_data
@@ -423,8 +439,58 @@ class PXDMetadataEnhancer:
                     result["xi_config_error"] = str(exc)
 
             ###########################################################
-            # Stage 9: Compile and save
-            logger.info("[Stage 9/9] Compiling and saving enriched metadata...")
+            # Stage 9: ReLink quantification (opt-in)
+            if not relink:
+                logger.info("[Stage 9/10] Skipped (enable with --relink)")
+                result["stages"]["relink"] = "skipped"
+            elif result["stages"].get("sdrf") != "success":
+                logger.warning("[Stage 9/10] Skipped: SDRF is required for taxid FASTA resolution")
+                result["stages"]["relink"] = "skipped_no_sdrf"
+            elif result["stages"].get("xi_configs") != "success":
+                logger.warning("[Stage 9/10] Skipped: Xi configs are required for ReLink samplesheet")
+                result["stages"]["relink"] = "skipped_no_xi_configs"
+            else:
+                logger.info("[Stage 9/10] Running ReLink quantification pipeline...")
+                try:
+                    sdrf_path = subdirs["sdrf"] / f"{pxd}.sdrf.tsv"
+                    xi_linear_conf = Path(result["xi_config_paths"]["linear"])
+                    xi_crosslink_conf = Path(result["xi_config_paths"]["crosslinking"])
+
+                    all_files = (pride_data.get("files", {}) or {}).get("files", [])
+                    raw_names = [
+                        f.get("fileName", "") for f in all_files
+                        if str(f.get("fileName", "")).lower().endswith(".raw")
+                    ]
+                    raw_paths = [
+                        pxd_dir / "work" / raw_name for raw_name in raw_names
+                        if (pxd_dir / "work" / raw_name).exists()
+                    ]
+
+                    if not raw_paths:
+                        raise FileNotFoundError(
+                            f"No local RAW files found in {pxd_dir / 'work'} for ReLink stage"
+                        )
+
+                    relink_result = self.relink_runner.run_for_pxd(
+                        pxd=pxd,
+                        sdrf_path=sdrf_path,
+                        raw_paths=raw_paths,
+                        xi_linear_config=xi_linear_conf,
+                        xi_crosslink_config=xi_crosslink_conf,
+                        pxd_dir=pxd_dir,
+                        profile=relink_profile,
+                        resume=relink_resume,
+                    )
+                    result["stages"]["relink"] = "success"
+                    result["relink"] = relink_result
+                except Exception as exc:
+                    logger.error("ReLink stage failed: %s", exc, exc_info=True)
+                    result["stages"]["relink"] = "failed"
+                    result["relink_error"] = str(exc)
+
+            ###########################################################
+            # Stage 10: Compile and save
+            logger.info("[Stage 10/10] Compiling and saving enriched metadata...")
             result = self._compile_results(pxd, pride_data, publication_data, llm_responses, result)
             result["stages"]["compilation"] = "success"
             self.store.save_json(result, pxd, "enhanced", "metadata")

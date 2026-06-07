@@ -187,6 +187,24 @@ Examples:
     )
 
     parser.add_argument(
+        "--relink",
+        action="store_true",
+        help="Run ReLink quantification stage (Stage 9, opt-in)"
+    )
+
+    parser.add_argument(
+        "--relink-profile",
+        default="docker",
+        help="Nextflow profile for ReLink stage (default: docker)"
+    )
+
+    parser.add_argument(
+        "--relink-resume",
+        action="store_true",
+        help="Pass -resume to Nextflow when running ReLink"
+    )
+
+    parser.add_argument(
         "--sdrf-only",
         action="store_true",
         help=(
@@ -357,6 +375,9 @@ def main():
         logger.info("  nproc            : %d", nproc)
         logger.info("  Skip SDRF        : %s", args.skip_sdrf)
         logger.info("  Skip Xi          : %s", args.skip_xi)
+        logger.info("  Run ReLink       : %s", args.relink)
+        logger.info("  ReLink profile   : %s", args.relink_profile)
+        logger.info("  ReLink resume    : %s", args.relink_resume)
     logger.info("-" * 80)
 
     # Create enhancer
@@ -396,6 +417,9 @@ def main():
                     assessor_files_per_cluster=args.assessor_files_per_cluster,
                     skip_sdrf=args.skip_sdrf,
                     skip_xi=args.skip_xi,
+                    relink=args.relink,
+                    relink_profile=args.relink_profile,
+                    relink_resume=args.relink_resume,
                 )
             succeeded.append(pxd)
             logger.info("✓ %s — stages: %s", pxd, result.get("stages", {}))

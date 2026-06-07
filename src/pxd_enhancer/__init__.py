@@ -11,6 +11,7 @@ from .raw_processor import RawFileProcessor
 from .assessor_runner import AssessorRunner
 from .ontology_mapper import OntologyMapper
 from .sdrf_writer import SDRFWriter
+from .relink_runner import ReLinkRunner
 
 __all__ = [
     "PXDMetadataEnhancer",
@@ -20,4 +21,5 @@ __all__ = [
     "AssessorRunner",
     "OntologyMapper",
     "SDRFWriter",
+    "ReLinkRunner",
 ]

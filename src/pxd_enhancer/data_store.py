@@ -43,6 +43,7 @@ class DataStore:
             "enhanced": pxd_dir / "enhanced",
             "assessment": pxd_dir / "assessment",  # thermorawfileparser + mzML_assessor JSON outputs
             "sdrf": pxd_dir / "sdrf",              # generated SDRF TSV files
+            "relink": pxd_dir / "relink",          # ReLink samplesheet, FASTA, and results
         }
         for subdir in subdirs.values():
             subdir.mkdir(parents=True, exist_ok=True)

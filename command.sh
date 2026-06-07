@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Full xHAMLET pipeline: .raw download → mzML conversion → assessor → LLM metadata → SDRF → Xi configs
+# Full xHAMLET pipeline: .raw download → mzML conversion → assessor → LLM metadata → SDRF → Xi configs → ReLink
 # Launches each PXD as a separate background job — all run in parallel.
 # Safe to close the terminal; nohup keeps every job alive.
 #
@@ -18,6 +18,7 @@
 set -euo pipefail
 
 ASSESSOR_FILES_PER_CLUSTER="${ASSESSOR_FILES_PER_CLUSTER:-1}"
+RELINK_PROFILE="${RELINK_PROFILE:-docker}"
 
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$REPO_DIR"
@@ -25,26 +26,7 @@ cd "$REPO_DIR"
 mkdir -p logs
 
 PXDS=(
-    PXD003486
-    PXD006816
-    PXD007673
-    PXD008418
-    PXD010796
-    PXD010931
-    PXD011071
-    PXD011861
-    PXD016988
-    PXD017620
-    PXD018771
-    PXD022991
-    PXD026244
-    PXD027234
-    PXD031345
-    PXD037678
     PXD042173
-    PXD052022
-    PXD059495
-    PXD006359
 )
 
 # Clear previous PID file
@@ -61,9 +43,10 @@ for PXD in "${PXDS[@]}"; do
         --pxd "$PXD" \
         --force-refresh \
         --assessor-files-per-cluster "$ASSESSOR_FILES_PER_CLUSTER" \
-        --clean-raw \
         --clean-mzml \
         --nproc 5 \
+        --relink \
+        --relink-profile "$RELINK_PROFILE" \
         --log-file "$LOGFILE" \
         --verbose \
         > "$STDOUTLOG" 2>&1 &
