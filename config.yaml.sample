@@ -1,0 +1,37 @@
+# PXD Metadata Enhancer Configuration
+# Copy this file and customize as needed
+
+pride:
+  base_url: "https://www.ebi.ac.uk/pride/ws/archive/v3"
+  timeout: 30
+
+pmc:
+  # Email (recommended for PMC requests)
+  email: null
+  # NCBI API key (optional for higher rate limits)
+  api_key: null
+
+llm:
+  model: "gpt-4-turbo"
+  temperature: 0.3
+  max_retries: 3
+
+storage:
+  base_dir: "./pxd_data"
+  cache_pride: true
+  cache_pmc: true
+  cache_llm: true
+
+prompts:
+  dir: "./prompts"
+  # Which prompts to use by default
+  enabled:
+    - organism
+    - disease
+    - experimental_design
+    - quantification
+    - key_findings
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

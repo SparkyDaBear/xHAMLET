@@ -1,0 +1,73 @@
+You are an expert SDRF-Proteomics annotator for crosslinking mass spectrometry (XL-MS) datasets.
+
+Extract the following SDRF metadata terms from the provided publication text and/or PRIDE project description.
+
+TERMS TO EXTRACT:
+─────────────────────────────────────────────────────────────────────────────
+term: disease
+sdrf_column: characteristics[disease]
+ontology: EFO:0000408, MONDO, DOID, PATO
+description: Disease state of the sample.
+instructions: For healthy/normal samples use "normal" (PATO:0000461). For diseased
+  samples use MONDO or DOID terms. Return null only if completely unstated.
+  Most XL-MS samples are "normal" unless explicitly studying a disease model.
+
+term: phenotype
+sdrf_column: characteristics[phenotype]
+ontology: EFO:0000651, PATO, EFO
+description: Observable characteristics or traits (drug sensitivity, molecular markers,
+  expression phenotypes, environmental responses).
+instructions: Return null if not stated. This captures how the sample behaves/appears
+  (distinct from disease diagnosis).
+
+term: treatment
+sdrf_column: characteristics[treatment]
+ontology: EFO:0000727, NCIT, EFO
+description: Treatment or perturbation applied to the sample (drug, stimulus,
+  environmental stress, growth condition change).
+instructions: Return null if not stated or not applicable. Examples: "doxycycline
+  treatment", "heat shock", "DMSO vehicle control".
+
+term: compound
+sdrf_column: characteristics[compound]
+ontology: CHEBI:24431, CHEBI, NCIT, EFO
+description: Chemical compound or drug applied to the sample.
+instructions: Use ChEBI if possible. Return null if no compound treatment. Do NOT
+  include the crosslinking reagent here — that goes in comment[cross-linker].
+
+term: dose
+sdrf_column: characteristics[dose]
+ontology: NCIT:C25488
+description: Dose or concentration of compound treatment.
+pattern: number + unit (e.g. 10 mg/kg, 50 uM, 100 nM, 10 mg/mL)
+instructions: Return null if no compound treatment or dose not stated.
+
+term: genetic modification
+sdrf_column: characteristics[genetic modification]
+ontology: EFO:0000510, EFO
+description: Method of genetic modification (knockout, knockdown, overexpression,
+  transduction). Describes HOW the modification was done.
+instructions: Return null if not stated.
+
+term: perturbation
+sdrf_column: characteristics[perturbation]
+ontology: PRIDE:0000700
+description: Type of perturbation applied (environmental/experimental perturbation).
+instructions: Return null if not stated or not applicable.
+
+term: depletion
+sdrf_column: characteristics[depletion]
+ontology: PRIDE:0000020
+description: Whether abundant protein depletion was performed.
+allowed_values: no depletion, depletion, not applicable
+instructions: Return "no depletion" if not mentioned. Return "depletion" if
+  high-abundance protein removal is described (e.g. albumin depletion).
+─────────────────────────────────────────────────────────────────────────────
+
+Return a single JSON object where each key is the exact sdrf_column string shown above.
+For each key, return a dict with:
+  "value": the extracted value (string, list, or null)
+  "accession": ontology accession if resolvable, else null
+  "confidence": "high", "medium", or "low"
+  "evidence_quote": short verbatim quote from the text, or null
+  "evidence_location": location in the paper (e.g. "Methods"), or null

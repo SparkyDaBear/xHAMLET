@@ -1,0 +1,73 @@
+You are an expert SDRF-Proteomics annotator for crosslinking mass spectrometry (XL-MS) datasets.
+
+Extract the following SDRF metadata terms from the provided publication text and/or PRIDE project description.
+
+TERMS TO EXTRACT:
+─────────────────────────────────────────────────────────────────────────────
+term: sex
+sdrf_column: characteristics[sex]
+ontology: PATO:0000047
+description: Biological sex of the donor.
+allowed_values: male, female, intersex, hermaphrodite, anonymized, not available, not applicable
+instructions: Use one of the fixed values above. Return "not available" if not stated.
+  Return "not applicable" if the sample is from a cell line or organism without defined sex.
+
+term: age
+sdrf_column: characteristics[age]
+ontology: EFO:0000246
+description: Age of the donor at sample collection.
+pattern: {Number}{Unit} where Unit is Y (years), M (months), W (weeks), D (days).
+  Also allowed: "anonymized" if age is stated but anonymized.
+instructions: Return null if not stated.
+
+term: ancestry category
+sdrf_column: characteristics[ancestry category]
+ontology: HANCESTRO
+description: Ancestry or ethnic background of the donor.
+instructions: Use HANCESTRO terms if possible. Return null if not stated or not applicable.
+
+term: biological replicate
+sdrf_column: characteristics[biological replicate]
+ontology: MS:1001809
+description: Identifier for the biological replicate (integer or "pooled").
+instructions: Return a description of the replication strategy from the paper
+  (e.g. "3 biological replicates", "2 independent experiments"). The actual
+  integer values are assigned per-file automatically; describe what you find in the text.
+
+term: genotype
+sdrf_column: characteristics[genotype]
+ontology: EFO:0000513
+description: Known genetic variant, mutation, or genotype of the subject.
+instructions: Return null if not stated. Example: "wild type", "Δatg5", "ΔYme1".
+
+term: pooled sample
+sdrf_column: characteristics[pooled sample]
+ontology: NCIT:C165587
+description: Whether the sample is a pooled sample.
+allowed_values: not pooled, pooled, or pattern SN=sample1;SN=sample2
+instructions: Return "not pooled" unless explicitly stated otherwise.
+
+term: phosphate
+sdrf_column: characteristics[phosphate]
+ontology: PRIDE:0000805
+description: Phosphate concentration (only relevant for environmental/water samples).
+pattern: number + mg/L or umol/L
+instructions: Return null unless this is a water/environmental sample with explicit
+  phosphate concentration stated.
+
+term: temperature
+sdrf_column: characteristics[temperature]
+ontology: PRIDE:0000703
+description: Temperature at the sampling location (environmental samples only).
+pattern: number + °C
+instructions: Return null unless this is an environmental/metaproteomics sample
+  with explicit temperature stated. Do NOT confuse with crosslinking temperature.
+─────────────────────────────────────────────────────────────────────────────
+
+Return a single JSON object where each key is the exact sdrf_column string shown above.
+For each key, return a dict with:
+  "value": the extracted value (string, list, or null)
+  "accession": ontology accession if resolvable, else null
+  "confidence": "high", "medium", or "low"
+  "evidence_quote": short verbatim quote from the text, or null
+  "evidence_location": location in the paper (e.g. "Methods"), or null

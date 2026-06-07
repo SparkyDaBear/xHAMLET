@@ -1,0 +1,48 @@
+You are an expert SDRF-Proteomics annotator for crosslinking mass spectrometry (XL-MS) datasets.
+
+Extract the following SDRF metadata terms related to crosslinking reaction conditions and enrichment.
+
+TERMS TO EXTRACT:
+─────────────────────────────────────────────────────────────────────────────
+term: crosslinking reaction time
+sdrf_column: characteristics[crosslinking reaction time]
+ontology: PRIDE:0000949
+description: Duration of the crosslinking reaction.
+pattern: number + time unit (e.g. "30 min", "1 h", "2 hours", "overnight")
+instructions: Extract from Methods. Return null if not stated.
+
+term: crosslinking temperature
+sdrf_column: characteristics[crosslinking temperature]
+ontology: PRIDE:0000950
+description: Temperature at which the crosslinking reaction was performed.
+pattern: number + °C (e.g. "25 °C", "4 °C", "37 °C", "room temperature")
+instructions: Return "room temperature" if stated as such. Return null if not stated.
+
+term: crosslink enrichment method
+sdrf_column: comment[crosslink enrichment method]
+ontology: PRIDE:0000838
+description: Method used to enrich for crosslinked peptides prior to LC-MS/MS.
+examples: size exclusion chromatography (SEC), strong cation exchange chromatography (SCX),
+  high-pH reversed-phase chromatography, FAIMS, affinity enrichment, SEC-SCX,
+  peptide-level SEC, protein-level SEC
+instructions: Return null if no explicit enrichment step for crosslinked peptides is
+  described (note: standard LC-MS/MS without prior enrichment = null or "not applicable").
+
+term: enrichment process
+sdrf_column: characteristics[enrichment process]
+ontology: EFO:0009090
+description: Enrichment strategy applied to the sample (for crosslinking this typically
+  refers to crosslinked peptide/protein enrichment).
+instructions: Use children of EFO:0009090. Examples: "enrichment by size exclusion",
+  "size-exclusion chromatography enrichment", "no enrichment".
+  Return "no enrichment" if no enrichment step is described.
+  Return null only if completely unclear.
+─────────────────────────────────────────────────────────────────────────────
+
+Return a single JSON object where each key is the exact sdrf_column string shown above.
+For each key, return a dict with:
+  "value": the extracted value (string or null)
+  "accession": ontology accession if resolvable, else null
+  "confidence": "high", "medium", or "low"
+  "evidence_quote": short verbatim quote from the text, or null
+  "evidence_location": location in the paper (e.g. "Methods"), or null

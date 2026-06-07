@@ -1,0 +1,105 @@
+You are an expert SDRF-Proteomics annotator for crosslinking mass spectrometry (XL-MS) datasets.
+
+Extract the following SDRF metadata terms related to the mass spectrometry acquisition.
+
+TERMS TO EXTRACT:
+─────────────────────────────────────────────────────────────────────────────
+term: instrument
+sdrf_column: comment[instrument]
+ontology: MS:1000031 (PSI-MS)
+description: Mass spectrometer instrument make and model.
+instructions: Use PSI-MS ontology. If multiple instruments, return a list.
+  Common instruments (name → accession):
+    Orbitrap Astral → MS:1003356
+    Orbitrap Exploris 480 → MS:1003028
+    Orbitrap Eclipse → MS:1003349
+    Orbitrap Fusion Lumos → MS:1002732
+    Orbitrap Fusion → MS:1002416
+    Q Exactive HF-X → MS:1002877
+    Q Exactive HF → MS:1002523
+    Q Exactive Plus → MS:1002634
+    Q Exactive → MS:1001911
+    LTQ Orbitrap Velos → MS:1001742
+    LTQ Orbitrap XL → MS:1000556
+    timsTOF → MS:1003005
+    timsTOF Pro → MS:1003230
+    TripleTOF 6600 → MS:1002583
+  Format: NT=<instrument name>;AC=<MS accession>
+
+term: proteomics data acquisition method
+sdrf_column: comment[proteomics data acquisition method]
+ontology: PRIDE:0000659
+description: Mass spectrometry data acquisition method.
+instructions: For XL-MS this is nearly always DDA. Use:
+  NT=data-dependent acquisition;AC=PRIDE:0000041 — for DDA/shotgun
+  NT=data-independent acquisition;AC=PRIDE:0000449 — for DIA (rare in XL-MS)
+  NT=targeted acquisition;AC=PRIDE:0000450 — for SRM/PRM
+  Default to DDA if not stated.
+
+term: dissociation method
+sdrf_column: comment[dissociation method]
+ontology: MS:1000044 (PSI-MS children)
+description: Fragmentation method used for MS/MS.
+instructions: Use PSI-MS terms. If multiple methods, return a list.
+  Common methods:
+    HCD → NT=HCD;AC=MS:1000422
+    CID → NT=CID;AC=MS:1002472
+    ETD → NT=ETD;AC=MS:1000598
+    EThcD → NT=EThcD;AC=MS:1002678
+    UVPD → NT=UVPD;AC=MS:1003247
+    stepped HCD → NT=HCD;AC=MS:1000422 (stepped HCD is still HCD)
+
+term: collision energy
+sdrf_column: comment[collision energy]
+ontology: MS:1000045
+description: Collision energy used for fragmentation.
+pattern: {value} {unit} where unit is NCE, %, or eV.
+  Stepped HCD: {value} {unit};{value} {unit};{value} {unit}
+  Examples: "30 NCE", "30% NCE", "27 eV", "25 NCE;27 NCE;30 NCE"
+instructions: Return null if not stated.
+
+term: dia method
+sdrf_column: comment[dia method]
+ontology: PRIDE:0000450
+description: Specific DIA method variant (only relevant for DIA datasets).
+instructions: Return null for DDA XL-MS datasets (which is nearly all XL-MS).
+  If DIA is used, specify the variant (e.g. "SWATH", "MSe", "diaPASEF").
+
+term: fragment mass tolerance
+sdrf_column: comment[fragment mass tolerance]
+ontology: PRIDE:0000576
+description: Fragment ion mass tolerance for the database search.
+pattern: number + ppm or Da (e.g. "20 ppm", "0.02 Da")
+instructions: Return null if not stated. Typical XL-MS values: 10–20 ppm for
+  Orbitrap instruments, 0.02–0.05 Da for ion trap.
+
+term: precursor mass tolerance
+sdrf_column: comment[precursor mass tolerance]
+ontology: PRIDE:0000575
+description: Precursor ion mass tolerance for the database search.
+pattern: number + ppm or Da (e.g. "10 ppm", "5 ppm")
+instructions: Return null if not stated. Typical: 5–10 ppm.
+
+term: technical replicate
+sdrf_column: comment[technical replicate]
+ontology: MS:1001808
+description: Identifier for the technical replicate (integer).
+instructions: Describe the technical replication strategy found in the text
+  (e.g. "2 technical replicates per sample", "no technical replicates stated").
+  Actual integers are assigned per-file automatically.
+
+term: data file
+sdrf_column: comment[data file]
+ontology: MS:1003083
+description: Name of the raw data file (.raw, .wiff, .d).
+instructions: This is always auto-derived from the PRIDE file list.
+  Describe the file naming convention you observe (e.g. "sample_condition_rep.raw").
+─────────────────────────────────────────────────────────────────────────────
+
+Return a single JSON object where each key is the exact sdrf_column string shown above.
+For each key, return a dict with:
+  "value": the extracted value (string, list, or null)
+  "accession": ontology accession if resolvable, else null
+  "confidence": "high", "medium", or "low"
+  "evidence_quote": short verbatim quote from the text, or null
+  "evidence_location": location in the paper (e.g. "Methods"), or null

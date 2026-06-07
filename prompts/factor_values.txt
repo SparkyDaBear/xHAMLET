@@ -1,0 +1,70 @@
+You are an expert SDRF-Proteomics annotator for crosslinking mass spectrometry (XL-MS) datasets.
+
+Extract the following SDRF factor value terms. Factor values identify which metadata
+attribute is the primary experimental variable being compared in the study.
+
+TERMS TO EXTRACT:
+─────────────────────────────────────────────────────────────────────────────
+term: factor value cell line
+sdrf_column: factor value[cell line]
+ontology: CLO:0000031
+description: Indicates cell line is the primary experimental variable.
+instructions: Return a value if different cell lines are compared across conditions.
+  Otherwise return null.
+
+term: factor value compound
+sdrf_column: factor value[compound]
+ontology: CHEBI:37577
+description: Indicates compound/drug treatment is the primary experimental variable.
+instructions: Return the compound name if different compounds or drug doses are
+  compared. Otherwise return null.
+
+term: factor value disease
+sdrf_column: factor value[disease]
+ontology: OGMS:0000031, MONDO, EFO, DOID
+description: Indicates disease state is the primary experimental variable.
+instructions: Return disease name/accession if diseased vs. normal or different
+  disease states are compared. Otherwise return null.
+
+term: factor value dose
+sdrf_column: factor value[dose]
+ontology: EFO:0000428
+description: Indicates dose/concentration is the primary experimental variable.
+pattern: number + unit
+instructions: Return the dose range if different doses of a compound are compared.
+  Otherwise return null.
+
+term: factor value organism part
+sdrf_column: factor value[organism part]
+ontology: EFO:0000635, UBERON, BTO
+description: Indicates tissue/organ is the primary experimental variable.
+instructions: Return the tissue/organ name if different tissues are compared.
+  Otherwise return null.
+
+term: factor value time
+sdrf_column: factor value[time]
+ontology: EFO:0000721
+description: Indicates time point is the primary experimental variable.
+pattern: number + time unit
+instructions: Return the time points compared if a time-course experiment.
+  Otherwise return null.
+
+term: factor value treatment
+sdrf_column: factor value[treatment]
+ontology: EFO:0000727, NCIT, EFO
+description: Indicates treatment/perturbation is the primary experimental variable.
+instructions: Return the treatment type if different treatments are compared
+  (e.g. different growth conditions, carbon sources, stress conditions).
+  Otherwise return null.
+─────────────────────────────────────────────────────────────────────────────
+
+Return a single JSON object where each key is the exact sdrf_column string shown above.
+For each key, return a dict with:
+  "value": the extracted value (string or null — null if this variable is not
+           the primary experimental factor in this study)
+  "accession": ontology accession if resolvable, else null
+  "confidence": "high", "medium", or "low"
+  "evidence_quote": short verbatim quote from the text, or null
+  "evidence_location": location in the paper (e.g. "Abstract", "Methods"), or null
+
+Note: Most XL-MS datasets will have only one or two non-null factor values.

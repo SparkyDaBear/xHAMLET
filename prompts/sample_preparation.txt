@@ -1,0 +1,80 @@
+You are an expert SDRF-Proteomics annotator for crosslinking mass spectrometry (XL-MS) datasets.
+
+Extract the following SDRF metadata terms related to sample preparation and digestion.
+
+TERMS TO EXTRACT:
+─────────────────────────────────────────────────────────────────────────────
+term: cleavage agent details
+sdrf_column: comment[cleavage agent details]
+ontology: MS:1001044 (PSI-MS)
+description: Enzyme or chemical used for protein digestion.
+instructions: Use PSI-MS ontology terms. Multiple enzymes are common in XL-MS.
+  If multiple, return a list.
+  Common terms:
+    Trypsin (MS:1001251) — cleaves K,R (not before P)
+    Lys-C (MS:1001309) — cleaves K
+    Lys-C/P (MS:1001309) — cleaves K including before P
+    Asp-N (MS:1001303) — cleaves N-terminal to D
+    Glu-C (MS:1001917) — cleaves C-terminal to E, D
+    Chymotrypsin (MS:1001306) — cleaves F,Y,W,L
+    No cleavage (MS:1001955)
+    Unspecific cleavage (MS:1001956)
+  Format each as: NT=<enzyme name>;AC=<MS accession>
+
+term: label
+sdrf_column: comment[label]
+ontology: PRIDE:0000514, MS
+description: Labeling strategy used for quantification.
+instructions: Most XL-MS is label-free. Use:
+  NT=label free sample;AC=MS:1002038 — for label-free
+  NT=SILAC;AC=MS:1002038 — for SILAC
+  NT=iTRAQ4plex;AC=PRIDE:0000114 — for iTRAQ 4-plex
+  NT=TMT6plex;AC=PRIDE:0000116 — for TMT
+  If not stated, assume label free.
+
+term: alkylation reagent
+sdrf_column: comment[alkylation reagent]
+ontology: PRIDE:0000598
+description: Chemical reagent used for cysteine alkylation (typically before digestion).
+instructions: Return null if not stated. Common: iodoacetamide (IAA), iodoacetic acid,
+  N-ethylmaleimide (NEM), acrylamide. If iodoacetamide, use "iodoacetamide".
+
+term: fractionation method
+sdrf_column: comment[fractionation method]
+ontology: PRIDE:0000550
+description: Peptide fractionation method used before LC-MS/MS (distinct from crosslink
+  enrichment — this is standard proteomics fractionation).
+instructions: Return null if no pre-LC fractionation. Examples: "high-pH reversed-phase
+  chromatography", "basic reversed-phase LC", "SCX fractionation", "HILIC".
+
+term: modification parameters
+sdrf_column: comment[modification parameters]
+ontology: MS:1001055, Unimod, PSI-MOD
+description: Post-translational modifications searched in the database search.
+output_format: List of modifications, each formatted as:
+  NT=<mod name>;AC=<Unimod accession>;TA=<target amino acid>;MT=<Fixed or Variable>
+instructions: Always include carbamidomethyl cysteine if IAA alkylation was used:
+  NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed
+  Always include oxidation of methionine if searched:
+  NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable
+  Include crosslinker mono-link (dead-end) modifications if mentioned.
+  Return a list even if only one modification.
+
+term: fraction identifier
+sdrf_column: comment[fraction identifier]
+ontology: MS:1000858
+description: Fraction number for fractionated samples.
+instructions: Describe whether the dataset uses fractionation and what the fractionation
+  scheme is (e.g. "12 SEC fractions per replicate", "no fractionation").
+  The actual integer values are assigned per-file; describe the scheme here.
+─────────────────────────────────────────────────────────────────────────────
+
+Return a single JSON object where each key is the exact sdrf_column string shown above.
+For each key, return a dict with:
+  "value": the extracted value (string, list, or null)
+  "accession": ontology accession if resolvable, else null
+  "confidence": "high", "medium", or "low"
+  "evidence_quote": short verbatim quote from the text, or null
+  "evidence_location": location in the paper (e.g. "Methods"), or null
+
+For comment[modification parameters], "value" should be a list of formatted strings.

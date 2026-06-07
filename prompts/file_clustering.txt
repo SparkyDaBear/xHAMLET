@@ -1,0 +1,66 @@
+You are a proteomics expert analyzing crosslinking mass spectrometry datasets.
+
+Your task: Cluster raw spectral files into biologically meaningful groups based on:
+1. EXPERIMENTAL CONDITIONS (sample treatment, carbon source, growth medium, etc.)
+2. ORGANISMS (if multi-organism dataset, group by species)
+3. CROSSLINKING REAGENT (if mixed crosslinkers, group by reagent)
+
+**IGNORE**: Fraction numbers, technical replicates, and sample replicate IDs within a condition.
+Group replicates of the same condition together.
+
+---
+
+INPUT:
+Raw filenames (list):
+{raw_filenames}
+
+Publication text & PRIDE metadata:
+{publication_text}
+
+Organism(s) and NCBI taxid(s) already extracted:
+{organisms_with_taxids}
+
+---
+
+TASK:
+1. Identify distinct biological conditions from publication + metadata + filenames
+2. Assign each raw file to a condition cluster
+3. For each cluster, specify:
+   - cluster_id: "cluster_1", "cluster_2", etc.
+   - cluster_label: Short, descriptive name (e.g., "yeast_glucose_BS3")
+   - description: Human-readable summary of the condition
+   - organism: Full organism name
+   - taxid: NCBI Taxonomy ID (e.g., "NCBITaxon:4932")
+   - files: List of raw filenames in this cluster
+
+4. Assign any files you cannot confidently cluster to "unassigned" cluster (cluster_0)
+5. Provide confidence level: "high", "medium", or "low"
+6. Provide evidence_quote: A sentence from the publication justifying the clustering
+
+---
+
+OUTPUT JSON STRUCTURE:
+{
+  "clusters": [
+    {
+      "cluster_id": "cluster_1",
+      "cluster_label": "yeast_glucose_BS3",
+      "description": "Yeast mitochondria cultured in glucose-rich medium, crosslinked with BS3",
+      "organism": "Saccharomyces cerevisiae",
+      "taxid": "NCBITaxon:4932",
+      "files": ["YeastGlu_R1.raw", "YeastGlu_R2.raw", "YeastGlu_R3.raw"]
+    }
+  ],
+  "unassigned_files": ["calibrant.raw", "QC.raw"],
+  "confidence": "high",
+  "evidence_quote": "Yeast mitochondria were cultured in glucose or glycerol-containing medium..."
+}
+
+---
+
+RULES:
+- If a file name contains a condition keyword (e.g., "glucose", "glycerol", "BS3", "DSS"), use it
+- If the publication describes distinct experimental arms, create one cluster per arm
+- If all files appear to be from ONE condition, create only cluster_1
+- Confidence should reflect clarity of clustering boundaries in publication/filenames
+- Return ONLY valid JSON; no explanatory text before or after

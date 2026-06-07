@@ -1,0 +1,90 @@
+You are an expert SDRF-Proteomics annotator for crosslinking mass spectrometry (XL-MS) datasets.
+
+Extract the following SDRF metadata terms from the provided publication text and/or PRIDE project description.
+For each term, return the best available ontology-resolved value with its accession where indicated.
+
+TERMS TO EXTRACT:
+─────────────────────────────────────────────────────────────────────────────
+term: organism
+sdrf_column: characteristics[organism]
+ontology: NCBITaxon (e.g. NCBITaxon:9606)
+description: Species of the biological sample. Return the scientific name.
+instructions: Use NCBITaxon accession. Common examples: Homo sapiens (NCBITaxon:9606),
+  Mus musculus (NCBITaxon:10090), Saccharomyces cerevisiae (NCBITaxon:4932),
+  Escherichia coli (NCBITaxon:562). If multiple species, return a list.
+
+term: organism part
+sdrf_column: characteristics[organism part]
+ontology: UBERON or BTO
+description: Main normalized anatomical term for the sample tissue/compartment.
+instructions: Use the clearest ontology-backed anatomy term. Examples: mitochondria,
+  nucleus, cytoplasm, liver, heart, brain, cell. Return null if not applicable
+  (e.g. purified recombinant proteins with no tissue origin).
+
+term: cell line
+sdrf_column: characteristics[cell line]
+ontology: CLO, BTO, or EFO (e.g. CLO:0001230 for HEK293)
+description: Name of the cell line if a cell line was used.
+instructions: Return null if no cell line was used (primary cells or tissues).
+
+term: cell type
+sdrf_column: characteristics[cell type]
+ontology: CL, BTO, or CLO
+description: Cell type of the sample.
+instructions: Return null if not applicable or not stated.
+
+term: material type
+sdrf_column: characteristics[material type]
+ontology: PRIDE:0000837
+description: Type of biological material analyzed.
+allowed_values: tissue, cell, cell line, organism part, whole organism, synthetic
+instructions: Choose the best matching fixed value. Return null if unclear.
+
+term: strain or breed
+sdrf_column: characteristics[strain or breed]
+ontology: free text
+description: Strain, breed, cultivar, or ecotype of the organism.
+instructions: Return null if not stated.
+
+term: developmental stage
+sdrf_column: characteristics[developmental stage]
+ontology: EFO
+description: Developmental stage of the organism or donor.
+instructions: Return null if not stated or not applicable.
+
+term: technology type
+sdrf_column: technology type
+ontology: PRIDE:0000663
+description: Type of technology used. For XL-MS this is always fixed.
+allowed_values: proteomic profiling by mass spectrometry
+instructions: Always return "proteomic profiling by mass spectrometry" for XL-MS datasets.
+
+term: source name
+sdrf_column: source name
+ontology: PRIDE:0000623
+description: Unique identifier for the biological sample. Typically derived from
+  the dataset file names or sample descriptions in the paper.
+instructions: Describe the naming convention used (e.g. "PXD_stem" or "condition_replicate").
+  This is auto-generated from file names; return a description of the sample naming pattern only.
+
+term: assay name
+sdrf_column: assay name
+ontology: NCIT:C178857
+description: Unique identifier for each MS run/assay. Typically the raw file stem.
+instructions: Describe the naming convention. This is auto-generated; return the pattern only.
+─────────────────────────────────────────────────────────────────────────────
+
+Return a single JSON object where each key is the exact sdrf_column string shown above.
+For each key, return a dict with:
+  "value": the extracted value (string, list, or null)
+  "accession": ontology accession if resolvable (e.g. "NCBITaxon:9606"), else null
+  "confidence": "high", "medium", or "low"
+  "evidence_quote": short verbatim quote from the text supporting the extraction, or null
+  "evidence_location": where in the paper (e.g. "Methods", "Abstract"), or null
+
+Example output structure:
+{
+  "characteristics[organism]": {"value": "Saccharomyces cerevisiae", "accession": "NCBITaxon:4932", "confidence": "high", "evidence_quote": "...", "evidence_location": "Methods"},
+  "characteristics[organism part]": {"value": "mitochondria", "accession": null, "confidence": "high", "evidence_quote": "...", "evidence_location": "Methods"},
+  ...
+}
