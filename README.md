@@ -202,15 +202,15 @@ result = enhancer.process_pxd("PXD042173")
 # - pride_data: Metadata from PRIDE
 # - publication_metadata: Publication info
 # - llm_responses: Extracted structured metadata
-# - xi_configs: Tuple of (config_xl, config_linear) 
-# - stages: Dict of processing stage status and file paths
+# - xi_config_paths: Paths to generated Xi config files
+# - stages: Dict of per-stage statuses
 ```
 
 Access generated configs:
 ```python
-config_xl, config_linear = result['xi_configs']
-print("Xi crosslinking config generated at:", result['stages']['Stage 6']['xi_configs'][0])
-print("Xi linear config generated at:", result['stages']['Stage 6']['xi_configs'][1])
+print("Xi crosslinking config generated at:", result["xi_config_paths"]["crosslinking"])
+print("Xi linear config generated at:", result["xi_config_paths"]["linear"])
+print("Xi stage status:", result["stages"]["xi_configs"])
 ```
 
 ### Using the Legacy Example Script
@@ -227,23 +227,32 @@ This script processes `PXD042173` and generates:
 
 ## Architecture
 
-The tool follows a 6-stage pipeline:
+The current pipeline is implemented in `src/pxd_enhancer/extractor.py` as a 9-stage workflow with an intermediate Stage 2.5:
+
+| Stage | Name | What it does | Main outputs |
+|------:|------|---------------|--------------|
+| 1 | PRIDE fetch | Fetch PRIDE project metadata and file links | `pride/project_details.json` |
+| 2 | Publication fetch | Resolve PMID/PMCID (with DOI fallback) and retrieve publication text | `pmc/full_text.json` |
+| 2.5 | File clustering | Cluster `.raw` files by biological condition using LLM | `llm/file_assignments.json`, `llm/file_assignment_map.json` |
+| 3 | Raw file processing | Download raw files, run thermorawfileparser, optionally convert to mzML | `assessment/*-metadata.json`, `work/*.mzML` |
+| 4 | Spectral merge | Merge thermorawfileparser + mzML_assessor + PRIDE/publication fallbacks | `assessment/spectral_summary.json` |
+| 5 | LLM extraction | Run grouped prompts to extract structured metadata terms | `llm/responses.json` |
+| 6 | SDRF generation | Build SDRF TSV (one row per raw file) | `sdrf/{PXD}.sdrf.tsv` |
+| 7 | SDRF validation | Validate SDRF with `parse_sdrf` crosslinking template | Validation status + warnings in result metadata |
+| 8 | Xi config generation | Generate Xi configs for crosslinking and linear searches | `configs/{PXD}_crosslinking.conf`, `configs/{PXD}_linear.conf` |
+| 9 | Final compilation/save | Compile all stage data into final record | `enhanced/metadata.json` |
+
+Flow summary:
 
 ```
-Stage 1: PRIDE Fetch
-    ↓ (Retrieves project metadata)
-Stage 2: Publication Extraction
-    ↓ (Finds associated publications)
-Stage 3: Publication Text Fetch
-    ↓ (Downloads full publication metadata)
-Stage 4: LLM Query & Parsing
-    ↓ (Extracts structured metadata with GPT-4o-mini)
-Stage 5: Compilation
-    ↓ (Combines all metadata sources)
-Stage 6: Xi Config Generation
-    ↓ (Generates search engine configurations)
-Output: Enhanced metadata + Xi configs
+Stage 1 -> Stage 2 -> Stage 2.5 -> Stage 3 -> Stage 4 -> Stage 5 -> Stage 6 -> Stage 7 -> Stage 8 -> Stage 9
 ```
+
+Skip controls used during execution:
+- `--no-download` skips Stage 3 (and effectively bypasses fresh Stage 4 generation)
+- `--skip-sdrf` skips Stage 6
+- `--skip-xi` skips Stage 8
+- `--sdrf-only` runs SDRF generation/validation from cached data
 
 For detailed architecture information, see [documents/ARCHITECTURE.md](documents/ARCHITECTURE.md).
 
@@ -333,9 +342,9 @@ Both configs include:
 ✅ **Completed:**
 1. Access to GitHub repo with selected crosslinking projects
 2. PRIDE metadata extraction pipeline (Stage 1)
-3. Publication metadata extraction from PMC/PubMed (Stages 2-3)
-4. LLM-based metadata extraction with validation (Stage 4)
-5. Xi configuration file generation (Stage 6) - **Fully Complete**
+3. Publication metadata extraction from PMC/PubMed (Stage 2)
+4. LLM-based metadata extraction with validation (Stage 5)
+5. Xi configuration file generation (Stage 8) - **Fully Complete**
 6. Mono-quench modification support with quencher lookup table - **Complete**
 7. Integration of configs and quencher data into main pipeline - **Complete**
 8. Crosslinker definitions registry with 14+ entries - **Complete**
@@ -378,7 +387,7 @@ Both configs include:
 ### Phase 3A: Xi Configuration Generation (✅ Completed March 2, 2026)
 - Implemented automatic generation of Xi config files from metadata
 - Created crosslinker definitions registry with 14+ entries
-- Integrated config generation as Stage 6 of the pipeline
+- Integrated config generation as Stage 8 of the pipeline
 - Fixed data structure handling for LLM responses
 - Comprehensive digestion enzyme parsing (handles list of dicts, strings, mixed types)
 - Defensive type checking throughout for robustness
