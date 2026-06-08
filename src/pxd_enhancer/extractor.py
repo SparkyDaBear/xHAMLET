@@ -865,8 +865,12 @@ class PXDMetadataEnhancer:
             "file_assignments",
         )
 
-        # Parse JSON response
-        clustering_response = response_text
+        # Parse JSON response (prefer already-parsed payload when available)
+        clustering_response = (
+            parsed_response
+            if isinstance(parsed_response, dict)
+            else {"response": response_text, "parsed": parsed_response}
+        )
         file_assignments = self._parse_file_clustering(clustering_response, pride_data)
 
         # Save a flat filename -> cluster mapping for easy human inspection.
@@ -881,40 +885,81 @@ class PXDMetadataEnhancer:
         pride_data: Dict,
     ) -> Optional[Dict[str, Dict[str, Any]]]:
         """
-        Parse LLM clustering response JSON and convert to filename → assignment dict.
+        Parse LLM clustering response JSON and convert to filename -> assignment dict.
 
-        Expected clustering_response structure:
-        {
-          "clusters": [
-            {
-              "cluster_id": "cluster_1",
-              "cluster_label": "...",
-              "files": ["file1.raw", "file2.raw", ...],
-              "organism": "...",
-              "taxid": "..."
-            }
-          ],
-          "unassigned_files": [...],
-          "confidence": "high",
-          "evidence_quote": "..."
-        }
-
-        Returns:
-        {
-          "file1.raw": {
-            "cluster_id": "cluster_1",
-            "cluster_label": "...",
-            "organism": "...",
-            "taxid": "..."
-          },
-          ...
-        }
-
-        Fallback: If parsing fails, return all files in cluster_0 with dataset organism.
+        Fallback behavior is intentionally defensive:
+        - If JSON parsing fails, try to salvage complete cluster objects from a
+          truncated response before falling back to a single cluster.
+        - If confidence is low but clusters are present, keep the clusters and warn.
         """
         import json as _json
 
-        # Accept raw string, cached dict payload, or already-parsed dict
+        def _salvage_clusters_from_response(response_text: str) -> Optional[Dict[str, Any]]:
+            """Recover complete cluster objects from a truncated JSON response."""
+            marker = '"clusters"'
+            marker_idx = response_text.find(marker)
+            if marker_idx == -1:
+                return None
+
+            array_start = response_text.find("[", marker_idx)
+            if array_start == -1:
+                return None
+
+            clusters = []
+            i = array_start + 1
+            n = len(response_text)
+
+            while i < n:
+                ch = response_text[i]
+                if ch == "{":
+                    obj_start = i
+                    depth = 0
+                    in_str = False
+                    esc = False
+                    j = i
+                    while j < n:
+                        c = response_text[j]
+                        if in_str:
+                            if esc:
+                                esc = False
+                            elif c == "\\":
+                                esc = True
+                            elif c == '"':
+                                in_str = False
+                        else:
+                            if c == '"':
+                                in_str = True
+                            elif c == "{":
+                                depth += 1
+                            elif c == "}":
+                                depth -= 1
+                                if depth == 0:
+                                    obj_str = response_text[obj_start : j + 1]
+                                    try:
+                                        obj = _json.loads(obj_str)
+                                        if isinstance(obj, dict):
+                                            clusters.append(obj)
+                                    except _json.JSONDecodeError:
+                                        pass
+                                    i = j + 1
+                                    break
+                        j += 1
+                    else:
+                        break
+                elif ch == "]":
+                    break
+                i += 1
+
+            if not clusters:
+                return None
+
+            return {
+                "clusters": clusters,
+                "unassigned_files": [],
+                "confidence": "salvaged",
+                "evidence_quote": "Recovered from truncated LLM JSON response",
+            }
+
         try:
             if isinstance(clustering_response, dict):
                 if "parsed" in clustering_response and isinstance(clustering_response["parsed"], dict):
@@ -929,10 +974,23 @@ class PXDMetadataEnhancer:
                 data = _json.loads(str(clustering_response))
         except _json.JSONDecodeError as e:
             logger.error("Failed to parse clustering JSON: %s", e)
-            logger.warning("Falling back to single cluster_0 with dataset organism")
-            return self._fallback_single_cluster(pride_data)
+            response_text = ""
+            if isinstance(clustering_response, dict):
+                response_text = str(clustering_response.get("response", ""))
+            else:
+                response_text = str(clustering_response)
 
-        # Extract clusters
+            salvaged = _salvage_clusters_from_response(response_text)
+            if salvaged:
+                logger.warning(
+                    "Using salvaged clustering data from truncated response (%d clusters)",
+                    len(salvaged.get("clusters", [])),
+                )
+                data = salvaged
+            else:
+                logger.warning("Falling back to single cluster_0 with dataset organism")
+                return self._fallback_single_cluster(pride_data)
+
         clusters = data.get("clusters", [])
         unassigned = data.get("unassigned_files", [])
         confidence = data.get("confidence", "unknown")
@@ -943,10 +1001,14 @@ class PXDMetadataEnhancer:
         )
 
         if str(confidence).lower() == "low":
-            logger.warning("Clustering confidence is low; using fallback single-cluster assignment")
-            return self._fallback_single_cluster(pride_data)
+            if clusters:
+                logger.warning(
+                    "Clustering confidence is low, but clusters are present; proceeding with returned assignments"
+                )
+            else:
+                logger.warning("Clustering confidence is low and no clusters were returned; using fallback")
+                return self._fallback_single_cluster(pride_data)
 
-        # Build filename → assignment dict
         file_assignments = {}
 
         for cluster in clusters:
@@ -966,14 +1028,36 @@ class PXDMetadataEnhancer:
                     "taxid": taxid,
                 }
 
-        # Handle unassigned files: put them in cluster_0 with dataset organism
         dataset_org = self._resolve_dataset_organism(pride_data)
+
         if unassigned:
             logger.info("Assigning %d unassigned files to cluster_0", len(unassigned))
             for filename in unassigned:
                 file_assignments[filename] = {
                     "cluster_id": "cluster_0",
                     "cluster_label": "unassigned",
+                    "organism": dataset_org,
+                    "taxid": "",
+                }
+
+        files_meta = pride_data.get("files", {}) or {}
+        file_list = files_meta.get("files", []) if isinstance(files_meta, dict) else []
+        raw_filenames = {
+            f.get("fileName", "")
+            for f in file_list
+            if isinstance(f, dict) and f.get("fileName", "").lower().endswith(".raw")
+        }
+
+        missing = sorted(name for name in raw_filenames if name and name not in file_assignments)
+        if missing:
+            logger.warning(
+                "%d RAW files were not assigned by clustering output; assigning to cluster_0",
+                len(missing),
+            )
+            for filename in missing:
+                file_assignments[filename] = {
+                    "cluster_id": "cluster_0",
+                    "cluster_label": "unassigned_or_missing",
                     "organism": dataset_org,
                     "taxid": "",
                 }

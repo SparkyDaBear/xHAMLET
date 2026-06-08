@@ -45,12 +45,7 @@ class ReLinkRunner:
         resume: bool = False,
         extra_args: Optional[Sequence[str]] = None,
     ) -> Dict[str, Any]:
-        """
-        Execute ReLink for a single PXD.
-
-        Returns:
-            Dict with run status and key output paths.
-        """
+        """Execute ReLink for a single PXD."""
         if not self.relink_dir.exists():
             raise FileNotFoundError(
                 f"ReLink submodule not found at {self.relink_dir}. "
@@ -62,11 +57,19 @@ class ReLinkRunner:
 
         taxids = self.extract_taxids_from_sdrf(sdrf_path)
         if not taxids:
-            raise ValueError(
-                f"No NCBITaxon accession found in SDRF organism columns: {sdrf_path}"
-            )
+            # Fallback: read taxids from file_assignment_map.json (produced by clustering stage)
+            assignment_map = pxd_dir / "llm" / "file_assignment_map.json"
+            taxids = self._taxids_from_assignment_map(assignment_map)
+            if taxids:
+                logger.info(
+                    "SDRF had no NCBITaxon accessions; using taxids from file_assignment_map: %s",
+                    ", ".join(sorted(taxids)),
+                )
+            else:
+                raise ValueError(
+                    f"No NCBITaxon accession found in SDRF organism columns or file_assignment_map: {sdrf_path}"
+                )
 
-        # ReLink expects one FASTA path in the samplesheet for each sample.
         # When multiple taxids are present, use the first deterministically.
         chosen_taxid = sorted(taxids)[0]
         if len(taxids) > 1:
@@ -146,6 +149,35 @@ class ReLinkRunner:
                             taxid = part.split("AC=NCBITaxon:", 1)[1].strip()
                             if taxid.isdigit():
                                 taxids.add(taxid)
+
+        return taxids
+
+    def _taxids_from_assignment_map(self, assignment_map_path: Path) -> Set[str]:
+        """Extract numeric taxids from file_assignment_map.json produced by the clustering stage."""
+        import json
+
+        taxids: Set[str] = set()
+        if not assignment_map_path.exists():
+            return taxids
+
+        try:
+            with open(assignment_map_path, encoding="utf-8") as fh:
+                payload = json.load(fh)
+            data = payload.get("data", payload)
+            if not isinstance(data, dict):
+                return taxids
+            for entry in data.values():
+                if not isinstance(entry, dict):
+                    continue
+                raw_taxid = entry.get("taxid", "")
+                if not raw_taxid:
+                    continue
+                # Strip NCBITaxon: prefix if present
+                numeric = str(raw_taxid).replace("NCBITaxon:", "").strip()
+                if numeric.isdigit():
+                    taxids.add(numeric)
+        except Exception as exc:
+            logger.warning("Could not read taxids from %s: %s", assignment_map_path, exc)
 
         return taxids
 
