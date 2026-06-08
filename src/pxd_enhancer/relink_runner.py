@@ -12,6 +12,7 @@ import csv
 import logging
 import shutil
 import subprocess
+import time
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Set
 
@@ -55,15 +56,20 @@ class ReLinkRunner:
         if shutil.which("nextflow") is None:
             raise RuntimeError("nextflow is not installed or not on PATH")
 
-        # Extract organisms from PRIDE metadata first (most reliable source)
-        taxids = self._taxids_from_pride_metadata(pxd_dir)
-        if not taxids:
-            # Fallback: try SDRF
-            taxids = self.extract_taxids_from_sdrf(sdrf_path)
-        if not taxids:
-            # Fallback: read taxids from file_assignment_map.json
-            assignment_map = pxd_dir / "llm" / "file_assignment_map.json"
-            taxids = self._taxids_from_assignment_map(assignment_map)
+        # Extract organisms from multiple sources and combine results
+        # This ensures we don't miss any organisms if one source is incomplete
+        taxids: Set[str] = set()
+        
+        # Primary source: LLM clustering response (most recent analysis)
+        taxids.update(self._taxids_from_pride_metadata(pxd_dir))
+        
+        # Secondary source: SDRF (if available with NCBITaxon accessions)
+        taxids.update(self.extract_taxids_from_sdrf(sdrf_path))
+        
+        # Tertiary source: file_assignment_map (clustering stage output)
+        # Include this to catch organisms that LLM clustering may have missed
+        assignment_map = pxd_dir / "llm" / "file_assignment_map.json"
+        taxids.update(self._taxids_from_assignment_map(assignment_map))
         
         if not taxids:
             raise ValueError(
@@ -185,7 +191,11 @@ class ReLinkRunner:
         return taxids
 
     def _taxids_from_pride_metadata(self, pxd_dir: Path) -> Set[str]:
-        """Extract taxids from PRIDE metadata stored in responses.json."""
+        """Extract taxids from LLM file clustering response in responses.json.
+        
+        The responses.json contains LLM clustering output with organism info.
+        Parse it to get all unique taxids from the clusters field.
+        """
         import json
 
         taxids: Set[str] = set()
@@ -194,49 +204,61 @@ class ReLinkRunner:
         if not responses_path.exists():
             return taxids
 
-        # Map common organism names to NCBI taxids
-        organism_to_taxid = {
-            "Escherichia coli": "562",
-            "Homo sapiens": "9606",
-            "Homo sapiens (human)": "9606",
-            "Saccharomyces cerevisiae": "4932",
-            "Mus musculus": "10090",
-            "Rattus norvegicus": "10116",
-            "Arabidopsis thaliana": "3702",
-            "Caenorhabditis elegans": "6239",
-            "Drosophila melanogaster": "7227",
-            "Danio rerio": "7955",
-        }
-
         try:
             with open(responses_path, encoding="utf-8") as fh:
                 payload = json.load(fh)
             
-            # Look for PRIDE metadata
-            pride_metadata = payload.get("pride_metadata", {})
-            if not isinstance(pride_metadata, dict):
+            # responses.json structure: {metadata: {...}, data: {...}}
+            # data["clusters"] contains LLM clustering response with organism/taxid info
+            data = payload.get("data", {})
+            if not isinstance(data, dict):
                 return taxids
             
-            organisms = pride_metadata.get("organisms", [])
-            if not isinstance(organisms, list):
-                return taxids
+            clusters_field = data.get("clusters", {})
             
-            for organism in organisms:
-                organism_str = str(organism).strip()
-                # Try direct mapping first
-                if organism_str in organism_to_taxid:
-                    taxids.add(organism_to_taxid[organism_str])
-                    logger.debug("Mapped organism '%s' to taxid %s", organism_str, organism_to_taxid[organism_str])
-                else:
-                    # Try partial matching
-                    for key, taxid in organism_to_taxid.items():
-                        if key.lower() in organism_str.lower():
+            # clusters_field is {response: "...", parsed: {...}, ...}
+            # Try "parsed" first, fall back to parsing "response"
+            clusters_list = []
+            
+            if isinstance(clusters_field, dict):
+                # Try parsed field first
+                if "parsed" in clusters_field and isinstance(clusters_field["parsed"], dict):
+                    parsed_data = clusters_field["parsed"]
+                    if "clusters" in parsed_data and isinstance(parsed_data["clusters"], list):
+                        clusters_list = parsed_data["clusters"]
+                
+                # Fall back to parsing response string
+                if not clusters_list and "response" in clusters_field:
+                    try:
+                        response_str = clusters_field["response"]
+                        if isinstance(response_str, str):
+                            # Extract JSON from markdown code block if present
+                            if "```json" in response_str:
+                                json_start = response_str.find("```json") + 7
+                                json_end = response_str.find("```", json_start)
+                                response_str = response_str[json_start:json_end]
+                            
+                            response_data = json.loads(response_str)
+                            if "clusters" in response_data and isinstance(response_data["clusters"], list):
+                                clusters_list = response_data["clusters"]
+                    except (json.JSONDecodeError, ValueError):
+                        pass  # Failed to parse, continue
+            
+            # Extract unique taxids from clusters
+            for cluster in clusters_list:
+                if isinstance(cluster, dict):
+                    taxid = cluster.get("taxid", "")
+                    if taxid:
+                        # Strip "NCBITaxon:" prefix if present
+                        if taxid.startswith("NCBITaxon:"):
+                            taxid = taxid.replace("NCBITaxon:", "")
+                        if taxid.isdigit():
                             taxids.add(taxid)
-                            logger.debug("Partially matched organism '%s' to taxid %s", organism_str, taxid)
-                            break
+                            organism = cluster.get("organism", "?")
+                            logger.debug("Found cluster taxid %s for organism: %s", taxid, organism)
             
             if taxids:
-                logger.info("Extracted %d taxids from PRIDE metadata: %s", len(taxids), ", ".join(sorted(taxids)))
+                logger.info("Extracted %d taxids from LLM clustering response: %s", len(taxids), ", ".join(sorted(taxids)))
         except Exception as exc:
             logger.debug("Could not extract taxids from PRIDE metadata: %s", exc)
 
@@ -272,7 +294,7 @@ class ReLinkRunner:
         return taxids
 
     def fetch_fasta_for_taxid(self, taxid: str, output_dir: Path) -> Path:
-        """Download a UniProt FASTA stream for a taxonomy ID."""
+        """Download a UniProt FASTA stream for a taxonomy ID with retry logic."""
         output_dir.mkdir(parents=True, exist_ok=True)
         fasta_path = output_dir / f"taxid_{taxid}.fasta"
 
@@ -286,24 +308,75 @@ class ReLinkRunner:
             "query": f"taxonomy_id:{taxid}",
         }
 
-        logger.info("Downloading FASTA for taxid %s from UniProt (timeout: %ds)", taxid, self.requests_timeout)
-        try:
-            resp = requests.get(
-                self.UNIPROT_FASTA_URL,
-                params=params,
-                timeout=self.requests_timeout,
-                stream=True,
-            )
-            resp.raise_for_status()
-        except requests.exceptions.Timeout as e:
-            raise RuntimeError(
-                f"Timeout downloading FASTA for taxid {taxid} (exceeded {self.requests_timeout}s). "
-                "Try increasing requests_timeout or checking UniProt availability."
-            ) from e
-        except requests.exceptions.RequestException as e:
-            raise RuntimeError(
-                f"Failed to download FASTA for taxid {taxid}: {e}"
-            ) from e
+        max_retries = 3
+        base_delay = 5  # Start with 5 seconds
+        transient_error_codes = {502, 503, 504}  # Bad Gateway, Service Unavailable, Gateway Timeout
+
+        logger.info("Downloading FASTA for taxid %s from UniProt (timeout: %ds, max_retries: %d)", 
+                   taxid, self.requests_timeout, max_retries)
+        
+        for attempt in range(1, max_retries + 1):
+            try:
+                resp = requests.get(
+                    self.UNIPROT_FASTA_URL,
+                    params=params,
+                    timeout=self.requests_timeout,
+                    stream=True,
+                )
+                
+                # Handle transient HTTP errors with retry
+                if resp.status_code in transient_error_codes:
+                    if attempt < max_retries:
+                        delay = base_delay * (2 ** (attempt - 1))  # Exponential backoff
+                        logger.warning(
+                            "UniProt returned %d (transient error). Retrying in %ds (attempt %d/%d)",
+                            resp.status_code, delay, attempt, max_retries
+                        )
+                        time.sleep(delay)
+                        continue
+                    else:
+                        raise RuntimeError(
+                            f"Failed to download FASTA for taxid {taxid} after {max_retries} retries: "
+                            f"HTTP {resp.status_code}"
+                        )
+                
+                resp.raise_for_status()
+                break  # Success, exit retry loop
+                
+            except requests.exceptions.Timeout as e:
+                if attempt < max_retries:
+                    delay = base_delay * (2 ** (attempt - 1))
+                    logger.warning(
+                        "Timeout downloading FASTA for taxid %s (attempt %d/%d). Retrying in %ds",
+                        taxid, attempt, max_retries, delay
+                    )
+                    time.sleep(delay)
+                    continue
+                else:
+                    raise RuntimeError(
+                        f"Timeout downloading FASTA for taxid {taxid} after {max_retries} retries "
+                        f"(exceeded {self.requests_timeout}s per attempt). "
+                        "Try increasing requests_timeout or checking UniProt availability."
+                    ) from e
+                    
+            except (requests.exceptions.ConnectionError, requests.exceptions.ChunkedEncodingError) as e:
+                if attempt < max_retries:
+                    delay = base_delay * (2 ** (attempt - 1))
+                    logger.warning(
+                        "Connection error downloading FASTA for taxid %s (attempt %d/%d): %s. Retrying in %ds",
+                        taxid, attempt, max_retries, str(e), delay
+                    )
+                    time.sleep(delay)
+                    continue
+                else:
+                    raise RuntimeError(
+                        f"Connection error downloading FASTA for taxid {taxid} after {max_retries} retries: {e}"
+                    ) from e
+                    
+            except requests.exceptions.RequestException as e:
+                raise RuntimeError(
+                    f"Failed to download FASTA for taxid {taxid}: {e}"
+                ) from e
 
         text = resp.text
         if not text.strip().startswith(">"):
