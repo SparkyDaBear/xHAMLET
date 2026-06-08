@@ -70,53 +70,79 @@ class ReLinkRunner:
                     f"No NCBITaxon accession found in SDRF organism columns or file_assignment_map: {sdrf_path}"
                 )
 
-        # When multiple taxids are present, use the first deterministically.
-        chosen_taxid = sorted(taxids)[0]
-        if len(taxids) > 1:
-            logger.warning(
-                "%s: multiple taxids in SDRF (%s); using first taxid %s for FASTA",
-                pxd,
-                ", ".join(sorted(taxids)),
-                chosen_taxid,
-            )
-
         relink_dir = pxd_dir / "relink"
         relink_dir.mkdir(parents=True, exist_ok=True)
-
         fasta_dir = relink_dir / "fasta"
-        fasta_path = self.fetch_fasta_for_taxid(chosen_taxid, fasta_dir)
 
-        samplesheet_path = relink_dir / "samplesheet.csv"
-        self.write_samplesheet(
-            samplesheet_path=samplesheet_path,
-            raw_paths=raw_paths,
-            fasta_path=fasta_path,
-            xi_linear_config=xi_linear_config,
-            xi_crosslink_config=xi_crosslink_config,
-        )
+        # When multiple taxids are present, run ReLink for each one
+        if len(taxids) > 1:
+            logger.info(
+                "%s: Multi-organism dataset detected (%s). Running ReLink for each taxid separately.",
+                pxd,
+                ", ".join(sorted(taxids)),
+            )
 
-        outdir = relink_dir / "results"
-        run_result = self.run_nextflow(
-            input_csv=samplesheet_path,
-            outdir=outdir,
-            profile=profile,
-            resume=resume,
-            extra_args=extra_args,
-        )
+        all_results = {}
+        for taxid in sorted(taxids):
+            logger.info("Running ReLink for taxid %s", taxid)
+            fasta_path = self.fetch_fasta_for_taxid(taxid, fasta_dir)
 
-        if run_result.get("returncode") != 0:
+            # Create taxid-specific subdirectory
+            taxid_dir = relink_dir / f"taxid_{taxid}"
+            taxid_dir.mkdir(parents=True, exist_ok=True)
+
+            samplesheet_path = taxid_dir / "samplesheet.csv"
+            self.write_samplesheet(
+                samplesheet_path=samplesheet_path,
+                raw_paths=raw_paths,
+                fasta_path=fasta_path,
+                xi_linear_config=xi_linear_config,
+                xi_crosslink_config=xi_crosslink_config,
+            )
+
+            outdir = taxid_dir / "results"
+            run_result = self.run_nextflow(
+                input_csv=samplesheet_path,
+                outdir=outdir,
+                profile=profile,
+                resume=resume,
+                extra_args=extra_args,
+            )
+
+            if run_result.get("returncode") != 0:
+                logger.error(
+                    "ReLink run failed for %s taxid %s (rc=%s)",
+                    pxd,
+                    taxid,
+                    run_result.get("returncode"),
+                )
+                all_results[taxid] = {
+                    "status": "failed",
+                    "error": run_result,
+                }
+            else:
+                all_results[taxid] = {
+                    "status": "success",
+                    "fasta_path": str(fasta_path),
+                    "samplesheet": str(samplesheet_path),
+                    "outdir": str(outdir),
+                    "nextflow": run_result,
+                }
+
+        # Check if all runs succeeded
+        failed_taxids = [t for t, r in all_results.items() if r["status"] == "failed"]
+        if failed_taxids:
             raise RuntimeError(
-                f"ReLink run failed for {pxd} (rc={run_result.get('returncode')})"
+                f"ReLink failed for taxid(s): {', '.join(failed_taxids)}"
             )
 
         return {
             "status": "success",
             "taxids_detected": sorted(taxids),
-            "taxid_used": chosen_taxid,
-            "fasta_path": str(fasta_path),
-            "samplesheet": str(samplesheet_path),
-            "outdir": str(outdir),
-            "nextflow": run_result,
+            "taxid_results": all_results,
+            "note": "Multiple taxids detected; ReLink run separately for each organism"
+            if len(taxids) > 1
+            else None,
         }
 
     def extract_taxids_from_sdrf(self, sdrf_path: Path) -> Set[str]:
