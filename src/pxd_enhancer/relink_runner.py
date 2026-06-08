@@ -28,7 +28,7 @@ class ReLinkRunner:
     def __init__(
         self,
         relink_dir: str = "./tools/relink",
-        requests_timeout: int = 120,
+        requests_timeout: int = 600,
     ) -> None:
         self.relink_dir = Path(relink_dir).resolve()
         self.requests_timeout = requests_timeout
@@ -55,32 +55,38 @@ class ReLinkRunner:
         if shutil.which("nextflow") is None:
             raise RuntimeError("nextflow is not installed or not on PATH")
 
-        taxids = self.extract_taxids_from_sdrf(sdrf_path)
+        # Extract organisms from PRIDE metadata first (most reliable source)
+        taxids = self._taxids_from_pride_metadata(pxd_dir)
         if not taxids:
-            # Fallback: read taxids from file_assignment_map.json (produced by clustering stage)
+            # Fallback: try SDRF
+            taxids = self.extract_taxids_from_sdrf(sdrf_path)
+        if not taxids:
+            # Fallback: read taxids from file_assignment_map.json
             assignment_map = pxd_dir / "llm" / "file_assignment_map.json"
             taxids = self._taxids_from_assignment_map(assignment_map)
-            if taxids:
-                logger.info(
-                    "SDRF had no NCBITaxon accessions; using taxids from file_assignment_map: %s",
-                    ", ".join(sorted(taxids)),
-                )
-            else:
-                raise ValueError(
-                    f"No NCBITaxon accession found in SDRF organism columns or file_assignment_map: {sdrf_path}"
-                )
+        
+        if not taxids:
+            raise ValueError(
+                f"No organisms found in PRIDE metadata, SDRF, or file_assignment_map for {pxd}"
+            )
+
+        if len(taxids) > 1:
+            logger.info(
+                "%s: Multi-organism dataset detected. Running ReLink for each of %d organisms: %s",
+                pxd,
+                len(taxids),
+                ", ".join(sorted(taxids)),
+            )
+        else:
+            logger.info(
+                "%s: Single organism dataset (taxid %s). Running ReLink.",
+                pxd,
+                list(taxids)[0],
+            )
 
         relink_dir = pxd_dir / "relink"
         relink_dir.mkdir(parents=True, exist_ok=True)
         fasta_dir = relink_dir / "fasta"
-
-        # When multiple taxids are present, run ReLink for each one
-        if len(taxids) > 1:
-            logger.info(
-                "%s: Multi-organism dataset detected (%s). Running ReLink for each taxid separately.",
-                pxd,
-                ", ".join(sorted(taxids)),
-            )
 
         all_results = {}
         for taxid in sorted(taxids):
@@ -178,6 +184,64 @@ class ReLinkRunner:
 
         return taxids
 
+    def _taxids_from_pride_metadata(self, pxd_dir: Path) -> Set[str]:
+        """Extract taxids from PRIDE metadata stored in responses.json."""
+        import json
+
+        taxids: Set[str] = set()
+        responses_path = pxd_dir / "llm" / "responses.json"
+        
+        if not responses_path.exists():
+            return taxids
+
+        # Map common organism names to NCBI taxids
+        organism_to_taxid = {
+            "Escherichia coli": "562",
+            "Homo sapiens": "9606",
+            "Homo sapiens (human)": "9606",
+            "Saccharomyces cerevisiae": "4932",
+            "Mus musculus": "10090",
+            "Rattus norvegicus": "10116",
+            "Arabidopsis thaliana": "3702",
+            "Caenorhabditis elegans": "6239",
+            "Drosophila melanogaster": "7227",
+            "Danio rerio": "7955",
+        }
+
+        try:
+            with open(responses_path, encoding="utf-8") as fh:
+                payload = json.load(fh)
+            
+            # Look for PRIDE metadata
+            pride_metadata = payload.get("pride_metadata", {})
+            if not isinstance(pride_metadata, dict):
+                return taxids
+            
+            organisms = pride_metadata.get("organisms", [])
+            if not isinstance(organisms, list):
+                return taxids
+            
+            for organism in organisms:
+                organism_str = str(organism).strip()
+                # Try direct mapping first
+                if organism_str in organism_to_taxid:
+                    taxids.add(organism_to_taxid[organism_str])
+                    logger.debug("Mapped organism '%s' to taxid %s", organism_str, organism_to_taxid[organism_str])
+                else:
+                    # Try partial matching
+                    for key, taxid in organism_to_taxid.items():
+                        if key.lower() in organism_str.lower():
+                            taxids.add(taxid)
+                            logger.debug("Partially matched organism '%s' to taxid %s", organism_str, taxid)
+                            break
+            
+            if taxids:
+                logger.info("Extracted %d taxids from PRIDE metadata: %s", len(taxids), ", ".join(sorted(taxids)))
+        except Exception as exc:
+            logger.debug("Could not extract taxids from PRIDE metadata: %s", exc)
+
+        return taxids
+
     def _taxids_from_assignment_map(self, assignment_map_path: Path) -> Set[str]:
         """Extract numeric taxids from file_assignment_map.json produced by the clustering stage."""
         import json
@@ -222,13 +286,24 @@ class ReLinkRunner:
             "query": f"taxonomy_id:{taxid}",
         }
 
-        logger.info("Downloading FASTA for taxid %s from UniProt", taxid)
-        resp = requests.get(
-            self.UNIPROT_FASTA_URL,
-            params=params,
-            timeout=self.requests_timeout,
-        )
-        resp.raise_for_status()
+        logger.info("Downloading FASTA for taxid %s from UniProt (timeout: %ds)", taxid, self.requests_timeout)
+        try:
+            resp = requests.get(
+                self.UNIPROT_FASTA_URL,
+                params=params,
+                timeout=self.requests_timeout,
+                stream=True,
+            )
+            resp.raise_for_status()
+        except requests.exceptions.Timeout as e:
+            raise RuntimeError(
+                f"Timeout downloading FASTA for taxid {taxid} (exceeded {self.requests_timeout}s). "
+                "Try increasing requests_timeout or checking UniProt availability."
+            ) from e
+        except requests.exceptions.RequestException as e:
+            raise RuntimeError(
+                f"Failed to download FASTA for taxid {taxid}: {e}"
+            ) from e
 
         text = resp.text
         if not text.strip().startswith(">"):
@@ -239,6 +314,7 @@ class ReLinkRunner:
         with open(fasta_path, "w", encoding="utf-8") as fh:
             fh.write(text)
 
+        logger.debug("FASTA for taxid %s saved: %s (%d bytes)", taxid, fasta_path, fasta_path.stat().st_size)
         return fasta_path
 
     def write_samplesheet(
