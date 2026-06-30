@@ -1,0 +1,89 @@
+{
+  "metadata": {
+    "pxd": "PXD038629",
+    "category": "llm",
+    "saved_at": "2026-06-30T15:30:21.020379",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"selenos_nsp7_dss_o_crosslinked\",\n      \"description\": \"Selenoprotein S (selenos) crosslinked with SARS-CoV-2 nsp7 in the presence of DSSO crosslinker.\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": \"DSSO\",\n      \"biological_condition\": \"selenos + nsp7 crosslinked (DSSO)\",\n      \"files\": [\n        \"selenos-Crosslinking-DSSO-A.raw\",\n        \"selenos-Crosslinking-DSSO-B.raw\",\n        \"selenos-Crosslinking-DSSO-C.raw\",\n        \"selenos-nsp7-Crosslinking-DSSO-A.raw\",\n        \"selenos-nsp7-Crosslinking-DSSO-B.raw\",\n        \"selenos-nsp7-Crosslinking-DSSO-C.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"nsp7-Crosslinking-DSSO-A.raw\",\n      \"reasoning\": \"All files explicitly contain 'Crosslinking-DSSO' in the filename, indicating the same crosslinker condition (DSSO). The dataset includes both selenos-only and selenos+nsp7 mixtures; however, the task asks not to over-split beyond the smallest biologically meaningful groups. Since the key differentiator requested is crosslinker (and organism is constant per provided taxid), these DSSO crosslinked files are grouped together.\"\n    },\n    {\n      \"cluster_id\": \"cluster_2\",\n      \"cluster_label\": \"nsp7_dss_o_crosslinked\",\n      \"description\": \"SARS-CoV-2 nsp7 crosslinked with DSSO crosslinker.\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": \"DSSO\",\n      \"biological_condition\": \"nsp7 crosslinked (DSSO)\",\n      \"files\": [\n        \"nsp7-Crosslinking-DSSO-A.raw\",\n        \"nsp7-Crosslinking-DSSO-B.raw\",\n        \"nsp7-Crosslinking-DSSO-C.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"nsp7-Crosslinking-DSSO-A.raw\",\n      \"reasoning\": \"Filenames explicitly indicate nsp7-only samples under DSSO crosslinking. This is biologically distinct from selenos and/or selenos+nsp7 mixtures, so it is separated from the selenos-related DSSO clusters. Organism is taken from the provided PRIDE metadata (Homo sapiens), though the proteome source for viral proteins is not explicitly provided.\"\n    },\n    {\n      \"cluster_id\": \"cluster_3\",\n      \"cluster_label\": \"selenos_nsp7_no_crosslinker_control\",\n      \"description\": \"Selenoprotein S (selenos) and SARS-CoV-2 nsp7 control without crosslinker.\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": null,\n      \"biological_condition\": \"selenos + nsp7 control (no crosslinker)\",\n      \"files\": [\n        \"selenos-nsp7-Control-NoCrosslinker-A.raw\",\n        \"selenos-nsp7-Control-NoCrosslinker-B.raw\",\n        \"selenos-nsp7-Control-NoCrosslinker-C.raw\"\n      ],\n      \"confidence\": \"high\",\n      \"evidence_quote\": \"selenos-nsp7-Control-NoCrosslinker-A.raw\",\n      \"reasoning\": \"Filenames explicitly state 'Control-NoCrosslinker' for the selenos+nsp7 mixture, indicating the no-crosslinker control condition. Replicates A/B/C are grouped together.\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a biological XL-MS condition.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"All provided raw files match clear filename patterns for DSSO crosslinking, no-crosslinker control, or nsp7-only DSSO.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 12,\n    \"n_assigned_files\": 12,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 3,\n    \"overall_confidence\": \"medium\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "selenos_nsp7_dss_o_crosslinked",
+          "description": "Selenoprotein S (selenos) crosslinked with SARS-CoV-2 nsp7 in the presence of DSSO crosslinker.",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": "DSSO",
+          "biological_condition": "selenos + nsp7 crosslinked (DSSO)",
+          "files": [
+            "selenos-Crosslinking-DSSO-A.raw",
+            "selenos-Crosslinking-DSSO-B.raw",
+            "selenos-Crosslinking-DSSO-C.raw",
+            "selenos-nsp7-Crosslinking-DSSO-A.raw",
+            "selenos-nsp7-Crosslinking-DSSO-B.raw",
+            "selenos-nsp7-Crosslinking-DSSO-C.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "nsp7-Crosslinking-DSSO-A.raw",
+          "reasoning": "All files explicitly contain 'Crosslinking-DSSO' in the filename, indicating the same crosslinker condition (DSSO). The dataset includes both selenos-only and selenos+nsp7 mixtures; however, the task asks not to over-split beyond the smallest biologically meaningful groups. Since the key differentiator requested is crosslinker (and organism is constant per provided taxid), these DSSO crosslinked files are grouped together."
+        },
+        {
+          "cluster_id": "cluster_2",
+          "cluster_label": "nsp7_dss_o_crosslinked",
+          "description": "SARS-CoV-2 nsp7 crosslinked with DSSO crosslinker.",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": "DSSO",
+          "biological_condition": "nsp7 crosslinked (DSSO)",
+          "files": [
+            "nsp7-Crosslinking-DSSO-A.raw",
+            "nsp7-Crosslinking-DSSO-B.raw",
+            "nsp7-Crosslinking-DSSO-C.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "nsp7-Crosslinking-DSSO-A.raw",
+          "reasoning": "Filenames explicitly indicate nsp7-only samples under DSSO crosslinking. This is biologically distinct from selenos and/or selenos+nsp7 mixtures, so it is separated from the selenos-related DSSO clusters. Organism is taken from the provided PRIDE metadata (Homo sapiens), though the proteome source for viral proteins is not explicitly provided."
+        },
+        {
+          "cluster_id": "cluster_3",
+          "cluster_label": "selenos_nsp7_no_crosslinker_control",
+          "description": "Selenoprotein S (selenos) and SARS-CoV-2 nsp7 control without crosslinker.",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": null,
+          "biological_condition": "selenos + nsp7 control (no crosslinker)",
+          "files": [
+            "selenos-nsp7-Control-NoCrosslinker-A.raw",
+            "selenos-nsp7-Control-NoCrosslinker-B.raw",
+            "selenos-nsp7-Control-NoCrosslinker-C.raw"
+          ],
+          "confidence": "high",
+          "evidence_quote": "selenos-nsp7-Control-NoCrosslinker-A.raw",
+          "reasoning": "Filenames explicitly state 'Control-NoCrosslinker' for the selenos+nsp7 mixture, indicating the no-crosslinker control condition. Replicates A/B/C are grouped together."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a biological XL-MS condition.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "All provided raw files match clear filename patterns for DSSO crosslinking, no-crosslinker control, or nsp7-only DSSO."
+        }
+      ],
+      "summary": {
+        "n_input_files": 12,
+        "n_assigned_files": 12,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 3,
+        "overall_confidence": "medium"
+      }
+    }
+  }
+}

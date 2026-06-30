@@ -8,7 +8,8 @@ TERMS TO EXTRACT:
 term: organism
 sdrf_column: characteristics[organism]
 ontology: NCBITaxon (e.g. NCBITaxon:9606)
-description: Species of the biological sample. Return the scientific name.
+description: Source species of the proteome of interest in the biological samples analyzed by mass spectrometry. Return the scientific name. 
+Source species maybe different than host species when proteins from one organism are expressed in another. 
 instructions: Use NCBITaxon accession. Common examples: Homo sapiens (NCBITaxon:9606),
   Mus musculus (NCBITaxon:10090), Saccharomyces cerevisiae (NCBITaxon:4932),
   Escherichia coli (NCBITaxon:562). If multiple species, return a list.
@@ -16,9 +17,9 @@ instructions: Use NCBITaxon accession. Common examples: Homo sapiens (NCBITaxon:
 term: organism part
 sdrf_column: characteristics[organism part]
 ontology: UBERON or BTO
-description: Main normalized anatomical term for the sample tissue/compartment.
-instructions: Use the clearest ontology-backed anatomy term. Examples: mitochondria,
-  nucleus, cytoplasm, liver, heart, brain, cell. Return null if not applicable
+description: Main normalized anatomical term for the sample analyzed by mass spectrometry. 
+instructions: Use the clearest ontology-backed anatomy term. Examples: whole-cell lysate, mitochondria,
+  nucleus, cytoplasm, liver, heart, brain, cell, ect. Return null if not applicable
   (e.g. purified recombinant proteins with no tissue origin).
 
 term: cell line
@@ -36,8 +37,8 @@ instructions: Return null if not applicable or not stated.
 term: material type
 sdrf_column: characteristics[material type]
 ontology: PRIDE:0000837
-description: Type of biological material analyzed.
-allowed_values: tissue, cell, cell line, organism part, whole organism, synthetic
+description: Type of biological material analyzed. Differentiates whether the whole cell lysate was analyzed, just a specific anatomical structure or tissue, or if the samples were purified for specific proteins before mass spectrometry analysis. 
+allowed_values: tissue, whole cell lysate, organell, membrane, synthetic, purified proteins, affinity captured
 instructions: Choose the best matching fixed value. Return null if unclear.
 
 term: strain or breed

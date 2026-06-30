@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "pxd": "PXD021434",
+    "category": "llm",
+    "saved_at": "2026-06-30T15:12:38.349631",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"k562_hd_treated_control_mock_formaldehyde\",\n      \"description\": \"K562 human chromatin-associated proteome crosslinked with formaldehyde and analyzed under 1,6-hexanediol treatment, control, and mock conditions.\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": \"formaldehyde\",\n      \"biological_condition\": \"1,6-hexanediol treated vs control vs mock (label-free; replicates pooled)\",\n      \"files\": [\n        \"K562_HD_treated_rep1_Experiment1.raw\",\n        \"K562_HD_treated_rep1_Experiment2.raw\",\n        \"K562_HD_treated_rep2_Experiment1.raw\",\n        \"K562_HD_treated_rep2_Experiment2.raw\",\n        \"K562_HD_treated_rep3_Experiment2.raw\",\n        \"K562_control_rep1_Experiment1.raw\",\n        \"K562_control_rep1_Experiment2.raw\",\n        \"K562_control_rep2_Experiment1.raw\",\n        \"K562_control_rep2_Experiment2.raw\",\n        \"K562_control_rep3_Experiment2.raw\",\n        \"K562_mock_rep1_Experiment2.raw\",\n        \"K562_mock_rep2_Experiment2.raw\",\n        \"K562_mock_rep3_Experiment2.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"cells were treated with 1,6-hexanediol treatment by Hi-C and Hi-MS, respectively.\",\n      \"reasoning\": \"All filenames share the same sample type (K562) and condition tags (HD_treated, control, mock) and differ only by replicate/experiment number, which should not be split. The publication explicitly states formaldehyde crosslinking for Hi-MS: \\\"incubated with 1% formaldehyde in PBS to crosslink protein–DNA in the cells\\\". However, the crosslinking reagent is clear (formaldehyde) while the dataset does not provide explicit separate crosslinker usage per condition; therefore, conditions are pooled into one cluster to satisfy the smallest number of biologically meaningful groups given the limited metadata.\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a biological XL-MS condition.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"No QC/calibration/blank files were provided; all input filenames match K562 biological condition naming.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 13,\n    \"n_assigned_files\": 13,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 1,\n    \"overall_confidence\": \"medium\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "k562_hd_treated_control_mock_formaldehyde",
+          "description": "K562 human chromatin-associated proteome crosslinked with formaldehyde and analyzed under 1,6-hexanediol treatment, control, and mock conditions.",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": "formaldehyde",
+          "biological_condition": "1,6-hexanediol treated vs control vs mock (label-free; replicates pooled)",
+          "files": [
+            "K562_HD_treated_rep1_Experiment1.raw",
+            "K562_HD_treated_rep1_Experiment2.raw",
+            "K562_HD_treated_rep2_Experiment1.raw",
+            "K562_HD_treated_rep2_Experiment2.raw",
+            "K562_HD_treated_rep3_Experiment2.raw",
+            "K562_control_rep1_Experiment1.raw",
+            "K562_control_rep1_Experiment2.raw",
+            "K562_control_rep2_Experiment1.raw",
+            "K562_control_rep2_Experiment2.raw",
+            "K562_control_rep3_Experiment2.raw",
+            "K562_mock_rep1_Experiment2.raw",
+            "K562_mock_rep2_Experiment2.raw",
+            "K562_mock_rep3_Experiment2.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "cells were treated with 1,6-hexanediol treatment by Hi-C and Hi-MS, respectively.",
+          "reasoning": "All filenames share the same sample type (K562) and condition tags (HD_treated, control, mock) and differ only by replicate/experiment number, which should not be split. The publication explicitly states formaldehyde crosslinking for Hi-MS: \"incubated with 1% formaldehyde in PBS to crosslink protein–DNA in the cells\". However, the crosslinking reagent is clear (formaldehyde) while the dataset does not provide explicit separate crosslinker usage per condition; therefore, conditions are pooled into one cluster to satisfy the smallest number of biologically meaningful groups given the limited metadata."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a biological XL-MS condition.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "No QC/calibration/blank files were provided; all input filenames match K562 biological condition naming."
+        }
+      ],
+      "summary": {
+        "n_input_files": 13,
+        "n_assigned_files": 13,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 1,
+        "overall_confidence": "medium"
+      }
+    }
+  }
+}

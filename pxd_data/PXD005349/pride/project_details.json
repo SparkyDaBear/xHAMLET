@@ -1,0 +1,416 @@
+{
+  "metadata": {
+    "pxd": "PXD005349",
+    "category": "pride",
+    "saved_at": "2026-06-30T14:54:03.582169",
+    "filename": "project_details"
+  },
+  "data": {
+    "accession": "PXD005349",
+    "title": "Combining Affinity Enrichment, Cross-Linking with Photo-Amino Acids, and Mass Spectrometry for Probing Protein Kinase D2 Interactions",
+    "additionalAttributes": [],
+    "projectDescription": "We present an approach that relies on the affinity enrichment of a target protein from a complex mixture, followed by a UV-induced activation of incorporated diazirine photo-reactive amino acids (photo-methionine and photo-leucine) and a covalent fixation of interaction partners. The captured protein complexes are enzymatically digested and interacting proteins are identified and quantified by label-free LC/MS analysis. Using HeLa cell lysates with photo-methionine and photo-leucine-labeled proteins, we were able to capture and preserve protein interactions that are otherwise elusive in conventional pull-down experiments. Our approach is exemplified for mapping the protein interaction network of protein kinase D2, but can be applied to any protein system.",
+    "sampleProcessingProtocol": "The affinity enrichment and crosslinking experiments were carried out at 4 °C using spin columns (Pierce Screw Cap, Thermo Scientific). After equilibration of 20 µg glutathione sepharose matrix (4B, GE Healthcare) by washing three times with 400 µl of binding buffer (50 mM HEPES, 150 mM NaCl, 2 mM MgCl2, 1 mM TCEP, 10% (v/v) glycerol, pH 7.5), 5 µg of GST-PKD2 in 200 µl of binding buffer were bound by incubation for 1 h. Additionally, GST and matrix control samples were prepared using equimolar amounts of GST (Pierce, Thermo Fisher Scientific) or binding buffer. Affinity-captured GSTPKD2 and the control samples were incubated with 200 µl of soluble photoaffinity-labeled protein fractions for 2 h. Photo-crosslinking was carried out by UV-A irradiation with a dose of 8000 mJ cm-2 in a custom-built irradiation chamber. After sample irradiation, the sepharose matrix was washed three times with 400 µl of binding buffer with an increased salt concentration (500 mM NaCl). Subsequently, each sample was resuspended in 40 µl of 8 M urea/400 mM ammonium bicarbonate, incubated at 37 °C (15 min, 400 rpm) and subjected to in-solution digestion with Glu-C and trypsin. Peptide solutions were analyzed by LC-MS/MS on an Ultimate 3000 RSLC nano-HPLC system (Thermo Fisher Scientific) coupled to an Orbitrap Fusion mass spectrometer (Thermo Fisher Scientific) via a Nanospray Flex nano-ESI ion source (Thermo Fisher Scientific). Samples were loaded onto a RP C8 precolumn (Acclaim PepMap, 300 μm × 5 mm, 5 μm, 100 Å, Thermo Fisher Scientific) at a flow rate of 30 µl/min. After washing on the precolumn with 0.1% (v/v) TFA for 15 min at 30 µl/min, peptides were eluted and separated on a C18 separation column (Acclaim PepMap, 75 μM × 250 mm, 2 μm, 100 Å, Thermo Fisher Scientific) that had been equilibrated with solvent A (0.1% (v/v) FA). Elution of peptides from the separation column was performed with a gradient from 0-35% solvent B (ACN, 0.08% (v/v) FA) within 180 min at 300 nl/min. Peptides were directly transferred to the nano-ESI ion source and analyzed in data-dependent MS/MS acquisition mode: High-resolution precursor ion scans (m/z 300-1500, R = 120,000 at m/z 200, AGC target value = 4.0e5, max. injection time = 50 ms) in the Orbitrap analyzer were acquired every 5 s. Within these 5 sec the most abundant signals (charge states 2-8, intensity threshold = 3000 counts) were selected for MS/MS experiments using HCD with a normalized collision energy of 27% and an isolation window of 2 Th. Fragment ion spectra were acquired in the Orbitrap (R = 15,000 at m/z 200, AGC target value = 5.0e4, max. injection time = 200 ms). Fragmented precursor ions were dynamically excluded from HCD for 60 s if targeted two times within 30 s (mass tolerance window 2 ppm). Data acquisition and inspection of raw data were conducted via the Xcalibur software (version 3.0.63, Thermo Fisher Scientific).",
+    "dataProcessingProtocol": "The affinity enrichment photo-crosslinking experiments were conducted as biological replicates, i.e., independent cell culture and photo-reactive amino acid incorporation, with two technical replicates, i.e., affinity enrichment, photo-crosslinking, and MS analysis each. Raw files from LC-MS/MS measurements were analyzed using the MaxQuant software (version 1.5.2.8). Protein identification was performed with the Andromeda search engine using the human reference proteome downloaded from the UniProt database (http://www.uniprot.org, FASTA file; download date: 2015-01-20; 89,734 entries) and an integrated database of common contaminants (245 entries). Database searches were conducted with standard settings for Orbitrap precursor and fragment ion analysis allowing maximum mass differences of 20 ppm (first search) / 4.5 ppm (main search) and 20 ppm. Trypsin and Glu-C were set as specific proteolytic enzymes, allowing up to three missed cleavage sites. Carbamidomethylation of cysteine was set as fixed modification and oxidation of methionine was set as variable modification. Protein identifications were filtered using a target decoy database (reversed sequence order) allowing a maximum false discovery rate of 1%. Furthermore, the “match between runs” feature was enabled and label-free quantification of proteins (LFQ) was conducted using MaxLFQ (minimum ratio count = 1). The “proteinGroups” output file was used for subsequent data analysis. Analysis of data processed with MaxQuant was carried out with the Perseus software (version 1.5.1.6) as described previously. LFQ intensities of identified proteins stored in the “proteinGroups” file were loaded as expression values for a pairwise comparison of each sample to the matrix control sample. Proteins identified only with modified peptides or in the decoy database and potential contaminants were discarded. Afterward, LFQ intensities were logarithmized and replicates were grouped for each sample. The sample groups were filtered for proteins with at least six valid values for LFQ intensities in at least one group. Missing values were imputed from the total matrix based on a normal distribution using default software parameters. Statistical analysis was conducted to compare LFQ intensities of each sample replicate group with the matrix control replicate group using a student’s t-test with a significance threshold of p-value ≤ 0.01. The logarithmized ratios of the means of both groups were plotted against the negative logarithmized p-values as “volcano” plots to visualize significant differences of LFQ intensities. Enrichment factors of proteins were calculated as the ratios of mean LFQ intensities in each sample and mean LFQ intensities in the matrix controls. Overlap of proteins with significant LFQ intensity differences were assigned and visualized with a Venn diagram generator.",
+    "projectTags": [
+      "Technical"
+    ],
+    "keywords": [
+      "Pkd2",
+      "Affinity enrichment",
+      "Protein interaction",
+      "Photo-cross-linking",
+      "Photo-methionine",
+      "Photo-leucine",
+      "Orbitrap fusion"
+    ],
+    "doi": "",
+    "submissionType": "PARTIAL",
+    "license": "EBI terms of use",
+    "submissionDate": "2016-11-15",
+    "publicationDate": "2017-04-10",
+    "submitters": [
+      {
+        "title": "Mr",
+        "firstName": "Björn",
+        "lastName": "Häupl",
+        "identifier": "43610108",
+        "affiliation": "Martin Luther University Halle-Wittenberg",
+        "email": "bjoern.haeupl@pharmazie.uni-halle.de",
+        "country": "Germany",
+        "orcid": "",
+        "name": "Björn Häupl",
+        "id": "43610108"
+      }
+    ],
+    "labPIs": [
+      {
+        "title": "Dr",
+        "firstName": "Andrea",
+        "lastName": "Sinz",
+        "identifier": "58270100",
+        "affiliation": "Department of Pharmaceutical Chemistry and BioanalyticsInstitute of Pharmacy Martin Luther University Halle-Wittenberg Wolfgang-Langenbeck-St. 4 D-06120 Halle (Saale), Germany",
+        "email": "andrea.sinz@pharmazie.uni-halle.de",
+        "country": "",
+        "orcid": "",
+        "name": "Andrea Sinz",
+        "id": "58270100"
+      }
+    ],
+    "instruments": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1002416",
+        "name": "Orbitrap Fusion",
+        "value": ""
+      }
+    ],
+    "softwares": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1001583",
+        "name": "MaxQuant"
+      }
+    ],
+    "experimentTypes": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000429",
+        "name": "Shotgun proteomics"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000430",
+        "name": "Chemical cross-linking coupled with mass spectrometry proteomics"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000433",
+        "name": "Affinity purification coupled with mass spectrometry proteomics"
+      }
+    ],
+    "quantificationMethods": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000425",
+        "name": "MS1 intensity based label-free quantification method"
+      }
+    ],
+    "countries": [
+      "Germany"
+    ],
+    "sampleAttributes": [
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "EFO:0000635",
+          "name": "organism part"
+        },
+        "value": [
+          {
+            "cvLabel": "BTO",
+            "accession": "BTO:0000214",
+            "name": "cell culture",
+            "value": ""
+          },
+          {
+            "cvLabel": "CL",
+            "accession": "CL:0000066",
+            "name": "epithelial cell",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "OBI:0100026",
+          "name": "organism"
+        },
+        "value": [
+          {
+            "cvLabel": "NEWT",
+            "accession": "NEWT:9606",
+            "name": "Homo sapiens (Human)",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "EFO:0000408",
+          "name": "disease"
+        },
+        "value": [
+          {
+            "cvLabel": "DOID",
+            "accession": "DOID:2893",
+            "name": "cervix carcinoma",
+            "value": ""
+          }
+        ]
+      }
+    ],
+    "organisms": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "NEWT",
+        "accession": "NEWT:9606",
+        "name": "Homo sapiens (human)",
+        "value": ""
+      }
+    ],
+    "organismParts": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "CL",
+        "accession": "CL:0000066",
+        "name": "Epithelial cell",
+        "value": ""
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "BTO",
+        "accession": "BTO:0000214",
+        "name": "Cell culture",
+        "value": ""
+      }
+    ],
+    "diseases": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "DOID",
+        "accession": "DOID:2893",
+        "name": "Cervix carcinoma",
+        "value": ""
+      }
+    ],
+    "references": [
+      {
+        "referenceLine": "Häupl B, Ihling CH, Sinz A. Combining affinity enrichment, cross-linking with photo-amino acids, and mass spectrometry for probing protein kinase D2 interactions. Proteomics. 2017 Apr 7",
+        "pubmedID": 28387473,
+        "doi": "10.1002/pmic.201600459"
+      }
+    ],
+    "identifiedPTMStrings": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00425",
+        "name": "monohydroxylated residue",
+        "value": ""
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00397",
+        "name": "iodoacetamide derivatized residue",
+        "value": ""
+      }
+    ],
+    "totalFileDownloads": 2571,
+    "otherOmicsLinks": [
+      "pride.project:PXD005346"
+    ],
+    "files": {
+      "files": [
+        {
+          "fileName": "GUV3-2.raw",
+          "fileSizeBytes": 1697344198,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/GUV3-2.raw"
+        },
+        {
+          "fileName": "PUV1-2.raw",
+          "fileSizeBytes": 1654348368,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/PUV1-2.raw"
+        },
+        {
+          "fileName": "PUV3-1.raw",
+          "fileSizeBytes": 1867451260,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/PUV3-1.raw"
+        },
+        {
+          "fileName": "G2-1.raw",
+          "fileSizeBytes": 2414244176,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/G2-1.raw"
+        },
+        {
+          "fileName": "P1-1.raw",
+          "fileSizeBytes": 2011285604,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/P1-1.raw"
+        },
+        {
+          "fileName": "P2-1.raw",
+          "fileSizeBytes": 1859462508,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/P2-1.raw"
+        },
+        {
+          "fileName": "MaxQuant_Output.zip",
+          "fileSizeBytes": 480376884,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/MaxQuant_Output.zip"
+        },
+        {
+          "fileName": "MUV1-1.raw",
+          "fileSizeBytes": 2110885630,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/MUV1-1.raw"
+        },
+        {
+          "fileName": "P1-2.raw",
+          "fileSizeBytes": 1844749700,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/P1-2.raw"
+        },
+        {
+          "fileName": "M2-1.raw",
+          "fileSizeBytes": 2427421906,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/M2-1.raw"
+        },
+        {
+          "fileName": "MUV2-2.raw",
+          "fileSizeBytes": 1770447548,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/MUV2-2.raw"
+        },
+        {
+          "fileName": "GUV2-1.raw",
+          "fileSizeBytes": 2469782164,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/GUV2-1.raw"
+        },
+        {
+          "fileName": "G3-2.raw",
+          "fileSizeBytes": 1604472122,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/G3-2.raw"
+        },
+        {
+          "fileName": "M1-2.raw",
+          "fileSizeBytes": 1822545292,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/M1-2.raw"
+        },
+        {
+          "fileName": "MUV2-1.raw",
+          "fileSizeBytes": 2374624020,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/MUV2-1.raw"
+        },
+        {
+          "fileName": "PUV3-2.raw",
+          "fileSizeBytes": 1705623138,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/PUV3-2.raw"
+        },
+        {
+          "fileName": "PUV1-1.raw",
+          "fileSizeBytes": 1886018830,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/PUV1-1.raw"
+        },
+        {
+          "fileName": "GUV3-1.raw",
+          "fileSizeBytes": 1830464506,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/GUV3-1.raw"
+        },
+        {
+          "fileName": "M3-1.raw",
+          "fileSizeBytes": 1842531916,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/M3-1.raw"
+        },
+        {
+          "fileName": "GUV2-2.raw",
+          "fileSizeBytes": 1819860696,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/GUV2-2.raw"
+        },
+        {
+          "fileName": "G1-1.raw",
+          "fileSizeBytes": 1966575128,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/G1-1.raw"
+        },
+        {
+          "fileName": "M1-1.raw",
+          "fileSizeBytes": 2107484106,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/M1-1.raw"
+        },
+        {
+          "fileName": "MUV1-2.raw",
+          "fileSizeBytes": 1862159258,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/MUV1-2.raw"
+        },
+        {
+          "fileName": "MUV3-2.raw",
+          "fileSizeBytes": 1793916532,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/MUV3-2.raw"
+        },
+        {
+          "fileName": "G2-2.raw",
+          "fileSizeBytes": 2194509190,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/G2-2.raw"
+        },
+        {
+          "fileName": "G1-2.raw",
+          "fileSizeBytes": 1759181818,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/G1-2.raw"
+        },
+        {
+          "fileName": "M3-2.raw",
+          "fileSizeBytes": 1771841642,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/M3-2.raw"
+        },
+        {
+          "fileName": "P2-2.raw",
+          "fileSizeBytes": 1975813772,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/P2-2.raw"
+        },
+        {
+          "fileName": "PUV2-2.raw",
+          "fileSizeBytes": 2136320408,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/PUV2-2.raw"
+        },
+        {
+          "fileName": "MUV3-1.raw",
+          "fileSizeBytes": 1786667184,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/MUV3-1.raw"
+        },
+        {
+          "fileName": "P3-2.raw",
+          "fileSizeBytes": 1701940756,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/P3-2.raw"
+        },
+        {
+          "fileName": "GUV1-1.raw",
+          "fileSizeBytes": 2017625286,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/GUV1-1.raw"
+        },
+        {
+          "fileName": "G3-1.raw",
+          "fileSizeBytes": 1667210336,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/G3-1.raw"
+        },
+        {
+          "fileName": "M2-2.raw",
+          "fileSizeBytes": 1749498962,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/M2-2.raw"
+        },
+        {
+          "fileName": "GUV1-2.raw",
+          "fileSizeBytes": 1752885664,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/GUV1-2.raw"
+        },
+        {
+          "fileName": "P3-1.raw",
+          "fileSizeBytes": 1771926246,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/P3-1.raw"
+        },
+        {
+          "fileName": "PUV2-1.raw",
+          "fileSizeBytes": 2454562118,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/04/PXD005349/PUV2-1.raw"
+        }
+      ],
+      "totalCount": 37
+    }
+  }
+}

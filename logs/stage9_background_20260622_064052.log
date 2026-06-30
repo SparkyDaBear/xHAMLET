@@ -1,0 +1,136 @@
+2026-06-22 06:40:54,128 - pxd_enhancer.relink_runner - INFO - Extracted 1 taxids from LLM clustering response: 9606
+2026-06-22 06:40:54,129 - pxd_enhancer.relink_runner - INFO - PXD042173: Multi-organism dataset detected. Running ReLink for each of 2 organisms: 562, 9606
+2026-06-22 06:40:54,129 - pxd_enhancer.relink_runner - INFO - Running ReLink for taxid 562
+2026-06-22 06:40:54,129 - pxd_enhancer.relink_runner - INFO - Using cached FASTA for taxid 562: pxd_data/PXD042173/relink/fasta/taxid_562.fasta
+2026-06-22 06:40:54,131 - pxd_enhancer.relink_runner - INFO - Wrote filtered SDRF: pxd_data/PXD042173/relink/taxid_562/PXD042173.sdrf.tsv (20 rows from 20 local RAW files)
+2026-06-22 06:40:54,131 - pxd_enhancer.relink_runner - INFO - Running ReLink: nextflow run . -profile conda --search_engine xisearch --input /home/ians/git_repos/xHAMLET/pxd_data/PXD042173/relink/taxid_562/PXD042173.sdrf.tsv --fasta /home/ians/git_repos/xHAMLET/pxd_data/PXD042173/relink/fasta/taxid_562.fasta --root_folder /home/ians/git_repos/xHAMLET/pxd_data/PXD042173/work --xi_linear_config /home/ians/git_repos/xHAMLET/pxd_data/PXD042173/configs/xi_linear.conf --xi_crosslink_config /home/ians/git_repos/xHAMLET/pxd_data/PXD042173/configs/xi_crosslinking.conf --outdir /home/ians/git_repos/xHAMLET/pxd_data/PXD042173/relink/taxid_562/results -work-dir /mnt/storage_1/xhamlet_relink_work -qs 4 -c /home/ians/git_repos/xHAMLET/tools/relink/conf/local.config
+2026-06-22 07:54:50,915 - pxd_enhancer.relink_runner - ERROR - Nextflow stdout/stderr:
+nd an appender named [STDOUT]. Did you define it below instead of above in the configuration file?
+  07:41:57,428 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+  07:41:57,428 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+  07:41:57,429 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@568bf312 - Registering current configuration as safe fallback point
+  
+  Xi - flavor:rappsilber.applications.SimpleXiProcessMultipleCandidates
+
+Command error:
+  Applying variable modification 69.84%
+  Jun 22, 2026 7:53:20 AM rappsilber.ui.LoggingStatus setStatus
+  INFO: Applying variable modification 70.00%
+  Applying variable modification 70.00%
+  Jun 22, 2026 7:53:32 AM rappsilber.ui.LoggingStatus setStatus
+  INFO: Applying variable modification 70.07%
+  Applying variable modification 70.07%
+  Jun 22, 2026 7:53:37 AM rappsilber.ui.LoggingStatus setStatus
+  INFO: Applying variable modification 70.61%
+  Applying variable modification 70.61%
+  Jun 22, 2026 7:53:46 AM rappsilber.ui.LoggingStatus setStatus
+  INFO: Applying variable modification 70.92%
+  Applying variable modification 70.92%
+  Jun 22, 2026 7:53:58 AM rappsilber.applications.Xi$4 run
+  INFO: gctime: 59second of the last 60 -> 0 %
+  Jun 22, 2026 7:53:58 AM rappsilber.applications.Xi$4 run
+  SEVERE: 
+  ============================================================================
+  ===== long time spend in garbage collection probably runing out of memory ====
+  
+  Jun 22, 2026 7:53:58 AM rappsilber.ui.LoggingStatus setStatus
+  INFO: Applying variable modification 71.07%
+  Applying variable modification 71.07%
+  Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+  	at rappsilber.ms.sequence.Peptide.<init>(Peptide.java:114)
+  	at rappsilber.ms.sequence.Peptide.<init>(Peptide.java:128)
+  	at rappsilber.ms.sequence.Peptide.<init>(Peptide.java:208)
+  	at rappsilber.ms.sequence.Peptide.<init>(Peptide.java:231)
+  	at rappsilber.ms.sequence.Peptide.modify(Peptide.java:798)
+  	at rappsilber.ms.sequence.Peptide.modify(Peptide.java:831)
+  	at rappsilber.ms.sequence.Peptide.modify(Peptide.java:831)
+  	at rappsilber.ms.sequence.Peptide.modify(Peptide.java:831)
+  	at rappsilber.ms.sequence.Peptide.modify(Peptide.java:831)
+  	at rappsilber.ms.sequence.Peptide.modify(Peptide.java:831)
+  	at rappsilber.ms.sequence.Peptide.modify(Peptide.java:831)
+  	at rappsilber.ms.sequence.Peptide.modify(Peptide.java:831)
+  	at rappsilber.ms.sequence.Peptide.modify(Peptide.java:831)
+  	at rappsilber.ms.sequence.Peptide.modify(Peptide.java:831)
+  	at rappsilber.ms.sequence.Peptide.modify(Peptide.java:831)
+  	at rappsilber.ms.sequence.Peptide.modify(Peptide.java:831)
+  	at rappsilber.ms.sequence.Peptide.modify(Peptide.java:831)
+  	at rappsilber.ms.sequence.Peptide.modify(Peptide.java:831)
+  	at rappsilber.ms.sequence.Peptide.modify(Peptide.java:543)
+  	at rappsilber.ms.lookup.peptides.FUPeptideTree.applyVariableModifications(FUPeptideTree.java:557)
+  	at rappsilber.applications.SimpleXiProcess.variableModifications(SimpleXiProcess.java:947)
+  	at rappsilber.applications.SimpleXiProcess.preparePreFragmentation(SimpleXiProcess.java:461)
+  	at rappsilber.applications.SimpleXiProcess.prepareSearch(SimpleXiProcess.java:409)
+  	at rappsilber.applications.SimpleXiProcessLinearIncluded.prepareSearch(SimpleXiProcessLinearIncluded.java:291)
+  	at rappsilber.applications.Xi.startXi(Xi.java:443)
+  	at rappsilber.applications.Xi.main(Xi.java:594)
+
+Work dir:
+  /mnt/storage_1/xhamlet_relink_work/2b/d4ee5259cfea16c83330a1a708be9a
+
+Tip: you can try to figure out what's wrong by changing to the process work dir and showing the script file named `.command.sh`
+
+ -- Check '.nextflow.log' file for details
+ERROR ~ Pipeline failed. Please refer to troubleshooting docs: https://nf-co.re/docs/usage/troubleshooting
+
+ -- Check '.nextflow.log' file for details
+-Pipeline completed with errors-
+
+
+2026-06-22 07:54:50,915 - pxd_enhancer.relink_runner - ERROR - ReLink run failed for PXD042173 taxid 562 (rc=1)
+2026-06-22 07:54:50,915 - pxd_enhancer.relink_runner - INFO - Running ReLink for taxid 9606
+2026-06-22 07:54:50,916 - pxd_enhancer.relink_runner - INFO - Using cached FASTA for taxid 9606: pxd_data/PXD042173/relink/fasta/taxid_9606.fasta
+2026-06-22 07:54:50,919 - pxd_enhancer.relink_runner - INFO - Wrote filtered SDRF: pxd_data/PXD042173/relink/taxid_9606/PXD042173.sdrf.tsv (20 rows from 20 local RAW files)
+2026-06-22 07:54:50,920 - pxd_enhancer.relink_runner - INFO - Running ReLink: nextflow run . -profile conda --search_engine xisearch --input /home/ians/git_repos/xHAMLET/pxd_data/PXD042173/relink/taxid_9606/PXD042173.sdrf.tsv --fasta /home/ians/git_repos/xHAMLET/pxd_data/PXD042173/relink/fasta/taxid_9606.fasta --root_folder /home/ians/git_repos/xHAMLET/pxd_data/PXD042173/work --xi_linear_config /home/ians/git_repos/xHAMLET/pxd_data/PXD042173/configs/xi_linear.conf --xi_crosslink_config /home/ians/git_repos/xHAMLET/pxd_data/PXD042173/configs/xi_crosslinking.conf --outdir /home/ians/git_repos/xHAMLET/pxd_data/PXD042173/relink/taxid_9606/results -work-dir /mnt/storage_1/xhamlet_relink_work -qs 4 -c /home/ians/git_repos/xHAMLET/tools/relink/conf/local.config
+2026-06-22 08:00:46,465 - pxd_enhancer.relink_runner - ERROR - Nextflow stdout/stderr:
+INK:XIFDR                                                                   -
+[-        ] process > BIGBIO_RELINK:RELINK:PMULTIQC                                                                -
+
+executor >  local (42)
+[eb/b9e52e] process > PIPELINE_INITIALISATION:SDRF_PARSING (sdrf_parsing)                                          [100%] 1 of 1 ✔
+[be/9ecdf9] process > BIGBIO_RELINK:RELINK:THERMORAWFILEPARSER (null)                                              [ 90%] 18 of 20, retries: 20
+[d6/08a0ca] process > BIGBIO_RELINK:RELINK:XISEARCH_LINEAR (PXD042173_L1_20210806_MxR_FDR_firstbatch_DSSOplate_C9) [  0%] 0 of 1
+[-        ] process > BIGBIO_RELINK:RELINK:MASS_RECALIBRATION                                                      -
+[-        ] process > BIGBIO_RELINK:RELINK:XISEARCH_CROSSLINK                                                      -
+[-        ] process > BIGBIO_RELINK:RELINK:XIFDR                                                                   -
+[-        ] process > BIGBIO_RELINK:RELINK:PMULTIQC                                                                -
+
+executor >  local (42)
+[eb/b9e52e] process > PIPELINE_INITIALISATION:SDRF_PARSING (sdrf_parsing)                                          [100%] 1 of 1 ✔
+[96/8b40f7] process > BIGBIO_RELINK:RELINK:THERMORAWFILEPARSER (null)                                              [ 95%] 19 of 20, retries: 20
+[d6/08a0ca] process > BIGBIO_RELINK:RELINK:XISEARCH_LINEAR (PXD042173_L1_20210806_MxR_FDR_firstbatch_DSSOplate_C9) [  0%] 0 of 1
+[-        ] process > BIGBIO_RELINK:RELINK:MASS_RECALIBRATION                                                      -
+[-        ] process > BIGBIO_RELINK:RELINK:XISEARCH_CROSSLINK                                                      -
+[-        ] process > BIGBIO_RELINK:RELINK:XIFDR                                                                   -
+[-        ] process > BIGBIO_RELINK:RELINK:PMULTIQC                                                                -
+
+executor >  local (42)
+[eb/b9e52e] process > PIPELINE_INITIALISATION:SDRF_PARSING (sdrf_parsing)                                          [100%] 1 of 1 ✔
+[c9/a5b079] process > BIGBIO_RELINK:RELINK:THERMORAWFILEPARSER (null)                                              [100%] 20 of 20, retries: 20 ✔
+[d6/08a0ca] process > BIGBIO_RELINK:RELINK:XISEARCH_LINEAR (PXD042173_L1_20210806_MxR_FDR_firstbatch_DSSOplate_C9) [  0%] 0 of 1
+[-        ] process > BIGBIO_RELINK:RELINK:MASS_RECALIBRATION                                                      -
+[-        ] process > BIGBIO_RELINK:RELINK:XISEARCH_CROSSLINK                                                      -
+[-        ] process > BIGBIO_RELINK:RELINK:XIFDR                                                                   -
+[-        ] process > BIGBIO_RELINK:RELINK:PMULTIQC                                                                -
+
+-Pipeline completed with errors-
+executor >  local (42)
+[eb/b9e52e] process > PIPELINE_INITIALISATION:SDRF_PARSING (sdrf_parsing)                                          [100%] 1 of 1 ✔
+[c9/a5b079] process > BIGBIO_RELINK:RELINK:THERMORAWFILEPARSER (null)                                              [100%] 20 of 20, retries: 20 ✔
+[d6/08a0ca] process > BIGBIO_RELINK:RELINK:XISEARCH_LINEAR (PXD042173_L1_20210806_MxR_FDR_firstbatch_DSSOplate_C9) [  0%] 0 of 1
+[-        ] process > BIGBIO_RELINK:RELINK:MASS_RECALIBRATION                                                      -
+[-        ] process > BIGBIO_RELINK:RELINK:XISEARCH_CROSSLINK                                                      -
+[-        ] process > BIGBIO_RELINK:RELINK:XIFDR                                                                   -
+[-        ] process > BIGBIO_RELINK:RELINK:PMULTIQC                                                                -
+ERROR ~ Pipeline failed. Please refer to troubleshooting docs: https://nf-co.re/docs/usage/troubleshooting
+
+ -- Check '.nextflow.log' file for details
+WARN: Killing running tasks (1)
+
+
+2026-06-22 08:00:46,465 - pxd_enhancer.relink_runner - ERROR - ReLink run failed for PXD042173 taxid 9606 (rc=1)
+Traceback (most recent call last):
+  File "/home/ians/git_repos/xHAMLET/run_stage9_conda_test.py", line 32, in <module>
+    result = runner.run_for_pxd(
+  File "/home/ians/git_repos/xHAMLET/src/pxd_enhancer/relink_runner.py", line 152, in run_for_pxd
+    raise RuntimeError(
+RuntimeError: ReLink failed for taxid(s): 562, 9606

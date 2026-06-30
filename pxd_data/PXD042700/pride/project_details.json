@@ -1,0 +1,189 @@
+{
+  "metadata": {
+    "pxd": "PXD042700",
+    "category": "pride",
+    "saved_at": "2026-06-30T15:34:40.107763",
+    "filename": "project_details"
+  },
+  "data": {
+    "accession": "PXD042700",
+    "title": "Ubiquitin-specific proximity labeling for the identification of E3 ubiquitin ligase substrates",
+    "additionalAttributes": [],
+    "projectDescription": "Protein ubiquitination controls diverse processes within eukaryotic cells, including protein degradation, and is often dysregulated in diseases1. Moreover, protein degraders that redirect ubiquitination activities toward disease targets are an emerging and promising therapeutic class2. Over 600 E3 ubiquitin ligases are expressed in humans3,4, but their substrates remain largely elusive due to a lack of robust methods to identify E3 ligase substrates. Here we report the development of E-STUB (E3 substrate tagging by ubiquitin biotinylation), a ubiquitin-specific proximity labeling method that biotinylates ubiquitinated substrates in proximity to an E3 ligase of interest. E-STUB accurately identifies the direct ubiquitinated targets of protein degraders, including collateral targets and ubiquitylation events that do not exhibit a degradative outcome. It also detects known substrates of E3 ligase cereblon (CRBN) and von Hippel-Lindau (VHL) with high precision. With the ability to elucidate proximal ubiquitination events, E-STUB may facilitate the development of proximity-inducing drugs and act as a generalizable method for E3 substrate mapping.",
+    "sampleProcessingProtocol": "Data were collected using a TimsTOF Pro2 (Bruker Daltonics, Bremen, Germany) coupled to a nanoElute LC pump (Bruker Daltonics, Bremen, Germany) via a CaptiveSpray nano-electrospray source. Peptides were separated on a reversed-phase C18 column (25 cm x 75 µm ID, 1.6 µM, IonOpticks, Australia) containing an integrated captive spray emitter. Peptides were separated using a 50 min gradient of 2 - 30% buffer B (acetonitrile in 0.1% formic acid) with a flow rate of 250 nL/min and column temperature maintained at 50 ºC. DDA was performed in Parallel Accumulation-Serial Fragmentation (PASEF) mode to determine effective ion mobility windows for downstream diaPASEF data collection (Meier et al., 2020). The ddaPASEF parameters included: 100% duty cycle using accumulation and ramp times of 50 ms each, 1 TIMS-MS scan and 10 PASEF ramps per acquisition cycle. The TIMS-MS survey scan was acquired between 100 – 1700 m/z and 1/k0 of 0.7 - 1.3 V.s/cm2. Precursors with 1 – 5 charges were selected and those that reached an intensity threshold of 20,000 arbitrary units were actively excluded for 0.4 min. The quadrupole isolation width was set to 2 m/z for m/z <700 and 3 m/z for m/z >800, with the m/z between 700-800 m/z being interpolated linearly. The TIMS elution voltages were calibrated linearly with three points (Agilent ESI-L Tuning Mix Ions; 622, 922, 1,222 m/z) to determine the reduced ion mobility coefficients (1/K0). To perform diaPASEF, the precursor distribution in the DDA m/z-ion mobility plane was used to design an acquisition scheme for DIA data collection which included two windows in each 50 ms diaPASEF scan. Data was acquired using sixteen of these 25 Da precursor double window scans (creating 32 windows) which covered the diagonal scan line for doubly and triply charged precursors, with singly charged precursors able to be excluded by their position in the m/z-ion mobility plane. These precursor isolation windows were defined between 400 - 1200 m/z and 1/k0 of 0.7 - 1.3 V.s/cm2.",
+    "dataProcessingProtocol": "The diaPASEF raw file processing and controlling peptide and protein level false discovery rates, assembling proteins from peptides, and protein quantification from peptides was performed using library free analysis in DIA-NN 1.8 (Demichev et al., 2020). Library free mode performs an in silico digestion of a given protein sequence database alongside deep learning-based predictions to extract the DIA precursor data into a collection of MS2 spectra. The search results are then used to generate a spectral library which is then employed for the targeted analysis of the DIA data searched against a Swissprot human database (January 2021). Database search criteria largely followed the default settings for directDIA including: tryptic with two missed cleavages, carbomidomethylation of cysteine as a fixed modification, and oxidation of methionine as a variable modification and precursor Q-value (FDR) cut-off of 0.01. Precursor quantification strategy was set to Robust LC (high accuracy) with RT-dependent cross run normalization. Proteins with a mean number of precursors used for quantification of less than 2 were excluded from further analysis and proteins with missing values were imputed by random selection from a gaussian distribution either with a mean of the non-missing values for that treatment group or with a mean equal to the median of the background (in cases when all values for a  treatment group are missing). Protein abundances were scaled using in-house scripts in the R framework (R Development Core Team, 2014) and significant changes comparing the relative protein abundance of treatment samples to the DMSO control treatments were assessed by moderated t test as implemented in the limma package within the R framework (M.E. Ritchie et al., 2015, Nucleic Acids Res, 43(7):e47).",
+    "projectTags": [],
+    "keywords": [
+      "Ubiquitin",
+      "E-stub",
+      "Substrates",
+      "Proximity biotinylation",
+      "Protac",
+      "Targeted degradation",
+      "E3 ligase"
+    ],
+    "doi": "",
+    "submissionType": "PARTIAL",
+    "license": "Creative Commons Public Domain (CC0)",
+    "submissionDate": "2023-06-02",
+    "publicationDate": "2024-03-20",
+    "submitters": [
+      {
+        "title": "Dr",
+        "firstName": "Eric",
+        "lastName": "Fischer",
+        "identifier": "63930159",
+        "affiliation": "Dana-Farber Cancer Institute",
+        "email": "eric_fischer@dfci.harvard.edu",
+        "country": "United States",
+        "orcid": "0000-0001-7337-6306",
+        "name": "Eric Fischer",
+        "id": "63930159"
+      }
+    ],
+    "labPIs": [
+      {
+        "title": "Dr",
+        "firstName": "Eric",
+        "lastName": "Fischer",
+        "identifier": "2581194",
+        "affiliation": "Department of Cancer Biology, Dana-Farber Cancer Institute, Boston, MA 02215, USA., Department of Biological Chemistry and Molecular Pharmacology, Harvard Medical School, Boston, MA 02115, USA",
+        "email": "eric_fischer@dfci.harvard.edu",
+        "country": "",
+        "orcid": "",
+        "name": "Eric Fischer",
+        "id": "2581194"
+      }
+    ],
+    "instruments": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1003230",
+        "name": "timsTOF Pro 2"
+      }
+    ],
+    "softwares": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1003253",
+        "name": "DIA-NN"
+      }
+    ],
+    "experimentTypes": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000433",
+        "name": "Affinity purification coupled with mass spectrometry proteomics"
+      }
+    ],
+    "quantificationMethods": [],
+    "countries": [
+      "United States"
+    ],
+    "sampleAttributes": [
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "EFO:0000635",
+          "name": "organism part"
+        },
+        "value": [
+          {
+            "cvLabel": "BTO",
+            "accession": "BTO:0000214",
+            "name": "cell culture"
+          }
+        ]
+      },
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "OBI:0100026",
+          "name": "organism"
+        },
+        "value": [
+          {
+            "cvLabel": "NEWT",
+            "accession": "NEWT:9606",
+            "name": "Homo sapiens (Human)"
+          }
+        ]
+      }
+    ],
+    "organisms": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "NEWT",
+        "accession": "NEWT:9606",
+        "name": "Homo sapiens (human)"
+      }
+    ],
+    "organismParts": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "BTO",
+        "accession": "BTO:0000214",
+        "name": "Cell culture"
+      }
+    ],
+    "diseases": [],
+    "references": [],
+    "identifiedPTMStrings": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00397",
+        "name": "iodoacetamide derivatized residue"
+      }
+    ],
+    "totalFileDownloads": 882,
+    "botCount": 344,
+    "hubCount": 516,
+    "organicCount": 22,
+    "files": {
+      "files": [
+        {
+          "fileName": "ip-esf_288_SK391_20230515.tsv",
+          "fileSizeBytes": 200580459,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD042700/ip-esf_288_SK391_20230515.tsv"
+        },
+        {
+          "fileName": "esf4_4672_Slot1-9_1_8600.d.zip",
+          "fileSizeBytes": 6592401701,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD042700/esf4_4672_Slot1-9_1_8600.d.zip"
+        },
+        {
+          "fileName": "esf4_4678_Slot1-15_1_8608.d.zip",
+          "fileSizeBytes": 752,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD042700/esf4_4678_Slot1-15_1_8608.d.zip"
+        },
+        {
+          "fileName": "esf4_4676_Slot1-13_1_8606.d.zip",
+          "fileSizeBytes": 751,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD042700/esf4_4676_Slot1-13_1_8606.d.zip"
+        },
+        {
+          "fileName": "esf4_4670_Slot1-7_1_8598.d.zip",
+          "fileSizeBytes": 6462205913,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD042700/esf4_4670_Slot1-7_1_8598.d.zip"
+        },
+        {
+          "fileName": "esf4_4671_Slot1-8_1_8599.d.zip",
+          "fileSizeBytes": 6484648977,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD042700/esf4_4671_Slot1-8_1_8599.d.zip"
+        },
+        {
+          "fileName": "esf4_4677_Slot1-14_1_8607.d.zip",
+          "fileSizeBytes": 753,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD042700/esf4_4677_Slot1-14_1_8607.d.zip"
+        }
+      ],
+      "totalCount": 7
+    }
+  }
+}

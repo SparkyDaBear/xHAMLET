@@ -1,0 +1,1708 @@
+{
+  "metadata": {
+    "pxd": "PXD011036",
+    "category": "pride",
+    "saved_at": "2026-06-30T15:00:39.224361",
+    "filename": "project_details"
+  },
+  "data": {
+    "accession": "PXD011036",
+    "title": "Data independent acquisition cross-linking/mass spectrometry",
+    "additionalAttributes": [],
+    "projectDescription": "Quantitative cross-linking/mass spectrometry (QCLMS) provides increasing structural detail on altered protein states in solution. Accurate quantitation is a value in itself but may also be central to elucidating small differences between protein states. Hence, QCLMS could benefit from data independent acquisition (DIA) which generally provides higher reproducibility than data dependent acquisition (DDA) and higher throughput than targeted methods. Therefore we here open DIA to QCLMS by extending a widely used DIA software, Spectronaut to now also accommodate cross-link data. A mixture of seven proteins cross-linked with bis[sulfosuccinimidyl] suberate (BS3) was used to evaluate this workflow. Out of the 414 identified unique residue pairs, 292 (70%) were quantifiable across triplicates with a coefficient of variation (CV) of 9.8%, with manual correction of peak selection and boundaries for PSMs in the lower quartile of individual CV values. This compares favourably to DDA where we previously quantified only 63% of the identified cross-links across triplicates with a CV of 14%, for a single protein and complete manual data curation. DIA QCLMS is promising to detect differential abundance of cross-linked peptides in complex mixtures despite the encountered ratio compression when increasing sample complexity through the addition of E. coli cell lysate as matrix. In conclusion, DIA software Spectronaut can now be used in cross-linking and DIA is indeed able to improve QCLMS.",
+    "sampleProcessingProtocol": "Cross-linking reactions of the individual proteins (human serum albumin (HSA), cytochrome C (bovine heart), ovotransferrin (Conalbumin, chicken egg white), myoglobin (equine heart), lysozyme C (chicken egg white) and catalase (bovine liver)) were performed in parallel as following: purified proteins (40 μg; 2 µg/µL) in cross-linking buffer (20 mM HEPES-KOH, pH 7.5, 20 mM NaCl, 5 mM MgCl2,) was mixed with BS3 (160 µg, 30 μg/μL in cross-linking buffer) and cross-linking buffer (14.6 µL), to a total reaction volume of 40 µL (1 µg/µL protein concentration) with a protein to cross-linker mass ratio of 1:4. After 1.5 hour incubation on ice, the reaction was stopped using 5 µL saturated ammonium bicarbonate (~2.5 M) for 30 min at room temperature. 40 µg of cross-linked proteins were subjected to SDS-PAGE and protein bands were visualized using coomassie staining. Cross-linked monomer bands were excised for digestion. Each sample-containing gel band was digested separately. Proteins were reduced with 10 mM dithiothreitol, subsequently alkylated with 55 mM iodoacetamide and then digested using trypsin (300 ng/µL). After digestion, peptides were extracted using 80% v/v acetonitrile (ACN) in 0.1% v/v trifluoroacetic acid (TFA). Tryptic peptides were desalted using C18-Stage Tips and eluted with 80% v/v ACN, 0.1% v/v TFA prior to mass spectrometric analysis. Peptides were concentrated in a Vacufuge Concentrator (Eppendorf, Germany) and resuspended in 2% v/v ACN, 0.1% v/v formic acid (FA) to a final protein concentration of 0.75 μg/µL. Nominally for each mass spectrometric acquisition, 1.5 µg peptides were injected. LC-MS/MS analysis was performed using Orbitrap Fusion™ Lumos (Thermo Fisher Scientific, California, USA) with a “high/high” acquisition strategy. The peptide separation was carried out on an EASY-Spray column (50 cm x 75 µm ID, PepMap C18, 2 µm particles, 100 Å pore size, Thermo Fisher Scientific, Germany). Mobile phase A consisted of water and 0.1% v/v FA and mobile phase B consisted of 80% v/v ACN and 0.1% v/v FA. Peptides were loaded onto the column with 2% buffer B at 0.3 µL/min flow rate and eluted at 0.25 µL/min flow rate with following gradient: 150 min linear increase from 2% to 40% mobile phase B followed by 11 min increase from 40 to 95% mobile phase B. Eluted peptides were sprayed directly into the mass spectrometer and analysed using a data-dependent acquisition (DDA) mode. In each 3 sec acquisition cycle, precursor ions were detected in the Orbitrap with resolution 120,000 and m/z range 400-1600. Ions with charge states from 3+ to 7+ were selected for fragmentation. The selection priority was set to first lowest charge and then highest intensity. Selected ions were isolated in the quadrupole with a window size of m/z 2. The isolated ions were fragmented by high energy collision dissociation (HCD) and analysed with resolution 30.000 in Orbitrap. Dynamic exclusion was enabled with the exclusion duration set to 60 sec and exclusion mass tolerance was set to 10 ppm. For data-independent acquisition (DIA), the stock solution was diluted to reach 0.1x, 0.3x, 0.5x, 0.7x, 0.9x and 1x (undiluted) and optionally 1.5 µg tryptic E. coli cell lysate were added. The peptide separation was carried out on an EASY-Spray column. Peptides were separated using a 150 min gradient as described above. In DIA mode, precursor ions were acquired using a MS1 master scan (m/z range: 400-1200, max. injection time: 60 ms, AGC target: 4×105, detector: Orbitrap, resolution: 60K), following 66 DIA scans for MS2 within a fragmentation rage of m/z 120-1200 using isolation window width of m/z 12 and a max. injection time of 50 ms. Selected ions were isolated in the quadrupole, fragmented using HCD (normalized collision energy 30%) and detected in Orbitrap at 30K resolution.",
+    "dataProcessingProtocol": "The raw mass spectrometric data files were processed into peak lists using MaxQuant (v. 1.5.0.0). “FTMS top peaks per 100 Da” was set to 20, “FTMS de-isotoping” box was unticked, and all other parameters were set to default. The subsequent database search was conducted using Xi (v. 1.6.723) against the sequence of HSA (UniProt ID: P02768), cytochrome C (P62894), ovotransferrin (P02789), myoglobin (P68082), creatine kinase (P00563), lysozyme C (P00698) and catalase (P00432) with the reversed sequence of each protein as decoy. Search parameters were: MS tolerance: 6 ppm, MS/MS tolerance: 20 ppm, enzyme: trypsin, missed cleavages: 4, cross-linker: BS3, fixed modification: carbamidomethylation of cysteine, variable modification: oxidation of methionine and modification by BS3 with the second NHS ester hydrolysed or amidated, with BS3 reaction specificity at lysine, serine, threonine, tyrosine and N-termini of proteins. A false discovery rate of identified cross-links by Xi, was estimated using XiFDR (v 1.0.21.45) with following settings: filter to only cross-link PSMs and max. protein ambiguity was set to one. Other settings were left on default. Identification with 5% FDR at link level were accepted for quantitation. Quantitation was performed on MS1 and MS2 level using Spectronaut (version 11.0.15038.23.25164). The identification information of cross-linked peptides were introduced as a csv file following the standard format for custom libraries in Spectronaut (Manual for Spectronaut 11, available on Biognosis website). The csv file is constructed using a python script (xiDIA-library) based on the list of peptide spectrum matches (PSM) of identified cross-links. xiDIA-library is an open source collaborative initiative available in the GitHub repository https://github.com/Rappsilber-Laboratory/xiDIA-library. It is freely available under the Apache License v2.0. The script extracts the required information from different sources: Precursor information (e.g. m/z, charge) are read from the XiFDR PSM results file; fragment data are obtained through annotation by XiAnnotator [https://github.com/Rappsilber-Laboratory/xiAnnotator]; retention times are extracted from mzML files, obtained by subjecting raw files to MSconvert; and iRT values are determined using linear regression of observed retention times of iRT peptides. The in-house script offers also filtering options to favour cross-linker containing fragments, enable neutral loss fragments, label-free or labeling approach and different linkage sites of a cross-linked peptide. We selected up to 10 cross-linker containing and 10 linear b- or y-ions of highest intensity, falling within m/z 300-1400. The library was imported as external library, not using the Prepare Perspective option in Spectronaut. Protein modifications have to be defined in Spectronaut to enable internal decoy generation for quantitation. Following cross-linker modifications were generated manually: BS3-OH (156.078 Da), BS3-NH2 (155.094 Da) and BS3-d0 (138.068 Da). Defaults were used for the remaining settings. MS1 and MS2 filtering was done following the Spectronaut manual with the following deviations: Quantitation tab: Interference correction unticked, Minor (Peptide) Grouping: by modified sequence, Major Group Top N unticked, Minor Group Top N ticket (max 10, min 1), Minor Group Quantity: mean precursor quantity. After automated peak picking and retention time alignment of Spectronaut, a manual correction of peak boundaries was performed for cross-linked peptides with a coefficient of variation (CV) above 30% using the filter option “condition CV” in the View Perspective. Data from Spectronaut were exported using the Report Perspective into a .xls file to integrate feature-level quantitation data into residue-level data using a standard spreadsheet application (Excel, Microsoft).",
+    "projectTags": [
+      "Technical"
+    ],
+    "keywords": [
+      "Xi",
+      "Reproducibility",
+      "Spectronaut",
+      "Data independent acquisition",
+      "Label-free",
+      "Mass spectrometry",
+      "Quantitation",
+      "Cross-linking"
+    ],
+    "doi": "",
+    "submissionType": "PARTIAL",
+    "license": "Creative Commons Public Domain (CC0)",
+    "submissionDate": "2018-12-11",
+    "publicationDate": "2019-01-25",
+    "submitters": [
+      {
+        "title": "Miss",
+        "firstName": "Fränze",
+        "lastName": "Müller",
+        "identifier": "79670127",
+        "affiliation": "TU Berlin",
+        "email": "fraenze.mueller@tu-berlin.de",
+        "country": "Germany",
+        "orcid": "0000-0003-3764-3547",
+        "name": "Fränze Müller",
+        "id": "79670127"
+      }
+    ],
+    "labPIs": [
+      {
+        "title": "Dr",
+        "firstName": "Juri",
+        "lastName": "Rappsilber",
+        "identifier": "126030100",
+        "affiliation": "1 Bioanalytics, Institute of Biotechnology, Technische Universität Berlin, 13355 Berlin, Germany 2 Wellcome Centre for Cell Biology, School of Biologic Sciences, University of Edinburgh, Edinburgh EH9 3BF, Scotland, United Kingdom",
+        "email": "juri.rappsilber@tu-berlin.de",
+        "country": "",
+        "orcid": "",
+        "name": "Juri Rappsilber",
+        "id": "126030100"
+      }
+    ],
+    "instruments": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1002732",
+        "name": "Orbitrap Fusion Lumos"
+      }
+    ],
+    "softwares": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1001327",
+        "name": "Spectronaut"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1001583",
+        "name": "MaxQuant"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1002205",
+        "name": "ProteoWizard msconvert"
+      }
+    ],
+    "experimentTypes": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000430",
+        "name": "Chemical cross-linking coupled with mass spectrometry proteomics"
+      }
+    ],
+    "quantificationMethods": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000312",
+        "name": "Label free"
+      }
+    ],
+    "countries": [
+      "Germany"
+    ],
+    "sampleAttributes": [
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "OBI:0100026",
+          "name": "organism"
+        },
+        "value": [
+          {
+            "cvLabel": "NEWT",
+            "accession": "NEWT:9913",
+            "name": "Bos taurus (Bovine)"
+          },
+          {
+            "cvLabel": "NEWT",
+            "accession": "NEWT:9606",
+            "name": "Homo sapiens (Human)"
+          },
+          {
+            "cvLabel": "NEWT",
+            "accession": "NEWT:9986",
+            "name": "Oryctolagus cuniculus (Rabbit)"
+          },
+          {
+            "cvLabel": "NEWT",
+            "accession": "NEWT:9031",
+            "name": "Gallus gallus (Chicken)"
+          },
+          {
+            "cvLabel": "NEWT",
+            "accession": "NEWT:9796",
+            "name": "Equus caballus (Horse)"
+          }
+        ]
+      }
+    ],
+    "organisms": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "NEWT",
+        "accession": "NEWT:9796",
+        "name": "Equus caballus (horse)"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "NEWT",
+        "accession": "NEWT:9031",
+        "name": "Gallus gallus (chicken)"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "NEWT",
+        "accession": "NEWT:9606",
+        "name": "Homo sapiens (human)"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "NEWT",
+        "accession": "NEWT:9986",
+        "name": "Oryctolagus cuniculus (rabbit)"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "NEWT",
+        "accession": "NEWT:9913",
+        "name": "Bos taurus (bovine)"
+      }
+    ],
+    "organismParts": [],
+    "diseases": [],
+    "references": [
+      {
+        "referenceLine": "Müller F, Kolbowski L, Bernhardt OM, Reiter L, Rappsilber J. Data-independent acquisition improves quantitative cross-linking mass spectrometry. Mol Cell Proteomics. 2019",
+        "pubmedID": 30651306,
+        "doi": "10.1074/mcp.tir118.001276"
+      }
+    ],
+    "identifiedPTMStrings": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00425",
+        "name": "monohydroxylated residue"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00397",
+        "name": "iodoacetamide derivatized residue"
+      }
+    ],
+    "totalFileDownloads": 21163,
+    "botCount": 6312,
+    "hubCount": 14618,
+    "organicCount": 233,
+    "otherOmicsLinks": [
+      "px:PXD008550"
+    ],
+    "files": {
+      "files": [
+        {
+          "fileName": "7PMix_BS3_Conal_F4_DDA_iRT_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 15201814,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Conal_F4_DDA_iRT_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Cyto_F5_DDA_iRT_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 228224,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cyto_F5_DDA_iRT_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "HSA_BS3_0.1x_DDA_001.raw",
+          "fileSizeBytes": 1923989250,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.1x_DDA_001.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_HSA_F3_DDA_iRT_002.raw",
+          "fileSizeBytes": 931468116,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_HSA_F3_DDA_iRT_002.raw"
+        },
+        {
+          "fileName": "7PMix_0.5x_DIA12_iRT_ecoli_001.raw",
+          "fileSizeBytes": 549141085,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_0.5x_DIA12_iRT_ecoli_001.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Lyso_F1F2_DDA_iRT_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 22603547,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Lyso_F1F2_DDA_iRT_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Myo_F3_DDA_iRT_002.raw",
+          "fileSizeBytes": 759098866,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Myo_F3_DDA_iRT_002.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Cyto_F3_DDA_iRT_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 249426,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cyto_F3_DDA_iRT_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Conal_F4_DDA_iRT_002.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 15250336,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Conal_F4_DDA_iRT_002.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_HSA_F1F2_DDA_iRT_001.raw",
+          "fileSizeBytes": 952519802,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_HSA_F1F2_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_iRT_library_002.raw",
+          "fileSizeBytes": 1377132348,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_iRT_library_002.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Creatine_F1F2_DDA_iRT_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 31699385,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Creatine_F1F2_DDA_iRT_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Creatine_F3_DDA_iRT_002.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 66323017,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Creatine_F3_DDA_iRT_002.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_HSA_F6_DDA_iRT_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 149080,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_HSA_F6_DDA_iRT_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "HSA_BS3_0.5x_DDA_002.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 88440327,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.5x_DDA_002.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_library_002.raw",
+          "fileSizeBytes": 1631436820,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_library_002.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Cata_F5_DDA_iRT_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 870908,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cata_F5_DDA_iRT_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Lyso_F4_DDA_iRT_001.raw",
+          "fileSizeBytes": 737850732,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Lyso_F4_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "7PMix_1x_DIA12_iRT_001.raw",
+          "fileSizeBytes": 726367930,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_1x_DIA12_iRT_001.raw"
+        },
+        {
+          "fileName": "HSA_BS3_1x_DDA_003.raw",
+          "fileSizeBytes": 1740729304,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_1x_DDA_003.raw"
+        },
+        {
+          "fileName": "7PMix_0.7x_DIA12_iRT_001.raw",
+          "fileSizeBytes": 677295418,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_0.7x_DIA12_iRT_001.raw"
+        },
+        {
+          "fileName": "7PMix_0.9x_DIA12_iRT_ecoli_001.raw",
+          "fileSizeBytes": 552422559,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_0.9x_DIA12_iRT_ecoli_001.raw"
+        },
+        {
+          "fileName": "HSA_BS3_0.1x_DDA_003.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 75509772,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.1x_DDA_003.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_HSA_F4_DDA_iRT_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 15684028,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_HSA_F4_DDA_iRT_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_iRT_library_002.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 22506822,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_iRT_library_002.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Cratine32_DDA_iRT_001.raw",
+          "fileSizeBytes": 1131861380,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cratine32_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_iRT_library_008.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 20663462,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_iRT_library_008.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_0.3x_DIA12_iRT_002.raw",
+          "fileSizeBytes": 584583362,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_0.3x_DIA12_iRT_002.raw"
+        },
+        {
+          "fileName": "E.coli_background_library.xls",
+          "fileSizeBytes": 77536555,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/E.coli_background_library.xls"
+        },
+        {
+          "fileName": "7PMix_BS3_HSA_F3_DDA_iRT_002.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 40305418,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_HSA_F3_DDA_iRT_002.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_iRT_library_001.raw",
+          "fileSizeBytes": 1414563816,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_iRT_library_001.raw"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_iRT_library_003.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 23730439,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_iRT_library_003.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "HSA_BS3_1x_DDA_003.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 48789954,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_1x_DDA_003.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_0.3x_DIA12_iRT_ecoli_002.raw",
+          "fileSizeBytes": 550188949,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_0.3x_DIA12_iRT_ecoli_002.raw"
+        },
+        {
+          "fileName": "HSA_BS3_DDA_dilution.sky",
+          "fileSizeBytes": 6851772,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_DDA_dilution.sky"
+        },
+        {
+          "fileName": "7PMix_BS3_Cata_F3_DDA_iRT_002.raw",
+          "fileSizeBytes": 882743992,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cata_F3_DDA_iRT_002.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Myo_F6_DDA_iRT_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 315952,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Myo_F6_DDA_iRT_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "Ecoli_DDA_Library-06.raw",
+          "fileSizeBytes": 1095246795,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/Ecoli_DDA_Library-06.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Cyto_F4_DDA_iRT_002.raw",
+          "fileSizeBytes": 759252744,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cyto_F4_DDA_iRT_002.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Cyto_F3_DDA_iRT_002.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 553754,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cyto_F3_DDA_iRT_002.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Cyto_F6_DDA_iRT_001.raw",
+          "fileSizeBytes": 715830558,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cyto_F6_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "HSA_BS3_0.3x_DDA_003.raw",
+          "fileSizeBytes": 1936291010,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.3x_DDA_003.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_HSA_F1F2_DDA_iRT_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 84222362,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_HSA_F1F2_DDA_iRT_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "HSA_BS3_1x_DDA_002.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 56074120,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_1x_DDA_002.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_iRT_library_003.raw",
+          "fileSizeBytes": 1374204568,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_iRT_library_003.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Conal_F1F2_DDA_iRT_001.raw",
+          "fileSizeBytes": 905028012,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Conal_F1F2_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "HSA_BS3_0.9x_DDA_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 109441912,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.9x_DDA_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Creatine_F3_DDA_iRT_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 42901277,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Creatine_F3_DDA_iRT_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Cata_F4_DDA_iRT_001.raw",
+          "fileSizeBytes": 572519374,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cata_F4_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "HSA_BS3_0.1x_DDA_003.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 81531727,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.1x_DDA_003.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_1x_DIA12_iRT_ecoli_001.raw",
+          "fileSizeBytes": 544598168,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_1x_DIA12_iRT_ecoli_001.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Cyto_F1F2_DDA_iRT_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 4501864,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cyto_F1F2_DDA_iRT_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Lyso_F3_DDA_iRT_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 15975331,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Lyso_F3_DDA_iRT_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Conal_F3_DDA_iRT_002.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 31032036,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Conal_F3_DDA_iRT_002.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Cyto_F4_DDA_iRT_001.raw",
+          "fileSizeBytes": 552461162,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cyto_F4_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Cata_F4_DDA_iRT_002.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 5348400,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cata_F4_DDA_iRT_002.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Creatine81_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 21166269,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Creatine81_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "E.coli_uniprot-proteome.fasta",
+          "fileSizeBytes": 1871952,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/E.coli_uniprot-proteome.fasta"
+        },
+        {
+          "fileName": "7PMix_0.5x_DIA12_iRT_003.raw",
+          "fileSizeBytes": 643188746,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_0.5x_DIA12_iRT_003.raw"
+        },
+        {
+          "fileName": "HSA_BS3_0.5x_DDA_003.raw",
+          "fileSizeBytes": 1994591248,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.5x_DDA_003.raw"
+        },
+        {
+          "fileName": "7PMix_0.5x_DIA12_iRT_ecoli_003.raw",
+          "fileSizeBytes": 545232015,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_0.5x_DIA12_iRT_ecoli_003.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Conal_F1F2_DDA_iRT_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 55379290,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Conal_F1F2_DDA_iRT_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Cyto_F5_DDA_iRT_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 281434,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cyto_F5_DDA_iRT_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_library_003.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 16268438,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_library_003.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Cata_F3_DDA_iRT_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 1971106,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cata_F3_DDA_iRT_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Creatine_F4_DDA_iRT_002.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 26758878,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Creatine_F4_DDA_iRT_002.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_SCX_ecolibg_dilution.sne",
+          "fileSizeBytes": 5372285329,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_SCX_ecolibg_dilution.sne"
+        },
+        {
+          "fileName": "7PMix_BS3_Conal_F4_DDA_iRT_001.raw",
+          "fileSizeBytes": 807339818,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Conal_F4_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Cyto_F4_DDA_iRT_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 840128,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cyto_F4_DDA_iRT_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_0.7x_DIA12_iRT_003.raw",
+          "fileSizeBytes": 666275804,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_0.7x_DIA12_iRT_003.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Creatine81_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 8162462,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Creatine81_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "Ecoli_DDA_Library-01.raw",
+          "fileSizeBytes": 1099473947,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/Ecoli_DDA_Library-01.raw"
+        },
+        {
+          "fileName": "7PMix_e.coli_DDA_iRT_library_002.mgf",
+          "fileSizeBytes": 87121724,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_e.coli_DDA_iRT_library_002.mgf"
+        },
+        {
+          "fileName": "7PMix_BS3_Myo_F3_DDA_iRT_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 1665748,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Myo_F3_DDA_iRT_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_0.3x_DIA12_iRT_ecoli_003.raw",
+          "fileSizeBytes": 548837571,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_0.3x_DIA12_iRT_ecoli_003.raw"
+        },
+        {
+          "fileName": "HSA-Active.FASTA",
+          "fileSizeBytes": 668,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA-Active.FASTA"
+        },
+        {
+          "fileName": "7PMix_BS3_Creatine_F1F2_DDA_iRT_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 17187142,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Creatine_F1F2_DDA_iRT_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Myo_F5_DDA_iRT_001.raw",
+          "fileSizeBytes": 624090266,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Myo_F5_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Cyto_F3_DDA_iRT_002.raw",
+          "fileSizeBytes": 716311788,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cyto_F3_DDA_iRT_002.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Lyso_F1F2_DDA_iRT_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 17999236,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Lyso_F1F2_DDA_iRT_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Cyto_F6_DDA_iRT_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 488118,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cyto_F6_DDA_iRT_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Lyso_F3_DDA_iRT_001.raw",
+          "fileSizeBytes": 736901688,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Lyso_F3_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Creatine_F3_DDA_iRT_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 19273574,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Creatine_F3_DDA_iRT_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "HSA_BS3_DDA_dilution.skyd",
+          "fileSizeBytes": 306034955,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_DDA_dilution.skyd"
+        },
+        {
+          "fileName": "7PMix_BS3_Cata_F1F2_DDA_iRT_001.raw",
+          "fileSizeBytes": 817056424,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cata_F1F2_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Cata_F6_DDA_iRT_001.raw",
+          "fileSizeBytes": 736609030,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cata_F6_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "7PMix_0.1x_DIA12_iRT_001.raw",
+          "fileSizeBytes": 562743800,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_0.1x_DIA12_iRT_001.raw"
+        },
+        {
+          "fileName": "7PMix_0.9x_DIA12_iRT_ecoli_003.raw",
+          "fileSizeBytes": 549224982,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_0.9x_DIA12_iRT_ecoli_003.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Conal_F6_DDA_iRT_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 6554548,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Conal_F6_DDA_iRT_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "XiDIALib_7PMix_BS3_ecolibg_nCL10_nLin10_lossyFalse.csv",
+          "fileSizeBytes": 10882709,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/XiDIALib_7PMix_BS3_ecolibg_nCL10_nLin10_lossyFalse.csv"
+        },
+        {
+          "fileName": "HSA_BS3_0.3x_DDA_002.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 75812758,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.3x_DDA_002.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Myo_F3_DDA_iRT_002.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 2880713,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Myo_F3_DDA_iRT_002.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "HSA_BS3_1x_DDA_002.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 59749834,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_1x_DDA_002.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_e.coli_DDA_iRT_library_001.raw",
+          "fileSizeBytes": 1087879491,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_e.coli_DDA_iRT_library_001.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Creatine_F3_DDA_iRT_002.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 33037610,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Creatine_F3_DDA_iRT_002.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Conal_F5_DDA_iRT_001.raw",
+          "fileSizeBytes": 969449744,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Conal_F5_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Lyso_F4_DDA_iRT_002.raw",
+          "fileSizeBytes": 760650192,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Lyso_F4_DDA_iRT_002.raw"
+        },
+        {
+          "fileName": "7PMix_0.7x_DIA12_iRT_ecoli_003.raw",
+          "fileSizeBytes": 544862626,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_0.7x_DIA12_iRT_ecoli_003.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Myo_F5_DDA_iRT_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 363015,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Myo_F5_DDA_iRT_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "Spectronaut_output_7PMix_BS3_SCX_ingel.xls",
+          "fileSizeBytes": 4045420,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/Spectronaut_output_7PMix_BS3_SCX_ingel.xls"
+        },
+        {
+          "fileName": "Ecoli_DDA_Library-03.raw",
+          "fileSizeBytes": 1066325990,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/Ecoli_DDA_Library-03.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_HSA_F6_DDA_iRT_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 227620,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_HSA_F6_DDA_iRT_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Myo_F6_DDA_iRT_001.raw",
+          "fileSizeBytes": 706842798,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Myo_F6_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Cata_F3_DDA_iRT_001.raw",
+          "fileSizeBytes": 653540910,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cata_F3_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Creatine_F6_DDA_iRT_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 3962571,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Creatine_F6_DDA_iRT_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Lyso_F3_DDA_iRT_002.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 2064242,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Lyso_F3_DDA_iRT_002.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Cyto_F3_DDA_iRT_001.raw",
+          "fileSizeBytes": 553941352,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cyto_F3_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "HSA_BS3_1x_DDA_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 62073306,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_1x_DDA_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_iRT_library_004.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 20886028,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_iRT_library_004.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "HSA_BS3_0.9x_DDA_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 104928804,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.9x_DDA_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Myo_F1F2_DDA_iRT_001.raw",
+          "fileSizeBytes": 676559384,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Myo_F1F2_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "7PMix_0.1x_DIA12_iRT_ecoli_001.raw",
+          "fileSizeBytes": 516831379,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_0.1x_DIA12_iRT_ecoli_001.raw"
+        },
+        {
+          "fileName": "HSA_BS3_0.1x_DDA_003.raw",
+          "fileSizeBytes": 1943145188,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.1x_DDA_003.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_HSA_F3_DDA_iRT_001.raw",
+          "fileSizeBytes": 887432710,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_HSA_F3_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Cyto_F1F2_DDA_iRT_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 2789894,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cyto_F1F2_DDA_iRT_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "HSA_BS3_0.5x_DDA_003.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 108738250,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.5x_DDA_003.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Conal_F6_DDA_iRT_001.raw",
+          "fileSizeBytes": 871745794,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Conal_F6_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "7PMix_0.5x_DIA12_iRT_ecoli_002.raw",
+          "fileSizeBytes": 547965582,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_0.5x_DIA12_iRT_ecoli_002.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Creatine_F5_DDA_iRT_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 9584901,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Creatine_F5_DDA_iRT_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Myo_F4_DDA_iRT_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 2296428,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Myo_F4_DDA_iRT_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Lyso_F3_DDA_iRT_002.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 3266865,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Lyso_F3_DDA_iRT_002.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Cata_F4_DDA_iRT_002.raw",
+          "fileSizeBytes": 786688454,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cata_F4_DDA_iRT_002.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Creatine32_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 8617406,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Creatine32_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Ceratin_F1F2_DDA_iRT_001.raw",
+          "fileSizeBytes": 872519130,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Ceratin_F1F2_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_HSA_F5_DDA_iRT_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 10248884,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_HSA_F5_DDA_iRT_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "HSA_BS3_0.3x_DDA_001.raw",
+          "fileSizeBytes": 1939747104,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.3x_DDA_001.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Myo_F3_DDA_iRT_001.raw",
+          "fileSizeBytes": 620948648,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Myo_F3_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Myo_F4_DDA_iRT_002.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 2234786,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Myo_F4_DDA_iRT_002.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_iRT_library_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 24564963,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_iRT_library_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_iRT_library_004.raw",
+          "fileSizeBytes": 1368038854,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_iRT_library_004.raw"
+        },
+        {
+          "fileName": "XiFDR_PSMfile_HSA_BS3_5linklevel.csv",
+          "fileSizeBytes": 386493,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/XiFDR_PSMfile_HSA_BS3_5linklevel.csv"
+        },
+        {
+          "fileName": "HSA_BS3_0.9x_DDA_003.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 104104387,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.9x_DDA_003.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_HSA_F4_DDA_iRT_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 7530836,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_HSA_F4_DDA_iRT_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "HSA_BS3_0.5x_DDA_001.raw",
+          "fileSizeBytes": 1958509596,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.5x_DDA_001.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_HSA_F5_DDA_iRT_001.raw",
+          "fileSizeBytes": 977489570,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_HSA_F5_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Cata_F5_DDA_iRT_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 2178043,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cata_F5_DDA_iRT_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_HSA_F4_DDA_iRT_001.raw",
+          "fileSizeBytes": 755108054,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_HSA_F4_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_library_005.raw",
+          "fileSizeBytes": 467279100,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_library_005.raw"
+        },
+        {
+          "fileName": "HSA_BS3_0.9x_DDA_003.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 115670850,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.9x_DDA_003.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "HSA_BS3_1x_DDA_001.raw",
+          "fileSizeBytes": 1787089784,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_1x_DDA_001.raw"
+        },
+        {
+          "fileName": "HSA_BS3_0.3x_DDA_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 84493372,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.3x_DDA_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Cata_F4_DDA_iRT_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 814578,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cata_F4_DDA_iRT_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_library_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 17369676,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_library_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7ProteinMix.fasta",
+          "fileSizeBytes": 3155,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7ProteinMix.fasta"
+        },
+        {
+          "fileName": "HSA_BS3_1x_DDA_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 66322078,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_1x_DDA_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Conal_F6_DDA_iRT_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 9875042,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Conal_F6_DDA_iRT_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_1x_DIA12_iRT_002.raw",
+          "fileSizeBytes": 718861180,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_1x_DIA12_iRT_002.raw"
+        },
+        {
+          "fileName": "HSA_BS3_0.5x_DDA_002.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 85382130,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.5x_DDA_002.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Myo_F1F2_DDA_iRT_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 4242361,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Myo_F1F2_DDA_iRT_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_iRT_library_005.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 20724550,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_iRT_library_005.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Lyso_F4_DDA_iRT_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 3075352,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Lyso_F4_DDA_iRT_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "HSA_BS3_0.1x_DDA_002.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 78679405,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.1x_DDA_002.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "HSA_BS3_DDA_dilution.sky.view",
+          "fileSizeBytes": 18664,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_DDA_dilution.sky.view"
+        },
+        {
+          "fileName": "7PMix_BS3_Lyso_F4_DDA_iRT_002.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 1502238,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Lyso_F4_DDA_iRT_002.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_0.1x_DIA12_iRT_ecoli_003.raw",
+          "fileSizeBytes": 509821051,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_0.1x_DIA12_iRT_ecoli_003.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Conal_F4_DDA_iRT_002.raw",
+          "fileSizeBytes": 894955586,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Conal_F4_DDA_iRT_002.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_HSA_F1F2_DDA_iRT_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 49877160,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_HSA_F1F2_DDA_iRT_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_e.coli_DDA_iRT_library_002.raw",
+          "fileSizeBytes": 1092006193,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_e.coli_DDA_iRT_library_002.raw"
+        },
+        {
+          "fileName": "HSA_BS3_0.1x_DDA_002.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 71044168,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.1x_DDA_002.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Cata_F6_DDA_iRT_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 574941,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cata_F6_DDA_iRT_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_0.1x_DIA12_iRT_002.raw",
+          "fileSizeBytes": 551503948,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_0.1x_DIA12_iRT_002.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Ceratin_F4_DDA_iRT_001.raw",
+          "fileSizeBytes": 798208436,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Ceratin_F4_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Conal_F3_DDA_iRT_002.raw",
+          "fileSizeBytes": 943515226,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Conal_F3_DDA_iRT_002.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Conal_F3_DDA_iRT_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 61258981,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Conal_F3_DDA_iRT_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Creatine81_DDA_iRT_001.raw",
+          "fileSizeBytes": 1172015330,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Creatine81_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Cata_F1F2_DDA_iRT_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 8619210,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cata_F1F2_DDA_iRT_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_iRT_library_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 22562830,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_iRT_library_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "Ecoli_DDA_Library-05.raw",
+          "fileSizeBytes": 1059704247,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/Ecoli_DDA_Library-05.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Creatine_F4_DDA_iRT_002.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 49266236,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Creatine_F4_DDA_iRT_002.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_e.coli_DDA_iRT_library_001.mgf",
+          "fileSizeBytes": 87618146,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_e.coli_DDA_iRT_library_001.mgf"
+        },
+        {
+          "fileName": "HSA_BS3_0.3x_DDA_003.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 83630226,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.3x_DDA_003.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_iRT_library_006.raw",
+          "fileSizeBytes": 1400336502,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_iRT_library_006.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Cata_F4_DDA_iRT_002.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 2162926,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cata_F4_DDA_iRT_002.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_0.7x_DIA12_iRT_ecoli_002.raw",
+          "fileSizeBytes": 548454340,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_0.7x_DIA12_iRT_ecoli_002.raw"
+        },
+        {
+          "fileName": "HSA_BS3_0.5x_DDA_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 92942108,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.5x_DDA_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "HSA_BS3_0.3x_DDA_002.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 81829366,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.3x_DDA_002.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Cyto_F3_DDA_iRT_002.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 586994,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cyto_F3_DDA_iRT_002.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "Ecoli_DDA_Library-02.raw",
+          "fileSizeBytes": 1066364563,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/Ecoli_DDA_Library-02.raw"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_iRT_library_007.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 20887230,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_iRT_library_007.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Cata_F3_DDA_iRT_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 5767241,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cata_F3_DDA_iRT_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_0.9x_DIA12_iRT_ecoli_002.raw",
+          "fileSizeBytes": 551217248,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_0.9x_DIA12_iRT_ecoli_002.raw"
+        },
+        {
+          "fileName": "HSA_BS3_0.1x_DDA_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 72083618,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.1x_DDA_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Cata_F6_DDA_iRT_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 769018,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cata_F6_DDA_iRT_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_0.5x_DIA12_iRT_001.raw",
+          "fileSizeBytes": 652928454,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_0.5x_DIA12_iRT_001.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Creatine_F5_DDA_iRT_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 4756792,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Creatine_F5_DDA_iRT_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Myo_F1F2_DDA_iRT_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 2517350,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Myo_F1F2_DDA_iRT_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Creatine_F4_DDA_iRT_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 8924910,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Creatine_F4_DDA_iRT_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "HSA_BS3_0.5x_DDA_001HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 94834125,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.5x_DDA_001HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "HSA_BS3_1x_DDA_002.raw",
+          "fileSizeBytes": 1776610518,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_1x_DDA_002.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_HSA_F6_DDA_iRT_001.raw",
+          "fileSizeBytes": 672270800,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_HSA_F6_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "XiDIALib_7PMix_BS3_nCL10_nLin10_lossyFalse.csv",
+          "fileSizeBytes": 12787870,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/XiDIALib_7PMix_BS3_nCL10_nLin10_lossyFalse.csv"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_library_004.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 24025603,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_library_004.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Cyto_F4_DDA_iRT_002.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 1613384,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cyto_F4_DDA_iRT_002.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Conal_F3_DDA_iRT_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 29983004,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Conal_F3_DDA_iRT_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Cyto_F4_DDA_iRT_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 315218,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cyto_F4_DDA_iRT_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Cata_F1F2_DDA_iRT_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 17100010,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cata_F1F2_DDA_iRT_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "HSA_BS3_0.5x_DDA_003.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 99510765,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.5x_DDA_003.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_library_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 22539572,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_library_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_HSA_F4_DDA_iRT_002.raw",
+          "fileSizeBytes": 850736108,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_HSA_F4_DDA_iRT_002.raw"
+        },
+        {
+          "fileName": "HSA_BS3_0.1x_DDA_002.raw",
+          "fileSizeBytes": 1930094770,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.1x_DDA_002.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_HSA_F4_DDA_iRT_002.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 7111446,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_HSA_F4_DDA_iRT_002.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Ceratin_F3_DDA_iRT_002.raw",
+          "fileSizeBytes": 1018092150,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Ceratin_F3_DDA_iRT_002.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Conal_F4_DDA_iRT_002.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 25396641,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Conal_F4_DDA_iRT_002.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_0.9x_DIA12_iRT_002.raw",
+          "fileSizeBytes": 709709974,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_0.9x_DIA12_iRT_002.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Lyso_F3_DDA_iRT_002.raw",
+          "fileSizeBytes": 824590288,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Lyso_F3_DDA_iRT_002.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Lyso_F6_DDA_iRT_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 306746,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Lyso_F6_DDA_iRT_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_iRT_library_005.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 24688780,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_iRT_library_005.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Cyto_F4_DDA_iRT_002.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 673729,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cyto_F4_DDA_iRT_002.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Myo_F4_DDA_iRT_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 728832,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Myo_F4_DDA_iRT_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_0.3x_DIA12_iRT_ecoli_001.raw",
+          "fileSizeBytes": 551169351,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_0.3x_DIA12_iRT_ecoli_001.raw"
+        },
+        {
+          "fileName": "HSA_BS3_0.3x_DDA_003.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 79259414,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.3x_DDA_003.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Cata_F5_DDA_iRT_001.raw",
+          "fileSizeBytes": 766266830,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cata_F5_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_library_004.raw",
+          "fileSizeBytes": 1624244622,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_library_004.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Lyso_F5_DDA_iRT_001.raw",
+          "fileSizeBytes": 721043436,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Lyso_F5_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Cata_F3_DDA_iRT_002.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 12099335,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cata_F3_DDA_iRT_002.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Creatine_F4_DDA_iRT_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 18013299,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Creatine_F4_DDA_iRT_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Ceratin_F5_DDA_iRT_001.raw",
+          "fileSizeBytes": 931848390,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Ceratin_F5_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_HSA_F3_DDA_iRT_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 29917694,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_HSA_F3_DDA_iRT_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_iRT_library_003.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 21243536,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_iRT_library_003.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_iRT_library_005.raw",
+          "fileSizeBytes": 1391956218,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_iRT_library_005.raw"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_iRT_library_007.raw",
+          "fileSizeBytes": 1405878742,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_iRT_library_007.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Myo_F6_DDA_iRT_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 212360,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Myo_F6_DDA_iRT_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Lyso_F4_DDA_iRT_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 9915005,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Lyso_F4_DDA_iRT_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_DIA_SCX_dilution.sne",
+          "fileSizeBytes": 17137823513,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_DIA_SCX_dilution.sne"
+        },
+        {
+          "fileName": "7PMix_BS3_Lyso_F6_DDA_iRT_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 454005,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Lyso_F6_DDA_iRT_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_iRT_library_008.raw",
+          "fileSizeBytes": 1410042116,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_iRT_library_008.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Lyso_F6_DDA_iRT_001.raw",
+          "fileSizeBytes": 622650832,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Lyso_F6_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Myo_F5_DDA_iRT_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 243272,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Myo_F5_DDA_iRT_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_1x_DIA12_iRT_ecoli_003.raw",
+          "fileSizeBytes": 539651850,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_1x_DIA12_iRT_ecoli_003.raw"
+        },
+        {
+          "fileName": "XiFDR_PSMfile_7PMix_BS3_5linklevel.csv",
+          "fileSizeBytes": 1152661,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/XiFDR_PSMfile_7PMix_BS3_5linklevel.csv"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_library_003.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 23690345,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_library_003.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "HSA_BS3_0.3x_DDA_002.raw",
+          "fileSizeBytes": 1931680794,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.3x_DDA_002.raw"
+        },
+        {
+          "fileName": "Spectronaut_output_7PMix_BS3_SCX_ingel_ecolibg.xls",
+          "fileSizeBytes": 2910095,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/Spectronaut_output_7PMix_BS3_SCX_ingel_ecolibg.xls"
+        },
+        {
+          "fileName": "7PMix_BS3_Lyso_F3_DDA_iRT_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 7325890,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Lyso_F3_DDA_iRT_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_HSA_F4_DDA_iRT_002.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 11135206,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_HSA_F4_DDA_iRT_002.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_HSA_F5_DDA_iRT_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 15789423,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_HSA_F5_DDA_iRT_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "HSA_BS3_0.9x_DDA_002.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 107330240,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.9x_DDA_002.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Myo_F4_DDA_iRT_001.raw",
+          "fileSizeBytes": 614772748,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Myo_F4_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "7PMix_0.1x_DIA12_iRT_ecoli_002.raw",
+          "fileSizeBytes": 514962591,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_0.1x_DIA12_iRT_ecoli_002.raw"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_iRT_library_008.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 23984139,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_iRT_library_008.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_1x_DIA12_iRT_003.raw",
+          "fileSizeBytes": 714212566,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_1x_DIA12_iRT_003.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Cata_F3_DDA_iRT_002.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 5283938,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cata_F3_DDA_iRT_002.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_SCX_E.coli_bg_lib_withI_Report.xls",
+          "fileSizeBytes": 77011239,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_SCX_E.coli_bg_lib_withI_Report.xls"
+        },
+        {
+          "fileName": "HSA_BS3_1x_DDA_003.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 55080183,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_1x_DDA_003.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_0.5x_DIA12_iRT_002.raw",
+          "fileSizeBytes": 647813756,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_0.5x_DIA12_iRT_002.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Conal_F4_DDA_iRT_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 29337285,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Conal_F4_DDA_iRT_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "HSA_BS3_0.9x_DDA_002.raw",
+          "fileSizeBytes": 2062599244,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.9x_DDA_002.raw"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_library_003.raw",
+          "fileSizeBytes": 1643048368,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_library_003.raw"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_library_002.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 22840161,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_library_002.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "HSA_BS3_0.9x_DDA_003.raw",
+          "fileSizeBytes": 2033322888,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.9x_DDA_003.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Cyto_F1F2_DDA_iRT_001.raw",
+          "fileSizeBytes": 759406068,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cyto_F1F2_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Cyto_F5_DDA_iRT_001.raw",
+          "fileSizeBytes": 691521348,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cyto_F5_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "Ecoli_DDA_Library-04.raw",
+          "fileSizeBytes": 1059976195,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/Ecoli_DDA_Library-04.raw"
+        },
+        {
+          "fileName": "HSA_BS3_0.9x_DDA_001.raw",
+          "fileSizeBytes": 2011892544,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.9x_DDA_001.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Lyso_F5_DDA_iRT_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 897261,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Lyso_F5_DDA_iRT_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Cyto_F3_DDA_iRT_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 700866,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cyto_F3_DDA_iRT_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Conal_F1F2_DDA_iRT_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 82691097,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Conal_F1F2_DDA_iRT_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_iRT_library_006.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 21463798,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_iRT_library_006.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Creatine_F6_DDA_iRT_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 1855084,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Creatine_F6_DDA_iRT_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Ceratin_F6_DDA_iRT_001.raw",
+          "fileSizeBytes": 912361104,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Ceratin_F6_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Myo_F3_DDA_iRT_002.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 2701872,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Myo_F3_DDA_iRT_002.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "HSA_BS3_0.9x_DDA_002.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 125697476,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.9x_DDA_002.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_e.coli_DDA_iRT_library_003.mgf",
+          "fileSizeBytes": 85819792,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_e.coli_DDA_iRT_library_003.mgf"
+        },
+        {
+          "fileName": "7PMix_BS3_Myo_F3_DDA_iRT_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 4227799,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Myo_F3_DDA_iRT_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_HSA_F3_DDA_iRT_002.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 20145496,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_HSA_F3_DDA_iRT_002.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_iRT_library_006.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 24125093,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_iRT_library_006.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Ceratin_F4_DDA_iRT_002.raw",
+          "fileSizeBytes": 1058531334,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Ceratin_F4_DDA_iRT_002.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Myo_F4_DDA_iRT_002.raw",
+          "fileSizeBytes": 733847768,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Myo_F4_DDA_iRT_002.raw"
+        },
+        {
+          "fileName": "HSA_BS3_0.1x_DDA_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 78809686,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.1x_DDA_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_library_004.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 16465738,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_library_004.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_0.3x_DIA12_iRT_001.raw",
+          "fileSizeBytes": 584012382,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_0.3x_DIA12_iRT_001.raw"
+        },
+        {
+          "fileName": "HSA_BS3_0.5x_DDA_002.raw",
+          "fileSizeBytes": 1920675466,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.5x_DDA_002.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Lyso_F5_DDA_iRT_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 392956,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Lyso_F5_DDA_iRT_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_0.3x_DIA12_iRT_003.raw",
+          "fileSizeBytes": 588479478,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_0.3x_DIA12_iRT_003.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Myo_F4_DDA_iRT_002.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 1656320,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Myo_F4_DDA_iRT_002.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Lyso_F1F2_DDA_iRT_001.raw",
+          "fileSizeBytes": 769461386,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Lyso_F1F2_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "7PMix_0.1x_DIA12_iRT_003.raw",
+          "fileSizeBytes": 538198914,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_0.1x_DIA12_iRT_003.raw"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_library_001.raw",
+          "fileSizeBytes": 1558506120,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_library_001.raw"
+        },
+        {
+          "fileName": "7PMix_0.9x_DIA12_iRT_003.raw",
+          "fileSizeBytes": 705408412,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_0.9x_DIA12_iRT_003.raw"
+        },
+        {
+          "fileName": "7PMix_1x_DIA12_iRT_ecoli_002.raw",
+          "fileSizeBytes": 542322312,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_1x_DIA12_iRT_ecoli_002.raw"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_iRT_library_004.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 23202643,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_iRT_library_004.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_0.7x_DIA12_iRT_ecoli_001.raw",
+          "fileSizeBytes": 549105118,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_0.7x_DIA12_iRT_ecoli_001.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Conal_F3_DDA_iRT_001.raw",
+          "fileSizeBytes": 879572590,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Conal_F3_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_iRT_library_007.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 23933949,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_iRT_library_007.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "HSA_BS3_0.3x_DDA_001.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 76441194,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_0.3x_DDA_001.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_library_002.HCD.FTMS.peak.apl",
+          "fileSizeBytes": 15763648,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_library_002.HCD.FTMS.peak.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Lyso_F4_DDA_iRT_002.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 1508009,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Lyso_F4_DDA_iRT_002.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_0.9x_DIA12_iRT_001.raw",
+          "fileSizeBytes": 704909064,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_0.9x_DIA12_iRT_001.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Conal_F3_DDA_iRT_002.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 57261782,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Conal_F3_DDA_iRT_002.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Creatine32_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 19859186,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Creatine32_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_pooled_DDA_iRT_library_002.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 23808689,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_pooled_DDA_iRT_library_002.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_HSA_F3_DDA_iRT_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 62838129,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_HSA_F3_DDA_iRT_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_0.7x_DIA12_iRT_002.raw",
+          "fileSizeBytes": 669369058,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_0.7x_DIA12_iRT_002.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Ceratin_F3_DDA_iRT_001.raw",
+          "fileSizeBytes": 889927676,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Ceratin_F3_DDA_iRT_001.raw"
+        },
+        {
+          "fileName": "7PMix_BS3_Cyto_F6_DDA_iRT_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 702171,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cyto_F6_DDA_iRT_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_Cata_F4_DDA_iRT_001.HCD.FTMS.sil0.apl",
+          "fileSizeBytes": 2177473,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_Cata_F4_DDA_iRT_001.HCD.FTMS.sil0.apl"
+        },
+        {
+          "fileName": "7PMix_BS3_e.coli_DDA_iRT_library_003.raw",
+          "fileSizeBytes": 1090095466,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/7PMix_BS3_e.coli_DDA_iRT_library_003.raw"
+        },
+        {
+          "fileName": "HSA_BS3_DDA_dilution.ssl",
+          "fileSizeBytes": 110567,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/HSA_BS3_DDA_dilution.ssl"
+        },
+        {
+          "fileName": "XiFDR_PSMfile_7PMix_BS3_ecolibg_5linklevel.csv",
+          "fileSizeBytes": 965309,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD011036/XiFDR_PSMfile_7PMix_BS3_ecolibg_5linklevel.csv"
+        }
+      ],
+      "totalCount": 299
+    }
+  }
+}

@@ -1,0 +1,916 @@
+{
+  "metadata": {
+    "pxd": "PXD049094",
+    "category": "enhanced",
+    "saved_at": "2026-06-30T15:40:46.978745",
+    "filename": "metadata"
+  },
+  "data": {
+    "pxd": "PXD049094",
+    "processed_at": "2026-06-30T15:39:54.711972",
+    "stages": {
+      "pride": "success",
+      "publication": "skipped_no_pmid",
+      "file_clustering": "success",
+      "raw_processing": "skipped_no_download",
+      "spectral_merge": "success",
+      "llm": "success",
+      "sdrf": "success",
+      "sdrf_validation": "success_with_warnings",
+      "xi_configs": "success",
+      "relink": "skipped",
+      "compilation": "success"
+    },
+    "file_assignments": {
+      "210416_Vita_VL-2064_C8-1_20210416161636.raw": {
+        "cluster_id": "cluster_1",
+        "cluster_label": "human_prc1_bs3",
+        "organism": "Homo sapiens",
+        "taxid": "NCBITaxon:9606"
+      },
+      "210416_Vita_VL-2064_C8-2.raw": {
+        "cluster_id": "cluster_1",
+        "cluster_label": "human_prc1_bs3",
+        "organism": "Homo sapiens",
+        "taxid": "NCBITaxon:9606"
+      },
+      "210416_Vita_VL-2064_C8-3.raw": {
+        "cluster_id": "cluster_1",
+        "cluster_label": "human_prc1_bs3",
+        "organism": "Homo sapiens",
+        "taxid": "NCBITaxon:9606"
+      }
+    },
+    "spectral_summary": {
+      "source_files_parsed": 0,
+      "per_file": [],
+      "instrument": "Q Exactive HF"
+    },
+    "sdrf_path": "pxd_data/PXD049094/sdrf/PXD049094.sdrf.tsv",
+    "sdrf_validation_warnings": "WARNING: Term: not available in column 'comment[instrument]', is not found in the given ontology list ms;pride\nERROR: Column 'comment[instrument]' contains 'not available' values but requires actual values\nERROR: Term: not available in column 'comment[dissociation method]', is not found in the given ontology list ms;pride\nERROR: Column 'comment[dissociation method]' contains 'not available' values but requires actual values\nThere were validation errors.",
+    "xi_config_paths": {
+      "crosslinking": "pxd_data/PXD049094/configs/xi_crosslinking.conf",
+      "linear": "pxd_data/PXD049094/configs/xi_linear.conf"
+    },
+    "pride_data": {
+      "accession": "PXD049094",
+      "title": "RNF2_PCGF4_CBX8 crosslinked with BS3",
+      "additionalAttributes": [],
+      "projectDescription": "Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8 was crosslinked with BS3 to identify complex structure",
+      "sampleProcessingProtocol": "PRC1 was at a concentration of 1uM. The bis(sulfosuccinimidyl)suberate (BS3) crosslinker was added to a final concentration of 500 μM and crosslinking proceeded for 20 minutes at room temperature at a reaction volume of 15 μl. The reaction was stopped by the addition of Tris-HCl pH 8 at 20 °C to a final concentration of 125 mM. The samples were then diluted to a volume of 100 µL using a buffer containing 50 mM Tris pH 8 at 20 °C and 150 mM NaCl. TCEP was added to a final concentration of 10 mM and the samples were incubated at 60 °C for 30 min. Chloroacetamide was added to a final concentration of 40 mM and the samples were incubated in the dark for 20 min. The samples were then digested using trypsin (Promega cat #V5280) at 37 °C overnight. The digest was stopped by adding formic acid to a final concentration of 1% v/v. The digested samples were purified using 100 µl ZipTip pipette tips (Merck cat #ZTC18S960) according to the manufacturer’s instructions. Samples were then concentrated to ~5 μL using a SpeedVac vacuum centrifuge and diluted with 20 µL Buffer A (0.1% v/v formic acid).  The peptides were analyzed by online nano-high-pressure liquid chromatography (UHPLC) electrospray ionization-tandem mass spectrometry (MS/MS) on an Q Exactive Plus Instrument connected to an Ultimate 3000 UHPLC (Thermo-Fisher Scientific). Peptides reconstituted in 0.1% formic acid were loaded onto a trap column (Acclaim C18 PepMap 100 nano Trap, 2 cm × 100 μm I.D., 5-μm particle size and 300-Å pore size; Thermo-Fisher Scientific) at 15 μL/min for 3 min before switching the precolumn in line with the analytical column (Acclaim C18 PepMap RSLC nanocolumn, 75 μm ID × 50 cm, 3-μm particle size, 100-Å pore size; Thermo-Fisher Scientific). The separation of peptides was performed at 250 nL/min using a non-linear acetonitrile (ACN) gradient of buffer A (0.1% formic acid) and buffer B (0.1% formic acid, 80% ACN), starting at 2.5% buffer B to 42.5% over 95 min. Data were collected in positive mode using a Data Dependent Acquisition m/z of 375–2000 as the scan range, and higher-energy collisional dissociation (HCD) for MS/MS of the 12 most intense ions with z 2–5. Other instrument parameters were: MS1 scan at 70,000 resolution, MS maximum injection time 118 ms, AGC target 3E6, ion intensity threshold of 4.2e4 and dynamic exclusion set to 15 s. MS/MS resolution of 35000 at Orbitrap with the maximum injection time of 118 ms, AGC of 5e5 and HCD with collision energy = 27%.",
+      "dataProcessingProtocol": "For the data analysis, Thermo raw files were analysed using the pLink 2.3.4 search engine to identify crosslinked peptides, searching against the sequences of RING1b, BMI1, CBX8, H2A, H2B, H3 and H4. The default settings for searches were used. N-terminal acetylation and methionine oxidation were used as variable modifications and carbamidomethyl on cysteines as a fixed modification. False discovery rates of 1% for peptide spectrum match level were applied by searching a reverse database. Crosslinked peptides were further analysed using the crissrosslinkeR package. Specifically, peptides were retained by crissrosslinkeR only if they passed a p-value cutoff of 0.05 and were present in at least two of three replicates. Subsequent visualisation of retained peptide was carried out  with xiNET.",
+      "projectTags": [],
+      "keywords": [
+        "Xl-ms",
+        "Prc1",
+        "Cbx8",
+        "Polycomb"
+      ],
+      "doi": "",
+      "submissionType": "PARTIAL",
+      "license": "Creative Commons Public Domain (CC0)",
+      "submissionDate": "2024-02-02",
+      "publicationDate": "2024-12-30",
+      "submitters": [
+        {
+          "title": "Dr",
+          "firstName": "Michael",
+          "lastName": "Uckelmann",
+          "identifier": "133920120",
+          "affiliation": "Monash University",
+          "email": "michael.uckelmann@monash.edu",
+          "country": "Australia",
+          "orcid": "0000-0002-4370-6009",
+          "name": "Michael Uckelmann",
+          "id": "133920120"
+        }
+      ],
+      "labPIs": [
+        {
+          "title": "Dr",
+          "firstName": "Chen",
+          "lastName": "Davidovich",
+          "identifier": "2835145",
+          "affiliation": "Department of Biochemistry and Molecular Biology, Biomedicine Discovery Institute, Faculty of Medicine, Nursing and Health Sciences, Monash University; Clayton, Victoria, 3800, Australia.",
+          "email": "chen.davidovich@monash.edu",
+          "country": "",
+          "orcid": "",
+          "name": "Chen Davidovich",
+          "id": "2835145"
+        }
+      ],
+      "instruments": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MS",
+          "accession": "MS:1002523",
+          "name": "Q Exactive HF"
+        }
+      ],
+      "softwares": [],
+      "experimentTypes": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "PRIDE",
+          "accession": "PRIDE:0000430",
+          "name": "Chemical cross-linking coupled with mass spectrometry proteomics"
+        }
+      ],
+      "quantificationMethods": [],
+      "countries": [
+        "Australia"
+      ],
+      "sampleAttributes": [
+        {
+          "@type": "Tuple",
+          "key": {
+            "cvLabel": "EFO",
+            "accession": "OBI:0100026",
+            "name": "organism"
+          },
+          "value": [
+            {
+              "cvLabel": "NEWT",
+              "accession": "NEWT:9606",
+              "name": "Homo sapiens (Human)"
+            }
+          ]
+        }
+      ],
+      "organisms": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "NEWT",
+          "accession": "NEWT:9606",
+          "name": "Homo sapiens (human)"
+        }
+      ],
+      "organismParts": [],
+      "diseases": [],
+      "references": [],
+      "identifiedPTMStrings": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MOD",
+          "accession": "MOD:00397",
+          "name": "iodoacetamide derivatized residue"
+        }
+      ],
+      "totalFileDownloads": 528,
+      "botCount": 224,
+      "hubCount": 303,
+      "organicCount": 1,
+      "files": {
+        "files": [
+          {
+            "fileName": "210416_Vita_VL-2064_C8-3.raw",
+            "fileSizeBytes": 927190329,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/12/PXD049094/210416_Vita_VL-2064_C8-3.raw"
+          },
+          {
+            "fileName": "210416_Vita_VL-2064_C8-2_HCDFT.cross-linked.BS3.plabel",
+            "fileSizeBytes": 34777,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/12/PXD049094/210416_Vita_VL-2064_C8-2_HCDFT.cross-linked.BS3.plabel"
+          },
+          {
+            "fileName": "210416_Vita_VL-2064_C8-2.raw",
+            "fileSizeBytes": 921121843,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/12/PXD049094/210416_Vita_VL-2064_C8-2.raw"
+          },
+          {
+            "fileName": "210416_Vita_VL-2064_C8-3_HCDFT.cross-linked.BS3.plabel",
+            "fileSizeBytes": 26712,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/12/PXD049094/210416_Vita_VL-2064_C8-3_HCDFT.cross-linked.BS3.plabel"
+          },
+          {
+            "fileName": "210416_Vita_VL-2064_C8-1_20210416161636.raw",
+            "fileSizeBytes": 938284002,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/12/PXD049094/210416_Vita_VL-2064_C8-1_20210416161636.raw"
+          },
+          {
+            "fileName": "210416_Vita_VL-2064_C8-1_20210416161636_HCDFT.cross-linked.BS3.plabel",
+            "fileSizeBytes": 29676,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/12/PXD049094/210416_Vita_VL-2064_C8-1_20210416161636_HCDFT.cross-linked.BS3.plabel"
+          },
+          {
+            "fileName": "checksum.txt",
+            "fileSizeBytes": 711,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/12/PXD049094/checksum.txt"
+          }
+        ],
+        "totalCount": 7
+      }
+    },
+    "publication_metadata": null,
+    "llm_responses": {
+      "characteristics[disease]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"BS3 crosslinking\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The bis(sulfosuccinimidyl)suberate (BS3) crosslinker was added to a final concentration of 500 μM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": \"bis(sulfosuccinimidyl)suberate (BS3)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The bis(sulfosuccinimidyl)suberate (BS3) crosslinker\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": \"500 μM\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"added to a final concentration of 500 μM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"chemical crosslinking (BS3)\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with BS3\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The samples were then digested using trypsin ... The digested samples were purified using 100 µl ZipTip pipette tips\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[phenotype]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"BS3 crosslinking\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The bis(sulfosuccinimidyl)suberate (BS3) crosslinker was added to a final concentration of 500 μM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": \"bis(sulfosuccinimidyl)suberate (BS3)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The bis(sulfosuccinimidyl)suberate (BS3) crosslinker\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": \"500 μM\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"added to a final concentration of 500 μM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"chemical crosslinking (BS3)\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with BS3\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The samples were then digested using trypsin ... The digested samples were purified using 100 µl ZipTip pipette tips\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[treatment]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"BS3 crosslinking\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The bis(sulfosuccinimidyl)suberate (BS3) crosslinker was added to a final concentration of 500 μM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": \"bis(sulfosuccinimidyl)suberate (BS3)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The bis(sulfosuccinimidyl)suberate (BS3) crosslinker\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": \"500 μM\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"added to a final concentration of 500 μM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"chemical crosslinking (BS3)\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with BS3\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The samples were then digested using trypsin ... The digested samples were purified using 100 µl ZipTip pipette tips\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "BS3 crosslinking",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "The bis(sulfosuccinimidyl)suberate (BS3) crosslinker was added to a final concentration of 500 μM",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[compound]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"BS3 crosslinking\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The bis(sulfosuccinimidyl)suberate (BS3) crosslinker was added to a final concentration of 500 μM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": \"bis(sulfosuccinimidyl)suberate (BS3)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The bis(sulfosuccinimidyl)suberate (BS3) crosslinker\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": \"500 μM\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"added to a final concentration of 500 μM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"chemical crosslinking (BS3)\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with BS3\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The samples were then digested using trypsin ... The digested samples were purified using 100 µl ZipTip pipette tips\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "bis(sulfosuccinimidyl)suberate (BS3)",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "The bis(sulfosuccinimidyl)suberate (BS3) crosslinker",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[dose]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"BS3 crosslinking\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The bis(sulfosuccinimidyl)suberate (BS3) crosslinker was added to a final concentration of 500 μM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": \"bis(sulfosuccinimidyl)suberate (BS3)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The bis(sulfosuccinimidyl)suberate (BS3) crosslinker\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": \"500 μM\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"added to a final concentration of 500 μM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"chemical crosslinking (BS3)\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with BS3\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The samples were then digested using trypsin ... The digested samples were purified using 100 µl ZipTip pipette tips\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "500 μM",
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": "added to a final concentration of 500 μM",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[genetic modification]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"BS3 crosslinking\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The bis(sulfosuccinimidyl)suberate (BS3) crosslinker was added to a final concentration of 500 μM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": \"bis(sulfosuccinimidyl)suberate (BS3)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The bis(sulfosuccinimidyl)suberate (BS3) crosslinker\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": \"500 μM\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"added to a final concentration of 500 μM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"chemical crosslinking (BS3)\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with BS3\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The samples were then digested using trypsin ... The digested samples were purified using 100 µl ZipTip pipette tips\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[perturbation]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"BS3 crosslinking\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The bis(sulfosuccinimidyl)suberate (BS3) crosslinker was added to a final concentration of 500 μM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": \"bis(sulfosuccinimidyl)suberate (BS3)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The bis(sulfosuccinimidyl)suberate (BS3) crosslinker\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": \"500 μM\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"added to a final concentration of 500 μM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"chemical crosslinking (BS3)\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with BS3\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The samples were then digested using trypsin ... The digested samples were purified using 100 µl ZipTip pipette tips\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "chemical crosslinking (BS3)",
+          "accession": "PRIDE:0000700",
+          "confidence": "medium",
+          "evidence_quote": "crosslinked with BS3",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[depletion]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"BS3 crosslinking\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The bis(sulfosuccinimidyl)suberate (BS3) crosslinker was added to a final concentration of 500 μM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": \"bis(sulfosuccinimidyl)suberate (BS3)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The bis(sulfosuccinimidyl)suberate (BS3) crosslinker\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": \"500 μM\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"added to a final concentration of 500 μM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"chemical crosslinking (BS3)\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with BS3\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The samples were then digested using trypsin ... The digested samples were purified using 100 µl ZipTip pipette tips\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "no depletion",
+          "accession": "PRIDE:0000020",
+          "confidence": "medium",
+          "evidence_quote": "The samples were then digested using trypsin ... The digested samples were purified using 100 µl ZipTip pipette tips",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "factor value cell line": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"BS3 (bis(sulfosuccinimidyl)suberate)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The bis(sulfosuccinimidyl)suberate (BS3) crosslinker was added to a final concentration of 500 μM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "CLO:0000031",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value compound": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"BS3 (bis(sulfosuccinimidyl)suberate)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The bis(sulfosuccinimidyl)suberate (BS3) crosslinker was added to a final concentration of 500 μM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "BS3 (bis(sulfosuccinimidyl)suberate)",
+          "accession": "CHEBI:37577",
+          "confidence": "medium",
+          "evidence_quote": "The bis(sulfosuccinimidyl)suberate (BS3) crosslinker was added to a final concentration of 500 μM",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value disease": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"BS3 (bis(sulfosuccinimidyl)suberate)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The bis(sulfosuccinimidyl)suberate (BS3) crosslinker was added to a final concentration of 500 μM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "OGMS:0000031",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value dose": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"BS3 (bis(sulfosuccinimidyl)suberate)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The bis(sulfosuccinimidyl)suberate (BS3) crosslinker was added to a final concentration of 500 μM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000428",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value organism part": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"BS3 (bis(sulfosuccinimidyl)suberate)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The bis(sulfosuccinimidyl)suberate (BS3) crosslinker was added to a final concentration of 500 μM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000635",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value time": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"BS3 (bis(sulfosuccinimidyl)suberate)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The bis(sulfosuccinimidyl)suberate (BS3) crosslinker was added to a final concentration of 500 μM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000721",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value treatment": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"BS3 (bis(sulfosuccinimidyl)suberate)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The bis(sulfosuccinimidyl)suberate (BS3) crosslinker was added to a final concentration of 500 μM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000727",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "comment[instrument]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Q Exactive Plus;AC=MS:1002634\",\n    \"accession\": \"MS:1002634\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"on an Q Exactive Plus Instrument connected to an Ultimate 3000 UHPLC\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Data Dependent Acquisition\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"higher-energy collisional dissociation (HCD) for MS/MS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"27 eV\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HCD with collision energy = 27%.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "NT=Q Exactive Plus;AC=MS:1002634",
+          "accession": "MS:1002634",
+          "confidence": "high",
+          "evidence_quote": "on an Q Exactive Plus Instrument connected to an Ultimate 3000 UHPLC",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[proteomics data acquisition method]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Q Exactive Plus;AC=MS:1002634\",\n    \"accession\": \"MS:1002634\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"on an Q Exactive Plus Instrument connected to an Ultimate 3000 UHPLC\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Data Dependent Acquisition\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"higher-energy collisional dissociation (HCD) for MS/MS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"27 eV\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HCD with collision energy = 27%.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "NT=data-dependent acquisition;AC=PRIDE:0000041",
+          "accession": "PRIDE:0000041",
+          "confidence": "high",
+          "evidence_quote": "Data Dependent Acquisition",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[dissociation method]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Q Exactive Plus;AC=MS:1002634\",\n    \"accession\": \"MS:1002634\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"on an Q Exactive Plus Instrument connected to an Ultimate 3000 UHPLC\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Data Dependent Acquisition\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"higher-energy collisional dissociation (HCD) for MS/MS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"27 eV\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HCD with collision energy = 27%.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "NT=HCD;AC=MS:1000422",
+          "accession": "MS:1000422",
+          "confidence": "high",
+          "evidence_quote": "higher-energy collisional dissociation (HCD) for MS/MS",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[collision energy]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Q Exactive Plus;AC=MS:1002634\",\n    \"accession\": \"MS:1002634\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"on an Q Exactive Plus Instrument connected to an Ultimate 3000 UHPLC\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Data Dependent Acquisition\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"higher-energy collisional dissociation (HCD) for MS/MS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"27 eV\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HCD with collision energy = 27%.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "27 eV",
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": "HCD with collision energy = 27%.",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[dia method]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Q Exactive Plus;AC=MS:1002634\",\n    \"accession\": \"MS:1002634\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"on an Q Exactive Plus Instrument connected to an Ultimate 3000 UHPLC\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Data Dependent Acquisition\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"higher-energy collisional dissociation (HCD) for MS/MS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"27 eV\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HCD with collision energy = 27%.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[fragment mass tolerance]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Q Exactive Plus;AC=MS:1002634\",\n    \"accession\": \"MS:1002634\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"on an Q Exactive Plus Instrument connected to an Ultimate 3000 UHPLC\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Data Dependent Acquisition\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"higher-energy collisional dissociation (HCD) for MS/MS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"27 eV\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HCD with collision energy = 27%.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[precursor mass tolerance]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Q Exactive Plus;AC=MS:1002634\",\n    \"accession\": \"MS:1002634\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"on an Q Exactive Plus Instrument connected to an Ultimate 3000 UHPLC\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Data Dependent Acquisition\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"higher-energy collisional dissociation (HCD) for MS/MS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"27 eV\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HCD with collision energy = 27%.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[technical replicate]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Q Exactive Plus;AC=MS:1002634\",\n    \"accession\": \"MS:1002634\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"on an Q Exactive Plus Instrument connected to an Ultimate 3000 UHPLC\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Data Dependent Acquisition\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"higher-energy collisional dissociation (HCD) for MS/MS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"27 eV\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HCD with collision energy = 27%.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "no technical replicates stated",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[data file]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Q Exactive Plus;AC=MS:1002634\",\n    \"accession\": \"MS:1002634\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"on an Q Exactive Plus Instrument connected to an Ultimate 3000 UHPLC\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Data Dependent Acquisition\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"higher-energy collisional dissociation (HCD) for MS/MS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"27 eV\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HCD with collision energy = 27%.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "characteristics[organism]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8 was crosslinked with BS3\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The peptides were analyzed by online nano-high-pressure liquid chromatography (UHPLC) electrospray ionization-tandem mass spectrometry (MS/MS)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"RNF2_PCGF4_CBX8_crosslinked_with_BS3\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"[TITLE] RNF2_PCGF4_CBX8 crosslinked with BS3\",\n    \"evidence_location\": \"Title\"\n  },\n  \"assay name\": {\n    \"value\": \"RNF2_PCGF4_CBX8_crosslinked_with_BS3\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"[TITLE] RNF2_PCGF4_CBX8 crosslinked with BS3\",\n    \"evidence_location\": \"Title\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": "Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[organism part]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8 was crosslinked with BS3\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The peptides were analyzed by online nano-high-pressure liquid chromatography (UHPLC) electrospray ionization-tandem mass spectrometry (MS/MS)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"RNF2_PCGF4_CBX8_crosslinked_with_BS3\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"[TITLE] RNF2_PCGF4_CBX8 crosslinked with BS3\",\n    \"evidence_location\": \"Title\"\n  },\n  \"assay name\": {\n    \"value\": \"RNF2_PCGF4_CBX8_crosslinked_with_BS3\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"[TITLE] RNF2_PCGF4_CBX8 crosslinked with BS3\",\n    \"evidence_location\": \"Title\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": "Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[cell line]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8 was crosslinked with BS3\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The peptides were analyzed by online nano-high-pressure liquid chromatography (UHPLC) electrospray ionization-tandem mass spectrometry (MS/MS)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"RNF2_PCGF4_CBX8_crosslinked_with_BS3\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"[TITLE] RNF2_PCGF4_CBX8 crosslinked with BS3\",\n    \"evidence_location\": \"Title\"\n  },\n  \"assay name\": {\n    \"value\": \"RNF2_PCGF4_CBX8_crosslinked_with_BS3\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"[TITLE] RNF2_PCGF4_CBX8 crosslinked with BS3\",\n    \"evidence_location\": \"Title\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[cell type]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8 was crosslinked with BS3\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The peptides were analyzed by online nano-high-pressure liquid chromatography (UHPLC) electrospray ionization-tandem mass spectrometry (MS/MS)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"RNF2_PCGF4_CBX8_crosslinked_with_BS3\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"[TITLE] RNF2_PCGF4_CBX8 crosslinked with BS3\",\n    \"evidence_location\": \"Title\"\n  },\n  \"assay name\": {\n    \"value\": \"RNF2_PCGF4_CBX8_crosslinked_with_BS3\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"[TITLE] RNF2_PCGF4_CBX8 crosslinked with BS3\",\n    \"evidence_location\": \"Title\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[material type]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8 was crosslinked with BS3\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The peptides were analyzed by online nano-high-pressure liquid chromatography (UHPLC) electrospray ionization-tandem mass spectrometry (MS/MS)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"RNF2_PCGF4_CBX8_crosslinked_with_BS3\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"[TITLE] RNF2_PCGF4_CBX8 crosslinked with BS3\",\n    \"evidence_location\": \"Title\"\n  },\n  \"assay name\": {\n    \"value\": \"RNF2_PCGF4_CBX8_crosslinked_with_BS3\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"[TITLE] RNF2_PCGF4_CBX8 crosslinked with BS3\",\n    \"evidence_location\": \"Title\"\n  }\n}",
+        "parsed": {
+          "value": "purified proteins",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8 was crosslinked with BS3",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[strain or breed]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8 was crosslinked with BS3\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The peptides were analyzed by online nano-high-pressure liquid chromatography (UHPLC) electrospray ionization-tandem mass spectrometry (MS/MS)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"RNF2_PCGF4_CBX8_crosslinked_with_BS3\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"[TITLE] RNF2_PCGF4_CBX8 crosslinked with BS3\",\n    \"evidence_location\": \"Title\"\n  },\n  \"assay name\": {\n    \"value\": \"RNF2_PCGF4_CBX8_crosslinked_with_BS3\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"[TITLE] RNF2_PCGF4_CBX8 crosslinked with BS3\",\n    \"evidence_location\": \"Title\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[developmental stage]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8 was crosslinked with BS3\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The peptides were analyzed by online nano-high-pressure liquid chromatography (UHPLC) electrospray ionization-tandem mass spectrometry (MS/MS)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"RNF2_PCGF4_CBX8_crosslinked_with_BS3\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"[TITLE] RNF2_PCGF4_CBX8 crosslinked with BS3\",\n    \"evidence_location\": \"Title\"\n  },\n  \"assay name\": {\n    \"value\": \"RNF2_PCGF4_CBX8_crosslinked_with_BS3\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"[TITLE] RNF2_PCGF4_CBX8 crosslinked with BS3\",\n    \"evidence_location\": \"Title\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "technology type": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8 was crosslinked with BS3\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The peptides were analyzed by online nano-high-pressure liquid chromatography (UHPLC) electrospray ionization-tandem mass spectrometry (MS/MS)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"RNF2_PCGF4_CBX8_crosslinked_with_BS3\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"[TITLE] RNF2_PCGF4_CBX8 crosslinked with BS3\",\n    \"evidence_location\": \"Title\"\n  },\n  \"assay name\": {\n    \"value\": \"RNF2_PCGF4_CBX8_crosslinked_with_BS3\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"[TITLE] RNF2_PCGF4_CBX8 crosslinked with BS3\",\n    \"evidence_location\": \"Title\"\n  }\n}",
+        "parsed": {
+          "value": "proteomic profiling by mass spectrometry",
+          "accession": "PRIDE:0000663",
+          "confidence": "high",
+          "evidence_quote": "The peptides were analyzed by online nano-high-pressure liquid chromatography (UHPLC) electrospray ionization-tandem mass spectrometry (MS/MS)",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "source name": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8 was crosslinked with BS3\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The peptides were analyzed by online nano-high-pressure liquid chromatography (UHPLC) electrospray ionization-tandem mass spectrometry (MS/MS)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"RNF2_PCGF4_CBX8_crosslinked_with_BS3\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"[TITLE] RNF2_PCGF4_CBX8 crosslinked with BS3\",\n    \"evidence_location\": \"Title\"\n  },\n  \"assay name\": {\n    \"value\": \"RNF2_PCGF4_CBX8_crosslinked_with_BS3\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"[TITLE] RNF2_PCGF4_CBX8 crosslinked with BS3\",\n    \"evidence_location\": \"Title\"\n  }\n}",
+        "parsed": {
+          "value": "RNF2_PCGF4_CBX8_crosslinked_with_BS3",
+          "accession": "PRIDE:0000623",
+          "confidence": "medium",
+          "evidence_quote": "[TITLE] RNF2_PCGF4_CBX8 crosslinked with BS3",
+          "evidence_location": "Title"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "assay name": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8 was crosslinked with BS3\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The peptides were analyzed by online nano-high-pressure liquid chromatography (UHPLC) electrospray ionization-tandem mass spectrometry (MS/MS)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"RNF2_PCGF4_CBX8_crosslinked_with_BS3\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"[TITLE] RNF2_PCGF4_CBX8 crosslinked with BS3\",\n    \"evidence_location\": \"Title\"\n  },\n  \"assay name\": {\n    \"value\": \"RNF2_PCGF4_CBX8_crosslinked_with_BS3\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"[TITLE] RNF2_PCGF4_CBX8 crosslinked with BS3\",\n    \"evidence_location\": \"Title\"\n  }\n}",
+        "parsed": {
+          "value": "RNF2_PCGF4_CBX8_crosslinked_with_BS3",
+          "accession": "NCIT:C178857",
+          "confidence": "low",
+          "evidence_quote": "[TITLE] RNF2_PCGF4_CBX8 crosslinked with BS3",
+          "evidence_location": "Title"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[sex]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8 was crosslinked with BS3\",\n    \"evidence_location\": \"Abstract\",\n    \"instructions_note\": \"Sample is a recombinant protein complex (no donor sex).\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The samples were then digested using trypsin ...\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"No pooling is mentioned; default to not pooled.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null,\n    \"instructions_note\": \"Temperatures reported are reaction/incubation temperatures, not environmental sampling temperature.\"\n  }\n}",
+        "parsed": {
+          "value": "not applicable",
+          "accession": "PATO:0000047",
+          "confidence": "high",
+          "evidence_quote": "Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8 was crosslinked with BS3",
+          "evidence_location": "Abstract",
+          "instructions_note": "Sample is a recombinant protein complex (no donor sex)."
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[age]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8 was crosslinked with BS3\",\n    \"evidence_location\": \"Abstract\",\n    \"instructions_note\": \"Sample is a recombinant protein complex (no donor sex).\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The samples were then digested using trypsin ...\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"No pooling is mentioned; default to not pooled.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null,\n    \"instructions_note\": \"Temperatures reported are reaction/incubation temperatures, not environmental sampling temperature.\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000246",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[ancestry category]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8 was crosslinked with BS3\",\n    \"evidence_location\": \"Abstract\",\n    \"instructions_note\": \"Sample is a recombinant protein complex (no donor sex).\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The samples were then digested using trypsin ...\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"No pooling is mentioned; default to not pooled.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null,\n    \"instructions_note\": \"Temperatures reported are reaction/incubation temperatures, not environmental sampling temperature.\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "HANCESTRO",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[biological replicate]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8 was crosslinked with BS3\",\n    \"evidence_location\": \"Abstract\",\n    \"instructions_note\": \"Sample is a recombinant protein complex (no donor sex).\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The samples were then digested using trypsin ...\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"No pooling is mentioned; default to not pooled.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null,\n    \"instructions_note\": \"Temperatures reported are reaction/incubation temperatures, not environmental sampling temperature.\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "MS:1001809",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[genotype]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8 was crosslinked with BS3\",\n    \"evidence_location\": \"Abstract\",\n    \"instructions_note\": \"Sample is a recombinant protein complex (no donor sex).\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The samples were then digested using trypsin ...\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"No pooling is mentioned; default to not pooled.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null,\n    \"instructions_note\": \"Temperatures reported are reaction/incubation temperatures, not environmental sampling temperature.\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000513",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[pooled sample]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8 was crosslinked with BS3\",\n    \"evidence_location\": \"Abstract\",\n    \"instructions_note\": \"Sample is a recombinant protein complex (no donor sex).\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The samples were then digested using trypsin ...\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"No pooling is mentioned; default to not pooled.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null,\n    \"instructions_note\": \"Temperatures reported are reaction/incubation temperatures, not environmental sampling temperature.\"\n  }\n}",
+        "parsed": {
+          "value": "not pooled",
+          "accession": "NCIT:C165587",
+          "confidence": "medium",
+          "evidence_quote": "The samples were then digested using trypsin ...",
+          "evidence_location": "Methods",
+          "instructions_note": "No pooling is mentioned; default to not pooled."
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[phosphate]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8 was crosslinked with BS3\",\n    \"evidence_location\": \"Abstract\",\n    \"instructions_note\": \"Sample is a recombinant protein complex (no donor sex).\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The samples were then digested using trypsin ...\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"No pooling is mentioned; default to not pooled.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null,\n    \"instructions_note\": \"Temperatures reported are reaction/incubation temperatures, not environmental sampling temperature.\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000805",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[temperature]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Recombinant PRC1 complex consisting of RNF2, PCGF4 and CBX8 was crosslinked with BS3\",\n    \"evidence_location\": \"Abstract\",\n    \"instructions_note\": \"Sample is a recombinant protein complex (no donor sex).\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The samples were then digested using trypsin ...\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"No pooling is mentioned; default to not pooled.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null,\n    \"instructions_note\": \"Temperatures reported are reaction/incubation temperatures, not environmental sampling temperature.\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000703",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null,
+          "instructions_note": "Temperatures reported are reaction/incubation temperatures, not environmental sampling temperature."
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "comment[cleavage agent details]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"digested using trypsin (Promega cat #V5280) at 37 °C overnight.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The samples were then digested using trypsin ... The peptides were analyzed ...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Chloroacetamide was added to a final concentration of 40 mM and the samples were incubated in the dark for 20 min.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The digested samples were purified using 100 µl ZipTip pipette tips ...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Chloroacetamide was added ...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The digested samples were purified using 100 µl ZipTip pipette tips ... Samples were then concentrated ...\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": [
+            "NT=Trypsin;AC=MS:1001251"
+          ],
+          "accession": "MS:1001251",
+          "confidence": "high",
+          "evidence_quote": "digested using trypsin (Promega cat #V5280) at 37 °C overnight.",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[label]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"digested using trypsin (Promega cat #V5280) at 37 °C overnight.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The samples were then digested using trypsin ... The peptides were analyzed ...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Chloroacetamide was added to a final concentration of 40 mM and the samples were incubated in the dark for 20 min.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The digested samples were purified using 100 µl ZipTip pipette tips ...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Chloroacetamide was added ...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The digested samples were purified using 100 µl ZipTip pipette tips ... Samples were then concentrated ...\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "NT=label free sample;AC=MS:1002038",
+          "accession": "MS:1002038",
+          "confidence": "high",
+          "evidence_quote": "The samples were then digested using trypsin ... The peptides were analyzed ...",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[alkylation reagent]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"digested using trypsin (Promega cat #V5280) at 37 °C overnight.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The samples were then digested using trypsin ... The peptides were analyzed ...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Chloroacetamide was added to a final concentration of 40 mM and the samples were incubated in the dark for 20 min.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The digested samples were purified using 100 µl ZipTip pipette tips ...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Chloroacetamide was added ...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The digested samples were purified using 100 µl ZipTip pipette tips ... Samples were then concentrated ...\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "iodoacetamide",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "Chloroacetamide was added to a final concentration of 40 mM and the samples were incubated in the dark for 20 min.",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[fractionation method]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"digested using trypsin (Promega cat #V5280) at 37 °C overnight.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The samples were then digested using trypsin ... The peptides were analyzed ...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Chloroacetamide was added to a final concentration of 40 mM and the samples were incubated in the dark for 20 min.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The digested samples were purified using 100 µl ZipTip pipette tips ...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Chloroacetamide was added ...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The digested samples were purified using 100 µl ZipTip pipette tips ... Samples were then concentrated ...\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": "The digested samples were purified using 100 µl ZipTip pipette tips ...",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[modification parameters]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"digested using trypsin (Promega cat #V5280) at 37 °C overnight.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The samples were then digested using trypsin ... The peptides were analyzed ...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Chloroacetamide was added to a final concentration of 40 mM and the samples were incubated in the dark for 20 min.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The digested samples were purified using 100 µl ZipTip pipette tips ...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Chloroacetamide was added ...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The digested samples were purified using 100 µl ZipTip pipette tips ... Samples were then concentrated ...\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": [
+            "NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed",
+            "NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable"
+          ],
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": "Chloroacetamide was added ...",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[fraction identifier]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"digested using trypsin (Promega cat #V5280) at 37 °C overnight.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The samples were then digested using trypsin ... The peptides were analyzed ...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Chloroacetamide was added to a final concentration of 40 mM and the samples were incubated in the dark for 20 min.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The digested samples were purified using 100 µl ZipTip pipette tips ...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Chloroacetamide was added ...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The digested samples were purified using 100 µl ZipTip pipette tips ... Samples were then concentrated ...\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "no fractionation",
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": "The digested samples were purified using 100 µl ZipTip pipette tips ... Samples were then concentrated ...",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "characteristics[crosslinking reaction time]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"20 min\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinking proceeded for 20 minutes at room temperature\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"room temperature\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinking proceeded for 20 minutes at room temperature\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000838\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The digested samples were purified using 100 µl ZipTip pipette tips\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"The digested samples were purified using 100 µl ZipTip pipette tips\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "20 min",
+          "accession": "PRIDE:0000949",
+          "confidence": "high",
+          "evidence_quote": "crosslinking proceeded for 20 minutes at room temperature",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "characteristics[crosslinking temperature]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"20 min\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinking proceeded for 20 minutes at room temperature\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"room temperature\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinking proceeded for 20 minutes at room temperature\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000838\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The digested samples were purified using 100 µl ZipTip pipette tips\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"The digested samples were purified using 100 µl ZipTip pipette tips\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "room temperature",
+          "accession": "PRIDE:0000950",
+          "confidence": "high",
+          "evidence_quote": "crosslinking proceeded for 20 minutes at room temperature",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "comment[crosslink enrichment method]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"20 min\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinking proceeded for 20 minutes at room temperature\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"room temperature\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinking proceeded for 20 minutes at room temperature\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000838\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The digested samples were purified using 100 µl ZipTip pipette tips\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"The digested samples were purified using 100 µl ZipTip pipette tips\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000838",
+          "confidence": "high",
+          "evidence_quote": "The digested samples were purified using 100 µl ZipTip pipette tips",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "characteristics[enrichment process]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"20 min\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinking proceeded for 20 minutes at room temperature\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"room temperature\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinking proceeded for 20 minutes at room temperature\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000838\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The digested samples were purified using 100 µl ZipTip pipette tips\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"The digested samples were purified using 100 µl ZipTip pipette tips\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0009090",
+          "confidence": "low",
+          "evidence_quote": "The digested samples were purified using 100 µl ZipTip pipette tips",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "comment[cross-linker]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=BS3;AC=XLMOD:02000;CL=no;TA=K,nterm\",\n    \"NT\": \"BS3\",\n    \"AC\": \"XLMOD:02000\",\n    \"CL\": \"no\",\n    \"TA\": \"K,nterm\",\n    \"accession\": \"XLMOD:02000\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The bis(sulfosuccinimidyl)suberate (BS3) crosslinker was added to a final concentration of 500 μM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"500 μM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"BS3) crosslinker was added to a final concentration of 500 μM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"Tris-HCl pH 8\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The reaction was stopped by the addition of Tris-HCl pH 8 at 20 °C to a final concentration of 125 mM.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Peptides were analyzed by online nano-high-pressure liquid chromatography (UHPLC) electrospray ionization-tandem mass spectrometry (MS/MS)\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "NT=BS3;AC=XLMOD:02000;CL=no;TA=K,nterm",
+          "NT": "BS3",
+          "AC": "XLMOD:02000",
+          "CL": "no",
+          "TA": "K,nterm",
+          "accession": "XLMOD:02000",
+          "confidence": "high",
+          "evidence_quote": "The bis(sulfosuccinimidyl)suberate (BS3) crosslinker was added to a final concentration of 500 μM",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[crosslinker concentration]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=BS3;AC=XLMOD:02000;CL=no;TA=K,nterm\",\n    \"NT\": \"BS3\",\n    \"AC\": \"XLMOD:02000\",\n    \"CL\": \"no\",\n    \"TA\": \"K,nterm\",\n    \"accession\": \"XLMOD:02000\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The bis(sulfosuccinimidyl)suberate (BS3) crosslinker was added to a final concentration of 500 μM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"500 μM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"BS3) crosslinker was added to a final concentration of 500 μM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"Tris-HCl pH 8\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The reaction was stopped by the addition of Tris-HCl pH 8 at 20 °C to a final concentration of 125 mM.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Peptides were analyzed by online nano-high-pressure liquid chromatography (UHPLC) electrospray ionization-tandem mass spectrometry (MS/MS)\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "500 μM",
+          "accession": "PRIDE:0000951",
+          "confidence": "high",
+          "evidence_quote": "BS3) crosslinker was added to a final concentration of 500 μM",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[crosslinker to protein ratio]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=BS3;AC=XLMOD:02000;CL=no;TA=K,nterm\",\n    \"NT\": \"BS3\",\n    \"AC\": \"XLMOD:02000\",\n    \"CL\": \"no\",\n    \"TA\": \"K,nterm\",\n    \"accession\": \"XLMOD:02000\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The bis(sulfosuccinimidyl)suberate (BS3) crosslinker was added to a final concentration of 500 μM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"500 μM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"BS3) crosslinker was added to a final concentration of 500 μM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"Tris-HCl pH 8\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The reaction was stopped by the addition of Tris-HCl pH 8 at 20 °C to a final concentration of 125 mM.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Peptides were analyzed by online nano-high-pressure liquid chromatography (UHPLC) electrospray ionization-tandem mass spectrometry (MS/MS)\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000952",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[quenching reagent]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=BS3;AC=XLMOD:02000;CL=no;TA=K,nterm\",\n    \"NT\": \"BS3\",\n    \"AC\": \"XLMOD:02000\",\n    \"CL\": \"no\",\n    \"TA\": \"K,nterm\",\n    \"accession\": \"XLMOD:02000\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The bis(sulfosuccinimidyl)suberate (BS3) crosslinker was added to a final concentration of 500 μM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"500 μM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"BS3) crosslinker was added to a final concentration of 500 μM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"Tris-HCl pH 8\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The reaction was stopped by the addition of Tris-HCl pH 8 at 20 °C to a final concentration of 125 mM.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Peptides were analyzed by online nano-high-pressure liquid chromatography (UHPLC) electrospray ionization-tandem mass spectrometry (MS/MS)\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "Tris-HCl pH 8",
+          "accession": "PRIDE:0000953",
+          "confidence": "high",
+          "evidence_quote": "The reaction was stopped by the addition of Tris-HCl pH 8 at 20 °C to a final concentration of 125 mM.",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "characteristics[crosslink distance]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=BS3;AC=XLMOD:02000;CL=no;TA=K,nterm\",\n    \"NT\": \"BS3\",\n    \"AC\": \"XLMOD:02000\",\n    \"CL\": \"no\",\n    \"TA\": \"K,nterm\",\n    \"accession\": \"XLMOD:02000\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The bis(sulfosuccinimidyl)suberate (BS3) crosslinker was added to a final concentration of 500 μM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"500 μM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"BS3) crosslinker was added to a final concentration of 500 μM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"Tris-HCl pH 8\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The reaction was stopped by the addition of Tris-HCl pH 8 at 20 °C to a final concentration of 125 mM.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Peptides were analyzed by online nano-high-pressure liquid chromatography (UHPLC) electrospray ionization-tandem mass spectrometry (MS/MS)\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000948",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[chemical cross-linking coupled with ms]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=BS3;AC=XLMOD:02000;CL=no;TA=K,nterm\",\n    \"NT\": \"BS3\",\n    \"AC\": \"XLMOD:02000\",\n    \"CL\": \"no\",\n    \"TA\": \"K,nterm\",\n    \"accession\": \"XLMOD:02000\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The bis(sulfosuccinimidyl)suberate (BS3) crosslinker was added to a final concentration of 500 μM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"500 μM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"BS3) crosslinker was added to a final concentration of 500 μM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"Tris-HCl pH 8\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The reaction was stopped by the addition of Tris-HCl pH 8 at 20 °C to a final concentration of 125 mM.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Peptides were analyzed by online nano-high-pressure liquid chromatography (UHPLC) electrospray ionization-tandem mass spectrometry (MS/MS)\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "cross-linking mass spectrometry",
+          "accession": "PRIDE:0000430",
+          "confidence": "high",
+          "evidence_quote": "Peptides were analyzed by online nano-high-pressure liquid chromatography (UHPLC) electrospray ionization-tandem mass spectrometry (MS/MS)",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      }
+    }
+  }
+}

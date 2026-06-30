@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "pxd": "PXD041684",
+    "category": "llm",
+    "saved_at": "2026-06-30T15:33:30.858776",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"pseudomonas_phage_pa3_miniturboid_chimallin_network\",\n      \"description\": \"Pseudomonas aeruginosa ΦPA3 infection samples used for proximity labeling/localization mapping of the phage nucleus protein interaction network (miniTurboID-based), with GFP-mini/gp175-mini/gp53-mini constructs as the proximity bait variants.\",\n      \"organism\": \"Pseudomonas aeruginosa\",\n      \"taxid\": \"NCBITaxon:287\",\n      \"crosslinker\": null,\n      \"biological_condition\": \"ΦPA3 infection; proximity labeling with miniTurboID (GFP-mini and phage protein miniTurboID fusions)\",\n      \"files\": [\n        \"GFP-mini-1.raw\",\n        \"GFP-mini-2.raw\",\n        \"GFP-mini-3.raw\",\n        \"gp175-mini-1.raw\",\n        \"gp175-mini-2.raw\",\n        \"gp175-mini-3.raw\",\n        \"gp53-mini-1.raw\",\n        \"gp53-mini-2.raw\",\n        \"gp53-mini-3.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"Cultures were then diluted to OD600 = 0.1 and supplemented with 500 μM biotin... When the cells reached OD600 = 0.3, they were infected with phage ΦPA3... At 45 min postinfection, cultures were collected and centrifuged at 3,000g at 4 °C.\",\n      \"reasoning\": \"All filenames share the '-mini-' pattern and differ only by bait (GFP-mini, gp175-mini, gp53-mini) and replicate index (-1/-2/-3). The publication describes a single ΦPA3 infection proximity-labeling workflow using miniTurboID and biotin, followed by enrichment and LC-MS. No explicit chemical crosslinker (e.g., BS3/DSS) is mentioned in the provided methods, so crosslinker is set to null. Because the task is to cluster by biological condition + organism + crosslinker, and crosslinker is not present, the smallest biologically meaningful grouping is the shared ΦPA3 miniTurboID proximity-labeling experiment in Pseudomonas aeruginosa.\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a specific biological XL-MS condition based on the provided information.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"All provided raw files match the same '-mini-' naming scheme and appear to be biological proximity-labeling replicates from the same ΦPA3 experiment; no QC/calibration/test files were provided.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 9,\n    \"n_assigned_files\": 9,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 1,\n    \"overall_confidence\": \"medium\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "pseudomonas_phage_pa3_miniturboid_chimallin_network",
+          "description": "Pseudomonas aeruginosa ΦPA3 infection samples used for proximity labeling/localization mapping of the phage nucleus protein interaction network (miniTurboID-based), with GFP-mini/gp175-mini/gp53-mini constructs as the proximity bait variants.",
+          "organism": "Pseudomonas aeruginosa",
+          "taxid": "NCBITaxon:287",
+          "crosslinker": null,
+          "biological_condition": "ΦPA3 infection; proximity labeling with miniTurboID (GFP-mini and phage protein miniTurboID fusions)",
+          "files": [
+            "GFP-mini-1.raw",
+            "GFP-mini-2.raw",
+            "GFP-mini-3.raw",
+            "gp175-mini-1.raw",
+            "gp175-mini-2.raw",
+            "gp175-mini-3.raw",
+            "gp53-mini-1.raw",
+            "gp53-mini-2.raw",
+            "gp53-mini-3.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "Cultures were then diluted to OD600 = 0.1 and supplemented with 500 μM biotin... When the cells reached OD600 = 0.3, they were infected with phage ΦPA3... At 45 min postinfection, cultures were collected and centrifuged at 3,000g at 4 °C.",
+          "reasoning": "All filenames share the '-mini-' pattern and differ only by bait (GFP-mini, gp175-mini, gp53-mini) and replicate index (-1/-2/-3). The publication describes a single ΦPA3 infection proximity-labeling workflow using miniTurboID and biotin, followed by enrichment and LC-MS. No explicit chemical crosslinker (e.g., BS3/DSS) is mentioned in the provided methods, so crosslinker is set to null. Because the task is to cluster by biological condition + organism + crosslinker, and crosslinker is not present, the smallest biologically meaningful grouping is the shared ΦPA3 miniTurboID proximity-labeling experiment in Pseudomonas aeruginosa."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a specific biological XL-MS condition based on the provided information.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "All provided raw files match the same '-mini-' naming scheme and appear to be biological proximity-labeling replicates from the same ΦPA3 experiment; no QC/calibration/test files were provided."
+        }
+      ],
+      "summary": {
+        "n_input_files": 9,
+        "n_assigned_files": 9,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 1,
+        "overall_confidence": "medium"
+      }
+    }
+  }
+}

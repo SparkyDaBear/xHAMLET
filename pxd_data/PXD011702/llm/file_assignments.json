@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "pxd": "PXD011702",
+    "category": "llm",
+    "saved_at": "2026-06-30T15:01:06.675483",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"hct116_tp53_t2a_birA_dox_biotinylation_mock_t2a_intact\",\n      \"description\": \"HCT116 TP53+/T2A-BirA* cells (endogenous p53 proximity labeling) under doxorubicin treatment with biotin labeling; includes mock, T2A, and T2A_intact variants as separate bait/control states within the same experimental setup.\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": null,\n      \"biological_condition\": \"doxorubicin treatment with 50 uM biotin labeling (BioID design; mock/T2A/T2A_intact states)\",\n      \"files\": [\n        \"E18788_1p1_9_20cm_CMB-323_SVEYC_GielVDM_APMS_OE-T2A_Mock-1.raw\",\n        \"E18790_1p1_9_20cm_CMB-323_SVEYC_GielVDM_APMS_OE-T2A_Mock-2.raw\",\n        \"E18792_1p1_9_20cm_CMB-323_SVEYC_GielVDM_APMS_OE-T2A_Mock-3.raw\",\n        \"E18794_1p1_9_20cm_CMB-323_SVEYC_GielVDM_APMS_OE-T2A_T2A-1.raw\",\n        \"E18796_1p1_9_20cm_CMB-323_SVEYC_GielVDM_APMS_OE-T2A_T2A-2.raw\",\n        \"E18800_1p1_9_20cm_CMB-323_SVEYC_GielVDM_APMS_OE-T2A_T2A-3.raw\",\n        \"E18802_1p1_9_20cm_CMB-323_SVEYC_GielVDM_APMS_OE-T2A_T2A_intact-1.raw\",\n        \"E18804_1p1_9_20cm_CMB-323_SVEYC_GielVDM_APMS_OE-T2A_T2A_intact-2.raw\",\n        \"E18806_1p1_9_20cm_CMB-323_SVEYC_GielVDM_APMS_OE-T2A_T2A_intact-3.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"For every sample three 145 cm2 culture dishes ... seeded with 4.5x106 HCT116 TP53+/T2A-BirA* cells ... 24 h after seeding 1 µM doxorubicin was added. To every culture dish biotin was added to a final concentration of 50 µM at the start of the treatment.\",\n      \"reasoning\": \"All nine files share the same filename block indicating the same experimental module (OE-T2A) and the same replicate structure (Mock-1/2/3, T2A-1/2/3, T2A_intact-1/2/3). The publication methods describe a single BioID-style doxorubicin + biotin labeling workflow for HCT116 TP53+/T2A-BirA* cells; no crosslinker is mentioned in the provided text/metadata, so crosslinker is set to null. The three bait/control states (Mock, T2A, T2A_intact) are treated as part of the same overarching experimental condition because the task requires clustering by biological/experimental condition, organism, and crosslinker, and no separate crosslinker or distinct treatment/timepoint is indicated in filenames beyond these state labels.\"\n    },\n    {\n      \"cluster_id\": \"cluster_2\",\n      \"cluster_label\": \"hct116_tp53_wt_or_c12e6_i1078_i100_dox_biotinylation\",\n      \"description\": \"HCT116 TP53+/T2A-BirA* endogenous p53 proximity labeling with doxorubicin + biotin; includes WT and C12-E6 variants with different base-editor/clone labels (I1078, I100, I1078).\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": null,\n      \"biological_condition\": \"doxorubicin treatment with 50 uM biotin labeling (WT and C12-E6 variant states)\",\n      \"files\": [\n        \"E18814_1p1_9_20cm_CMB-328_SVEYC_GielVDM_APMS_WT_I1078_rep1.raw\",\n        \"E18816_1p1_9_20cm_CMB-328_SVEYC_GielVDM_APMS_WT_I1078_rep2.raw\",\n        \"E18818_1p1_9_20cm_CMB-328_SVEYC_GielVDM_APMS_WT_I1078_rep3.raw\",\n        \"E18820_1p1_9_20cm_CMB-328_SVEYC_GielVDM_APMS_C12-E6_I100_rep1.raw\",\n        \"E18822_1p1_9_20cm_CMB-328_SVEYC_GielVDM_APMS_C12-E6_I100_rep2.raw\",\n        \"E18824_1p1_9_20cm_CMB-328_SVEYC_GielVDM_APMS_C12-E6_I100_rep3.raw\",\n        \"E18826_1p1_9_20cm_CMB-328_SVEYC_GielVDM_APMS_C12-E6_I1078_rep1.raw\",\n        \"E18828_1p1_9_20cm_CMB-328_SVEYC_GielVDM_APMS_C12-E6_I1078_rep2.raw\",\n        \"E18830_1p1_9_20cm_CMB-328_SVEYC_GielVDM_APMS_C12-E6_I1078_rep3.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"By targeting a Cas9-cytidine deaminase base editor to the T2A auto-cleavage site, we can efficiently derive an isogenic population expressing a functional p53-BirA* fusion protein.\",\n      \"reasoning\": \"These nine files share the same experimental module block (CMB-328, SVEYC_GielVDM_APMS) and represent three replicate sets for WT (I1078) and two C12-E6 variant labels (I100 and I1078). The publication describes base-editor targeting to derive isogenic functional p53-BirA* populations, consistent with the WT vs C12-E6 variant naming. No crosslinker is stated in the provided methods/metadata (the workflow is BioID with streptavidin enrichment), so crosslinker is null. WT and C12-E6 are grouped together because the task asks for the smallest number of biologically meaningful groups and no separate treatment/timepoint differences are indicated beyond variant labels.\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a biological XL-MS condition.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"All provided raw filenames match recognizable biological condition/state patterns (OE-T2A Mock/T2A/T2A_intact and WT/C12-E6 with clone labels) and none appear to be QC/calibrants.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 18,\n    \"n_assigned_files\": 18,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 2,\n    \"overall_confidence\": \"medium\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "hct116_tp53_t2a_birA_dox_biotinylation_mock_t2a_intact",
+          "description": "HCT116 TP53+/T2A-BirA* cells (endogenous p53 proximity labeling) under doxorubicin treatment with biotin labeling; includes mock, T2A, and T2A_intact variants as separate bait/control states within the same experimental setup.",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": null,
+          "biological_condition": "doxorubicin treatment with 50 uM biotin labeling (BioID design; mock/T2A/T2A_intact states)",
+          "files": [
+            "E18788_1p1_9_20cm_CMB-323_SVEYC_GielVDM_APMS_OE-T2A_Mock-1.raw",
+            "E18790_1p1_9_20cm_CMB-323_SVEYC_GielVDM_APMS_OE-T2A_Mock-2.raw",
+            "E18792_1p1_9_20cm_CMB-323_SVEYC_GielVDM_APMS_OE-T2A_Mock-3.raw",
+            "E18794_1p1_9_20cm_CMB-323_SVEYC_GielVDM_APMS_OE-T2A_T2A-1.raw",
+            "E18796_1p1_9_20cm_CMB-323_SVEYC_GielVDM_APMS_OE-T2A_T2A-2.raw",
+            "E18800_1p1_9_20cm_CMB-323_SVEYC_GielVDM_APMS_OE-T2A_T2A-3.raw",
+            "E18802_1p1_9_20cm_CMB-323_SVEYC_GielVDM_APMS_OE-T2A_T2A_intact-1.raw",
+            "E18804_1p1_9_20cm_CMB-323_SVEYC_GielVDM_APMS_OE-T2A_T2A_intact-2.raw",
+            "E18806_1p1_9_20cm_CMB-323_SVEYC_GielVDM_APMS_OE-T2A_T2A_intact-3.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "For every sample three 145 cm2 culture dishes ... seeded with 4.5x106 HCT116 TP53+/T2A-BirA* cells ... 24 h after seeding 1 µM doxorubicin was added. To every culture dish biotin was added to a final concentration of 50 µM at the start of the treatment.",
+          "reasoning": "All nine files share the same filename block indicating the same experimental module (OE-T2A) and the same replicate structure (Mock-1/2/3, T2A-1/2/3, T2A_intact-1/2/3). The publication methods describe a single BioID-style doxorubicin + biotin labeling workflow for HCT116 TP53+/T2A-BirA* cells; no crosslinker is mentioned in the provided text/metadata, so crosslinker is set to null. The three bait/control states (Mock, T2A, T2A_intact) are treated as part of the same overarching experimental condition because the task requires clustering by biological/experimental condition, organism, and crosslinker, and no separate crosslinker or distinct treatment/timepoint is indicated in filenames beyond these state labels."
+        },
+        {
+          "cluster_id": "cluster_2",
+          "cluster_label": "hct116_tp53_wt_or_c12e6_i1078_i100_dox_biotinylation",
+          "description": "HCT116 TP53+/T2A-BirA* endogenous p53 proximity labeling with doxorubicin + biotin; includes WT and C12-E6 variants with different base-editor/clone labels (I1078, I100, I1078).",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": null,
+          "biological_condition": "doxorubicin treatment with 50 uM biotin labeling (WT and C12-E6 variant states)",
+          "files": [
+            "E18814_1p1_9_20cm_CMB-328_SVEYC_GielVDM_APMS_WT_I1078_rep1.raw",
+            "E18816_1p1_9_20cm_CMB-328_SVEYC_GielVDM_APMS_WT_I1078_rep2.raw",
+            "E18818_1p1_9_20cm_CMB-328_SVEYC_GielVDM_APMS_WT_I1078_rep3.raw",
+            "E18820_1p1_9_20cm_CMB-328_SVEYC_GielVDM_APMS_C12-E6_I100_rep1.raw",
+            "E18822_1p1_9_20cm_CMB-328_SVEYC_GielVDM_APMS_C12-E6_I100_rep2.raw",
+            "E18824_1p1_9_20cm_CMB-328_SVEYC_GielVDM_APMS_C12-E6_I100_rep3.raw",
+            "E18826_1p1_9_20cm_CMB-328_SVEYC_GielVDM_APMS_C12-E6_I1078_rep1.raw",
+            "E18828_1p1_9_20cm_CMB-328_SVEYC_GielVDM_APMS_C12-E6_I1078_rep2.raw",
+            "E18830_1p1_9_20cm_CMB-328_SVEYC_GielVDM_APMS_C12-E6_I1078_rep3.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "By targeting a Cas9-cytidine deaminase base editor to the T2A auto-cleavage site, we can efficiently derive an isogenic population expressing a functional p53-BirA* fusion protein.",
+          "reasoning": "These nine files share the same experimental module block (CMB-328, SVEYC_GielVDM_APMS) and represent three replicate sets for WT (I1078) and two C12-E6 variant labels (I100 and I1078). The publication describes base-editor targeting to derive isogenic functional p53-BirA* populations, consistent with the WT vs C12-E6 variant naming. No crosslinker is stated in the provided methods/metadata (the workflow is BioID with streptavidin enrichment), so crosslinker is null. WT and C12-E6 are grouped together because the task asks for the smallest number of biologically meaningful groups and no separate treatment/timepoint differences are indicated beyond variant labels."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a biological XL-MS condition.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "All provided raw filenames match recognizable biological condition/state patterns (OE-T2A Mock/T2A/T2A_intact and WT/C12-E6 with clone labels) and none appear to be QC/calibrants."
+        }
+      ],
+      "summary": {
+        "n_input_files": 18,
+        "n_assigned_files": 18,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 2,
+        "overall_confidence": "medium"
+      }
+    }
+  }
+}

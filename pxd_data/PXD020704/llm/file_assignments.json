@@ -1,0 +1,120 @@
+{
+  "metadata": {
+    "pxd": "PXD020704",
+    "category": "llm",
+    "saved_at": "2026-06-30T15:12:08.874679",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"bsa_emcs_dose_series\",\n      \"description\": \"BSA-only samples crosslinked with EMCS at multiple concentrations, including a no-EMCS control, across three replicates.\",\n      \"organism\": \"Bos taurus\",\n      \"taxid\": \"NCBITaxon:9913\",\n      \"crosslinker\": \"EMCS\",\n      \"biological_condition\": \"BSA in PBS with EMCS titration (0, 0.1, 0.3, 1, 3 mM); no-XL control included\",\n      \"files\": [\n        \"2017_12_07_01_BSA_no_EMCS_rep1.raw\",\n        \"2017_12_07_02_BSA_01mM_EMCS_rep1.raw\",\n        \"2017_12_07_03_BSA_03mM_EMCS_rep1.raw\",\n        \"2017_12_07_04_BSA_1mM_EMCS_rep1.raw\",\n        \"2017_12_08_01_BSA_no_EMCS_rep2.raw\",\n        \"2017_12_08_02_BSA_01mM_EMCS_rep2.raw\",\n        \"2017_12_08_03_BSA_03mM_EMCS_rep2.raw\",\n        \"2017_12_08_04_BSA_1mM_EMCS_rep2.raw\",\n        \"2017_12_08_06_BSA_no_EMCS_rep3.raw\",\n        \"2017_12_08_07_BSA_01mM_EMCS_rep3.raw\",\n        \"2017_12_08_08_BSA_03mM_EMCS_rep3.raw\",\n        \"2017_12_08_09_BSA_1mM_EMCS_rep3.raw\"\n      ],\n      \"confidence\": \"high\",\n      \"evidence_quote\": \"For EMCS cross-linking, we only used BSA dissolved in PBS to a final concentration of 10 μM.\",\n      \"reasoning\": \"All filenames start with BSA and explicitly specify EMCS concentrations or 'no_EMCS' controls, matching the publication’s EMCS/BSA-only experiments. Replicate numbers (rep1/rep2/rep3) are technical/biological repeats and are not used to split clusters.\"\n    },\n    {\n      \"cluster_id\": \"cluster_2\",\n      \"cluster_label\": \"three_prot_dss_3mM\",\n      \"description\": \"Mixture of three purified bovine proteins crosslinked with DSS at 3 mM, including one P2 variant, across replicate 3.\",\n      \"organism\": \"Bos taurus\",\n      \"taxid\": \"NCBITaxon:9913\",\n      \"crosslinker\": \"DSS\",\n      \"biological_condition\": \"3-protein mixture (BSA/ovotransferrin/α-amylase) crosslinked with DSS 3 mM; includes a P2 variant\",\n      \"files\": [\n        \"2019_01_07_02_3Prot_rep3_DSS_3mM.raw\",\n        \"2019_01_07_05_3Prot_rep3_DSS_3mM_P2.raw\"\n      ],\n      \"confidence\": \"high\",\n      \"evidence_quote\": \"For DSS cross-linking, a 250 mM solution of DSS (Sigma) in DMSO was used, which was diluted with the proteins to a final DSS concentration of 3 mM.\",\n      \"reasoning\": \"Filenames contain '3Prot' and 'DSS_3mM' with rep3; both are DSS 3 mM conditions. The P2 suffix is treated as a fraction/variant label rather than a separate biological condition per instructions.\"\n    },\n    {\n      \"cluster_id\": \"cluster_3\",\n      \"cluster_label\": \"three_prot_fol_2_per_series\",\n      \"description\": \"Mixture of three purified bovine proteins crosslinked with formaldehyde (FoAl) at 2% per (as encoded in filenames), across replicate 3, including one P2 variant.\",\n      \"organism\": \"Bos taurus\",\n      \"taxid\": \"NCBITaxon:9913\",\n      \"crosslinker\": \"formaldehyde\",\n      \"biological_condition\": \"3-protein mixture crosslinked with formaldehyde (FoAl) at 2% per; includes a P2 variant\",\n      \"files\": [\n        \"2019_01_09_06_3Prot_rep3_FoAl_2_per_P2.raw\",\n        \"2019_01_09_14_3Prot_rep3_FoAl_2_per.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"For formaldehyde cross-linking, a formalin solution ... was used, which was diluted with the proteins to a final formaldehyde concentration of 2%.\",\n      \"reasoning\": \"Filenames explicitly indicate 'FoAl_2_per' and '3Prot_rep3', consistent with the publication’s formaldehyde 2% condition. The exact mapping of 'FoAl_2_per' to formaldehyde is inferred from the publication text and the abbreviation.\"\n    },\n    {\n      \"cluster_id\": \"cluster_4\",\n      \"cluster_label\": \"three_prot_no_xl_control\",\n      \"description\": \"No-crosslinker control for the three-protein mixture (crosslinking step omitted), across replicate 3, including a P2 variant.\",\n      \"organism\": \"Bos taurus\",\n      \"taxid\": \"NCBITaxon:9913\",\n      \"crosslinker\": null,\n      \"biological_condition\": \"3-protein mixture with cross-linking step omitted (no XL control); includes a P2 variant\",\n      \"files\": [\n        \"2019_01_11_06_3Prot_rep3_No_XL_P2.raw\",\n        \"2019_01_11_09_3Prot_rep3_No_XL.raw\"\n      ],\n      \"confidence\": \"high\",\n      \"evidence_quote\": \"In parallel to the above cross-linking experiments, we performed control experiments (“no XL” in the figures) in which the cross-linking step was omitted (but the quenching step was performed).\",\n      \"reasoning\": \"Filenames contain 'No_XL' for the 3Prot mixture, matching the publication’s no-crosslinker control. P2 is treated as a non-biological variant label.\"\n    },\n    {\n      \"cluster_id\": \"cluster_5\",\n      \"cluster_label\": \"three_prot_gla_titration\",\n      \"description\": \"Mixture of three purified bovine proteins crosslinked with glutaraldehyde across a titration series (0.0001% to 0.1%), including no-glutaraldehyde controls, across multiple P2/P4/p2/p4 suffixes.\",\n      \"organism\": \"Bos taurus\",\n      \"taxid\": \"NCBITaxon:9913\",\n      \"crosslinker\": \"glutaraldehyde\",\n      \"biological_condition\": \"3-protein mixture crosslinked with glutaraldehyde at 0.0001%, 0.001%, 0.01%, 0.1% (plus NO control)\",\n      \"files\": [\n        \"2020_03_30_03_3Prot_GLA_0p0001_p2.raw\",\n        \"2020_03_30_04_3Prot_GLA_0p0001_p4.raw\",\n        \"2020_03_30_06_3Prot_GLA_0p001_p2.raw\",\n        \"2020_03_30_07_3Prot_GLA_0p001_p4.raw\",\n        \"2020_03_30_09_3Prot_GLA_0p01_p2.raw\",\n        \"2020_03_30_10_3Prot_GLA_0p01_p4.raw\",\n        \"2020_03_30_12_3Prot_GLA_0p1_p2.raw\",\n        \"2020_03_30_13_3Prot_GLA_0p1_p4.raw\",\n        \"2020_03_30_15_3Prot_GLA_NO_p2.raw\",\n        \"2020_03_30_16_3Prot_GLA_NO_p4.raw\"\n      ],\n      \"confidence\": \"high\",\n      \"evidence_quote\": \"For glutaraldehyde cross-linking, ... diluted with the proteins to the final glutaraldehyde concentrations: 0.0001, 0.001, 0.01, and 0.1%.\",\n      \"reasoning\": \"All filenames start with '3Prot' and include 'GLA_' with the same concentration series plus 'GLA_NO', directly matching the publication’s glutaraldehyde titration experiment. Suffixes (p2/p4) are treated as fraction/variant labels and not used to split clusters.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 22,\n    \"n_assigned_files\": 22,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 5,\n    \"overall_confidence\": \"high\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "bsa_emcs_dose_series",
+          "description": "BSA-only samples crosslinked with EMCS at multiple concentrations, including a no-EMCS control, across three replicates.",
+          "organism": "Bos taurus",
+          "taxid": "NCBITaxon:9913",
+          "crosslinker": "EMCS",
+          "biological_condition": "BSA in PBS with EMCS titration (0, 0.1, 0.3, 1, 3 mM); no-XL control included",
+          "files": [
+            "2017_12_07_01_BSA_no_EMCS_rep1.raw",
+            "2017_12_07_02_BSA_01mM_EMCS_rep1.raw",
+            "2017_12_07_03_BSA_03mM_EMCS_rep1.raw",
+            "2017_12_07_04_BSA_1mM_EMCS_rep1.raw",
+            "2017_12_08_01_BSA_no_EMCS_rep2.raw",
+            "2017_12_08_02_BSA_01mM_EMCS_rep2.raw",
+            "2017_12_08_03_BSA_03mM_EMCS_rep2.raw",
+            "2017_12_08_04_BSA_1mM_EMCS_rep2.raw",
+            "2017_12_08_06_BSA_no_EMCS_rep3.raw",
+            "2017_12_08_07_BSA_01mM_EMCS_rep3.raw",
+            "2017_12_08_08_BSA_03mM_EMCS_rep3.raw",
+            "2017_12_08_09_BSA_1mM_EMCS_rep3.raw"
+          ],
+          "confidence": "high",
+          "evidence_quote": "For EMCS cross-linking, we only used BSA dissolved in PBS to a final concentration of 10 μM.",
+          "reasoning": "All filenames start with BSA and explicitly specify EMCS concentrations or 'no_EMCS' controls, matching the publication’s EMCS/BSA-only experiments. Replicate numbers (rep1/rep2/rep3) are technical/biological repeats and are not used to split clusters."
+        },
+        {
+          "cluster_id": "cluster_2",
+          "cluster_label": "three_prot_dss_3mM",
+          "description": "Mixture of three purified bovine proteins crosslinked with DSS at 3 mM, including one P2 variant, across replicate 3.",
+          "organism": "Bos taurus",
+          "taxid": "NCBITaxon:9913",
+          "crosslinker": "DSS",
+          "biological_condition": "3-protein mixture (BSA/ovotransferrin/α-amylase) crosslinked with DSS 3 mM; includes a P2 variant",
+          "files": [
+            "2019_01_07_02_3Prot_rep3_DSS_3mM.raw",
+            "2019_01_07_05_3Prot_rep3_DSS_3mM_P2.raw"
+          ],
+          "confidence": "high",
+          "evidence_quote": "For DSS cross-linking, a 250 mM solution of DSS (Sigma) in DMSO was used, which was diluted with the proteins to a final DSS concentration of 3 mM.",
+          "reasoning": "Filenames contain '3Prot' and 'DSS_3mM' with rep3; both are DSS 3 mM conditions. The P2 suffix is treated as a fraction/variant label rather than a separate biological condition per instructions."
+        },
+        {
+          "cluster_id": "cluster_3",
+          "cluster_label": "three_prot_fol_2_per_series",
+          "description": "Mixture of three purified bovine proteins crosslinked with formaldehyde (FoAl) at 2% per (as encoded in filenames), across replicate 3, including one P2 variant.",
+          "organism": "Bos taurus",
+          "taxid": "NCBITaxon:9913",
+          "crosslinker": "formaldehyde",
+          "biological_condition": "3-protein mixture crosslinked with formaldehyde (FoAl) at 2% per; includes a P2 variant",
+          "files": [
+            "2019_01_09_06_3Prot_rep3_FoAl_2_per_P2.raw",
+            "2019_01_09_14_3Prot_rep3_FoAl_2_per.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "For formaldehyde cross-linking, a formalin solution ... was used, which was diluted with the proteins to a final formaldehyde concentration of 2%.",
+          "reasoning": "Filenames explicitly indicate 'FoAl_2_per' and '3Prot_rep3', consistent with the publication’s formaldehyde 2% condition. The exact mapping of 'FoAl_2_per' to formaldehyde is inferred from the publication text and the abbreviation."
+        },
+        {
+          "cluster_id": "cluster_4",
+          "cluster_label": "three_prot_no_xl_control",
+          "description": "No-crosslinker control for the three-protein mixture (crosslinking step omitted), across replicate 3, including a P2 variant.",
+          "organism": "Bos taurus",
+          "taxid": "NCBITaxon:9913",
+          "crosslinker": null,
+          "biological_condition": "3-protein mixture with cross-linking step omitted (no XL control); includes a P2 variant",
+          "files": [
+            "2019_01_11_06_3Prot_rep3_No_XL_P2.raw",
+            "2019_01_11_09_3Prot_rep3_No_XL.raw"
+          ],
+          "confidence": "high",
+          "evidence_quote": "In parallel to the above cross-linking experiments, we performed control experiments (“no XL” in the figures) in which the cross-linking step was omitted (but the quenching step was performed).",
+          "reasoning": "Filenames contain 'No_XL' for the 3Prot mixture, matching the publication’s no-crosslinker control. P2 is treated as a non-biological variant label."
+        },
+        {
+          "cluster_id": "cluster_5",
+          "cluster_label": "three_prot_gla_titration",
+          "description": "Mixture of three purified bovine proteins crosslinked with glutaraldehyde across a titration series (0.0001% to 0.1%), including no-glutaraldehyde controls, across multiple P2/P4/p2/p4 suffixes.",
+          "organism": "Bos taurus",
+          "taxid": "NCBITaxon:9913",
+          "crosslinker": "glutaraldehyde",
+          "biological_condition": "3-protein mixture crosslinked with glutaraldehyde at 0.0001%, 0.001%, 0.01%, 0.1% (plus NO control)",
+          "files": [
+            "2020_03_30_03_3Prot_GLA_0p0001_p2.raw",
+            "2020_03_30_04_3Prot_GLA_0p0001_p4.raw",
+            "2020_03_30_06_3Prot_GLA_0p001_p2.raw",
+            "2020_03_30_07_3Prot_GLA_0p001_p4.raw",
+            "2020_03_30_09_3Prot_GLA_0p01_p2.raw",
+            "2020_03_30_10_3Prot_GLA_0p01_p4.raw",
+            "2020_03_30_12_3Prot_GLA_0p1_p2.raw",
+            "2020_03_30_13_3Prot_GLA_0p1_p4.raw",
+            "2020_03_30_15_3Prot_GLA_NO_p2.raw",
+            "2020_03_30_16_3Prot_GLA_NO_p4.raw"
+          ],
+          "confidence": "high",
+          "evidence_quote": "For glutaraldehyde cross-linking, ... diluted with the proteins to the final glutaraldehyde concentrations: 0.0001, 0.001, 0.01, and 0.1%.",
+          "reasoning": "All filenames start with '3Prot' and include 'GLA_' with the same concentration series plus 'GLA_NO', directly matching the publication’s glutaraldehyde titration experiment. Suffixes (p2/p4) are treated as fraction/variant labels and not used to split clusters."
+        }
+      ],
+      "summary": {
+        "n_input_files": 22,
+        "n_assigned_files": 22,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 5,
+        "overall_confidence": "high"
+      }
+    }
+  }
+}

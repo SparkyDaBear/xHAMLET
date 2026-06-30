@@ -1,0 +1,924 @@
+{
+  "metadata": {
+    "pxd": "PXD042698",
+    "category": "enhanced",
+    "saved_at": "2026-06-30T15:35:10.425661",
+    "filename": "metadata"
+  },
+  "data": {
+    "pxd": "PXD042698",
+    "processed_at": "2026-06-30T15:34:39.407712",
+    "stages": {
+      "pride": "success",
+      "publication": "skipped_no_pmid",
+      "file_clustering": "failed",
+      "raw_processing": "skipped_no_download",
+      "spectral_merge": "success",
+      "llm": "success",
+      "sdrf": "success",
+      "sdrf_validation": "success_with_warnings",
+      "xi_configs": "success",
+      "relink": "skipped",
+      "compilation": "success"
+    },
+    "spectral_summary": {
+      "source_files_parsed": 0,
+      "per_file": [],
+      "instrument": "timsTOF Pro 2"
+    },
+    "sdrf_path": "pxd_data/PXD042698/sdrf/PXD042698.sdrf.tsv",
+    "sdrf_validation_warnings": "Traceback (most recent call last):\n  File \"/home/ians/git_repos/xHAMLET/.venv/bin/parse_sdrf\", line 6, in <module>\n    sys.exit(main())\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/sdrf_pipelines/parse_sdrf.py\", line 770, in main\n    cli()\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/click/core.py\", line 1524, in __call__\n    return self.main(*args, **kwargs)\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/click/core.py\", line 1445, in main\n    rv = self.invoke(ctx)\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/click/core.py\", line 1912, in invoke\n    return _process_result(sub_ctx.command.invoke(sub_ctx))\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/click/core.py\", line 1308, in invoke\n    return ctx.invoke(self.callback, **ctx.params)\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/click/core.py\", line 877, in invoke\n    return callback(*args, **kwargs)\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/click/decorators.py\", line 34, in new_func\n    return f(get_current_context(), *args, **kwargs)\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/sdrf_pipelines/parse_sdrf.py\", line 266, in validate_sdrf\n    sdrf_df = read_sdrf(sdrf_file)\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/sdrf_pipelines/sdrf/sdrf.py\", line 325, in read_sdrf\n    raise ValueError(\"No valid data found in the file\")\nValueError: No valid data found in the file",
+    "xi_config_paths": {
+      "crosslinking": "pxd_data/PXD042698/configs/xi_crosslinking.conf",
+      "linear": "pxd_data/PXD042698/configs/xi_linear.conf"
+    },
+    "pride_data": {
+      "accession": "PXD042698",
+      "title": "Ubiquitin-specific proximity labeling for the identification of E3 ubiquitin ligase substrates",
+      "additionalAttributes": [],
+      "projectDescription": "Protein ubiquitination controls diverse processes within eukaryotic cells, including protein degradation, and is often dysregulated in diseases1. Moreover, protein degraders that redirect ubiquitination activities toward disease targets are an emerging and promising therapeutic class2. Over 600 E3 ubiquitin ligases are expressed in humans3,4, but their substrates remain largely elusive due to a lack of robust methods to identify E3 ligase substrates. Here we report the development of E-STUB (E3 substrate tagging by ubiquitin biotinylation), a ubiquitin-specific proximity labeling method that biotinylates ubiquitinated substrates in proximity to an E3 ligase of interest. E-STUB accurately identifies the direct ubiquitinated targets of protein degraders, including collateral targets and ubiquitylation events that do not exhibit a degradative outcome. It also detects known substrates of E3 ligase cereblon (CRBN) and von Hippel-Lindau (VHL) with high precision. With the ability to elucidate proximal ubiquitination events, E-STUB may facilitate the development of proximity-inducing drugs and act as a generalizable method for E3 substrate mapping.",
+      "sampleProcessingProtocol": "Data were collected using a TimsTOF Pro2 (Bruker Daltonics, Bremen, Germany) coupled to a nanoElute LC pump (Bruker Daltonics, Bremen, Germany) via a CaptiveSpray nano-electrospray source. Peptides were separated on a reversed-phase C18 column (25 cm x 75 µm ID, 1.6 µM, IonOpticks, Australia) containing an integrated captive spray emitter. Peptides were separated using a 50 min gradient of 2 - 30% buffer B (acetonitrile in 0.1% formic acid) with a flow rate of 250 nL/min and column temperature maintained at 50 ºC. DDA was performed in Parallel Accumulation-Serial Fragmentation (PASEF) mode to determine effective ion mobility windows for downstream diaPASEF data collection (Meier et al., 2020). The ddaPASEF parameters included: 100% duty cycle using accumulation and ramp times of 50 ms each, 1 TIMS-MS scan and 10 PASEF ramps per acquisition cycle. The TIMS-MS survey scan was acquired between 100 – 1700 m/z and 1/k0 of 0.7 - 1.3 V.s/cm2. Precursors with 1 – 5 charges were selected and those that reached an intensity threshold of 20,000 arbitrary units were actively excluded for 0.4 min. The quadrupole isolation width was set to 2 m/z for m/z <700 and 3 m/z for m/z >800, with the m/z between 700-800 m/z being interpolated linearly. The TIMS elution voltages were calibrated linearly with three points (Agilent ESI-L Tuning Mix Ions; 622, 922, 1,222 m/z) to determine the reduced ion mobility coefficients (1/K0). To perform diaPASEF, the precursor distribution in the DDA m/z-ion mobility plane was used to design an acquisition scheme for DIA data collection which included two windows in each 50 ms diaPASEF scan. Data was acquired using sixteen of these 25 Da precursor double window scans (creating 32 windows) which covered the diagonal scan line for doubly and triply charged precursors, with singly charged precursors able to be excluded by their position in the m/z-ion mobility plane. These precursor isolation windows were defined between 400 - 1200 m/z and 1/k0 of 0.7 - 1.3 V.s/cm2.",
+      "dataProcessingProtocol": "The diaPASEF raw file processing and controlling peptide and protein level false discovery rates, assembling proteins from peptides, and protein quantification from peptides was performed using library free analysis in DIA-NN 1.8 (Demichev et al., 2020). Library free mode performs an in silico digestion of a given protein sequence database alongside deep learning-based predictions to extract the DIA precursor data into a collection of MS2 spectra. The search results are then used to generate a spectral library which is then employed for the targeted analysis of the DIA data searched against a Swissprot human database (January 2021). Database search criteria largely followed the default settings for directDIA including: tryptic with two missed cleavages, carbomidomethylation of cysteine as a fixed modification, and oxidation of methionine as a variable modification and precursor Q-value (FDR) cut-off of 0.01. Precursor quantification strategy was set to Robust LC (high accuracy) with RT-dependent cross run normalization. Proteins with a mean number of precursors used for quantification of less than 2 were excluded from further analysis and proteins with missing values were imputed by random selection from a gaussian distribution either with a mean of the non-missing values for that treatment group or with a mean equal to the median of the background (in cases when all values for a  treatment group are missing). Protein abundances were scaled using in-house scripts in the R framework (R Development Core Team, 2014) and significant changes comparing the relative protein abundance of treatment samples to the DMSO control treatments were assessed by moderated t test as implemented in the limma package within the R framework (M.E. Ritchie et al., 2015, Nucleic Acids Res, 43(7):e47).",
+      "projectTags": [],
+      "keywords": [
+        "Ubiquitin",
+        "E-stub",
+        "Substrates",
+        "Proximity biotinylation",
+        "Protac",
+        "Targeted degradation",
+        "E3 ligase"
+      ],
+      "doi": "",
+      "submissionType": "PARTIAL",
+      "license": "Creative Commons Public Domain (CC0)",
+      "submissionDate": "2023-06-02",
+      "publicationDate": "2024-03-20",
+      "submitters": [
+        {
+          "title": "Dr",
+          "firstName": "Eric",
+          "lastName": "Fischer",
+          "identifier": "63930159",
+          "affiliation": "Dana-Farber Cancer Institute",
+          "email": "eric_fischer@dfci.harvard.edu",
+          "country": "United States",
+          "orcid": "0000-0001-7337-6306",
+          "name": "Eric Fischer",
+          "id": "63930159"
+        }
+      ],
+      "labPIs": [
+        {
+          "title": "Dr",
+          "firstName": "Eric",
+          "lastName": "Fischer",
+          "identifier": "2585102",
+          "affiliation": "Department of Cancer Biology, Dana-Farber Cancer Institute, Boston, MA 02215, USA., Department of Biological Chemistry and Molecular Pharmacology, Harvard Medical School, Boston, MA 02115, USA",
+          "email": "eric_fischer@dfci.harvard.edu",
+          "country": "",
+          "orcid": "",
+          "name": "Eric Fischer",
+          "id": "2585102"
+        }
+      ],
+      "instruments": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MS",
+          "accession": "MS:1003230",
+          "name": "timsTOF Pro 2"
+        }
+      ],
+      "softwares": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MS",
+          "accession": "MS:1003253",
+          "name": "DIA-NN"
+        }
+      ],
+      "experimentTypes": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "PRIDE",
+          "accession": "PRIDE:0000433",
+          "name": "Affinity purification coupled with mass spectrometry proteomics"
+        }
+      ],
+      "quantificationMethods": [],
+      "countries": [
+        "United States"
+      ],
+      "sampleAttributes": [
+        {
+          "@type": "Tuple",
+          "key": {
+            "cvLabel": "EFO",
+            "accession": "EFO:0000635",
+            "name": "organism part"
+          },
+          "value": [
+            {
+              "cvLabel": "BTO",
+              "accession": "BTO:0000214",
+              "name": "cell culture"
+            }
+          ]
+        },
+        {
+          "@type": "Tuple",
+          "key": {
+            "cvLabel": "EFO",
+            "accession": "OBI:0100026",
+            "name": "organism"
+          },
+          "value": [
+            {
+              "cvLabel": "NEWT",
+              "accession": "NEWT:9606",
+              "name": "Homo sapiens (Human)"
+            }
+          ]
+        }
+      ],
+      "organisms": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "NEWT",
+          "accession": "NEWT:9606",
+          "name": "Homo sapiens (human)"
+        }
+      ],
+      "organismParts": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "BTO",
+          "accession": "BTO:0000214",
+          "name": "Cell culture"
+        }
+      ],
+      "diseases": [],
+      "references": [],
+      "identifiedPTMStrings": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MOD",
+          "accession": "MOD:00397",
+          "name": "iodoacetamide derivatized residue"
+        }
+      ],
+      "totalFileDownloads": 603,
+      "botCount": 258,
+      "hubCount": 329,
+      "organicCount": 16,
+      "files": {
+        "files": [
+          {
+            "fileName": "esf4_4668_Slot1-5_1_8593.d.zip",
+            "fileSizeBytes": 6696275731,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD042698/esf4_4668_Slot1-5_1_8593.d.zip"
+          },
+          {
+            "fileName": "esf4_4665_Slot1-2_1_8589.d.zip",
+            "fileSizeBytes": 6815789483,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD042698/esf4_4665_Slot1-2_1_8589.d.zip"
+          },
+          {
+            "fileName": "esf4_4667_Slot1-4_1_8592.d.zip",
+            "fileSizeBytes": 6352916180,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD042698/esf4_4667_Slot1-4_1_8592.d.zip"
+          },
+          {
+            "fileName": "esf4_4669_Slot1-6_1_8594.d.zip",
+            "fileSizeBytes": 6619712519,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD042698/esf4_4669_Slot1-6_1_8594.d.zip"
+          },
+          {
+            "fileName": "ip-esf_287_20230410.tsv",
+            "fileSizeBytes": 210261676,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD042698/ip-esf_287_20230410.tsv"
+          },
+          {
+            "fileName": "esf4_4666_Slot1-3_1_8590.d.zip",
+            "fileSizeBytes": 6635126116,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD042698/esf4_4666_Slot1-3_1_8590.d.zip"
+          },
+          {
+            "fileName": "esf4_4664_Slot1-1_1_8588.d.zip",
+            "fileSizeBytes": 6399064999,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD042698/esf4_4664_Slot1-1_1_8588.d.zip"
+          }
+        ],
+        "totalCount": 7
+      }
+    },
+    "publication_metadata": null,
+    "llm_responses": {
+      "characteristics[disease]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[compound]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[phenotype]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[compound]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[treatment]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[compound]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[compound]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[compound]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[dose]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[compound]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[genetic modification]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[compound]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[perturbation]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[compound]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[depletion]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[compound]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "no depletion",
+          "accession": "PRIDE:0000020",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "factor value cell line": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": null,\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "CLO:0000031",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value compound": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": null,\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "CHEBI:37577",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value disease": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": null,\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "OGMS:0000031",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value dose": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": null,\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000428",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value organism part": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": null,\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000635",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value time": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": null,\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000721",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value treatment": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": null,\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000727",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "comment[instrument]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=timsTOF Pro2;AC=MS:1003230\"\n    ],\n    \"accession\": \"MS:1003230\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Data were collected using a TimsTOF Pro2 (Bruker Daltonics, Bremen, Germany)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"DDA was performed in Parallel Accumulation-Serial Fragmentation (PASEF) mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": [\n      \"NT=HCD;AC=MS:1000422\"\n    ],\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"DDA was performed in Parallel Accumulation-Serial Fragmentation (PASEF) mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": \"diaPASEF\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"To perform diaPASEF, the precursor distribution in the DDA m/z-ion mobility plane was used to design an acquisition scheme for DIA data collection\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": [
+            "NT=timsTOF Pro2;AC=MS:1003230"
+          ],
+          "accession": "MS:1003230",
+          "confidence": "high",
+          "evidence_quote": "Data were collected using a TimsTOF Pro2 (Bruker Daltonics, Bremen, Germany)",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[proteomics data acquisition method]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=timsTOF Pro2;AC=MS:1003230\"\n    ],\n    \"accession\": \"MS:1003230\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Data were collected using a TimsTOF Pro2 (Bruker Daltonics, Bremen, Germany)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"DDA was performed in Parallel Accumulation-Serial Fragmentation (PASEF) mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": [\n      \"NT=HCD;AC=MS:1000422\"\n    ],\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"DDA was performed in Parallel Accumulation-Serial Fragmentation (PASEF) mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": \"diaPASEF\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"To perform diaPASEF, the precursor distribution in the DDA m/z-ion mobility plane was used to design an acquisition scheme for DIA data collection\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "NT=data-dependent acquisition;AC=PRIDE:0000041",
+          "accession": "PRIDE:0000041",
+          "confidence": "high",
+          "evidence_quote": "DDA was performed in Parallel Accumulation-Serial Fragmentation (PASEF) mode",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[dissociation method]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=timsTOF Pro2;AC=MS:1003230\"\n    ],\n    \"accession\": \"MS:1003230\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Data were collected using a TimsTOF Pro2 (Bruker Daltonics, Bremen, Germany)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"DDA was performed in Parallel Accumulation-Serial Fragmentation (PASEF) mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": [\n      \"NT=HCD;AC=MS:1000422\"\n    ],\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"DDA was performed in Parallel Accumulation-Serial Fragmentation (PASEF) mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": \"diaPASEF\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"To perform diaPASEF, the precursor distribution in the DDA m/z-ion mobility plane was used to design an acquisition scheme for DIA data collection\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": [
+            "NT=HCD;AC=MS:1000422"
+          ],
+          "accession": "MS:1000422",
+          "confidence": "medium",
+          "evidence_quote": "DDA was performed in Parallel Accumulation-Serial Fragmentation (PASEF) mode",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[collision energy]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=timsTOF Pro2;AC=MS:1003230\"\n    ],\n    \"accession\": \"MS:1003230\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Data were collected using a TimsTOF Pro2 (Bruker Daltonics, Bremen, Germany)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"DDA was performed in Parallel Accumulation-Serial Fragmentation (PASEF) mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": [\n      \"NT=HCD;AC=MS:1000422\"\n    ],\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"DDA was performed in Parallel Accumulation-Serial Fragmentation (PASEF) mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": \"diaPASEF\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"To perform diaPASEF, the precursor distribution in the DDA m/z-ion mobility plane was used to design an acquisition scheme for DIA data collection\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[dia method]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=timsTOF Pro2;AC=MS:1003230\"\n    ],\n    \"accession\": \"MS:1003230\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Data were collected using a TimsTOF Pro2 (Bruker Daltonics, Bremen, Germany)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"DDA was performed in Parallel Accumulation-Serial Fragmentation (PASEF) mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": [\n      \"NT=HCD;AC=MS:1000422\"\n    ],\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"DDA was performed in Parallel Accumulation-Serial Fragmentation (PASEF) mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": \"diaPASEF\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"To perform diaPASEF, the precursor distribution in the DDA m/z-ion mobility plane was used to design an acquisition scheme for DIA data collection\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "diaPASEF",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "To perform diaPASEF, the precursor distribution in the DDA m/z-ion mobility plane was used to design an acquisition scheme for DIA data collection",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[fragment mass tolerance]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=timsTOF Pro2;AC=MS:1003230\"\n    ],\n    \"accession\": \"MS:1003230\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Data were collected using a TimsTOF Pro2 (Bruker Daltonics, Bremen, Germany)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"DDA was performed in Parallel Accumulation-Serial Fragmentation (PASEF) mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": [\n      \"NT=HCD;AC=MS:1000422\"\n    ],\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"DDA was performed in Parallel Accumulation-Serial Fragmentation (PASEF) mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": \"diaPASEF\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"To perform diaPASEF, the precursor distribution in the DDA m/z-ion mobility plane was used to design an acquisition scheme for DIA data collection\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[precursor mass tolerance]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=timsTOF Pro2;AC=MS:1003230\"\n    ],\n    \"accession\": \"MS:1003230\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Data were collected using a TimsTOF Pro2 (Bruker Daltonics, Bremen, Germany)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"DDA was performed in Parallel Accumulation-Serial Fragmentation (PASEF) mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": [\n      \"NT=HCD;AC=MS:1000422\"\n    ],\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"DDA was performed in Parallel Accumulation-Serial Fragmentation (PASEF) mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": \"diaPASEF\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"To perform diaPASEF, the precursor distribution in the DDA m/z-ion mobility plane was used to design an acquisition scheme for DIA data collection\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[technical replicate]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=timsTOF Pro2;AC=MS:1003230\"\n    ],\n    \"accession\": \"MS:1003230\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Data were collected using a TimsTOF Pro2 (Bruker Daltonics, Bremen, Germany)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"DDA was performed in Parallel Accumulation-Serial Fragmentation (PASEF) mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": [\n      \"NT=HCD;AC=MS:1000422\"\n    ],\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"DDA was performed in Parallel Accumulation-Serial Fragmentation (PASEF) mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": \"diaPASEF\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"To perform diaPASEF, the precursor distribution in the DDA m/z-ion mobility plane was used to design an acquisition scheme for DIA data collection\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "no technical replicates stated",
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[data file]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=timsTOF Pro2;AC=MS:1003230\"\n    ],\n    \"accession\": \"MS:1003230\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Data were collected using a TimsTOF Pro2 (Bruker Daltonics, Bremen, Germany)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"DDA was performed in Parallel Accumulation-Serial Fragmentation (PASEF) mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": [\n      \"NT=HCD;AC=MS:1000422\"\n    ],\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"DDA was performed in Parallel Accumulation-Serial Fragmentation (PASEF) mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": \"diaPASEF\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"To perform diaPASEF, the precursor distribution in the DDA m/z-ion mobility plane was used to design an acquisition scheme for DIA data collection\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "characteristics[organism]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Over 600 E3 ubiquitin ligases are expressed in humans\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Data were collected using a TimsTOF Pro2 ... coupled to a nanoElute LC pump\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from dataset file names/sample descriptions (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem(s) (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "Homo sapiens",
+          "accession": "NCBITaxon:9606",
+          "confidence": "medium",
+          "evidence_quote": "Over 600 E3 ubiquitin ligases are expressed in humans",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[organism part]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Over 600 E3 ubiquitin ligases are expressed in humans\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Data were collected using a TimsTOF Pro2 ... coupled to a nanoElute LC pump\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from dataset file names/sample descriptions (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem(s) (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[cell line]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Over 600 E3 ubiquitin ligases are expressed in humans\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Data were collected using a TimsTOF Pro2 ... coupled to a nanoElute LC pump\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from dataset file names/sample descriptions (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem(s) (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[cell type]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Over 600 E3 ubiquitin ligases are expressed in humans\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Data were collected using a TimsTOF Pro2 ... coupled to a nanoElute LC pump\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from dataset file names/sample descriptions (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem(s) (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[material type]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Over 600 E3 ubiquitin ligases are expressed in humans\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Data were collected using a TimsTOF Pro2 ... coupled to a nanoElute LC pump\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from dataset file names/sample descriptions (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem(s) (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[strain or breed]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Over 600 E3 ubiquitin ligases are expressed in humans\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Data were collected using a TimsTOF Pro2 ... coupled to a nanoElute LC pump\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from dataset file names/sample descriptions (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem(s) (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[developmental stage]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Over 600 E3 ubiquitin ligases are expressed in humans\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Data were collected using a TimsTOF Pro2 ... coupled to a nanoElute LC pump\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from dataset file names/sample descriptions (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem(s) (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "technology type": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Over 600 E3 ubiquitin ligases are expressed in humans\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Data were collected using a TimsTOF Pro2 ... coupled to a nanoElute LC pump\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from dataset file names/sample descriptions (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem(s) (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "proteomic profiling by mass spectrometry",
+          "accession": "PRIDE:0000663",
+          "confidence": "high",
+          "evidence_quote": "Data were collected using a TimsTOF Pro2 ... coupled to a nanoElute LC pump",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "source name": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Over 600 E3 ubiquitin ligases are expressed in humans\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Data were collected using a TimsTOF Pro2 ... coupled to a nanoElute LC pump\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from dataset file names/sample descriptions (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem(s) (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "Auto-generated from dataset file names/sample descriptions (not provided in the provided text)",
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "assay name": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Over 600 E3 ubiquitin ligases are expressed in humans\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Data were collected using a TimsTOF Pro2 ... coupled to a nanoElute LC pump\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from dataset file names/sample descriptions (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem(s) (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "Auto-generated from raw file stem(s) (not provided in the provided text)",
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[sex]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not available\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "not available",
+          "accession": "PATO:0000047",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[age]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not available\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000246",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[ancestry category]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not available\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "HANCESTRO",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[biological replicate]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not available\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "MS:1001809",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[genotype]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not available\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000513",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[pooled sample]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not available\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "not pooled",
+          "accession": "NCIT:C165587",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[phosphate]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not available\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000805",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[temperature]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not available\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000703",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "comment[cleavage agent details]": {
+        "response": "```json\n{\n  \"comment[cleavage agent details]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[label]": {
+        "response": "```json\n{\n  \"comment[cleavage agent details]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "NT=label free sample;AC=MS:1002038",
+          "accession": "MS:1002038",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[alkylation reagent]": {
+        "response": "```json\n{\n  \"comment[cleavage agent details]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[fractionation method]": {
+        "response": "```json\n{\n  \"comment[cleavage agent details]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[modification parameters]": {
+        "response": "```json\n{\n  \"comment[cleavage agent details]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": [],
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[fraction identifier]": {
+        "response": "```json\n{\n  \"comment[cleavage agent details]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "no fractionation",
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "characteristics[crosslinking reaction time]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000838\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000949",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "characteristics[crosslinking temperature]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000838\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000950",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "comment[crosslink enrichment method]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000838\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000838",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "characteristics[enrichment process]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000838\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0009090",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "comment[cross-linker]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": null,\n    \"NT\": null,\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "NT": null,
+          "AC": null,
+          "CL": null,
+          "TA": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[crosslinker concentration]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": null,\n    \"NT\": null,\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000951",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[crosslinker to protein ratio]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": null,\n    \"NT\": null,\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000952",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[quenching reagent]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": null,\n    \"NT\": null,\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000953",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "characteristics[crosslink distance]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": null,\n    \"NT\": null,\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000948",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[chemical cross-linking coupled with ms]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": null,\n    \"NT\": null,\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "cross-linking mass spectrometry",
+          "accession": "PRIDE:0000430",
+          "confidence": "medium",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      }
+    }
+  }
+}

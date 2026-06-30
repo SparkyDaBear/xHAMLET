@@ -1,0 +1,97 @@
+{
+  "metadata": {
+    "pxd": "PXD016639",
+    "category": "llm",
+    "saved_at": "2026-06-30T15:07:30.996636",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"human_dnapkcs_dss_dsg\",\n      \"description\": \"Human DNA-PKcs crosslinked with DSS/DSG (disuccinimidyl glutarate/glutarate family) under the main DNA-PKcs XL-MS condition(s).\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": \"DSS/DSG\",\n      \"biological_condition\": \"DNA-PKcs purified protein (noEnrich/SEC enrichment not distinguished); crosslinked with DSS or DSG\",\n      \"files\": [\n        \"DNAPKcs-175X-DGS.raw\",\n        \"DNAPKcs-175X-DSG-2.raw\",\n        \"DNAPKcs-350X-DSG-2.raw\",\n        \"DNAPKcs-350X-DSG.raw\",\n        \"DNAPKcs-700X-DSG-2.raw\",\n        \"DNAPKcs-700X-DSG.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"In separate experiments, the protein was crosslinked with DSS (disuccinimidyl suberate) ... and DSG (disuccinimidyl glutarate) ...\",\n      \"reasoning\": \"All files are clearly DNA-PKcs XL-MS raw runs from human samples (DNAPKcs prefix) and the filenames indicate DSG/DGS (glutarate-type) crosslinking. The dataset does not provide enough information to reliably separate DSS vs DSG for each file, so DSS/DSG are grouped together as one biologically meaningful condition. SEC enrichment/fractionation is not used for splitting.\"\n    },\n    {\n      \"cluster_id\": \"cluster_2\",\n      \"cluster_label\": \"human_dnapkcs_bspeg5\",\n      \"description\": \"Human DNA-PKcs crosslinked with BS(PEG)5 (PEGylated bis(sulfosuccinimidyl)suberate).\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": \"BS(PEG)5\",\n      \"biological_condition\": \"DNA-PKcs purified protein crosslinked with BS(PEG)5 (PEGylated bis(sulfosuccinimidyl)suberate)\",\n      \"files\": [\n        \"DNAPKcs-175XL-BSP_160215023606.raw\",\n        \"DNAPKcs-350XL-BSP-15.raw\",\n        \"DNAPKcs-350XL-BSP-16_160214220701.raw\",\n        \"DNAPKcs-350XL-BSP-17_160214233708.raw\",\n        \"DNAPKcs-350XL-BSP-18_160215010635.raw\",\n        \"DNAPKcs-350XL-BSP_160215044046.raw\",\n        \"DNAPKcs-700XL-BSP_160215064522.raw\"\n      ],\n      \"confidence\": \"high\",\n      \"evidence_quote\": \"In separate experiments, the protein was crosslinked with ... BS(PEG)5 (PEGylated bis(sulfosuccinimidyl)suberate, Thermo Scientific Inc.).\",\n      \"reasoning\": \"Filenames contain BSP/BSP_ and XL, matching the publication’s BS(PEG)5 crosslinker. Replicates/runs are not split; all belong to the same crosslinker condition for purified human DNA-PKcs.\"\n    },\n    {\n      \"cluster_id\": \"cluster_3\",\n      \"cluster_label\": \"human_dnapkcs_dss_hcd40_sec\",\n      \"description\": \"Human DNA-PKcs SEC-enriched samples crosslinked with DSG/DSS family and analyzed with HCD40 (SEC15-19 series).\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": \"DSG/DSS\",\n      \"biological_condition\": \"DNA-PKcs SEC-enriched condition series (SEC15-19) crosslinked with DSG/DSS family; HCD40 acquisition\",\n      \"files\": [\n        \"DNAPKcsSEC15-350X-HCD40.raw\",\n        \"DNAPKcsSEC16-350X-HCD40.raw\",\n        \"DNAPKcsSEC17-350X-HCD40.raw\",\n        \"DNAPKcsSEC18-350X-HCD40.raw\",\n        \"DNAPKcsSEC19-350X-HCD40.raw\"\n      ],\n      \"confidence\": \"low\",\n      \"evidence_quote\": \"To further enrich for crosslinked peptides, some digests were reconstituted in SEC ... and separated on a Superdex Peptide PC 3.2/30 column ...\",\n      \"reasoning\": \"These files explicitly indicate SEC enrichment (SEC15-19) and HCD40 acquisition. However, the filename does not specify DSG vs DSS, only '350X' and HCD40. Because the task requests not splitting by enrichment fraction/LC fraction, this cluster is only justified as a distinct experimental condition due to the explicit SEC series; crosslinker is inferred as DSS/DSG family from the 'X' series but remains uncertain.\"\n    },\n    {\n      \"cluster_id\": \"cluster_4\",\n      \"cluster_label\": \"human_dnapkcs_noenrich_dtt_hcd40\",\n      \"description\": \"Human DNA-PKcs non-enriched control (no SEC enrichment) with DTT and HCD40 acquisition.\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": null,\n      \"biological_condition\": \"DNA-PKcs without enrichment (noEnrich) with DTT; HCD40 acquisition\",\n      \"files\": [\n        \"DNAPKcs-noEnrich-DTT-HCD40.raw\"\n      ],\n      \"confidence\": \"low\",\n      \"evidence_quote\": \"DNAPKcs-noEnrich-DTT-HCD40.raw\",\n      \"reasoning\": \"The filename clearly indicates a non-enriched condition (noEnrich) and DTT, but it does not specify the crosslinker reagent. It is therefore separated as its own biological condition; crosslinker is left null.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 19,\n    \"n_assigned_files\": 19,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 4,\n    \"overall_confidence\": \"medium\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "human_dnapkcs_dss_dsg",
+          "description": "Human DNA-PKcs crosslinked with DSS/DSG (disuccinimidyl glutarate/glutarate family) under the main DNA-PKcs XL-MS condition(s).",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": "DSS/DSG",
+          "biological_condition": "DNA-PKcs purified protein (noEnrich/SEC enrichment not distinguished); crosslinked with DSS or DSG",
+          "files": [
+            "DNAPKcs-175X-DGS.raw",
+            "DNAPKcs-175X-DSG-2.raw",
+            "DNAPKcs-350X-DSG-2.raw",
+            "DNAPKcs-350X-DSG.raw",
+            "DNAPKcs-700X-DSG-2.raw",
+            "DNAPKcs-700X-DSG.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "In separate experiments, the protein was crosslinked with DSS (disuccinimidyl suberate) ... and DSG (disuccinimidyl glutarate) ...",
+          "reasoning": "All files are clearly DNA-PKcs XL-MS raw runs from human samples (DNAPKcs prefix) and the filenames indicate DSG/DGS (glutarate-type) crosslinking. The dataset does not provide enough information to reliably separate DSS vs DSG for each file, so DSS/DSG are grouped together as one biologically meaningful condition. SEC enrichment/fractionation is not used for splitting."
+        },
+        {
+          "cluster_id": "cluster_2",
+          "cluster_label": "human_dnapkcs_bspeg5",
+          "description": "Human DNA-PKcs crosslinked with BS(PEG)5 (PEGylated bis(sulfosuccinimidyl)suberate).",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": "BS(PEG)5",
+          "biological_condition": "DNA-PKcs purified protein crosslinked with BS(PEG)5 (PEGylated bis(sulfosuccinimidyl)suberate)",
+          "files": [
+            "DNAPKcs-175XL-BSP_160215023606.raw",
+            "DNAPKcs-350XL-BSP-15.raw",
+            "DNAPKcs-350XL-BSP-16_160214220701.raw",
+            "DNAPKcs-350XL-BSP-17_160214233708.raw",
+            "DNAPKcs-350XL-BSP-18_160215010635.raw",
+            "DNAPKcs-350XL-BSP_160215044046.raw",
+            "DNAPKcs-700XL-BSP_160215064522.raw"
+          ],
+          "confidence": "high",
+          "evidence_quote": "In separate experiments, the protein was crosslinked with ... BS(PEG)5 (PEGylated bis(sulfosuccinimidyl)suberate, Thermo Scientific Inc.).",
+          "reasoning": "Filenames contain BSP/BSP_ and XL, matching the publication’s BS(PEG)5 crosslinker. Replicates/runs are not split; all belong to the same crosslinker condition for purified human DNA-PKcs."
+        },
+        {
+          "cluster_id": "cluster_3",
+          "cluster_label": "human_dnapkcs_dss_hcd40_sec",
+          "description": "Human DNA-PKcs SEC-enriched samples crosslinked with DSG/DSS family and analyzed with HCD40 (SEC15-19 series).",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": "DSG/DSS",
+          "biological_condition": "DNA-PKcs SEC-enriched condition series (SEC15-19) crosslinked with DSG/DSS family; HCD40 acquisition",
+          "files": [
+            "DNAPKcsSEC15-350X-HCD40.raw",
+            "DNAPKcsSEC16-350X-HCD40.raw",
+            "DNAPKcsSEC17-350X-HCD40.raw",
+            "DNAPKcsSEC18-350X-HCD40.raw",
+            "DNAPKcsSEC19-350X-HCD40.raw"
+          ],
+          "confidence": "low",
+          "evidence_quote": "To further enrich for crosslinked peptides, some digests were reconstituted in SEC ... and separated on a Superdex Peptide PC 3.2/30 column ...",
+          "reasoning": "These files explicitly indicate SEC enrichment (SEC15-19) and HCD40 acquisition. However, the filename does not specify DSG vs DSS, only '350X' and HCD40. Because the task requests not splitting by enrichment fraction/LC fraction, this cluster is only justified as a distinct experimental condition due to the explicit SEC series; crosslinker is inferred as DSS/DSG family from the 'X' series but remains uncertain."
+        },
+        {
+          "cluster_id": "cluster_4",
+          "cluster_label": "human_dnapkcs_noenrich_dtt_hcd40",
+          "description": "Human DNA-PKcs non-enriched control (no SEC enrichment) with DTT and HCD40 acquisition.",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": null,
+          "biological_condition": "DNA-PKcs without enrichment (noEnrich) with DTT; HCD40 acquisition",
+          "files": [
+            "DNAPKcs-noEnrich-DTT-HCD40.raw"
+          ],
+          "confidence": "low",
+          "evidence_quote": "DNAPKcs-noEnrich-DTT-HCD40.raw",
+          "reasoning": "The filename clearly indicates a non-enriched condition (noEnrich) and DTT, but it does not specify the crosslinker reagent. It is therefore separated as its own biological condition; crosslinker is left null."
+        }
+      ],
+      "summary": {
+        "n_input_files": 19,
+        "n_assigned_files": 19,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 4,
+        "overall_confidence": "medium"
+      }
+    }
+  }
+}

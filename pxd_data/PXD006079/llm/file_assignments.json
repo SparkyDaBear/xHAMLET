@@ -1,0 +1,99 @@
+{
+  "metadata": {
+    "pxd": "PXD006079",
+    "category": "llm",
+    "saved_at": "2026-06-30T14:54:39.067544",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"drosophila_embryo_biotap_xl_formaldehyde\",\n      \"description\": \"Drosophila melanogaster embryos/nuclear extracts expressing BioTAP-N Br140 (PRC1–Br140 bait) crosslinked with formaldehyde for BioTAP-XL.\",\n      \"organism\": \"Drosophila melanogaster\",\n      \"taxid\": \"NCBITaxon:7227\",\n      \"crosslinker\": \"formaldehyde\",\n      \"biological_condition\": \"BioTAP-N Br140 bait (PRC1–Br140 bivalent complex) in fly embryos/nuclear extracts\",\n      \"files\": [\n        \"33272.RAW\",\n        \"37213b.RAW\",\n        \"37480hk1.RAW\",\n        \"42521.RAW\",\n        \"42977.RAW\"\n      ],\n      \"confidence\": \"low\",\n      \"evidence_quote\": \"Embryos were cross-linked with 3% formaldehyde, and extracts were prepared as described.\",\n      \"reasoning\": \"The publication describes BioTAP-XL on 12- to 24-h-old embryos crosslinked with 3% formaldehyde, and the dataset filenames (numeric .RAW) do not encode bait identity or crosslinker. Given the study context (PRC1–Br140 and PRC1–Fs(1)h bivalent complexes) and that formaldehyde is explicitly used for embryo crosslinking, these files are grouped as the primary biological formaldehyde XL-MS runs. However, without explicit filename hints tying each numeric RAW to Br140 vs Fs(1)h or to embryos vs S2 cells, confidence is low.\"\n    },\n    {\n      \"cluster_id\": \"cluster_2\",\n      \"cluster_label\": \"drosophila_barry_cg_input_formaldehyde\",\n      \"description\": \"Input/control material for BioTAP-XL (Barry_CG) crosslinked with formaldehyde.\",\n      \"organism\": \"Drosophila melanogaster\",\n      \"taxid\": \"NCBITaxon:7227\",\n      \"crosslinker\": \"formaldehyde\",\n      \"biological_condition\": \"BioTAP-XL input/control (Barry_CG) for enrichment calculations\",\n      \"files\": [\n        \"Barry_CG_INPUT.raw\"\n      ],\n      \"confidence\": \"low\",\n      \"evidence_quote\": \"To determine enrichments from the protein identification samples... The immunoprecipitations were then divided by the inputs...\",\n      \"reasoning\": \"The filename explicitly contains 'INPUT', indicating an input/control used for normalization/enrichment. The crosslinker is not stated in the filename, but the BioTAP-XL workflow in the publication uses 3% formaldehyde for embryo crosslinking, so formaldehyde is assumed. Confidence remains low because the filename does not specify whether this input corresponds to embryos, S2 cells, Br140, or Fs(1)h.\"\n    },\n    {\n      \"cluster_id\": \"cluster_3\",\n      \"cluster_label\": \"drosophila_barry_cg_strep_formaldehyde\",\n      \"description\": \"Streptavidin pull-down/control for BioTAP-XL (Barry_CG) crosslinked with formaldehyde.\",\n      \"organism\": \"Drosophila melanogaster\",\n      \"taxid\": \"NCBITaxon:7227\",\n      \"crosslinker\": \"formaldehyde\",\n      \"biological_condition\": \"Streptavidin-agarose complex/control for BioTAP-XL (Barry_CG_Strep)\",\n      \"files\": [\n        \"Barry_CG_Strep.raw\"\n      ],\n      \"confidence\": \"low\",\n      \"evidence_quote\": \"After sonication, tandem affinity purification was performed to purify the BioTAP-tagged bait along with its protein interaction partners...\",\n      \"reasoning\": \"The filename contains 'Strep', consistent with streptavidin-agarose capture/processing described in the BioTAP-XL workflow. Crosslinker is not encoded in the filename; formaldehyde is inferred from the overall BioTAP-XL crosslinking step. Confidence is low because the exact biological bait/condition for 'Barry_CG' is not provided.\"\n    },\n    {\n      \"cluster_id\": \"cluster_4\",\n      \"cluster_label\": \"drosophila_barry_sfmbt_input_formaldehyde\",\n      \"description\": \"Input/control material for BioTAP-XL (Barry_Sfmbt) crosslinked with formaldehyde.\",\n      \"organism\": \"Drosophila melanogaster\",\n      \"taxid\": \"NCBITaxon:7227\",\n      \"crosslinker\": \"formaldehyde\",\n      \"biological_condition\": \"BioTAP-XL input/control (Barry_Sfmbt) for enrichment calculations\",\n      \"files\": [\n        \"Barry_Sfmbt_Input.raw\"\n      ],\n      \"confidence\": \"low\",\n      \"evidence_quote\": \"The immunoprecipitations were then divided by the inputs and log10-normalized again to yield enrichments of binding partners for the BioTAP-tagged baits.\",\n      \"reasoning\": \"The filename explicitly contains 'Input', indicating a normalization/control sample. Crosslinker is inferred from the BioTAP-XL method (3% formaldehyde). Confidence is low because the filename does not specify whether this input corresponds to embryos vs S2 cells or which bait.\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a biological XL-MS condition.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"All provided files were assigned based on filename cues (INPUT/Strep) and the publication’s stated formaldehyde crosslinking, though bait/condition mapping for numeric RAW files is not explicit.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 9,\n    \"n_assigned_files\": 9,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 4,\n    \"overall_confidence\": \"low\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "drosophila_embryo_biotap_xl_formaldehyde",
+          "description": "Drosophila melanogaster embryos/nuclear extracts expressing BioTAP-N Br140 (PRC1–Br140 bait) crosslinked with formaldehyde for BioTAP-XL.",
+          "organism": "Drosophila melanogaster",
+          "taxid": "NCBITaxon:7227",
+          "crosslinker": "formaldehyde",
+          "biological_condition": "BioTAP-N Br140 bait (PRC1–Br140 bivalent complex) in fly embryos/nuclear extracts",
+          "files": [
+            "33272.RAW",
+            "37213b.RAW",
+            "37480hk1.RAW",
+            "42521.RAW",
+            "42977.RAW"
+          ],
+          "confidence": "low",
+          "evidence_quote": "Embryos were cross-linked with 3% formaldehyde, and extracts were prepared as described.",
+          "reasoning": "The publication describes BioTAP-XL on 12- to 24-h-old embryos crosslinked with 3% formaldehyde, and the dataset filenames (numeric .RAW) do not encode bait identity or crosslinker. Given the study context (PRC1–Br140 and PRC1–Fs(1)h bivalent complexes) and that formaldehyde is explicitly used for embryo crosslinking, these files are grouped as the primary biological formaldehyde XL-MS runs. However, without explicit filename hints tying each numeric RAW to Br140 vs Fs(1)h or to embryos vs S2 cells, confidence is low."
+        },
+        {
+          "cluster_id": "cluster_2",
+          "cluster_label": "drosophila_barry_cg_input_formaldehyde",
+          "description": "Input/control material for BioTAP-XL (Barry_CG) crosslinked with formaldehyde.",
+          "organism": "Drosophila melanogaster",
+          "taxid": "NCBITaxon:7227",
+          "crosslinker": "formaldehyde",
+          "biological_condition": "BioTAP-XL input/control (Barry_CG) for enrichment calculations",
+          "files": [
+            "Barry_CG_INPUT.raw"
+          ],
+          "confidence": "low",
+          "evidence_quote": "To determine enrichments from the protein identification samples... The immunoprecipitations were then divided by the inputs...",
+          "reasoning": "The filename explicitly contains 'INPUT', indicating an input/control used for normalization/enrichment. The crosslinker is not stated in the filename, but the BioTAP-XL workflow in the publication uses 3% formaldehyde for embryo crosslinking, so formaldehyde is assumed. Confidence remains low because the filename does not specify whether this input corresponds to embryos, S2 cells, Br140, or Fs(1)h."
+        },
+        {
+          "cluster_id": "cluster_3",
+          "cluster_label": "drosophila_barry_cg_strep_formaldehyde",
+          "description": "Streptavidin pull-down/control for BioTAP-XL (Barry_CG) crosslinked with formaldehyde.",
+          "organism": "Drosophila melanogaster",
+          "taxid": "NCBITaxon:7227",
+          "crosslinker": "formaldehyde",
+          "biological_condition": "Streptavidin-agarose complex/control for BioTAP-XL (Barry_CG_Strep)",
+          "files": [
+            "Barry_CG_Strep.raw"
+          ],
+          "confidence": "low",
+          "evidence_quote": "After sonication, tandem affinity purification was performed to purify the BioTAP-tagged bait along with its protein interaction partners...",
+          "reasoning": "The filename contains 'Strep', consistent with streptavidin-agarose capture/processing described in the BioTAP-XL workflow. Crosslinker is not encoded in the filename; formaldehyde is inferred from the overall BioTAP-XL crosslinking step. Confidence is low because the exact biological bait/condition for 'Barry_CG' is not provided."
+        },
+        {
+          "cluster_id": "cluster_4",
+          "cluster_label": "drosophila_barry_sfmbt_input_formaldehyde",
+          "description": "Input/control material for BioTAP-XL (Barry_Sfmbt) crosslinked with formaldehyde.",
+          "organism": "Drosophila melanogaster",
+          "taxid": "NCBITaxon:7227",
+          "crosslinker": "formaldehyde",
+          "biological_condition": "BioTAP-XL input/control (Barry_Sfmbt) for enrichment calculations",
+          "files": [
+            "Barry_Sfmbt_Input.raw"
+          ],
+          "confidence": "low",
+          "evidence_quote": "The immunoprecipitations were then divided by the inputs and log10-normalized again to yield enrichments of binding partners for the BioTAP-tagged baits.",
+          "reasoning": "The filename explicitly contains 'Input', indicating a normalization/control sample. Crosslinker is inferred from the BioTAP-XL method (3% formaldehyde). Confidence is low because the filename does not specify whether this input corresponds to embryos vs S2 cells or which bait."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a biological XL-MS condition.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "All provided files were assigned based on filename cues (INPUT/Strep) and the publication’s stated formaldehyde crosslinking, though bait/condition mapping for numeric RAW files is not explicit."
+        }
+      ],
+      "summary": {
+        "n_input_files": 9,
+        "n_assigned_files": 9,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 4,
+        "overall_confidence": "low"
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "pxd": "PXD010988",
+    "category": "llm",
+    "saved_at": "2026-06-30T15:00:55.754349",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"e_coli_control_vs_pal5_thanatin\",\n      \"description\": \"Escherichia coli samples analyzed by DDA under control and PAL5-thanatin treatment (thanatin-PAL5 photoaffinity labeling).\",\n      \"organism\": \"Escherichia coli ATCC 25922\",\n      \"taxid\": \"NCBITaxon:562\",\n      \"crosslinker\": \"thanatin-PAL5\",\n      \"biological_condition\": \"control and thanatin-PAL5 treated (photoaffinity labeling)\",\n      \"files\": [\n        \"DDA_Control_r1.raw\",\n        \"DDA_Control_r2.raw\",\n        \"DDA_Control_r3.raw\",\n        \"DDA_PAL5_r1.raw\",\n        \"DDA_PAL5_r2.raw\",\n        \"DDA_PAL5_r3.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"Photoactivation was achieved by ultraviolet irradiation at 350 nm ... with thanatin-PAL5 (2 to 10 μg/ml).\",\n      \"reasoning\": \"All filenames are DDA runs from two conditions labeled 'Control' and 'PAL5'. The publication describes photoaffinity labeling using thanatin-PAL5 in E. coli ATCC 25922, implying PAL5 corresponds to thanatin-PAL5 treated samples. However, the crosslinker for 'Control' is not explicitly stated in the provided text, so the safest minimal biologically meaningful grouping is to keep both Control and PAL5 together as the thanatin-PAL5 experiment context rather than splitting by crosslinker.\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a biological XL-MS condition.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"No QC/calibration/blank files were provided; all input filenames match biological DDA runs.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 6,\n    \"n_assigned_files\": 6,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 1,\n    \"overall_confidence\": \"medium\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "e_coli_control_vs_pal5_thanatin",
+          "description": "Escherichia coli samples analyzed by DDA under control and PAL5-thanatin treatment (thanatin-PAL5 photoaffinity labeling).",
+          "organism": "Escherichia coli ATCC 25922",
+          "taxid": "NCBITaxon:562",
+          "crosslinker": "thanatin-PAL5",
+          "biological_condition": "control and thanatin-PAL5 treated (photoaffinity labeling)",
+          "files": [
+            "DDA_Control_r1.raw",
+            "DDA_Control_r2.raw",
+            "DDA_Control_r3.raw",
+            "DDA_PAL5_r1.raw",
+            "DDA_PAL5_r2.raw",
+            "DDA_PAL5_r3.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "Photoactivation was achieved by ultraviolet irradiation at 350 nm ... with thanatin-PAL5 (2 to 10 μg/ml).",
+          "reasoning": "All filenames are DDA runs from two conditions labeled 'Control' and 'PAL5'. The publication describes photoaffinity labeling using thanatin-PAL5 in E. coli ATCC 25922, implying PAL5 corresponds to thanatin-PAL5 treated samples. However, the crosslinker for 'Control' is not explicitly stated in the provided text, so the safest minimal biologically meaningful grouping is to keep both Control and PAL5 together as the thanatin-PAL5 experiment context rather than splitting by crosslinker."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a biological XL-MS condition.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "No QC/calibration/blank files were provided; all input filenames match biological DDA runs."
+        }
+      ],
+      "summary": {
+        "n_input_files": 6,
+        "n_assigned_files": 6,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 1,
+        "overall_confidence": "medium"
+      }
+    }
+  }
+}

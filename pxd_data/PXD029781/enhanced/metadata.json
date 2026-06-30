@@ -1,0 +1,966 @@
+{
+  "metadata": {
+    "pxd": "PXD029781",
+    "category": "enhanced",
+    "saved_at": "2026-06-30T15:22:38.768318",
+    "filename": "metadata"
+  },
+  "data": {
+    "pxd": "PXD029781",
+    "processed_at": "2026-06-30T15:21:38.320317",
+    "stages": {
+      "pride": "success",
+      "publication": "skipped_no_pmid",
+      "file_clustering": "success",
+      "raw_processing": "skipped_no_download",
+      "spectral_merge": "success",
+      "llm": "success",
+      "sdrf": "success",
+      "sdrf_validation": "success_with_warnings",
+      "xi_configs": "success",
+      "relink": "skipped",
+      "compilation": "success"
+    },
+    "file_assignments": {
+      "01092020_E_Aurora_9311_Exp1-1_2h-SILAC.raw": {
+        "cluster_id": "cluster_1",
+        "cluster_label": "ins1e_pacsph_uv_sgpl1null_silac",
+        "organism": "Rattus norvegicus",
+        "taxid": "NCBITaxon:10116"
+      },
+      "01092020_E_Aurora_9312_Exp1-2_2h-SILAC.raw": {
+        "cluster_id": "cluster_1",
+        "cluster_label": "ins1e_pacsph_uv_sgpl1null_silac",
+        "organism": "Rattus norvegicus",
+        "taxid": "NCBITaxon:10116"
+      },
+      "01092020_E_Aurora_9313_Exp1-3_2h-SILAC.raw": {
+        "cluster_id": "cluster_1",
+        "cluster_label": "ins1e_pacsph_uv_sgpl1null_silac",
+        "organism": "Rattus norvegicus",
+        "taxid": "NCBITaxon:10116"
+      },
+      "01092020_E_Aurora_9314_Exp1-4_2h-SILAC.raw": {
+        "cluster_id": "cluster_1",
+        "cluster_label": "ins1e_pacsph_uv_sgpl1null_silac",
+        "organism": "Rattus norvegicus",
+        "taxid": "NCBITaxon:10116"
+      }
+    },
+    "spectral_summary": {
+      "source_files_parsed": 0,
+      "per_file": [],
+      "instrument": "Q Exactive"
+    },
+    "sdrf_path": "pxd_data/PXD029781/sdrf/PXD029781.sdrf.tsv",
+    "sdrf_validation_warnings": "WARNING: Term: beta cells in column 'characteristics[cell type]', is not found in the given ontology list cl;bto;clo\nWARNING: Term: not available in column 'comment[instrument]', is not found in the given ontology list ms;pride\nERROR: Column 'comment[instrument]' contains 'not available' values but requires actual values\nERROR: Term: not available in column 'comment[cleavage agent details]', is not found in the given ontology list ms\nERROR: Column 'comment[cleavage agent details]' contains 'not available' values but requires actual values\nERROR: Term: not available in column 'comment[dissociation method]', is not found in the given ontology list ms;pride\nERROR: Column 'comment[dissociation method]' contains 'not available' values but requires actual values\nERROR: Value 'NT=pacSph' does not match required pattern\nWARNING: Term: Streptavidin-based pulldown (biotin/Click-chemistry enrichment) in column 'comment[crosslink enrichment method]', is not found in the given ontology list pride;ms\nThere were validation errors.",
+    "xi_config_paths": {
+      "crosslinking": "pxd_data/PXD029781/configs/xi_crosslinking.conf",
+      "linear": "pxd_data/PXD029781/configs/xi_linear.conf"
+    },
+    "pride_data": {
+      "accession": "PXD029781",
+      "title": "CerS2 dependent Sphingolipid - protein interactions in rat beta cell line Ins1E",
+      "additionalAttributes": [],
+      "projectDescription": "To define the beta cell Sphingolipid-protein interactome, we performed a chemoproteomic screen in which a chemically modified SL precursor (photoactivatable and clickable sphingosine, pacSph) was fed to cells and rapidly incorporated into de novo synthesized SLs. Ultraviolet (UV) irradiation covalently crosslinked cellular SL-protein complexes, allowing for cell lysis under harsh conditions, pulldown and subsequent MS-based identification and quantification of SL interacting proteins. CrispR/Cas9 knockout of the SL specific catabolic enzyme Sgpl1 ensured that only SLs are labelled with pacSph. Furthermore, stable isotope labelling allowed direct comparison of SBPs in several cell lines in the same MS run.",
+      "sampleProcessingProtocol": "All Ins1E cells in this experiment were Sgpl1 null cells (not further mentioned). SILAC labelled control cells (medium or heavy) as well as CerS2 deficient cells were treated with pacSph (synthetic sphingolipid precursor), followed by UV irradiation (or as control, no irradiation) to crosslink Sphingolipid-protein complexes. After cell lysis, biotin was added to the artifical pacSph-protein complexes via Click-Chemistry, followed by Streptavidin-based pulldown. After in-gel digestion, samples were analyzed by LC-MS/MS.",
+      "dataProcessingProtocol": "For bioinformatical analysis, raw files were searched with MaxQuant against an UniProt Reference Proteome database specific for Rattus norvegicus and against MaxQuants internal common contaminants database. The resulting protein groups table was further analyzed using Perseus together with plugins linking to R. After data cleanup, resulting protein intensities were log2 transformed. To determine specific interactors for sphingolipids, ratios against the non-UV control were calculated for both UV-treated samples (control + UV vs. control -UV cells; CerS2 KO cells +UV vs. control cells -UV). One-sample t-tests were used to determine true interactors. In addition, protein exclusively present in +UV samples were also considered. Missing intensity values were imputed from normal distribution, and the data normalized using both \"remove batch effect\" (method: limma) and the \"quantile normalization\" function.",
+      "projectTags": [],
+      "keywords": [
+        "Beta cell",
+        "Sphingolipid",
+        "Interactomics"
+      ],
+      "doi": "",
+      "submissionType": "PARTIAL",
+      "license": "Creative Commons Public Domain (CC0)",
+      "submissionDate": "2021-11-17",
+      "publicationDate": "2022-09-22",
+      "submitters": [
+        {
+          "title": "Dr",
+          "firstName": "Bengt-Frederik",
+          "lastName": "Belgardt",
+          "identifier": "2394702",
+          "affiliation": "\nInstitute for Vascular and Islet Cell Biology\nGerman Diabetes Center (DDZ)\nLeibniz Center for Diabetes Research\nat Heinrich Heine University Düsseldorf\nAuf´m Hennekamp 65\n40225 Düsseldorf, Germany\nTel.: +49-(0)-211-33-82-451\nwww.ddz.de\nLegal body: Deutsche Diabetes-Forschungsgesellschaft e.V.",
+          "email": "bengt.belgardt@ddz.de",
+          "country": "Germany",
+          "orcid": "0000-0003-4537-9002",
+          "name": "Bengt-Frederik Belgardt",
+          "id": "2394702"
+        }
+      ],
+      "labPIs": [
+        {
+          "title": "Dr",
+          "firstName": "Bengt-Frederik",
+          "lastName": "Belgardt",
+          "identifier": "2315980",
+          "affiliation": "German Diabetes Center (DDZ) Leibniz Center for Diabetes Research at Heinrich Heine University Düsseldorf Auf´m Hennekamp 65 40225 Düsseldorf, Germany Tel.: +49-(0)-211-33-82-451",
+          "email": "bengt.belgardt@ddz.de",
+          "country": "",
+          "orcid": "",
+          "name": "Bengt-Frederik Belgardt",
+          "id": "2315980"
+        }
+      ],
+      "instruments": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MS",
+          "accession": "MS:1001911",
+          "name": "Q Exactive"
+        }
+      ],
+      "softwares": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MS",
+          "accession": "MS:1001583",
+          "name": "MaxQuant"
+        }
+      ],
+      "experimentTypes": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "PRIDE",
+          "accession": "PRIDE:0000429",
+          "name": "Shotgun proteomics"
+        }
+      ],
+      "quantificationMethods": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "PRIDE",
+          "accession": "PRIDE:0000315",
+          "name": "SILAC"
+        }
+      ],
+      "countries": [
+        "Germany"
+      ],
+      "sampleAttributes": [
+        {
+          "@type": "Tuple",
+          "key": {
+            "cvLabel": "EFO",
+            "accession": "EFO:0000635",
+            "name": "organism part"
+          },
+          "value": [
+            {
+              "cvLabel": "CL",
+              "accession": "CL:0008024",
+              "name": "pancreatic endocrine cell"
+            }
+          ]
+        },
+        {
+          "@type": "Tuple",
+          "key": {
+            "cvLabel": "EFO",
+            "accession": "OBI:0100026",
+            "name": "organism"
+          },
+          "value": [
+            {
+              "cvLabel": "NEWT",
+              "accession": "NEWT:10116",
+              "name": "Rattus norvegicus (Rat)"
+            }
+          ]
+        }
+      ],
+      "organisms": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "NEWT",
+          "accession": "NEWT:10116",
+          "name": "Rattus norvegicus (rat)"
+        }
+      ],
+      "organismParts": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "CL",
+          "accession": "CL:0008024",
+          "name": "Pancreatic endocrine cell"
+        }
+      ],
+      "diseases": [],
+      "references": [],
+      "identifiedPTMStrings": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "PRIDE",
+          "accession": "PRIDE:0000398",
+          "name": "No PTMs are included in the dataset"
+        }
+      ],
+      "totalFileDownloads": 460,
+      "botCount": 185,
+      "hubCount": 273,
+      "organicCount": 2,
+      "files": {
+        "files": [
+          {
+            "fileName": "01092020_E_Aurora_9311_Exp1-1_2h-SILAC.raw",
+            "fileSizeBytes": 1904731394,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/09/PXD029781/01092020_E_Aurora_9311_Exp1-1_2h-SILAC.raw"
+          },
+          {
+            "fileName": "Exp1_Pulldown_mqpar.xml",
+            "fileSizeBytes": 23180,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/09/PXD029781/Exp1_Pulldown_mqpar.xml"
+          },
+          {
+            "fileName": "Exp1_Pulldown_andromeda.zip",
+            "fileSizeBytes": 1015028017,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/09/PXD029781/Exp1_Pulldown_andromeda.zip"
+          },
+          {
+            "fileName": "01092020_E_Aurora_9313_Exp1-3_2h-SILAC.raw",
+            "fileSizeBytes": 1736430670,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/09/PXD029781/01092020_E_Aurora_9313_Exp1-3_2h-SILAC.raw"
+          },
+          {
+            "fileName": "Exp1_Pulldown_txt.zip",
+            "fileSizeBytes": 183662409,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/09/PXD029781/Exp1_Pulldown_txt.zip"
+          },
+          {
+            "fileName": "01092020_E_Aurora_9314_Exp1-4_2h-SILAC.raw",
+            "fileSizeBytes": 1912572262,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/09/PXD029781/01092020_E_Aurora_9314_Exp1-4_2h-SILAC.raw"
+          },
+          {
+            "fileName": "01092020_E_Aurora_9312_Exp1-2_2h-SILAC.raw",
+            "fileSizeBytes": 1629895338,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/09/PXD029781/01092020_E_Aurora_9312_Exp1-2_2h-SILAC.raw"
+          }
+        ],
+        "totalCount": 7
+      }
+    },
+    "publication_metadata": null,
+    "llm_responses": {
+      "characteristics[disease]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": [\n      \"CerS2 dependent sphingolipid–protein interactions\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"CerS2 dependent Sphingolipid - protein interactions in rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\",\n    \"note\": \"No explicit phenotype term (e.g., drug sensitivity/marker) is stated; this is inferred from the study framing.\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": [\n      \"pacSph treatment\",\n      \"UV irradiation (crosslinking)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"SILAC labelled control cells (medium or heavy) as well as CerS2 deficient cells were treated with pacSph ... followed by UV irradiation (or as control, no irradiation) to crosslink Sphingolipid-protein complexes.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"pacSph (photoactivatable and clickable sphingosine; synthetic sphingolipid precursor)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"a chemically modified SL precursor (photoactivatable and clickable sphingosine, pacSph) was fed to cells\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": [\n      \"CRISPR/Cas9 knockout of Sgpl1 (Sgpl1 null cells)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"CrispR/Cas9 knockout of the SL specific catabolic enzyme Sgpl1 ensured that only SLs are labelled with pacSph.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": [\n      \"UV irradiation\"\n    ],\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Ultraviolet (UV) irradiation covalently crosslinked cellular SL-protein complexes\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"After cell lysis, biotin was added ... followed by Streptavidin-based pulldown. After in-gel digestion, samples were analyzed by LC-MS/MS.\",\n    \"evidence_location\": \"Methods\",\n    \"note\": \"No explicit high-abundance protein depletion (e.g., albumin depletion) is mentioned.\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[phenotype]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": [\n      \"CerS2 dependent sphingolipid–protein interactions\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"CerS2 dependent Sphingolipid - protein interactions in rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\",\n    \"note\": \"No explicit phenotype term (e.g., drug sensitivity/marker) is stated; this is inferred from the study framing.\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": [\n      \"pacSph treatment\",\n      \"UV irradiation (crosslinking)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"SILAC labelled control cells (medium or heavy) as well as CerS2 deficient cells were treated with pacSph ... followed by UV irradiation (or as control, no irradiation) to crosslink Sphingolipid-protein complexes.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"pacSph (photoactivatable and clickable sphingosine; synthetic sphingolipid precursor)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"a chemically modified SL precursor (photoactivatable and clickable sphingosine, pacSph) was fed to cells\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": [\n      \"CRISPR/Cas9 knockout of Sgpl1 (Sgpl1 null cells)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"CrispR/Cas9 knockout of the SL specific catabolic enzyme Sgpl1 ensured that only SLs are labelled with pacSph.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": [\n      \"UV irradiation\"\n    ],\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Ultraviolet (UV) irradiation covalently crosslinked cellular SL-protein complexes\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"After cell lysis, biotin was added ... followed by Streptavidin-based pulldown. After in-gel digestion, samples were analyzed by LC-MS/MS.\",\n    \"evidence_location\": \"Methods\",\n    \"note\": \"No explicit high-abundance protein depletion (e.g., albumin depletion) is mentioned.\"\n  }\n}",
+        "parsed": {
+          "value": [
+            "CerS2 dependent sphingolipid–protein interactions"
+          ],
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": "CerS2 dependent Sphingolipid - protein interactions in rat beta cell line Ins1E",
+          "evidence_location": "Title",
+          "note": "No explicit phenotype term (e.g., drug sensitivity/marker) is stated; this is inferred from the study framing."
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[treatment]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": [\n      \"CerS2 dependent sphingolipid–protein interactions\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"CerS2 dependent Sphingolipid - protein interactions in rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\",\n    \"note\": \"No explicit phenotype term (e.g., drug sensitivity/marker) is stated; this is inferred from the study framing.\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": [\n      \"pacSph treatment\",\n      \"UV irradiation (crosslinking)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"SILAC labelled control cells (medium or heavy) as well as CerS2 deficient cells were treated with pacSph ... followed by UV irradiation (or as control, no irradiation) to crosslink Sphingolipid-protein complexes.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"pacSph (photoactivatable and clickable sphingosine; synthetic sphingolipid precursor)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"a chemically modified SL precursor (photoactivatable and clickable sphingosine, pacSph) was fed to cells\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": [\n      \"CRISPR/Cas9 knockout of Sgpl1 (Sgpl1 null cells)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"CrispR/Cas9 knockout of the SL specific catabolic enzyme Sgpl1 ensured that only SLs are labelled with pacSph.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": [\n      \"UV irradiation\"\n    ],\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Ultraviolet (UV) irradiation covalently crosslinked cellular SL-protein complexes\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"After cell lysis, biotin was added ... followed by Streptavidin-based pulldown. After in-gel digestion, samples were analyzed by LC-MS/MS.\",\n    \"evidence_location\": \"Methods\",\n    \"note\": \"No explicit high-abundance protein depletion (e.g., albumin depletion) is mentioned.\"\n  }\n}",
+        "parsed": {
+          "value": [
+            "pacSph treatment",
+            "UV irradiation (crosslinking)"
+          ],
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": "SILAC labelled control cells (medium or heavy) as well as CerS2 deficient cells were treated with pacSph ... followed by UV irradiation (or as control, no irradiation) to crosslink Sphingolipid-protein complexes.",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[compound]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": [\n      \"CerS2 dependent sphingolipid–protein interactions\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"CerS2 dependent Sphingolipid - protein interactions in rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\",\n    \"note\": \"No explicit phenotype term (e.g., drug sensitivity/marker) is stated; this is inferred from the study framing.\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": [\n      \"pacSph treatment\",\n      \"UV irradiation (crosslinking)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"SILAC labelled control cells (medium or heavy) as well as CerS2 deficient cells were treated with pacSph ... followed by UV irradiation (or as control, no irradiation) to crosslink Sphingolipid-protein complexes.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"pacSph (photoactivatable and clickable sphingosine; synthetic sphingolipid precursor)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"a chemically modified SL precursor (photoactivatable and clickable sphingosine, pacSph) was fed to cells\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": [\n      \"CRISPR/Cas9 knockout of Sgpl1 (Sgpl1 null cells)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"CrispR/Cas9 knockout of the SL specific catabolic enzyme Sgpl1 ensured that only SLs are labelled with pacSph.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": [\n      \"UV irradiation\"\n    ],\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Ultraviolet (UV) irradiation covalently crosslinked cellular SL-protein complexes\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"After cell lysis, biotin was added ... followed by Streptavidin-based pulldown. After in-gel digestion, samples were analyzed by LC-MS/MS.\",\n    \"evidence_location\": \"Methods\",\n    \"note\": \"No explicit high-abundance protein depletion (e.g., albumin depletion) is mentioned.\"\n  }\n}",
+        "parsed": {
+          "value": [
+            "pacSph (photoactivatable and clickable sphingosine; synthetic sphingolipid precursor)"
+          ],
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "a chemically modified SL precursor (photoactivatable and clickable sphingosine, pacSph) was fed to cells",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[dose]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": [\n      \"CerS2 dependent sphingolipid–protein interactions\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"CerS2 dependent Sphingolipid - protein interactions in rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\",\n    \"note\": \"No explicit phenotype term (e.g., drug sensitivity/marker) is stated; this is inferred from the study framing.\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": [\n      \"pacSph treatment\",\n      \"UV irradiation (crosslinking)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"SILAC labelled control cells (medium or heavy) as well as CerS2 deficient cells were treated with pacSph ... followed by UV irradiation (or as control, no irradiation) to crosslink Sphingolipid-protein complexes.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"pacSph (photoactivatable and clickable sphingosine; synthetic sphingolipid precursor)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"a chemically modified SL precursor (photoactivatable and clickable sphingosine, pacSph) was fed to cells\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": [\n      \"CRISPR/Cas9 knockout of Sgpl1 (Sgpl1 null cells)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"CrispR/Cas9 knockout of the SL specific catabolic enzyme Sgpl1 ensured that only SLs are labelled with pacSph.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": [\n      \"UV irradiation\"\n    ],\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Ultraviolet (UV) irradiation covalently crosslinked cellular SL-protein complexes\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"After cell lysis, biotin was added ... followed by Streptavidin-based pulldown. After in-gel digestion, samples were analyzed by LC-MS/MS.\",\n    \"evidence_location\": \"Methods\",\n    \"note\": \"No explicit high-abundance protein depletion (e.g., albumin depletion) is mentioned.\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[genetic modification]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": [\n      \"CerS2 dependent sphingolipid–protein interactions\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"CerS2 dependent Sphingolipid - protein interactions in rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\",\n    \"note\": \"No explicit phenotype term (e.g., drug sensitivity/marker) is stated; this is inferred from the study framing.\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": [\n      \"pacSph treatment\",\n      \"UV irradiation (crosslinking)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"SILAC labelled control cells (medium or heavy) as well as CerS2 deficient cells were treated with pacSph ... followed by UV irradiation (or as control, no irradiation) to crosslink Sphingolipid-protein complexes.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"pacSph (photoactivatable and clickable sphingosine; synthetic sphingolipid precursor)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"a chemically modified SL precursor (photoactivatable and clickable sphingosine, pacSph) was fed to cells\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": [\n      \"CRISPR/Cas9 knockout of Sgpl1 (Sgpl1 null cells)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"CrispR/Cas9 knockout of the SL specific catabolic enzyme Sgpl1 ensured that only SLs are labelled with pacSph.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": [\n      \"UV irradiation\"\n    ],\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Ultraviolet (UV) irradiation covalently crosslinked cellular SL-protein complexes\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"After cell lysis, biotin was added ... followed by Streptavidin-based pulldown. After in-gel digestion, samples were analyzed by LC-MS/MS.\",\n    \"evidence_location\": \"Methods\",\n    \"note\": \"No explicit high-abundance protein depletion (e.g., albumin depletion) is mentioned.\"\n  }\n}",
+        "parsed": {
+          "value": [
+            "CRISPR/Cas9 knockout of Sgpl1 (Sgpl1 null cells)"
+          ],
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": "CrispR/Cas9 knockout of the SL specific catabolic enzyme Sgpl1 ensured that only SLs are labelled with pacSph.",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[perturbation]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": [\n      \"CerS2 dependent sphingolipid–protein interactions\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"CerS2 dependent Sphingolipid - protein interactions in rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\",\n    \"note\": \"No explicit phenotype term (e.g., drug sensitivity/marker) is stated; this is inferred from the study framing.\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": [\n      \"pacSph treatment\",\n      \"UV irradiation (crosslinking)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"SILAC labelled control cells (medium or heavy) as well as CerS2 deficient cells were treated with pacSph ... followed by UV irradiation (or as control, no irradiation) to crosslink Sphingolipid-protein complexes.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"pacSph (photoactivatable and clickable sphingosine; synthetic sphingolipid precursor)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"a chemically modified SL precursor (photoactivatable and clickable sphingosine, pacSph) was fed to cells\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": [\n      \"CRISPR/Cas9 knockout of Sgpl1 (Sgpl1 null cells)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"CrispR/Cas9 knockout of the SL specific catabolic enzyme Sgpl1 ensured that only SLs are labelled with pacSph.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": [\n      \"UV irradiation\"\n    ],\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Ultraviolet (UV) irradiation covalently crosslinked cellular SL-protein complexes\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"After cell lysis, biotin was added ... followed by Streptavidin-based pulldown. After in-gel digestion, samples were analyzed by LC-MS/MS.\",\n    \"evidence_location\": \"Methods\",\n    \"note\": \"No explicit high-abundance protein depletion (e.g., albumin depletion) is mentioned.\"\n  }\n}",
+        "parsed": {
+          "value": [
+            "UV irradiation"
+          ],
+          "accession": "PRIDE:0000700",
+          "confidence": "high",
+          "evidence_quote": "Ultraviolet (UV) irradiation covalently crosslinked cellular SL-protein complexes",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[depletion]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": [\n      \"CerS2 dependent sphingolipid–protein interactions\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"CerS2 dependent Sphingolipid - protein interactions in rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\",\n    \"note\": \"No explicit phenotype term (e.g., drug sensitivity/marker) is stated; this is inferred from the study framing.\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": [\n      \"pacSph treatment\",\n      \"UV irradiation (crosslinking)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"SILAC labelled control cells (medium or heavy) as well as CerS2 deficient cells were treated with pacSph ... followed by UV irradiation (or as control, no irradiation) to crosslink Sphingolipid-protein complexes.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"pacSph (photoactivatable and clickable sphingosine; synthetic sphingolipid precursor)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"a chemically modified SL precursor (photoactivatable and clickable sphingosine, pacSph) was fed to cells\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": [\n      \"CRISPR/Cas9 knockout of Sgpl1 (Sgpl1 null cells)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"CrispR/Cas9 knockout of the SL specific catabolic enzyme Sgpl1 ensured that only SLs are labelled with pacSph.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": [\n      \"UV irradiation\"\n    ],\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Ultraviolet (UV) irradiation covalently crosslinked cellular SL-protein complexes\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"After cell lysis, biotin was added ... followed by Streptavidin-based pulldown. After in-gel digestion, samples were analyzed by LC-MS/MS.\",\n    \"evidence_location\": \"Methods\",\n    \"note\": \"No explicit high-abundance protein depletion (e.g., albumin depletion) is mentioned.\"\n  }\n}",
+        "parsed": {
+          "value": "no depletion",
+          "accession": "PRIDE:0000020",
+          "confidence": "medium",
+          "evidence_quote": "After cell lysis, biotin was added ... followed by Streptavidin-based pulldown. After in-gel digestion, samples were analyzed by LC-MS/MS.",
+          "evidence_location": "Methods",
+          "note": "No explicit high-abundance protein depletion (e.g., albumin depletion) is mentioned."
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "factor value cell line": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": \"Ins1E\",\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"factor value compound\": {\n    \"value\": \"pacSph (photoactivatable and clickable sphingosine; synthetic sphingolipid precursor)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"a chemically modified SL precursor (photoactivatable and clickable sphingosine, pacSph) was fed to cells\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": \"UV irradiation (vs no irradiation) and CerS2 deficiency with pacSph feeding\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Ultraviolet (UV) irradiation covalently crosslinked cellular SL-protein complexes\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "Ins1E",
+          "accession": "CLO:0000031",
+          "confidence": "medium",
+          "evidence_quote": "rat beta cell line Ins1E",
+          "evidence_location": "Title"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value compound": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": \"Ins1E\",\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"factor value compound\": {\n    \"value\": \"pacSph (photoactivatable and clickable sphingosine; synthetic sphingolipid precursor)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"a chemically modified SL precursor (photoactivatable and clickable sphingosine, pacSph) was fed to cells\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": \"UV irradiation (vs no irradiation) and CerS2 deficiency with pacSph feeding\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Ultraviolet (UV) irradiation covalently crosslinked cellular SL-protein complexes\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "pacSph (photoactivatable and clickable sphingosine; synthetic sphingolipid precursor)",
+          "accession": "CHEBI:37577",
+          "confidence": "high",
+          "evidence_quote": "a chemically modified SL precursor (photoactivatable and clickable sphingosine, pacSph) was fed to cells",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value disease": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": \"Ins1E\",\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"factor value compound\": {\n    \"value\": \"pacSph (photoactivatable and clickable sphingosine; synthetic sphingolipid precursor)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"a chemically modified SL precursor (photoactivatable and clickable sphingosine, pacSph) was fed to cells\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": \"UV irradiation (vs no irradiation) and CerS2 deficiency with pacSph feeding\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Ultraviolet (UV) irradiation covalently crosslinked cellular SL-protein complexes\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value dose": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": \"Ins1E\",\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"factor value compound\": {\n    \"value\": \"pacSph (photoactivatable and clickable sphingosine; synthetic sphingolipid precursor)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"a chemically modified SL precursor (photoactivatable and clickable sphingosine, pacSph) was fed to cells\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": \"UV irradiation (vs no irradiation) and CerS2 deficiency with pacSph feeding\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Ultraviolet (UV) irradiation covalently crosslinked cellular SL-protein complexes\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value organism part": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": \"Ins1E\",\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"factor value compound\": {\n    \"value\": \"pacSph (photoactivatable and clickable sphingosine; synthetic sphingolipid precursor)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"a chemically modified SL precursor (photoactivatable and clickable sphingosine, pacSph) was fed to cells\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": \"UV irradiation (vs no irradiation) and CerS2 deficiency with pacSph feeding\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Ultraviolet (UV) irradiation covalently crosslinked cellular SL-protein complexes\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value time": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": \"Ins1E\",\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"factor value compound\": {\n    \"value\": \"pacSph (photoactivatable and clickable sphingosine; synthetic sphingolipid precursor)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"a chemically modified SL precursor (photoactivatable and clickable sphingosine, pacSph) was fed to cells\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": \"UV irradiation (vs no irradiation) and CerS2 deficiency with pacSph feeding\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Ultraviolet (UV) irradiation covalently crosslinked cellular SL-protein complexes\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value treatment": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": \"Ins1E\",\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"factor value compound\": {\n    \"value\": \"pacSph (photoactivatable and clickable sphingosine; synthetic sphingolipid precursor)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"a chemically modified SL precursor (photoactivatable and clickable sphingosine, pacSph) was fed to cells\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": \"UV irradiation (vs no irradiation) and CerS2 deficiency with pacSph feeding\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Ultraviolet (UV) irradiation covalently crosslinked cellular SL-protein complexes\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "UV irradiation (vs no irradiation) and CerS2 deficiency with pacSph feeding",
+          "accession": "EFO:0000727",
+          "confidence": "medium",
+          "evidence_quote": "Ultraviolet (UV) irradiation covalently crosslinked cellular SL-protein complexes",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "comment[instrument]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"DDA\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"subsequent MS-based identification and quantification of SL interacting proteins\",\n    \"evidence_location\": \"Abstract; Methods\",\n    \"note\": \"Acquisition mode (DDA/DIA) is not explicitly stated; defaulting to DDA for XL-MS-like LC-MS/MS workflows.\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[proteomics data acquisition method]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"DDA\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"subsequent MS-based identification and quantification of SL interacting proteins\",\n    \"evidence_location\": \"Abstract; Methods\",\n    \"note\": \"Acquisition mode (DDA/DIA) is not explicitly stated; defaulting to DDA for XL-MS-like LC-MS/MS workflows.\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "DDA",
+          "accession": "PRIDE:0000041",
+          "confidence": "low",
+          "evidence_quote": "subsequent MS-based identification and quantification of SL interacting proteins",
+          "evidence_location": "Abstract; Methods",
+          "note": "Acquisition mode (DDA/DIA) is not explicitly stated; defaulting to DDA for XL-MS-like LC-MS/MS workflows."
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[dissociation method]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"DDA\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"subsequent MS-based identification and quantification of SL interacting proteins\",\n    \"evidence_location\": \"Abstract; Methods\",\n    \"note\": \"Acquisition mode (DDA/DIA) is not explicitly stated; defaulting to DDA for XL-MS-like LC-MS/MS workflows.\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[collision energy]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"DDA\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"subsequent MS-based identification and quantification of SL interacting proteins\",\n    \"evidence_location\": \"Abstract; Methods\",\n    \"note\": \"Acquisition mode (DDA/DIA) is not explicitly stated; defaulting to DDA for XL-MS-like LC-MS/MS workflows.\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[dia method]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"DDA\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"subsequent MS-based identification and quantification of SL interacting proteins\",\n    \"evidence_location\": \"Abstract; Methods\",\n    \"note\": \"Acquisition mode (DDA/DIA) is not explicitly stated; defaulting to DDA for XL-MS-like LC-MS/MS workflows.\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[fragment mass tolerance]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"DDA\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"subsequent MS-based identification and quantification of SL interacting proteins\",\n    \"evidence_location\": \"Abstract; Methods\",\n    \"note\": \"Acquisition mode (DDA/DIA) is not explicitly stated; defaulting to DDA for XL-MS-like LC-MS/MS workflows.\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[precursor mass tolerance]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"DDA\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"subsequent MS-based identification and quantification of SL interacting proteins\",\n    \"evidence_location\": \"Abstract; Methods\",\n    \"note\": \"Acquisition mode (DDA/DIA) is not explicitly stated; defaulting to DDA for XL-MS-like LC-MS/MS workflows.\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[technical replicate]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"DDA\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"subsequent MS-based identification and quantification of SL interacting proteins\",\n    \"evidence_location\": \"Abstract; Methods\",\n    \"note\": \"Acquisition mode (DDA/DIA) is not explicitly stated; defaulting to DDA for XL-MS-like LC-MS/MS workflows.\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "no technical replicates stated",
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[data file]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"DDA\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"subsequent MS-based identification and quantification of SL interacting proteins\",\n    \"evidence_location\": \"Abstract; Methods\",\n    \"note\": \"Acquisition mode (DDA/DIA) is not explicitly stated; defaulting to DDA for XL-MS-like LC-MS/MS workflows.\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "characteristics[organism]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Rattus norvegicus\",\n    \"accession\": \"NCBITaxon:10116\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"Ins1E\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": \"beta cells\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"allowing for cell lysis under harsh conditions, pulldown and subsequent MS-based identification\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": \"Sgpl1 null cells\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"All Ins1E cells in this experiment were Sgpl1 null cells\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS-based identification and quantification\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from file names/sample descriptions (not provided in text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem(s) (not provided in text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "Rattus norvegicus",
+          "accession": "NCBITaxon:10116",
+          "confidence": "medium",
+          "evidence_quote": "rat beta cell line Ins1E",
+          "evidence_location": "Title"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[organism part]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Rattus norvegicus\",\n    \"accession\": \"NCBITaxon:10116\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"Ins1E\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": \"beta cells\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"allowing for cell lysis under harsh conditions, pulldown and subsequent MS-based identification\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": \"Sgpl1 null cells\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"All Ins1E cells in this experiment were Sgpl1 null cells\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS-based identification and quantification\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from file names/sample descriptions (not provided in text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem(s) (not provided in text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[cell line]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Rattus norvegicus\",\n    \"accession\": \"NCBITaxon:10116\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"Ins1E\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": \"beta cells\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"allowing for cell lysis under harsh conditions, pulldown and subsequent MS-based identification\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": \"Sgpl1 null cells\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"All Ins1E cells in this experiment were Sgpl1 null cells\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS-based identification and quantification\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from file names/sample descriptions (not provided in text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem(s) (not provided in text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "Ins1E",
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": "rat beta cell line Ins1E",
+          "evidence_location": "Title"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[cell type]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Rattus norvegicus\",\n    \"accession\": \"NCBITaxon:10116\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"Ins1E\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": \"beta cells\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"allowing for cell lysis under harsh conditions, pulldown and subsequent MS-based identification\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": \"Sgpl1 null cells\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"All Ins1E cells in this experiment were Sgpl1 null cells\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS-based identification and quantification\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from file names/sample descriptions (not provided in text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem(s) (not provided in text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "beta cells",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "rat beta cell line Ins1E",
+          "evidence_location": "Title"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[material type]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Rattus norvegicus\",\n    \"accession\": \"NCBITaxon:10116\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"Ins1E\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": \"beta cells\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"allowing for cell lysis under harsh conditions, pulldown and subsequent MS-based identification\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": \"Sgpl1 null cells\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"All Ins1E cells in this experiment were Sgpl1 null cells\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS-based identification and quantification\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from file names/sample descriptions (not provided in text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem(s) (not provided in text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "whole cell lysate",
+          "accession": "PRIDE:0000837",
+          "confidence": "medium",
+          "evidence_quote": "allowing for cell lysis under harsh conditions, pulldown and subsequent MS-based identification",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[strain or breed]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Rattus norvegicus\",\n    \"accession\": \"NCBITaxon:10116\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"Ins1E\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": \"beta cells\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"allowing for cell lysis under harsh conditions, pulldown and subsequent MS-based identification\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": \"Sgpl1 null cells\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"All Ins1E cells in this experiment were Sgpl1 null cells\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS-based identification and quantification\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from file names/sample descriptions (not provided in text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem(s) (not provided in text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "Sgpl1 null cells",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "All Ins1E cells in this experiment were Sgpl1 null cells",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[developmental stage]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Rattus norvegicus\",\n    \"accession\": \"NCBITaxon:10116\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"Ins1E\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": \"beta cells\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"allowing for cell lysis under harsh conditions, pulldown and subsequent MS-based identification\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": \"Sgpl1 null cells\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"All Ins1E cells in this experiment were Sgpl1 null cells\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS-based identification and quantification\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from file names/sample descriptions (not provided in text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem(s) (not provided in text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "technology type": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Rattus norvegicus\",\n    \"accession\": \"NCBITaxon:10116\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"Ins1E\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": \"beta cells\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"allowing for cell lysis under harsh conditions, pulldown and subsequent MS-based identification\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": \"Sgpl1 null cells\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"All Ins1E cells in this experiment were Sgpl1 null cells\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS-based identification and quantification\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from file names/sample descriptions (not provided in text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem(s) (not provided in text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "proteomic profiling by mass spectrometry",
+          "accession": "PRIDE:0000663",
+          "confidence": "high",
+          "evidence_quote": "MS-based identification and quantification",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "source name": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Rattus norvegicus\",\n    \"accession\": \"NCBITaxon:10116\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"Ins1E\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": \"beta cells\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"allowing for cell lysis under harsh conditions, pulldown and subsequent MS-based identification\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": \"Sgpl1 null cells\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"All Ins1E cells in this experiment were Sgpl1 null cells\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS-based identification and quantification\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from file names/sample descriptions (not provided in text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem(s) (not provided in text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "Auto-generated from file names/sample descriptions (not provided in text)",
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "assay name": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Rattus norvegicus\",\n    \"accession\": \"NCBITaxon:10116\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"Ins1E\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": \"beta cells\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title\"\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"allowing for cell lysis under harsh conditions, pulldown and subsequent MS-based identification\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": \"Sgpl1 null cells\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"All Ins1E cells in this experiment were Sgpl1 null cells\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS-based identification and quantification\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from file names/sample descriptions (not provided in text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem(s) (not provided in text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "Auto-generated from raw file stem(s) (not provided in text)",
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[sex]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title/Abstract\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"stable isotope labelling allowed direct comparison of SBPs in several cell lines in the same MS run.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": \"Sgpl1 null cells; CerS2 deficient cells (CrispR/Cas9 knockout of Sgpl1 mentioned; CerS2 deficient cells used)\",\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"All Ins1E cells in this experiment were Sgpl1 null cells... CrispR/Cas9 knockout of the SL specific catabolic enzyme Sgpl1 ensured that only SLs are labelled with pacSph.\",\n    \"evidence_location\": \"Methods/Abstract\"\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"stable isotope labelling allowed direct comparison of SBPs in several cell lines in the same MS run.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "not applicable",
+          "accession": "PATO:0000047",
+          "confidence": "high",
+          "evidence_quote": "rat beta cell line Ins1E",
+          "evidence_location": "Title/Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[age]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title/Abstract\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"stable isotope labelling allowed direct comparison of SBPs in several cell lines in the same MS run.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": \"Sgpl1 null cells; CerS2 deficient cells (CrispR/Cas9 knockout of Sgpl1 mentioned; CerS2 deficient cells used)\",\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"All Ins1E cells in this experiment were Sgpl1 null cells... CrispR/Cas9 knockout of the SL specific catabolic enzyme Sgpl1 ensured that only SLs are labelled with pacSph.\",\n    \"evidence_location\": \"Methods/Abstract\"\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"stable isotope labelling allowed direct comparison of SBPs in several cell lines in the same MS run.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000246",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[ancestry category]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title/Abstract\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"stable isotope labelling allowed direct comparison of SBPs in several cell lines in the same MS run.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": \"Sgpl1 null cells; CerS2 deficient cells (CrispR/Cas9 knockout of Sgpl1 mentioned; CerS2 deficient cells used)\",\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"All Ins1E cells in this experiment were Sgpl1 null cells... CrispR/Cas9 knockout of the SL specific catabolic enzyme Sgpl1 ensured that only SLs are labelled with pacSph.\",\n    \"evidence_location\": \"Methods/Abstract\"\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"stable isotope labelling allowed direct comparison of SBPs in several cell lines in the same MS run.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "HANCESTRO",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[biological replicate]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title/Abstract\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"stable isotope labelling allowed direct comparison of SBPs in several cell lines in the same MS run.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": \"Sgpl1 null cells; CerS2 deficient cells (CrispR/Cas9 knockout of Sgpl1 mentioned; CerS2 deficient cells used)\",\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"All Ins1E cells in this experiment were Sgpl1 null cells... CrispR/Cas9 knockout of the SL specific catabolic enzyme Sgpl1 ensured that only SLs are labelled with pacSph.\",\n    \"evidence_location\": \"Methods/Abstract\"\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"stable isotope labelling allowed direct comparison of SBPs in several cell lines in the same MS run.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "MS:1001809",
+          "confidence": "low",
+          "evidence_quote": "stable isotope labelling allowed direct comparison of SBPs in several cell lines in the same MS run.",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[genotype]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title/Abstract\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"stable isotope labelling allowed direct comparison of SBPs in several cell lines in the same MS run.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": \"Sgpl1 null cells; CerS2 deficient cells (CrispR/Cas9 knockout of Sgpl1 mentioned; CerS2 deficient cells used)\",\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"All Ins1E cells in this experiment were Sgpl1 null cells... CrispR/Cas9 knockout of the SL specific catabolic enzyme Sgpl1 ensured that only SLs are labelled with pacSph.\",\n    \"evidence_location\": \"Methods/Abstract\"\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"stable isotope labelling allowed direct comparison of SBPs in several cell lines in the same MS run.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "Sgpl1 null cells; CerS2 deficient cells (CrispR/Cas9 knockout of Sgpl1 mentioned; CerS2 deficient cells used)",
+          "accession": "EFO:0000513",
+          "confidence": "medium",
+          "evidence_quote": "All Ins1E cells in this experiment were Sgpl1 null cells... CrispR/Cas9 knockout of the SL specific catabolic enzyme Sgpl1 ensured that only SLs are labelled with pacSph.",
+          "evidence_location": "Methods/Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[pooled sample]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title/Abstract\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"stable isotope labelling allowed direct comparison of SBPs in several cell lines in the same MS run.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": \"Sgpl1 null cells; CerS2 deficient cells (CrispR/Cas9 knockout of Sgpl1 mentioned; CerS2 deficient cells used)\",\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"All Ins1E cells in this experiment were Sgpl1 null cells... CrispR/Cas9 knockout of the SL specific catabolic enzyme Sgpl1 ensured that only SLs are labelled with pacSph.\",\n    \"evidence_location\": \"Methods/Abstract\"\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"stable isotope labelling allowed direct comparison of SBPs in several cell lines in the same MS run.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "not pooled",
+          "accession": "NCIT:C165587",
+          "confidence": "medium",
+          "evidence_quote": "stable isotope labelling allowed direct comparison of SBPs in several cell lines in the same MS run.",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[phosphate]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title/Abstract\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"stable isotope labelling allowed direct comparison of SBPs in several cell lines in the same MS run.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": \"Sgpl1 null cells; CerS2 deficient cells (CrispR/Cas9 knockout of Sgpl1 mentioned; CerS2 deficient cells used)\",\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"All Ins1E cells in this experiment were Sgpl1 null cells... CrispR/Cas9 knockout of the SL specific catabolic enzyme Sgpl1 ensured that only SLs are labelled with pacSph.\",\n    \"evidence_location\": \"Methods/Abstract\"\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"stable isotope labelling allowed direct comparison of SBPs in several cell lines in the same MS run.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000805",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[temperature]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"rat beta cell line Ins1E\",\n    \"evidence_location\": \"Title/Abstract\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"stable isotope labelling allowed direct comparison of SBPs in several cell lines in the same MS run.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": \"Sgpl1 null cells; CerS2 deficient cells (CrispR/Cas9 knockout of Sgpl1 mentioned; CerS2 deficient cells used)\",\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"All Ins1E cells in this experiment were Sgpl1 null cells... CrispR/Cas9 knockout of the SL specific catabolic enzyme Sgpl1 ensured that only SLs are labelled with pacSph.\",\n    \"evidence_location\": \"Methods/Abstract\"\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"stable isotope labelling allowed direct comparison of SBPs in several cell lines in the same MS run.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000703",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "comment[cleavage agent details]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=SILAC;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"SILAC labelled control cells (medium or heavy) as well as CerS2 deficient cells\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"After in-gel digestion, samples were analyzed by LC-MS/MS.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation scheme described (in-gel digestion mentioned; no LC fractionation details provided)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"After in-gel digestion, samples were analyzed by LC-MS/MS.\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[label]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=SILAC;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"SILAC labelled control cells (medium or heavy) as well as CerS2 deficient cells\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"After in-gel digestion, samples were analyzed by LC-MS/MS.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation scheme described (in-gel digestion mentioned; no LC fractionation details provided)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"After in-gel digestion, samples were analyzed by LC-MS/MS.\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "NT=SILAC;AC=MS:1002038",
+          "accession": "MS:1002038",
+          "confidence": "high",
+          "evidence_quote": "SILAC labelled control cells (medium or heavy) as well as CerS2 deficient cells",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[alkylation reagent]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=SILAC;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"SILAC labelled control cells (medium or heavy) as well as CerS2 deficient cells\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"After in-gel digestion, samples were analyzed by LC-MS/MS.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation scheme described (in-gel digestion mentioned; no LC fractionation details provided)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"After in-gel digestion, samples were analyzed by LC-MS/MS.\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[fractionation method]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=SILAC;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"SILAC labelled control cells (medium or heavy) as well as CerS2 deficient cells\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"After in-gel digestion, samples were analyzed by LC-MS/MS.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation scheme described (in-gel digestion mentioned; no LC fractionation details provided)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"After in-gel digestion, samples were analyzed by LC-MS/MS.\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[modification parameters]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=SILAC;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"SILAC labelled control cells (medium or heavy) as well as CerS2 deficient cells\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"After in-gel digestion, samples were analyzed by LC-MS/MS.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation scheme described (in-gel digestion mentioned; no LC fractionation details provided)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"After in-gel digestion, samples were analyzed by LC-MS/MS.\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": [
+            "NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed",
+            "NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable"
+          ],
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": "After in-gel digestion, samples were analyzed by LC-MS/MS.",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[fraction identifier]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=SILAC;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"SILAC labelled control cells (medium or heavy) as well as CerS2 deficient cells\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"After in-gel digestion, samples were analyzed by LC-MS/MS.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation scheme described (in-gel digestion mentioned; no LC fractionation details provided)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"After in-gel digestion, samples were analyzed by LC-MS/MS.\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "no fractionation scheme described (in-gel digestion mentioned; no LC fractionation details provided)",
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": "After in-gel digestion, samples were analyzed by LC-MS/MS.",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "characteristics[crosslinking reaction time]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": \"Streptavidin-based pulldown (biotin/Click-chemistry enrichment)\",\n    \"accession\": \"PRIDE:0000838\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"followed by Streptavidin-based pulldown\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": \"enrichment by affinity (streptavidin pulldown)\",\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"followed by Streptavidin-based pulldown\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000949",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "characteristics[crosslinking temperature]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": \"Streptavidin-based pulldown (biotin/Click-chemistry enrichment)\",\n    \"accession\": \"PRIDE:0000838\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"followed by Streptavidin-based pulldown\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": \"enrichment by affinity (streptavidin pulldown)\",\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"followed by Streptavidin-based pulldown\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000950",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "comment[crosslink enrichment method]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": \"Streptavidin-based pulldown (biotin/Click-chemistry enrichment)\",\n    \"accession\": \"PRIDE:0000838\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"followed by Streptavidin-based pulldown\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": \"enrichment by affinity (streptavidin pulldown)\",\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"followed by Streptavidin-based pulldown\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "Streptavidin-based pulldown (biotin/Click-chemistry enrichment)",
+          "accession": "PRIDE:0000838",
+          "confidence": "medium",
+          "evidence_quote": "followed by Streptavidin-based pulldown",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "characteristics[enrichment process]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": \"Streptavidin-based pulldown (biotin/Click-chemistry enrichment)\",\n    \"accession\": \"PRIDE:0000838\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"followed by Streptavidin-based pulldown\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": \"enrichment by affinity (streptavidin pulldown)\",\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"followed by Streptavidin-based pulldown\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "enrichment by affinity (streptavidin pulldown)",
+          "accession": "EFO:0009090",
+          "confidence": "medium",
+          "evidence_quote": "followed by Streptavidin-based pulldown",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "comment[cross-linker]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=pacSph;AC=null;CL=null;TA=null\",\n    \"NT\": \"pacSph\",\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"cells were treated with pacSph (synthetic sphingolipid precursor), followed by UV irradiation (or as control, no irradiation) to crosslink Sphingolipid-protein complexes.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"subsequent MS-based identification and quantification of SL interacting proteins.\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "NT=pacSph;AC=null;CL=null;TA=null",
+          "NT": "pacSph",
+          "AC": null,
+          "CL": null,
+          "TA": null,
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "cells were treated with pacSph (synthetic sphingolipid precursor), followed by UV irradiation (or as control, no irradiation) to crosslink Sphingolipid-protein complexes.",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[crosslinker concentration]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=pacSph;AC=null;CL=null;TA=null\",\n    \"NT\": \"pacSph\",\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"cells were treated with pacSph (synthetic sphingolipid precursor), followed by UV irradiation (or as control, no irradiation) to crosslink Sphingolipid-protein complexes.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"subsequent MS-based identification and quantification of SL interacting proteins.\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000951",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[crosslinker to protein ratio]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=pacSph;AC=null;CL=null;TA=null\",\n    \"NT\": \"pacSph\",\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"cells were treated with pacSph (synthetic sphingolipid precursor), followed by UV irradiation (or as control, no irradiation) to crosslink Sphingolipid-protein complexes.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"subsequent MS-based identification and quantification of SL interacting proteins.\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000952",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[quenching reagent]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=pacSph;AC=null;CL=null;TA=null\",\n    \"NT\": \"pacSph\",\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"cells were treated with pacSph (synthetic sphingolipid precursor), followed by UV irradiation (or as control, no irradiation) to crosslink Sphingolipid-protein complexes.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"subsequent MS-based identification and quantification of SL interacting proteins.\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000953",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "characteristics[crosslink distance]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=pacSph;AC=null;CL=null;TA=null\",\n    \"NT\": \"pacSph\",\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"cells were treated with pacSph (synthetic sphingolipid precursor), followed by UV irradiation (or as control, no irradiation) to crosslink Sphingolipid-protein complexes.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"subsequent MS-based identification and quantification of SL interacting proteins.\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000948",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[chemical cross-linking coupled with ms]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=pacSph;AC=null;CL=null;TA=null\",\n    \"NT\": \"pacSph\",\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"cells were treated with pacSph (synthetic sphingolipid precursor), followed by UV irradiation (or as control, no irradiation) to crosslink Sphingolipid-protein complexes.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"subsequent MS-based identification and quantification of SL interacting proteins.\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "cross-linking mass spectrometry",
+          "accession": "PRIDE:0000430",
+          "confidence": "high",
+          "evidence_quote": "subsequent MS-based identification and quantification of SL interacting proteins.",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      }
+    }
+  }
+}

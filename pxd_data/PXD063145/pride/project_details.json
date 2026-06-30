@@ -1,0 +1,465 @@
+{
+  "metadata": {
+    "pxd": "PXD063145",
+    "category": "pride",
+    "saved_at": "2026-06-30T15:50:45.692637",
+    "filename": "project_details"
+  },
+  "data": {
+    "accession": "PXD063145",
+    "title": "APPLE-MS: A modular affinity purification-mass spectrometry method assisted by PafA- mediated proximity labeling",
+    "additionalAttributes": [],
+    "projectDescription": "While affinity purification-mass spectrometry (AP-MS) has significantly advanced protein-protein interaction (PPI) studies, its limitations in detecting weak, transient, and membrane-associated interactions remain. To address these challenges, we introduced an innovative proteomic method termed Affinity Purification coupled Proximity LabEling-Mass Spectrometry (APPLE-MS), which combines the high specificity of twin-strep-tag enrichment with PafA-mediated proximity labeling. This method achieves unprecedented sensitivity while maintaining high specificity (4.07-fold over AP-MS). APPLE-MS also revealed the dynamic mitochondrial interactome of SARS-CoV-2 ORF9B during antiviral responses, while endogenous PIN1 profiling uncovered novel roles in DNA replication. Notably, APPLE-MS enabled in situ mapping of GLP-1 receptor complexes, demonstrating its unique capabilities for membrane PPI studies. This versatile method advances interactome research by providing comprehensive, physiologically relevant PPI networks, opening new opportunities for mechanistic discovery and therapeutic targeting.",
+    "sampleProcessingProtocol": "For the APPLE experiment validating the interaction between bait peptides and GFP-MATH, Twin-strep-tag-fused bait peptides 1-3, GFP-MATH, SA-PupE, PafA12KR and ATP were co-incubated at 37°C for 45 min in the reaction buffer (50 mM Tris-HCl, 150 mM NaCl, 20 mM MgCl₂). The concentrations used were 1 μM for each Twin-Strep-tag-fused bait peptide (1-3), 1 μM for GFP-MATH, 10 μM for SA-PupE, 10 mM for PafA12KR and 5 mM for ATP. Reactions were terminated by adding SDS loading buffer and boiling at 95°C for 10 min. The supernatant was then collected by centrifugation for WB detection.  For the conventional APPLE assay to identify PPIs, 3mg of cell lysate transfected with plasmid expressing the twin-strep-tag-fused bait protein was incubated in reaction buffer at 37°C for 45 min. The final concentrations of reagents were 0.25 μM SA-PupE, 0.25 μM PafA12KR and 5 mM ATP, with 0.5 mM PMSF added to prevent protein degradation. For mass spectrometry, reactions were stopped by adding 8M urea. The cell lysate was incubated with continuous rotation at room temperature until complete urea dissolution. 100 μL biotin agarose (Sigma-Aldrich) was added to the supernatant and incubated at 4°C overnight.  For APPLE assay on the cell surface, the culture medium was first removed from the dish, and cells were washed twice with pre-warmed PBS (37°C). A reaction mixture containing 0.2 μM GLP-1-twin-strep-tag, 0.2 μM SA-PupE and reaction buffer supplemented with 0.5mM PMSF was prepared in a 15 mL conical tube and incubated at room temperature for 30 min. This mixture was then added to cells in dish and incubated at 4°C for 1-2 h. Finally, 0.2 μM PafA and 5 mM ATP were added to initiate the enzymatic reaction, which proceeded at 37°C for 40 min. All steps were performed under sterile conditions with PMSF added immediately before use to maintain protease inhibition activity.  After reaction completion, cells were lysed using RIPA buffer. After complete cell lysis, 8 M urea was added to the lysate to a final concentration of 8 M. The protein interaction complexes were then isolated using the same affinity capture procedure described above. For affinity purification, 30 μL STarm Streptactin Beads 4FF (Smart-Lifesciences Biotechnology, SA053005) were added to 3 mg cell lysate transfected with plasmid expressing the twin-strep-tag-fused bait protein in binding buffer (50 mM Tris-HCl, 150 mM NaCl, 20 mM MgCl₂, pH 7.4) and incubated overnight at 4°C with rotation. After incubation, beads were washed twice with PBS to remove nonspecifically bound proteins. The washed beads were then directly processed for mass spectrometry. Biotin-agarose enriched proteins were subjected to reduction with 10 mM DTT (37°C, 1 h) followed by alkylation using 25 mM iodoacetamide (dark incubation, 20 min). On-bead tryptic digestion was then performed at 37°C overnight using a 1:30 (w/w) enzyme-to-protein ratio. After digestion, the beads were washed twice with 200 μL of 50 mM ammonium bicarbonate (NH4HCO3). The combined supernatants containing tryptic peptides were desalted using Empore StageTips6094 SDB-RPS (MGAM Institute, YW-SDB-RPS-96) following the manufacturer's protocol. The peptides were re-dissolved in solvent A (A: 0.1% formic acid in water) and analyzed by Orbitrap Exploris 480 coupled to an EASY-nanoLC 1200 system (Thermo Fisher Scientific, MA, USA). 3 μL peptide sample was loaded onto a 25 cm analytical column (75 μm inner diameter, 1.9 μm resin (Dr Maisch)) and separated with 60 min-gradient starting at 4% buffer B (80% ACN with 0.1% FA) followed by a stepwise increase to 50% in 53 min 40 s, 95% in 40 s and stayed there for 5 min 40 s. The column flow rate was maintained at 300 nL/min with the column temperature of 40°C. The electrospray voltage was set to 2 kV. The mass spectrometer was run under data independent acquisition (DIA) mode, and automatically switched between MS and MS/MS mode. The survey of full scan MS spectra (m/z :350-1200) was acquired in the Orbitrap with 120,000 resolutions. The Normalized automatic gain control (AGC) target of 300% and the maximum injection time of 50 ms. Then the precursor ions were selected into collision cell for fragmentation by higher-energy collision dissociation (HCD), the normalized collection energy was: 25%, 30%, 35%. The MS/MS resolution was set at 30,000, the Normalized automatic gain control (AGC) target of 200%, the maximum injection time of 50 ms.",
+    "dataProcessingProtocol": "Tandem mass spectra were processed by PEAKS Studio version 12 (Bioinformatics Solutions Inc., Waterloo, Canada). The databases were uniprot-homo_sapiens (version 2024, 20608 entries) and uniport-Rattus_norvegicus(version 2024, 22897 entries) which download from uniprot. Trypsin and Lys C was set as the digestion enzyme and semi-Specific was specified as the digest type. PEAKS DB were searched with a fragment ion mass tolerance of 0.02 Da and a parent ion tolerance of 10 ppm. The max missed cleavages was 2. The proteins with 1%FDR and containing at least 1 unique peptide were filtered.  In our experiments, the contaminant standards were proteins that appeared in >50%-70% of AP-MS experiments in the CRAPome database (version 2.0). Putative ORF9B interactors were clustered based on their kinetic profiles using Mfuzz time-course analysis. Protein interaction data were integrated from two public databases: BioGRID (version 4.4.244) for curated interactions and STRING (version 12.0) with a medium-confidence threshold (0.4). These datasets were used to generate a comprehensive cell membrane interactome map through Cytoscape platform (version 3.10.1).",
+    "projectTags": [],
+    "keywords": [
+      "Ap-ms",
+      "Proximity labeling",
+      "Protein-protein interaction",
+      "Interactome"
+    ],
+    "doi": "",
+    "submissionType": "PARTIAL",
+    "license": "Creative Commons Public Domain (CC0)",
+    "submissionDate": "2025-04-21",
+    "publicationDate": "2025-10-27",
+    "submitters": [
+      {
+        "title": "Miss",
+        "firstName": "Shi-Han",
+        "lastName": "Luo",
+        "identifier": "3621956",
+        "affiliation": "Shanghai Jiao Tong University",
+        "email": "nanlouyue@sjtu.edu.cn",
+        "country": "China",
+        "orcid": "",
+        "name": "Shi-Han Luo",
+        "id": "3621956"
+      }
+    ],
+    "labPIs": [
+      {
+        "title": "Dr",
+        "firstName": "Shengce",
+        "lastName": "Tao",
+        "identifier": "3139134",
+        "affiliation": "Shanghai Center for Systems Biomedicine, Key Laboratory of Systems Biomedicine (Ministry of Education),Shanghai Jiao Tong University, Shanghai 200240, China",
+        "email": "taosc@sjtu.edu.cn",
+        "country": "",
+        "orcid": "",
+        "name": "Shengce Tao",
+        "id": "3139134"
+      }
+    ],
+    "instruments": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1003028",
+        "name": "Orbitrap Exploris 480"
+      }
+    ],
+    "softwares": [],
+    "experimentTypes": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000450",
+        "name": "Data-independent acquisition"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000428",
+        "name": "Bottom-up proteomics"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000433",
+        "name": "Affinity purification coupled with mass spectrometry proteomics"
+      }
+    ],
+    "quantificationMethods": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "EFO:0030054",
+        "name": "label-free quantification"
+      }
+    ],
+    "countries": [
+      "China"
+    ],
+    "sampleAttributes": [
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "EFO:0000635",
+          "name": "organism part"
+        },
+        "value": [
+          {
+            "cvLabel": "BTO",
+            "accession": "BTO:0000214",
+            "name": "cell culture"
+          }
+        ]
+      },
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "OBI:0100026",
+          "name": "organism"
+        },
+        "value": [
+          {
+            "cvLabel": "NEWT",
+            "accession": "NEWT:9606",
+            "name": "Homo sapiens (Human)"
+          },
+          {
+            "cvLabel": "NEWT",
+            "accession": "NEWT:10116",
+            "name": "Rattus norvegicus (Rat)"
+          }
+        ]
+      }
+    ],
+    "organisms": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "NEWT",
+        "accession": "NEWT:10116",
+        "name": "Rattus norvegicus (rat)"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "NEWT",
+        "accession": "NEWT:9606",
+        "name": "Homo sapiens (human)"
+      }
+    ],
+    "organismParts": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "BTO",
+        "accession": "BTO:0000214",
+        "name": "Cell culture"
+      }
+    ],
+    "diseases": [],
+    "references": [
+      {
+        "referenceLine": "Luo S, Xie L, Yang L, Hu Z, Wang L, Wang Y, Li Q, Guo S, Tao S, Jiang H. Sensitive and specific affinity purification-mass spectrometry assisted by PafA-mediated proximity labeling. Cell Rep Methods. 2025 5(9):101166",
+        "pubmedID": 40925366,
+        "doi": "10.1016/j.crmeth.2025.101166"
+      }
+    ],
+    "identifiedPTMStrings": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000398",
+        "name": "No PTMs are included in the dataset"
+      }
+    ],
+    "totalFileDownloads": 309,
+    "botCount": 221,
+    "hubCount": 68,
+    "organicCount": 20,
+    "files": {
+      "files": [
+        {
+          "fileName": "ORF9BAPMS3Experimental.raw",
+          "fileSizeBytes": 389190577,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/ORF9BAPMS3Experimental.raw"
+        },
+        {
+          "fileName": "PIN1APPLE3Experimentalgroup.raw",
+          "fileSizeBytes": 525508021,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/PIN1APPLE3Experimentalgroup.raw"
+        },
+        {
+          "fileName": "ORF9BAPMS2Experimental.raw",
+          "fileSizeBytes": 375136153,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/ORF9BAPMS2Experimental.raw"
+        },
+        {
+          "fileName": "PIN1APMS4Controlgroup.raw",
+          "fileSizeBytes": 539093019,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/PIN1APMS4Controlgroup.raw"
+        },
+        {
+          "fileName": "ORF9BPOLY6h2.raw",
+          "fileSizeBytes": 325921311,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/ORF9BPOLY6h2.raw"
+        },
+        {
+          "fileName": "ORF9BAPMS1Experimental.raw",
+          "fileSizeBytes": 363979993,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/ORF9BAPMS1Experimental.raw"
+        },
+        {
+          "fileName": "ORF9BAPMS.rar",
+          "fileSizeBytes": 1954053632,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/ORF9BAPMS.rar"
+        },
+        {
+          "fileName": "GLP1APPLEINS1E1Experimentalgroup.raw",
+          "fileSizeBytes": 314549763,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/GLP1APPLEINS1E1Experimentalgroup.raw"
+        },
+        {
+          "fileName": "ORF9BPOLY12h2.raw",
+          "fileSizeBytes": 291305797,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/ORF9BPOLY12h2.raw"
+        },
+        {
+          "fileName": "ORF9BPOLY12h1.raw",
+          "fileSizeBytes": 306569607,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/ORF9BPOLY12h1.raw"
+        },
+        {
+          "fileName": "PIN1APPLE4Controlgroup.raw",
+          "fileSizeBytes": 487024971,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/PIN1APPLE4Controlgroup.raw"
+        },
+        {
+          "fileName": "ORF9BAPMS6Control.raw",
+          "fileSizeBytes": 339353391,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/ORF9BAPMS6Control.raw"
+        },
+        {
+          "fileName": "PIN1APMS6Controlgroup.raw",
+          "fileSizeBytes": 518462511,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/PIN1APMS6Controlgroup.raw"
+        },
+        {
+          "fileName": "PIN1APPLE5Controlgroup.raw",
+          "fileSizeBytes": 505546161,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/PIN1APPLE5Controlgroup.raw"
+        },
+        {
+          "fileName": "GLP1APPLEINS1E.rar",
+          "fileSizeBytes": 31656721,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/GLP1APPLEINS1E.rar"
+        },
+        {
+          "fileName": "GLP1APPLE293T6Controlgroup.raw",
+          "fileSizeBytes": 257450473,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/GLP1APPLE293T6Controlgroup.raw"
+        },
+        {
+          "fileName": "ORF9BPOLY12h3.raw",
+          "fileSizeBytes": 294392051,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/ORF9BPOLY12h3.raw"
+        },
+        {
+          "fileName": "GLP1APPLE293T1Experimentalgroup.raw",
+          "fileSizeBytes": 231131069,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/GLP1APPLE293T1Experimentalgroup.raw"
+        },
+        {
+          "fileName": "ORF9BPOLY18h3.raw",
+          "fileSizeBytes": 287706975,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/ORF9BPOLY18h3.raw"
+        },
+        {
+          "fileName": "PIN1APPLE6Controlgroup.raw",
+          "fileSizeBytes": 501044537,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/PIN1APPLE6Controlgroup.raw"
+        },
+        {
+          "fileName": "GLP1APPLE293T5Controlgroup.raw",
+          "fileSizeBytes": 258157753,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/GLP1APPLE293T5Controlgroup.raw"
+        },
+        {
+          "fileName": "ORF9BAPPLEtxt.rar",
+          "fileSizeBytes": 5885527,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/ORF9BAPPLEtxt.rar"
+        },
+        {
+          "fileName": "PIN1APPLE1Experimentalgroup.raw",
+          "fileSizeBytes": 531834813,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/PIN1APPLE1Experimentalgroup.raw"
+        },
+        {
+          "fileName": "ORF9BPOLY18h1.raw",
+          "fileSizeBytes": 332048171,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/ORF9BPOLY18h1.raw"
+        },
+        {
+          "fileName": "GLP1APPLEINS1E3Controlgroup.raw",
+          "fileSizeBytes": 307887189,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/GLP1APPLEINS1E3Controlgroup.raw"
+        },
+        {
+          "fileName": "ORF9BPOLYCONTROL1.raw",
+          "fileSizeBytes": 303650271,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/ORF9BPOLYCONTROL1.raw"
+        },
+        {
+          "fileName": "GLP1APPLE293T3Experimentalgroup.raw",
+          "fileSizeBytes": 248502955,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/GLP1APPLE293T3Experimentalgroup.raw"
+        },
+        {
+          "fileName": "GLP1APPLE293T2Experimentalgroup.raw",
+          "fileSizeBytes": 249130931,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/GLP1APPLE293T2Experimentalgroup.raw"
+        },
+        {
+          "fileName": "ORF9BAPPLE4Controlgroup.raw",
+          "fileSizeBytes": 392362535,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/ORF9BAPPLE4Controlgroup.raw"
+        },
+        {
+          "fileName": "ORF9BAPPLE5Controlgroup.raw",
+          "fileSizeBytes": 385716009,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/ORF9BAPPLE5Controlgroup.raw"
+        },
+        {
+          "fileName": "ORF9BPOLY24h3.raw",
+          "fileSizeBytes": 309034943,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/ORF9BPOLY24h3.raw"
+        },
+        {
+          "fileName": "ORF9BPOLY18h2.raw",
+          "fileSizeBytes": 276845293,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/ORF9BPOLY18h2.raw"
+        },
+        {
+          "fileName": "ORF9BPOLYCONTROL3.raw",
+          "fileSizeBytes": 285368003,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/ORF9BPOLYCONTROL3.raw"
+        },
+        {
+          "fileName": "ORF9BAPPLE6Controlgroup.raw",
+          "fileSizeBytes": 374265761,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/ORF9BAPPLE6Controlgroup.raw"
+        },
+        {
+          "fileName": "ORF9BPOLY6h1.raw",
+          "fileSizeBytes": 321208869,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/ORF9BPOLY6h1.raw"
+        },
+        {
+          "fileName": "checksum.txt",
+          "fileSizeBytes": 4891,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/checksum.txt"
+        },
+        {
+          "fileName": "ORF9BAPMS4Control.raw",
+          "fileSizeBytes": 393149401,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/ORF9BAPMS4Control.raw"
+        },
+        {
+          "fileName": "ORF9BAPPLE2Experimentalgroup.raw",
+          "fileSizeBytes": 388055963,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/ORF9BAPPLE2Experimentalgroup.raw"
+        },
+        {
+          "fileName": "ORF9BAPPLE1Experimentalgroup.raw",
+          "fileSizeBytes": 364617035,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/ORF9BAPPLE1Experimentalgroup.raw"
+        },
+        {
+          "fileName": "PIN1APPLE2Experimentalgroup.raw",
+          "fileSizeBytes": 500745069,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/PIN1APPLE2Experimentalgroup.raw"
+        },
+        {
+          "fileName": "GLP1APPLEINS1E4Controlgroup.raw",
+          "fileSizeBytes": 311150059,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/GLP1APPLEINS1E4Controlgroup.raw"
+        },
+        {
+          "fileName": "ORF9BPOLYCONTROL2.raw",
+          "fileSizeBytes": 305465147,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/ORF9BPOLYCONTROL2.raw"
+        },
+        {
+          "fileName": "ORF9BPOLY24h1.raw",
+          "fileSizeBytes": 326633257,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/ORF9BPOLY24h1.raw"
+        },
+        {
+          "fileName": "PIN1AP-MS.rar",
+          "fileSizeBytes": 79011923,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/PIN1AP-MS.rar"
+        },
+        {
+          "fileName": "ORF9BPolyIC.rar",
+          "fileSizeBytes": 144021411,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/ORF9BPolyIC.rar"
+        },
+        {
+          "fileName": "ORF9BPOLY24h2.raw",
+          "fileSizeBytes": 301587147,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/ORF9BPOLY24h2.raw"
+        },
+        {
+          "fileName": "GLP1APPLE293T.rar",
+          "fileSizeBytes": 24960419,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/GLP1APPLE293T.rar"
+        },
+        {
+          "fileName": "PIN1APMS1Experimentalgroup.raw",
+          "fileSizeBytes": 581741059,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/PIN1APMS1Experimentalgroup.raw"
+        },
+        {
+          "fileName": "PIN1APMS3Experimentalgroup.raw",
+          "fileSizeBytes": 592427189,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/PIN1APMS3Experimentalgroup.raw"
+        },
+        {
+          "fileName": "PIN1APMS5Controlgroup.raw",
+          "fileSizeBytes": 563218295,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/PIN1APMS5Controlgroup.raw"
+        },
+        {
+          "fileName": "PIN1APPLE-MS.rar",
+          "fileSizeBytes": 46731817,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/PIN1APPLE-MS.rar"
+        },
+        {
+          "fileName": "GLP1APPLE293T4Controlgroup.raw",
+          "fileSizeBytes": 253180927,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/GLP1APPLE293T4Controlgroup.raw"
+        },
+        {
+          "fileName": "GLP1APPLEINS1E2Experimentalgroup.raw",
+          "fileSizeBytes": 305216479,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/GLP1APPLEINS1E2Experimentalgroup.raw"
+        },
+        {
+          "fileName": "PIN1APMS2Experimentalgroup.raw",
+          "fileSizeBytes": 565840849,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/PIN1APMS2Experimentalgroup.raw"
+        },
+        {
+          "fileName": "ORF9BAPMS5Control.raw",
+          "fileSizeBytes": 413350901,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/ORF9BAPMS5Control.raw"
+        },
+        {
+          "fileName": "ORF9BAPPLE3Experimentalgroup.raw",
+          "fileSizeBytes": 403306317,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/ORF9BAPPLE3Experimentalgroup.raw"
+        },
+        {
+          "fileName": "ORF9BPOLY6h3.raw",
+          "fileSizeBytes": 341955451,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD063145/ORF9BPOLY6h3.raw"
+        }
+      ],
+      "totalCount": 57
+    }
+  }
+}

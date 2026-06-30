@@ -1,0 +1,433 @@
+{
+  "metadata": {
+    "pxd": "PXD059716",
+    "category": "pride",
+    "saved_at": "2026-06-30T15:48:14.246868",
+    "filename": "project_details"
+  },
+  "data": {
+    "accession": "PXD059716",
+    "title": "Proteomics of tau repeat domain interactome via split TurboID proximity labeling",
+    "additionalAttributes": [],
+    "projectDescription": "In Alzheimer's disease (AD) and other tauopathies, tau dissociates from microtubules and forms toxic aggregates that contribute to neurodegeneration. Although some of the pathological interactions of tau have been identified from postmortem brain tissue, these studies are limited by their inability to capture transient interactions. To investigate the interactome of aggregate-prone fragments of tau, we applied an in vitro proximity labeling technique using split TurboID fused with the tau microtubule repeat domain (TauRD), a core region implicated in tau aggregation. We characterized this split TurboID TauRD displaying the requirement for both ligase fragment co-expression for robust enzyme activity and nuclear and cytoplasmic localization of the recombinant proteins. Following enrichment of biotinylated proteins and mass spectrometry, we identified over 700 TauRD interactors. Gene ontology analysis of enriched TauRD interactors highlighted processes often dysregulated in tauopathies, including spliceosome complexes, RNA-binding proteins (RBPs), and nuclear speckles. These in vitro results were further supported by integrating the TauRD interactome data with human AD tau interactome datasets and protein co-expression networks from human AD and related tauopathies. This revealed an overlap with the in vitro TauRD interactome and several modules enriched with RBPs and increased in AD and PSP. These findings emphasize the importance of nuclear pathways in tau pathology, such as RNA splicing and nuclear-cytoplasmic transport and establishes the sTurbo TauRD system as a valuable tool for exploring the tau interactome.",
+    "sampleProcessingProtocol": "We introduced the Tau repeat domain (TauRD) fused to split TurboID ligase fragments to generate a TauRD interactome. Biotinylated proximal interacting partners were affinity purified with streptavidin magnetic beads, digested, and underwent label free quantitative mass spectrometry on a Orbitrap Fusion Lumos Tribrid.   Samples were normalized to 300 µL in 100 mM Tris-HCl pH 8 buffer. Lysates were reduced with 1 mM dithiothreitol (DTT) and alkylated with 5 mM iodoacetamide (IAA) at room temperature for 30 minutes, respectively. Proteins were digested overnight at room temperature with 2 µg Lys-C protease (Wako). The next day, 2 µg Trypsin was added and incubated overnight. The following day, enzyme activity was quenched with acidifying buffer (1:9, v/v; 10% formic acid and 1% trifluoroacetic acid) and desalted by loading the peptides onto a 10 mg Oasis PRiME HLB 96-well plate (Waters), followed by washing twice with Buffer A (0.1% TFA) and then eluted with Buffer C (50% acetonitrile, ACN and 0.1% TFA). Desalted peptides were lyophilized with a CentriVap Centrifugal Vacuum Concentrator (Labconco) overnight. Peptides were resuspended and sonicated in Buffer A for loading, then separated by an Evosep One Liquid Chromatography (LC) system using an in-house packed 15 cm × 150 μm i.d. capillary column with 1.9 μm Reprosil-Pur C18 beads (Dr Maisch) with a preprogrammed 88 min gradient procedure. MS was performed with an Orbitrap Fusion Lumos Tribrid (ThermoFisher) in positive ion mode for data dependent acquisition (DDA) MS. Each cycle consisted of one full MS scan and 20 MS/MS events. MS scans were collected at a resolution of 60,000, with a 400 to 1600 m/z range, 4 × 10^5 automatic gain control (AGC), and a maximum ion injection time of 118 ms. All higher energy collision-induced dissociation (HCD) MS/MS spectra were acquired at a resolution of 30,000, with a 1.6 m/z isolation width, 30% collision energy, 5 × 10^4 AGC target, and 54 ms maximum ion injection time. Previously sequenced peaks were dynamically excluded for 30 s within a 10-ppm isolation window.",
+    "dataProcessingProtocol": "Raw files were searched with FragPipe (v 21.1). FragPipe relies on its integration with MSFragger (v 4.0) for peptide identification from a closed database. The proteins were identified by searching against the February 2024 canonical Uniprot database with 20,597 proteins and 4 independent protein sequences aligning to the N-sTurbo, C-sTurbo, V5 tag, and HA tag ORFs to identify the sTurbo TauRD recombinant protein. 51 total contaminant sequences and all 20,652 reverse sequences were added for false discovery rate (FDR) calculation, which was set to 1%. The default FragPipe Label-Free Quantitation – Match Between Runs (LFQ-MBR) workflow was loaded with default parameters with minimal modifications.  Percolator (3.6.4) generated decoy psms (peptide spectral matches) and protein decoys. Peptide-to-spectra matches were rescored with MSBooster and Percolator for predicting retention time and spectra with a minimum probability of 0.5. Briefly, precursor mass tolerance was -20 to 20 ppm, fragment mass tolerance of 20 ppm, with mass calibration and parameter optimization selected, and isotope error was set to 0/1/2. Enzyme specificity was set to strict-trypsin with up to 4 missed cleavages allowed due to the potential lysine-biotin modification impacting tryptic cleavage. Peptide length ranged from 7 to 50 amino acids, and peptide mass from 500 to 5,000 Da. Variable modifications included: methionine oxidation (+15.9949 Da), N-terminal acetylation (+42.0106 Da), and phosphorylation on STY residues (+79.96633 Da) with a maximum of 3 variable modifications per peptide. Fixed modification included cysteine carbamidomethylation (+57.02146 Da).  Quantification was conducted by the IonQuant module (v 1.10.12) with MBR permitted. Abundances were also reported using with the topN method with topN peaks set to 200. IonQuant parameters were as follows: 2 minimum ions, 3 minimum scans, minimum matched fragments of 4, and a retention time tolerance of 0.4 min. After FDR filtering with Philosopher (v 5.1.0), a total of 60,847 peptide spectral matches (PSMs), 54,148 modified peptides, 50,674 peptides, and 5,262 protein groups were detected.",
+    "projectTags": [],
+    "keywords": [
+      "Alzheimer’s disease",
+      "Msfragger",
+      "Tau",
+      "Proximity labeling",
+      "Lfq",
+      "Proteomics"
+    ],
+    "doi": "",
+    "submissionType": "PARTIAL",
+    "license": "Creative Commons Public Domain (CC0)",
+    "submissionDate": "2025-01-13",
+    "publicationDate": "2025-11-12",
+    "submitters": [
+      {
+        "title": "Dr",
+        "firstName": "Eddie",
+        "lastName": "Fox",
+        "identifier": "3591944",
+        "affiliation": "Emory University",
+        "email": "ejfox2@emory.edu",
+        "country": "United States",
+        "orcid": "",
+        "name": "Eddie Fox",
+        "id": "3591944"
+      }
+    ],
+    "labPIs": [
+      {
+        "title": "Dr",
+        "firstName": "Nicholas",
+        "lastName": "T.",
+        "identifier": "3091142",
+        "affiliation": "Emory University School of Medicine Departments of Biochemistry and Neurology",
+        "email": "nseyfri@emory.edu",
+        "country": "",
+        "orcid": "",
+        "name": "Nicholas T.",
+        "id": "3091142"
+      }
+    ],
+    "instruments": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1002732",
+        "name": "Orbitrap Fusion Lumos"
+      }
+    ],
+    "softwares": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1003429",
+        "name": "FragPipe"
+      }
+    ],
+    "experimentTypes": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000428",
+        "name": "Bottom-up proteomics"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000433",
+        "name": "Affinity purification coupled with mass spectrometry proteomics"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000627",
+        "name": "Data-dependent acquisition"
+      }
+    ],
+    "quantificationMethods": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000312",
+        "name": "Label free"
+      }
+    ],
+    "countries": [
+      "United States"
+    ],
+    "sampleAttributes": [
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "EFO:0000635",
+          "name": "organism part"
+        },
+        "value": [
+          {
+            "cvLabel": "BTO",
+            "accession": "BTO:0000214",
+            "name": "cell culture"
+          },
+          {
+            "cvLabel": "CL",
+            "accession": "CL:0002518",
+            "name": "kidney epithelial cell"
+          }
+        ]
+      },
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "OBI:0100026",
+          "name": "organism"
+        },
+        "value": [
+          {
+            "cvLabel": "NEWT",
+            "accession": "NEWT:9606",
+            "name": "Homo sapiens (Human)"
+          }
+        ]
+      }
+    ],
+    "organisms": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "NEWT",
+        "accession": "NEWT:9606",
+        "name": "Homo sapiens (human)"
+      }
+    ],
+    "organismParts": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "CL",
+        "accession": "CL:0002518",
+        "name": "Kidney epithelial cell"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "BTO",
+        "accession": "BTO:0000214",
+        "name": "Cell culture"
+      }
+    ],
+    "diseases": [],
+    "references": [
+      {
+        "referenceLine": "Shapley SM, Shantaraman A, Gadhavi J, Kearney MA, Dammer EB, Duong DM, Bowen CA, Watson CM, Bagchi P, Guo Q, Rangaraju S, Seyfried NT. Proximity labeling of the Tau repeat domain enriches RNA-binding proteins that are altered in Alzheimer's disease and related tauopathies. Mol Cell Proteomics. 2025:101458",
+        "pubmedID": 41205924,
+        "doi": "10.1016/j.mcpro.2025.101458"
+      }
+    ],
+    "identifiedPTMStrings": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00425",
+        "name": "monohydroxylated residue"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00696",
+        "name": "phosphorylated residue"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00394",
+        "name": "acetylated residue"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00397",
+        "name": "iodoacetamide derivatized residue"
+      }
+    ],
+    "totalFileDownloads": 89,
+    "otherOmicsLinks": [
+      "pride.project:PXD066874",
+      "px:PXD066874"
+    ],
+    "files": {
+      "files": [
+        {
+          "fileName": "sarah_20ip_06-Mock-2-2.raw",
+          "fileSizeBytes": 981459726,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/sarah_20ip_06-Mock-2-2.raw"
+        },
+        {
+          "fileName": "sarah_20ip_09-Mock-3-1.raw",
+          "fileSizeBytes": 621863736,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/sarah_20ip_09-Mock-3-1.raw"
+        },
+        {
+          "fileName": "sarah_20ip_13-P301L-1-3.raw",
+          "fileSizeBytes": 480821640,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/sarah_20ip_13-P301L-1-3.raw"
+        },
+        {
+          "fileName": "sarah_20ip_18-P301L-2-4.raw",
+          "fileSizeBytes": 510515950,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/sarah_20ip_18-P301L-2-4.raw"
+        },
+        {
+          "fileName": "sarah_20ip_19-P301L-3-2.raw",
+          "fileSizeBytes": 585260234,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/sarah_20ip_19-P301L-3-2.raw"
+        },
+        {
+          "fileName": "sarah_20ip_08-Mock-2-4.raw",
+          "fileSizeBytes": 474987589,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/sarah_20ip_08-Mock-2-4.raw"
+        },
+        {
+          "fileName": "sarah_20ip_05-Mock-2-1.raw",
+          "fileSizeBytes": 556416637,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/sarah_20ip_05-Mock-2-1.raw"
+        },
+        {
+          "fileName": "sarah_20ip_20-P301L-3-1.raw",
+          "fileSizeBytes": 753343450,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/sarah_20ip_20-P301L-3-1.raw"
+        },
+        {
+          "fileName": "sarah_20ip_15-P301L-2-1.raw",
+          "fileSizeBytes": 480824738,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/sarah_20ip_15-P301L-2-1.raw"
+        },
+        {
+          "fileName": "sarah_20ip_16-P301L-2-2.raw",
+          "fileSizeBytes": 494584139,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/sarah_20ip_16-P301L-2-2.raw"
+        },
+        {
+          "fileName": "sarah_20ip_11-P301L-1-1.raw",
+          "fileSizeBytes": 449924779,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/sarah_20ip_11-P301L-1-1.raw"
+        },
+        {
+          "fileName": "sarah_20ip_17-P301L-2-3.raw",
+          "fileSizeBytes": 489214286,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/sarah_20ip_17-P301L-2-3.raw"
+        },
+        {
+          "fileName": "sarah_20ip_12-P301L-1-2.raw",
+          "fileSizeBytes": 663814052,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/sarah_20ip_12-P301L-1-2.raw"
+        },
+        {
+          "fileName": "sarah_20ip_04-Mock-1-4.raw",
+          "fileSizeBytes": 461184616,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/sarah_20ip_04-Mock-1-4.raw"
+        },
+        {
+          "fileName": "sarah_20ip_14-P301L-1-4.raw",
+          "fileSizeBytes": 500361771,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/sarah_20ip_14-P301L-1-4.raw"
+        },
+        {
+          "fileName": "sarah_20ip_01-Mock-1-1.raw",
+          "fileSizeBytes": 477349354,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/sarah_20ip_01-Mock-1-1.raw"
+        },
+        {
+          "fileName": "20240207-reviewed-Uniprot9606_sTurbo-seqs.fasta",
+          "fileSizeBytes": 13688828,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/20240207-reviewed-Uniprot9606_sTurbo-seqs.fasta"
+        },
+        {
+          "fileName": "combined_modified_peptide.tsv",
+          "fileSizeBytes": 27852078,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/combined_modified_peptide.tsv"
+        },
+        {
+          "fileName": "sarah_20ip_17_P301L_2_3.zip",
+          "fileSizeBytes": 86077,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/sarah_20ip_17_P301L_2_3.zip"
+        },
+        {
+          "fileName": "combined_protein.tsv",
+          "fileSizeBytes": 2674435,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/combined_protein.tsv"
+        },
+        {
+          "fileName": "sarah_20ip_05_Mock_2_1.zip",
+          "fileSizeBytes": 16807,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/sarah_20ip_05_Mock_2_1.zip"
+        },
+        {
+          "fileName": "sarah_20ip_20_P301L_3_1.zip",
+          "fileSizeBytes": 18950207,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/sarah_20ip_20_P301L_3_1.zip"
+        },
+        {
+          "fileName": "sarah_20ip_19_P301L_3_2.zip",
+          "fileSizeBytes": 120131,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/sarah_20ip_19_P301L_3_2.zip"
+        },
+        {
+          "fileName": "modmasses_ionquant.txt",
+          "fileSizeBytes": 34,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/modmasses_ionquant.txt"
+        },
+        {
+          "fileName": "sarah_20ip_01_Mock_1_1.zip",
+          "fileSizeBytes": 53938,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/sarah_20ip_01_Mock_1_1.zip"
+        },
+        {
+          "fileName": "sarah_20ip_12_P301L_1_2.zip",
+          "fileSizeBytes": 95704,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/sarah_20ip_12_P301L_1_2.zip"
+        },
+        {
+          "fileName": "sarah_20ip_04_Mock_1_4.zip",
+          "fileSizeBytes": 13382,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/sarah_20ip_04_Mock_1_4.zip"
+        },
+        {
+          "fileName": "msbooster_params.txt",
+          "fileSizeBytes": 1230,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/msbooster_params.txt"
+        },
+        {
+          "fileName": "sarah_20ip_18_P301L_2_4.zip",
+          "fileSizeBytes": 86716,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/sarah_20ip_18_P301L_2_4.zip"
+        },
+        {
+          "fileName": "combined_ion.tsv",
+          "fileSizeBytes": 29115263,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/combined_ion.tsv"
+        },
+        {
+          "fileName": "fragger.params",
+          "fileSizeBytes": 9874,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/fragger.params"
+        },
+        {
+          "fileName": "MSstats.csv",
+          "fileSizeBytes": 92085121,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/MSstats.csv"
+        },
+        {
+          "fileName": "sarah_20ip_13_P301L_1_3.zip",
+          "fileSizeBytes": 89693,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/sarah_20ip_13_P301L_1_3.zip"
+        },
+        {
+          "fileName": "combined_peptide.tsv",
+          "fileSizeBytes": 25083712,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/combined_peptide.tsv"
+        },
+        {
+          "fileName": "fragpipe.workflow",
+          "fileSizeBytes": 12325,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/fragpipe.workflow"
+        },
+        {
+          "fileName": "reprint.int.tsv",
+          "fileSizeBytes": 648440,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/reprint.int.tsv"
+        },
+        {
+          "fileName": "sarah_20ip_11_P301L_1_1.zip",
+          "fileSizeBytes": 74228,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/sarah_20ip_11_P301L_1_1.zip"
+        },
+        {
+          "fileName": "sarah_20ip_16_P301L_2_2.zip",
+          "fileSizeBytes": 82975,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/sarah_20ip_16_P301L_2_2.zip"
+        },
+        {
+          "fileName": "sarah_20ip_06_Mock_2_2.zip",
+          "fileSizeBytes": 16978,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/sarah_20ip_06_Mock_2_2.zip"
+        },
+        {
+          "fileName": "sarah_20ip_08_Mock_2_4.zip",
+          "fileSizeBytes": 13466,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/sarah_20ip_08_Mock_2_4.zip"
+        },
+        {
+          "fileName": "reprint.spc.tsv",
+          "fileSizeBytes": 272264,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/reprint.spc.tsv"
+        },
+        {
+          "fileName": "sarah_20ip_15_P301L_2_1.zip",
+          "fileSizeBytes": 77535,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/sarah_20ip_15_P301L_2_1.zip"
+        },
+        {
+          "fileName": "sarah_20ip_09_Mock_3_1.zip",
+          "fileSizeBytes": 36646,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/sarah_20ip_09_Mock_3_1.zip"
+        },
+        {
+          "fileName": "sarah_20ip_14_P301L_1_4.zip",
+          "fileSizeBytes": 79731,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/sarah_20ip_14_P301L_1_4.zip"
+        },
+        {
+          "fileName": "experiment_annotation.tsv",
+          "fileSizeBytes": 2314,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/11/PXD059716/experiment_annotation.tsv"
+        }
+      ],
+      "totalCount": 45
+    }
+  }
+}

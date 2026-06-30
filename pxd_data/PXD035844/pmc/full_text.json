@@ -1,0 +1,2471 @@
+{
+  "metadata": {
+    "pxd": "PXD035844",
+    "category": "pmc",
+    "saved_at": "2026-06-30T15:27:45.782356",
+    "filename": "full_text"
+  },
+  "data": [
+    {
+      "source": "PMC",
+      "date": "20231103",
+      "key": "pmc.key",
+      "infons": {},
+      "documents": [
+        {
+          "id": "10151615",
+          "infons": {
+            "license": "CC BY-NC-ND"
+          },
+          "passages": [
+            {
+              "offset": 0,
+              "infons": {
+                "article-id_doi": "10.1073/pnas.2219418120",
+                "article-id_pmc": "10151615",
+                "article-id_pmid": "37071682",
+                "article-id_publisher-id": "202219418",
+                "elocation-id": "e2219418120",
+                "issue": "17",
+                "kwd": "cross-linking mass spectrometry protein–protein interactions protein structure prediction AlphaFold2 structural proteomics",
+                "license": "This article is distributed under Creative Commons Attribution-NonCommercial-NoDerivatives License 4.0 (CC BY-NC-ND).",
+                "name_0": "surname:Bartolec;given-names:Tara K.",
+                "name_1": "surname:Vázquez-Campos;given-names:Xabier",
+                "name_2": "surname:Norman;given-names:Alexander",
+                "name_3": "surname:Luong;given-names:Clement",
+                "name_4": "surname:Johnson;given-names:Marcus",
+                "name_5": "surname:Payne;given-names:Richard J.",
+                "name_6": "surname:Wilkins;given-names:Marc R.",
+                "name_7": "surname:Mackay;given-names:Joel P.",
+                "name_8": "surname:Low;given-names:Jason K. K.",
+                "section_type": "TITLE",
+                "type": "front",
+                "volume": "120",
+                "year": "2023"
+              },
+              "text": "Cross-linking mass spectrometry discovers, evaluates, and corroborates structures and protein–protein interactions in the human cell",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 135,
+              "infons": {
+                "section_type": "ABSTRACT",
+                "type": "abstract_title_1"
+              },
+              "text": "Significance",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 148,
+              "infons": {
+                "section_type": "ABSTRACT",
+                "type": "abstract"
+              },
+              "text": "Proteins function through their ability to form specific three-dimensional structures or interactions, but only a small proportion of these features within a proteome have been experimentally determined. Protein structural modelers have now generated predictions for millions of proteins, including for complexes, but the accuracy of these predictions lacks systematic experimental assessment. We generated a significant resource of protein cross-links within the human cell, experimentally mapping spatially constrained pairs of amino acids within proteins or between interaction interfaces. Critically, these capture proteins with native sequences, posttranslational modifications, subcellular niches, and cofactors. We demonstrate how our resource—and large-scale cross-linking mass spectrometry in general—can be used for the mapping, assessment, and contextualization of the recently expanded structural proteome.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 1074,
+              "infons": {
+                "section_type": "ABSTRACT",
+                "type": "abstract"
+              },
+              "text": "Significant recent advances in structural biology, particularly in the field of cryoelectron microscopy, have dramatically expanded our ability to create structural models of proteins and protein complexes. However, many proteins remain refractory to these approaches because of their low abundance, low stability, or—in the case of complexes—simply not having yet been analyzed. Here, we demonstrate the power of using cross-linking mass spectrometry (XL-MS) for the high-throughput experimental assessment of the structures of proteins and protein complexes. This included those produced by high-resolution but in vitro experimental data, as well as in silico predictions based on amino acid sequence alone. We present the largest XL-MS dataset to date, describing 28,910 unique residue pairs captured across 4,084 unique human proteins and 2,110 unique protein–protein interactions. We show that models of proteins and their complexes predicted by AlphaFold2, and inspired and corroborated by the XL-MS data, offer opportunities to deeply mine the structural proteome and interactome and reveal mechanisms underlying protein structure and function.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 2233,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "Proteins are the primary effectors in biology. Their function is determined in large part by their three-dimensional structure and by the protein–protein interactions (PPIs) that they form. A system-wide understanding of protein structure and interactions has thus been a long-standing goal.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 2527,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "To this end, the protein–protein interactome has been systemically catalogued using several approaches, including yeast two-hybrid (Y2H), affinity-purification mass spectrometry (AP-MS) and by the Bio-ID proximity assay and variants (reviewed in ref. ). These methods have been very successful in identifying both direct and indirect protein interactions and at least one interactor has been curated for almost 50% of the human proteome. However, these data do not provide structural or mechanistic information on interactions and do not necessarily analyze proteins interacting in their native state. These significant shortcomings call for additional strategies to better define the interactome.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 3228,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "Despite intensive efforts in the fields of X-ray crystallography, NMR, and cryoelectron microscopy (cryo-EM), only 35% of human proteins have any representation in the Protein Data Bank (PDB). Many are only partially resolved: Only 17% of residues in human proteins are present in the PDB, and experimental structures exist for only 6% of known human PPIs. Furthermore, the heterologous overexpression and purification of proteins are often necessary to produce enough material for these techniques, with only 5% of the human proteins in the PDB produced from native sources. This situation raises possible concerns about the integrity of structures and complexes that are generated using such approaches.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 3934,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "In lieu of experimental structures, machine learning-based structural modelers such as AlphaFold2 have been shown to be highly accurate under controlled tests and have greatly expanded the coverage of structural proteomes across a range of species. However, because the training dataset (the PDB) has a very low representation of truly native structures, the accuracy of these models and the question of how to assess them remain to be determined.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 4382,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "Cross-linking mass spectrometry (XL-MS) provides a means to assay native protein structure and PPIs in a parallel fashion (reviewed in refs.  and ). Chemical cross-linkers containing at least two reactive groups are introduced into a protein sample to covalently link amino acids within spatially constrained reactions. The identification of cross-linked peptides via mass spectrometry enables the definition of the linked residues, providing conformational constraints for a protein chain or PPI interface. These constraints, despite having low effective resolution, can be used to validate experimental structures, help inform modeling of proteins with unknown structures, and guide docking studies of PPIs (reviewed in ref. ). Taking into consideration the relatively low protein sample requirements, XL-MS can provide a first view of the structures and interactions of many poorly studied or less accessible proteins.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 5308,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "Recent technical developments in XL-MS have established its use at scale and in native contexts such as in intact human cells and even mammalian tissues. However, the complexity and dynamic range of the proteome and interactome leads to under-sampling. One means to achieve better proteome coverage while preserving in vivo or near-in vivo proteoform states is to isolate and then cross-link intact organelles. Furthermore, the use of diverse cross-linker reactivities can increase the density of structural constraints by sampling a larger protein sequence space.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 5874,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "To establish the utility of large-scale XL-MS for the characterization of the structural proteome and interactome, we have generated a high-coverage and high-density cross-link dataset for a cultured human cell line. Fractionated organelles were cross-linked with three different chemistries [DHSO, disuccinimidyl sulfoxide (DSSO), and 4-(4,6-dimethoxy-1,3,5-triazin-2-yl)-4- methylmorpholinium (DMTMM) ], and a multistep analytical pipeline used to extensively fractionate and identify cross-linked peptides. We identified 91,709 cross-link spectral matches (CSMs) representing 28,910 unique residue pairs (URP) across 4,084 proteins and 2,110 PPIs. This resource is the largest reported to date for any species.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 6588,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "Benchmarking against the protein structure and PPI literature demonstrates the integrity and utility of our dataset, which provides orthogonal validation for many high-resolution (but in vitro) experimental structures. In parallel, our cross-links also identify PPIs and confirm many PPIs that were previously only identified using systems-level approaches. Importantly, our data also provide structural information for a broad range of proteins and PPIs, including proteins that lack any experimental characterization. We demonstrate how cross-links can be utilized to evaluate, validate, and support structure modeling platforms such as AlphaFold2. Overall, we conclude that XL-MS can provide corroborative data for structural modeling pipelines to extend our understanding of the structural proteome, including in the context of the interactome.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 7438,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_1"
+              },
+              "text": "Results",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 7446,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "Orthogonal Cross-Linkers, Sample Enrichment and Improved Database Search Strategies Generate the Largest Cross-Linked Proteome To Date.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 7582,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "To provide broad coverage of the human structural proteome, we performed crude subcellular fractionation of HEK293 cells and cross-linked these fractions in two reactions with three orthogonal cross-linkers: DHSO, DSSO, and DMTMM. We reasoned that by prefractionating the cells, we would capture more (and different) proteins across the broad dynamic range of the human proteome. Importantly, membrane-bound organelles (e.g., nucleus, mitochondria, lysosomes, and Golgi) remain compartmentalized before cross-linking, and should retain their proteins in a state that is more native than in a lysate (although not to the same extent as in vivo XL-MS). Following protein digestion, we fractionated the resulting peptides using sequential offline size exclusion chromatography and high pH reversed-phase liquid chromatography (Fig. 1A).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 8417,
+              "infons": {
+                "file": "pnas.2219418120fig01.jpg",
+                "id": "fig01",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Generation of the most comprehensive human cross-linking mass spectrometry dataset. (A) Experimental overview. (B) Breakdown and summary statistics of the cross-linked unique residue pairs (URP) and the underlying captured unique protein–protein interactions or internally linked proteins. Interprotein refers to cross-linking between peptides mapping to two distinct UniProt accessions, intraprotein to the same accession, and homooligomer to same accession but with overlapping peptide sequences (and hence must derive from two separate molecules). (C) The size and breakdown of annotated subcellular localizations detected in the cross-linked proteome. Note that redundancies are caused by proteins with multiple annotated subcellular assignments.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 9170,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "From mass spectrometry, we identified 4,084 unique proteins linked by 28,910 unique cross-linked residue pairs (which we define as “unique residue pairs”, or URPs) from 91,709 CSMs (Fig. 1 B and C and Dataset S1). These URPs can be further classified into 3,785 and 25,125 interprotein (including homooligomers) and intraprotein URPs, respectively.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 9524,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Our URP list was generated using stringent quality control measures (Methods, SI Appendix, Fig. S1, and ref. ). These enabled the control of the false discovery rate (FDR) to ≤1% at the URP level for both intraprotein and interprotein links, and 1.9% at the PPI level for interprotein links. All three cross-linkers produced interprotein to intraprotein URP ratios in line with theoretical expectations for their maximum distance constraints, indicating an appropriately controlled FDR.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 10016,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "To our knowledge, this is the largest XL-MS dataset to date, containing more than twice the number of URPs of the next largest studies. Protein abundance data from the PaxDB database revealed that we sampled the proteome at a significantly deeper level than previous work. We identified 1.6-fold more proteins than the previous benchmark, and the median abundance of a cross-linked protein in our dataset was 1.8-fold lower (SI Appendix, Fig. S2A). Furthermore, the density of cross-links defining each PPI and intralinked protein was higher than observed in the previous benchmark study, including for low-abundance proteins (SI Appendix, Fig. S2B). We note that the improvements in cross-linking density from the use of orthogonal chemistries was more pronounced for intraprotein cross-links, almost doubling the densities reported in other similar studies that use only one cross-linker (7.3 in our study vs. ~4 intraprotein URPs per intralinked protein in refs., Dataset S2). On the other hand, our density of interprotein URPs per PPI was more similar to previous studies [1.8 vs. 1.4 to 2.3, Dataset S2, ], likely reflecting the composition of our dataset in which most interprotein URPs were captured by a single cross-linker (DSSO, which is longer and lysine-reactive) (Fig. 1B). This observation might also explain the lower number of PPIs described by our dataset when compared to Wheat et al.  (Dataset S2), which employed a single but longer (+4 Å relative to DSSO) enrichable and lysine-reactive Alkyne-A-DSBSO cross-linker. Overall, our dataset is substantial and of high quality.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 11618,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Most proteome-wide XLMS studies to date have relied on N-hydroxysuccinimide-based (NHS) cross-linkers, which primarily target the ε-amino side chain of lysine (K) residues. Although reactions with the hydroxyl side chains of serine (S), threonine (T) and tyrosine (Y) are also possible, they are often not considered due to the significant (and in most cases, prohibitive) increase in computation time during peptide database searches. In contrast to most other comparable studies, we included possible cross-links to S/T/Y during in our analysis of DSSO spectra. This strategy yielded 1.3-fold more DSSO URPs compared to K-K cross-link searching alone (9,832 vs. 7,829 URPs). Linkages involving S/T/Y residues made up 24% of all DSSO URPs (SI Appendix, Fig. S3A), consistent with previous smaller scale studies. Many S/T/Y-linked residues were initially localized to a nearby K residue within the same peptide (SI Appendix, Fig. S3B). For many of these peptides, their identification scores significantly improved when S/T/Y reactivity were considered (SI Appendix, Fig. S3C), indicating an improved accuracy in the localization of cross-linking sites. It also enabled us to identify ~20% more PPIs than a K-K-only search strategy (1,464 rather than 1,243 PPIs).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 12888,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Our data indicate that different cross-linker chemistries might be better suited to certain subcellular niches. The proportion of URPs arising from each cross-linker varied significantly between organellar fractions (nucleus, cytoplasm, mitochondria, and Golgi). DSSO was the most effective at cross-linking the nuclear fraction, whereas DHSO was most effective for the mitochondrial and Golgi fractions (SI Appendix, Fig. S4A). These differences might reflect variation in amino acid composition, local pH, or even the solubility or permeability of a cross-linker in a given compartment. We also noted that the nuclear fraction produced a significantly higher proportion of interprotein URPs than any other fraction, suggesting denser protein packing or better preservation of protein complexes (SI Appendix, Fig. S4B).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 13712,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "Benchmarking against Experimental Structures Demonstrates the High Quality of the Dataset.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 13803,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "We next used structures from the PDB to assess the quality of our data. Forty-three percent (9,152) of our 21,367 unambiguous URPs (i.e., URPs from cross-linked peptides for which each peptide sequence could be uniquely mapped to a single UniProt accession code) could be mapped onto 10,332 unique experimental structures (Dataset S3). Euclidean distances (Cα-Cα) were calculated using Xwalk and URPs considered satisfied if their minimum mapped distance on any PDB entry was within the maximum theoretical distance of 30 Å for DHSO and DSSO, and within 25 Å for DMTMM.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 14381,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Considering only intrachain URPs, 7,860 URPs mapped onto 10,110 structures of 1,406 proteins, of which 99% (DHSO), 97% (DSSO), and 89% (DMTMM) were satisfied (Fig. 2A and Dataset S3). In contrast, randomly sampled residue pairs within each structure met the distance cutoffs in only ~40 to 60% of cases (Fig. 2A). For interchain linkages (including homodimeric URPs from overlapped peptide sequences), 1,292 URPs describing 519 unique PPIs were mapped onto 2,274 distinct PDB entries. We observed slightly lower distance satisfaction rates of 90% for DSSO, 72% for DMTMM, and 96% for DHSO [consistent with previous work ], whereas randomly sampled interchain URPs had very low satisfaction rates (~7 to 12%).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 15091,
+              "infons": {
+                "file": "pnas.2219418120fig02.jpg",
+                "id": "fig02",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Cross-link distance constraints are validated by, and uniquely contextualize the variability within, in vitro experimental structures curated in the Protein Data Bank. (A) The distribution of minimum Euclidean distances (Å, Cα-Cα) imposed by unique residue pairs (URPs) across redundant possible chain-pairs and/or Protein Data Bank (PDB) entries. Only “unambiguous” URPs are considered in these analyses, which are those with underlying cross-linked peptide sequences that were uniquely mapped to a single protein sequence in the canonical human proteome. Random residue pairs with appropriate sidechain reactivities were simulated for each individual PDB structure. The percentage of URPs falling within the cross-linker specific distance cutoffs (dotted lines, 25 Å for DMTMM or 30 Å for DHSO/DSSO) are also indicated. (B) The range of Euclidean distances imposed by URPs mapped across multiple unique PDB entries, considering only PDB entries with one possible chain-pair configuration for the URP. The minimum and maximum distances observed for each URP are plotted in-line as circles joined by a gray line. Green fill denotes a structure for which the distance in question is falls within the relevant cutoff, and red fill denotes a structure in which the distance violates the cutoff. The Top panel shows the range distribution for all unambiguous URPs, stratified by their global satisfaction rate and ordered by increasing difference in distances within these categories. The distribution of the URP subset with variable satisfaction across PDB entries (*), is shown on the Lower Left. Inset structures to the Right show an example of a variably satisfied URP from the pre-mRNA-processing-splicing factor 8 protein (Q6P2Q9), indicated by the dashed line. (C) The density of PhosphoSitePlus-annotated posttranslational modifications (number of distinct annotated modification sites/length of protein) of cross-linked protein(s) (with the maximum value for the two proteins used for interprotein links) for each URP mapping stratification type (by variability of URP satisfaction as described above). **** is P = 2.2 × 10−16, from a one-tailed Wilcoxon rank sum tests with continuity corrections. (D) The distribution of unambiguous URPs involving residues from regions predicted to be disordered, stratified by whether the URPs are resolved in PDB structures.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 17474,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "It is also notable that our cross-linking was carried out under significantly more native-like conditions than those typically used for the determination of protein structures. Structures are generally determined from heterologously expressed polypeptides that often comprise only a fraction of the full protein sequence and are determined in the absence of interactions with partners. The remarkably high overall satisfaction rates we observe therefore provide large-scale experimental corroboration of thousands of in vitro experimental structures.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 18026,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "Cross-Links Capture and Confirm Alternative Structural Conformers.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 18093,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "We noted many URPs that could map to more than one PDB structure for the same protein and therefore asked whether our data could provide insights into possible conformational plasticity of these proteins. We examined 4,857 URPs that could be mapped onto multiple PDB structures and compared the minimum and maximum Euclidean distances for these URPs across all of their PDB entries (Fig. 2B and Dataset S3). Most URPs (85.4%, “Always satisfied” in Fig. 2 B, Top) were always mapped within the cross-linker cutoff distances regardless of PDB structure.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 18651,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "In contrast, although 529 URPs were not satisfied in any available structure, we observed 178 URPs that were satisfied in some but not all structures (“never satisfied” or “variably satisfied”, respectively, Fig. 2B). For example, the URP K1344-K1735 in the pre-mRNA splicing factor 8 (Uniprot: Q6P2Q9) differed dramatically in distance depending on which specific precursor subcomplex of the spliceosome it was mapped onto. The two residues show a distance of 71 Å in the structure of a spliceosome core variant that contains the U2/U6 catalytic RNA network [PDB: 6FF7 ], whereas the same residues are 14 Å apart in a structure lacking these RNAs [PDB: 7ABF,, Fig. 2 B, Inset]. In another example, the URP E673-K890 in the DNA replication licensing factor MCM2 (UniProt: P49736) shows a distance of 10 Å when the complex that it is a part of–the CDC45-MCM-GINS helicase–is not engaged in the replisome [PDB: 6XTX ] and 39 Å when it is engaged in the replisome [PDB: 7PFO ] (SI Appendix, Fig. S5). These observations suggest that URPs that are not satisfied in currently available protein structures might in some cases flag the existence of alternative conformations or architectures that are yet to be experimentally characterized.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 19908,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Alternative structural conformations can arise from the formation of distinct complexes, as above, or directly from allosteric changes induced by the deposition of post-translational modifications (PTMs). We observe that the never satisfied URPs tended to fall in proteins that are more densely posttranslationally modified according to the PhosphoSitePlus database compared to those satisfied in all PDB structures (Fig. 2C; P < 2.2 × 10−16). This finding underscores the fact we are probing endogenous proteins in a near-cellular environment, and therefore probably capturing protein conformations and complex architectures that more closely reflect the in vivo state than do experimental high-resolution structures of isolated polypeptides expressed from heterologous systems (e.g., Escherichia coli) that do not possess relevant human PTMs.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 20759,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "As noted above, we were unable to map more than half (~53%) of our unambiguous URPs due to the absence of cognate experimental structures. Because intrinsically disordered regions are resistant to structure determination, we investigated whether our unmappable URPs resided in such regions. Surprisingly, more than half of the URPs without PDB resolution did not lie in a disordered region, as annotated by a consensus of predictions curated in MobiDB (Fig. 2D). These URPs therefore likely define experimental distance restraints for ordered regions within structures that are either difficult to resolve (because of conformational dynamics, recalcitrance to purification efforts, or highly contextual conformations) or simply involve unstudied proteins.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 21515,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "Cross-Links Enable the High-Throughput Experimental Assessment of Protein Structure Predictions.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 21612,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Next-generation structural modeling programs such as AlphaFold2 have generated enormous recent interest because of their performance in controlled environments such as CASP14. However, the accuracy of such structural predictions for proteins in their native cellular context is less well established. The near-native structural constraints provided by our cross-link resource provides a unique opportunity to address this question, and we therefore asked how well our unambiguous intraprotein URPs map onto the recent AlphaFold2 (AF2) predictions of the human proteome. We only considered URPs that mapped to “high-confidence” residues—defined by a value of ≥70 for the AlphaFold2 pLDDT quality metric. Despite this restriction, the AF2 dataset significantly increased the number of unambiguous URPs that we could map, with 12,359 URPs able to be resolved across 2,467 unique proteins (Fig. 3A and Dataset S4). This represents a 1.4-fold increase in resolved URPs compared to our PDB mapping above, and an increase of 1.8-fold in the number of proteins to which URPs could be mapped.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 22705,
+              "infons": {
+                "file": "pnas.2219418120fig03.jpg",
+                "id": "fig03",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "The high-throughput experimental assessment of AlphaFold2 monomeric protein structure predictions using cross-link distance constraints. (A) Statistics for the mapping of unique URPs onto AlphaFold2 (AF2) monomer models. Only high-confidence URPs (both residues within pLDDT ≥70) were used for further analyses. (B) Fulfillment of URPs on AF2 models. For each AF2 monomer model, five random URPs were generated for each cross-linker with appropriate side-chain reactivities. The distribution of Euclidean distances (Å, Cα-Cα) determined for experimental and random URPs is shown, stratified by cross-linker. Annotations show the percentage of URPs fulfilled for each subset. The cutoff for each cross-linker is indicated by a dotted line (25 Å for DMTMM or 30 Å for DHSO/DSSO). (C) Overall URP satisfaction rate across URPs with different degrees of PDB resolution. (D–G) Examples of the use of URPs for model validation and evaluation. Protein names are official UniProt entry names. The range of residues shown are indicated to the left of each structure. Green URPs are satisfied, red URPs are overlength. (D) The model for Q9BYD2 shows an example of a PDB-resolved human protein that has benefitted from increased structural coverage (orange) and is now corroborated by nine experimental URPs. Gray regions within structures represent those derived from experimental PDB structures. (E and F) show proteins without any PDB entry for the human proteins (orange). Gray regions within structures represent those derived from experimental PDB structures. (E) The AF2 model of the mitochondrial ATP synthase subunit alpha with a known bovine structural homologue, 44 URPs support this model. (F) The AF2 model of the procollagen galactosyltransferase (Q8NBJ5) that does not have any PDB entries for itself or of homologous proteins. Five URPs support this model. (G) An example where the two identified cross-links do not fit the AF2 model. However, while the cross-linked residues are within well-modeled domains, the two domains are separated by a low-confidence, disordered loop (colored in blue and highlighted with a blue arrow).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 24851,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "The distance distribution and satisfaction rates of these high-confidence URPs on the AF2 models (Fig. 3B and SI Appendix, Fig. S6A) were comparable to the values observed for intraprotein URPs mapped to PDB structures (Fig. 2A), spanning 82 to 97% satisfaction across cross-linkers, compared to ~33 to 45% for randomly sampled URPs. This observation confirms that the predictions made by AF2 are of very high quality.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 25272,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Given that AF2 is trained on the PDB, we next asked whether URP satisfaction rates on AF2 models varied depending on whether or not an experimental structure also existed for that protein (Dataset S4). We first stratified the high-confidence URPs into three categories based on their PDB status at both the URP level and the overall protein level (Fig. 3C). URPs for which both residues could be observed in a PDB structure had an 87% satisfaction rate on their corresponding AF2 model. Unexpectedly, URPs in proteins for which no experimental structure is currently available had even better satisfaction rates (92%). A significantly lower satisfaction rate of 74% was observed for URPs from proteins that have at least one PDB structure available, but that describe a residue or residues without any experimental resolution in these structures. These URPs might capture protein regions that display significant conformational dynamics, highlighting the fact that each AF2 model captures only a single snapshot of a protein’s conformational landscape.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 26327,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Our data demonstrate the potential for integrated systems-wide approaches (such as the combination of AF2 and XL-MS) to address known biases of structural proteome coverage in the PDB—for example, toward well-behaved and highly ordered domains/proteins.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 26583,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "Cross-Links Experimentally Corroborate Hundreds of AlphaFold2 Models of Proteins with Unknown Structures.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 26689,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "As we mapped our URPs to the AF2 models, we noted that these data could generate structural insights for the regions within proteins that are not able to be resolved by other methods. For example, the L9 subunit of the mitochondrial 39S ribosome (Uniprot: Q9BYD2) is partially resolved in several PDB entries; for example, in PDB: 3J7Y residues 53 to 147 are observable, and we can map three URPs to this region, all of which are satisfied (Fig. 3 D, Top). However, the AF2 model resolved an additional 116 ordered C-terminal residues compared to the experimental structure, all of which have pLDDT scores of ≥70. An additional six URPs mapped to this region (including three that bridge the PDB-resolved and AF2-only regions) and all were satisfied in the AF2 model (Fig. 3 D, Bottom). This agreement provides strong corroboration for the predicted model and in this context, we reiterate that the cross-linking data were obtained in a native-like context, giving additional confidence that this is the relevant structure in the environment of an intact ribosome in vivo.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 27767,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Of the set of 737 proteins that were absent from the PDB but for which cross-links were observed, 624 had all of their high-confidence URPs satisfied in the corresponding AF2 model (SI Appendix, Fig. S6B and Dataset S4). Our dataset provides experimental validation for these models in one of several ways. First, there were 268 instances where the structure of the human protein is unknown, but a structure exists for a homologue. This included the alpha subunit of mitochondrial ATP synthase (Uniprot: P25705). The structure of the human protein has not been reported, but the structure of the bovine protein (Uniprot: P19483) (97% sequence identity) is resolved in PDB: 2W6J (Fig. 3E). Not surprisingly, the AF2 model for the human protein closely resembles the bovine structure, and our set of 44 experimental URPs verifies the conserved fold.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 28617,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Second, there were 356 proteins for which we observed cross-links that were both absent from the PDB and also displayed a very low degree of structural precedent. For example, the procollagen galactosyltransferase 1 enzyme (Uniprot: Q8NBJ5) has neither an existing PDB entry nor a PDB structure for a homologous protein [using protein Basic Local Alignment Search Tool (BLAST) against the PDB database ]. AF2, however, produced a model with over 85% of residues having pLDDT ≥70 (Fig. 3F). Importantly, all five high-confidence URPs were satisfied within this model, compared to only 8% in the random URP control. Similarly, the very-long-chain 3-oxoacyl-CoA reductase (Uniprot: Q53GQ0) had little structural precedent but AF2 produced a model with >95% of residues having pLDDT ≥70 and for which all nine URPs were satisfied (SI Appendix, Fig. S6C).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 29473,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Third, cross-links that do not corroborate AF2 models are also of interest as they indicate incongruence between experimental data and modeled structures. In total, there were 66 proteins with structure predictions for which all cross-links were violated in the AF2 model. For example, despite >90% of the sequence the nuclear protein localization protein 4 (NPL4; Uniprot: Q8TAT6) being well-modeled by AF2, neither of the two mappable URPs were satisfied on the model (Fig. 3G). Examination of the model revealed that a ~20-residue linker with low pLDDT scores separates an N-terminal domain from the bulk of the protein and that both cross-links bridge these two domains. Repositioning of the N-terminal domain to satisfy the cross-links would involve a straightforward rigid-body rearrangement. Proteome-wide XL-MS data thus provide a resource to aid interpretation of—and potentially improve upon—structural models, making use of either manual “structural sculpting” [e.g., as implemented in XMAS ] or integrative modeling pipelines (reviewed in ref. ) that can be driven by cross-linking restraints.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 30589,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "Cross-Links Reveal and Corroborate Thousands of PPIs.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 30643,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Our cross-link resource identifies and provides insights into the interfaces of thousands of PPIs. A total of 3,785 interprotein URPs describe 2,110 PPIs, including 84 unambiguous homooligomers (Fig. 4A).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 30848,
+              "infons": {
+                "file": "pnas.2219418120fig04.jpg",
+                "id": "fig04",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Discovery and AlphaFold Multimer-v2 modeling of protein–protein interactions. (A) Stratification of protein–protein interactions by their best existing curated evidence. Categories for “known” PPIs include those annotated with a binary, or if not, an indirect interaction mapping technique in the APID database. Categories for “novel” PPIs include proteins cocurated in the same CORUM complex, or PDB entry, or those predicted by STRING (combined scores at least 0.4), or those that share local interactome partners. (B) The largest interface surface area per PPI calculated by PISA for well-modeled AlphaFold Multimer-v2 models (clashscores ≤ 100, average interface residue pLDDT ≥70, interface areas > 200 Å2) generated for interactions with at least 2 URPs (stratified by best evidence—Binary, Indirect, or Novel) and for random protein pairs. (C) The predicted AlphaFold Multimer-v2 model of the ARPC4-ARPC5 overlays very well (RMSD = 0.9 Å) with the known PDB: 6UHC structure of the full 7-subunit Arp2/3 complex. (D and E) Only high-confidence URPs (both cross-linked residues with pLDDT ≥ 70) were used for assessment. (D) The distribution of maximum percentage satisfaction rates of high-confidence URPs per well-modeled PPI. (E) The number of well-modeled AlphaFold Multimer-v2 models with fully satisfied URPs per PPI.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 32202,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Comparison of our dataset to the APID PPI metadatabase showed that 55% (1,158) of these PPIs had not been previously described (Dataset S5). We therefore assessed the degree of orthogonal evidence available for each protein pair by sorting the PPIs according to their highest level of supporting evidence. Strikingly, 584 (more than 60%) of our 952 known interactions had only been described by indirect interaction mapping methods, such as affinity purification mass spectrometry and proximity ligation assays.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 32714,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Of the novel interactions, most could be explained by leveraging existing systems-level annotations (Fig. 4A). First, a small but significant number (94) appeared to be previously characterized interactions that had simply escaped annotation in APID (or by systematic interactome screens), based on the fact that the cross-linked proteins reside in the same CORUM-annotated complex or even the same PDB entry. Second, 191 of the remaining novel PPIs were predicted with at least medium confidence by the STRING database (combined score of at least 0.4), which integrates information across multiple lines of evidence including known interactions curated for homologous protein pairs, gene and protein coexpression, and literature text-mining. Third, 676 of the remaining novel PPIs shared APID-annotated interaction partners and hence local interactomes (at one degree of separation).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 33599,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Last, using the resources above, 197 PPIs of the novel PPIs remain “unexplained”. Of these, ~16% involved the heat-shock protein Hspa1b [Uniprot: P0DMV9, ]. Because the function of this protein involves promiscuous binding to many protein substrates, our cross-links might well be capturing biologically relevant interactions. In contrast, the CCT complex subinteractome, which is known to be a more specific chaperone system, had many previously undetected PPIs but none that were categorized in the above scheme as unexplained.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 34133,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "AlphaFold Multimer-v2 Predicts Structural Interfaces for Hundreds of Cross-Linked PPIs.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 34221,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "One advantage of XL-MS over other systematic interactome mapping approaches is its ability to localize interaction interfaces rather than simply identify interactions. Because AF2 has recently been extended to predict the structures of protein complexes, we used our data to inform and assess AF2-generated models of complexes. We chose the subset of 590 PPIs from our dataset that were captured by at least two URPs and subjected 530 of these (some interactions were too large to model our high-performance computing hardware setup) to AlphaFold Multimer-v2 modeling (Dataset S6). As a control, 400 randomly sampled protein pairs from the pool of proteins identified in our study were also modeled.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 34921,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "We assessed the overall quality of predicted structures of complexes by examining several structural measures. First, we examined the number of clashes within the models [identified by MolProbity ], which was reported to be unusually high in the initial release of AlphaFold Multimer. However, most models had acceptably low levels of clashes (clashscore ≤ 100; i.e., less than 10% of atoms clashing) (SI Appendix, Fig. S7A). We then used PISA to identify structural interfaces in our models and defined “well-modeled” interfaces as those that had an average pLDDT score of ≥70 for PISA-identified interface residues (SI Appendix, Fig. S7B), a PISA-defined interface size of >200 Å2 (SI Appendix, Fig. S7C) and a clashscore ≤100. Using these criteria, AlphaFold Multimer-v2 generated at least one well-modeled structure (from the five generated per run) for a total of 343 of 530 (69%) cross-linked PPIs compared to 78 of the 400 (19%) random protein pairs (Dataset S6).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 35908,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Well-modeled AlphaFold Multimer-v2 models for PPIs defined by cross-links had significantly larger interaction surface areas than randomly sampled protein pairs (P < 2.2 × 10−16), corroborating the novel interactions defined by our data. Interestingly, the size of interaction interfaces also differed for PPIs that had previously been detected by different interactome mapping approaches. For example, PPIs described by binary interactome mapping approaches had, by comparing median values, 1.5-fold larger interface areas than those described only by indirect methods (AP-MS, BioID) (P = 0.003) (Fig. 4B). Binary PPI interfaces were also significantly larger than novel PPI interfaces (>1.5-fold larger, P = 0.007). On the other hand, novel and known (but only) indirect PPIs did not significantly differ in interface size (P = 0.23). This observation perhaps flags differences in the nature of PPIs that can be detected by binary assays carried out in a heterologous system (e.g., Y2H) vs. approaches (such as XL-MS or AP-MS) that retain native PTMs and additional complex partners. Hits in the former assays will be restricted to PPIs that are more robust and less dependent on biological context.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 37113,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "We were also able to use the experimental structures in the PDB to assess the AlphaFold Multimer-v2 dimer predictions. Of the 343 well-modeled complexes defined above, 151 comprised pairs of proteins that could be found in the same PDB entry. Furthermore, an additional 81 PPIs had PDB entries curated for homologous protein pairs (at least 40% sequence similarity). We superimposed the AlphaFold Mulitmer-v2-derived structures onto their corresponding PDB structures for these 232 proteins and found that 154 pairs (66%) aligned well, with a median RMSD value of 1.6 Å (Dataset S6).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 37699,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "Limitations in the Use of AlphaFold Multimer-v2 Modeling for the Identification of Protein Interactions.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 37804,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "In our dataset, AlphaFold Multimer-v2 Performed most poorly in situations where the two proteins are part of the same complex but do not make direct contacts in the experimental structure. For example the Arp2/3 complex, which is involved in the formation of branched actin networks, comprises seven subunits and has had its structure determined by cryo-EM (PDB: 6UHC, Fig. 4C). Based on the existence of cross-links, we predicted models for three subcomplexes: ARPC4-ARPC5 (Uniprot: P59998 and O15511), ARP2-ARPC2 (Uniprot IDs: P61160 and O15144), and ARP2-ARPC3 (Uniprot: P61160 and O15145). The prediction for ARPC4-ARPC5, which featured an interface of 830 Å2, closely matched the experimental structure (RMSD = 0.9 Å) and is supported by five URPs (Fig. 4C). However, although the other two subunit pairs do not make direct contact in the experimental structure, AlphaFold Multimer-v2 predicted spurious complexes that had interfaces of 830 and 430 Å2, respectively. All three URPs (two for ARP2-ARPC3, one for ARP2-ARPC2) did not fit the AlphaFold Multimer-v2 models for ARP2-ARPC2 (SI Appendix, Fig. S8A) and ARP2-ARPC3 (SI Appendix, Fig. S8B). In contrast, all three URPs were fulfilled in the experimental structure of the seven-subunit complex.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 39068,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Similarly, we observed cross-links between pairs of histones such as histone H2A and histone H4. Although these subunits do make contact in the native nucleosome structure, they form more intimate dimers with H2B and H3 (PDB: 1AOI), respectively. However, because all four of these core histones have the same fold, AlphaFold Multimer-v2 incorrectly predicts a structure for the H2A-H4 complex that reflects the H3-H4 (or H2A-H2B) complex instead (SI Appendix, Fig. S8C). It is noteworthy that misaligned histones alone account for 32 out of the 78 (41%) models that poorly match their experimental counterparts.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 39682,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "In summary, we find that although AlphaFold Multimer-v2 is largely correct in its model predictions, we would caution its use as a “discovery” tool to identify PPIs. Such models should be corroborated with additional orthogonal experimental data such as XL-MS data.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 39952,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "Cross-Links Provide Insight into AlphaFold Multimer-v2 Complex Models.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 40023,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "We asked whether our URP distance restraints could experimentally corroborate the 343 well-modeled dimer interfaces calculated above. These dimers each feature between two and 39 URPs, although many URPs connect residues that were not confidently modeled by AlphaFold Multimer-v2. We therefore used only URPs involving high-confidence residues (i.e., pLDDT ≥70 for both cross-linked residues) for model assessment. As a result, 97 models did not have any URPs that met this criterion, leaving 246 models that were described by 1 to 32 URPs (Dataset S6). For comparison, we also simulated random URPs for each model. We found that the Euclidean distances measured for our experimental interprotein URPs were considerably shorter than the randomly sampled URPs, and also shorter than the randomly sampled URPs in the 400 randomly sampled protein pairs (SI Appendix, Fig. S9, P < 2.2 × 10−16 for both comparisons). Furthermore, even a single high-confidence URP was useful for corroborating the location of a predicted interface, performing better than a single randomly sampled but still high-confidence URP (76% of cross-linked PPIs assessed using an experimental URP were satisfied compared to just 14% when using a random URP). Thus, our experimental cross-links are enriched at the interface of the predicted models, consistent with AlphaFold Multimer-v2 generating predictions that reflect the true structures of these complexes.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 41462,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "When assessing the overall degree of cross-link satisfaction in our well-modeled PPIs, we found that 167 out of 246 PPIs (68%) had a 100% URP satisfaction rate in at least one of the five AlphaFold Multimer-v2 models (Fig. 4D), and 106 of those 167 had 100% URP satisfaction for all five models (Fig. 4E). Interestingly, the distribution of cross-link satisfaction rates for dimer predictions was clearly bimodal, which we did not observe for monomeric predictions (SI Appendix, Fig. S6A). This suggests that AlphaFold Multimer-v2 was either getting the models largely right or largely wrong. It is possible that “wrong” models arise from AlphaFold Multimer-v2 not having all the necessary information (e.g., additional interaction partners, PTMs). In summary, it further highlights the need for experimental data, such as XL-MS, to validate AlphaFold Multimer-v2 generated models.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 42349,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Of the 246 PPIs with at least 1 high-confidence URP, 171 had either a preexisting PDB structure or a PDB structure involving homologous protein pairs. As described above, superimposition of AlphaFold Multimer-v2 predictions and these experimental structures revealed that there were 129 PPI models that aligned well and 42 that did not align well. Strikingly, 83% (107 of 129) of the well-aligned models had 100% URP satisfaction rates, compared to just 60% (25 of 42) for the poorly aligned models. This difference between the two groups is increased further to 81% (well-aligned models) vs. 46% (poorly aligned models) when histones were excluded (on the basis that histones are small proteins, meaning that cross-links are much more likely to be satisfied regardless of how the proteins were arranged relative to each other). This suggests that high-confidence URPs could be used to discriminate between a correct well-modeled AlphaFold Multimer-v2 model and an incorrect but well-modeled model.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 43348,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Similar to the situation for monomeric AF2 models (Fig. 3 D and E), some dimer models confirmed and extended existing experimental structures of human PPIs. For example, although no PDB structure exists for the human beta-actin ACTB (Uniprot: G5E9R0) in complex with the adenyl cyclase-associated protein 1 CAP1 (Uniprot: Q01518), there are two PDB entries [6FM2 and 6RSW ] comprising the close homologues alpha-actin ACTA from rabbit (Uniprot: P68135) and CAP1 from mouse (Uniprot: P40124). Our AlphaFold Multimer-v2 model was both able to confirm conservation of the overall structure in the human ACTB-CAP1 complex and extend coverage of the interface itself via two corroborating interprotein URPs (Fig. 5A). This previously unresolved and cross-link-validated interface indicates that the interaction between ACTB and the CAP1 protein is more intimate than previously appreciated, featuring 30 hydrogen bonds, 20 salt bridges, and an interface area of 3,590 Å2 in our AlphaFold Multimer-v2 model vs. a combined 19 hydrogen bonds, 17 salt bridges and an interface area 2,140 Å2 in the experimental X-ray crystal structures.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 44480,
+              "infons": {
+                "file": "pnas.2219418120fig05.jpg",
+                "id": "fig05",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Cross-links enable assessment of computational predictions of structural interfaces mediating protein–protein interactions. (A) AlphaFold Mulitmer-v2 model of human beta actin ACTB in complex with the adenyl cyclase-associated protein 1 CAP1 (Middle) vs. the PDB structures 6FM2 (Left) and 6RSW (Right) of homologous proteins alpha actin ACTA from rabbit in complex with the mouse CAP1 protein. The AlphaFold multimer-v2 model largely recapitulates the regions resolved in the PDB structures and extends the interaction surface further (orange). (B and C) Examples of AlphaFold Multimer-v2 models of structurally undefined PPIs that have satisfied all URPs. Green lines denote satisfied URPs. (B) The model of the interaction between STX18 (Q9P2W9; orange) and SCFD1 (Q8WVM8; magenta). Four interprotein URPs support this model. (C) The model of the interaction between UTP25 (Q68CQ4; cyan) and DDX47 (Q9H0S4; pink). Two interprotein URPs support this model.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 45441,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "From our analyses, we also identified 75 PPIs with well-modeled AlphaFold Multimer-v2 interfaces that were structurally undefined (i.e., have no shared or homologous PDB entries available). Many of these PPIs had been previously characterized by binary and direct interaction mapping approaches. Of these 75 PPIs, 35 models had 100% URP satisfaction; these 35 models thus have a high likelihood of being correct. It also appears that our cross-links were better satisfied in predicted models when homologous structures were available (38/59, 64% with 100% URP satisfaction). This result might reflect a combination of i) a bias of the AlphaFold-Multimer-v2 software toward its training dataset (the PDB) and ii) the poorer evolutionary information available (through lower sequence coverage in the multiple sequence alignments) for proteins in entirely novel dimer structures. An example of a corroborated dimer interface without any structural precedent in the PDB is the interaction of STX18 (Uniprot: Q9P2W9) and SCFD1 (Uniprot: Q8WVM8) was previously described by four studies. Our four interprotein URPs were satisfied in all five models, and the top model featured an interface area of 3,688 Å2 with 21 hydrogen bonds and 15 salt bridges (Fig. 5B). The formation of this PPI is implicated in the regulation of skeletal development and, interestingly, there is evidence for an amyotrophic lateral sclerosis disease-causing missense mutation involving amino acid I70 in SCFD1 (I70T, ClinVar accession RCV001260556.1), a residue that is near cross-linked residues K63 and K61 at the interface. The combination of our data with AlphaFold Multimer-v2 thus provides precise and accurate structural context for biologically relevant PPIs.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 47181,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Our data can also be used to both define PPIs and experimentally corroborate their predicted interaction interface. For example, the top ranked model for the proposed interaction between UTP25 (Uniprot: Q68CQ4) and DDX47 (Uniprot: Q9H0S4) displays a 1,030 Å2 interface area and features two satisfied URPs (one of high confidence) (Fig. 5C). The interface area and number of hydrogen bonds and salt bridges contributing to the interface (two for both categories) are significantly smaller than those seen in the previous two modeled PPIs described above. However, the two proteins were confidently predicted to interact in the STRING database (combined score of 0.98 out of a maximum of 1) and appear to have functional overlap. DDX47 is a DEAD-box RNA helicase known to associate with pre-RNAs and UTP25 is implicated in preribosomal rRNA processing. Notably, both URPs defining this PPI were detected in the nuclear fraction, consistent with a shared role in ribosome biogenesis. It is possible that the presence of RNA cofactors or other protein complex partners could be required to stabilize this PPI. This again highlights the ability of XL-MS to capture weaker interactions than some other interactome screening technologies and the value of the native context provided in our XL-MS approach.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 48483,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "Cross-Links Define the Binary Interactions That Underlie the Assembly of Larger Protein Complexes.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 48582,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Because our URPs can also be derived from higher order assemblies, we mapped our data onto the CORUM database of manually curated protein complexes. Our URPs could be mapped onto 366 unique CORUM-documented complexes (Dataset S7). Of these 366 complexes, 165 displayed XLs for at least two distinct pairs of subunits. We considered the most densely cross-linked CORUM complexes, where ≥70% of proteins annotated in the complex were involved in at least one cross-linked PPI. In total, there were 51 such complexes. Some, such as the CCT complex (Dataset S7), are found in the PDB, with all cross-linked PPIs sharing PDB entries and 88% of the mappable URPs satisfied. However, almost half of the densely cross-linked complexes were missing structural information for at least one PPI for which we found cross-linking evidence. These complexes could benefit from integrative structural modeling approaches, such as the cross-link guided modeling pipelines used in Assembline and IMProv.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 49570,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Additionally, we asked whether AlphaFold Multimer-v2 could be used to generate structures for higher order complexes and whether our cross-links could corroborate the models. The pentameric tRNA ligase complex comprising DDX1, FAM98B, RTRAF, RTCB, and ASHWIN (Uniprot: Q92499, Q52LJ0, Q9Y224, Q9Y3I0 and Q9BVC5; CORUM #6301) plays an essential role in tRNA splicing. While there are structures (including homologous structures) of some individual subunits and domains [PDB: 7P3B; PDB: 7P3A; PDB: 4XW3; PDB: 6O5F ], no structures of subcomplexes or the complete complex are available. Although AlphaFold Multimer-v2 failed to produce a model of the full complex, it successfully predicted a model for a core four-membered complex, based on existing biochemical data that showed that only DDX1, FAM98B, RTRAF, and RTCB are essential for complex formation (Fig. 6A).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 50434,
+              "infons": {
+                "file": "pnas.2219418120fig06.jpg",
+                "id": "fig06",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Cross-links support the AlphaFold Multimer-v2 model of the tRNA ligase core complex. DDX1 (Q92499) is in cyan, RTCB (Q9Y3I0) is in magenta, RTRAF (Q9Y224) is in orange and FAM98B (Q52LJ0) is in blue. (A) Rank 1 AF Multimer-v2 model of the tRNA ligase core complex. (B) All five AlphaFold Multimer-v2 models superimposed onto the Rank 1 model using the coiled-coiled core as the reference point. The coiled-coil core comprising of the C-terminal helices of DDX1, RTRAF, and FAM98B together with RTCB is consistent across all five models (red dashed box). (C) Twelve URPs mapped onto the Rank 1 model of the tRNA ligase core complex. Eight URPs are fulfilled (green lines) The remaining four overlength URPs (not shown) were cross-linked to mobile regions of the DDX1 SPRY-RecA domains and the disordered C-terminal tail of RTRAF.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 51263,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "All five AlphaFold Multimer-v2 models featured a central helical bundle comprising the C-terminal helices of DDX1, FAM98B and RTRAF; this bundle packs against the RTCB ligase. In addition, the N-terminal domains of FAM98B and RTRAF formed an intimate heterodimer. Importantly, both observations are supported by available biochemical data. While the helical core of the complex was conserved in all models (superimposed RMSDs < 0.5 Å), the orientations of the SPRY-RecA domains of DDX1 and the FAM98B-RTRAF heterodimer showed considerable variability relative to the core (Fig. 6B). Of the 12 URPs we measured, eight were fulfilled in all models (Fig. 6C). Of the remaining four cross-links, two were to the disordered C-terminal tail of RTRAF and two were to the “mobile” SPRY-RecA domains of DDX1. We had URPs between all members of the complex except to ASHWIN. Therefore, our cross-links support the overall arrangement of the core of the complex that AlphaFold Multimer-v2 has predicted.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 52262,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Our cross-links were also able to assist in the construction of models for other known multimeric protein complexes, for example the MICOS complex where cross-links clearly supported predicted structures generated using specific subunit stoichiometries (Supplementary Results, SI Appendix, Figs. S10 and S11).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 52574,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "In summary, we show that the combination of XL-MS data, AlphaFold Multimer-v2, and preexisting biochemical data creates a powerful strategy for integrative modeling of higher order native protein complexes without the requirement for recombinant expression and purification.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 52849,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "title_1"
+              },
+              "text": "Discussion",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 52860,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "paragraph"
+              },
+              "text": "We have generated a cross-link resource reporting on more than 4,000 human proteins in near-native states with native sequences, abundances and contexts (e.g., the presence of native PTMs, relevant partner proteins as well as other macromolecules, cofactors and metabolites), which is a significant advantage over many other methods used to map protein structure and interactions. We have demonstrated that our cross-links are both of high quality and utility, and that they significantly extend and annotate the human structural proteome and interactome with very high throughput and biological relevance.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 53467,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "title_2"
+              },
+              "text": "Moving Beyond the Lysine Cross-Linked Proteome.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 53515,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "paragraph"
+              },
+              "text": "Our study highlights the value of moving beyond the lysine (K) to lysine (K) cross-linked proteome. Alternative cross-linker chemistries, such as bismaleimide (BMSO) (homobifunctional, cysteines), can provide further, orthogonal information but have yet to be used routinely in proteome-wide studies. Photoreactive diazirine-based cross-linkers such as sulfosuccinimidyl 4,4′-azipentanoate (sulfo-SDA), which allow cross-linking at any residue to be explored, represent a further extension. Although the greatest limitation for non-MS-cleavable cross-linkers of this type is the computing time required during peptide identification, the recent development of the MS-cleavable succinimidyl diazirine sulfoxide cross-linker may aid in the feasibility and scale of such endeavors.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 54296,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "paragraph"
+              },
+              "text": "A recent community-wide, multilab study recommended that the search space for NHS-ester-based cross-linking should be expanded to include S/T/Y residues. However, due to its prohibitive computational cost, searches including S/T/Y linkages are not routinely performed, especially in large-scale cross-linking studies. In our dataset and in line with previous conclusions, a significant portion (~24%) of DSSO URPs involved S/T/Y residues. However, we note that only ~1% had S/T/Y to S/T/Y linkages, with most being K to S/T/Y linkages. This highlights that future studies should define NHS-ester reactivity as K to K/S/T/Y to balance computation time with localization improvements and cross-link gains. This hybrid search strategy is currently configurable in several cross-link search engines such as pLink 2 and MeroX. With a small compromise (reducing the size of the sequence database), we demonstrate that including S/T/Y linkages is possible on a large-scale basis.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 55269,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "paragraph"
+              },
+              "text": "Finally, although we have employed a diversified strategy to improve on the coverage of the cross-linked proteome using several cross-linkers combined with enrichment and fractionation strategies, many further possible enhancements exist. For example, the use of alternative proteases is relatively easy to implement but has seen limited use thus far. Promising enzymes that will likely provide orthogonal information include pepsin (cuts at Y/F/W), AspN (cuts at D), and ProAlanase (cuts at P/A).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 55767,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "title_2"
+              },
+              "text": "A Substantial Cross-Linked Proteome Resource That Complements AI-Based Structure Predictions.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 55861,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "paragraph"
+              },
+              "text": "We have demonstrated how our dataset can be leveraged to gain a deeper understanding of the biochemistry and biology of a higher eukaryote. Our structurally near-native cross-links corroborate experimentally determined protein structures—and with the advantage of being relatively fast, having modest sample requirements and providing data for proteins that are otherwise difficult to handle in isolation. We also identified regions of potential conformational variability and noted that PTMs might contribute to these variabilities. Furthermore, we show that XL-MS data can provide powerful corroboration of AI-based structure predictors like AlphaFold2, which have democratized access to protein structure modeling for nonspecialist groups and provide access to experimentally intractable proteins. With the recent release of more than 200 million predicted structures by AlphaFold2 and 600 million in the ESM Metagenomic Atlas, it is now more important than ever to have orthogonal data to corroborate these models. However, it is important to note that, for large proteins (>2,700 amino acids), the AlphaFold2 database combines multiple predictions of overlapping amino acid sequences that cover the full sequence). Furthermore, the hardware limitations of our supercomputer GPU prevented the modeling of larger multimeric complexes (>2,000 amino acids). Therefore, development of more computationally efficient structural prediction software [e.g., OpenFold ], will be required to enable the prediction of missing subsets of the structural proteome and interactome.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 57434,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "paragraph"
+              },
+              "text": "Perhaps most importantly, our data define 2,110 PPIs, a considerable extension in the coverage and diversity of the structural interactome. The URPs that define these PPIs can be used in combination with AI-based tools to generate and assess models of protein complexes, and such models can be subjected to experimental verification using biochemical and cellular approaches. Furthermore, regardless of AlphaFold2 modeling status, all 2,110 PPIs defined here contain cross-linking constraints that can help localize their interfaces at the sequence level without any reference to structure. Many interactions are known to occur exclusively in disordered regions, mediated by sequence motifs and domains (reviewed in ref. ). Our cross-linking resource can therefore also be used to assist the annotation of domain–domain interactions and linear interaction motifs [as, for example, in Pfam ]—efforts that help to infer function for the thousands of understudied human proteins.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 58416,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "paragraph"
+              },
+              "text": "The wide accessibility of different cross-linkers, alongside critical efforts to standardize XL-MS search engines and analyses, will enable high-volume and high-confidence cross-link constraint sets to be generated for proteins from diverse conditions and organisms. We note that the datasets provided by such large-scale studies are best used to corroborate structural predictions and to define interactions. For the purposes of detailed structural modeling, follow-up XL-MS studies on purified proteins and complexes will provide superior cross-link densities that will be valuable in integrative modeling pipelines. One could envisage a (near) future in which archived XL-MS data is harvested automatically by AlphaFold2 or similar systems and optionally displayed on predicted structures. Likewise, interprotein cross-links could be displayed to alert the user that they could benefit from incorporating additional proteins into their prediction.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 59367,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_1"
+              },
+              "text": "Methods",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 59375,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Detailed descriptions on how the subcellular fractionation, protein cross-linking, peptide preparation for mass spectrometry, mass spectrometry data acquisition, data analysis, statistical analysis, implementation of AlphaFold Multimer-v2 model predictions and associated analyses can be found in SI Appendix.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 59686,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "title_1"
+              },
+              "text": "Supplementary Material",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 59709,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "footnote"
+              },
+              "text": "This article is a PNAS Direct Submission.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 59751,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_1"
+              },
+              "text": "Data, Materials, and Software Availability",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 59794,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Key data processing scripts (including for the filtering and consolidation of cross-linked spectral matches across software suites) have been uploaded to FigShare and are available at https://doi.org/10.6084/m9.figshare.21561645.v1. All mass spectrometry data and XLMS search results have been deposited to the ProteomeXchange Consortium via the PRIDE partner repository with the dataset identifier PXD035844. The dimeric models are available in ModelArchive (modelarchive.org) with the accession codes ma-low-csi and at https://modelarchive.org/doi/10.5452/ma-low-csi.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 60365,
+              "infons": {
+                "fpage": "103990",
+                "pub-id_pmid": "32961344",
+                "section_type": "REF",
+                "source": "J. Proteomics",
+                "type": "ref",
+                "volume": "230",
+                "year": "2021"
+              },
+              "text": "From classical to new generation approaches: An excursus of -omics methods for investigation of protein-protein interaction networks",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 60498,
+              "infons": {
+                "fpage": "baz005",
+                "pub-id_pmid": "30715274",
+                "section_type": "REF",
+                "source": "Database (Oxford)",
+                "type": "ref",
+                "volume": "2019",
+                "year": "2019"
+              },
+              "text": "APID database: Redefining protein-protein interaction experimental evidences and binary interactomes",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 60599,
+              "infons": {
+                "fpage": "D482",
+                "lpage": "D489",
+                "pub-id_pmid": "30445541",
+                "section_type": "REF",
+                "source": "Nucleic Acids Res.",
+                "type": "ref",
+                "volume": "47",
+                "year": "2019"
+              },
+              "text": "SIFTS: Updated structure integration with function, taxonomy and sequences resource allows 40-fold increase in coverage of structure-based annotations for proteins",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 60763,
+              "infons": {
+                "fpage": "235",
+                "lpage": "242",
+                "pub-id_pmid": "10592235",
+                "section_type": "REF",
+                "source": "Nucleic Acids Res.",
+                "type": "ref",
+                "volume": "28",
+                "year": "2000"
+              },
+              "text": "The protein data bank",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 60785,
+              "infons": {
+                "fpage": "47",
+                "lpage": "53",
+                "pub-id_pmid": "23399932",
+                "section_type": "REF",
+                "source": "Nat. Methods",
+                "type": "ref",
+                "volume": "10",
+                "year": "2013"
+              },
+              "text": "Interactome3D: Adding structural details to protein networks",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 60846,
+              "infons": {
+                "fpage": "583",
+                "lpage": "589",
+                "pub-id_pmid": "34265844",
+                "section_type": "REF",
+                "source": "Nature",
+                "type": "ref",
+                "volume": "596",
+                "year": "2021"
+              },
+              "text": "Highly accurate protein structure prediction with AlphaFold",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 60906,
+              "infons": {
+                "fpage": "1687",
+                "lpage": "1699",
+                "pub-id_pmid": "34218458",
+                "section_type": "REF",
+                "source": "Proteins",
+                "type": "ref",
+                "volume": "89",
+                "year": "2021"
+              },
+              "text": "High-accuracy protein structure prediction in CASP14",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 60959,
+              "infons": {
+                "elocation-id": "e1009818",
+                "pub-id_pmid": "35073311",
+                "section_type": "REF",
+                "source": "PLoS Comput. Biol.",
+                "type": "ref",
+                "volume": "18",
+                "year": "2022"
+              },
+              "text": "The structural coverage of the human proteome before and after AlphaFold",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 61032,
+              "infons": {
+                "fpage": "590",
+                "lpage": "596",
+                "pub-id_pmid": "34293799",
+                "section_type": "REF",
+                "source": "Nature",
+                "type": "ref",
+                "volume": "596",
+                "year": "2021"
+              },
+              "text": "Highly accurate protein structure prediction for the human proteome",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 61100,
+              "infons": {
+                "fpage": "37",
+                "lpage": "54",
+                "pub-id_pmid": "34895473",
+                "section_type": "REF",
+                "source": "Structure",
+                "type": "ref",
+                "volume": "30",
+                "year": "2022"
+              },
+              "text": "Leveraging crosslinking mass spectrometry in structural and cell biology",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 61173,
+              "infons": {
+                "fpage": "78",
+                "lpage": "93",
+                "pub-id_pmid": "33151691",
+                "section_type": "REF",
+                "source": "J. Proteome Res.",
+                "type": "ref",
+                "volume": "20",
+                "year": "2021"
+              },
+              "text": "Cleavable cross-linkers and mass spectrometry for the ultimate task of profiling protein-protein interaction networks in vivo",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 61300,
+              "infons": {
+                "fpage": "815",
+                "lpage": "817",
+                "pub-id_pmid": "35534555",
+                "section_type": "REF",
+                "source": "Nat. Biotechnol.",
+                "type": "ref",
+                "volume": "40",
+                "year": "2022"
+              },
+              "text": "An open invitation to the Understudied Proteins Initiative",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 61359,
+              "infons": {
+                "elocation-id": "e202113937",
+                "pub-id_pmid": "34927332",
+                "section_type": "REF",
+                "source": "Angew. Chem. Int. Ed. Engl.",
+                "type": "ref",
+                "volume": "61",
+                "year": "2022"
+              },
+              "text": "A membrane-permeable and immobilized metal affinity chromatography (IMAC) enrichable cross-linking reagent to advance in vivo cross-linking mass spectrometry",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 61518,
+              "infons": {
+                "section_type": "REF",
+                "source": "Proc. Natl. Acad. Sci. U.S.A.",
+                "type": "ref",
+                "volume": "118",
+                "year": "2021"
+              },
+              "text": "Protein interaction landscapes revealed by advanced in vivo cross-linking-mass spectrometry",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 61611,
+              "infons": {
+                "fpage": "136",
+                "lpage": "141.e5",
+                "pub-id_pmid": "29199018",
+                "section_type": "REF",
+                "source": "Cell Syst.",
+                "type": "ref",
+                "volume": "6",
+                "year": "2018"
+              },
+              "text": "Chemical crosslinking mass spectrometry analysis of protein conformations and supercomplexes in heart tissue",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 61720,
+              "infons": {
+                "fpage": "1874",
+                "lpage": "1882",
+                "pub-id_pmid": "31851481",
+                "section_type": "REF",
+                "source": "Anal. Chem.",
+                "type": "ref",
+                "volume": "92",
+                "year": "2020"
+              },
+              "text": "Cross-linking mass spectrometry analysis of the yeast nucleus reveals extensive protein-protein interactions not detected by systematic two-hybrid or affinity purification-mass spectrometry",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 61910,
+              "infons": {
+                "fpage": "216",
+                "lpage": "232",
+                "pub-id_pmid": "29222160",
+                "section_type": "REF",
+                "source": "Mol. Cell Proteomics",
+                "type": "ref",
+                "volume": "17",
+                "year": "2018"
+              },
+              "text": "The interactome of intact mitochondria by cross-linking mass spectrometry provides evidence for coexisting respiratory supercomplexes",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 62044,
+              "infons": {
+                "fpage": "39",
+                "lpage": "46",
+                "pub-id_pmid": "32829152",
+                "section_type": "REF",
+                "source": "Curr. Opin. Chem. Biol.",
+                "type": "ref",
+                "volume": "60",
+                "year": "2021"
+              },
+              "text": "Anatomy of a crosslinker",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 62069,
+              "infons": {
+                "fpage": "93",
+                "lpage": "102",
+                "pub-id_pmid": "31848235",
+                "section_type": "REF",
+                "source": "Proc. Natl. Acad. Sci. U.S.A.",
+                "type": "ref",
+                "volume": "117",
+                "year": "2020"
+              },
+              "text": "High-density chemical cross-linking for modeling protein interactions",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 62139,
+              "infons": {
+                "fpage": "8315",
+                "lpage": "8322",
+                "pub-id_pmid": "27417384",
+                "section_type": "REF",
+                "source": "Anal. Chem.",
+                "type": "ref",
+                "volume": "88",
+                "year": "2016"
+              },
+              "text": "Developing an acidic residue reactive and sulfoxide-containing MS-cleavable homobifunctional cross-linker for probing protein-protein interactions",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 62286,
+              "infons": {
+                "fpage": "M110 002212",
+                "section_type": "REF",
+                "source": "Mol. Cell Proteomics",
+                "type": "ref",
+                "volume": "10",
+                "year": "2011"
+              },
+              "text": "Development of a novel cross-linking strategy for fast and accurate identification of cross-linked peptides of protein complexes",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 62415,
+              "infons": {
+                "fpage": "9455",
+                "lpage": "9460",
+                "pub-id_pmid": "24938783",
+                "section_type": "REF",
+                "source": "Proc. Natl. Acad. Sci. U.S.A.",
+                "type": "ref",
+                "volume": "111",
+                "year": "2014"
+              },
+              "text": "Chemical cross-linking/mass spectrometry targeting acidic residues in proteins and protein complexes",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 62516,
+              "infons": {
+                "fpage": "3077",
+                "lpage": "3085",
+                "pub-id_pmid": "31267744",
+                "section_type": "REF",
+                "source": "J. Proteome Res.",
+                "type": "ref",
+                "volume": "18",
+                "year": "2019"
+              },
+              "text": "Prediction of an upper limit for the fraction of interprotein cross-links in large-scale in vivo cross-linking studies",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 62636,
+              "infons": {
+                "fpage": "2532",
+                "lpage": "2539",
+                "pub-id_pmid": "36652389",
+                "section_type": "REF",
+                "source": "Anal. Chem.",
+                "type": "ref",
+                "volume": "95",
+                "year": "2023"
+              },
+              "text": "Exploring an alternative cysteine-reactive chemistry to enable proteome-wide PPI analysis by cross-linking mass spectrometry",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 62761,
+              "infons": {
+                "fpage": "7551",
+                "lpage": "7558",
+                "pub-id_pmid": "35575683",
+                "section_type": "REF",
+                "source": "Anal. Chem.",
+                "type": "ref",
+                "volume": "94",
+                "year": "2022"
+              },
+              "text": "In-depth in vivo crosslinking in minutes by a compact, membrane-permeable, and alkynyl-enrichable crosslinker",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 62872,
+              "infons": {
+                "fpage": "3163",
+                "lpage": "3168",
+                "pub-id_pmid": "25656970",
+                "section_type": "REF",
+                "source": "Proteomics",
+                "type": "ref",
+                "volume": "15",
+                "year": "2015"
+              },
+              "text": "Version 4.0 of PaxDb: Protein abundance data, integrated across model organisms, tissues, and cell-lines",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 62977,
+              "infons": {
+                "fpage": "6953",
+                "lpage": "6961",
+                "pub-id_pmid": "31045356",
+                "section_type": "REF",
+                "source": "Anal. Chem.",
+                "type": "ref",
+                "volume": "91",
+                "year": "2019"
+              },
+              "text": "First community-wide, comparative cross-linking mass spectrometry study",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 63049,
+              "infons": {
+                "fpage": "9101",
+                "lpage": "9108",
+                "pub-id_pmid": "30004689",
+                "section_type": "REF",
+                "source": "Anal. Chem.",
+                "type": "ref",
+                "volume": "90",
+                "year": "2018"
+              },
+              "text": "Characterization of the interaction between arginine methyltransferase Hmt1 and its substrate Npl3: Use of multiple cross-linkers, mass spectrometric approaches, and software platforms",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 63234,
+              "infons": {
+                "fpage": "2163",
+                "lpage": "2164",
+                "pub-id_pmid": "21666267",
+                "section_type": "REF",
+                "source": "Bioinformatics",
+                "type": "ref",
+                "volume": "27",
+                "year": "2011"
+              },
+              "text": "Xwalk: Computing and visualizing distances in cross-linking experiments",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 63306,
+              "infons": {
+                "fpage": "6385",
+                "lpage": "6389",
+                "pub-id_pmid": "29722964",
+                "section_type": "REF",
+                "source": "Anal. Chem.",
+                "type": "ref",
+                "volume": "90",
+                "year": "2018"
+              },
+              "text": "Expanding the scope of cross-link identifications by incorporating collisional activated dissociation and ultraviolet photodissociation methods",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 63450,
+              "infons": {
+                "fpage": "12618",
+                "pub-id_pmid": "32724211",
+                "section_type": "REF",
+                "source": "Sci. Rep.",
+                "type": "ref",
+                "volume": "10",
+                "year": "2020"
+              },
+              "text": "Structural analysis of 70S ribosomes by cross-linking/mass spectrometry reveals conformational plasticity",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 63556,
+              "infons": {
+                "fpage": "454",
+                "lpage": "464.e11",
+                "pub-id_pmid": "29361316",
+                "section_type": "REF",
+                "source": "Cell",
+                "type": "ref",
+                "volume": "172",
+                "year": "2018"
+              },
+              "text": "Structure and conformational dynamics of the human spliceosomal B(act) complex",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 63635,
+              "infons": {
+                "elocation-id": "eabc3753",
+                "pub-id_pmid": "33243851",
+                "section_type": "REF",
+                "source": "Science",
+                "type": "ref",
+                "volume": "370",
+                "year": "2020"
+              },
+              "text": "Mechanism of protein-guided folding of the active site U2/U6 RNA during spliceosome activation",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 63730,
+              "infons": {
+                "fpage": "6980",
+                "lpage": "6995",
+                "pub-id_pmid": "32453425",
+                "section_type": "REF",
+                "source": "Nucleic Acids Res.",
+                "type": "ref",
+                "volume": "48",
+                "year": "2020"
+              },
+              "text": "CryoEM structures of human CMG-ATPgammaS-DNA and CMG-AND-1 complexes",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 63799,
+              "infons": {
+                "elocation-id": "e108819",
+                "pub-id_pmid": "34694004",
+                "section_type": "REF",
+                "source": "EMBO J.",
+                "type": "ref",
+                "volume": "40",
+                "year": "2021"
+              },
+              "text": "Structure of a human replisome shows the organisation and interactions of a DNA replication machine",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 63899,
+              "infons": {
+                "fpage": "D512",
+                "lpage": "D520",
+                "pub-id_pmid": "25514926",
+                "section_type": "REF",
+                "source": "Nucleic Acids Res.",
+                "type": "ref",
+                "volume": "43",
+                "year": "2015"
+              },
+              "text": "PhosphoSitePlus, 2014: Mutations, PTMs and recalibrations",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 63957,
+              "infons": {
+                "fpage": "D361",
+                "lpage": "D367",
+                "pub-id_pmid": "33237329",
+                "section_type": "REF",
+                "source": "Nucleic Acids Res.",
+                "type": "ref",
+                "volume": "49",
+                "year": "2021"
+              },
+              "text": "MobiDB: Intrinsically disordered proteins in 2021",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 64007,
+              "infons": {
+                "fpage": "718",
+                "lpage": "722",
+                "pub-id_pmid": "25278503",
+                "section_type": "REF",
+                "source": "Science",
+                "type": "ref",
+                "volume": "346",
+                "year": "2014"
+              },
+              "text": "Structure of the large ribosomal subunit from human mitochondria",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 64072,
+              "infons": {
+                "fpage": "5101",
+                "lpage": "5109",
+                "pub-id_pmid": "16218944",
+                "section_type": "REF",
+                "source": "FEBS J.",
+                "type": "ref",
+                "volume": "272",
+                "year": "2005"
+              },
+              "text": "Protein database searches using compositionally adjusted substitution matrices",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 64151,
+              "infons": {
+                "comment": "bioRxiv [Preprint]",
+                "pub-id_doi": "10.1101/2022.04.21.489026",
+                "section_type": "REF",
+                "type": "ref",
+                "year": "2022"
+              },
+              "text": "Xlink mapping and analysis (XMAS)–Smooth integrative modeling in ChimeraX",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 64227,
+              "infons": {
+                "fpage": "1384",
+                "lpage": "1403",
+                "pub-id_pmid": "31150619",
+                "section_type": "REF",
+                "source": "Cell",
+                "type": "ref",
+                "volume": "177",
+                "year": "2019"
+              },
+              "text": "Principles for integrative structural biology studies",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 64281,
+              "infons": {
+                "fpage": "D559",
+                "lpage": "D563",
+                "pub-id_pmid": "30357367",
+                "section_type": "REF",
+                "source": "Nucleic Acids Res.",
+                "type": "ref",
+                "volume": "47",
+                "year": "2019"
+              },
+              "text": "CORUM: The comprehensive resource of mammalian protein complexes-2019",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 64351,
+              "infons": {
+                "fpage": "D605",
+                "lpage": "D612",
+                "pub-id_pmid": "33237311",
+                "section_type": "REF",
+                "source": "Nucleic Acids Res.",
+                "type": "ref",
+                "volume": "49",
+                "year": "2021"
+              },
+              "text": "The STRING database in 2021: Customizable protein-protein networks, and functional characterization of user-uploaded gene/measurement sets",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 64490,
+              "infons": {
+                "fpage": "507",
+                "lpage": "514",
+                "pub-id_pmid": "24012426",
+                "section_type": "REF",
+                "source": "Trends Biochem. Sci.",
+                "type": "ref",
+                "volume": "38",
+                "year": "2013"
+              },
+              "text": "Hsp70 chaperone dynamics and molecular mechanism",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 64539,
+              "infons": {
+                "comment": "bioRxiv [Preprint]",
+                "pub-id_doi": "10.1101/2021.10.04.463034",
+                "section_type": "REF",
+                "type": "ref",
+                "year": "2022"
+              },
+              "text": "Protein complex prediction with AlphaFold-Multimer",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 64590,
+              "infons": {
+                "fpage": "12",
+                "lpage": "21",
+                "pub-id_pmid": "20057044",
+                "section_type": "REF",
+                "source": "Acta Crystallogr. D Biol. Crystallogr.",
+                "type": "ref",
+                "volume": "66",
+                "year": "2010"
+              },
+              "text": "MolProbity: All-atom structure validation for macromolecular crystallography",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 64667,
+              "infons": {
+                "fpage": "1744",
+                "pub-id_pmid": "35365655",
+                "section_type": "REF",
+                "source": "Nat. Commun.",
+                "type": "ref",
+                "volume": "13",
+                "year": "2022"
+              },
+              "text": "AF2Complex predicts direct physical interactions in multimeric proteins with deep learning",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 64758,
+              "infons": {
+                "fpage": "774",
+                "lpage": "797",
+                "pub-id_pmid": "17681537",
+                "section_type": "REF",
+                "source": "J. Mol. Biol.",
+                "type": "ref",
+                "volume": "372",
+                "year": "2007"
+              },
+              "text": "Inference of macromolecular assemblies from crystalline state",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 64820,
+              "infons": {
+                "fpage": "215",
+                "lpage": "238",
+                "pub-id_pmid": "29212790",
+                "section_type": "REF",
+                "source": "Physiol. Rev.",
+                "type": "ref",
+                "volume": "98",
+                "year": "2018"
+              },
+              "text": "The Arp2/3 regulatory system and its deregulation in cancer",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 64880,
+              "infons": {
+                "elocation-id": "eaaz7651",
+                "pub-id_pmid": "32917641",
+                "section_type": "REF",
+                "source": "Sci. Adv.",
+                "type": "ref",
+                "volume": "6",
+                "year": "2020"
+              },
+              "text": "Cryo-EM structure of NPF-bound human Arp2/3 complex and activation mechanism",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 64957,
+              "infons": {
+                "fpage": "1892",
+                "pub-id_pmid": "29760438",
+                "section_type": "REF",
+                "source": "Nat. Commun.",
+                "type": "ref",
+                "volume": "9",
+                "year": "2018"
+              },
+              "text": "Structural basis of actin monomer re-charging by cyclase-associated protein",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 65033,
+              "infons": {
+                "fpage": "5320",
+                "pub-id_pmid": "31757941",
+                "section_type": "REF",
+                "source": "Nat. Commun.",
+                "type": "ref",
+                "volume": "10",
+                "year": "2019"
+              },
+              "text": "Mechanism of synergistic actin filament pointed end depolymerization by cyclase-associated protein and cofilin",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 65144,
+              "infons": {
+                "fpage": "36679",
+                "pub-id_pmid": "27857150",
+                "section_type": "REF",
+                "source": "Sci. Rep.",
+                "type": "ref",
+                "volume": "6",
+                "year": "2016"
+              },
+              "text": "Observation selection bias in contact prediction and its implications for structural bioinformatics",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 65244,
+              "infons": {
+                "fpage": "425",
+                "lpage": "440",
+                "pub-id_pmid": "26186194",
+                "section_type": "REF",
+                "source": "Cell",
+                "type": "ref",
+                "volume": "162",
+                "year": "2015"
+              },
+              "text": "The bioplex network: A systematic exploration of the human interactome",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 65315,
+              "infons": {
+                "fpage": "505",
+                "lpage": "509",
+                "pub-id_pmid": "28514442",
+                "section_type": "REF",
+                "source": "Nature",
+                "type": "ref",
+                "volume": "545",
+                "year": "2017"
+              },
+              "text": "Architecture of the human interactome defines protein communities and disease networks",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 65402,
+              "infons": {
+                "fpage": "1267",
+                "lpage": "1278",
+                "pub-id_pmid": "15029241",
+                "section_type": "REF",
+                "source": "EMBO J.",
+                "type": "ref",
+                "volume": "23",
+                "year": "2004"
+              },
+              "text": "Implication of ZW10 in membrane trafficking between the endoplasmic reticulum and Golgi",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 65490,
+              "infons": {
+                "fpage": "2639",
+                "lpage": "2649",
+                "pub-id_pmid": "19369418",
+                "section_type": "REF",
+                "source": "Mol. Biol. Cell",
+                "type": "ref",
+                "volume": "20",
+                "year": "2009"
+              },
+              "text": "Identification of the neuroblastoma-amplified gene product as a component of the syntaxin 18 complex implicated in Golgi-to-endoplasmic reticulum retrograde transport",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 65657,
+              "infons": {
+                "fpage": "8",
+                "lpage": "15",
+                "pub-id_pmid": "27851892",
+                "section_type": "REF",
+                "source": "Dev. Biol.",
+                "type": "ref",
+                "volume": "421",
+                "year": "2017"
+              },
+              "text": "The Sec domain protein Scfd1 facilitates trafficking of ECM components during chondrogenesis",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 65750,
+              "infons": {
+                "fpage": "4593",
+                "lpage": "4608",
+                "pub-id_pmid": "16963496",
+                "section_type": "REF",
+                "source": "Nucleic Acids Res.",
+                "type": "ref",
+                "volume": "34",
+                "year": "2006"
+              },
+              "text": "NOP132 is required for proper nucleolus localization of DEAD-box RNA helicase DDX47",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 65834,
+              "infons": {
+                "fpage": "3852",
+                "lpage": "3867",
+                "pub-id_pmid": "28263972",
+                "section_type": "REF",
+                "source": "Oncogene",
+                "type": "ref",
+                "volume": "36",
+                "year": "2017"
+              },
+              "text": "The pre-rRNA processing factor DEF is rate limiting for the pathogenesis of MYCN-driven neuroblastoma",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 65936,
+              "infons": {
+                "fpage": "2156",
+                "lpage": "2169",
+                "pub-id_pmid": "20884785",
+                "section_type": "REF",
+                "source": "RNA",
+                "type": "ref",
+                "volume": "16",
+                "year": "2010"
+              },
+              "text": "The DEAD-box RNA helicase-like Utp25 is an SSU processome component",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 66004,
+              "infons": {
+                "fpage": "152",
+                "lpage": "176",
+                "pub-id_pmid": "34845384",
+                "section_type": "REF",
+                "source": "Nat. Protoc.",
+                "type": "ref",
+                "volume": "17",
+                "year": "2022"
+              },
+              "text": "Integrative structural modeling of macromolecular complexes using assembline",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 66081,
+              "infons": {
+                "fpage": "100139",
+                "pub-id_pmid": "34418567",
+                "section_type": "REF",
+                "source": "Mol. Cell Proteomics",
+                "type": "ref",
+                "volume": "20",
+                "year": "2021"
+              },
+              "text": "IMProv: A resource for cross-link-driven structure modeling that accommodates protein dynamics",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 66176,
+              "infons": {
+                "fpage": "760",
+                "lpage": "764",
+                "pub-id_pmid": "21311021",
+                "section_type": "REF",
+                "source": "Science",
+                "type": "ref",
+                "volume": "331",
+                "year": "2011"
+              },
+              "text": "HSPC117 is the essential subunit of a human tRNA splicing ligase complex",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 66249,
+              "infons": {
+                "elocation-id": "e71656",
+                "pub-id_pmid": "34854379",
+                "section_type": "REF",
+                "source": "Elife",
+                "type": "ref",
+                "volume": "10",
+                "year": "2021"
+              },
+              "text": "Molecular architecture of the human tRNA ligase complex",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 66305,
+              "infons": {
+                "fpage": "1176",
+                "lpage": "1188",
+                "pub-id_pmid": "26323305",
+                "section_type": "REF",
+                "source": "Acta Crystallogr. F Struct. Biol. Commun.",
+                "type": "ref",
+                "volume": "71",
+                "year": "2015"
+              },
+              "text": "Structure of the SPRY domain of the human RNA helicase DDX1, a putative interaction platform within a DEAD-box protein",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 66424,
+              "infons": {
+                "fpage": "3085",
+                "pub-id_pmid": "31300642",
+                "section_type": "REF",
+                "source": "Nat. Commun.",
+                "type": "ref",
+                "volume": "10",
+                "year": "2019"
+              },
+              "text": "The mechanism of RNA duplex recognition and unwinding by DEAD-box helicase DDX3X",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 66505,
+              "infons": {
+                "fpage": "7600",
+                "lpage": "7607",
+                "pub-id_pmid": "29792801",
+                "section_type": "REF",
+                "source": "Anal. Chem.",
+                "type": "ref",
+                "volume": "90",
+                "year": "2018"
+              },
+              "text": "Development of a novel sulfoxide-containing MS-cleavable homobifunctional cysteine-reactive cross-linker for studying protein-protein interactions",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 66652,
+              "infons": {
+                "fpage": "1105",
+                "lpage": "1116",
+                "pub-id_pmid": "26385339",
+                "section_type": "REF",
+                "source": "Mol. Cell Proteomics",
+                "type": "ref",
+                "volume": "15",
+                "year": "2016"
+              },
+              "text": "Serum albumin domain structures in human blood serum by mass spectrometry and computational biology",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 66752,
+              "infons": {
+                "fpage": "100084",
+                "pub-id_pmid": "33915260",
+                "section_type": "REF",
+                "source": "Mol. Cell Proteomics",
+                "type": "ref",
+                "volume": "20",
+                "year": "2021"
+              },
+              "text": "Enabling photoactivated cross-linking mass spectrometric analysis of protein complexes by novel MS-cleavable cross-linkers",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 66875,
+              "infons": {
+                "fpage": "3404",
+                "pub-id_pmid": "31363125",
+                "section_type": "REF",
+                "source": "Nat. Commun.",
+                "type": "ref",
+                "volume": "10",
+                "year": "2019"
+              },
+              "text": "A high-speed search engine pLink 2 with systematic evaluation for proteome-scale identification of cross-linked peptides",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 66996,
+              "infons": {
+                "fpage": "2864",
+                "lpage": "2889",
+                "pub-id_pmid": "30382245",
+                "section_type": "REF",
+                "source": "Nat. Protoc.",
+                "type": "ref",
+                "volume": "13",
+                "year": "2018"
+              },
+              "text": "A cross-linking/mass spectrometry workflow based on MS-cleavable cross-linkers and the MeroX software for studying protein structures and protein-protein interactions",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 67163,
+              "infons": {
+                "fpage": "4472",
+                "lpage": "4478",
+                "pub-id_pmid": "30817130",
+                "section_type": "REF",
+                "source": "Anal. Chem.",
+                "type": "ref",
+                "volume": "91",
+                "year": "2019"
+              },
+              "text": "Sequential digestion with trypsin and elastase in cross-linking mass spectrometry",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 67245,
+              "infons": {
+                "fpage": "M111 014126",
+                "section_type": "REF",
+                "source": "Mol. Cell Proteomics",
+                "type": "ref",
+                "volume": "11",
+                "year": "2012"
+              },
+              "text": "Expanding the chemical cross-linking toolbox by the use of multiple proteases and enrichment by size exclusion chromatography",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 67371,
+              "infons": {
+                "fpage": "2139",
+                "lpage": "2157",
+                "pub-id_pmid": "33020190",
+                "section_type": "REF",
+                "source": "Mol. Cell Proteomics",
+                "type": "ref",
+                "volume": "19",
+                "year": "2020"
+              },
+              "text": "Proalanase is an effective alternative to trypsin for proteomics applications and disulfide bond mapping",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 67476,
+              "infons": {
+                "fpage": "15",
+                "lpage": "16",
+                "pub-id_pmid": "35902752",
+                "section_type": "REF",
+                "source": "Nature",
+                "type": "ref",
+                "volume": "608",
+                "year": "2022"
+              },
+              "text": "“The entire protein universe”: AI predicts shape of nearly every known protein",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 67559,
+              "infons": {
+                "comment": "bioRxiv [Preprint]",
+                "pub-id_doi": "10.1101/2022.07.20.500902",
+                "section_type": "REF",
+                "type": "ref",
+                "year": "2022"
+              },
+              "text": "Evolutionary-scale prediction of atomic level protein structure with a language model",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 67645,
+              "infons": {
+                "fpage": "D439",
+                "lpage": "D444",
+                "pub-id_pmid": "34791371",
+                "section_type": "REF",
+                "source": "Nucleic Acids Res.",
+                "type": "ref",
+                "volume": "50",
+                "year": "2022"
+              },
+              "text": "AlphaFold protein structure database: Massively expanding the structural coverage of protein-sequence space with high-accuracy models",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 67779,
+              "infons": {
+                "comment": "bioRxiv [Preprint]",
+                "pub-id_doi": "10.1101/2022.11.20.517210",
+                "section_type": "REF",
+                "type": "ref",
+                "year": "2022"
+              },
+              "text": "OpenFold: Retraining AlphaFold2 yields new insights into its learning mechanisms and capacity for generalization",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 67892,
+              "infons": {
+                "fpage": "26",
+                "lpage": "33",
+                "pub-id_pmid": "30368054",
+                "section_type": "REF",
+                "source": "Curr. Opin. Struct. Biol.",
+                "type": "ref",
+                "volume": "54",
+                "year": "2019"
+              },
+              "text": "Affinity and specificity of motif-based protein-protein interactions",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 67961,
+              "infons": {
+                "fpage": "D412",
+                "lpage": "D419",
+                "pub-id_pmid": "33125078",
+                "section_type": "REF",
+                "source": "Nucleic Acids Res.",
+                "type": "ref",
+                "volume": "49",
+                "year": "2021"
+              },
+              "text": "Pfam: The protein families database in 2021",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 68005,
+              "infons": {
+                "fpage": "3975",
+                "pub-id_pmid": "35803948",
+                "section_type": "REF",
+                "source": "Nat. Commun.",
+                "type": "ref",
+                "volume": "13",
+                "year": "2022"
+              },
+              "text": "Mimicked synthetic ribosomal protein complex for benchmarking crosslinking mass spectrometry workflows",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 68108,
+              "infons": {
+                "fpage": "1259",
+                "lpage": "1268",
+                "pub-id_pmid": "33065067",
+                "section_type": "REF",
+                "source": "Structure",
+                "type": "ref",
+                "volume": "28",
+                "year": "2020"
+              },
+              "text": "Toward increased reliability, transparency, and accessibility in cross-linking mass spectrometry",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 68205,
+              "infons": {
+                "fpage": "720",
+                "lpage": "725",
+                "pub-id_pmid": "26410586",
+                "section_type": "REF",
+                "source": "J. Mol. Biol.",
+                "type": "ref",
+                "volume": "428",
+                "year": "2016"
+              },
+              "text": "The HADDOCK2.2 web server: User-friendly integrative modeling of biomolecular complexes",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 68293,
+              "infons": {
+                "pub-id_doi": "10.6084/m9.figshare.21561645.v1",
+                "section_type": "REF",
+                "source": "Figshare",
+                "type": "ref"
+              },
+              "text": "Human XL-MS scripts",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 68313,
+              "infons": {
+                "fpage": "D543",
+                "lpage": "D552",
+                "pub-id_pmid": "34723319",
+                "section_type": "REF",
+                "source": "Nucleic Acids Res.",
+                "type": "ref",
+                "volume": "50",
+                "year": "2022"
+              },
+              "text": "The PRIDE database resources in 2022: A hub for mass spectrometry-based proteomics evidences",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 68406,
+              "infons": {
+                "section_type": "REF",
+                "source": "ModelArchive",
+                "type": "ref"
+              },
+              "text": "Structural interfaces predicted for dimer human protein-protein interactions",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 68483,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "title_1"
+              },
+              "text": "Supporting Information",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            }
+          ],
+          "annotations": [],
+          "relations": []
+        }
+      ]
+    }
+  ]
+}

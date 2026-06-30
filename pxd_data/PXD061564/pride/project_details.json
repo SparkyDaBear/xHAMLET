@@ -1,0 +1,317 @@
+{
+  "metadata": {
+    "pxd": "PXD061564",
+    "category": "pride",
+    "saved_at": "2026-06-30T15:49:34.683984",
+    "filename": "project_details"
+  },
+  "data": {
+    "accession": "PXD061564",
+    "title": "Employing Expression-Matched Controls Enables High Confidence Proximity-Based Interactome Classification (Dataset 5)",
+    "additionalAttributes": [],
+    "projectDescription": "Proximity labeling approaches have been widely utilized to define protein interactomes. Due to the inherent promiscuity of proximity labeling using TurboID-based approaches, identification and adoption of appropriate labeling controls is a pivotal step to mitigate background interference and enhance interactome assignment accuracy. Here, we evaluate the effectiveness of both expression controls and data normalization strategies in generating high confidence interactome maps. This dataset contains proximity labeling proteomics results, including the proximity labeling section of TurboID-HUWE1 in the HAP1 cell line. It serves as the raw data for Supplementary Figure 5 in the article.",
+    "sampleProcessingProtocol": "For proximity labeling proteomics sample preparation, lysis buffer consisted of 50 mM Tris (pH 8.0), 150 mM NaCl, 0.5% NP-40, phosphatase inhibitors (1 mM NaF, 1 mM β-glycerophosphate, and 1 mM sodium orthovanadate), and Roche protease inhibitor tablets. The sample was incubated on ice for 5 minutes before sonication and centrifugation. Protein concentration was determined using a BCA assay, and 50 µg of total protein was used for streptavidin affinity enrichment. For each sample, 30 µL of a 50% slurry of streptavidin-agarose beads was used. The samples were incubated for two hours at 4°C on a rotating incubator. Following incubation, the supernatant was removed after centrifugation, and the beads were washed three times with wash buffer and three times with PBS. Samples were treated with 5 mM tris(2-carboxyethyl)-phosphine (TCEP) and incubated at room temperature for 30 minutes. Subsequently, 10 mM iodoacetamide was added, and the samples were incubated in the dark for 45 minutes at room temperature. Iodoacetamide was quenched with 15 mM dithiothreitol (DTT) for 10 minutes. Proteins were digested by adding trypsin (500ng) and LysC (200ng) in 50 mM Tris-HCl buffer. Digestion was carried out overnight at 37°C with shaking at 1,000 rpm. The resulting peptides were desalted using StageTips packed with C18 material. Peptides were loaded onto the StageTips, washed with 0.1% formic acid, and eluted with 80% acetonitrile in 0.1% formic acid. The cleaned peptides were dried under vacuum and reconstituted in 5% formic acid with 5% acetonitrile. Samples were stored at -20°C until LC-MS/MS analysis.",
+    "dataProcessingProtocol": "We utilized DIA-NN (1.9.2) to convert raw data into precursor and fragment identifications based on their 3D peak positions, including retention time (RT), m/z precursor, and ion mobility (IM). All data were searched against the reviewed human proteome (UniProt, November 2021, 20,555 entries, excluding isoforms) using trypsin/LysC as digestion enzymes. Cysteine carbamidomethylation was set as a fixed modification, while methionine oxidation and methionine excision at the N-terminus were selected as variable modifications. Up to two missed cleavages and two variable modifications were allowed. Default settings were used, with modifications to the charge state (2 to 4). The precursor m/z range was restricted from 300 to 1200 for proteome analysis. The fragment m/z range was set from 100 to 1700, and mass accuracy for MS1 was set to 10 ppm. “Match between runs” was enabled, while “protein inference” was disabled. The quantification strategy used “robust LC (high precision).” Proteomics outputs were filtered to ensure a maximum q value of 1% at both precursor and global protein levels.",
+    "projectTags": [],
+    "keywords": [
+      "Proximity labeling proteomics",
+      "Turboid expression",
+      "Control",
+      "Background protein",
+      "Interacting protein identification"
+    ],
+    "doi": "",
+    "submissionType": "PARTIAL",
+    "license": "Creative Commons Public Domain (CC0)",
+    "submissionDate": "2025-03-07",
+    "publicationDate": "2025-07-13",
+    "submitters": [
+      {
+        "title": "Dr",
+        "firstName": "Fulin",
+        "lastName": "Jiang",
+        "identifier": "3597925",
+        "affiliation": "University of California San Diego",
+        "email": "jiangflynn23@gmail.com",
+        "country": "United States",
+        "orcid": "",
+        "name": "Fulin Jiang",
+        "id": "3597925"
+      }
+    ],
+    "labPIs": [
+      {
+        "title": "Dr",
+        "firstName": "Eric",
+        "lastName": "Bennett",
+        "identifier": "3115181",
+        "affiliation": "School of Biological Sciences, Department of Cell and Developmental Biology, University of California, San Diego, CA, USA",
+        "email": "e1bennett@ucsd.edu",
+        "country": "",
+        "orcid": "",
+        "name": "Eric Bennett",
+        "id": "3115181"
+      }
+    ],
+    "instruments": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1003230",
+        "name": "timsTOF Pro 2",
+        "value": ""
+      }
+    ],
+    "softwares": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1003253",
+        "name": "DIA-NN"
+      }
+    ],
+    "experimentTypes": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000450",
+        "name": "Data-independent acquisition"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000428",
+        "name": "Bottom-up proteomics"
+      }
+    ],
+    "quantificationMethods": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "EFO:0030054",
+        "name": "label-free quantification"
+      }
+    ],
+    "countries": [
+      "United States"
+    ],
+    "sampleAttributes": [
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "EFO:0000635",
+          "name": "organism part"
+        },
+        "value": [
+          {
+            "cvLabel": "BTO",
+            "accession": "BTO:0000214",
+            "name": "cell culture",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "OBI:0100026",
+          "name": "organism"
+        },
+        "value": [
+          {
+            "cvLabel": "NEWT",
+            "accession": "NEWT:9606",
+            "name": "Homo sapiens (Human)",
+            "value": ""
+          }
+        ]
+      }
+    ],
+    "organisms": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "NEWT",
+        "accession": "NEWT:9606",
+        "name": "Homo sapiens (human)",
+        "value": ""
+      }
+    ],
+    "organismParts": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "BTO",
+        "accession": "BTO:0000214",
+        "name": "Cell culture",
+        "value": ""
+      }
+    ],
+    "diseases": [],
+    "references": [
+      {
+        "referenceLine": "Jiang F, Ge X, Bennett EJ. Employing Expression-Matched Controls Enables High-Confidence Proximity-Based Interactome Classification. Mol Cell Proteomics. 2025 24(7):101001",
+        "pubmedID": 40441440,
+        "doi": "10.1016/j.mcpro.2025.101001"
+      }
+    ],
+    "identifiedPTMStrings": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00397",
+        "name": "iodoacetamide derivatized residue",
+        "value": ""
+      }
+    ],
+    "totalFileDownloads": 223,
+    "otherOmicsLinks": [
+      "pride.project:PXD061541",
+      "pride.project:PXD061563",
+      "pride.project:PXD061566",
+      "px:PXD061540",
+      "pride.project:PXD061560",
+      "pride.project:PXD061540"
+    ],
+    "files": {
+      "files": [
+        {
+          "fileName": "report_v192_dataset5_skyline.redundant.blib",
+          "fileSizeBytes": 554475520,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/07/PXD061564/report_v192_dataset5_skyline.redundant.blib"
+        },
+        {
+          "fileName": "report_v192_dataset5_skyline.blib",
+          "fileSizeBytes": 149299200,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/07/PXD061564/report_v192_dataset5_skyline.blib"
+        },
+        {
+          "fileName": "report_v192_dataset5_skyline.skyd",
+          "fileSizeBytes": 15853507129,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/07/PXD061564/report_v192_dataset5_skyline.skyd"
+        },
+        {
+          "fileName": "19_HAP1_TID_HUWE1_24h_Replicate1.d.zip",
+          "fileSizeBytes": 905656411,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/07/PXD061564/19_HAP1_TID_HUWE1_24h_Replicate1.d.zip"
+        },
+        {
+          "fileName": "13_HAP1_TID_eGFP_12h_Replicate1.d.zip",
+          "fileSizeBytes": 1472622586,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/07/PXD061564/13_HAP1_TID_eGFP_12h_Replicate1.d.zip"
+        },
+        {
+          "fileName": "8_HAP1_TID_eGFP_6h_Replicate2.d.zip",
+          "fileSizeBytes": 846374102,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/07/PXD061564/8_HAP1_TID_eGFP_6h_Replicate2.d.zip"
+        },
+        {
+          "fileName": "report_v192_dataset5.pg_matrix_norm.tsv",
+          "fileSizeBytes": 1966822,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/07/PXD061564/report_v192_dataset5.pg_matrix_norm.tsv"
+        },
+        {
+          "fileName": "4_HAP1_TID_eGFP_3h_Replicate1.d.zip",
+          "fileSizeBytes": 725433443,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/07/PXD061564/4_HAP1_TID_eGFP_3h_Replicate1.d.zip"
+        },
+        {
+          "fileName": "11_HAP1_TID_eGFP_9h_Replicate2.d.zip",
+          "fileSizeBytes": 1035557808,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/07/PXD061564/11_HAP1_TID_eGFP_9h_Replicate2.d.zip"
+        },
+        {
+          "fileName": "2_HAP1_TID_eGFP_1h_Replicate2.d.zip",
+          "fileSizeBytes": 727519432,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/07/PXD061564/2_HAP1_TID_eGFP_1h_Replicate2.d.zip"
+        },
+        {
+          "fileName": "report_v192_dataset5.pg_matrix_unnorm.tsv",
+          "fileSizeBytes": 1753980,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/07/PXD061564/report_v192_dataset5.pg_matrix_unnorm.tsv"
+        },
+        {
+          "fileName": "17_HAP1_TID_eGFP_24h_Replicate2.d.zip",
+          "fileSizeBytes": 1936473000,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/07/PXD061564/17_HAP1_TID_eGFP_24h_Replicate2.d.zip"
+        },
+        {
+          "fileName": "15_HAP1_TID_eGFP_12h_Replicate3.d.zip",
+          "fileSizeBytes": 1384426959,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/07/PXD061564/15_HAP1_TID_eGFP_12h_Replicate3.d.zip"
+        },
+        {
+          "fileName": "16_HAP1_TID_eGFP_24h_Replicate1.d.zip",
+          "fileSizeBytes": 1567318414,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/07/PXD061564/16_HAP1_TID_eGFP_24h_Replicate1.d.zip"
+        },
+        {
+          "fileName": "14_HAP1_TID_eGFP_12h_Replicate2.d.zip",
+          "fileSizeBytes": 1554981987,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/07/PXD061564/14_HAP1_TID_eGFP_12h_Replicate2.d.zip"
+        },
+        {
+          "fileName": "21_HAP1_TID_HUWE1_24h_Replicate3.d.zip",
+          "fileSizeBytes": 787869062,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/07/PXD061564/21_HAP1_TID_HUWE1_24h_Replicate3.d.zip"
+        },
+        {
+          "fileName": "18_HAP1_TID_eGFP_24h_Replicate3.d.zip",
+          "fileSizeBytes": 1923679773,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/07/PXD061564/18_HAP1_TID_eGFP_24h_Replicate3.d.zip"
+        },
+        {
+          "fileName": "7_HAP1_TID_eGFP_6h_Replicate1.d.zip",
+          "fileSizeBytes": 793809902,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/07/PXD061564/7_HAP1_TID_eGFP_6h_Replicate1.d.zip"
+        },
+        {
+          "fileName": "report_v192_dataset5_skyline.sky",
+          "fileSizeBytes": 6589813943,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/07/PXD061564/report_v192_dataset5_skyline.sky"
+        },
+        {
+          "fileName": "6_HAP1_TID_eGFP_3h_Replicate3.d.zip",
+          "fileSizeBytes": 674063952,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/07/PXD061564/6_HAP1_TID_eGFP_3h_Replicate3.d.zip"
+        },
+        {
+          "fileName": "1_HAP1_TID_eGFP_1h_Replicate1.d.zip",
+          "fileSizeBytes": 627321785,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/07/PXD061564/1_HAP1_TID_eGFP_1h_Replicate1.d.zip"
+        },
+        {
+          "fileName": "20_HAP1_TID_HUWE1_24h_Replicate2.d.zip",
+          "fileSizeBytes": 805114613,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/07/PXD061564/20_HAP1_TID_HUWE1_24h_Replicate2.d.zip"
+        },
+        {
+          "fileName": "10_HAP1_TID_eGFP_9h_Replicate1.d.zip",
+          "fileSizeBytes": 1045136680,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/07/PXD061564/10_HAP1_TID_eGFP_9h_Replicate1.d.zip"
+        },
+        {
+          "fileName": "3_HAP1_TID_eGFP_1h_Replicate3.d.zip",
+          "fileSizeBytes": 543107350,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/07/PXD061564/3_HAP1_TID_eGFP_1h_Replicate3.d.zip"
+        },
+        {
+          "fileName": "5_HAP1_TID_eGFP_3h_Replicate2.d.zip",
+          "fileSizeBytes": 610253907,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/07/PXD061564/5_HAP1_TID_eGFP_3h_Replicate2.d.zip"
+        },
+        {
+          "fileName": "9_HAP1_TID_eGFP_6h_Replicate3.d.zip",
+          "fileSizeBytes": 861865179,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/07/PXD061564/9_HAP1_TID_eGFP_6h_Replicate3.d.zip"
+        },
+        {
+          "fileName": "12_HAP1_TID_eGFP_9h_Replicate3.d.zip",
+          "fileSizeBytes": 993161687,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/07/PXD061564/12_HAP1_TID_eGFP_9h_Replicate3.d.zip"
+        }
+      ],
+      "totalCount": 27
+    }
+  }
+}

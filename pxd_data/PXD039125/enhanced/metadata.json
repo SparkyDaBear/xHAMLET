@@ -1,0 +1,1001 @@
+{
+  "metadata": {
+    "pxd": "PXD039125",
+    "category": "enhanced",
+    "saved_at": "2026-06-30T15:31:16.216810",
+    "filename": "metadata"
+  },
+  "data": {
+    "pxd": "PXD039125",
+    "processed_at": "2026-06-30T15:30:35.875494",
+    "stages": {
+      "pride": "success",
+      "publication": "failed",
+      "file_clustering": "failed",
+      "raw_processing": "skipped_no_download",
+      "spectral_merge": "success",
+      "llm": "success",
+      "sdrf": "success",
+      "sdrf_validation": "success_with_warnings",
+      "xi_configs": "success",
+      "relink": "skipped",
+      "compilation": "success"
+    },
+    "spectral_summary": {
+      "source_files_parsed": 0,
+      "per_file": [],
+      "instrument": "Orbitrap Fusion Lumos"
+    },
+    "sdrf_path": "pxd_data/PXD039125/sdrf/PXD039125.sdrf.tsv",
+    "sdrf_validation_warnings": "Traceback (most recent call last):\n  File \"/home/ians/git_repos/xHAMLET/.venv/bin/parse_sdrf\", line 6, in <module>\n    sys.exit(main())\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/sdrf_pipelines/parse_sdrf.py\", line 770, in main\n    cli()\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/click/core.py\", line 1524, in __call__\n    return self.main(*args, **kwargs)\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/click/core.py\", line 1445, in main\n    rv = self.invoke(ctx)\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/click/core.py\", line 1912, in invoke\n    return _process_result(sub_ctx.command.invoke(sub_ctx))\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/click/core.py\", line 1308, in invoke\n    return ctx.invoke(self.callback, **ctx.params)\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/click/core.py\", line 877, in invoke\n    return callback(*args, **kwargs)\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/click/decorators.py\", line 34, in new_func\n    return f(get_current_context(), *args, **kwargs)\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/sdrf_pipelines/parse_sdrf.py\", line 266, in validate_sdrf\n    sdrf_df = read_sdrf(sdrf_file)\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/sdrf_pipelines/sdrf/sdrf.py\", line 325, in read_sdrf\n    raise ValueError(\"No valid data found in the file\")\nValueError: No valid data found in the file",
+    "xi_config_paths": {
+      "crosslinking": "pxd_data/PXD039125/configs/xi_crosslinking.conf",
+      "linear": "pxd_data/PXD039125/configs/xi_linear.conf"
+    },
+    "pride_data": {
+      "accession": "PXD039125",
+      "title": "PerTurboID of Plasmofium falciparum cytoadhesion complex",
+      "additionalAttributes": [],
+      "projectDescription": "In this project proximity labeling was used to first identify proteins in the close vicinity of the P. falciparum exported kinase FIKK4.1 by fusing it to a biotin ligase. A conditional KO of the exported kinase FIKK4.1 was then generated for two identified targets, PTP4 and Kahrp in a FIKK4.1 conditional KO line. We then measured the proximity proteome of KAHRP and PTPT4 in the presence, and absence of FIKK4.1.",
+      "sampleProcessingProtocol": "NF54 wildtype parasites, used as controls, and FIKK4.1_TurboID parasites were tightly synchronized to a 4-hour window using Percoll. Parasites were grown in triplicate in 200ml biotin-free complete medium and 2ml of blood to at least 10% parasitemia, with each replicate cultured in blood from a different donor. 4-hour biotin pulses were performed at 2 different timepoints (16 to 20hpi or 40 to 44hpi) by adding 100µM D-biotin (bioAPE) to the cultures in a shaking incubator. After biotinylation, iRBCs were washed 5 times in 50ml biotin-free complete medium. iRBCs treated with biotin between 16 and 20hpi were returned to culture in biotin-free complete medium and allowed to reach late schizont stage (44hpi), then harvested by Percoll and washed 5 times with 5 ml PBS. For the investigation of FIKK4.1 interacting partners on the protein level, purified parasites were lysed in 1% SDS in PBS containing protease inhibitors (cOmplete, Roche) on ice for 30 minutes. Samples were further solubilised by sonication with a microtip sonicator on ice for 3 rounds of 30 seconds at an amplitude of 30%. Lysates were then clarified by centrifugation at 15,000 rpm from 30 minutes at 4C. The protein concentration of the samples was then calculated using a BCA protein assay kit (Pierce). Samples were trypsinized and prepared for mass-spectrometry using established methods.   Samples were loaded onto Evotips (according to manufacturer’s instructions). Following a wash with aqueous acidic buffer (0.1% formic acid in water), samples were loaded onto an Evosep One system coupled to an Orbitrap Fusion Lumos (ThermoFisher Scientific).  The Evosep One was fitted with a 15 cm column (PepSep) and a predefined gradient for a 44-minute method was employed.  The Orbitrap Lumos was operated in data-dependent mode (1 second cycle time), acquiring IT HCD MS/MS scans in rapid mode after an OT MS1 survey scan (R=60,000). The MS1 target was 4E5 ions whereas the MS2 target was 1E4 ions. The maximum ion injection time utilized for MS2 scans was 300 ms, the HCD normalized collision energy was set at 32 and the dynamic exclusion was set at 15 seconds.",
+      "dataProcessingProtocol": "Acquired raw files were processed with MaxQuant v1.5.2.8 (Cox and Mann, 2008).  TurboID: peptides were identified from the MS/MS spectra searched against Plasmodium falciparum (PlasmoDB) and Homo sapiens (UniProt) proteomes using Andromeda (Cox et al., 2011) search engine. In addition, an Avidin protein sequence (Gallus gallus, UniProt) was included in the search.  Oxidation (M), Acetyl (Protein N-term), Deamidation (NQ) and Acetyl (K) were selected as variable modifications. The enzyme specificity was set to Trypsin with a maximum of 2 missed cleavages.  PerTurbo-ID: peptides were identified from the MS/MS spectra searched against Plasmodium falciparum (PlasmoDB) and Homo sapiens (UniProt) proteomes using Andromeda (Cox et al., 2011) search engine. Biotin (K), Oxidation (M), Acetyl (Protein N-term), and Phospho (STY) were selected as variable modifications whereas Carbamidomethyl (C) was selected as a fixed modification. The enzyme specificity was set to Trypsin with a maximum of 3 missed cleavages. Minimal peptide length was set at 6 amino acids. Biotinylated peptide search in Max Quant was enabled by defining a biotin adduct (+226.0776) on lysine residues as well as its three diagnostic ions: fragmented biotin (m/z 227.0849), immonium ion harboring biotin with a loss of NH3 (m/z 310.1584), and an immonium ion harboring biotin (m/z 327.1849). The precursor mass tolerance was set to 20 ppm for the first search (used for mass re-calibration) and to 4.5 ppm for the main search. The datasets were filtered on posterior error probability (PEP) to achieve a 1% false discovery rate on protein, peptide and site level. Other parameters were used as pre-set in the software. ‘Unique and razor peptides’ mode was selected to allow identification and quantification of proteins in groups (razor peptides are uniquely assigned to protein groups and not to individual proteins). Intensity-based absolute quantification (iBAQ) in MaxQuant was performed using a built-in quantification algorithm (Cox and Mann, 2008) enabling the ‘Match between runs’ option (time window 0.7 minutes) within replicates.  MaxQuant output files were processed with Perseus, v1.5.0.9 (Tyanova et al., 2016) and Microsoft Office Excel 2016.   TurboID: Protein group data were filtered to remove contaminants, protein IDs originating from reverse decoy sequences and only identified by site.  iBAQ intensities and the total intensity were Log2 and Log10 transformed, respectively.",
+      "projectTags": [],
+      "keywords": [
+        "Malaria plasmodium falciparum red blood cells lc-ms/ms"
+      ],
+      "doi": "",
+      "submissionType": "PARTIAL",
+      "license": "Creative Commons Public Domain (CC0)",
+      "submissionDate": "2023-01-02",
+      "publicationDate": "2023-09-21",
+      "submitters": [
+        {
+          "title": "Dr",
+          "firstName": "Moritz",
+          "lastName": "Treeck",
+          "identifier": "2643978",
+          "affiliation": "The Francis Crick Institute",
+          "email": "motreeck@gmail.com",
+          "country": "United Kingdom",
+          "orcid": "",
+          "name": "Moritz Treeck",
+          "id": "2643978"
+        }
+      ],
+      "labPIs": [
+        {
+          "title": "Dr",
+          "firstName": "Moritz",
+          "lastName": "Treeck",
+          "identifier": "2501175",
+          "affiliation": "The Francis Crick Institute",
+          "email": "motreeck@gmail.com",
+          "country": "",
+          "orcid": "",
+          "name": "Moritz Treeck",
+          "id": "2501175"
+        }
+      ],
+      "instruments": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MS",
+          "accession": "MS:1002732",
+          "name": "Orbitrap Fusion Lumos"
+        }
+      ],
+      "softwares": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MS",
+          "accession": "MS:1001583",
+          "name": "MaxQuant"
+        }
+      ],
+      "experimentTypes": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "PRIDE",
+          "accession": "PRIDE:0000433",
+          "name": "Affinity purification coupled with mass spectrometry proteomics"
+        }
+      ],
+      "quantificationMethods": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "PRIDE",
+          "accession": "PRIDE:0000312",
+          "name": "Label free"
+        }
+      ],
+      "countries": [
+        "United Kingdom"
+      ],
+      "sampleAttributes": [
+        {
+          "@type": "Tuple",
+          "key": {
+            "cvLabel": "EFO",
+            "accession": "EFO:0000635",
+            "name": "organism part"
+          },
+          "value": [
+            {
+              "cvLabel": "BTO",
+              "accession": "BTO:0000089",
+              "name": "blood"
+            },
+            {
+              "cvLabel": "CL",
+              "accession": "CL:0000232",
+              "name": "erythrocyte"
+            }
+          ]
+        },
+        {
+          "@type": "Tuple",
+          "key": {
+            "cvLabel": "EFO",
+            "accession": "OBI:0100026",
+            "name": "organism"
+          },
+          "value": [
+            {
+              "cvLabel": "NEWT",
+              "accession": "NEWT:9606",
+              "name": "Homo sapiens (Human)"
+            },
+            {
+              "cvLabel": "NEWT",
+              "accession": "NEWT:5843",
+              "name": "Plasmodium falciparum NF54"
+            }
+          ]
+        },
+        {
+          "@type": "Tuple",
+          "key": {
+            "cvLabel": "EFO",
+            "accession": "EFO:0000408",
+            "name": "disease"
+          },
+          "value": [
+            {
+              "cvLabel": "DOID",
+              "accession": "DOID:12365",
+              "name": "malaria"
+            }
+          ]
+        }
+      ],
+      "organisms": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "NEWT",
+          "accession": "NEWT:9606",
+          "name": "Homo sapiens (human)"
+        },
+        {
+          "@type": "CvParam",
+          "cvLabel": "NEWT",
+          "accession": "NEWT:5843",
+          "name": "Plasmodium falciparum nf54"
+        }
+      ],
+      "organismParts": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "BTO",
+          "accession": "BTO:0000089",
+          "name": "Blood"
+        },
+        {
+          "@type": "CvParam",
+          "cvLabel": "CL",
+          "accession": "CL:0000232",
+          "name": "Erythrocyte"
+        }
+      ],
+      "diseases": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "DOID",
+          "accession": "DOID:12365",
+          "name": "Malaria"
+        }
+      ],
+      "references": [
+        {
+          "pubmedID": 0,
+          "doi": "10.7554/ELIFE.86367"
+        }
+      ],
+      "identifiedPTMStrings": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MOD",
+          "accession": "MOD:00425",
+          "name": "monohydroxylated residue"
+        },
+        {
+          "@type": "CvParam",
+          "cvLabel": "MOD",
+          "accession": "MOD:00696",
+          "name": "phosphorylated residue"
+        },
+        {
+          "@type": "CvParam",
+          "cvLabel": "MOD",
+          "accession": "MOD:00394",
+          "name": "acetylated residue"
+        },
+        {
+          "@type": "CvParam",
+          "cvLabel": "MOD",
+          "accession": "MOD:01885",
+          "name": "biotinylated residue"
+        }
+      ],
+      "totalFileDownloads": 241,
+      "botCount": 99,
+      "hubCount": 119,
+      "organicCount": 23,
+      "files": {
+        "files": [
+          {
+            "fileName": "FIKK4.1_TurboID_raw.zip",
+            "fileSizeBytes": 5669997081,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/09/PXD039125/FIKK4.1_TurboID_raw.zip"
+          },
+          {
+            "fileName": "FIKK4.1_turboID.zip",
+            "fileSizeBytes": 129297158,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/09/PXD039125/FIKK4.1_turboID.zip"
+          },
+          {
+            "fileName": "PerturboID_txt.zip",
+            "fileSizeBytes": 109081885,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/09/PXD039125/PerturboID_txt.zip"
+          },
+          {
+            "fileName": "PerturboID_RAW.zip",
+            "fileSizeBytes": 5697333505,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/09/PXD039125/PerturboID_RAW.zip"
+          }
+        ],
+        "totalCount": 4
+      }
+    },
+    "publication_metadata": null,
+    "llm_responses": {
+      "characteristics[disease]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": [\n      \"FIKK4.1 conditional KO line\",\n      \"KAHRP proximity proteome measured in presence and absence of FIKK4.1\",\n      \"PTP4 proximity proteome measured in presence and absence of FIKK4.1\",\n      \"Tightly synchronized parasites (4-hour window; timepoints 16–20hpi or 40–44hpi)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"A conditional KO of the exported kinase FIKK4.1 was then generated for two identified targets, PTP4 and Kahrp in a FIKK4.1 conditional KO line. We then measured the proximity proteome of KAHRP and PTPT4 in the presence, and absence of FIKK4.1.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": [\n      \"D-biotin (bioAPE) biotin pulse\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"4-hour biotin pulses were performed ... by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"D-biotin (bioAPE)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": [\n      \"100 µM\"\n    ],\n    \"accession\": \"NCIT:C25488\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": [\n      \"conditional knockout (KO) of exported kinase FIKK4.1\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"A conditional KO of the exported kinase FIKK4.1 was then generated\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": [\n      \"biotin pulse (proximity labeling activation)\"\n    ],\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"4-hour biotin pulses were performed ... by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[cross-linker]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[phenotype]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": [\n      \"FIKK4.1 conditional KO line\",\n      \"KAHRP proximity proteome measured in presence and absence of FIKK4.1\",\n      \"PTP4 proximity proteome measured in presence and absence of FIKK4.1\",\n      \"Tightly synchronized parasites (4-hour window; timepoints 16–20hpi or 40–44hpi)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"A conditional KO of the exported kinase FIKK4.1 was then generated for two identified targets, PTP4 and Kahrp in a FIKK4.1 conditional KO line. We then measured the proximity proteome of KAHRP and PTPT4 in the presence, and absence of FIKK4.1.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": [\n      \"D-biotin (bioAPE) biotin pulse\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"4-hour biotin pulses were performed ... by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"D-biotin (bioAPE)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": [\n      \"100 µM\"\n    ],\n    \"accession\": \"NCIT:C25488\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": [\n      \"conditional knockout (KO) of exported kinase FIKK4.1\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"A conditional KO of the exported kinase FIKK4.1 was then generated\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": [\n      \"biotin pulse (proximity labeling activation)\"\n    ],\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"4-hour biotin pulses were performed ... by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[cross-linker]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": [
+            "FIKK4.1 conditional KO line",
+            "KAHRP proximity proteome measured in presence and absence of FIKK4.1",
+            "PTP4 proximity proteome measured in presence and absence of FIKK4.1",
+            "Tightly synchronized parasites (4-hour window; timepoints 16–20hpi or 40–44hpi)"
+          ],
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "A conditional KO of the exported kinase FIKK4.1 was then generated for two identified targets, PTP4 and Kahrp in a FIKK4.1 conditional KO line. We then measured the proximity proteome of KAHRP and PTPT4 in the presence, and absence of FIKK4.1.",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[treatment]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": [\n      \"FIKK4.1 conditional KO line\",\n      \"KAHRP proximity proteome measured in presence and absence of FIKK4.1\",\n      \"PTP4 proximity proteome measured in presence and absence of FIKK4.1\",\n      \"Tightly synchronized parasites (4-hour window; timepoints 16–20hpi or 40–44hpi)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"A conditional KO of the exported kinase FIKK4.1 was then generated for two identified targets, PTP4 and Kahrp in a FIKK4.1 conditional KO line. We then measured the proximity proteome of KAHRP and PTPT4 in the presence, and absence of FIKK4.1.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": [\n      \"D-biotin (bioAPE) biotin pulse\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"4-hour biotin pulses were performed ... by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"D-biotin (bioAPE)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": [\n      \"100 µM\"\n    ],\n    \"accession\": \"NCIT:C25488\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": [\n      \"conditional knockout (KO) of exported kinase FIKK4.1\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"A conditional KO of the exported kinase FIKK4.1 was then generated\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": [\n      \"biotin pulse (proximity labeling activation)\"\n    ],\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"4-hour biotin pulses were performed ... by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[cross-linker]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": [
+            "D-biotin (bioAPE) biotin pulse"
+          ],
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": "4-hour biotin pulses were performed ... by adding 100µM D-biotin (bioAPE) to the cultures",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[compound]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": [\n      \"FIKK4.1 conditional KO line\",\n      \"KAHRP proximity proteome measured in presence and absence of FIKK4.1\",\n      \"PTP4 proximity proteome measured in presence and absence of FIKK4.1\",\n      \"Tightly synchronized parasites (4-hour window; timepoints 16–20hpi or 40–44hpi)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"A conditional KO of the exported kinase FIKK4.1 was then generated for two identified targets, PTP4 and Kahrp in a FIKK4.1 conditional KO line. We then measured the proximity proteome of KAHRP and PTPT4 in the presence, and absence of FIKK4.1.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": [\n      \"D-biotin (bioAPE) biotin pulse\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"4-hour biotin pulses were performed ... by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"D-biotin (bioAPE)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": [\n      \"100 µM\"\n    ],\n    \"accession\": \"NCIT:C25488\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": [\n      \"conditional knockout (KO) of exported kinase FIKK4.1\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"A conditional KO of the exported kinase FIKK4.1 was then generated\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": [\n      \"biotin pulse (proximity labeling activation)\"\n    ],\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"4-hour biotin pulses were performed ... by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[cross-linker]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": [
+            "D-biotin (bioAPE)"
+          ],
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "by adding 100µM D-biotin (bioAPE) to the cultures",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[dose]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": [\n      \"FIKK4.1 conditional KO line\",\n      \"KAHRP proximity proteome measured in presence and absence of FIKK4.1\",\n      \"PTP4 proximity proteome measured in presence and absence of FIKK4.1\",\n      \"Tightly synchronized parasites (4-hour window; timepoints 16–20hpi or 40–44hpi)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"A conditional KO of the exported kinase FIKK4.1 was then generated for two identified targets, PTP4 and Kahrp in a FIKK4.1 conditional KO line. We then measured the proximity proteome of KAHRP and PTPT4 in the presence, and absence of FIKK4.1.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": [\n      \"D-biotin (bioAPE) biotin pulse\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"4-hour biotin pulses were performed ... by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"D-biotin (bioAPE)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": [\n      \"100 µM\"\n    ],\n    \"accession\": \"NCIT:C25488\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": [\n      \"conditional knockout (KO) of exported kinase FIKK4.1\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"A conditional KO of the exported kinase FIKK4.1 was then generated\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": [\n      \"biotin pulse (proximity labeling activation)\"\n    ],\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"4-hour biotin pulses were performed ... by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[cross-linker]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": [
+            "100 µM"
+          ],
+          "accession": "NCIT:C25488",
+          "confidence": "high",
+          "evidence_quote": "adding 100µM D-biotin (bioAPE) to the cultures",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[genetic modification]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": [\n      \"FIKK4.1 conditional KO line\",\n      \"KAHRP proximity proteome measured in presence and absence of FIKK4.1\",\n      \"PTP4 proximity proteome measured in presence and absence of FIKK4.1\",\n      \"Tightly synchronized parasites (4-hour window; timepoints 16–20hpi or 40–44hpi)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"A conditional KO of the exported kinase FIKK4.1 was then generated for two identified targets, PTP4 and Kahrp in a FIKK4.1 conditional KO line. We then measured the proximity proteome of KAHRP and PTPT4 in the presence, and absence of FIKK4.1.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": [\n      \"D-biotin (bioAPE) biotin pulse\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"4-hour biotin pulses were performed ... by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"D-biotin (bioAPE)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": [\n      \"100 µM\"\n    ],\n    \"accession\": \"NCIT:C25488\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": [\n      \"conditional knockout (KO) of exported kinase FIKK4.1\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"A conditional KO of the exported kinase FIKK4.1 was then generated\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": [\n      \"biotin pulse (proximity labeling activation)\"\n    ],\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"4-hour biotin pulses were performed ... by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[cross-linker]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": [
+            "conditional knockout (KO) of exported kinase FIKK4.1"
+          ],
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": "A conditional KO of the exported kinase FIKK4.1 was then generated",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[perturbation]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": [\n      \"FIKK4.1 conditional KO line\",\n      \"KAHRP proximity proteome measured in presence and absence of FIKK4.1\",\n      \"PTP4 proximity proteome measured in presence and absence of FIKK4.1\",\n      \"Tightly synchronized parasites (4-hour window; timepoints 16–20hpi or 40–44hpi)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"A conditional KO of the exported kinase FIKK4.1 was then generated for two identified targets, PTP4 and Kahrp in a FIKK4.1 conditional KO line. We then measured the proximity proteome of KAHRP and PTPT4 in the presence, and absence of FIKK4.1.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": [\n      \"D-biotin (bioAPE) biotin pulse\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"4-hour biotin pulses were performed ... by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"D-biotin (bioAPE)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": [\n      \"100 µM\"\n    ],\n    \"accession\": \"NCIT:C25488\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": [\n      \"conditional knockout (KO) of exported kinase FIKK4.1\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"A conditional KO of the exported kinase FIKK4.1 was then generated\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": [\n      \"biotin pulse (proximity labeling activation)\"\n    ],\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"4-hour biotin pulses were performed ... by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[cross-linker]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": [
+            "biotin pulse (proximity labeling activation)"
+          ],
+          "accession": "PRIDE:0000700",
+          "confidence": "medium",
+          "evidence_quote": "4-hour biotin pulses were performed ... by adding 100µM D-biotin (bioAPE) to the cultures",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[depletion]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": [\n      \"FIKK4.1 conditional KO line\",\n      \"KAHRP proximity proteome measured in presence and absence of FIKK4.1\",\n      \"PTP4 proximity proteome measured in presence and absence of FIKK4.1\",\n      \"Tightly synchronized parasites (4-hour window; timepoints 16–20hpi or 40–44hpi)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"A conditional KO of the exported kinase FIKK4.1 was then generated for two identified targets, PTP4 and Kahrp in a FIKK4.1 conditional KO line. We then measured the proximity proteome of KAHRP and PTPT4 in the presence, and absence of FIKK4.1.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": [\n      \"D-biotin (bioAPE) biotin pulse\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"4-hour biotin pulses were performed ... by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"D-biotin (bioAPE)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": [\n      \"100 µM\"\n    ],\n    \"accession\": \"NCIT:C25488\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": [\n      \"conditional knockout (KO) of exported kinase FIKK4.1\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"A conditional KO of the exported kinase FIKK4.1 was then generated\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": [\n      \"biotin pulse (proximity labeling activation)\"\n    ],\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"4-hour biotin pulses were performed ... by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[cross-linker]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "no depletion",
+          "accession": "PRIDE:0000020",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "comment[cross-linker]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": null,\n    \"NT\": null,\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"proximity labeling was used to first identify proteins in the close vicinity\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "NT": null,
+          "AC": null,
+          "CL": null,
+          "TA": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "factor value cell line": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"D-biotin (bioAPE)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"4-hour biotin pulses were performed ... by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\",\n    \"evidence_quote_note\": null\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": \"100 µM\",\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": \"16–20 hpi and 40–44 hpi (4-hour biotin pulses)\",\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"4-hour biotin pulses were performed at 2 different timepoints (16 to 20hpi or 40 to 44hpi)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value treatment\": {\n    \"value\": \"presence vs. absence of FIKK4.1 (KAHRP and PTP4 proximity proteome measured with and without FIKK4.1)\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"We then measured the proximity proteome of KAHRP and PTPT4 in the presence, and absence of FIKK4.1.\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "CLO:0000031",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value compound": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"D-biotin (bioAPE)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"4-hour biotin pulses were performed ... by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\",\n    \"evidence_quote_note\": null\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": \"100 µM\",\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": \"16–20 hpi and 40–44 hpi (4-hour biotin pulses)\",\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"4-hour biotin pulses were performed at 2 different timepoints (16 to 20hpi or 40 to 44hpi)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value treatment\": {\n    \"value\": \"presence vs. absence of FIKK4.1 (KAHRP and PTP4 proximity proteome measured with and without FIKK4.1)\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"We then measured the proximity proteome of KAHRP and PTPT4 in the presence, and absence of FIKK4.1.\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "D-biotin (bioAPE)",
+          "accession": "CHEBI:37577",
+          "confidence": "high",
+          "evidence_quote": "4-hour biotin pulses were performed ... by adding 100µM D-biotin (bioAPE) to the cultures",
+          "evidence_location": "Methods",
+          "evidence_quote_note": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value disease": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"D-biotin (bioAPE)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"4-hour biotin pulses were performed ... by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\",\n    \"evidence_quote_note\": null\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": \"100 µM\",\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": \"16–20 hpi and 40–44 hpi (4-hour biotin pulses)\",\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"4-hour biotin pulses were performed at 2 different timepoints (16 to 20hpi or 40 to 44hpi)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value treatment\": {\n    \"value\": \"presence vs. absence of FIKK4.1 (KAHRP and PTP4 proximity proteome measured with and without FIKK4.1)\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"We then measured the proximity proteome of KAHRP and PTPT4 in the presence, and absence of FIKK4.1.\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "OGMS:0000031",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value dose": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"D-biotin (bioAPE)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"4-hour biotin pulses were performed ... by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\",\n    \"evidence_quote_note\": null\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": \"100 µM\",\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": \"16–20 hpi and 40–44 hpi (4-hour biotin pulses)\",\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"4-hour biotin pulses were performed at 2 different timepoints (16 to 20hpi or 40 to 44hpi)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value treatment\": {\n    \"value\": \"presence vs. absence of FIKK4.1 (KAHRP and PTP4 proximity proteome measured with and without FIKK4.1)\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"We then measured the proximity proteome of KAHRP and PTPT4 in the presence, and absence of FIKK4.1.\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "100 µM",
+          "accession": "EFO:0000428",
+          "confidence": "medium",
+          "evidence_quote": "by adding 100µM D-biotin (bioAPE) to the cultures",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value organism part": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"D-biotin (bioAPE)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"4-hour biotin pulses were performed ... by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\",\n    \"evidence_quote_note\": null\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": \"100 µM\",\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": \"16–20 hpi and 40–44 hpi (4-hour biotin pulses)\",\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"4-hour biotin pulses were performed at 2 different timepoints (16 to 20hpi or 40 to 44hpi)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value treatment\": {\n    \"value\": \"presence vs. absence of FIKK4.1 (KAHRP and PTP4 proximity proteome measured with and without FIKK4.1)\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"We then measured the proximity proteome of KAHRP and PTPT4 in the presence, and absence of FIKK4.1.\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000635",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value time": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"D-biotin (bioAPE)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"4-hour biotin pulses were performed ... by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\",\n    \"evidence_quote_note\": null\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": \"100 µM\",\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": \"16–20 hpi and 40–44 hpi (4-hour biotin pulses)\",\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"4-hour biotin pulses were performed at 2 different timepoints (16 to 20hpi or 40 to 44hpi)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value treatment\": {\n    \"value\": \"presence vs. absence of FIKK4.1 (KAHRP and PTP4 proximity proteome measured with and without FIKK4.1)\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"We then measured the proximity proteome of KAHRP and PTPT4 in the presence, and absence of FIKK4.1.\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "16–20 hpi and 40–44 hpi (4-hour biotin pulses)",
+          "accession": "EFO:0000721",
+          "confidence": "high",
+          "evidence_quote": "4-hour biotin pulses were performed at 2 different timepoints (16 to 20hpi or 40 to 44hpi)",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value treatment": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"D-biotin (bioAPE)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"4-hour biotin pulses were performed ... by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\",\n    \"evidence_quote_note\": null\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": \"100 µM\",\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"by adding 100µM D-biotin (bioAPE) to the cultures\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": \"16–20 hpi and 40–44 hpi (4-hour biotin pulses)\",\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"4-hour biotin pulses were performed at 2 different timepoints (16 to 20hpi or 40 to 44hpi)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value treatment\": {\n    \"value\": \"presence vs. absence of FIKK4.1 (KAHRP and PTP4 proximity proteome measured with and without FIKK4.1)\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"We then measured the proximity proteome of KAHRP and PTPT4 in the presence, and absence of FIKK4.1.\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "presence vs. absence of FIKK4.1 (KAHRP and PTP4 proximity proteome measured with and without FIKK4.1)",
+          "accession": "EFO:0000727",
+          "confidence": "high",
+          "evidence_quote": "We then measured the proximity proteome of KAHRP and PTPT4 in the presence, and absence of FIKK4.1.",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "comment[instrument]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\"\n    ],\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to an Orbitrap Fusion Lumos (ThermoFisher Scientific)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"operated in data-dependent mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": [\n      \"NT=HCD;AC=MS:1000422\"\n    ],\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"acquiring IT HCD MS/MS scans\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"32 NCE\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"the HCD normalized collision energy was set at 32\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"3 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Parasites were grown in triplicate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": [
+            "NT=Orbitrap Fusion Lumos;AC=MS:1002732"
+          ],
+          "accession": "MS:1002732",
+          "confidence": "high",
+          "evidence_quote": "coupled to an Orbitrap Fusion Lumos (ThermoFisher Scientific)",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[proteomics data acquisition method]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\"\n    ],\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to an Orbitrap Fusion Lumos (ThermoFisher Scientific)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"operated in data-dependent mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": [\n      \"NT=HCD;AC=MS:1000422\"\n    ],\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"acquiring IT HCD MS/MS scans\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"32 NCE\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"the HCD normalized collision energy was set at 32\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"3 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Parasites were grown in triplicate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "NT=data-dependent acquisition;AC=PRIDE:0000041",
+          "accession": "PRIDE:0000041",
+          "confidence": "high",
+          "evidence_quote": "operated in data-dependent mode",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[dissociation method]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\"\n    ],\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to an Orbitrap Fusion Lumos (ThermoFisher Scientific)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"operated in data-dependent mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": [\n      \"NT=HCD;AC=MS:1000422\"\n    ],\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"acquiring IT HCD MS/MS scans\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"32 NCE\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"the HCD normalized collision energy was set at 32\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"3 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Parasites were grown in triplicate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": [
+            "NT=HCD;AC=MS:1000422"
+          ],
+          "accession": "MS:1000422",
+          "confidence": "high",
+          "evidence_quote": "acquiring IT HCD MS/MS scans",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[collision energy]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\"\n    ],\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to an Orbitrap Fusion Lumos (ThermoFisher Scientific)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"operated in data-dependent mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": [\n      \"NT=HCD;AC=MS:1000422\"\n    ],\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"acquiring IT HCD MS/MS scans\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"32 NCE\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"the HCD normalized collision energy was set at 32\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"3 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Parasites were grown in triplicate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "32 NCE",
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": "the HCD normalized collision energy was set at 32",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[dia method]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\"\n    ],\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to an Orbitrap Fusion Lumos (ThermoFisher Scientific)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"operated in data-dependent mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": [\n      \"NT=HCD;AC=MS:1000422\"\n    ],\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"acquiring IT HCD MS/MS scans\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"32 NCE\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"the HCD normalized collision energy was set at 32\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"3 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Parasites were grown in triplicate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[fragment mass tolerance]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\"\n    ],\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to an Orbitrap Fusion Lumos (ThermoFisher Scientific)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"operated in data-dependent mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": [\n      \"NT=HCD;AC=MS:1000422\"\n    ],\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"acquiring IT HCD MS/MS scans\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"32 NCE\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"the HCD normalized collision energy was set at 32\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"3 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Parasites were grown in triplicate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[precursor mass tolerance]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\"\n    ],\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to an Orbitrap Fusion Lumos (ThermoFisher Scientific)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"operated in data-dependent mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": [\n      \"NT=HCD;AC=MS:1000422\"\n    ],\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"acquiring IT HCD MS/MS scans\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"32 NCE\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"the HCD normalized collision energy was set at 32\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"3 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Parasites were grown in triplicate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[technical replicate]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\"\n    ],\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to an Orbitrap Fusion Lumos (ThermoFisher Scientific)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"operated in data-dependent mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": [\n      \"NT=HCD;AC=MS:1000422\"\n    ],\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"acquiring IT HCD MS/MS scans\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"32 NCE\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"the HCD normalized collision energy was set at 32\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"3 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Parasites were grown in triplicate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "3 technical replicates per sample",
+          "accession": "MS:1001808",
+          "confidence": "medium",
+          "evidence_quote": "Parasites were grown in triplicate",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[data file]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\"\n    ],\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to an Orbitrap Fusion Lumos (ThermoFisher Scientific)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"operated in data-dependent mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": [\n      \"NT=HCD;AC=MS:1000422\"\n    ],\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"acquiring IT HCD MS/MS scans\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"32 NCE\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"the HCD normalized collision energy was set at 32\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"3 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Parasites were grown in triplicate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "MS:1003083",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "characteristics[organism]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Plasmodium falciparum\",\n    \"accession\": \"NCBITaxon:5833\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"proximity labeling was used to first identify proteins in the close vicinity of the P. falciparum exported kinase FIKK4.1\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"purified parasites were lysed in 1% SDS in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"purified parasites were lysed in 1% SDS in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": \"NF54 wildtype parasites; FIKK4.1_TurboID parasites; FIKK4.1 conditional KO line\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"NF54 wildtype parasites, used as controls, and FIKK4.1_TurboID parasites\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": \"late schizont stage\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"allowed to reach late schizont stage (44hpi), then harvested\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"prepared for mass-spectrometry\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from file/sample naming pattern (not provided in provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem naming pattern (not provided in provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "Plasmodium falciparum",
+          "accession": "NCBITaxon:5833",
+          "confidence": "high",
+          "evidence_quote": "proximity labeling was used to first identify proteins in the close vicinity of the P. falciparum exported kinase FIKK4.1",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[organism part]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Plasmodium falciparum\",\n    \"accession\": \"NCBITaxon:5833\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"proximity labeling was used to first identify proteins in the close vicinity of the P. falciparum exported kinase FIKK4.1\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"purified parasites were lysed in 1% SDS in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"purified parasites were lysed in 1% SDS in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": \"NF54 wildtype parasites; FIKK4.1_TurboID parasites; FIKK4.1 conditional KO line\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"NF54 wildtype parasites, used as controls, and FIKK4.1_TurboID parasites\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": \"late schizont stage\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"allowed to reach late schizont stage (44hpi), then harvested\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"prepared for mass-spectrometry\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from file/sample naming pattern (not provided in provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem naming pattern (not provided in provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "whole cell lysate",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "purified parasites were lysed in 1% SDS in PBS",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[cell line]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Plasmodium falciparum\",\n    \"accession\": \"NCBITaxon:5833\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"proximity labeling was used to first identify proteins in the close vicinity of the P. falciparum exported kinase FIKK4.1\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"purified parasites were lysed in 1% SDS in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"purified parasites were lysed in 1% SDS in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": \"NF54 wildtype parasites; FIKK4.1_TurboID parasites; FIKK4.1 conditional KO line\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"NF54 wildtype parasites, used as controls, and FIKK4.1_TurboID parasites\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": \"late schizont stage\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"allowed to reach late schizont stage (44hpi), then harvested\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"prepared for mass-spectrometry\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from file/sample naming pattern (not provided in provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem naming pattern (not provided in provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[cell type]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Plasmodium falciparum\",\n    \"accession\": \"NCBITaxon:5833\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"proximity labeling was used to first identify proteins in the close vicinity of the P. falciparum exported kinase FIKK4.1\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"purified parasites were lysed in 1% SDS in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"purified parasites were lysed in 1% SDS in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": \"NF54 wildtype parasites; FIKK4.1_TurboID parasites; FIKK4.1 conditional KO line\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"NF54 wildtype parasites, used as controls, and FIKK4.1_TurboID parasites\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": \"late schizont stage\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"allowed to reach late schizont stage (44hpi), then harvested\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"prepared for mass-spectrometry\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from file/sample naming pattern (not provided in provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem naming pattern (not provided in provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[material type]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Plasmodium falciparum\",\n    \"accession\": \"NCBITaxon:5833\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"proximity labeling was used to first identify proteins in the close vicinity of the P. falciparum exported kinase FIKK4.1\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"purified parasites were lysed in 1% SDS in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"purified parasites were lysed in 1% SDS in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": \"NF54 wildtype parasites; FIKK4.1_TurboID parasites; FIKK4.1 conditional KO line\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"NF54 wildtype parasites, used as controls, and FIKK4.1_TurboID parasites\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": \"late schizont stage\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"allowed to reach late schizont stage (44hpi), then harvested\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"prepared for mass-spectrometry\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from file/sample naming pattern (not provided in provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem naming pattern (not provided in provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "whole cell lysate",
+          "accession": "PRIDE:0000837",
+          "confidence": "medium",
+          "evidence_quote": "purified parasites were lysed in 1% SDS in PBS",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[strain or breed]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Plasmodium falciparum\",\n    \"accession\": \"NCBITaxon:5833\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"proximity labeling was used to first identify proteins in the close vicinity of the P. falciparum exported kinase FIKK4.1\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"purified parasites were lysed in 1% SDS in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"purified parasites were lysed in 1% SDS in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": \"NF54 wildtype parasites; FIKK4.1_TurboID parasites; FIKK4.1 conditional KO line\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"NF54 wildtype parasites, used as controls, and FIKK4.1_TurboID parasites\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": \"late schizont stage\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"allowed to reach late schizont stage (44hpi), then harvested\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"prepared for mass-spectrometry\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from file/sample naming pattern (not provided in provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem naming pattern (not provided in provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "NF54 wildtype parasites; FIKK4.1_TurboID parasites; FIKK4.1 conditional KO line",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "NF54 wildtype parasites, used as controls, and FIKK4.1_TurboID parasites",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[developmental stage]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Plasmodium falciparum\",\n    \"accession\": \"NCBITaxon:5833\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"proximity labeling was used to first identify proteins in the close vicinity of the P. falciparum exported kinase FIKK4.1\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"purified parasites were lysed in 1% SDS in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"purified parasites were lysed in 1% SDS in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": \"NF54 wildtype parasites; FIKK4.1_TurboID parasites; FIKK4.1 conditional KO line\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"NF54 wildtype parasites, used as controls, and FIKK4.1_TurboID parasites\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": \"late schizont stage\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"allowed to reach late schizont stage (44hpi), then harvested\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"prepared for mass-spectrometry\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from file/sample naming pattern (not provided in provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem naming pattern (not provided in provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "late schizont stage",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "allowed to reach late schizont stage (44hpi), then harvested",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "technology type": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Plasmodium falciparum\",\n    \"accession\": \"NCBITaxon:5833\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"proximity labeling was used to first identify proteins in the close vicinity of the P. falciparum exported kinase FIKK4.1\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"purified parasites were lysed in 1% SDS in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"purified parasites were lysed in 1% SDS in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": \"NF54 wildtype parasites; FIKK4.1_TurboID parasites; FIKK4.1 conditional KO line\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"NF54 wildtype parasites, used as controls, and FIKK4.1_TurboID parasites\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": \"late schizont stage\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"allowed to reach late schizont stage (44hpi), then harvested\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"prepared for mass-spectrometry\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from file/sample naming pattern (not provided in provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem naming pattern (not provided in provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "proteomic profiling by mass spectrometry",
+          "accession": "PRIDE:0000663",
+          "confidence": "high",
+          "evidence_quote": "prepared for mass-spectrometry",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "source name": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Plasmodium falciparum\",\n    \"accession\": \"NCBITaxon:5833\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"proximity labeling was used to first identify proteins in the close vicinity of the P. falciparum exported kinase FIKK4.1\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"purified parasites were lysed in 1% SDS in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"purified parasites were lysed in 1% SDS in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": \"NF54 wildtype parasites; FIKK4.1_TurboID parasites; FIKK4.1 conditional KO line\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"NF54 wildtype parasites, used as controls, and FIKK4.1_TurboID parasites\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": \"late schizont stage\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"allowed to reach late schizont stage (44hpi), then harvested\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"prepared for mass-spectrometry\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from file/sample naming pattern (not provided in provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem naming pattern (not provided in provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "Auto-generated from file/sample naming pattern (not provided in provided text)",
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "assay name": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Plasmodium falciparum\",\n    \"accession\": \"NCBITaxon:5833\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"proximity labeling was used to first identify proteins in the close vicinity of the P. falciparum exported kinase FIKK4.1\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"purified parasites were lysed in 1% SDS in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"purified parasites were lysed in 1% SDS in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": \"NF54 wildtype parasites; FIKK4.1_TurboID parasites; FIKK4.1 conditional KO line\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"NF54 wildtype parasites, used as controls, and FIKK4.1_TurboID parasites\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": \"late schizont stage\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"allowed to reach late schizont stage (44hpi), then harvested\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"prepared for mass-spectrometry\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from file/sample naming pattern (not provided in provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem naming pattern (not provided in provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "Auto-generated from raw file stem naming pattern (not provided in provided text)",
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[sex]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"NF54 wildtype parasites, used as controls, and FIKK4.1_TurboID parasites\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Parasites/cell line-like biological material; donor sex not defined.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"3 biological replicates (triplicate cultures; each replicate cultured in blood from a different donor)\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Parasites were grown in triplicate in 200ml biotin-free complete medium and 2ml of blood ... with each replicate cultured in blood from a different donor.\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Actual replicate integers are assigned per-file automatically; this describes replication strategy.\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": \"NF54 wildtype; FIKK4.1_TurboID; FIKK4.1 conditional KO line (for KAHRP and PTP4 targets)\",\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"A conditional KO of the exported kinase FIKK4.1 was then generated for two identified targets, PTP4 and Kahrp in a FIKK4.1 conditional KO line.\",\n    \"evidence_location\": \"Abstract\",\n    \"instructions_note\": \"Genotype is described at construct/line level rather than a specific mutation string.\"\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Parasites were grown in triplicate ... with each replicate cultured in blood from a different donor.\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"No explicit pooling of replicates is stated.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "not applicable",
+          "accession": "PATO:0000047",
+          "confidence": "high",
+          "evidence_quote": "NF54 wildtype parasites, used as controls, and FIKK4.1_TurboID parasites",
+          "evidence_location": "Methods",
+          "instructions_note": "Parasites/cell line-like biological material; donor sex not defined."
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[age]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"NF54 wildtype parasites, used as controls, and FIKK4.1_TurboID parasites\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Parasites/cell line-like biological material; donor sex not defined.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"3 biological replicates (triplicate cultures; each replicate cultured in blood from a different donor)\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Parasites were grown in triplicate in 200ml biotin-free complete medium and 2ml of blood ... with each replicate cultured in blood from a different donor.\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Actual replicate integers are assigned per-file automatically; this describes replication strategy.\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": \"NF54 wildtype; FIKK4.1_TurboID; FIKK4.1 conditional KO line (for KAHRP and PTP4 targets)\",\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"A conditional KO of the exported kinase FIKK4.1 was then generated for two identified targets, PTP4 and Kahrp in a FIKK4.1 conditional KO line.\",\n    \"evidence_location\": \"Abstract\",\n    \"instructions_note\": \"Genotype is described at construct/line level rather than a specific mutation string.\"\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Parasites were grown in triplicate ... with each replicate cultured in blood from a different donor.\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"No explicit pooling of replicates is stated.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000246",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[ancestry category]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"NF54 wildtype parasites, used as controls, and FIKK4.1_TurboID parasites\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Parasites/cell line-like biological material; donor sex not defined.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"3 biological replicates (triplicate cultures; each replicate cultured in blood from a different donor)\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Parasites were grown in triplicate in 200ml biotin-free complete medium and 2ml of blood ... with each replicate cultured in blood from a different donor.\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Actual replicate integers are assigned per-file automatically; this describes replication strategy.\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": \"NF54 wildtype; FIKK4.1_TurboID; FIKK4.1 conditional KO line (for KAHRP and PTP4 targets)\",\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"A conditional KO of the exported kinase FIKK4.1 was then generated for two identified targets, PTP4 and Kahrp in a FIKK4.1 conditional KO line.\",\n    \"evidence_location\": \"Abstract\",\n    \"instructions_note\": \"Genotype is described at construct/line level rather than a specific mutation string.\"\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Parasites were grown in triplicate ... with each replicate cultured in blood from a different donor.\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"No explicit pooling of replicates is stated.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "HANCESTRO",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[biological replicate]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"NF54 wildtype parasites, used as controls, and FIKK4.1_TurboID parasites\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Parasites/cell line-like biological material; donor sex not defined.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"3 biological replicates (triplicate cultures; each replicate cultured in blood from a different donor)\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Parasites were grown in triplicate in 200ml biotin-free complete medium and 2ml of blood ... with each replicate cultured in blood from a different donor.\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Actual replicate integers are assigned per-file automatically; this describes replication strategy.\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": \"NF54 wildtype; FIKK4.1_TurboID; FIKK4.1 conditional KO line (for KAHRP and PTP4 targets)\",\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"A conditional KO of the exported kinase FIKK4.1 was then generated for two identified targets, PTP4 and Kahrp in a FIKK4.1 conditional KO line.\",\n    \"evidence_location\": \"Abstract\",\n    \"instructions_note\": \"Genotype is described at construct/line level rather than a specific mutation string.\"\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Parasites were grown in triplicate ... with each replicate cultured in blood from a different donor.\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"No explicit pooling of replicates is stated.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "3 biological replicates (triplicate cultures; each replicate cultured in blood from a different donor)",
+          "accession": "MS:1001809",
+          "confidence": "high",
+          "evidence_quote": "Parasites were grown in triplicate in 200ml biotin-free complete medium and 2ml of blood ... with each replicate cultured in blood from a different donor.",
+          "evidence_location": "Methods",
+          "instructions_note": "Actual replicate integers are assigned per-file automatically; this describes replication strategy."
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[genotype]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"NF54 wildtype parasites, used as controls, and FIKK4.1_TurboID parasites\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Parasites/cell line-like biological material; donor sex not defined.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"3 biological replicates (triplicate cultures; each replicate cultured in blood from a different donor)\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Parasites were grown in triplicate in 200ml biotin-free complete medium and 2ml of blood ... with each replicate cultured in blood from a different donor.\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Actual replicate integers are assigned per-file automatically; this describes replication strategy.\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": \"NF54 wildtype; FIKK4.1_TurboID; FIKK4.1 conditional KO line (for KAHRP and PTP4 targets)\",\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"A conditional KO of the exported kinase FIKK4.1 was then generated for two identified targets, PTP4 and Kahrp in a FIKK4.1 conditional KO line.\",\n    \"evidence_location\": \"Abstract\",\n    \"instructions_note\": \"Genotype is described at construct/line level rather than a specific mutation string.\"\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Parasites were grown in triplicate ... with each replicate cultured in blood from a different donor.\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"No explicit pooling of replicates is stated.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "NF54 wildtype; FIKK4.1_TurboID; FIKK4.1 conditional KO line (for KAHRP and PTP4 targets)",
+          "accession": "EFO:0000513",
+          "confidence": "medium",
+          "evidence_quote": "A conditional KO of the exported kinase FIKK4.1 was then generated for two identified targets, PTP4 and Kahrp in a FIKK4.1 conditional KO line.",
+          "evidence_location": "Abstract",
+          "instructions_note": "Genotype is described at construct/line level rather than a specific mutation string."
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[pooled sample]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"NF54 wildtype parasites, used as controls, and FIKK4.1_TurboID parasites\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Parasites/cell line-like biological material; donor sex not defined.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"3 biological replicates (triplicate cultures; each replicate cultured in blood from a different donor)\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Parasites were grown in triplicate in 200ml biotin-free complete medium and 2ml of blood ... with each replicate cultured in blood from a different donor.\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Actual replicate integers are assigned per-file automatically; this describes replication strategy.\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": \"NF54 wildtype; FIKK4.1_TurboID; FIKK4.1 conditional KO line (for KAHRP and PTP4 targets)\",\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"A conditional KO of the exported kinase FIKK4.1 was then generated for two identified targets, PTP4 and Kahrp in a FIKK4.1 conditional KO line.\",\n    \"evidence_location\": \"Abstract\",\n    \"instructions_note\": \"Genotype is described at construct/line level rather than a specific mutation string.\"\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Parasites were grown in triplicate ... with each replicate cultured in blood from a different donor.\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"No explicit pooling of replicates is stated.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "not pooled",
+          "accession": "NCIT:C165587",
+          "confidence": "medium",
+          "evidence_quote": "Parasites were grown in triplicate ... with each replicate cultured in blood from a different donor.",
+          "evidence_location": "Methods",
+          "instructions_note": "No explicit pooling of replicates is stated."
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[phosphate]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"NF54 wildtype parasites, used as controls, and FIKK4.1_TurboID parasites\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Parasites/cell line-like biological material; donor sex not defined.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"3 biological replicates (triplicate cultures; each replicate cultured in blood from a different donor)\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Parasites were grown in triplicate in 200ml biotin-free complete medium and 2ml of blood ... with each replicate cultured in blood from a different donor.\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Actual replicate integers are assigned per-file automatically; this describes replication strategy.\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": \"NF54 wildtype; FIKK4.1_TurboID; FIKK4.1 conditional KO line (for KAHRP and PTP4 targets)\",\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"A conditional KO of the exported kinase FIKK4.1 was then generated for two identified targets, PTP4 and Kahrp in a FIKK4.1 conditional KO line.\",\n    \"evidence_location\": \"Abstract\",\n    \"instructions_note\": \"Genotype is described at construct/line level rather than a specific mutation string.\"\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Parasites were grown in triplicate ... with each replicate cultured in blood from a different donor.\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"No explicit pooling of replicates is stated.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000805",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[temperature]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"NF54 wildtype parasites, used as controls, and FIKK4.1_TurboID parasites\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Parasites/cell line-like biological material; donor sex not defined.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"3 biological replicates (triplicate cultures; each replicate cultured in blood from a different donor)\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Parasites were grown in triplicate in 200ml biotin-free complete medium and 2ml of blood ... with each replicate cultured in blood from a different donor.\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Actual replicate integers are assigned per-file automatically; this describes replication strategy.\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": \"NF54 wildtype; FIKK4.1_TurboID; FIKK4.1 conditional KO line (for KAHRP and PTP4 targets)\",\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"A conditional KO of the exported kinase FIKK4.1 was then generated for two identified targets, PTP4 and Kahrp in a FIKK4.1 conditional KO line.\",\n    \"evidence_location\": \"Abstract\",\n    \"instructions_note\": \"Genotype is described at construct/line level rather than a specific mutation string.\"\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Parasites were grown in triplicate ... with each replicate cultured in blood from a different donor.\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"No explicit pooling of replicates is stated.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000703",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "comment[cleavage agent details]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Samples were trypsinized\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"biotin pulses were performed ... adding 100µM D-biotin\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": \"UNIMOD:21\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Samples were trypsinized and prepared for mass-spectrometry using established methods.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation (Evotips/Evosep LC separation only; no peptide fractionation scheme described)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Samples were loaded onto Evotips ... loaded onto an Evosep One system\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": [
+            "NT=Trypsin;AC=MS:1001251"
+          ],
+          "accession": "MS:1001251",
+          "confidence": "high",
+          "evidence_quote": "Samples were trypsinized",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[label]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Samples were trypsinized\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"biotin pulses were performed ... adding 100µM D-biotin\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": \"UNIMOD:21\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Samples were trypsinized and prepared for mass-spectrometry using established methods.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation (Evotips/Evosep LC separation only; no peptide fractionation scheme described)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Samples were loaded onto Evotips ... loaded onto an Evosep One system\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "NT=label free sample;AC=MS:1002038",
+          "accession": "MS:1002038",
+          "confidence": "high",
+          "evidence_quote": "biotin pulses were performed ... adding 100µM D-biotin",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[alkylation reagent]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Samples were trypsinized\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"biotin pulses were performed ... adding 100µM D-biotin\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": \"UNIMOD:21\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Samples were trypsinized and prepared for mass-spectrometry using established methods.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation (Evotips/Evosep LC separation only; no peptide fractionation scheme described)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Samples were loaded onto Evotips ... loaded onto an Evosep One system\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[fractionation method]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Samples were trypsinized\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"biotin pulses were performed ... adding 100µM D-biotin\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": \"UNIMOD:21\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Samples were trypsinized and prepared for mass-spectrometry using established methods.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation (Evotips/Evosep LC separation only; no peptide fractionation scheme described)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Samples were loaded onto Evotips ... loaded onto an Evosep One system\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[modification parameters]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Samples were trypsinized\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"biotin pulses were performed ... adding 100µM D-biotin\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": \"UNIMOD:21\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Samples were trypsinized and prepared for mass-spectrometry using established methods.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation (Evotips/Evosep LC separation only; no peptide fractionation scheme described)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Samples were loaded onto Evotips ... loaded onto an Evosep One system\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": [
+            "NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable"
+          ],
+          "accession": "UNIMOD:21",
+          "confidence": "medium",
+          "evidence_quote": "Samples were trypsinized and prepared for mass-spectrometry using established methods.",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[fraction identifier]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Samples were trypsinized\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"biotin pulses were performed ... adding 100µM D-biotin\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": \"UNIMOD:21\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Samples were trypsinized and prepared for mass-spectrometry using established methods.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation (Evotips/Evosep LC separation only; no peptide fractionation scheme described)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Samples were loaded onto Evotips ... loaded onto an Evosep One system\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "no fractionation (Evotips/Evosep LC separation only; no peptide fractionation scheme described)",
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": "Samples were loaded onto Evotips ... loaded onto an Evosep One system",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "characteristics[crosslinking reaction time]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000838\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000949",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "characteristics[crosslinking temperature]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000838\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000950",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "comment[crosslink enrichment method]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000838\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000838",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "characteristics[enrichment process]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000838\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0009090",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "comment[crosslinker concentration]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": null,\n    \"NT\": null,\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"proximity labeling was used to first identify proteins in the close vicinity\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000951",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[crosslinker to protein ratio]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": null,\n    \"NT\": null,\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"proximity labeling was used to first identify proteins in the close vicinity\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000952",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[quenching reagent]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": null,\n    \"NT\": null,\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"proximity labeling was used to first identify proteins in the close vicinity\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000953",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "characteristics[crosslink distance]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": null,\n    \"NT\": null,\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"proximity labeling was used to first identify proteins in the close vicinity\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000948",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[chemical cross-linking coupled with ms]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": null,\n    \"NT\": null,\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"proximity labeling was used to first identify proteins in the close vicinity\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "cross-linking mass spectrometry",
+          "accession": "PRIDE:0000430",
+          "confidence": "medium",
+          "evidence_quote": "proximity labeling was used to first identify proteins in the close vicinity",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      }
+    }
+  }
+}

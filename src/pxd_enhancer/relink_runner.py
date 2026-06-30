@@ -103,18 +103,23 @@ class ReLinkRunner:
             taxid_dir = relink_dir / f"taxid_{taxid}"
             taxid_dir.mkdir(parents=True, exist_ok=True)
 
-            samplesheet_path = taxid_dir / "samplesheet.csv"
-            self.write_samplesheet(
-                samplesheet_path=samplesheet_path,
+            # ReLink now expects an SDRF input plus a global FASTA argument.
+            # For resumed local runs, restrict the SDRF to rows that map to
+            # locally available RAW files.
+            sdrf_for_taxid = taxid_dir / f"{pxd}.sdrf.tsv"
+            self.write_filtered_sdrf(
+                source_sdrf=sdrf_path,
+                output_sdrf=sdrf_for_taxid,
                 raw_paths=raw_paths,
-                fasta_path=fasta_path,
-                xi_linear_config=xi_linear_config,
-                xi_crosslink_config=xi_crosslink_config,
             )
 
             outdir = taxid_dir / "results"
             run_result = self.run_nextflow(
-                input_csv=samplesheet_path,
+                input_sdrf=sdrf_for_taxid,
+                fasta_path=fasta_path,
+                raw_root_dir=Path(raw_paths[0]).resolve().parent,
+                xi_linear_config=xi_linear_config,
+                xi_crosslink_config=xi_crosslink_config,
                 outdir=outdir,
                 profile=profile,
                 resume=resume,
@@ -136,7 +141,7 @@ class ReLinkRunner:
                 all_results[taxid] = {
                     "status": "success",
                     "fasta_path": str(fasta_path),
-                    "samplesheet": str(samplesheet_path),
+                    "sdrf": str(sdrf_for_taxid),
                     "outdir": str(outdir),
                     "nextflow": run_result,
                 }
@@ -302,10 +307,14 @@ class ReLinkRunner:
             logger.info("Using cached FASTA for taxid %s: %s", taxid, fasta_path)
             return fasta_path
 
+        # Use reviewed:true (SwissProt only) to keep the FASTA small enough for
+        # XiSearch to load into memory.  The full TrEMBL proteome for taxid 9606
+        # is ~107 MB / ~94M peptides and causes XiSearch to OOM during fragment
+        # tree construction.  SwissProt-only is ~15 MB and processes reliably.
         params = {
             "compressed": "false",
             "format": "fasta",
-            "query": f"taxonomy_id:{taxid}",
+            "query": f"taxonomy_id:{taxid} AND reviewed:true",
         }
 
         max_retries = 3
@@ -378,48 +387,78 @@ class ReLinkRunner:
                     f"Failed to download FASTA for taxid {taxid}: {e}"
                 ) from e
 
-        text = resp.text
-        if not text.strip().startswith(">"):
-            raise RuntimeError(
-                f"No FASTA entries returned for taxid {taxid} (UniProt query)."
-            )
+        # Stream response to disk in chunks to avoid loading large proteomes into RAM.
+        # Use a temp file so an incomplete download never leaves a corrupt FASTA behind.
+        tmp_path = fasta_path.with_suffix(".fasta.tmp")
+        bytes_written = 0
+        first_chunk_checked = False
+        chunk_size = 1 << 20  # 1 MiB
+        logger.info("Streaming FASTA for taxid %s to %s ...", taxid, fasta_path)
+        try:
+            with open(tmp_path, "wb") as fh:
+                for chunk in resp.iter_content(chunk_size=chunk_size):
+                    if not chunk:
+                        continue
+                    if not first_chunk_checked:
+                        # Validate that the response looks like FASTA
+                        first_chars = chunk.lstrip()
+                        if not first_chars.startswith(b">"):
+                            tmp_path.unlink(missing_ok=True)
+                            raise RuntimeError(
+                                f"No FASTA entries returned for taxid {taxid} (UniProt query)."
+                            )
+                        first_chunk_checked = True
+                    fh.write(chunk)
+                    bytes_written += len(chunk)
+            if not first_chunk_checked:
+                tmp_path.unlink(missing_ok=True)
+                raise RuntimeError(
+                    f"No FASTA entries returned for taxid {taxid} (UniProt query)."
+                )
+            tmp_path.rename(fasta_path)
+        except Exception:
+            tmp_path.unlink(missing_ok=True)
+            raise
 
-        with open(fasta_path, "w", encoding="utf-8") as fh:
-            fh.write(text)
-
-        logger.debug("FASTA for taxid %s saved: %s (%d bytes)", taxid, fasta_path, fasta_path.stat().st_size)
+        logger.info("FASTA for taxid %s saved: %s (%.1f MB)", taxid, fasta_path, bytes_written / (1 << 20))
         return fasta_path
 
-    def write_samplesheet(
-        self,
-        samplesheet_path: Path,
-        raw_paths: Sequence[Path],
-        fasta_path: Path,
-        xi_linear_config: Path,
-        xi_crosslink_config: Path,
-    ) -> None:
-        """Write ReLink samplesheet CSV."""
-        samplesheet_path.parent.mkdir(parents=True, exist_ok=True)
+    # Path to the custom Nextflow config that fixes Singularity container pulls.
+    # Relative to the repo root (two levels above tools/relink).
+    _SINGULARITY_DOCKER_PULL_CONFIG = (
+        Path(__file__).parent.parent.parent
+        / "assets"
+        / "nextflow_singularity_docker_pull.config"
+    )
 
-        with open(samplesheet_path, "w", encoding="utf-8", newline="") as fh:
-            writer = csv.writer(fh)
-            writer.writerow(
-                ["sample", "file", "fasta", "xi_linear_config", "xi_crosslink_config"]
-            )
-            for raw_path in raw_paths:
-                writer.writerow(
-                    [
-                        raw_path.stem,
-                        str(raw_path.resolve()),
-                        str(fasta_path.resolve()),
-                        str(xi_linear_config.resolve()),
-                        str(xi_crosslink_config.resolve()),
-                    ]
-                )
+    def _clean_nextflow_state(self) -> None:
+        """Remove stale Nextflow session files from the ReLink submodule directory.
+
+        Nextflow writes .nextflow/, .nextflow.log*, and .nextflow.pid into the
+        directory where `nextflow run .` is executed (tools/relink/).  These
+        accumulate across runs and can cause -resume to pick up stale cached
+        task hashes from previous PXD runs or different pipeline versions.
+        The actual task cache lives in the external NXF_WORK directory and is
+        not affected by this cleanup.
+        """
+        import shutil
+
+        nf_dir = self.relink_dir / ".nextflow"
+        if nf_dir.exists():
+            shutil.rmtree(nf_dir)
+            logger.info("Cleaned stale Nextflow session state: %s", nf_dir)
+
+        for log_file in self.relink_dir.glob(".nextflow.log*"):
+            log_file.unlink()
+            logger.debug("Removed stale Nextflow log: %s", log_file)
 
     def run_nextflow(
         self,
-        input_csv: Path,
+        input_sdrf: Path,
+        fasta_path: Path,
+        raw_root_dir: Path,
+        xi_linear_config: Path,
+        xi_crosslink_config: Path,
         outdir: Path,
         profile: str,
         resume: bool,
@@ -428,14 +467,49 @@ class ReLinkRunner:
         """Run local ReLink checkout via nextflow run ."""
         outdir.mkdir(parents=True, exist_ok=True)
 
+        # Clean up stale Nextflow session state from previous runs inside the
+        # submodule directory.  These accumulate across runs and can cause
+        # -resume to pick up wrong cached task hashes or leave zombie sessions.
+        # The actual task cache lives in the external work-dir and is preserved.
+        self._clean_nextflow_state()
+
         cmd: List[str] = [
             "nextflow",
             "run",
             ".",
             "-profile",
             profile,
+        ]
+
+        # When using Singularity, inject a custom config that forces Nextflow to
+        # pull containers via docker:// rather than oras://.  The oras:// images
+        # at ghcr.io/bigbio/relink-sif are plain Docker manifests and cannot be
+        # fetched by Singularity's OCI/ORAS client.
+        if "singularity" in profile.lower():
+            sif_config = self._SINGULARITY_DOCKER_PULL_CONFIG
+            if sif_config.exists():
+                cmd += ["-c", str(sif_config)]
+                logger.debug("Injecting Singularity docker-pull config: %s", sif_config)
+            else:
+                logger.warning(
+                    "Singularity docker-pull config not found at %s; "
+                    "container pull may fail with oras:// errors.",
+                    sif_config,
+                )
+
+        cmd += [
+            "--search_engine",
+            "xisearch",
             "--input",
-            str(input_csv.resolve()),
+            str(input_sdrf.resolve()),
+            "--fasta",
+            str(fasta_path.resolve()),
+            "--root_folder",
+            str(raw_root_dir.resolve()),
+            "--xi_linear_config",
+            str(xi_linear_config.resolve()),
+            "--xi_crosslink_config",
+            str(xi_crosslink_config.resolve()),
             "--outdir",
             str(outdir.resolve()),
         ]
@@ -450,13 +524,71 @@ class ReLinkRunner:
             cmd,
             cwd=str(self.relink_dir),
             stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
+            stderr=subprocess.STDOUT,  # merge stderr into stdout
             text=True,
         )
+
+        if proc.returncode != 0:
+            logger.error("Nextflow stdout/stderr:\n%s", (proc.stdout or "")[-4000:])
 
         return {
             "returncode": proc.returncode,
             "command": cmd,
             "stdout_tail": (proc.stdout or "")[-2000:],
-            "stderr_tail": (proc.stderr or "")[-2000:],
+            "stderr_tail": "",
         }
+
+    def write_filtered_sdrf(
+        self,
+        source_sdrf: Path,
+        output_sdrf: Path,
+        raw_paths: Sequence[Path],
+    ) -> None:
+        """Write an SDRF containing only rows that match local RAW files."""
+        output_sdrf.parent.mkdir(parents=True, exist_ok=True)
+
+        raw_names = {p.name for p in raw_paths}
+        if not raw_names:
+            raise ValueError("No RAW files provided to filter SDRF")
+
+        kept_rows: List[List[str]] = []
+        with open(source_sdrf, "r", encoding="utf-8", newline="") as in_fh:
+            reader = csv.reader(in_fh, delimiter="\t")
+            header = next(reader, None)
+            if not header:
+                raise ValueError(f"Empty SDRF file: {source_sdrf}")
+
+            for row in reader:
+                keep = False
+                for value in row:
+                    cell = str(value).strip()
+                    if not cell:
+                        continue
+                    if cell in raw_names:
+                        keep = True
+                        break
+                    # Handle URI/path cells by comparing basename.
+                    basename = cell.split("/")[-1].split("?")[0]
+                    if basename in raw_names:
+                        keep = True
+                        break
+                if keep:
+                    kept_rows.append(row)
+
+        if not kept_rows:
+            raise ValueError(
+                "Filtered SDRF has no rows matching local RAW files. "
+                f"Source: {source_sdrf}"
+            )
+
+        with open(output_sdrf, "w", encoding="utf-8", newline="") as out_fh:
+            writer = csv.writer(out_fh, delimiter="\t")
+            writer.writerow(header)
+            writer.writerows(kept_rows)
+
+        logger.info(
+            "Wrote filtered SDRF: %s (%d rows from %d local RAW files)",
+            output_sdrf,
+            len(kept_rows),
+            len(raw_names),
+        )

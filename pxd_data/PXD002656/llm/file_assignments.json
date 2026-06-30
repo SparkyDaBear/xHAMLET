@@ -1,0 +1,116 @@
+{
+  "metadata": {
+    "pxd": "PXD002656",
+    "category": "llm",
+    "saved_at": "2026-06-30T14:53:14.276245",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"yeast_dtt_uv_crosslinking_u4\",\n      \"description\": \"Saccharomyces cerevisiae native RNPs crosslinked using DTT (UV-inducible DTT crosslinker) in the U4 snRNA model system.\",\n      \"organism\": \"Saccharomyces cerevisiae\",\n      \"taxid\": \"NCBITaxon:4932\",\n      \"crosslinker\": \"DTT\",\n      \"biological_condition\": \"native ribonucleoprotein complexes (RNPs) with U4 snRNA; UV-induced DTT crosslinking\",\n      \"files\": [\n        \"XL_U4_Ex1_C13ATP.raw\",\n        \"XL_U4_Ex1_C13CTP.raw\",\n        \"XL_U4_Ex1_C13GTP.raw\",\n        \"XL_U4_Ex1_C13UTP.raw\",\n        \"XL_U4_Ex1_naturalrNTP.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"c) native ribonucleoprotein-complexes (RNPs) from S. cerevisiae were used .\",\n      \"reasoning\": \"All five files share the U4 model-system prefix (XL_U4_Ex1_*) and are grouped as the same experimental setup. The publication specifies DTT as the UV-inducible crosslinker for protein-RNA crosslinks in the yeast RNP system; however, the filenames do not explicitly state DTT, so crosslinker assignment is inferred from the paper title/abstract.\"\n    },\n    {\n      \"cluster_id\": \"cluster_2\",\n      \"cluster_label\": \"peptide_dtt_uv_crosslinking\",\n      \"description\": \"Synthetic peptide model system crosslinked using DTT (UV-inducible DTT crosslinker) with reduction present (DTT-related conditions).\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": \"DTT\",\n      \"biological_condition\": \"synthetic peptide from smB'/B protein incubated with U1snRNA; UV-induced DTT crosslinking (DTT present)\",\n      \"files\": [\n        \"XL_peptide_Ex2_withDTT1.raw\",\n        \"XL_peptide_Ex2_withDTT2.raw\",\n        \"XL_peptide_Ex2_withdDTT.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"a) a small synthetic peptide from smB'/B protein incubated with U1snRNA oligonucleotide\",\n      \"reasoning\": \"Filenames explicitly indicate DTT presence (withDTT variants) and peptide model system (XL_peptide_Ex2_*). The publication ties DTT to UV-inducible protein-RNA crosslinking. The source organism for the smB'/B protein is not explicitly stated in the provided text, but the dataset metadata includes Homo sapiens, so this cluster is assigned to Homo sapiens with medium confidence.\"\n    },\n    {\n      \"cluster_id\": \"cluster_3\",\n      \"cluster_label\": \"peptide_tcep_uv_crosslinking\",\n      \"description\": \"Synthetic peptide model system crosslinked using TCEP (reduction control) with U1snRNA.\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": \"TCEP\",\n      \"biological_condition\": \"synthetic peptide from smB'/B protein incubated with U1snRNA; UV-induced crosslinking with TCEP (no DTT)\",\n      \"files\": [\n        \"XL_peptide_Ex2_withoutDTT.raw\"\n      ],\n      \"confidence\": \"low\",\n      \"evidence_quote\": \"XL_peptide_Ex2_withoutDTT.raw\",\n      \"reasoning\": \"The filename indicates 'withoutDTT', but it does not explicitly state TCEP. The publication title/abstract focus on DTT as the crosslinker; TCEP appears in the yeast section filenames (XL_yeast_Ex3_TCEP.raw), suggesting a reduction control. Because the peptide file does not specify TCEP, crosslinker assignment is uncertain.\"\n    },\n    {\n      \"cluster_id\": \"cluster_4\",\n      \"cluster_label\": \"yeast_tcep_uv_crosslinking\",\n      \"description\": \"Saccharomyces cerevisiae native RNPs crosslinked using TCEP (reduction control) in the yeast model system.\",\n      \"organism\": \"Saccharomyces cerevisiae\",\n      \"taxid\": \"NCBITaxon:4932\",\n      \"crosslinker\": \"TCEP\",\n      \"biological_condition\": \"native ribonucleoprotein complexes (RNPs); UV-induced crosslinking with TCEP control\",\n      \"files\": [\n        \"XL_yeast_Ex3_TCEP.raw\"\n      ],\n      \"confidence\": \"high\",\n      \"evidence_quote\": \"XL_yeast_Ex3_TCEP.raw\",\n      \"reasoning\": \"The filename explicitly contains TCEP and yeast model system (XL_yeast_Ex3_*). The publication states yeast RNPs were used, and TCEP is treated as the crosslinker/reduction condition for this control.\"\n    },\n    {\n      \"cluster_id\": \"cluster_5\",\n      \"cluster_label\": \"yeast_dtt_uv_crosslinking\",\n      \"description\": \"Saccharomyces cerevisiae native RNPs crosslinked using DTT (UV-inducible DTT crosslinker) in the yeast model system.\",\n      \"organism\": \"Saccharomyces cerevisiae\",\n      \"taxid\": \"NCBITaxon:4932\",\n      \"crosslinker\": \"DTT\",\n      \"biological_condition\": \"native ribonucleoprotein complexes (RNPs); UV-induced DTT crosslinking\",\n      \"files\": [\n        \"XL_yeast_Ex3_DTT.raw\"\n      ],\n      \"confidence\": \"high\",\n      \"evidence_quote\": \"XL_yeast_Ex3_DTT.raw\",\n      \"reasoning\": \"The filename explicitly contains DTT and yeast model system (XL_yeast_Ex3_*). The publication title/abstract identify DTT as the UV-inducible crosslinker for protein-RNA crosslinks in yeast RNPs.\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a biological XL-MS condition.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"No files were left unassigned.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 10,\n    \"n_assigned_files\": 10,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 5,\n    \"overall_confidence\": \"medium\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "yeast_dtt_uv_crosslinking_u4",
+          "description": "Saccharomyces cerevisiae native RNPs crosslinked using DTT (UV-inducible DTT crosslinker) in the U4 snRNA model system.",
+          "organism": "Saccharomyces cerevisiae",
+          "taxid": "NCBITaxon:4932",
+          "crosslinker": "DTT",
+          "biological_condition": "native ribonucleoprotein complexes (RNPs) with U4 snRNA; UV-induced DTT crosslinking",
+          "files": [
+            "XL_U4_Ex1_C13ATP.raw",
+            "XL_U4_Ex1_C13CTP.raw",
+            "XL_U4_Ex1_C13GTP.raw",
+            "XL_U4_Ex1_C13UTP.raw",
+            "XL_U4_Ex1_naturalrNTP.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "c) native ribonucleoprotein-complexes (RNPs) from S. cerevisiae were used .",
+          "reasoning": "All five files share the U4 model-system prefix (XL_U4_Ex1_*) and are grouped as the same experimental setup. The publication specifies DTT as the UV-inducible crosslinker for protein-RNA crosslinks in the yeast RNP system; however, the filenames do not explicitly state DTT, so crosslinker assignment is inferred from the paper title/abstract."
+        },
+        {
+          "cluster_id": "cluster_2",
+          "cluster_label": "peptide_dtt_uv_crosslinking",
+          "description": "Synthetic peptide model system crosslinked using DTT (UV-inducible DTT crosslinker) with reduction present (DTT-related conditions).",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": "DTT",
+          "biological_condition": "synthetic peptide from smB'/B protein incubated with U1snRNA; UV-induced DTT crosslinking (DTT present)",
+          "files": [
+            "XL_peptide_Ex2_withDTT1.raw",
+            "XL_peptide_Ex2_withDTT2.raw",
+            "XL_peptide_Ex2_withdDTT.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "a) a small synthetic peptide from smB'/B protein incubated with U1snRNA oligonucleotide",
+          "reasoning": "Filenames explicitly indicate DTT presence (withDTT variants) and peptide model system (XL_peptide_Ex2_*). The publication ties DTT to UV-inducible protein-RNA crosslinking. The source organism for the smB'/B protein is not explicitly stated in the provided text, but the dataset metadata includes Homo sapiens, so this cluster is assigned to Homo sapiens with medium confidence."
+        },
+        {
+          "cluster_id": "cluster_3",
+          "cluster_label": "peptide_tcep_uv_crosslinking",
+          "description": "Synthetic peptide model system crosslinked using TCEP (reduction control) with U1snRNA.",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": "TCEP",
+          "biological_condition": "synthetic peptide from smB'/B protein incubated with U1snRNA; UV-induced crosslinking with TCEP (no DTT)",
+          "files": [
+            "XL_peptide_Ex2_withoutDTT.raw"
+          ],
+          "confidence": "low",
+          "evidence_quote": "XL_peptide_Ex2_withoutDTT.raw",
+          "reasoning": "The filename indicates 'withoutDTT', but it does not explicitly state TCEP. The publication title/abstract focus on DTT as the crosslinker; TCEP appears in the yeast section filenames (XL_yeast_Ex3_TCEP.raw), suggesting a reduction control. Because the peptide file does not specify TCEP, crosslinker assignment is uncertain."
+        },
+        {
+          "cluster_id": "cluster_4",
+          "cluster_label": "yeast_tcep_uv_crosslinking",
+          "description": "Saccharomyces cerevisiae native RNPs crosslinked using TCEP (reduction control) in the yeast model system.",
+          "organism": "Saccharomyces cerevisiae",
+          "taxid": "NCBITaxon:4932",
+          "crosslinker": "TCEP",
+          "biological_condition": "native ribonucleoprotein complexes (RNPs); UV-induced crosslinking with TCEP control",
+          "files": [
+            "XL_yeast_Ex3_TCEP.raw"
+          ],
+          "confidence": "high",
+          "evidence_quote": "XL_yeast_Ex3_TCEP.raw",
+          "reasoning": "The filename explicitly contains TCEP and yeast model system (XL_yeast_Ex3_*). The publication states yeast RNPs were used, and TCEP is treated as the crosslinker/reduction condition for this control."
+        },
+        {
+          "cluster_id": "cluster_5",
+          "cluster_label": "yeast_dtt_uv_crosslinking",
+          "description": "Saccharomyces cerevisiae native RNPs crosslinked using DTT (UV-inducible DTT crosslinker) in the yeast model system.",
+          "organism": "Saccharomyces cerevisiae",
+          "taxid": "NCBITaxon:4932",
+          "crosslinker": "DTT",
+          "biological_condition": "native ribonucleoprotein complexes (RNPs); UV-induced DTT crosslinking",
+          "files": [
+            "XL_yeast_Ex3_DTT.raw"
+          ],
+          "confidence": "high",
+          "evidence_quote": "XL_yeast_Ex3_DTT.raw",
+          "reasoning": "The filename explicitly contains DTT and yeast model system (XL_yeast_Ex3_*). The publication title/abstract identify DTT as the UV-inducible crosslinker for protein-RNA crosslinks in yeast RNPs."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a biological XL-MS condition.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "No files were left unassigned."
+        }
+      ],
+      "summary": {
+        "n_input_files": 10,
+        "n_assigned_files": 10,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 5,
+        "overall_confidence": "medium"
+      }
+    }
+  }
+}

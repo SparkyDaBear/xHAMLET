@@ -1,0 +1,1728 @@
+{
+  "metadata": {
+    "pxd": "PXD027234",
+    "category": "enhanced",
+    "saved_at": "2026-06-30T15:19:45.299907",
+    "filename": "metadata"
+  },
+  "data": {
+    "pxd": "PXD027234",
+    "processed_at": "2026-06-30T15:19:04.158585",
+    "stages": {
+      "pride": "success",
+      "publication": "failed",
+      "file_clustering": "failed",
+      "raw_processing": "skipped_no_download",
+      "spectral_merge": "success",
+      "llm": "success",
+      "sdrf": "success",
+      "sdrf_validation": "success_with_warnings",
+      "xi_configs": "success",
+      "relink": "skipped",
+      "compilation": "success"
+    },
+    "spectral_summary": {
+      "source_files_parsed": 0,
+      "per_file": [],
+      "instrument": "timsTOF Pro"
+    },
+    "sdrf_path": "pxd_data/PXD027234/sdrf/PXD027234.sdrf.tsv",
+    "sdrf_validation_warnings": "Traceback (most recent call last):\n  File \"/home/ians/git_repos/xHAMLET/.venv/bin/parse_sdrf\", line 6, in <module>\n    sys.exit(main())\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/sdrf_pipelines/parse_sdrf.py\", line 770, in main\n    cli()\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/click/core.py\", line 1524, in __call__\n    return self.main(*args, **kwargs)\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/click/core.py\", line 1445, in main\n    rv = self.invoke(ctx)\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/click/core.py\", line 1912, in invoke\n    return _process_result(sub_ctx.command.invoke(sub_ctx))\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/click/core.py\", line 1308, in invoke\n    return ctx.invoke(self.callback, **ctx.params)\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/click/core.py\", line 877, in invoke\n    return callback(*args, **kwargs)\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/click/decorators.py\", line 34, in new_func\n    return f(get_current_context(), *args, **kwargs)\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/sdrf_pipelines/parse_sdrf.py\", line 266, in validate_sdrf\n    sdrf_df = read_sdrf(sdrf_file)\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/sdrf_pipelines/sdrf/sdrf.py\", line 325, in read_sdrf\n    raise ValueError(\"No valid data found in the file\")\nValueError: No valid data found in the file",
+    "xi_config_paths": {
+      "crosslinking": "pxd_data/PXD027234/configs/xi_crosslinking.conf",
+      "linear": "pxd_data/PXD027234/configs/xi_linear.conf"
+    },
+    "pride_data": {
+      "accession": "PXD027234",
+      "title": "Cross-linking/Mass Spectrometry Combined with Ion Mobility on a timsTOF Pro Instrument for Structural Proteomics",
+      "additionalAttributes": [],
+      "projectDescription": "The combination of cross-linking/mass spectrometry (XL-MS) and ion mobility is still underexplored for conducting protein conformational and protein-protein interaction studies. We present a method for analyzing cross-linking mixtures on a timsTOF Pro mass spectrometer that allows separating ions based on their gas phase mobilities. Cross-linking was performed with three urea-based MS-cleavable cross-linkers that deliver distinct fragmentation patterns for cross-linked species upon collisional activation. The discrimination of cross-linked species from non-cross-linked peptides was readily performed based on their collisional cross sections. We demonstrate the general feasibility of our combined XL-MS/ion mobility approach for three protein systems of increasing complexity: (i) Bovine serum albumin, (ii) E. coli ribosome, and (iii) HEK293T cell nuclear extracts. We identified a total of 623 unique cross-linking sites for BSA, 670 for the E. coli ribosome, and 1,617 unique cross-links for nuclear extracts, corresponding to 1,088 intra- and 529 interprotein interactions and yielding 564 distinct protein-protein interactions. Our results underline the strength of combining XL-MS with ion mobility not only for deriving 3D-structures of single proteins, but also for performing system-wide protein interaction studies.",
+      "sampleProcessingProtocol": "Three different systems (BSA, E.coli ribosome, nuclei) were cross-linked with DSBU (for BSA DSAU and DSPU were also used). Digested samples of BSA and the E. coli ribosome were analyzed in three technical replicates, nuclear extract samples in three biological replicates by LC/MS/MS on an UltiMate 3000 RSLC nano-HPLC system (Thermo Fisher Scientific) that was coupled to a timsTOF Pro mass spectrometer equipped with CaptiveSpray source (Bruker Daltonics). Peptides were trapped on a C18 column (precolumn Acclaim PepMap 100, 300 Î¼m Ã— 5 mm, 5Î¼m, 100 Ã… (Thermo Fisher Scientific) and separated on a ÂµPAC 50 column (PharmaFluidics). After trapping, peptides were eluted by a linear 90-min (for BSA and ribosome) or 240-min (for nuclear lysates) water-ACN gradient from 3% (v/v) to 35% (v/v) ACN. For elution, a flow gradient was employed ranging from 900 nl/min to 600 nl/min in 15 min, followed by a constant flow rate of 600 nl/min",
+      "dataProcessingProtocol": "Identification of cross-links was performed with MeroX 2.0.1.7. The following settings were applied: Proteolytic cleavage: C-terminal at Lys and Arg for BSA and ribosome (3 missed cleavages were allowed), for nuclear extracts also N-terminal at Asp and Glu (3 missed cleavages were allowed), peptide lengths of 5 to 50 amino acids, modifications: alkylation of Cys by iodoacetamide (fixed), oxidation of Met (variable), cross-linker specificity: Lys, Ser, Thr, Tyr, N-terminus (sites 1 and 2 for BSA and ribosome); Lys and N-terminus and Lys, Ser, N-terminus (sites 1 and 2, respectively, for nuclear lysates), search algorithm: RISEUP mode with up to two missing ions (for BSA and ribosome) or proteome-wide mode with minimum peptide score of 5 (for nuclear extracts), precursor mass accuracy: 15 ppm, fragment ion mass accuracy: 25 ppm, signal-to-noise ratio < 2 (for BSA and ribosome) or < 1.5 (for nuclear lysates), precursor mass correction enabled, 10% intensity as prescore cut-off, 1% false discovery rate (FDR) cut-off, and minimum score cut-off: 20. Proteome Discoverer 2.4 was used for the identification of proteins present in nuclear lysates (all relevant fractions from the three biological replicates were combined) using the human proteome database (uniprot.org; accession date: Nov. 15, 2020; 20,315 entries). All protein IDs with FDR < 5% were combined in a sub-database (2803 entries: 2654 entries at 1% FDR, 149 entries at 5% FDR) for subsequent cross-link searches with MeroX",
+      "projectTags": [],
+      "keywords": [
+        "Ion mobility",
+        "Mass spectrometry",
+        "Chemical cross-linking",
+        "Protein 3d-structure",
+        "Protein interaction networks"
+      ],
+      "doi": "",
+      "submissionType": "PARTIAL",
+      "license": "Creative Commons Public Domain (CC0)",
+      "submissionDate": "2021-07-12",
+      "publicationDate": "2022-03-17",
+      "submitters": [
+        {
+          "title": "Dr",
+          "firstName": "Christian",
+          "lastName": "Ihling",
+          "identifier": "1890083",
+          "affiliation": "MLU Halle, Inst. f. Pharmacy",
+          "email": "christian.ihling@pharmazie.uni-halle.de",
+          "country": "Germany",
+          "orcid": "",
+          "name": "Christian Ihling",
+          "id": "1890083"
+        }
+      ],
+      "labPIs": [
+        {
+          "title": "Dr",
+          "firstName": "Andrea",
+          "lastName": "Sinz",
+          "identifier": "2271912",
+          "affiliation": "Department of Pharmaceutical Chemistry & Bioanalytics  Center for Structural Mass Spectrometry  Institute of Pharmacy  Martin Luther University Halle-Wittenberg  Kurt-Mothes-Str. 3, Entrance C  D-06120 Halle/Saale",
+          "email": "andrea.sinz@pharmazie.uni-halle.de",
+          "country": "",
+          "orcid": "",
+          "name": "Andrea Sinz",
+          "id": "2271912"
+        }
+      ],
+      "instruments": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MS",
+          "accession": "MS:1003005",
+          "name": "timsTOF Pro"
+        }
+      ],
+      "softwares": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MS",
+          "accession": "MS:1000650",
+          "name": "Proteome Discoverer"
+        }
+      ],
+      "experimentTypes": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "PRIDE",
+          "accession": "PRIDE:0000430",
+          "name": "Chemical cross-linking coupled with mass spectrometry proteomics"
+        }
+      ],
+      "quantificationMethods": [],
+      "countries": [
+        "Germany"
+      ],
+      "sampleAttributes": [
+        {
+          "@type": "Tuple",
+          "key": {
+            "cvLabel": "EFO",
+            "accession": "OBI:0100026",
+            "name": "organism"
+          },
+          "value": [
+            {
+              "cvLabel": "NEWT",
+              "accession": "NEWT:9913",
+              "name": "Bos taurus (Bovine)"
+            },
+            {
+              "cvLabel": "NEWT",
+              "accession": "NEWT:9606",
+              "name": "Homo sapiens (Human)"
+            },
+            {
+              "cvLabel": "NEWT",
+              "accession": "NEWT:562",
+              "name": "Escherichia coli"
+            }
+          ]
+        }
+      ],
+      "organisms": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "NEWT",
+          "accession": "NEWT:562",
+          "name": "Escherichia coli"
+        },
+        {
+          "@type": "CvParam",
+          "cvLabel": "NEWT",
+          "accession": "NEWT:9606",
+          "name": "Homo sapiens (human)"
+        },
+        {
+          "@type": "CvParam",
+          "cvLabel": "NEWT",
+          "accession": "NEWT:9913",
+          "name": "Bos taurus (bovine)"
+        }
+      ],
+      "organismParts": [],
+      "diseases": [],
+      "references": [
+        {
+          "referenceLine": "Ihling CH, Piersimoni L, Kipping M, Sinz A. Cross-Linking/Mass Spectrometry Combined with Ion Mobility on a timsTOF Pro Instrument for Structural Proteomics. Anal Chem. 2021 93(33):11442-11450",
+          "pubmedID": 34375526,
+          "doi": "10.1021/acs.analchem.1c01317"
+        }
+      ],
+      "identifiedPTMStrings": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MOD",
+          "accession": "MOD:00397",
+          "name": "iodoacetamide derivatized residue"
+        }
+      ],
+      "totalFileDownloads": 14541,
+      "botCount": 7062,
+      "hubCount": 6818,
+      "organicCount": 661,
+      "files": {
+        "files": [
+          {
+            "fileName": "R1a_fractB3.d.zip",
+            "fileSizeBytes": 7002040320,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R1a_fractB3.d.zip"
+          },
+          {
+            "fileName": "BSA_DSAU25_2.mgf",
+            "fileSizeBytes": 420456387,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSAU25_2.mgf"
+          },
+          {
+            "fileName": "BSA_DSAU125_3.d.rar",
+            "fileSizeBytes": 6050995290,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSAU125_3.d.rar"
+          },
+          {
+            "fileName": "BSA_DSPU25_2.zhrm",
+            "fileSizeBytes": 5446542,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSPU25_2.zhrm"
+          },
+          {
+            "fileName": "R2a_fractB1.zhrm",
+            "fileSizeBytes": 504738330,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R2a_fractB1.zhrm"
+          },
+          {
+            "fileName": "R1a_fractB4.zhrm",
+            "fileSizeBytes": 1322546833,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R1a_fractB4.zhrm"
+          },
+          {
+            "fileName": "R1a_fractB3.zhrm",
+            "fileSizeBytes": 3154544370,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R1a_fractB3.zhrm"
+          },
+          {
+            "fileName": "BSA_DSBU50_2.d.rar",
+            "fileSizeBytes": 6923849883,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSBU50_2.d.rar"
+          },
+          {
+            "fileName": "BSA_DSBU125_2.mgf",
+            "fileSizeBytes": 728755394,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSBU125_2.mgf"
+          },
+          {
+            "fileName": "BSA_DSAU25_1.zhrm",
+            "fileSizeBytes": 1930369,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSAU25_1.zhrm"
+          },
+          {
+            "fileName": "BSA_DSPU125_3.zhrm",
+            "fileSizeBytes": 9167647,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSPU125_3.zhrm"
+          },
+          {
+            "fileName": "BSA_DSPU125_2.mgf",
+            "fileSizeBytes": 551393129,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSPU125_2.mgf"
+          },
+          {
+            "fileName": "BSA_DSAU25_3.mgf",
+            "fileSizeBytes": 403414279,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSAU25_3.mgf"
+          },
+          {
+            "fileName": "ribosome_DSBU_1.d.rar",
+            "fileSizeBytes": 7587353294,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/ribosome_DSBU_1.d.rar"
+          },
+          {
+            "fileName": "R3a_fractB3.d.zip",
+            "fileSizeBytes": 6240571230,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R3a_fractB3.d.zip"
+          },
+          {
+            "fileName": "R3a_fractB7.zhrm",
+            "fileSizeBytes": 242016493,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R3a_fractB7.zhrm"
+          },
+          {
+            "fileName": "BSA_DSPU125_1.mgf",
+            "fileSizeBytes": 507136316,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSPU125_1.mgf"
+          },
+          {
+            "fileName": "BSA_DSPU125_1.zhrm",
+            "fileSizeBytes": 5566705,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSPU125_1.zhrm"
+          },
+          {
+            "fileName": "R1a_fractB4.mgf",
+            "fileSizeBytes": 491105657,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R1a_fractB4.mgf"
+          },
+          {
+            "fileName": "BSA_DSPU50_3.d.rar",
+            "fileSizeBytes": 6600508011,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSPU50_3.d.rar"
+          },
+          {
+            "fileName": "R2a_fractB4.mgf",
+            "fileSizeBytes": 893284612,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R2a_fractB4.mgf"
+          },
+          {
+            "fileName": "ribosome_DSBU_1.zhrm",
+            "fileSizeBytes": 69452204,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/ribosome_DSBU_1.zhrm"
+          },
+          {
+            "fileName": "R3a_fractB6.d.zip",
+            "fileSizeBytes": 7170122228,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R3a_fractB6.d.zip"
+          },
+          {
+            "fileName": "R3a_fractB6.mgf",
+            "fileSizeBytes": 308277690,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R3a_fractB6.mgf"
+          },
+          {
+            "fileName": "R2a_fractB7.zhrm",
+            "fileSizeBytes": 381501080,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R2a_fractB7.zhrm"
+          },
+          {
+            "fileName": "BSA_DSBU25_3.d.rar",
+            "fileSizeBytes": 6461142800,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSBU25_3.d.rar"
+          },
+          {
+            "fileName": "R2a_fractB6.d.zip",
+            "fileSizeBytes": 6813939831,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R2a_fractB6.d.zip"
+          },
+          {
+            "fileName": "BSA_DSAU125_2.zhrm",
+            "fileSizeBytes": 2009569,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSAU125_2.zhrm"
+          },
+          {
+            "fileName": "BSA_DSAU50_1.zhrm",
+            "fileSizeBytes": 2379168,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSAU50_1.zhrm"
+          },
+          {
+            "fileName": "BSA_DSAU125_1.d.rar",
+            "fileSizeBytes": 6591692666,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSAU125_1.d.rar"
+          },
+          {
+            "fileName": "BSA_DSBU25_3.mgf",
+            "fileSizeBytes": 548695778,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSBU25_3.mgf"
+          },
+          {
+            "fileName": "BSA_DSPU50_1.mgf",
+            "fileSizeBytes": 863388869,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSPU50_1.mgf"
+          },
+          {
+            "fileName": "R1a_fractB2.zhrm",
+            "fileSizeBytes": 2122143995,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R1a_fractB2.zhrm"
+          },
+          {
+            "fileName": "R1a_fractB1.d.zip",
+            "fileSizeBytes": 5746386157,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R1a_fractB1.d.zip"
+          },
+          {
+            "fileName": "BSA_DSAU50_1.d.rar",
+            "fileSizeBytes": 8045749325,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSAU50_1.d.rar"
+          },
+          {
+            "fileName": "R3a_fractB3.mgf",
+            "fileSizeBytes": 835849261,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R3a_fractB3.mgf"
+          },
+          {
+            "fileName": "BSA_DSPU50_1.d.rar",
+            "fileSizeBytes": 6434277805,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSPU50_1.d.rar"
+          },
+          {
+            "fileName": "R2a_fractB1.d.zip",
+            "fileSizeBytes": 6236579595,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R2a_fractB1.d.zip"
+          },
+          {
+            "fileName": "BSA_DSBU125_2.zhrm",
+            "fileSizeBytes": 13974197,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSBU125_2.zhrm"
+          },
+          {
+            "fileName": "ribosome_DSBU_4.zhrm",
+            "fileSizeBytes": 68980489,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/ribosome_DSBU_4.zhrm"
+          },
+          {
+            "fileName": "BSA_DSAU125_3.mgf",
+            "fileSizeBytes": 630501889,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSAU125_3.mgf"
+          },
+          {
+            "fileName": "R3a_fractB4.zhrm",
+            "fileSizeBytes": 1750617971,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R3a_fractB4.zhrm"
+          },
+          {
+            "fileName": "BSA_DSPU125_2.d.rar",
+            "fileSizeBytes": 6118382494,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSPU125_2.d.rar"
+          },
+          {
+            "fileName": "BSA_DSAU50_3.zhrm",
+            "fileSizeBytes": 2411262,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSAU50_3.zhrm"
+          },
+          {
+            "fileName": "checksum.txt",
+            "fileSizeBytes": 17850,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/checksum.txt"
+          },
+          {
+            "fileName": "BSA_DSPU50_3.zhrm",
+            "fileSizeBytes": 5599549,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSPU50_3.zhrm"
+          },
+          {
+            "fileName": "ribosome_DSBU_2.mgf",
+            "fileSizeBytes": 542933510,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/ribosome_DSBU_2.mgf"
+          },
+          {
+            "fileName": "R3a_fractB4.mgf",
+            "fileSizeBytes": 601758804,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R3a_fractB4.mgf"
+          },
+          {
+            "fileName": "R1a_fractB7.mgf",
+            "fileSizeBytes": 146987599,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R1a_fractB7.mgf"
+          },
+          {
+            "fileName": "BSA_DSBU50_1.mgf",
+            "fileSizeBytes": 527481326,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSBU50_1.mgf"
+          },
+          {
+            "fileName": "BSA_DSBU125_3.mgf",
+            "fileSizeBytes": 621753223,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSBU125_3.mgf"
+          },
+          {
+            "fileName": "BSA_DSAU25_2.zhrm",
+            "fileSizeBytes": 1418838,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSAU25_2.zhrm"
+          },
+          {
+            "fileName": "ribosome_DSBU_4.mgf",
+            "fileSizeBytes": 570156540,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/ribosome_DSBU_4.mgf"
+          },
+          {
+            "fileName": "BSA_DSPU25_3.d.rar",
+            "fileSizeBytes": 6367042079,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSPU25_3.d.rar"
+          },
+          {
+            "fileName": "R1a_fractB1.zhrm",
+            "fileSizeBytes": 671454269,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R1a_fractB1.zhrm"
+          },
+          {
+            "fileName": "R1a_fractB5.zhrm",
+            "fileSizeBytes": 257148376,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R1a_fractB5.zhrm"
+          },
+          {
+            "fileName": "R3a_fractB2.mgf",
+            "fileSizeBytes": 897093961,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R3a_fractB2.mgf"
+          },
+          {
+            "fileName": "R1a_fractB6.d.zip",
+            "fileSizeBytes": 6777135632,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R1a_fractB6.d.zip"
+          },
+          {
+            "fileName": "BSA_DSBU25_1.d.rar",
+            "fileSizeBytes": 6363255967,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSBU25_1.d.rar"
+          },
+          {
+            "fileName": "R1a_fractB6.zhrm",
+            "fileSizeBytes": 408706234,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R1a_fractB6.zhrm"
+          },
+          {
+            "fileName": "R3a_fractB7.mgf",
+            "fileSizeBytes": 211946231,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R3a_fractB7.mgf"
+          },
+          {
+            "fileName": "BSA_DSBU25_2.mgf",
+            "fileSizeBytes": 471619610,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSBU25_2.mgf"
+          },
+          {
+            "fileName": "R1a_fractB7.zhrm",
+            "fileSizeBytes": 176085345,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R1a_fractB7.zhrm"
+          },
+          {
+            "fileName": "BSA_DSBU25_3.zhrm",
+            "fileSizeBytes": 8926384,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSBU25_3.zhrm"
+          },
+          {
+            "fileName": "R2a_fractB4.d.zip",
+            "fileSizeBytes": 6857012654,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R2a_fractB4.d.zip"
+          },
+          {
+            "fileName": "BSA_DSAU50_2.mgf",
+            "fileSizeBytes": 312753498,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSAU50_2.mgf"
+          },
+          {
+            "fileName": "BSA_DSPU50_3.mgf",
+            "fileSizeBytes": 918698431,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSPU50_3.mgf"
+          },
+          {
+            "fileName": "BSA_DSBU50_1.d.rar",
+            "fileSizeBytes": 5971874370,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSBU50_1.d.rar"
+          },
+          {
+            "fileName": "BSA_DSAU125_2.mgf",
+            "fileSizeBytes": 415672453,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSAU125_2.mgf"
+          },
+          {
+            "fileName": "BSA_DSBU125_1.zhrm",
+            "fileSizeBytes": 11311707,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSBU125_1.zhrm"
+          },
+          {
+            "fileName": "BSA_DSBU25_2.zhrm",
+            "fileSizeBytes": 7660267,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSBU25_2.zhrm"
+          },
+          {
+            "fileName": "R2a_fractB3.zhrm",
+            "fileSizeBytes": 4459413376,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R2a_fractB3.zhrm"
+          },
+          {
+            "fileName": "R3a_fractB5.mgf",
+            "fileSizeBytes": 469405465,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R3a_fractB5.mgf"
+          },
+          {
+            "fileName": "R3a_fractB6.zhrm",
+            "fileSizeBytes": 551274860,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R3a_fractB6.zhrm"
+          },
+          {
+            "fileName": "R2a_fractB5.mgf",
+            "fileSizeBytes": 576853129,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R2a_fractB5.mgf"
+          },
+          {
+            "fileName": "R2a_fractB5.zhrm",
+            "fileSizeBytes": 1460191605,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R2a_fractB5.zhrm"
+          },
+          {
+            "fileName": "BSA_DSAU25_2.d.rar",
+            "fileSizeBytes": 7512830111,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSAU25_2.d.rar"
+          },
+          {
+            "fileName": "R3a_fractB5.zhrm",
+            "fileSizeBytes": 1139034116,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R3a_fractB5.zhrm"
+          },
+          {
+            "fileName": "BSA_DSPU25_3.zhrm",
+            "fileSizeBytes": 3797041,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSPU25_3.zhrm"
+          },
+          {
+            "fileName": "R1a_fractB3.mgf",
+            "fileSizeBytes": 810121118,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R1a_fractB3.mgf"
+          },
+          {
+            "fileName": "BSA_DSPU25_1.d.rar",
+            "fileSizeBytes": 8946247469,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSPU25_1.d.rar"
+          },
+          {
+            "fileName": "BSA_DSAU25_3.d.rar",
+            "fileSizeBytes": 6216213360,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSAU25_3.d.rar"
+          },
+          {
+            "fileName": "BSA_DSBU50_3.zhrm",
+            "fileSizeBytes": 10725872,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSBU50_3.zhrm"
+          },
+          {
+            "fileName": "BSA_DSAU125_2.d.rar",
+            "fileSizeBytes": 6417691336,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSAU125_2.d.rar"
+          },
+          {
+            "fileName": "R2a_fractB6.zhrm",
+            "fileSizeBytes": 772991159,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R2a_fractB6.zhrm"
+          },
+          {
+            "fileName": "R1a_fractB1.mgf",
+            "fileSizeBytes": 815425017,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R1a_fractB1.mgf"
+          },
+          {
+            "fileName": "ribosome_DSBU_1.mgf",
+            "fileSizeBytes": 599667557,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/ribosome_DSBU_1.mgf"
+          },
+          {
+            "fileName": "BSA_DSBU50_3.mgf",
+            "fileSizeBytes": 577610796,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSBU50_3.mgf"
+          },
+          {
+            "fileName": "BSA_DSAU50_1.mgf",
+            "fileSizeBytes": 430794292,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSAU50_1.mgf"
+          },
+          {
+            "fileName": "R3a_fractB3.zhrm",
+            "fileSizeBytes": 2409098669,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R3a_fractB3.zhrm"
+          },
+          {
+            "fileName": "BSA_DSPU50_1.zhrm",
+            "fileSizeBytes": 6237871,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSPU50_1.zhrm"
+          },
+          {
+            "fileName": "BSA_DSAU50_2.zhrm",
+            "fileSizeBytes": 1751245,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSAU50_2.zhrm"
+          },
+          {
+            "fileName": "BSA_DSPU25_2.mgf",
+            "fileSizeBytes": 676875494,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSPU25_2.mgf"
+          },
+          {
+            "fileName": "R2a_fractB7.mgf",
+            "fileSizeBytes": 259940268,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R2a_fractB7.mgf"
+          },
+          {
+            "fileName": "BSA_DSBU50_2.mgf",
+            "fileSizeBytes": 757993428,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSBU50_2.mgf"
+          },
+          {
+            "fileName": "BSA_DSAU25_1.mgf",
+            "fileSizeBytes": 405166498,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSAU25_1.mgf"
+          },
+          {
+            "fileName": "BSA_DSBU125_3.d.rar",
+            "fileSizeBytes": 6032064607,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSBU125_3.d.rar"
+          },
+          {
+            "fileName": "R1a_fractB4.d.zip",
+            "fileSizeBytes": 6616543051,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R1a_fractB4.d.zip"
+          },
+          {
+            "fileName": "BSA_DSBU25_1.zhrm",
+            "fileSizeBytes": 10562496,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSBU25_1.zhrm"
+          },
+          {
+            "fileName": "BSA_DSPU125_2.zhrm",
+            "fileSizeBytes": 6277589,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSPU125_2.zhrm"
+          },
+          {
+            "fileName": "BSA_DSPU50_2.d.rar",
+            "fileSizeBytes": 7743058098,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSPU50_2.d.rar"
+          },
+          {
+            "fileName": "BSA_DSBU25_2.d.rar",
+            "fileSizeBytes": 6932103510,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSBU25_2.d.rar"
+          },
+          {
+            "fileName": "BSA_DSPU50_2.zhrm",
+            "fileSizeBytes": 4098975,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSPU50_2.zhrm"
+          },
+          {
+            "fileName": "BSA_DSPU125_3.d.rar",
+            "fileSizeBytes": 5894739922,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSPU125_3.d.rar"
+          },
+          {
+            "fileName": "R2a_fractB3.d.zip",
+            "fileSizeBytes": 7923430187,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R2a_fractB3.d.zip"
+          },
+          {
+            "fileName": "BSA_DSBU50_1.zhrm",
+            "fileSizeBytes": 9943793,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSBU50_1.zhrm"
+          },
+          {
+            "fileName": "R3a_fractB4.d.zip",
+            "fileSizeBytes": 5949975173,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R3a_fractB4.d.zip"
+          },
+          {
+            "fileName": "BSA_DSPU25_3.mgf",
+            "fileSizeBytes": 623977797,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSPU25_3.mgf"
+          },
+          {
+            "fileName": "ribosome_DSBU_2.zhrm",
+            "fileSizeBytes": 33590807,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/ribosome_DSBU_2.zhrm"
+          },
+          {
+            "fileName": "BSA_DSPU50_2.mgf",
+            "fileSizeBytes": 641111534,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSPU50_2.mgf"
+          },
+          {
+            "fileName": "R2a_fractB2.d.zip",
+            "fileSizeBytes": 5957932769,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R2a_fractB2.d.zip"
+          },
+          {
+            "fileName": "ribosome_DSBU_2.d.rar",
+            "fileSizeBytes": 6613606812,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/ribosome_DSBU_2.d.rar"
+          },
+          {
+            "fileName": "ribosome_DSBU_3.zhrm",
+            "fileSizeBytes": 34365768,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/ribosome_DSBU_3.zhrm"
+          },
+          {
+            "fileName": "R2a_fractB2.mgf",
+            "fileSizeBytes": 867448750,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R2a_fractB2.mgf"
+          },
+          {
+            "fileName": "BSA_DSPU25_1.zhrm",
+            "fileSizeBytes": 6108893,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSPU25_1.zhrm"
+          },
+          {
+            "fileName": "R2a_fractB2.zhrm",
+            "fileSizeBytes": 2188826879,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R2a_fractB2.zhrm"
+          },
+          {
+            "fileName": "BSA_DSBU125_1.d.rar",
+            "fileSizeBytes": 5604842452,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSBU125_1.d.rar"
+          },
+          {
+            "fileName": "R1a_fractB6.mgf",
+            "fileSizeBytes": 266700906,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R1a_fractB6.mgf"
+          },
+          {
+            "fileName": "BSA_DSAU25_1.d.rar",
+            "fileSizeBytes": 8295991484,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSAU25_1.d.rar"
+          },
+          {
+            "fileName": "BSA_DSBU50_2.zhrm",
+            "fileSizeBytes": 13030129,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSBU50_2.zhrm"
+          },
+          {
+            "fileName": "R1a_fractB2.mgf",
+            "fileSizeBytes": 1012750613,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R1a_fractB2.mgf"
+          },
+          {
+            "fileName": "R2a_fractB6.mgf",
+            "fileSizeBytes": 382693443,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R2a_fractB6.mgf"
+          },
+          {
+            "fileName": "BSA_DSBU25_1.mgf",
+            "fileSizeBytes": 579688744,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSBU25_1.mgf"
+          },
+          {
+            "fileName": "BSA_DSBU125_2.d.rar",
+            "fileSizeBytes": 6231738160,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSBU125_2.d.rar"
+          },
+          {
+            "fileName": "R3a_fractB1.zhrm",
+            "fileSizeBytes": 400047500,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R3a_fractB1.zhrm"
+          },
+          {
+            "fileName": "BSA_DSAU50_3.d.rar",
+            "fileSizeBytes": 6177238680,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSAU50_3.d.rar"
+          },
+          {
+            "fileName": "BSA_DSBU125_1.mgf",
+            "fileSizeBytes": 510633848,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSBU125_1.mgf"
+          },
+          {
+            "fileName": "R1a_fractB2.d.zip",
+            "fileSizeBytes": 6913523533,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R1a_fractB2.d.zip"
+          },
+          {
+            "fileName": "R3a_fractB2.zhrm",
+            "fileSizeBytes": 1494091534,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R3a_fractB2.zhrm"
+          },
+          {
+            "fileName": "R3a_fractB1.mgf",
+            "fileSizeBytes": 553960133,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R3a_fractB1.mgf"
+          },
+          {
+            "fileName": "R3a_fractB1.d.zip",
+            "fileSizeBytes": 5388794006,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R3a_fractB1.d.zip"
+          },
+          {
+            "fileName": "ribosome_DSBU_4.d.rar",
+            "fileSizeBytes": 6947935309,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/ribosome_DSBU_4.d.rar"
+          },
+          {
+            "fileName": "BSA_DSAU125_1.mgf",
+            "fileSizeBytes": 514754819,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSAU125_1.mgf"
+          },
+          {
+            "fileName": "BSA_DSAU25_3.zhrm",
+            "fileSizeBytes": 1420844,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSAU25_3.zhrm"
+          },
+          {
+            "fileName": "R1a_fractB7.d.zip",
+            "fileSizeBytes": 10480119770,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R1a_fractB7.d.zip"
+          },
+          {
+            "fileName": "BSA_DSPU125_3.mgf",
+            "fileSizeBytes": 721243514,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSPU125_3.mgf"
+          },
+          {
+            "fileName": "R2a_fractB1.mgf",
+            "fileSizeBytes": 442595562,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R2a_fractB1.mgf"
+          },
+          {
+            "fileName": "BSA_DSBU50_3.d.rar",
+            "fileSizeBytes": 6086800913,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSBU50_3.d.rar"
+          },
+          {
+            "fileName": "BSA_DSAU50_2.d.rar",
+            "fileSizeBytes": 5791567617,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSAU50_2.d.rar"
+          },
+          {
+            "fileName": "BSA_DSAU50_3.mgf",
+            "fileSizeBytes": 460714491,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSAU50_3.mgf"
+          },
+          {
+            "fileName": "BSA_DSPU125_1.d.rar",
+            "fileSizeBytes": 6240069290,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSPU125_1.d.rar"
+          },
+          {
+            "fileName": "R3a_fractB5.d.zip",
+            "fileSizeBytes": 6588955095,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R3a_fractB5.d.zip"
+          },
+          {
+            "fileName": "BSA_DSPU25_1.mgf",
+            "fileSizeBytes": 941587177,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSPU25_1.mgf"
+          },
+          {
+            "fileName": "BSA_DSBU125_3.zhrm",
+            "fileSizeBytes": 13665448,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSBU125_3.zhrm"
+          },
+          {
+            "fileName": "R1a_fractB5.mgf",
+            "fileSizeBytes": 181887837,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R1a_fractB5.mgf"
+          },
+          {
+            "fileName": "R2a_fractB5.d.zip",
+            "fileSizeBytes": 6899609943,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R2a_fractB5.d.zip"
+          },
+          {
+            "fileName": "R2a_fractB7.d.zip",
+            "fileSizeBytes": 8080975313,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R2a_fractB7.d.zip"
+          },
+          {
+            "fileName": "R2a_fractB4.zhrm",
+            "fileSizeBytes": 3243787999,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R2a_fractB4.zhrm"
+          },
+          {
+            "fileName": "BSA_DSAU125_1.zhrm",
+            "fileSizeBytes": 2729153,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSAU125_1.zhrm"
+          },
+          {
+            "fileName": "ribosome_DSBU_3.mgf",
+            "fileSizeBytes": 594098936,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/ribosome_DSBU_3.mgf"
+          },
+          {
+            "fileName": "R2a_fractB3.mgf",
+            "fileSizeBytes": 1078852445,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R2a_fractB3.mgf"
+          },
+          {
+            "fileName": "R1a_fractB5.d.zip",
+            "fileSizeBytes": 7789374618,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R1a_fractB5.d.zip"
+          },
+          {
+            "fileName": "ribosome_DSBU_3.d.rar",
+            "fileSizeBytes": 4856399925,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/ribosome_DSBU_3.d.rar"
+          },
+          {
+            "fileName": "R3a_fractB2.d.zip",
+            "fileSizeBytes": 6443476135,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R3a_fractB2.d.zip"
+          },
+          {
+            "fileName": "BSA_DSAU125_3.zhrm",
+            "fileSizeBytes": 3205820,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSAU125_3.zhrm"
+          },
+          {
+            "fileName": "BSA_DSPU25_2.d.rar",
+            "fileSizeBytes": 8792070304,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/BSA_DSPU25_2.d.rar"
+          },
+          {
+            "fileName": "R3a_fractB7.d.zip",
+            "fileSizeBytes": 8743281721,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD027234/R3a_fractB7.d.zip"
+          }
+        ],
+        "totalCount": 157
+      }
+    },
+    "publication_metadata": null,
+    "llm_responses": {
+      "characteristics[disease]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"cross-linking with DSBU (and DSAU/DSPU for BSA)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Cross-linking was performed with three urea-based MS-cleavable cross-linkers\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"DSBU\",\n      \"DSAU\",\n      \"DSPU\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Three different systems (BSA, E.coli ribosome, nuclei) were cross-linked with DSBU (for BSA DSAU and DSPU were also used).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"cross-linking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Cross-linking was performed with three urea-based MS-cleavable cross-linkers\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[phenotype]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"cross-linking with DSBU (and DSAU/DSPU for BSA)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Cross-linking was performed with three urea-based MS-cleavable cross-linkers\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"DSBU\",\n      \"DSAU\",\n      \"DSPU\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Three different systems (BSA, E.coli ribosome, nuclei) were cross-linked with DSBU (for BSA DSAU and DSPU were also used).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"cross-linking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Cross-linking was performed with three urea-based MS-cleavable cross-linkers\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[treatment]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"cross-linking with DSBU (and DSAU/DSPU for BSA)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Cross-linking was performed with three urea-based MS-cleavable cross-linkers\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"DSBU\",\n      \"DSAU\",\n      \"DSPU\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Three different systems (BSA, E.coli ribosome, nuclei) were cross-linked with DSBU (for BSA DSAU and DSPU were also used).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"cross-linking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Cross-linking was performed with three urea-based MS-cleavable cross-linkers\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "cross-linking with DSBU (and DSAU/DSPU for BSA)",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "Cross-linking was performed with three urea-based MS-cleavable cross-linkers",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[compound]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"cross-linking with DSBU (and DSAU/DSPU for BSA)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Cross-linking was performed with three urea-based MS-cleavable cross-linkers\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"DSBU\",\n      \"DSAU\",\n      \"DSPU\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Three different systems (BSA, E.coli ribosome, nuclei) were cross-linked with DSBU (for BSA DSAU and DSPU were also used).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"cross-linking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Cross-linking was performed with three urea-based MS-cleavable cross-linkers\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": [
+            "DSBU",
+            "DSAU",
+            "DSPU"
+          ],
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "Three different systems (BSA, E.coli ribosome, nuclei) were cross-linked with DSBU (for BSA DSAU and DSPU were also used).",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[dose]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"cross-linking with DSBU (and DSAU/DSPU for BSA)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Cross-linking was performed with three urea-based MS-cleavable cross-linkers\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"DSBU\",\n      \"DSAU\",\n      \"DSPU\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Three different systems (BSA, E.coli ribosome, nuclei) were cross-linked with DSBU (for BSA DSAU and DSPU were also used).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"cross-linking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Cross-linking was performed with three urea-based MS-cleavable cross-linkers\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[genetic modification]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"cross-linking with DSBU (and DSAU/DSPU for BSA)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Cross-linking was performed with three urea-based MS-cleavable cross-linkers\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"DSBU\",\n      \"DSAU\",\n      \"DSPU\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Three different systems (BSA, E.coli ribosome, nuclei) were cross-linked with DSBU (for BSA DSAU and DSPU were also used).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"cross-linking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Cross-linking was performed with three urea-based MS-cleavable cross-linkers\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[perturbation]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"cross-linking with DSBU (and DSAU/DSPU for BSA)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Cross-linking was performed with three urea-based MS-cleavable cross-linkers\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"DSBU\",\n      \"DSAU\",\n      \"DSPU\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Three different systems (BSA, E.coli ribosome, nuclei) were cross-linked with DSBU (for BSA DSAU and DSPU were also used).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"cross-linking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Cross-linking was performed with three urea-based MS-cleavable cross-linkers\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "cross-linking",
+          "accession": "PRIDE:0000700",
+          "confidence": "medium",
+          "evidence_quote": "Cross-linking was performed with three urea-based MS-cleavable cross-linkers",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[depletion]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"cross-linking with DSBU (and DSAU/DSPU for BSA)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Cross-linking was performed with three urea-based MS-cleavable cross-linkers\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"DSBU\",\n      \"DSAU\",\n      \"DSPU\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Three different systems (BSA, E.coli ribosome, nuclei) were cross-linked with DSBU (for BSA DSAU and DSPU were also used).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"cross-linking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Cross-linking was performed with three urea-based MS-cleavable cross-linkers\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "no depletion",
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "factor value cell line": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"DSBU (and DSAU/DSPU for BSA)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Cross-linking was performed with three urea-based MS-cleavable cross-linkers ... (DSBU ... DSAU and DSPU were also used).\",\n    \"evidence_location\": \"Abstract; Methods\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": \"cell nuclear extracts (nuclei)\",\n    \"accession\": \"UBERON:0000178\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"three protein systems ... (iii) HEK293T cell nuclear extracts.\" ,\n    \"evidence_location\": \"Abstract; Methods\"\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"linear 90-min ... or 240-min ... water-ACN gradient\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "CLO:0000031",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value compound": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"DSBU (and DSAU/DSPU for BSA)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Cross-linking was performed with three urea-based MS-cleavable cross-linkers ... (DSBU ... DSAU and DSPU were also used).\",\n    \"evidence_location\": \"Abstract; Methods\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": \"cell nuclear extracts (nuclei)\",\n    \"accession\": \"UBERON:0000178\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"three protein systems ... (iii) HEK293T cell nuclear extracts.\" ,\n    \"evidence_location\": \"Abstract; Methods\"\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"linear 90-min ... or 240-min ... water-ACN gradient\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "DSBU (and DSAU/DSPU for BSA)",
+          "accession": "CHEBI:37577",
+          "confidence": "high",
+          "evidence_quote": "Cross-linking was performed with three urea-based MS-cleavable cross-linkers ... (DSBU ... DSAU and DSPU were also used).",
+          "evidence_location": "Abstract; Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value disease": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"DSBU (and DSAU/DSPU for BSA)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Cross-linking was performed with three urea-based MS-cleavable cross-linkers ... (DSBU ... DSAU and DSPU were also used).\",\n    \"evidence_location\": \"Abstract; Methods\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": \"cell nuclear extracts (nuclei)\",\n    \"accession\": \"UBERON:0000178\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"three protein systems ... (iii) HEK293T cell nuclear extracts.\" ,\n    \"evidence_location\": \"Abstract; Methods\"\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"linear 90-min ... or 240-min ... water-ACN gradient\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "OGMS:0000031",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value dose": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"DSBU (and DSAU/DSPU for BSA)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Cross-linking was performed with three urea-based MS-cleavable cross-linkers ... (DSBU ... DSAU and DSPU were also used).\",\n    \"evidence_location\": \"Abstract; Methods\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": \"cell nuclear extracts (nuclei)\",\n    \"accession\": \"UBERON:0000178\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"three protein systems ... (iii) HEK293T cell nuclear extracts.\" ,\n    \"evidence_location\": \"Abstract; Methods\"\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"linear 90-min ... or 240-min ... water-ACN gradient\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000428",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value organism part": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"DSBU (and DSAU/DSPU for BSA)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Cross-linking was performed with three urea-based MS-cleavable cross-linkers ... (DSBU ... DSAU and DSPU were also used).\",\n    \"evidence_location\": \"Abstract; Methods\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": \"cell nuclear extracts (nuclei)\",\n    \"accession\": \"UBERON:0000178\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"three protein systems ... (iii) HEK293T cell nuclear extracts.\" ,\n    \"evidence_location\": \"Abstract; Methods\"\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"linear 90-min ... or 240-min ... water-ACN gradient\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "cell nuclear extracts (nuclei)",
+          "accession": "UBERON:0000178",
+          "confidence": "medium",
+          "evidence_quote": "three protein systems ... (iii) HEK293T cell nuclear extracts.",
+          "evidence_location": "Abstract; Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value time": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"DSBU (and DSAU/DSPU for BSA)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Cross-linking was performed with three urea-based MS-cleavable cross-linkers ... (DSBU ... DSAU and DSPU were also used).\",\n    \"evidence_location\": \"Abstract; Methods\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": \"cell nuclear extracts (nuclei)\",\n    \"accession\": \"UBERON:0000178\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"three protein systems ... (iii) HEK293T cell nuclear extracts.\" ,\n    \"evidence_location\": \"Abstract; Methods\"\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"linear 90-min ... or 240-min ... water-ACN gradient\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000721",
+          "confidence": "medium",
+          "evidence_quote": "linear 90-min ... or 240-min ... water-ACN gradient",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value treatment": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"DSBU (and DSAU/DSPU for BSA)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Cross-linking was performed with three urea-based MS-cleavable cross-linkers ... (DSBU ... DSAU and DSPU were also used).\",\n    \"evidence_location\": \"Abstract; Methods\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": \"cell nuclear extracts (nuclei)\",\n    \"accession\": \"UBERON:0000178\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"three protein systems ... (iii) HEK293T cell nuclear extracts.\" ,\n    \"evidence_location\": \"Abstract; Methods\"\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"linear 90-min ... or 240-min ... water-ACN gradient\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000727",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "comment[instrument]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=timsTOF Pro;AC=MS:1003230\"\n    ],\n    \"accession\": \"MS:1003230\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to a timsTOF Pro mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"3 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in three technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": [
+            "NT=timsTOF Pro;AC=MS:1003230"
+          ],
+          "accession": "MS:1003230",
+          "confidence": "high",
+          "evidence_quote": "coupled to a timsTOF Pro mass spectrometer",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[proteomics data acquisition method]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=timsTOF Pro;AC=MS:1003230\"\n    ],\n    \"accession\": \"MS:1003230\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to a timsTOF Pro mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"3 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in three technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "NT=data-dependent acquisition;AC=PRIDE:0000041",
+          "accession": "PRIDE:0000041",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[dissociation method]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=timsTOF Pro;AC=MS:1003230\"\n    ],\n    \"accession\": \"MS:1003230\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to a timsTOF Pro mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"3 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in three technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[collision energy]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=timsTOF Pro;AC=MS:1003230\"\n    ],\n    \"accession\": \"MS:1003230\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to a timsTOF Pro mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"3 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in three technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[dia method]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=timsTOF Pro;AC=MS:1003230\"\n    ],\n    \"accession\": \"MS:1003230\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to a timsTOF Pro mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"3 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in three technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[fragment mass tolerance]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=timsTOF Pro;AC=MS:1003230\"\n    ],\n    \"accession\": \"MS:1003230\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to a timsTOF Pro mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"3 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in three technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[precursor mass tolerance]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=timsTOF Pro;AC=MS:1003230\"\n    ],\n    \"accession\": \"MS:1003230\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to a timsTOF Pro mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"3 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in three technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[technical replicate]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=timsTOF Pro;AC=MS:1003230\"\n    ],\n    \"accession\": \"MS:1003230\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to a timsTOF Pro mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"3 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in three technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "3 technical replicates per sample",
+          "accession": "MS:1001808",
+          "confidence": "high",
+          "evidence_quote": "analyzed in three technical replicates",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[data file]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=timsTOF Pro;AC=MS:1003230\"\n    ],\n    \"accession\": \"MS:1003230\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to a timsTOF Pro mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"3 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in three technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "MS:1003083",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "characteristics[organism]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": [\n      \"Bos taurus\",\n      \"Escherichia coli\",\n      \"Homo sapiens\"\n    ],\n    \"accession\": [\n      \"NCBITaxon:9913\",\n      \"NCBITaxon:562\",\n      \"NCBITaxon:9606\"\n    ],\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"We demonstrate the general feasibility of our combined XL-MS/ion mobility approach for three protein systems of increasing complexity: (i) Bovine serum albumin, (ii) E. coli ribosome, and (iii) HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": [\n      \"nucleus\",\n      \"whole cell lysate\"\n    ],\n    \"accession\": [\n      \"UBERON:0001988\",\n      null\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"HEK293T\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": [\n      \"purified proteins\",\n      \"whole cell lysate\"\n    ],\n    \"accession\": [\n      \"PRIDE:0000837\",\n      \"PRIDE:0000837\"\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Bovine serum albumin... E. coli ribosome... HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking/mass spectrometry (XL-MS)\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"system (BSA, E. coli ribosome, HEK293T nuclear extracts) with technical/biological replicate designation as described (BSA and ribosome: technical replicates; nuclear extract: biological replicates)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Digested samples of BSA and the E. coli ribosome were analyzed in three technical replicates, nuclear extract samples in three biological replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"assay name\": {\n    \"value\": \"LC/MS/MS run per system and replicate on timsTOF Pro (raw file stem not provided; naming convention inferred as system_replicate)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"an UltiMate 3000 RSLC nano-HPLC system... coupled to a timsTOF Pro mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": [
+            "Bos taurus",
+            "Escherichia coli",
+            "Homo sapiens"
+          ],
+          "accession": [
+            "NCBITaxon:9913",
+            "NCBITaxon:562",
+            "NCBITaxon:9606"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "We demonstrate the general feasibility of our combined XL-MS/ion mobility approach for three protein systems of increasing complexity: (i) Bovine serum albumin, (ii) E. coli ribosome, and (iii) HEK293T cell nuclear extracts.",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[organism part]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": [\n      \"Bos taurus\",\n      \"Escherichia coli\",\n      \"Homo sapiens\"\n    ],\n    \"accession\": [\n      \"NCBITaxon:9913\",\n      \"NCBITaxon:562\",\n      \"NCBITaxon:9606\"\n    ],\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"We demonstrate the general feasibility of our combined XL-MS/ion mobility approach for three protein systems of increasing complexity: (i) Bovine serum albumin, (ii) E. coli ribosome, and (iii) HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": [\n      \"nucleus\",\n      \"whole cell lysate\"\n    ],\n    \"accession\": [\n      \"UBERON:0001988\",\n      null\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"HEK293T\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": [\n      \"purified proteins\",\n      \"whole cell lysate\"\n    ],\n    \"accession\": [\n      \"PRIDE:0000837\",\n      \"PRIDE:0000837\"\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Bovine serum albumin... E. coli ribosome... HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking/mass spectrometry (XL-MS)\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"system (BSA, E. coli ribosome, HEK293T nuclear extracts) with technical/biological replicate designation as described (BSA and ribosome: technical replicates; nuclear extract: biological replicates)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Digested samples of BSA and the E. coli ribosome were analyzed in three technical replicates, nuclear extract samples in three biological replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"assay name\": {\n    \"value\": \"LC/MS/MS run per system and replicate on timsTOF Pro (raw file stem not provided; naming convention inferred as system_replicate)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"an UltiMate 3000 RSLC nano-HPLC system... coupled to a timsTOF Pro mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": [
+            "nucleus",
+            "whole cell lysate"
+          ],
+          "accession": [
+            "UBERON:0001988",
+            null
+          ],
+          "confidence": "low",
+          "evidence_quote": "HEK293T cell nuclear extracts.",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[cell line]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": [\n      \"Bos taurus\",\n      \"Escherichia coli\",\n      \"Homo sapiens\"\n    ],\n    \"accession\": [\n      \"NCBITaxon:9913\",\n      \"NCBITaxon:562\",\n      \"NCBITaxon:9606\"\n    ],\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"We demonstrate the general feasibility of our combined XL-MS/ion mobility approach for three protein systems of increasing complexity: (i) Bovine serum albumin, (ii) E. coli ribosome, and (iii) HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": [\n      \"nucleus\",\n      \"whole cell lysate\"\n    ],\n    \"accession\": [\n      \"UBERON:0001988\",\n      null\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"HEK293T\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": [\n      \"purified proteins\",\n      \"whole cell lysate\"\n    ],\n    \"accession\": [\n      \"PRIDE:0000837\",\n      \"PRIDE:0000837\"\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Bovine serum albumin... E. coli ribosome... HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking/mass spectrometry (XL-MS)\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"system (BSA, E. coli ribosome, HEK293T nuclear extracts) with technical/biological replicate designation as described (BSA and ribosome: technical replicates; nuclear extract: biological replicates)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Digested samples of BSA and the E. coli ribosome were analyzed in three technical replicates, nuclear extract samples in three biological replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"assay name\": {\n    \"value\": \"LC/MS/MS run per system and replicate on timsTOF Pro (raw file stem not provided; naming convention inferred as system_replicate)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"an UltiMate 3000 RSLC nano-HPLC system... coupled to a timsTOF Pro mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "HEK293T",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "HEK293T cell nuclear extracts.",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[cell type]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": [\n      \"Bos taurus\",\n      \"Escherichia coli\",\n      \"Homo sapiens\"\n    ],\n    \"accession\": [\n      \"NCBITaxon:9913\",\n      \"NCBITaxon:562\",\n      \"NCBITaxon:9606\"\n    ],\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"We demonstrate the general feasibility of our combined XL-MS/ion mobility approach for three protein systems of increasing complexity: (i) Bovine serum albumin, (ii) E. coli ribosome, and (iii) HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": [\n      \"nucleus\",\n      \"whole cell lysate\"\n    ],\n    \"accession\": [\n      \"UBERON:0001988\",\n      null\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"HEK293T\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": [\n      \"purified proteins\",\n      \"whole cell lysate\"\n    ],\n    \"accession\": [\n      \"PRIDE:0000837\",\n      \"PRIDE:0000837\"\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Bovine serum albumin... E. coli ribosome... HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking/mass spectrometry (XL-MS)\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"system (BSA, E. coli ribosome, HEK293T nuclear extracts) with technical/biological replicate designation as described (BSA and ribosome: technical replicates; nuclear extract: biological replicates)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Digested samples of BSA and the E. coli ribosome were analyzed in three technical replicates, nuclear extract samples in three biological replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"assay name\": {\n    \"value\": \"LC/MS/MS run per system and replicate on timsTOF Pro (raw file stem not provided; naming convention inferred as system_replicate)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"an UltiMate 3000 RSLC nano-HPLC system... coupled to a timsTOF Pro mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[material type]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": [\n      \"Bos taurus\",\n      \"Escherichia coli\",\n      \"Homo sapiens\"\n    ],\n    \"accession\": [\n      \"NCBITaxon:9913\",\n      \"NCBITaxon:562\",\n      \"NCBITaxon:9606\"\n    ],\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"We demonstrate the general feasibility of our combined XL-MS/ion mobility approach for three protein systems of increasing complexity: (i) Bovine serum albumin, (ii) E. coli ribosome, and (iii) HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": [\n      \"nucleus\",\n      \"whole cell lysate\"\n    ],\n    \"accession\": [\n      \"UBERON:0001988\",\n      null\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"HEK293T\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": [\n      \"purified proteins\",\n      \"whole cell lysate\"\n    ],\n    \"accession\": [\n      \"PRIDE:0000837\",\n      \"PRIDE:0000837\"\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Bovine serum albumin... E. coli ribosome... HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking/mass spectrometry (XL-MS)\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"system (BSA, E. coli ribosome, HEK293T nuclear extracts) with technical/biological replicate designation as described (BSA and ribosome: technical replicates; nuclear extract: biological replicates)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Digested samples of BSA and the E. coli ribosome were analyzed in three technical replicates, nuclear extract samples in three biological replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"assay name\": {\n    \"value\": \"LC/MS/MS run per system and replicate on timsTOF Pro (raw file stem not provided; naming convention inferred as system_replicate)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"an UltiMate 3000 RSLC nano-HPLC system... coupled to a timsTOF Pro mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": [
+            "purified proteins",
+            "whole cell lysate"
+          ],
+          "accession": [
+            "PRIDE:0000837",
+            "PRIDE:0000837"
+          ],
+          "confidence": "low",
+          "evidence_quote": "Bovine serum albumin... E. coli ribosome... HEK293T cell nuclear extracts.",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[strain or breed]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": [\n      \"Bos taurus\",\n      \"Escherichia coli\",\n      \"Homo sapiens\"\n    ],\n    \"accession\": [\n      \"NCBITaxon:9913\",\n      \"NCBITaxon:562\",\n      \"NCBITaxon:9606\"\n    ],\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"We demonstrate the general feasibility of our combined XL-MS/ion mobility approach for three protein systems of increasing complexity: (i) Bovine serum albumin, (ii) E. coli ribosome, and (iii) HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": [\n      \"nucleus\",\n      \"whole cell lysate\"\n    ],\n    \"accession\": [\n      \"UBERON:0001988\",\n      null\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"HEK293T\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": [\n      \"purified proteins\",\n      \"whole cell lysate\"\n    ],\n    \"accession\": [\n      \"PRIDE:0000837\",\n      \"PRIDE:0000837\"\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Bovine serum albumin... E. coli ribosome... HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking/mass spectrometry (XL-MS)\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"system (BSA, E. coli ribosome, HEK293T nuclear extracts) with technical/biological replicate designation as described (BSA and ribosome: technical replicates; nuclear extract: biological replicates)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Digested samples of BSA and the E. coli ribosome were analyzed in three technical replicates, nuclear extract samples in three biological replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"assay name\": {\n    \"value\": \"LC/MS/MS run per system and replicate on timsTOF Pro (raw file stem not provided; naming convention inferred as system_replicate)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"an UltiMate 3000 RSLC nano-HPLC system... coupled to a timsTOF Pro mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[developmental stage]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": [\n      \"Bos taurus\",\n      \"Escherichia coli\",\n      \"Homo sapiens\"\n    ],\n    \"accession\": [\n      \"NCBITaxon:9913\",\n      \"NCBITaxon:562\",\n      \"NCBITaxon:9606\"\n    ],\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"We demonstrate the general feasibility of our combined XL-MS/ion mobility approach for three protein systems of increasing complexity: (i) Bovine serum albumin, (ii) E. coli ribosome, and (iii) HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": [\n      \"nucleus\",\n      \"whole cell lysate\"\n    ],\n    \"accession\": [\n      \"UBERON:0001988\",\n      null\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"HEK293T\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": [\n      \"purified proteins\",\n      \"whole cell lysate\"\n    ],\n    \"accession\": [\n      \"PRIDE:0000837\",\n      \"PRIDE:0000837\"\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Bovine serum albumin... E. coli ribosome... HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking/mass spectrometry (XL-MS)\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"system (BSA, E. coli ribosome, HEK293T nuclear extracts) with technical/biological replicate designation as described (BSA and ribosome: technical replicates; nuclear extract: biological replicates)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Digested samples of BSA and the E. coli ribosome were analyzed in three technical replicates, nuclear extract samples in three biological replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"assay name\": {\n    \"value\": \"LC/MS/MS run per system and replicate on timsTOF Pro (raw file stem not provided; naming convention inferred as system_replicate)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"an UltiMate 3000 RSLC nano-HPLC system... coupled to a timsTOF Pro mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "technology type": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": [\n      \"Bos taurus\",\n      \"Escherichia coli\",\n      \"Homo sapiens\"\n    ],\n    \"accession\": [\n      \"NCBITaxon:9913\",\n      \"NCBITaxon:562\",\n      \"NCBITaxon:9606\"\n    ],\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"We demonstrate the general feasibility of our combined XL-MS/ion mobility approach for three protein systems of increasing complexity: (i) Bovine serum albumin, (ii) E. coli ribosome, and (iii) HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": [\n      \"nucleus\",\n      \"whole cell lysate\"\n    ],\n    \"accession\": [\n      \"UBERON:0001988\",\n      null\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"HEK293T\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": [\n      \"purified proteins\",\n      \"whole cell lysate\"\n    ],\n    \"accession\": [\n      \"PRIDE:0000837\",\n      \"PRIDE:0000837\"\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Bovine serum albumin... E. coli ribosome... HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking/mass spectrometry (XL-MS)\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"system (BSA, E. coli ribosome, HEK293T nuclear extracts) with technical/biological replicate designation as described (BSA and ribosome: technical replicates; nuclear extract: biological replicates)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Digested samples of BSA and the E. coli ribosome were analyzed in three technical replicates, nuclear extract samples in three biological replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"assay name\": {\n    \"value\": \"LC/MS/MS run per system and replicate on timsTOF Pro (raw file stem not provided; naming convention inferred as system_replicate)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"an UltiMate 3000 RSLC nano-HPLC system... coupled to a timsTOF Pro mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "proteomic profiling by mass spectrometry",
+          "accession": "PRIDE:0000663",
+          "confidence": "high",
+          "evidence_quote": "cross-linking/mass spectrometry (XL-MS)",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "source name": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": [\n      \"Bos taurus\",\n      \"Escherichia coli\",\n      \"Homo sapiens\"\n    ],\n    \"accession\": [\n      \"NCBITaxon:9913\",\n      \"NCBITaxon:562\",\n      \"NCBITaxon:9606\"\n    ],\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"We demonstrate the general feasibility of our combined XL-MS/ion mobility approach for three protein systems of increasing complexity: (i) Bovine serum albumin, (ii) E. coli ribosome, and (iii) HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": [\n      \"nucleus\",\n      \"whole cell lysate\"\n    ],\n    \"accession\": [\n      \"UBERON:0001988\",\n      null\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"HEK293T\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": [\n      \"purified proteins\",\n      \"whole cell lysate\"\n    ],\n    \"accession\": [\n      \"PRIDE:0000837\",\n      \"PRIDE:0000837\"\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Bovine serum albumin... E. coli ribosome... HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking/mass spectrometry (XL-MS)\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"system (BSA, E. coli ribosome, HEK293T nuclear extracts) with technical/biological replicate designation as described (BSA and ribosome: technical replicates; nuclear extract: biological replicates)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Digested samples of BSA and the E. coli ribosome were analyzed in three technical replicates, nuclear extract samples in three biological replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"assay name\": {\n    \"value\": \"LC/MS/MS run per system and replicate on timsTOF Pro (raw file stem not provided; naming convention inferred as system_replicate)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"an UltiMate 3000 RSLC nano-HPLC system... coupled to a timsTOF Pro mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "system (BSA, E. coli ribosome, HEK293T nuclear extracts) with technical/biological replicate designation as described (BSA and ribosome: technical replicates; nuclear extract: biological replicates)",
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": "Digested samples of BSA and the E. coli ribosome were analyzed in three technical replicates, nuclear extract samples in three biological replicates",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "assay name": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": [\n      \"Bos taurus\",\n      \"Escherichia coli\",\n      \"Homo sapiens\"\n    ],\n    \"accession\": [\n      \"NCBITaxon:9913\",\n      \"NCBITaxon:562\",\n      \"NCBITaxon:9606\"\n    ],\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"We demonstrate the general feasibility of our combined XL-MS/ion mobility approach for three protein systems of increasing complexity: (i) Bovine serum albumin, (ii) E. coli ribosome, and (iii) HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": [\n      \"nucleus\",\n      \"whole cell lysate\"\n    ],\n    \"accession\": [\n      \"UBERON:0001988\",\n      null\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"HEK293T\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": [\n      \"purified proteins\",\n      \"whole cell lysate\"\n    ],\n    \"accession\": [\n      \"PRIDE:0000837\",\n      \"PRIDE:0000837\"\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Bovine serum albumin... E. coli ribosome... HEK293T cell nuclear extracts.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking/mass spectrometry (XL-MS)\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"system (BSA, E. coli ribosome, HEK293T nuclear extracts) with technical/biological replicate designation as described (BSA and ribosome: technical replicates; nuclear extract: biological replicates)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Digested samples of BSA and the E. coli ribosome were analyzed in three technical replicates, nuclear extract samples in three biological replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"assay name\": {\n    \"value\": \"LC/MS/MS run per system and replicate on timsTOF Pro (raw file stem not provided; naming convention inferred as system_replicate)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"an UltiMate 3000 RSLC nano-HPLC system... coupled to a timsTOF Pro mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "LC/MS/MS run per system and replicate on timsTOF Pro (raw file stem not provided; naming convention inferred as system_replicate)",
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": "an UltiMate 3000 RSLC nano-HPLC system... coupled to a timsTOF Pro mass spectrometer",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[sex]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HEK293T cell nuclear extracts\",\n    \"evidence_location\": \"Abstract\",\n    \"note\": \"Sample is from a cell line (HEK293T), so biological sex is not applicable.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"3 biological replicates (nuclear extract samples)\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"nuclear extract samples in three biological replicates\",\n    \"evidence_location\": \"Methods\",\n    \"note\": \"BSA and E. coli ribosome were analyzed in three technical replicates; only nuclear extracts are explicitly biological replicates.\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null,\n    \"note\": \"No explicit statement of pooling was provided.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "not applicable",
+          "accession": "PATO:0000047",
+          "confidence": "high",
+          "evidence_quote": "HEK293T cell nuclear extracts",
+          "evidence_location": "Abstract",
+          "note": "Sample is from a cell line (HEK293T), so biological sex is not applicable."
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[age]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HEK293T cell nuclear extracts\",\n    \"evidence_location\": \"Abstract\",\n    \"note\": \"Sample is from a cell line (HEK293T), so biological sex is not applicable.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"3 biological replicates (nuclear extract samples)\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"nuclear extract samples in three biological replicates\",\n    \"evidence_location\": \"Methods\",\n    \"note\": \"BSA and E. coli ribosome were analyzed in three technical replicates; only nuclear extracts are explicitly biological replicates.\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null,\n    \"note\": \"No explicit statement of pooling was provided.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000246",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[ancestry category]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HEK293T cell nuclear extracts\",\n    \"evidence_location\": \"Abstract\",\n    \"note\": \"Sample is from a cell line (HEK293T), so biological sex is not applicable.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"3 biological replicates (nuclear extract samples)\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"nuclear extract samples in three biological replicates\",\n    \"evidence_location\": \"Methods\",\n    \"note\": \"BSA and E. coli ribosome were analyzed in three technical replicates; only nuclear extracts are explicitly biological replicates.\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null,\n    \"note\": \"No explicit statement of pooling was provided.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "HANCESTRO",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[biological replicate]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HEK293T cell nuclear extracts\",\n    \"evidence_location\": \"Abstract\",\n    \"note\": \"Sample is from a cell line (HEK293T), so biological sex is not applicable.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"3 biological replicates (nuclear extract samples)\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"nuclear extract samples in three biological replicates\",\n    \"evidence_location\": \"Methods\",\n    \"note\": \"BSA and E. coli ribosome were analyzed in three technical replicates; only nuclear extracts are explicitly biological replicates.\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null,\n    \"note\": \"No explicit statement of pooling was provided.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "3 biological replicates (nuclear extract samples)",
+          "accession": "MS:1001809",
+          "confidence": "high",
+          "evidence_quote": "nuclear extract samples in three biological replicates",
+          "evidence_location": "Methods",
+          "note": "BSA and E. coli ribosome were analyzed in three technical replicates; only nuclear extracts are explicitly biological replicates."
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[genotype]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HEK293T cell nuclear extracts\",\n    \"evidence_location\": \"Abstract\",\n    \"note\": \"Sample is from a cell line (HEK293T), so biological sex is not applicable.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"3 biological replicates (nuclear extract samples)\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"nuclear extract samples in three biological replicates\",\n    \"evidence_location\": \"Methods\",\n    \"note\": \"BSA and E. coli ribosome were analyzed in three technical replicates; only nuclear extracts are explicitly biological replicates.\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null,\n    \"note\": \"No explicit statement of pooling was provided.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000513",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[pooled sample]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HEK293T cell nuclear extracts\",\n    \"evidence_location\": \"Abstract\",\n    \"note\": \"Sample is from a cell line (HEK293T), so biological sex is not applicable.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"3 biological replicates (nuclear extract samples)\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"nuclear extract samples in three biological replicates\",\n    \"evidence_location\": \"Methods\",\n    \"note\": \"BSA and E. coli ribosome were analyzed in three technical replicates; only nuclear extracts are explicitly biological replicates.\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null,\n    \"note\": \"No explicit statement of pooling was provided.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "not pooled",
+          "accession": "NCIT:C165587",
+          "confidence": "medium",
+          "evidence_quote": null,
+          "evidence_location": null,
+          "note": "No explicit statement of pooling was provided."
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[phosphate]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HEK293T cell nuclear extracts\",\n    \"evidence_location\": \"Abstract\",\n    \"note\": \"Sample is from a cell line (HEK293T), so biological sex is not applicable.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"3 biological replicates (nuclear extract samples)\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"nuclear extract samples in three biological replicates\",\n    \"evidence_location\": \"Methods\",\n    \"note\": \"BSA and E. coli ribosome were analyzed in three technical replicates; only nuclear extracts are explicitly biological replicates.\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null,\n    \"note\": \"No explicit statement of pooling was provided.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000805",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[temperature]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HEK293T cell nuclear extracts\",\n    \"evidence_location\": \"Abstract\",\n    \"note\": \"Sample is from a cell line (HEK293T), so biological sex is not applicable.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"3 biological replicates (nuclear extract samples)\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"nuclear extract samples in three biological replicates\",\n    \"evidence_location\": \"Methods\",\n    \"note\": \"BSA and E. coli ribosome were analyzed in three technical replicates; only nuclear extracts are explicitly biological replicates.\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null,\n    \"note\": \"No explicit statement of pooling was provided.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000703",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "comment[cleavage agent details]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=No cleavage;AC=MS:1001955\"\n    ],\n    \"accession\": \"MS:1001955\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Cross-linking was performed with three urea-based MS-cleavable cross-linkers that deliver distinct fragmentation patterns for cross-linked species upon collisional activation.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"label free\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Digested samples of BSA and the E. coli ribosome were analyzed in three technical replicates, nuclear extract samples in three biological replicates by LC/MS/MS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation described (only LC trapping/gradient described)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Peptides were trapped on a C18 column ... and separated on a µPAC 50 column ... After trapping, peptides were eluted by a linear 90-min ... or 240-min ... water-ACN gradient\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": [
+            "NT=No cleavage;AC=MS:1001955"
+          ],
+          "accession": "MS:1001955",
+          "confidence": "low",
+          "evidence_quote": "Cross-linking was performed with three urea-based MS-cleavable cross-linkers that deliver distinct fragmentation patterns for cross-linked species upon collisional activation.",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[label]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=No cleavage;AC=MS:1001955\"\n    ],\n    \"accession\": \"MS:1001955\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Cross-linking was performed with three urea-based MS-cleavable cross-linkers that deliver distinct fragmentation patterns for cross-linked species upon collisional activation.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"label free\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Digested samples of BSA and the E. coli ribosome were analyzed in three technical replicates, nuclear extract samples in three biological replicates by LC/MS/MS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation described (only LC trapping/gradient described)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Peptides were trapped on a C18 column ... and separated on a µPAC 50 column ... After trapping, peptides were eluted by a linear 90-min ... or 240-min ... water-ACN gradient\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "label free",
+          "accession": "MS:1002038",
+          "confidence": "low",
+          "evidence_quote": "Digested samples of BSA and the E. coli ribosome were analyzed in three technical replicates, nuclear extract samples in three biological replicates by LC/MS/MS",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[alkylation reagent]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=No cleavage;AC=MS:1001955\"\n    ],\n    \"accession\": \"MS:1001955\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Cross-linking was performed with three urea-based MS-cleavable cross-linkers that deliver distinct fragmentation patterns for cross-linked species upon collisional activation.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"label free\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Digested samples of BSA and the E. coli ribosome were analyzed in three technical replicates, nuclear extract samples in three biological replicates by LC/MS/MS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation described (only LC trapping/gradient described)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Peptides were trapped on a C18 column ... and separated on a µPAC 50 column ... After trapping, peptides were eluted by a linear 90-min ... or 240-min ... water-ACN gradient\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[fractionation method]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=No cleavage;AC=MS:1001955\"\n    ],\n    \"accession\": \"MS:1001955\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Cross-linking was performed with three urea-based MS-cleavable cross-linkers that deliver distinct fragmentation patterns for cross-linked species upon collisional activation.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"label free\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Digested samples of BSA and the E. coli ribosome were analyzed in three technical replicates, nuclear extract samples in three biological replicates by LC/MS/MS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation described (only LC trapping/gradient described)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Peptides were trapped on a C18 column ... and separated on a µPAC 50 column ... After trapping, peptides were eluted by a linear 90-min ... or 240-min ... water-ACN gradient\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[modification parameters]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=No cleavage;AC=MS:1001955\"\n    ],\n    \"accession\": \"MS:1001955\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Cross-linking was performed with three urea-based MS-cleavable cross-linkers that deliver distinct fragmentation patterns for cross-linked species upon collisional activation.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"label free\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Digested samples of BSA and the E. coli ribosome were analyzed in three technical replicates, nuclear extract samples in three biological replicates by LC/MS/MS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation described (only LC trapping/gradient described)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Peptides were trapped on a C18 column ... and separated on a µPAC 50 column ... After trapping, peptides were eluted by a linear 90-min ... or 240-min ... water-ACN gradient\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": [
+            "NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed",
+            "NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable"
+          ],
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[fraction identifier]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=No cleavage;AC=MS:1001955\"\n    ],\n    \"accession\": \"MS:1001955\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Cross-linking was performed with three urea-based MS-cleavable cross-linkers that deliver distinct fragmentation patterns for cross-linked species upon collisional activation.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"label free\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Digested samples of BSA and the E. coli ribosome were analyzed in three technical replicates, nuclear extract samples in three biological replicates by LC/MS/MS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation described (only LC trapping/gradient described)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Peptides were trapped on a C18 column ... and separated on a µPAC 50 column ... After trapping, peptides were eluted by a linear 90-min ... or 240-min ... water-ACN gradient\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "no fractionation described (only LC trapping/gradient described)",
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": "Peptides were trapped on a C18 column ... and separated on a µPAC 50 column ... After trapping, peptides were eluted by a linear 90-min ... or 240-min ... water-ACN gradient",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "characteristics[crosslinking reaction time]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000838\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000949",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "characteristics[crosslinking temperature]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000838\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000950",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "comment[crosslink enrichment method]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000838\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000838",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "characteristics[enrichment process]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000838\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0009090",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "comment[cross-linker]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": [\n      \"NT=DSBU;AC=XLMOD:02120;CL=yes;TA=K,S,T,Y\",\n      \"NT=DSAU;AC=XLMOD:09317;CL=yes;TA=K,nterm\",\n      \"NT=DSPU;AC=null;CL=null;TA=K,nterm\"\n    ],\n    \"NT\": [\n      \"DSBU\",\n      \"DSAU\",\n      \"DSPU\"\n    ],\n    \"AC\": [\n      \"XLMOD:02120\",\n      \"XLMOD:09317\",\n      null\n    ],\n    \"CL\": [\n      \"yes\",\n      \"yes\",\n      null\n    ],\n    \"TA\": [\n      \"K,S,T,Y\",\n      \"K,nterm\",\n      \"K,nterm\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Cross-linking was performed with three urea-based MS-cleavable cross-linkers... Three different systems (BSA, E.coli ribosome, nuclei) were cross-linked with DSBU (for BSA DSAU and DSPU were also used).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Cross-linking/Mass Spectrometry Combined with Ion Mobility\",\n    \"evidence_location\": \"Title/Abstract\"\n  }\n}",
+        "parsed": {
+          "value": [
+            "NT=DSBU;AC=XLMOD:02120;CL=yes;TA=K,S,T,Y",
+            "NT=DSAU;AC=XLMOD:09317;CL=yes;TA=K,nterm",
+            "NT=DSPU;AC=null;CL=null;TA=K,nterm"
+          ],
+          "NT": [
+            "DSBU",
+            "DSAU",
+            "DSPU"
+          ],
+          "AC": [
+            "XLMOD:02120",
+            "XLMOD:09317",
+            null
+          ],
+          "CL": [
+            "yes",
+            "yes",
+            null
+          ],
+          "TA": [
+            "K,S,T,Y",
+            "K,nterm",
+            "K,nterm"
+          ],
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": "Cross-linking was performed with three urea-based MS-cleavable cross-linkers... Three different systems (BSA, E.coli ribosome, nuclei) were cross-linked with DSBU (for BSA DSAU and DSPU were also used).",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[crosslinker concentration]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": [\n      \"NT=DSBU;AC=XLMOD:02120;CL=yes;TA=K,S,T,Y\",\n      \"NT=DSAU;AC=XLMOD:09317;CL=yes;TA=K,nterm\",\n      \"NT=DSPU;AC=null;CL=null;TA=K,nterm\"\n    ],\n    \"NT\": [\n      \"DSBU\",\n      \"DSAU\",\n      \"DSPU\"\n    ],\n    \"AC\": [\n      \"XLMOD:02120\",\n      \"XLMOD:09317\",\n      null\n    ],\n    \"CL\": [\n      \"yes\",\n      \"yes\",\n      null\n    ],\n    \"TA\": [\n      \"K,S,T,Y\",\n      \"K,nterm\",\n      \"K,nterm\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Cross-linking was performed with three urea-based MS-cleavable cross-linkers... Three different systems (BSA, E.coli ribosome, nuclei) were cross-linked with DSBU (for BSA DSAU and DSPU were also used).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Cross-linking/Mass Spectrometry Combined with Ion Mobility\",\n    \"evidence_location\": \"Title/Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000951",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[crosslinker to protein ratio]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": [\n      \"NT=DSBU;AC=XLMOD:02120;CL=yes;TA=K,S,T,Y\",\n      \"NT=DSAU;AC=XLMOD:09317;CL=yes;TA=K,nterm\",\n      \"NT=DSPU;AC=null;CL=null;TA=K,nterm\"\n    ],\n    \"NT\": [\n      \"DSBU\",\n      \"DSAU\",\n      \"DSPU\"\n    ],\n    \"AC\": [\n      \"XLMOD:02120\",\n      \"XLMOD:09317\",\n      null\n    ],\n    \"CL\": [\n      \"yes\",\n      \"yes\",\n      null\n    ],\n    \"TA\": [\n      \"K,S,T,Y\",\n      \"K,nterm\",\n      \"K,nterm\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Cross-linking was performed with three urea-based MS-cleavable cross-linkers... Three different systems (BSA, E.coli ribosome, nuclei) were cross-linked with DSBU (for BSA DSAU and DSPU were also used).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Cross-linking/Mass Spectrometry Combined with Ion Mobility\",\n    \"evidence_location\": \"Title/Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000952",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[quenching reagent]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": [\n      \"NT=DSBU;AC=XLMOD:02120;CL=yes;TA=K,S,T,Y\",\n      \"NT=DSAU;AC=XLMOD:09317;CL=yes;TA=K,nterm\",\n      \"NT=DSPU;AC=null;CL=null;TA=K,nterm\"\n    ],\n    \"NT\": [\n      \"DSBU\",\n      \"DSAU\",\n      \"DSPU\"\n    ],\n    \"AC\": [\n      \"XLMOD:02120\",\n      \"XLMOD:09317\",\n      null\n    ],\n    \"CL\": [\n      \"yes\",\n      \"yes\",\n      null\n    ],\n    \"TA\": [\n      \"K,S,T,Y\",\n      \"K,nterm\",\n      \"K,nterm\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Cross-linking was performed with three urea-based MS-cleavable cross-linkers... Three different systems (BSA, E.coli ribosome, nuclei) were cross-linked with DSBU (for BSA DSAU and DSPU were also used).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Cross-linking/Mass Spectrometry Combined with Ion Mobility\",\n    \"evidence_location\": \"Title/Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000953",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "characteristics[crosslink distance]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": [\n      \"NT=DSBU;AC=XLMOD:02120;CL=yes;TA=K,S,T,Y\",\n      \"NT=DSAU;AC=XLMOD:09317;CL=yes;TA=K,nterm\",\n      \"NT=DSPU;AC=null;CL=null;TA=K,nterm\"\n    ],\n    \"NT\": [\n      \"DSBU\",\n      \"DSAU\",\n      \"DSPU\"\n    ],\n    \"AC\": [\n      \"XLMOD:02120\",\n      \"XLMOD:09317\",\n      null\n    ],\n    \"CL\": [\n      \"yes\",\n      \"yes\",\n      null\n    ],\n    \"TA\": [\n      \"K,S,T,Y\",\n      \"K,nterm\",\n      \"K,nterm\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Cross-linking was performed with three urea-based MS-cleavable cross-linkers... Three different systems (BSA, E.coli ribosome, nuclei) were cross-linked with DSBU (for BSA DSAU and DSPU were also used).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Cross-linking/Mass Spectrometry Combined with Ion Mobility\",\n    \"evidence_location\": \"Title/Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000948",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[chemical cross-linking coupled with ms]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": [\n      \"NT=DSBU;AC=XLMOD:02120;CL=yes;TA=K,S,T,Y\",\n      \"NT=DSAU;AC=XLMOD:09317;CL=yes;TA=K,nterm\",\n      \"NT=DSPU;AC=null;CL=null;TA=K,nterm\"\n    ],\n    \"NT\": [\n      \"DSBU\",\n      \"DSAU\",\n      \"DSPU\"\n    ],\n    \"AC\": [\n      \"XLMOD:02120\",\n      \"XLMOD:09317\",\n      null\n    ],\n    \"CL\": [\n      \"yes\",\n      \"yes\",\n      null\n    ],\n    \"TA\": [\n      \"K,S,T,Y\",\n      \"K,nterm\",\n      \"K,nterm\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Cross-linking was performed with three urea-based MS-cleavable cross-linkers... Three different systems (BSA, E.coli ribosome, nuclei) were cross-linked with DSBU (for BSA DSAU and DSPU were also used).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Cross-linking/Mass Spectrometry Combined with Ion Mobility\",\n    \"evidence_location\": \"Title/Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "cross-linking mass spectrometry",
+          "accession": "PRIDE:0000430",
+          "confidence": "high",
+          "evidence_quote": "Cross-linking/Mass Spectrometry Combined with Ion Mobility",
+          "evidence_location": "Title/Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      }
+    }
+  }
+}

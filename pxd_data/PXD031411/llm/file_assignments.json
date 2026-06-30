@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "pxd": "PXD031411",
+    "category": "llm",
+    "saved_at": "2026-06-30T15:23:33.151784",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"doxo_dms0_dso_augmin_insolution_haus\",\n      \"description\": \"Human augmin complex CX-MS with DSSO crosslinker; DMSO control and DSSO-treated samples analyzed by in-solution and in-gel digestion.\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": \"DSSO\",\n      \"biological_condition\": \"DMSO control and DSSO crosslinked augmin complex (in-gel and in-solution digests)\",\n      \"files\": [\n        \"100-DSSO-insolution.raw\",\n        \"250-DSSO-insolution.raw\",\n        \"250-DSSO-ingel.raw\",\n        \"500-DSSO-insolution.raw\",\n        \"500-DSSO-ingel.raw\",\n        \"750-DSSO-ingel.raw\",\n        \"1000-DSSO-ingel.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"Haus DSSO CX-MS analysis to validate Cyro-EM analysis of Haus multimer\",\n      \"reasoning\": \"All files with 'DSSO' in the filename indicate DSSO crosslinking. The publication describes DSSO CX-MS of the augmin complex in human (organism provided as Homo sapiens). Filenames also include both 'insolution' and 'ingel', but the task instructs not to split by digestion type/fractionation; they are treated as the same biological condition for the augmin complex DSSO experiment.\"\n    },\n    {\n      \"cluster_id\": \"cluster_2\",\n      \"cluster_label\": \"dms0_control_dso_augmin\",\n      \"description\": \"Human augmin complex CX-MS control labeled DMSO; analyzed by in-gel and in-solution digests.\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": null,\n      \"biological_condition\": \"DMSO control (no DSSO indicated in filename) for augmin complex\",\n      \"files\": [\n        \"DMSO-ingel.raw\",\n        \"DMSO-insolution.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"DMSO-ingel.raw; DMSO-insolution.raw\",\n      \"reasoning\": \"The filenames explicitly indicate a DMSO condition distinct from DSSO-labeled files. The publication text does not explicitly mention DMSO controls, but the presence of DMSO-named raw files strongly suggests a control condition. Crosslinker is set to null because the filenames do not state DSSO for these controls.\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a biological XL-MS condition.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"No files were left unassigned.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 9,\n    \"n_assigned_files\": 9,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 2,\n    \"overall_confidence\": \"medium\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "doxo_dms0_dso_augmin_insolution_haus",
+          "description": "Human augmin complex CX-MS with DSSO crosslinker; DMSO control and DSSO-treated samples analyzed by in-solution and in-gel digestion.",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": "DSSO",
+          "biological_condition": "DMSO control and DSSO crosslinked augmin complex (in-gel and in-solution digests)",
+          "files": [
+            "100-DSSO-insolution.raw",
+            "250-DSSO-insolution.raw",
+            "250-DSSO-ingel.raw",
+            "500-DSSO-insolution.raw",
+            "500-DSSO-ingel.raw",
+            "750-DSSO-ingel.raw",
+            "1000-DSSO-ingel.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "Haus DSSO CX-MS analysis to validate Cyro-EM analysis of Haus multimer",
+          "reasoning": "All files with 'DSSO' in the filename indicate DSSO crosslinking. The publication describes DSSO CX-MS of the augmin complex in human (organism provided as Homo sapiens). Filenames also include both 'insolution' and 'ingel', but the task instructs not to split by digestion type/fractionation; they are treated as the same biological condition for the augmin complex DSSO experiment."
+        },
+        {
+          "cluster_id": "cluster_2",
+          "cluster_label": "dms0_control_dso_augmin",
+          "description": "Human augmin complex CX-MS control labeled DMSO; analyzed by in-gel and in-solution digests.",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": null,
+          "biological_condition": "DMSO control (no DSSO indicated in filename) for augmin complex",
+          "files": [
+            "DMSO-ingel.raw",
+            "DMSO-insolution.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "DMSO-ingel.raw; DMSO-insolution.raw",
+          "reasoning": "The filenames explicitly indicate a DMSO condition distinct from DSSO-labeled files. The publication text does not explicitly mention DMSO controls, but the presence of DMSO-named raw files strongly suggests a control condition. Crosslinker is set to null because the filenames do not state DSSO for these controls."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a biological XL-MS condition.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "No files were left unassigned."
+        }
+      ],
+      "summary": {
+        "n_input_files": 9,
+        "n_assigned_files": 9,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 2,
+        "overall_confidence": "medium"
+      }
+    }
+  }
+}

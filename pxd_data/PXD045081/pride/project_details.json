@@ -1,0 +1,295 @@
+{
+  "metadata": {
+    "pxd": "PXD045081",
+    "category": "pride",
+    "saved_at": "2026-06-30T15:36:17.993590",
+    "filename": "project_details"
+  },
+  "data": {
+    "accession": "PXD045081",
+    "title": "Proteomics after labeling the vicinity of UNC-45 using miniTurbo and TurboID biotin ligases followed by streptavidin pull-down under non-stress and optogenetically induced mechanical muscle stress (OptIMMuS).",
+    "additionalAttributes": [],
+    "projectDescription": "This project includes two proximity labeling experiments, one to establish the vicinity of UNC-45 under non-stress conditions and one to examine changes in the vicinity of UNC-45 under optogenetically induced mechanical muscle stress. The first non-stress experiment consists of 15 samples after biotin-streptavidin pull-down in 5 replicates of 3 conditions (3 transgenic C. elegans strains). Transgenic C. elegans strains expressing the mutant BirA biotin ligases miniTurbo and TurboID in body wall muscle cells were used to compare a proximity-labeled strain expressing an UNC-45-miniTurbo-2xHA fusion protein in the muscle cells (PP3135 unc-119(ed4)III; hhIs241[unc-54p::unc-45::miniTurbo::2xHA; unc-119(+)]) with a strain expressing the biotin ligase TurboID-2xHA without fusion protein in muscle cells (PP3138 unc-119(ed4)III; hhIs242[unc-54p::TurboID::2xHA; unc-119(+)]) to find transient interactors of the myosin chaperone UNC-45 in muscle. As a control, we included a strain expressing a transgenic UNC-45-FLAG protein in the body wall muscle (PP1017 unc-119(ed4)III; hhIs84[unc-119(+); unc-54p::unc-45::FLAG]). Biotinylated proteins in 2.5 mg lysates of these strains were pulled down with streptavidin sepharose beads and identified by mass spectrometry.  The second mechanical stress experiment consists of 10 samples after biotin-streptavidin pull-down in 5 replicates of 2 conditions. A transgenic C. elegans strain expressing the biotin ligase miniTurbo fused to UNC-45 in body wall muscle cells was crossed with a transgenic strain expressing the optogenetic channelrhodopsin mutant ChR2(C128S;H134R)-FLAG in body wall muscle cells (PP3358 hhIs241[unc-54p::unc-45::miniTurbo::2xHA; unc-119(+)]; hhIs251[myo-3p::ChR2(C128S,H134R)-FLAG::unc-54 3'UTR, Cbrunc-119(+)]).  The latter transgene is used to contract the worms’ muscles by blue light illumination to induce mechanical muscle stress. The optogenetic channel is activated by adding the cofactor all-trans retinal (ATR) to its food source E. coli OP50. In this experiment, we compared proximity-labeling in the UNC-45-miniTurbo-2xHA expressing strain under conditions with ATR (L+, treatment, contraction) with proximity-labeling in the UNC-45-miniTurbo-2xHA expressing strain under conditions without ATR (L-, control, no contraction) to find transient interactors of the candidate UNC-45 in muscle under mechanical stress. Biotinylated proteins in 2.5 mg of lysates of these strains were pulled down using streptavidin sepharose beads and identified by mass spectrometry.",
+    "sampleProcessingProtocol": "Young adult worms were grown on E. coli OP50 plates supplemented with or without all-trans retinal and exposed to blue light for 4 h or kept in the dark. After this treatment, worms were washed off the plates with M9 buffer, washed 3 times on ice, and snap frozen in liquid nitrogen until further processing. Samples were then thawed on ice, subjected to 5 freeze-thaw cycles in modified RIPA buffer (50 mM Tris pH 7.5, 150 mM NaCl, 1 mM EDTA, 1 mM EGTA, 1% Triton X-100 supplemented with cOmplete protease inhibitor cocktail (Roche)), and sonicated 10 times for 1 min on ice. After homogenization, the lysates were cleared by centrifugation for 15 min at 20,000 g, 4°C, and the protein concentration was measured. Biotinylated proteins from 2.5 mg total protein were pulled down using Streptavidin Sepharose High Performance beads (GE Healthcare) in PBS by incubation over night at 4°C. After washing the beads three times in PBS, proteins were denatured in 8 M urea/50 mM TEAD buffer, reduced on-bead with 5 mM DTT for 30 min at RT, alkylated with 40 mM CAA for 20 min at RT in the dark, and digested with 0.5 µg Lys-C for 3 h at RT. The samples were then diluted to 2 M urea in 50 mM ABC buffer and digested with 1 µg trypsin overnight at RT. Digestion was stopped by adding formic acid to 1%, beads were separated by centrifugation, and soluble peptides were loaded onto equilibrated SDB-RPS stage tips and stored at 4°C until mass spectrometry analysis. All samples were analyzed by the CECAD proteomics facility on a Q Exactive Plus Orbitrap mass spectrometer that was coupled to an EASY nLC (both Thermo Scientific). Peptides were loaded with solvent A (0.1% formic acid in water) onto an in-house packed analytical column (40 cm length, 75 µm inner diameter, filled with 2.7 µm Poroshell EC120 C18, Agilent). Peptides were chromatographically separated at a constant flow rate of 250 nL/min using the following gradient: initial 3 % solvent B (0.1% formic acid in 80 % acetonitrile), 3-5% B within 1.0 min, 5-30% solvent B within 65.0 min, 30-50% solvent B within 13.0 min, 50-95% solvent B within 1.0 min, followed by washing and column equilibration. The mass spectrometer was operated in data-dependent acquisition mode. The MS1 survey scan was acquired from 300-1750 m/z at a resolution of 70,000 and a maximum injection time of 20 ms. The top 10 most abundant peptides were isolated within a 1.8 Th window and subjected to HCD fragmentation at a normalized collision energy of 27%. The AGC target was set to 5e5 charges, allowing a maximum injection time of 110 ms. Product ions were detected in the Orbitrap at a resolution of 35,000. Precursors were dynamically excluded for 15.0 s.",
+    "dataProcessingProtocol": "All mass spectrometric raw data were processed with Maxquant (version 2.0.3.0, Tyanova et al. NatProt) using default parameters against the C. elegans WormBase database (PRJNA13758, version WS277, downloaded 05.08.2020). For IP samples, a chimeric data base was created containing both the WormBase proteins and any generated constructs. The match-between-runs option was enabled between replicates. Follow-up analysis was performed in Perseus 1.6.15 (Tyanova et al. NatMet). Protein groups were filtered for potential contaminants and insecure identifications. Remaining IDs were filtered for data completeness in at least one group, missing values were imputed by sigma downshift (0.3 σ width, 1.8 σ downshift), and FDR-controlled two-sided t-tests were performed. Finally, WormBase transcript IDs were converted into Uniprot IDs from Swissprot and TrEMBL data using the Uniprot ID mapping webtool. Resulting Uniprot IDs were matched to the dataset using the “matching rows by name” function and used for data annotation and finally enrichment analyses.",
+    "projectTags": [],
+    "keywords": [
+      "C. elegans",
+      "Optogenetics",
+      "Unc-45",
+      "Proximity labelling",
+      "Mechanical stress",
+      "Muscle"
+    ],
+    "doi": "",
+    "submissionType": "PARTIAL",
+    "license": "Creative Commons Public Domain (CC0)",
+    "submissionDate": "2023-09-04",
+    "publicationDate": "2024-07-16",
+    "submitters": [
+      {
+        "title": "Mrs",
+        "firstName": "Prerana",
+        "lastName": "Wagle",
+        "identifier": "2254706",
+        "affiliation": "CECAD Research Center",
+        "email": "proteomics-facility@uni-koeln.de",
+        "country": "Germany",
+        "orcid": "",
+        "name": "Prerana Wagle",
+        "id": "2254706"
+      }
+    ],
+    "labPIs": [
+      {
+        "title": "Dr",
+        "firstName": "Thorsten",
+        "lastName": "Hoppe",
+        "identifier": "2751105",
+        "affiliation": "Institute for Genetics, CECAD Research Center, University of Cologne, Joseph-Stelzmann-Straße 26, 50931 Cologne, Germany",
+        "email": "thorsten.hoppe@uni-koeln.de",
+        "country": "",
+        "orcid": "",
+        "name": "Thorsten Hoppe",
+        "id": "2751105"
+      }
+    ],
+    "instruments": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1002634",
+        "name": "Q Exactive Plus"
+      }
+    ],
+    "softwares": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1001583",
+        "name": "MaxQuant"
+      }
+    ],
+    "experimentTypes": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000429",
+        "name": "Shotgun proteomics"
+      }
+    ],
+    "quantificationMethods": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000312",
+        "name": "Label free"
+      }
+    ],
+    "countries": [
+      "Germany"
+    ],
+    "sampleAttributes": [
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "EFO:0000635",
+          "name": "organism part"
+        },
+        "value": [
+          {
+            "cvLabel": "BTO",
+            "accession": "BTO:0001863",
+            "name": "body wall muscle"
+          }
+        ]
+      },
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "OBI:0100026",
+          "name": "organism"
+        },
+        "value": [
+          {
+            "cvLabel": "NEWT",
+            "accession": "NEWT:6239",
+            "name": "Caenorhabditis elegans"
+          }
+        ]
+      }
+    ],
+    "organisms": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "NEWT",
+        "accession": "NEWT:6239",
+        "name": "Caenorhabditis elegans"
+      }
+    ],
+    "organismParts": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "BTO",
+        "accession": "BTO:0001863",
+        "name": "Body wall muscle"
+      }
+    ],
+    "diseases": [],
+    "references": [],
+    "identifiedPTMStrings": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00425",
+        "name": "monohydroxylated residue"
+      }
+    ],
+    "totalFileDownloads": 1025,
+    "botCount": 217,
+    "hubCount": 801,
+    "organicCount": 7,
+    "files": {
+      "files": [
+        {
+          "fileName": "Q1_ColID_280_2655_01.raw",
+          "fileSizeBytes": 843032216,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/07/PXD045081/Q1_ColID_280_2655_01.raw"
+        },
+        {
+          "fileName": "Q1_ColID_280_2655_03.raw",
+          "fileSizeBytes": 820674240,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/07/PXD045081/Q1_ColID_280_2655_03.raw"
+        },
+        {
+          "fileName": "Q2_ColID_112_ProjID_2359_2.raw",
+          "fileSizeBytes": 995453846,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/07/PXD045081/Q2_ColID_112_ProjID_2359_2.raw"
+        },
+        {
+          "fileName": "Q2_ColID_121_ProjID_2359_10.raw",
+          "fileSizeBytes": 1070118790,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/07/PXD045081/Q2_ColID_121_ProjID_2359_10.raw"
+        },
+        {
+          "fileName": "Q2_ColID_121_ProjID_2359_6.raw",
+          "fileSizeBytes": 1052901539,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/07/PXD045081/Q2_ColID_121_ProjID_2359_6.raw"
+        },
+        {
+          "fileName": "Q1_ColID_280_2655_08.raw",
+          "fileSizeBytes": 832868046,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/07/PXD045081/Q1_ColID_280_2655_08.raw"
+        },
+        {
+          "fileName": "Q1_ColID_280_2655_06.raw",
+          "fileSizeBytes": 846660234,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/07/PXD045081/Q1_ColID_280_2655_06.raw"
+        },
+        {
+          "fileName": "Q2_ColID_121_ProjID_2359_7.raw",
+          "fileSizeBytes": 1099525310,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/07/PXD045081/Q2_ColID_121_ProjID_2359_7.raw"
+        },
+        {
+          "fileName": "PRIDE_2359_2655.zip",
+          "fileSizeBytes": 692254004,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/07/PXD045081/PRIDE_2359_2655.zip"
+        },
+        {
+          "fileName": "Q2_ColID_121_ProjID_2359_9.raw",
+          "fileSizeBytes": 1028613012,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/07/PXD045081/Q2_ColID_121_ProjID_2359_9.raw"
+        },
+        {
+          "fileName": "Q2_ColID_121_ProjID_2359_13.raw",
+          "fileSizeBytes": 1081663473,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/07/PXD045081/Q2_ColID_121_ProjID_2359_13.raw"
+        },
+        {
+          "fileName": "Q2_ColID_121_ProjID_2359_15.raw",
+          "fileSizeBytes": 1053948117,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/07/PXD045081/Q2_ColID_121_ProjID_2359_15.raw"
+        },
+        {
+          "fileName": "Q1_ColID_280_2655_02.raw",
+          "fileSizeBytes": 847932564,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/07/PXD045081/Q1_ColID_280_2655_02.raw"
+        },
+        {
+          "fileName": "Q1_ColID_280_2655_10.raw",
+          "fileSizeBytes": 839722062,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/07/PXD045081/Q1_ColID_280_2655_10.raw"
+        },
+        {
+          "fileName": "Q2_ColID_112_ProjID_2359_3.raw",
+          "fileSizeBytes": 964113012,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/07/PXD045081/Q2_ColID_112_ProjID_2359_3.raw"
+        },
+        {
+          "fileName": "Q2_ColID_112_ProjID_2359_1.raw",
+          "fileSizeBytes": 979803168,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/07/PXD045081/Q2_ColID_112_ProjID_2359_1.raw"
+        },
+        {
+          "fileName": "Q1_ColID_280_2655_07.raw",
+          "fileSizeBytes": 878301690,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/07/PXD045081/Q1_ColID_280_2655_07.raw"
+        },
+        {
+          "fileName": "checksum.txt",
+          "fileSizeBytes": 2980,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/07/PXD045081/checksum.txt"
+        },
+        {
+          "fileName": "Q1_ColID_280_2655_04.raw",
+          "fileSizeBytes": 830325046,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/07/PXD045081/Q1_ColID_280_2655_04.raw"
+        },
+        {
+          "fileName": "Q1_ColID_280_2655_05.raw",
+          "fileSizeBytes": 849374146,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/07/PXD045081/Q1_ColID_280_2655_05.raw"
+        },
+        {
+          "fileName": "Q2_ColID_121_ProjID_2359_14.raw",
+          "fileSizeBytes": 1092622438,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/07/PXD045081/Q2_ColID_121_ProjID_2359_14.raw"
+        },
+        {
+          "fileName": "Q2_ColID_121_ProjID_2359_11.raw",
+          "fileSizeBytes": 1092863355,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/07/PXD045081/Q2_ColID_121_ProjID_2359_11.raw"
+        },
+        {
+          "fileName": "Q2_ColID_121_ProjID_2359_5.raw",
+          "fileSizeBytes": 1004114158,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/07/PXD045081/Q2_ColID_121_ProjID_2359_5.raw"
+        },
+        {
+          "fileName": "Q2_ColID_121_ProjID_2359_12.raw",
+          "fileSizeBytes": 1027548565,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/07/PXD045081/Q2_ColID_121_ProjID_2359_12.raw"
+        },
+        {
+          "fileName": "Q1_ColID_280_2655_09.raw",
+          "fileSizeBytes": 860421558,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/07/PXD045081/Q1_ColID_280_2655_09.raw"
+        },
+        {
+          "fileName": "Q2_ColID_112_ProjID_2359_4.raw",
+          "fileSizeBytes": 941889284,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/07/PXD045081/Q2_ColID_112_ProjID_2359_4.raw"
+        },
+        {
+          "fileName": "Q2_ColID_121_ProjID_2359_8.raw",
+          "fileSizeBytes": 1104338184,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/07/PXD045081/Q2_ColID_121_ProjID_2359_8.raw"
+        }
+      ],
+      "totalCount": 27
+    }
+  }
+}

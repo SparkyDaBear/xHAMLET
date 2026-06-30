@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "pxd": "PXD033181",
+    "category": "llm",
+    "saved_at": "2026-06-30T15:25:32.549873",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"human_nucleosome_dss_o_4mM_por1\",\n      \"description\": \"Human nucleosome/protein complex condition labeled Por1 at 4 mM, crosslinked with DSSO.\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": \"DSSO\",\n      \"biological_condition\": \"Por1; 4 mM\",\n      \"files\": [\n        \"E4_221129_JS_3259_CB_Por1_4mM_DSSO_S01_FAIMS_5ul.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"E4_221129_JS_3259_CB_Por1_4mM_DSSO_S01_FAIMS_5ul.raw\",\n      \"reasoning\": \"The filename explicitly contains the crosslinker DSSO and a specific biological label (CB_Por1_4mM). No other files share the same Por1_4mM label, so it is kept as its own biologically distinct condition.\"\n    },\n    {\n      \"cluster_id\": \"cluster_2\",\n      \"cluster_label\": \"human_nucleosome_dss_o_2000nM_b7\",\n      \"description\": \"Human nucleosome/protein complex condition labeled B7 at 2000 nM, crosslinked with DSSO.\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": \"DSSO\",\n      \"biological_condition\": \"B7; 2000 nM\",\n      \"files\": [\n        \"L2_210429_JS_2067_XLMS_S01_C_B7_2000nM_DSSO.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"L2_210429_JS_2067_XLMS_S01_C_B7_2000nM_DSSO.raw\",\n      \"reasoning\": \"The filename contains DSSO and a distinct condition string (C_B7_2000nM). With only one matching file, it is assigned as a separate condition.\"\n    },\n    {\n      \"cluster_id\": \"cluster_3\",\n      \"cluster_label\": \"human_nucleosome_dss_o_4000nM_b7\",\n      \"description\": \"Human nucleosome/protein complex condition labeled B7 at 4000 nM, crosslinked with DSSO (replicates S02 and S01/S03 variants).\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": \"DSSO\",\n      \"biological_condition\": \"B7; 4000 nM\",\n      \"files\": [\n        \"L2_210503_JS_2067_XLMS_S02_C_B7_4000nM_DSSO.raw\",\n        \"L2_210503_JS_2067_XLMS_S03_C_B127_4000nM_DSSO.raw\"\n      ],\n      \"confidence\": \"low\",\n      \"evidence_quote\": \"L2_210503_JS_2067_XLMS_S02_C_B7_4000nM_DSSO.raw; L2_210503_JS_2067_XLMS_S03_C_B127_4000nM_DSSO.raw\",\n      \"reasoning\": \"All files share DSSO and the same 4000 nM concentration, but the label differs (B7 vs B127). Because the task requests clustering by biological condition and the publication does not provide a mapping for these internal labels (B7/B127/Por1), this grouping is uncertain. They are grouped only due to the strong shared concentration and DSSO reagent; confidence is therefore low.\"\n    },\n    {\n      \"cluster_id\": \"cluster_4\",\n      \"cluster_label\": \"human_nucleosome_dss_o_mycmxmax_127_2000nM\",\n      \"description\": \"Human nucleosome/protein complex condition MYCMAX127 at 2000 nM, crosslinked with DSSO.\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": \"DSSO\",\n      \"biological_condition\": \"MYCMAX127; 2000 nM\",\n      \"files\": [\n        \"L2_220303_JS_3165_S01_MYCMAX127_2000nM_DSSO_XLMS.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"L2_220303_JS_3165_S01_MYCMAX127_2000nM_DSSO_XLMS.raw\",\n      \"reasoning\": \"The filename explicitly includes DSSO and the condition MYCMAX127_2000nM, which is distinct from Por1 and B7/B127 labels.\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a biological XL-MS condition.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"No QC/calibration/blank files were provided in the input list, and each provided filename contains a DSSO crosslinker and a condition-like label.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 5,\n    \"n_assigned_files\": 5,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 4,\n    \"overall_confidence\": \"medium\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "human_nucleosome_dss_o_4mM_por1",
+          "description": "Human nucleosome/protein complex condition labeled Por1 at 4 mM, crosslinked with DSSO.",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": "DSSO",
+          "biological_condition": "Por1; 4 mM",
+          "files": [
+            "E4_221129_JS_3259_CB_Por1_4mM_DSSO_S01_FAIMS_5ul.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "E4_221129_JS_3259_CB_Por1_4mM_DSSO_S01_FAIMS_5ul.raw",
+          "reasoning": "The filename explicitly contains the crosslinker DSSO and a specific biological label (CB_Por1_4mM). No other files share the same Por1_4mM label, so it is kept as its own biologically distinct condition."
+        },
+        {
+          "cluster_id": "cluster_2",
+          "cluster_label": "human_nucleosome_dss_o_2000nM_b7",
+          "description": "Human nucleosome/protein complex condition labeled B7 at 2000 nM, crosslinked with DSSO.",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": "DSSO",
+          "biological_condition": "B7; 2000 nM",
+          "files": [
+            "L2_210429_JS_2067_XLMS_S01_C_B7_2000nM_DSSO.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "L2_210429_JS_2067_XLMS_S01_C_B7_2000nM_DSSO.raw",
+          "reasoning": "The filename contains DSSO and a distinct condition string (C_B7_2000nM). With only one matching file, it is assigned as a separate condition."
+        },
+        {
+          "cluster_id": "cluster_3",
+          "cluster_label": "human_nucleosome_dss_o_4000nM_b7",
+          "description": "Human nucleosome/protein complex condition labeled B7 at 4000 nM, crosslinked with DSSO (replicates S02 and S01/S03 variants).",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": "DSSO",
+          "biological_condition": "B7; 4000 nM",
+          "files": [
+            "L2_210503_JS_2067_XLMS_S02_C_B7_4000nM_DSSO.raw",
+            "L2_210503_JS_2067_XLMS_S03_C_B127_4000nM_DSSO.raw"
+          ],
+          "confidence": "low",
+          "evidence_quote": "L2_210503_JS_2067_XLMS_S02_C_B7_4000nM_DSSO.raw; L2_210503_JS_2067_XLMS_S03_C_B127_4000nM_DSSO.raw",
+          "reasoning": "All files share DSSO and the same 4000 nM concentration, but the label differs (B7 vs B127). Because the task requests clustering by biological condition and the publication does not provide a mapping for these internal labels (B7/B127/Por1), this grouping is uncertain. They are grouped only due to the strong shared concentration and DSSO reagent; confidence is therefore low."
+        },
+        {
+          "cluster_id": "cluster_4",
+          "cluster_label": "human_nucleosome_dss_o_mycmxmax_127_2000nM",
+          "description": "Human nucleosome/protein complex condition MYCMAX127 at 2000 nM, crosslinked with DSSO.",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": "DSSO",
+          "biological_condition": "MYCMAX127; 2000 nM",
+          "files": [
+            "L2_220303_JS_3165_S01_MYCMAX127_2000nM_DSSO_XLMS.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "L2_220303_JS_3165_S01_MYCMAX127_2000nM_DSSO_XLMS.raw",
+          "reasoning": "The filename explicitly includes DSSO and the condition MYCMAX127_2000nM, which is distinct from Por1 and B7/B127 labels."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a biological XL-MS condition.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "No QC/calibration/blank files were provided in the input list, and each provided filename contains a DSSO crosslinker and a condition-like label."
+        }
+      ],
+      "summary": {
+        "n_input_files": 5,
+        "n_assigned_files": 5,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 4,
+        "overall_confidence": "medium"
+      }
+    }
+  }
+}

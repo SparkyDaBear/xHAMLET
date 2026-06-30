@@ -1,0 +1,1005 @@
+{
+  "metadata": {
+    "pxd": "PXD003880",
+    "category": "enhanced",
+    "saved_at": "2026-06-30T14:53:48.638119",
+    "filename": "metadata"
+  },
+  "data": {
+    "pxd": "PXD003880",
+    "processed_at": "2026-06-30T14:52:56.252266",
+    "stages": {
+      "pride": "success",
+      "publication": "failed",
+      "file_clustering": "success",
+      "raw_processing": "skipped_no_download",
+      "spectral_merge": "success",
+      "llm": "success",
+      "sdrf": "success",
+      "sdrf_validation": "success_with_warnings",
+      "xi_configs": "success",
+      "relink": "skipped",
+      "compilation": "success"
+    },
+    "file_assignments": {
+      "QEplus009907.raw": {
+        "cluster_id": "cluster_1",
+        "cluster_label": "human_calmodulin_plectin_abd_dss",
+        "organism": "Homo sapiens",
+        "taxid": "NCBITaxon:9606"
+      },
+      "QEplus009908.raw": {
+        "cluster_id": "cluster_1",
+        "cluster_label": "human_calmodulin_plectin_abd_dss",
+        "organism": "Homo sapiens",
+        "taxid": "NCBITaxon:9606"
+      }
+    },
+    "spectral_summary": {
+      "source_files_parsed": 0,
+      "per_file": [],
+      "instrument": "Q Exactive"
+    },
+    "sdrf_path": "pxd_data/PXD003880/sdrf/PXD003880.sdrf.tsv",
+    "sdrf_validation_warnings": "WARNING: Term: calmodulin in column 'characteristics[organism part]', is not found in the given ontology list uberon;bto\nWARNING: Term: not available in column 'comment[instrument]', is not found in the given ontology list ms;pride\nERROR: Column 'comment[instrument]' contains 'not available' values but requires actual values\nERROR: Term: not available in column 'comment[dissociation method]', is not found in the given ontology list ms;pride\nERROR: Column 'comment[dissociation method]' contains 'not available' values but requires actual values\nERROR: Value 'NT=['DSS'];AC=['XLMOD:02001'];TA=['K,nterm']' does not match required pattern\nThere were validation errors.",
+    "xi_config_paths": {
+      "crosslinking": "pxd_data/PXD003880/configs/xi_crosslinking.conf",
+      "linear": "pxd_data/PXD003880/configs/xi_linear.conf"
+    },
+    "pride_data": {
+      "accession": "PXD003880",
+      "title": "Xilmass: a new approach towards the identification of cross-linked peptides",
+      "additionalAttributes": [],
+      "projectDescription": "Chemical cross-linking coupled with mass spectrometry plays an important role in unravelling protein interactions, especially weak and transient interactions. Moreover, cross-linking complements several structure determination approaches such as cryo-EM. Although several computational approaches are available for the annotation of spectra obtained from cross-linked peptides, there remains room for improvement. Here, we present Xilmass, a novel algorithm to identify cross-linked peptides that introduces two new concepts: (i) the cross-linked peptides are represented in a novel way in the search database that explicitly encodes cross-linking sites and (ii) the scoring function from the Andromeda algorithm was adapted to score against a theoretical MS spectrum that contains the peaks from all the possible fragment ions of a cross-linked peptide pair. The performance of Xilmass was subsequently evaluated against the recently published Kojak and the popular pLink algorithms on a data set that contains calmodulin-plectin.",
+      "sampleProcessingProtocol": "Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a were kindly provided by Kristina Dijnovic-Carugo and Jae-Geun Song (Vienna, Austria). The proteins were expressed and purified as described by Song et al [1].   For cross-linking experiments, proteins were mixed in an equimolar ratio (10 µM each, in 0.1 M MES pH 6.5, 0.5 M NaCl, 2 mM CaCl2) and 1 µL of disuccinimidyl suberate (DSS) cross-linker (5 mM each of DSS-d0 and DSS-d12; Creative Molecules Inc.) in anhydrous DMF was added per 40 µl of solution to a final concentration of 0.25 mM. The reaction was carried out for 20 min at room temperature under shaking and then quenched by adding 1 M Tris-HCI (pH 7.5). Subsequently, proteins were separated by 4-12% Bis-Tris sodium dodecyl sulfate polyacrylamide gel electrophoresis (SDS-PAGE) followed by staining with colloidal Coomassie Blue. Bands of cross-linked plectin-ABD:CaM complex, plectin-ABD and CaM were destained and subjected to proteolytic in-gel digestion using trypsin as described by Cristodero et al [2].   Peptide mixtures were analyzed by UHPLC-ESI-MS/MS using an UltiMate 3000 RSLCnano HPLC system coupled to a Q Exactive Plus (both Thermo Fisher Scientific) mass spectrometer. Samples were washed and pre-concentrated on a 5 mm × 0.3 mm PepMapTM C18 µ-precolumn (Thermo Fisher Scientific) followed by separation on a 50 cm × 75 µm C18 reversed-phase nano LC column (Acclaim PepMapTM RSLC column; 2 µm particle size; 100 Å pore size; Thermo Fisher Scientific) at a temperature of 40°C using a 30-min linear gradient ranging from 3 to 39% solvent B [86% (v/v) acetonitrile, 2% dimethyl sulfoxide (DMSO), 0.1% formic acid] and a subsequent increase to 95% B within 5 min. MS1 scans were recorded from m/z 375-1,700 at a resolution of 70,000 at m/z 200, an automatic gain control of 3×106 ions and a maximum fill time of 60 ms. MS2 scans for up to 12 of the most intense multiple charged precursor ions above an intensity threshold of 5,800 with a dynamic exclusion time of 45 s were acquired at a resolution of 35,000. For fragmentation, higher-energy collisional dissociation (HCD) was used at an AGC of 1×105 ions, maximum fill time of 120 ms and normalized collision energy of 28. For each sample, a second LC/MS analysis was performed in which only precursor ions of charge state 3+ or higher were selected for MS/MS experiments.  [1] Song, J.-G.; Kostan, J.; Drepper, F.; Knapp, B.; de Almeida Ribeiro, E.; Konarev, P. V.; Grishkovskaya, I.; Wiche, G.; Gregor, M.; Svergun, D. I.; et al. Structural Insights into Ca2+-Calmodulin Regulation of Plectin 1a-Integrin ß4 Interaction in Hemidesmosomes. Structure 2015, 23 (3), 558–570.  [2] Cristodero, M.; Mani, J.; Oeljeklaus, S.; Aeberhard, L.; Hashimi, H.; Ramrath, D. J. F.; Lukeš, J.; Warscheid, B.; Schneider, A. Mitochondrial translation factors of Trypanosoma brucei: Elongation factor-Tu has a unique subdomain that is essential for its function. Mol. Microbiol. 2013, 90 (4), 744–755.",
+      "dataProcessingProtocol": "The raw data were converted with msconvert which is part of ProteoWizard (release 3.0.7692) to mgf for both Xilmass and pLink, and to mzML for Kojak.  A database that contains the two target proteins (calmodulin and plectin) and their reversed sequences was concatenated by DBToolKit.The in silico digestion was performed with trypsin and three missed cleavage sites were allowed. The minimum peptide length was set to four residues for each peptide, with allowed mass ranges of 200-5,000 Da. The cross-linker was set to include both light- and heavy-labeled DSS (DSS d0/d12).The database search settings were carbamidomethylation of cysteine as a fixed modification and oxidation of methionine as a variable modification. No more than two variable modifications were allowed per peptide.   The fragmentation mode was set to HCD, with the precursor and the fragment mass tolerance set at 15 ppm and 0.03 Da respectively for Xilmass, Kojak and pLink. For Xilmass and pLink, four isotopic precursor mass tolerance windows at 10 ppm were subsequently allowed.  The XPSMs identified by Xilmass were validated by the calculation of the built-in FDR specific for cross-linked peptides; Kojak dentifications were validated with Percolator and the validated XPSMs for pLink were obtained straight from pLink.",
+      "projectTags": [
+        "Technical"
+      ],
+      "keywords": [
+        "Calmodulin",
+        "Cross-linking",
+        "The actin-binding domain (abd) of plectin",
+        "Dss",
+        "Human"
+      ],
+      "doi": "",
+      "submissionType": "PARTIAL",
+      "license": "EBI terms of use",
+      "submissionDate": "2016-07-25",
+      "publicationDate": "2016-09-27",
+      "submitters": [
+        {
+          "title": "Miss",
+          "firstName": "Sule",
+          "lastName": "Yilmaz",
+          "identifier": "38620127",
+          "affiliation": "UGent-VIB",
+          "email": "sule.yilmaz@vib-ugent.be",
+          "country": "Belgium",
+          "orcid": "",
+          "name": "Sule Yilmaz",
+          "id": "38620127"
+        }
+      ],
+      "labPIs": [
+        {
+          "title": "Dr",
+          "firstName": "Lennart",
+          "lastName": "Martens",
+          "identifier": "51040100",
+          "affiliation": "Group Leader",
+          "email": "lennart.martens@ugent.be",
+          "country": "",
+          "orcid": "",
+          "name": "Lennart Martens",
+          "id": "51040100"
+        }
+      ],
+      "instruments": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MS",
+          "accession": "MS:1001911",
+          "name": "Q Exactive"
+        }
+      ],
+      "softwares": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MS",
+          "accession": "MS:1001583",
+          "name": "MaxQuant"
+        },
+        {
+          "@type": "CvParam",
+          "cvLabel": "MS",
+          "accession": "MS:1002205",
+          "name": "ProteoWizard msconvert"
+        }
+      ],
+      "experimentTypes": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "PRIDE",
+          "accession": "PRIDE:0000430",
+          "name": "Chemical cross-linking coupled with mass spectrometry proteomics"
+        }
+      ],
+      "quantificationMethods": [],
+      "countries": [
+        "Belgium"
+      ],
+      "sampleAttributes": [
+        {
+          "@type": "Tuple",
+          "key": {
+            "cvLabel": "EFO",
+            "accession": "OBI:0100026",
+            "name": "organism"
+          },
+          "value": [
+            {
+              "cvLabel": "NEWT",
+              "accession": "NEWT:9606",
+              "name": "Homo sapiens (Human)"
+            }
+          ]
+        }
+      ],
+      "organisms": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "NEWT",
+          "accession": "NEWT:9606",
+          "name": "Homo sapiens (human)"
+        }
+      ],
+      "organismParts": [],
+      "diseases": [],
+      "references": [
+        {
+          "referenceLine": "Yılmaz Ş, Drepper F, Hulstaert N, Cernic M, Gevaert K, Economou A, Warscheid B, Martens L, Vandermarliere E. Xilmass: a new approach towards the identification of cross-linked peptides. Anal Chem. 2016 Sep 19",
+          "pubmedID": 27642655
+        }
+      ],
+      "identifiedPTMStrings": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MOD",
+          "accession": "MOD:00425",
+          "name": "monohydroxylated residue"
+        },
+        {
+          "@type": "CvParam",
+          "cvLabel": "MOD",
+          "accession": "MOD:00397",
+          "name": "iodoacetamide derivatized residue"
+        }
+      ],
+      "totalFileDownloads": 1468,
+      "botCount": 685,
+      "hubCount": 762,
+      "organicCount": 21,
+      "files": {
+        "files": [
+          {
+            "fileName": "QEplus009907_Kojakv136.txt",
+            "fileSizeBytes": 1024925,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2016/09/PXD003880/QEplus009907_Kojakv136.txt"
+          },
+          {
+            "fileName": "QEplus009907_xilmass.txt",
+            "fileSizeBytes": 3899464,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2016/09/PXD003880/QEplus009907_xilmass.txt"
+          },
+          {
+            "fileName": "QEplus009908_Kojakv136.txt",
+            "fileSizeBytes": 1114263,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2016/09/PXD003880/QEplus009908_Kojakv136.txt"
+          },
+          {
+            "fileName": "QEplus009908.raw",
+            "fileSizeBytes": 332613918,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2016/09/PXD003880/QEplus009908.raw"
+          },
+          {
+            "fileName": "QEplus009907.raw",
+            "fileSizeBytes": 262462254,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2016/09/PXD003880/QEplus009907.raw"
+          },
+          {
+            "fileName": "allXPSMs_list.txt",
+            "fileSizeBytes": 7856573,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2016/09/PXD003880/allXPSMs_list.txt"
+          },
+          {
+            "fileName": "validatedXPSMs_list.txt",
+            "fileSizeBytes": 1246220,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2016/09/PXD003880/validatedXPSMs_list.txt"
+          },
+          {
+            "fileName": "QEplus009908.mgf",
+            "fileSizeBytes": 60276374,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2016/09/PXD003880/QEplus009908.mgf"
+          },
+          {
+            "fileName": "QEplus009908_percolator_dfMods_Th003_corrected-Inter.txt",
+            "fileSizeBytes": 583535,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2016/09/PXD003880/QEplus009908_percolator_dfMods_Th003_corrected-Inter.txt"
+          },
+          {
+            "fileName": "QEplus009908_percolator_dfMods_Th003_corrected-Intra.txt",
+            "fileSizeBytes": 232173,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2016/09/PXD003880/QEplus009908_percolator_dfMods_Th003_corrected-Intra.txt"
+          },
+          {
+            "fileName": "generic_Plec_Cmd_corrNterm_targetRDecoy.fasta",
+            "fileSizeBytes": 1040,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2016/09/PXD003880/generic_Plec_Cmd_corrNterm_targetRDecoy.fasta"
+          },
+          {
+            "fileName": "pLink_output_hcd_optQexactive_inter_combine.spectra.xls",
+            "fileSizeBytes": 228819,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2016/09/PXD003880/pLink_output_hcd_optQexactive_inter_combine.spectra.xls"
+          },
+          {
+            "fileName": "QEplus009907_percolator_dfMods_Th003_corrected-Inter.txt",
+            "fileSizeBytes": 369242,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2016/09/PXD003880/QEplus009907_percolator_dfMods_Th003_corrected-Inter.txt"
+          },
+          {
+            "fileName": "generic_Plec_Cmd_corrNterm_targetRDecoy_both.fastacp",
+            "fileSizeBytes": 2382801,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2016/09/PXD003880/generic_Plec_Cmd_corrNterm_targetRDecoy_both.fastacp"
+          },
+          {
+            "fileName": "QEplus009907_percolator_dfMods_Th003_corrected-Intra.txt",
+            "fileSizeBytes": 159514,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2016/09/PXD003880/QEplus009907_percolator_dfMods_Th003_corrected-Intra.txt"
+          },
+          {
+            "fileName": "QEplus009907.mgf",
+            "fileSizeBytes": 63953102,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2016/09/PXD003880/QEplus009907.mgf"
+          },
+          {
+            "fileName": "QEplus009908_xilmass.txt",
+            "fileSizeBytes": 5398468,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2016/09/PXD003880/QEplus009908_xilmass.txt"
+          }
+        ],
+        "totalCount": 17
+      }
+    },
+    "publication_metadata": null,
+    "llm_responses": {
+      "characteristics[disease]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": \"Abstract/Methods\"\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"chemical cross-linking with disuccinimidyl suberate (DSS)\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"1 µL of disuccinimidyl suberate (DSS) cross-linker (5 mM each of DSS-d0 and DSS-d12; Creative Molecules Inc.)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": \"disuccinimidyl suberate (DSS)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"disuccinimidyl suberate (DSS) cross-linker\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": \"0.25 mM\",\n    \"accession\": \"NCIT:C25488\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"to a final concentration of 0.25 mM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"chemical cross-linking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"For cross-linking experiments, proteins were mixed ... and ... DSS cross-linker ... was added\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Bands of cross-linked plectin-ABD:CaM complex, plectin-ABD and CaM were destained and subjected to proteolytic in-gel digestion\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": "Abstract/Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[phenotype]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": \"Abstract/Methods\"\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"chemical cross-linking with disuccinimidyl suberate (DSS)\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"1 µL of disuccinimidyl suberate (DSS) cross-linker (5 mM each of DSS-d0 and DSS-d12; Creative Molecules Inc.)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": \"disuccinimidyl suberate (DSS)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"disuccinimidyl suberate (DSS) cross-linker\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": \"0.25 mM\",\n    \"accession\": \"NCIT:C25488\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"to a final concentration of 0.25 mM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"chemical cross-linking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"For cross-linking experiments, proteins were mixed ... and ... DSS cross-linker ... was added\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Bands of cross-linked plectin-ABD:CaM complex, plectin-ABD and CaM were destained and subjected to proteolytic in-gel digestion\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[treatment]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": \"Abstract/Methods\"\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"chemical cross-linking with disuccinimidyl suberate (DSS)\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"1 µL of disuccinimidyl suberate (DSS) cross-linker (5 mM each of DSS-d0 and DSS-d12; Creative Molecules Inc.)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": \"disuccinimidyl suberate (DSS)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"disuccinimidyl suberate (DSS) cross-linker\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": \"0.25 mM\",\n    \"accession\": \"NCIT:C25488\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"to a final concentration of 0.25 mM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"chemical cross-linking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"For cross-linking experiments, proteins were mixed ... and ... DSS cross-linker ... was added\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Bands of cross-linked plectin-ABD:CaM complex, plectin-ABD and CaM were destained and subjected to proteolytic in-gel digestion\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "chemical cross-linking with disuccinimidyl suberate (DSS)",
+          "accession": "EFO:0000727",
+          "confidence": "medium",
+          "evidence_quote": "1 µL of disuccinimidyl suberate (DSS) cross-linker (5 mM each of DSS-d0 and DSS-d12; Creative Molecules Inc.)",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[compound]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": \"Abstract/Methods\"\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"chemical cross-linking with disuccinimidyl suberate (DSS)\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"1 µL of disuccinimidyl suberate (DSS) cross-linker (5 mM each of DSS-d0 and DSS-d12; Creative Molecules Inc.)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": \"disuccinimidyl suberate (DSS)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"disuccinimidyl suberate (DSS) cross-linker\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": \"0.25 mM\",\n    \"accession\": \"NCIT:C25488\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"to a final concentration of 0.25 mM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"chemical cross-linking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"For cross-linking experiments, proteins were mixed ... and ... DSS cross-linker ... was added\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Bands of cross-linked plectin-ABD:CaM complex, plectin-ABD and CaM were destained and subjected to proteolytic in-gel digestion\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "disuccinimidyl suberate (DSS)",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "disuccinimidyl suberate (DSS) cross-linker",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[dose]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": \"Abstract/Methods\"\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"chemical cross-linking with disuccinimidyl suberate (DSS)\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"1 µL of disuccinimidyl suberate (DSS) cross-linker (5 mM each of DSS-d0 and DSS-d12; Creative Molecules Inc.)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": \"disuccinimidyl suberate (DSS)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"disuccinimidyl suberate (DSS) cross-linker\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": \"0.25 mM\",\n    \"accession\": \"NCIT:C25488\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"to a final concentration of 0.25 mM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"chemical cross-linking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"For cross-linking experiments, proteins were mixed ... and ... DSS cross-linker ... was added\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Bands of cross-linked plectin-ABD:CaM complex, plectin-ABD and CaM were destained and subjected to proteolytic in-gel digestion\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "0.25 mM",
+          "accession": "NCIT:C25488",
+          "confidence": "high",
+          "evidence_quote": "to a final concentration of 0.25 mM",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[genetic modification]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": \"Abstract/Methods\"\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"chemical cross-linking with disuccinimidyl suberate (DSS)\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"1 µL of disuccinimidyl suberate (DSS) cross-linker (5 mM each of DSS-d0 and DSS-d12; Creative Molecules Inc.)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": \"disuccinimidyl suberate (DSS)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"disuccinimidyl suberate (DSS) cross-linker\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": \"0.25 mM\",\n    \"accession\": \"NCIT:C25488\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"to a final concentration of 0.25 mM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"chemical cross-linking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"For cross-linking experiments, proteins were mixed ... and ... DSS cross-linker ... was added\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Bands of cross-linked plectin-ABD:CaM complex, plectin-ABD and CaM were destained and subjected to proteolytic in-gel digestion\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[perturbation]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": \"Abstract/Methods\"\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"chemical cross-linking with disuccinimidyl suberate (DSS)\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"1 µL of disuccinimidyl suberate (DSS) cross-linker (5 mM each of DSS-d0 and DSS-d12; Creative Molecules Inc.)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": \"disuccinimidyl suberate (DSS)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"disuccinimidyl suberate (DSS) cross-linker\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": \"0.25 mM\",\n    \"accession\": \"NCIT:C25488\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"to a final concentration of 0.25 mM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"chemical cross-linking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"For cross-linking experiments, proteins were mixed ... and ... DSS cross-linker ... was added\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Bands of cross-linked plectin-ABD:CaM complex, plectin-ABD and CaM were destained and subjected to proteolytic in-gel digestion\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "chemical cross-linking",
+          "accession": "PRIDE:0000700",
+          "confidence": "medium",
+          "evidence_quote": "For cross-linking experiments, proteins were mixed ... and ... DSS cross-linker ... was added",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[depletion]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": \"Abstract/Methods\"\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"chemical cross-linking with disuccinimidyl suberate (DSS)\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"1 µL of disuccinimidyl suberate (DSS) cross-linker (5 mM each of DSS-d0 and DSS-d12; Creative Molecules Inc.)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": \"disuccinimidyl suberate (DSS)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"disuccinimidyl suberate (DSS) cross-linker\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": \"0.25 mM\",\n    \"accession\": \"NCIT:C25488\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"to a final concentration of 0.25 mM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"chemical cross-linking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"For cross-linking experiments, proteins were mixed ... and ... DSS cross-linker ... was added\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Bands of cross-linked plectin-ABD:CaM complex, plectin-ABD and CaM were destained and subjected to proteolytic in-gel digestion\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "no depletion",
+          "accession": "PRIDE:0000020",
+          "confidence": "medium",
+          "evidence_quote": "Bands of cross-linked plectin-ABD:CaM complex, plectin-ABD and CaM were destained and subjected to proteolytic in-gel digestion",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "factor value cell line": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"disuccinimidyl suberate (DSS)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"1 µL of disuccinimidyl suberate (DSS) cross-linker (5 mM each of DSS-d0 and DSS-d12; Creative Molecules Inc.)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": \"0.25 mM final concentration\",\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"added ... to a final concentration of 0.25 mM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": \"20 min\",\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The reaction was carried out for 20 min at room temperature under shaking\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "CLO:0000031",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value compound": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"disuccinimidyl suberate (DSS)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"1 µL of disuccinimidyl suberate (DSS) cross-linker (5 mM each of DSS-d0 and DSS-d12; Creative Molecules Inc.)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": \"0.25 mM final concentration\",\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"added ... to a final concentration of 0.25 mM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": \"20 min\",\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The reaction was carried out for 20 min at room temperature under shaking\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "disuccinimidyl suberate (DSS)",
+          "accession": "CHEBI:37577",
+          "confidence": "high",
+          "evidence_quote": "1 µL of disuccinimidyl suberate (DSS) cross-linker (5 mM each of DSS-d0 and DSS-d12; Creative Molecules Inc.)",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value disease": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"disuccinimidyl suberate (DSS)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"1 µL of disuccinimidyl suberate (DSS) cross-linker (5 mM each of DSS-d0 and DSS-d12; Creative Molecules Inc.)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": \"0.25 mM final concentration\",\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"added ... to a final concentration of 0.25 mM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": \"20 min\",\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The reaction was carried out for 20 min at room temperature under shaking\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "OGMS:0000031",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value dose": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"disuccinimidyl suberate (DSS)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"1 µL of disuccinimidyl suberate (DSS) cross-linker (5 mM each of DSS-d0 and DSS-d12; Creative Molecules Inc.)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": \"0.25 mM final concentration\",\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"added ... to a final concentration of 0.25 mM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": \"20 min\",\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The reaction was carried out for 20 min at room temperature under shaking\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "0.25 mM final concentration",
+          "accession": "EFO:0000428",
+          "confidence": "medium",
+          "evidence_quote": "added ... to a final concentration of 0.25 mM",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value organism part": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"disuccinimidyl suberate (DSS)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"1 µL of disuccinimidyl suberate (DSS) cross-linker (5 mM each of DSS-d0 and DSS-d12; Creative Molecules Inc.)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": \"0.25 mM final concentration\",\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"added ... to a final concentration of 0.25 mM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": \"20 min\",\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The reaction was carried out for 20 min at room temperature under shaking\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000635",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value time": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"disuccinimidyl suberate (DSS)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"1 µL of disuccinimidyl suberate (DSS) cross-linker (5 mM each of DSS-d0 and DSS-d12; Creative Molecules Inc.)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": \"0.25 mM final concentration\",\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"added ... to a final concentration of 0.25 mM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": \"20 min\",\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The reaction was carried out for 20 min at room temperature under shaking\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "20 min",
+          "accession": "EFO:0000721",
+          "confidence": "medium",
+          "evidence_quote": "The reaction was carried out for 20 min at room temperature under shaking",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value treatment": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"disuccinimidyl suberate (DSS)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"1 µL of disuccinimidyl suberate (DSS) cross-linker (5 mM each of DSS-d0 and DSS-d12; Creative Molecules Inc.)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": \"0.25 mM final concentration\",\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"added ... to a final concentration of 0.25 mM\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": \"20 min\",\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The reaction was carried out for 20 min at room temperature under shaking\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000727",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "comment[instrument]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Q Exactive Plus;AC=MS:1002634\",\n    \"accession\": \"MS:1002634\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to a Q Exactive Plus\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"MS2 scans for up to 12 of the most intense multiple charged precursor ions\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"For fragmentation, higher-energy collisional dissociation (HCD) was used\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"28 NCE\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"normalized collision energy of 28\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "NT=Q Exactive Plus;AC=MS:1002634",
+          "accession": "MS:1002634",
+          "confidence": "high",
+          "evidence_quote": "coupled to a Q Exactive Plus",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[proteomics data acquisition method]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Q Exactive Plus;AC=MS:1002634\",\n    \"accession\": \"MS:1002634\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to a Q Exactive Plus\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"MS2 scans for up to 12 of the most intense multiple charged precursor ions\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"For fragmentation, higher-energy collisional dissociation (HCD) was used\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"28 NCE\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"normalized collision energy of 28\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "NT=data-dependent acquisition;AC=PRIDE:0000041",
+          "accession": "PRIDE:0000041",
+          "confidence": "medium",
+          "evidence_quote": "MS2 scans for up to 12 of the most intense multiple charged precursor ions",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[dissociation method]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Q Exactive Plus;AC=MS:1002634\",\n    \"accession\": \"MS:1002634\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to a Q Exactive Plus\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"MS2 scans for up to 12 of the most intense multiple charged precursor ions\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"For fragmentation, higher-energy collisional dissociation (HCD) was used\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"28 NCE\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"normalized collision energy of 28\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "NT=HCD;AC=MS:1000422",
+          "accession": "MS:1000422",
+          "confidence": "high",
+          "evidence_quote": "For fragmentation, higher-energy collisional dissociation (HCD) was used",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[collision energy]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Q Exactive Plus;AC=MS:1002634\",\n    \"accession\": \"MS:1002634\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to a Q Exactive Plus\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"MS2 scans for up to 12 of the most intense multiple charged precursor ions\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"For fragmentation, higher-energy collisional dissociation (HCD) was used\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"28 NCE\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"normalized collision energy of 28\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "28 NCE",
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": "normalized collision energy of 28",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[dia method]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Q Exactive Plus;AC=MS:1002634\",\n    \"accession\": \"MS:1002634\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to a Q Exactive Plus\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"MS2 scans for up to 12 of the most intense multiple charged precursor ions\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"For fragmentation, higher-energy collisional dissociation (HCD) was used\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"28 NCE\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"normalized collision energy of 28\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[fragment mass tolerance]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Q Exactive Plus;AC=MS:1002634\",\n    \"accession\": \"MS:1002634\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to a Q Exactive Plus\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"MS2 scans for up to 12 of the most intense multiple charged precursor ions\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"For fragmentation, higher-energy collisional dissociation (HCD) was used\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"28 NCE\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"normalized collision energy of 28\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[precursor mass tolerance]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Q Exactive Plus;AC=MS:1002634\",\n    \"accession\": \"MS:1002634\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to a Q Exactive Plus\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"MS2 scans for up to 12 of the most intense multiple charged precursor ions\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"For fragmentation, higher-energy collisional dissociation (HCD) was used\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"28 NCE\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"normalized collision energy of 28\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[technical replicate]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Q Exactive Plus;AC=MS:1002634\",\n    \"accession\": \"MS:1002634\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to a Q Exactive Plus\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"MS2 scans for up to 12 of the most intense multiple charged precursor ions\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"For fragmentation, higher-energy collisional dissociation (HCD) was used\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"28 NCE\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"normalized collision energy of 28\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "no technical replicates stated",
+          "accession": "MS:1001808",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[data file]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Q Exactive Plus;AC=MS:1002634\",\n    \"accession\": \"MS:1002634\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to a Q Exactive Plus\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"MS2 scans for up to 12 of the most intense multiple charged precursor ions\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"For fragmentation, higher-energy collisional dissociation (HCD) was used\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"28 NCE\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"normalized collision energy of 28\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "MS:1003083",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "characteristics[organism]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": [\n      \"Homo sapiens\",\n      \"Mus musculus\"\n    ],\n    \"accession\": [\n      \"NCBITaxon:9606\",\n      \"NCBITaxon:10090\"\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": [\n      \"calmodulin\",\n      \"actin-binding domain of plectin (plectin-ABD)\"\n    ],\n    \"accession\": [\n      null,\n      null\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The proteins were expressed and purified as described by Song et al\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Peptide mixtures were analyzed by UHPLC-ESI-MS/MS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"Not stated (sample naming convention not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Not stated (MS run/file naming convention not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": [
+            "Homo sapiens",
+            "Mus musculus"
+          ],
+          "accession": [
+            "NCBITaxon:9606",
+            "NCBITaxon:10090"
+          ],
+          "confidence": "low",
+          "evidence_quote": "Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[organism part]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": [\n      \"Homo sapiens\",\n      \"Mus musculus\"\n    ],\n    \"accession\": [\n      \"NCBITaxon:9606\",\n      \"NCBITaxon:10090\"\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": [\n      \"calmodulin\",\n      \"actin-binding domain of plectin (plectin-ABD)\"\n    ],\n    \"accession\": [\n      null,\n      null\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The proteins were expressed and purified as described by Song et al\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Peptide mixtures were analyzed by UHPLC-ESI-MS/MS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"Not stated (sample naming convention not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Not stated (MS run/file naming convention not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": [
+            "calmodulin",
+            "actin-binding domain of plectin (plectin-ABD)"
+          ],
+          "accession": [
+            null,
+            null
+          ],
+          "confidence": "low",
+          "evidence_quote": "Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[cell line]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": [\n      \"Homo sapiens\",\n      \"Mus musculus\"\n    ],\n    \"accession\": [\n      \"NCBITaxon:9606\",\n      \"NCBITaxon:10090\"\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": [\n      \"calmodulin\",\n      \"actin-binding domain of plectin (plectin-ABD)\"\n    ],\n    \"accession\": [\n      null,\n      null\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The proteins were expressed and purified as described by Song et al\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Peptide mixtures were analyzed by UHPLC-ESI-MS/MS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"Not stated (sample naming convention not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Not stated (MS run/file naming convention not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[cell type]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": [\n      \"Homo sapiens\",\n      \"Mus musculus\"\n    ],\n    \"accession\": [\n      \"NCBITaxon:9606\",\n      \"NCBITaxon:10090\"\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": [\n      \"calmodulin\",\n      \"actin-binding domain of plectin (plectin-ABD)\"\n    ],\n    \"accession\": [\n      null,\n      null\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The proteins were expressed and purified as described by Song et al\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Peptide mixtures were analyzed by UHPLC-ESI-MS/MS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"Not stated (sample naming convention not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Not stated (MS run/file naming convention not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[material type]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": [\n      \"Homo sapiens\",\n      \"Mus musculus\"\n    ],\n    \"accession\": [\n      \"NCBITaxon:9606\",\n      \"NCBITaxon:10090\"\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": [\n      \"calmodulin\",\n      \"actin-binding domain of plectin (plectin-ABD)\"\n    ],\n    \"accession\": [\n      null,\n      null\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The proteins were expressed and purified as described by Song et al\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Peptide mixtures were analyzed by UHPLC-ESI-MS/MS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"Not stated (sample naming convention not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Not stated (MS run/file naming convention not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "purified proteins",
+          "accession": "PRIDE:0000837",
+          "confidence": "high",
+          "evidence_quote": "The proteins were expressed and purified as described by Song et al",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[strain or breed]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": [\n      \"Homo sapiens\",\n      \"Mus musculus\"\n    ],\n    \"accession\": [\n      \"NCBITaxon:9606\",\n      \"NCBITaxon:10090\"\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": [\n      \"calmodulin\",\n      \"actin-binding domain of plectin (plectin-ABD)\"\n    ],\n    \"accession\": [\n      null,\n      null\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The proteins were expressed and purified as described by Song et al\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Peptide mixtures were analyzed by UHPLC-ESI-MS/MS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"Not stated (sample naming convention not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Not stated (MS run/file naming convention not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[developmental stage]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": [\n      \"Homo sapiens\",\n      \"Mus musculus\"\n    ],\n    \"accession\": [\n      \"NCBITaxon:9606\",\n      \"NCBITaxon:10090\"\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": [\n      \"calmodulin\",\n      \"actin-binding domain of plectin (plectin-ABD)\"\n    ],\n    \"accession\": [\n      null,\n      null\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The proteins were expressed and purified as described by Song et al\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Peptide mixtures were analyzed by UHPLC-ESI-MS/MS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"Not stated (sample naming convention not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Not stated (MS run/file naming convention not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "technology type": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": [\n      \"Homo sapiens\",\n      \"Mus musculus\"\n    ],\n    \"accession\": [\n      \"NCBITaxon:9606\",\n      \"NCBITaxon:10090\"\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": [\n      \"calmodulin\",\n      \"actin-binding domain of plectin (plectin-ABD)\"\n    ],\n    \"accession\": [\n      null,\n      null\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The proteins were expressed and purified as described by Song et al\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Peptide mixtures were analyzed by UHPLC-ESI-MS/MS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"Not stated (sample naming convention not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Not stated (MS run/file naming convention not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "proteomic profiling by mass spectrometry",
+          "accession": "PRIDE:0000663",
+          "confidence": "high",
+          "evidence_quote": "Peptide mixtures were analyzed by UHPLC-ESI-MS/MS",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "source name": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": [\n      \"Homo sapiens\",\n      \"Mus musculus\"\n    ],\n    \"accession\": [\n      \"NCBITaxon:9606\",\n      \"NCBITaxon:10090\"\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": [\n      \"calmodulin\",\n      \"actin-binding domain of plectin (plectin-ABD)\"\n    ],\n    \"accession\": [\n      null,\n      null\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The proteins were expressed and purified as described by Song et al\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Peptide mixtures were analyzed by UHPLC-ESI-MS/MS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"Not stated (sample naming convention not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Not stated (MS run/file naming convention not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "Not stated (sample naming convention not provided in the provided text)",
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "assay name": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": [\n      \"Homo sapiens\",\n      \"Mus musculus\"\n    ],\n    \"accession\": [\n      \"NCBITaxon:9606\",\n      \"NCBITaxon:10090\"\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": [\n      \"calmodulin\",\n      \"actin-binding domain of plectin (plectin-ABD)\"\n    ],\n    \"accession\": [\n      null,\n      null\n    ],\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The proteins were expressed and purified as described by Song et al\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Peptide mixtures were analyzed by UHPLC-ESI-MS/MS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"source name\": {\n    \"value\": \"Not stated (sample naming convention not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Not stated (MS run/file naming convention not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "Not stated (MS run/file naming convention not provided in the provided text)",
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[sex]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "not applicable",
+          "accession": "PATO:0000047",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[age]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000246",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[ancestry category]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "HANCESTRO",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[biological replicate]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "MS:1001809",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[genotype]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000513",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[pooled sample]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "not pooled",
+          "accession": "NCIT:C165587",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[phosphate]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000805",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[temperature]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000703",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "comment[cleavage agent details]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"proteolytic in-gel digestion using trypsin\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Peptide mixtures were analyzed by UHPLC-ESI-MS/MS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": \"UNIMOD:21\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": [
+            "NT=Trypsin;AC=MS:1001251"
+          ],
+          "accession": "MS:1001251",
+          "confidence": "high",
+          "evidence_quote": "proteolytic in-gel digestion using trypsin",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[label]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"proteolytic in-gel digestion using trypsin\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Peptide mixtures were analyzed by UHPLC-ESI-MS/MS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": \"UNIMOD:21\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "NT=label free sample;AC=MS:1002038",
+          "accession": "MS:1002038",
+          "confidence": "medium",
+          "evidence_quote": "Peptide mixtures were analyzed by UHPLC-ESI-MS/MS",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[alkylation reagent]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"proteolytic in-gel digestion using trypsin\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Peptide mixtures were analyzed by UHPLC-ESI-MS/MS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": \"UNIMOD:21\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[fractionation method]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"proteolytic in-gel digestion using trypsin\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Peptide mixtures were analyzed by UHPLC-ESI-MS/MS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": \"UNIMOD:21\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[modification parameters]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"proteolytic in-gel digestion using trypsin\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Peptide mixtures were analyzed by UHPLC-ESI-MS/MS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": \"UNIMOD:21\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": [
+            "NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable"
+          ],
+          "accession": "UNIMOD:21",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[fraction identifier]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"proteolytic in-gel digestion using trypsin\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Peptide mixtures were analyzed by UHPLC-ESI-MS/MS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": \"UNIMOD:21\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "no fractionation",
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "characteristics[crosslinking reaction time]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"20 min\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The reaction was carried out for 20 min at room temperature under shaking\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"room temperature\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The reaction was carried out for 20 min at room temperature under shaking\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Bands of cross-linked plectin-ABD:CaM complex, plectin-ABD and CaM were destained and subjected to proteolytic in-gel digestion using trypsin\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Bands of cross-linked plectin-ABD:CaM complex, plectin-ABD and CaM were destained and subjected to proteolytic in-gel digestion using trypsin\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "20 min",
+          "accession": "PRIDE:0000949",
+          "confidence": "high",
+          "evidence_quote": "The reaction was carried out for 20 min at room temperature under shaking",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "characteristics[crosslinking temperature]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"20 min\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The reaction was carried out for 20 min at room temperature under shaking\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"room temperature\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The reaction was carried out for 20 min at room temperature under shaking\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Bands of cross-linked plectin-ABD:CaM complex, plectin-ABD and CaM were destained and subjected to proteolytic in-gel digestion using trypsin\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Bands of cross-linked plectin-ABD:CaM complex, plectin-ABD and CaM were destained and subjected to proteolytic in-gel digestion using trypsin\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "room temperature",
+          "accession": "PRIDE:0000950",
+          "confidence": "high",
+          "evidence_quote": "The reaction was carried out for 20 min at room temperature under shaking",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "comment[crosslink enrichment method]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"20 min\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The reaction was carried out for 20 min at room temperature under shaking\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"room temperature\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The reaction was carried out for 20 min at room temperature under shaking\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Bands of cross-linked plectin-ABD:CaM complex, plectin-ABD and CaM were destained and subjected to proteolytic in-gel digestion using trypsin\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Bands of cross-linked plectin-ABD:CaM complex, plectin-ABD and CaM were destained and subjected to proteolytic in-gel digestion using trypsin\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": "Bands of cross-linked plectin-ABD:CaM complex, plectin-ABD and CaM were destained and subjected to proteolytic in-gel digestion using trypsin",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "characteristics[enrichment process]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"20 min\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The reaction was carried out for 20 min at room temperature under shaking\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"room temperature\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The reaction was carried out for 20 min at room temperature under shaking\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Bands of cross-linked plectin-ABD:CaM complex, plectin-ABD and CaM were destained and subjected to proteolytic in-gel digestion using trypsin\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Bands of cross-linked plectin-ABD:CaM complex, plectin-ABD and CaM were destained and subjected to proteolytic in-gel digestion using trypsin\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "Bands of cross-linked plectin-ABD:CaM complex, plectin-ABD and CaM were destained and subjected to proteolytic in-gel digestion using trypsin",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "comment[cross-linker]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": [\n      \"NT=DSS;AC=XLMOD:02001;CL=no;TA=K,nterm\"\n    ],\n    \"NT\": [\n      \"DSS\"\n    ],\n    \"AC\": [\n      \"XLMOD:02001\"\n    ],\n    \"CL\": [\n      \"no\"\n    ],\n    \"TA\": [\n      \"K,nterm\"\n    ],\n    \"accession\": \"XLMOD:02001\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"1 µL of disuccinimidyl suberate (DSS) cross-linker (5 mM each of DSS-d0 and DSS-d12; Creative Molecules Inc.)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"0.25 mM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"added per 40 µl of solution to a final concentration of 0.25 mM.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"Tris-HCl (pH 7.5)\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"then quenched by adding 1 M Tris-HCI (pH 7.5).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry plays an important role\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": [
+            "NT=DSS;AC=XLMOD:02001;CL=no;TA=K,nterm"
+          ],
+          "NT": [
+            "DSS"
+          ],
+          "AC": [
+            "XLMOD:02001"
+          ],
+          "CL": [
+            "no"
+          ],
+          "TA": [
+            "K,nterm"
+          ],
+          "accession": "XLMOD:02001",
+          "confidence": "high",
+          "evidence_quote": "1 µL of disuccinimidyl suberate (DSS) cross-linker (5 mM each of DSS-d0 and DSS-d12; Creative Molecules Inc.)",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[crosslinker concentration]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": [\n      \"NT=DSS;AC=XLMOD:02001;CL=no;TA=K,nterm\"\n    ],\n    \"NT\": [\n      \"DSS\"\n    ],\n    \"AC\": [\n      \"XLMOD:02001\"\n    ],\n    \"CL\": [\n      \"no\"\n    ],\n    \"TA\": [\n      \"K,nterm\"\n    ],\n    \"accession\": \"XLMOD:02001\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"1 µL of disuccinimidyl suberate (DSS) cross-linker (5 mM each of DSS-d0 and DSS-d12; Creative Molecules Inc.)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"0.25 mM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"added per 40 µl of solution to a final concentration of 0.25 mM.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"Tris-HCl (pH 7.5)\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"then quenched by adding 1 M Tris-HCI (pH 7.5).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry plays an important role\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "0.25 mM",
+          "accession": "PRIDE:0000951",
+          "confidence": "high",
+          "evidence_quote": "added per 40 µl of solution to a final concentration of 0.25 mM.",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[crosslinker to protein ratio]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": [\n      \"NT=DSS;AC=XLMOD:02001;CL=no;TA=K,nterm\"\n    ],\n    \"NT\": [\n      \"DSS\"\n    ],\n    \"AC\": [\n      \"XLMOD:02001\"\n    ],\n    \"CL\": [\n      \"no\"\n    ],\n    \"TA\": [\n      \"K,nterm\"\n    ],\n    \"accession\": \"XLMOD:02001\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"1 µL of disuccinimidyl suberate (DSS) cross-linker (5 mM each of DSS-d0 and DSS-d12; Creative Molecules Inc.)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"0.25 mM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"added per 40 µl of solution to a final concentration of 0.25 mM.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"Tris-HCl (pH 7.5)\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"then quenched by adding 1 M Tris-HCI (pH 7.5).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry plays an important role\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000952",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[quenching reagent]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": [\n      \"NT=DSS;AC=XLMOD:02001;CL=no;TA=K,nterm\"\n    ],\n    \"NT\": [\n      \"DSS\"\n    ],\n    \"AC\": [\n      \"XLMOD:02001\"\n    ],\n    \"CL\": [\n      \"no\"\n    ],\n    \"TA\": [\n      \"K,nterm\"\n    ],\n    \"accession\": \"XLMOD:02001\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"1 µL of disuccinimidyl suberate (DSS) cross-linker (5 mM each of DSS-d0 and DSS-d12; Creative Molecules Inc.)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"0.25 mM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"added per 40 µl of solution to a final concentration of 0.25 mM.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"Tris-HCl (pH 7.5)\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"then quenched by adding 1 M Tris-HCI (pH 7.5).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry plays an important role\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "Tris-HCl (pH 7.5)",
+          "accession": "PRIDE:0000953",
+          "confidence": "high",
+          "evidence_quote": "then quenched by adding 1 M Tris-HCI (pH 7.5).",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "characteristics[crosslink distance]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": [\n      \"NT=DSS;AC=XLMOD:02001;CL=no;TA=K,nterm\"\n    ],\n    \"NT\": [\n      \"DSS\"\n    ],\n    \"AC\": [\n      \"XLMOD:02001\"\n    ],\n    \"CL\": [\n      \"no\"\n    ],\n    \"TA\": [\n      \"K,nterm\"\n    ],\n    \"accession\": \"XLMOD:02001\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"1 µL of disuccinimidyl suberate (DSS) cross-linker (5 mM each of DSS-d0 and DSS-d12; Creative Molecules Inc.)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"0.25 mM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"added per 40 µl of solution to a final concentration of 0.25 mM.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"Tris-HCl (pH 7.5)\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"then quenched by adding 1 M Tris-HCI (pH 7.5).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry plays an important role\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000948",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[chemical cross-linking coupled with ms]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": [\n      \"NT=DSS;AC=XLMOD:02001;CL=no;TA=K,nterm\"\n    ],\n    \"NT\": [\n      \"DSS\"\n    ],\n    \"AC\": [\n      \"XLMOD:02001\"\n    ],\n    \"CL\": [\n      \"no\"\n    ],\n    \"TA\": [\n      \"K,nterm\"\n    ],\n    \"accession\": \"XLMOD:02001\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"1 µL of disuccinimidyl suberate (DSS) cross-linker (5 mM each of DSS-d0 and DSS-d12; Creative Molecules Inc.)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"0.25 mM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"added per 40 µl of solution to a final concentration of 0.25 mM.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"Tris-HCl (pH 7.5)\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"then quenched by adding 1 M Tris-HCI (pH 7.5).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry plays an important role\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "cross-linking mass spectrometry",
+          "accession": "PRIDE:0000430",
+          "confidence": "high",
+          "evidence_quote": "Chemical cross-linking coupled with mass spectrometry plays an important role",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      }
+    }
+  }
+}

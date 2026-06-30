@@ -45,7 +45,7 @@ Examples:
   python main.py --pxd PXD000001 PXD000002 PXD000003
   
   # Process with custom configuration
-  python main.py --pxd PXD000001 --config config.yaml
+    python main.py --pxd PXD000001 --config configs/config.yaml
   
   # Force refresh cached data
   python main.py --pxd PXD000001 --force-refresh
@@ -72,14 +72,14 @@ Examples:
     
     parser.add_argument(
         "--data-dir",
-        default="./pxd_data",
-        help="Base directory for storing data (default: ./pxd_data)"
+        default=None,
+        help="Base directory for storing data (overrides config storage.base_dir)"
     )
     
     parser.add_argument(
         "--prompts-dir",
-        default="./prompts",
-        help="Directory containing prompt files (default: ./prompts)"
+        default=None,
+        help="Directory containing prompt files (overrides config prompts.dir)"
     )
     
     parser.add_argument(
@@ -91,8 +91,8 @@ Examples:
     
     parser.add_argument(
         "--model",
-        default="gpt-4-turbo",
-        help="LLM model to use (default: gpt-4-turbo)"
+        default=None,
+        help="LLM model to use (overrides config llm.model)"
     )
     
     parser.add_argument(
@@ -194,14 +194,29 @@ Examples:
 
     parser.add_argument(
         "--relink-profile",
-        default="docker",
-        help="Nextflow profile for ReLink stage (default: docker)"
+        default="singularity",
+        help="Nextflow profile for ReLink stage (default: singularity)"
     )
 
     parser.add_argument(
         "--relink-resume",
         action="store_true",
         help="Pass -resume to Nextflow when running ReLink"
+    )
+
+    parser.add_argument(
+        "--relink-work-dir",
+        default=None,
+        metavar="DIR",
+        help="Nextflow work directory for ReLink (-work-dir). Overrides NXF_WORK."
+    )
+
+    parser.add_argument(
+        "--relink-queue-size",
+        type=int,
+        default=None,
+        metavar="N",
+        help="Max concurrent Nextflow tasks for ReLink (-qs). Default: Nextflow default."
     )
 
     parser.add_argument(
@@ -293,11 +308,11 @@ def main():
     config = Config(args.config)
 
     # Override with CLI args
-    if args.data_dir:
+    if args.data_dir is not None:
         config.config["storage"]["base_dir"] = args.data_dir
-    if args.prompts_dir:
+    if args.prompts_dir is not None:
         config.config["prompts"]["dir"] = args.prompts_dir
-    if args.model:
+    if args.model is not None:
         config.config["llm"]["model"] = args.model
 
     # Handle special commands
@@ -356,12 +371,26 @@ def main():
             logger.error("--nproc must be a positive integer or 'auto', got: %s", args.nproc)
             sys.exit(1)
 
+    configured_prompts = config.get("prompts.enabled", None)
+    if configured_prompts is not None and not isinstance(configured_prompts, list):
+        logger.warning(
+            "Ignoring prompts.enabled from config because it is not a list: %r",
+            configured_prompts,
+        )
+        configured_prompts = None
+
     # Print batch plan
     logger.info("-" * 80)
     logger.info("Batch plan:")
     logger.info("  PXDs to process  : %d", len(pxds))
     logger.info("  Data directory   : %s", config.get("storage.base_dir"))
     logger.info("  LLM model        : %s", config.get("llm.model"))
+    if args.prompts:
+        logger.info("  Prompt selection : CLI --prompts (%d)", len(args.prompts))
+    elif configured_prompts:
+        logger.info("  Prompt selection : config prompts.enabled (%d)", len(configured_prompts))
+    else:
+        logger.info("  Prompt selection : all prompt files in prompts dir")
     if args.sdrf_only:
         logger.info("  Mode             : SDRF-only (generate from cached data)")
     else:
@@ -378,6 +407,8 @@ def main():
         logger.info("  Run ReLink       : %s", args.relink)
         logger.info("  ReLink profile   : %s", args.relink_profile)
         logger.info("  ReLink resume    : %s", args.relink_resume)
+        logger.info("  ReLink work dir  : %s", args.relink_work_dir or "(default)")
+        logger.info("  ReLink queue size: %s", args.relink_queue_size or "(default)")
     logger.info("-" * 80)
 
     # Create enhancer
@@ -402,7 +433,7 @@ def main():
             if args.sdrf_only:
                 result = enhancer.generate_sdrf(pxd)
             else:
-                prompt_keys = args.prompts if args.prompts else None
+                prompt_keys = args.prompts if args.prompts else configured_prompts
                 result = enhancer.process_pxd(
                     pxd,
                     force_refresh=args.force_refresh,
@@ -420,6 +451,8 @@ def main():
                     relink=args.relink,
                     relink_profile=args.relink_profile,
                     relink_resume=args.relink_resume,
+                    relink_work_dir=args.relink_work_dir,
+                    relink_queue_size=args.relink_queue_size,
                 )
             succeeded.append(pxd)
             logger.info("✓ %s — stages: %s", pxd, result.get("stages", {}))

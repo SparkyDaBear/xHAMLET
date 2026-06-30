@@ -1,0 +1,1041 @@
+{
+  "metadata": {
+    "pxd": "PXD014520",
+    "category": "enhanced",
+    "saved_at": "2026-06-30T15:05:30.620732",
+    "filename": "metadata"
+  },
+  "data": {
+    "pxd": "PXD014520",
+    "processed_at": "2026-06-30T15:04:36.419575",
+    "stages": {
+      "pride": "success",
+      "publication": "failed",
+      "file_clustering": "success",
+      "raw_processing": "skipped_no_download",
+      "spectral_merge": "success",
+      "llm": "success",
+      "sdrf": "success",
+      "sdrf_validation": "success_with_warnings",
+      "xi_configs": "success",
+      "relink": "skipped",
+      "compilation": "success"
+    },
+    "file_assignments": {
+      "B160812_02_Lumos_LK_IN_190_Francis_Rib_Fra_HCD_DT_1.raw": {
+        "cluster_id": "cluster_1",
+        "cluster_label": "hek293_ribosomal_fraction_bs3_hcd_dt",
+        "organism": "Homo sapiens",
+        "taxid": "NCBITaxon:9606"
+      },
+      "B160812_07_Lumos_LK_IN_190_Francis_Rib_Fra_HCD_DT_2.raw": {
+        "cluster_id": "cluster_1",
+        "cluster_label": "hek293_ribosomal_fraction_bs3_hcd_dt",
+        "organism": "Homo sapiens",
+        "taxid": "NCBITaxon:9606"
+      },
+      "B160812_12_Lumos_LK_IN_190_Francis_Rib_Fra_HCD_DT_3.raw": {
+        "cluster_id": "cluster_1",
+        "cluster_label": "hek293_ribosomal_fraction_bs3_hcd_dt",
+        "organism": "Homo sapiens",
+        "taxid": "NCBITaxon:9606"
+      }
+    },
+    "spectral_summary": {
+      "source_files_parsed": 0,
+      "per_file": [],
+      "instrument": "Orbitrap Fusion Lumos"
+    },
+    "sdrf_path": "pxd_data/PXD014520/sdrf/PXD014520.sdrf.tsv",
+    "sdrf_validation_warnings": "WARNING: Term: ribosomal fraction in column 'characteristics[organism part]', is not found in the given ontology list uberon;bto\nWARNING: Term: not available in column 'comment[instrument]', is not found in the given ontology list ms;pride\nERROR: Column 'comment[instrument]' contains 'not available' values but requires actual values\nERROR: Term: not available in column 'comment[dissociation method]', is not found in the given ontology list ms;pride\nERROR: Column 'comment[dissociation method]' contains 'not available' values but requires actual values\nERROR: Value 'not available' does not match required pattern\nERROR: Column 'comment[cross-linker]' contains 'not available' values but requires actual values\nERROR: Value '1:1 (w/w)' does not match required pattern\nThere were validation errors.",
+    "xi_config_paths": {
+      "crosslinking": "pxd_data/PXD014520/configs/xi_crosslinking.conf",
+      "linear": "pxd_data/PXD014520/configs/xi_linear.conf"
+    },
+    "pride_data": {
+      "accession": "PXD014520",
+      "title": "Reanalysis of Cross-Linking Mass Spectrometry data from a ribisomal cellular fraction for benchmarking purposes",
+      "additionalAttributes": [],
+      "projectDescription": "Reanalysis of a cross-linked ribosomal cellular fraction dataset, that is a subset of a fragmentation parameters optimization dataset (PRIDE project PXD006131). The HCD fragmented part of the dataset was searched with the Cross-Linking MS identification tools OpenPepXL, pLink2, Kojak and XiSearch.",
+      "sampleProcessingProtocol": "The combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate were a complex mixture comprising about 1700 proteins. From PXD006131: Proteins were cross-linked using a 1:1 weight-to-weight (w/w) cross-linker to protein ratio. C3b buffer was exchanged using 30 kDa molecular weight cutoff (MWCO) filters (Millipore, Cork, Ireland), into cross-linking buffer (20 mM HEPES, 20 mM NaCl, 5 mM MgCl2, pH 7.8). Protein and cross-linker were mixed to a final concentration of 1 mg/ml. The mixture was incubated on ice for 2 h before the reaction was stopped by ammonium bicarbonate (ABC, 50 mM final concentration). Samples were dried in a vacuum concentrator and resuspended in 6 M urea / 2 M thiourea. Disulfide bonds were reduced by dithiothreitol (DTT, 2.5 mM, 50 °C for 15 min) and alkylated by iodoacetamid (IAA, 5 mM, RT for 30 min in the dark). The samples were diluted to 2 M urea using 50 mM ABC and digested with trypsin (50:1 protein to enzyme w/w ratio, 37 °C, over-night). Digestions were stopped by adding 10% trifluoroacetic acid (TFA) until the pH was <2. Digests were desalted using self-made C18 StageTips16 and peptides were eluted using 80% acetonitrile and 20%, 0.1% TFA in water. Eluates were dried and resuspended in 0.1 % TFA. The injected amount was 1 µg of peptides. Data acquisition. All samples were analyzed using a UltiMate 3000 Nano LC system coupled to an Orbitrap Fusion Lumos Tribrid mass spectrometer equipped with an EasySpray Source (Thermo Fisher Scientific, San Jose, CA). Mobile phase A consisted of 0.1% formic acid in water, mobile phase B of 80% acetonitrile, 0.1% formic acid and 19.9% water. Peptides were loaded onto a 500 mm C-18 EasySpray column (75 µm ID, 2 µm particles, 100 Å pore size) with 2% B at 300 nl/min flow rate for 11 min and eluted at 300 nl/min flow rate with a linear gradient from 2% - 40% B over 139 min.",
+      "dataProcessingProtocol": "The .RAW files of all datasets were converted into mzML and MGF files using MSConvertGUI from the ProteoWizard toolkit version 3.0.10577. Reversed sequence decoy protein databases were generated from the target protein databases using the TOPP tool DecoyDatabase from OpenMS 2.4. Because it creates its own decoys, only the target database was provided to pLink2. OpenPepXL 1.1 with the TOPP tool XFDR for False Discovery Rate (FDR) estimation, XiSearch 1.6.731 with xiFDR 1.1.27 for FDR estimation, TPP 5.1.0 with Kojak 1.6.0 and PeptideProphet for FDR estimation and pLink 2.3.5 with its built in FDR estimation algorithm were used to identify cross-links. The parameters of the different tools were set to equal values where possible and to reasonable or similar values otherwise. The parameters were: precursor tolerance = 6 ppm, fragment tolerance = 20ppm, max. number of missed cleavages = 4, enzyme = Trypsin, min. peptide length = 5, fixed modification = Carbamidomethyl (C), variable modification = Oxidation (M), max. variable modifications per peptide = 3, charges = +3 to +7 , cross-linker = BS3, cross-link mass = 138.0680796, mono-link masses = 156.07864431 and 155.094628715, linked residues = K and N-terminal. Additional filtering and post-processing was partly done with the TOPP tools IDFilter, IDMerger and TextExporter for OpenPepXL and xQuest output and otherwise with R scripts. An FDR cut-off of 5% on PSM level was applied to every tool. Additionally after this cut-off only unique residue pairs found in at least two of the remaining peptide spectrum matches (PSM) were kept. Also a filter for link distance was applied to intra-protein links. Linked residue pairs were only kept, if they were at least 4 residues apart in the database sequence.",
+      "projectTags": [],
+      "keywords": [
+        "Technical dataset",
+        "Cross-linking",
+        "Bs3"
+      ],
+      "doi": "",
+      "submissionType": "PARTIAL",
+      "license": "Creative Commons Public Domain (CC0)",
+      "submissionDate": "2019-07-08",
+      "publicationDate": "2020-10-20",
+      "submitters": [
+        {
+          "title": "Mr",
+          "firstName": "Eugen",
+          "lastName": "Netz",
+          "identifier": "145150169",
+          "affiliation": "Biomolecular Interactions, Max Planck Institute for Developmental Biology",
+          "email": "eugen.netz@gmail.com",
+          "country": "Germany",
+          "orcid": "0000-0003-2442-7538",
+          "name": "Eugen Netz",
+          "id": "145150169"
+        }
+      ],
+      "labPIs": [
+        {
+          "title": "Dr",
+          "firstName": "Oliver",
+          "lastName": "Kohlbacher",
+          "identifier": "150750100",
+          "affiliation": "1. Biomolecular Interactions, Max Planck Institute for Developmental Biology, Tübingen, Germany; 2. Applied Bioinformatics, Dept. of Computer Science, University of Tübingen, Germany; 3. Quantitative Biology Center (QBiC), University of Tübingen, Germany; 4. Institute for Translational Bioinformatics, University Hospital Tübingen, Germany; 5. Institute for Bioinformatics and Medical Informatics, University of Tübingen, Germany",
+          "email": "oliver.kohlbacher@uni-tuebingen.de",
+          "country": "",
+          "orcid": "",
+          "name": "Oliver Kohlbacher",
+          "id": "150750100"
+        }
+      ],
+      "instruments": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MS",
+          "accession": "MS:1002732",
+          "name": "Orbitrap Fusion Lumos",
+          "value": ""
+        }
+      ],
+      "softwares": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MS",
+          "accession": "MS:1000752",
+          "name": "TOPP software"
+        },
+        {
+          "@type": "CvParam",
+          "cvLabel": "MS",
+          "accession": "MS:1002287",
+          "name": "PeptideProphet"
+        },
+        {
+          "@type": "CvParam",
+          "cvLabel": "MS",
+          "accession": "MS:1002205",
+          "name": "ProteoWizard msconvert"
+        }
+      ],
+      "experimentTypes": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "PRIDE",
+          "accession": "PRIDE:0000430",
+          "name": "Chemical cross-linking coupled with mass spectrometry proteomics"
+        }
+      ],
+      "quantificationMethods": [],
+      "countries": [
+        "Germany"
+      ],
+      "sampleAttributes": [
+        {
+          "@type": "Tuple",
+          "key": {
+            "cvLabel": "EFO",
+            "accession": "EFO:0000635",
+            "name": "organism part"
+          },
+          "value": [
+            {
+              "cvLabel": "BTO",
+              "accession": "BTO:0000214",
+              "name": "cell culture",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "@type": "Tuple",
+          "key": {
+            "cvLabel": "EFO",
+            "accession": "OBI:0100026",
+            "name": "organism"
+          },
+          "value": [
+            {
+              "cvLabel": "NEWT",
+              "accession": "NEWT:9606",
+              "name": "Homo sapiens (Human)",
+              "value": ""
+            }
+          ]
+        }
+      ],
+      "organisms": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "NEWT",
+          "accession": "NEWT:9606",
+          "name": "Homo sapiens (human)",
+          "value": ""
+        }
+      ],
+      "organismParts": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "BTO",
+          "accession": "BTO:0000214",
+          "name": "Cell culture",
+          "value": ""
+        }
+      ],
+      "diseases": [],
+      "references": [
+        {
+          "referenceLine": "Netz E, Dijkstra TMH, Sachsenberg T, Zimmermann L, Walzer M, Monecke T, Ficner R, Dybkov O, Urlaub H, Kohlbacher O. OpenPepXL: An open-source tool for sensitive identification of cross-linked peptides in XL-MS. Mol Cell Proteomics. 2020",
+          "pubmedID": 33067342,
+          "doi": "10.1074/mcp.tir120.002186"
+        }
+      ],
+      "identifiedPTMStrings": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MOD",
+          "accession": "MOD:00425",
+          "name": "monohydroxylated residue",
+          "value": ""
+        },
+        {
+          "@type": "CvParam",
+          "cvLabel": "MOD",
+          "accession": "MOD:00397",
+          "name": "iodoacetamide derivatized residue",
+          "value": ""
+        }
+      ],
+      "totalFileDownloads": 1635,
+      "otherOmicsLinks": [
+        "pride.project:PXD014523",
+        "pride.project:PXD014359",
+        "pride.project:PXD021417"
+      ],
+      "files": {
+        "files": [
+          {
+            "fileName": "Scripts.zip",
+            "fileSizeBytes": 5835,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2020/10/PXD014520/Scripts.zip"
+          },
+          {
+            "fileName": "B160812_07_Lumos_LK_IN_190_Francis_Rib_Fra_HCD_DT_2.raw",
+            "fileSizeBytes": 2418241284,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2020/10/PXD014520/B160812_07_Lumos_LK_IN_190_Francis_Rib_Fra_HCD_DT_2.raw"
+          },
+          {
+            "fileName": "B160812_02_Lumos_LK_IN_190_Francis_Rib_Fra_HCD_DT_1.mzML",
+            "fileSizeBytes": 1303734331,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2020/10/PXD014520/B160812_02_Lumos_LK_IN_190_Francis_Rib_Fra_HCD_DT_1.mzML"
+          },
+          {
+            "fileName": "OpenPepXL.csv",
+            "fileSizeBytes": 2409448,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2020/10/PXD014520/OpenPepXL.csv"
+          },
+          {
+            "fileName": "B160812_02_Lumos_LK_IN_190_Francis_Rib_Fra_HCD_DT_1.mzid",
+            "fileSizeBytes": 2653610613,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2020/10/PXD014520/B160812_02_Lumos_LK_IN_190_Francis_Rib_Fra_HCD_DT_1.mzid"
+          },
+          {
+            "fileName": "Kojak_PeptideProphet_interact.pep.xml",
+            "fileSizeBytes": 206154016,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2020/10/PXD014520/Kojak_PeptideProphet_interact.pep.xml"
+          },
+          {
+            "fileName": "pLink2.filtered_loop-linked_spectra.csv",
+            "fileSizeBytes": 144286,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2020/10/PXD014520/pLink2.filtered_loop-linked_spectra.csv"
+          },
+          {
+            "fileName": "B160812_12_Lumos_LK_IN_190_Francis_Rib_Fra_HCD_DT_3.mgf",
+            "fileSizeBytes": 345875132,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2020/10/PXD014520/B160812_12_Lumos_LK_IN_190_Francis_Rib_Fra_HCD_DT_3.mgf"
+          },
+          {
+            "fileName": "B160812_02_Lumos_LK_IN_190_Francis_Rib_Fra_HCD_DT_1.mgf",
+            "fileSizeBytes": 291503373,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2020/10/PXD014520/B160812_02_Lumos_LK_IN_190_Francis_Rib_Fra_HCD_DT_1.mgf"
+          },
+          {
+            "fileName": "B160812_07_Lumos_LK_IN_190_Francis_Rib_Fra_HCD_DT_2.mzid",
+            "fileSizeBytes": 2801236823,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2020/10/PXD014520/B160812_07_Lumos_LK_IN_190_Francis_Rib_Fra_HCD_DT_2.mzid"
+          },
+          {
+            "fileName": "XiSearch_xiFDR_PSM.csv",
+            "fileSizeBytes": 81730,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2020/10/PXD014520/XiSearch_xiFDR_PSM.csv"
+          },
+          {
+            "fileName": "B160812_07_Lumos_LK_IN_190_Francis_Rib_Fra_HCD_DT_2.mzML",
+            "fileSizeBytes": 1476009939,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2020/10/PXD014520/B160812_07_Lumos_LK_IN_190_Francis_Rib_Fra_HCD_DT_2.mzML"
+          },
+          {
+            "fileName": "B160812_12_Lumos_LK_IN_190_Francis_Rib_Fra_HCD_DT_3.mzML",
+            "fileSizeBytes": 1481381479,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2020/10/PXD014520/B160812_12_Lumos_LK_IN_190_Francis_Rib_Fra_HCD_DT_3.mzML"
+          },
+          {
+            "fileName": "top_128_iBAQ_francis_ribo_fractions.fasta",
+            "fileSizeBytes": 54468,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2020/10/PXD014520/top_128_iBAQ_francis_ribo_fractions.fasta"
+          },
+          {
+            "fileName": "decoy_top_128_iBAQ_francis_ribo_fractions.fasta",
+            "fileSizeBytes": 55826,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2020/10/PXD014520/decoy_top_128_iBAQ_francis_ribo_fractions.fasta"
+          },
+          {
+            "fileName": "pLink2.filtered_cross-linked_spectra.csv",
+            "fileSizeBytes": 112686,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2020/10/PXD014520/pLink2.filtered_cross-linked_spectra.csv"
+          },
+          {
+            "fileName": "B160812_07_Lumos_LK_IN_190_Francis_Rib_Fra_HCD_DT_2.mgf",
+            "fileSizeBytes": 339720153,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2020/10/PXD014520/B160812_07_Lumos_LK_IN_190_Francis_Rib_Fra_HCD_DT_2.mgf"
+          },
+          {
+            "fileName": "B160812_02_Lumos_LK_IN_190_Francis_Rib_Fra_HCD_DT_1.raw",
+            "fileSizeBytes": 2079941156,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2020/10/PXD014520/B160812_02_Lumos_LK_IN_190_Francis_Rib_Fra_HCD_DT_1.raw"
+          },
+          {
+            "fileName": "B160812_12_Lumos_LK_IN_190_Francis_Rib_Fra_HCD_DT_3.mzid",
+            "fileSizeBytes": 2813298926,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2020/10/PXD014520/B160812_12_Lumos_LK_IN_190_Francis_Rib_Fra_HCD_DT_3.mzid"
+          },
+          {
+            "fileName": "B160812_12_Lumos_LK_IN_190_Francis_Rib_Fra_HCD_DT_3.raw",
+            "fileSizeBytes": 2418130476,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2020/10/PXD014520/B160812_12_Lumos_LK_IN_190_Francis_Rib_Fra_HCD_DT_3.raw"
+          }
+        ],
+        "totalCount": 20
+      }
+    },
+    "publication_metadata": null,
+    "llm_responses": {
+      "characteristics[disease]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[compound]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[phenotype]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[compound]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[treatment]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[compound]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[compound]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[compound]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[dose]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[compound]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[genetic modification]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[compound]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[perturbation]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[compound]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[depletion]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[compound]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "no depletion",
+          "accession": "PRIDE:0000020",
+          "confidence": "medium",
+          "evidence_quote": "The combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "factor value cell line": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": \"HEK 293\",\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value compound\": {\n    \"value\": null,\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "HEK 293",
+          "accession": "CLO:0000031",
+          "confidence": "high",
+          "evidence_quote": "HEK 293 cell lysate",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value compound": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": \"HEK 293\",\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value compound\": {\n    \"value\": null,\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "CHEBI:37577",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value disease": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": \"HEK 293\",\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value compound\": {\n    \"value\": null,\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "OGMS:0000031",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value dose": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": \"HEK 293\",\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value compound\": {\n    \"value\": null,\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000428",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value organism part": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": \"HEK 293\",\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value compound\": {\n    \"value\": null,\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000635",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value time": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": \"HEK 293\",\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value compound\": {\n    \"value\": null,\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000721",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value treatment": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": \"HEK 293\",\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value compound\": {\n    \"value\": null,\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000727",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "comment[instrument]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\",\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Orbitrap Fusion Lumos Tribrid mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Data acquisition. All samples were analyzed using a UltiMate 3000 Nano LC system coupled to an Orbitrap Fusion Lumos Tribrid mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The HCD fragmented part of the dataset was searched\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "NT=Orbitrap Fusion Lumos;AC=MS:1002732",
+          "accession": "MS:1002732",
+          "confidence": "high",
+          "evidence_quote": "Orbitrap Fusion Lumos Tribrid mass spectrometer",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[proteomics data acquisition method]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\",\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Orbitrap Fusion Lumos Tribrid mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Data acquisition. All samples were analyzed using a UltiMate 3000 Nano LC system coupled to an Orbitrap Fusion Lumos Tribrid mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The HCD fragmented part of the dataset was searched\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "NT=data-dependent acquisition;AC=PRIDE:0000041",
+          "accession": "PRIDE:0000041",
+          "confidence": "low",
+          "evidence_quote": "Data acquisition. All samples were analyzed using a UltiMate 3000 Nano LC system coupled to an Orbitrap Fusion Lumos Tribrid mass spectrometer",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[dissociation method]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\",\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Orbitrap Fusion Lumos Tribrid mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Data acquisition. All samples were analyzed using a UltiMate 3000 Nano LC system coupled to an Orbitrap Fusion Lumos Tribrid mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The HCD fragmented part of the dataset was searched\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "NT=HCD;AC=MS:1000422",
+          "accession": "MS:1000422",
+          "confidence": "medium",
+          "evidence_quote": "The HCD fragmented part of the dataset was searched",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[collision energy]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\",\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Orbitrap Fusion Lumos Tribrid mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Data acquisition. All samples were analyzed using a UltiMate 3000 Nano LC system coupled to an Orbitrap Fusion Lumos Tribrid mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The HCD fragmented part of the dataset was searched\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[dia method]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\",\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Orbitrap Fusion Lumos Tribrid mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Data acquisition. All samples were analyzed using a UltiMate 3000 Nano LC system coupled to an Orbitrap Fusion Lumos Tribrid mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The HCD fragmented part of the dataset was searched\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[fragment mass tolerance]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\",\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Orbitrap Fusion Lumos Tribrid mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Data acquisition. All samples were analyzed using a UltiMate 3000 Nano LC system coupled to an Orbitrap Fusion Lumos Tribrid mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The HCD fragmented part of the dataset was searched\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[precursor mass tolerance]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\",\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Orbitrap Fusion Lumos Tribrid mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Data acquisition. All samples were analyzed using a UltiMate 3000 Nano LC system coupled to an Orbitrap Fusion Lumos Tribrid mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The HCD fragmented part of the dataset was searched\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[technical replicate]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\",\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Orbitrap Fusion Lumos Tribrid mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Data acquisition. All samples were analyzed using a UltiMate 3000 Nano LC system coupled to an Orbitrap Fusion Lumos Tribrid mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The HCD fragmented part of the dataset was searched\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "no technical replicates stated",
+          "accession": "MS:1001808",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[data file]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\",\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Orbitrap Fusion Lumos Tribrid mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Data acquisition. All samples were analyzed using a UltiMate 3000 Nano LC system coupled to an Orbitrap Fusion Lumos Tribrid mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The HCD fragmented part of the dataset was searched\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "MS:1003083",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "characteristics[organism]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"ribosomal fraction\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"cross-linked ribosomal cellular fraction\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"HEK 293\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking mass spectrometry\",\n    \"evidence_location\": \"Title / Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"PXD006131 ribosomal cellular fraction reanalysis (combined ribosomal fractions from HEK293 size-exclusion chromatography)\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Reanalysis of a cross-linked ribosomal cellular fraction dataset, that is a subset of a fragmentation parameters optimization dataset (PRIDE project PXD006131).\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stems (not provided in text); subset of PXD006131 fragmentation parameters optimization dataset\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"subset of a fragmentation parameters optimization dataset (PRIDE project PXD006131).\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "Homo sapiens",
+          "accession": "NCBITaxon:9606",
+          "confidence": "high",
+          "evidence_quote": "HEK 293 cell lysate",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[organism part]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"ribosomal fraction\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"cross-linked ribosomal cellular fraction\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"HEK 293\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking mass spectrometry\",\n    \"evidence_location\": \"Title / Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"PXD006131 ribosomal cellular fraction reanalysis (combined ribosomal fractions from HEK293 size-exclusion chromatography)\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Reanalysis of a cross-linked ribosomal cellular fraction dataset, that is a subset of a fragmentation parameters optimization dataset (PRIDE project PXD006131).\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stems (not provided in text); subset of PXD006131 fragmentation parameters optimization dataset\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"subset of a fragmentation parameters optimization dataset (PRIDE project PXD006131).\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "ribosomal fraction",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "cross-linked ribosomal cellular fraction",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[cell line]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"ribosomal fraction\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"cross-linked ribosomal cellular fraction\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"HEK 293\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking mass spectrometry\",\n    \"evidence_location\": \"Title / Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"PXD006131 ribosomal cellular fraction reanalysis (combined ribosomal fractions from HEK293 size-exclusion chromatography)\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Reanalysis of a cross-linked ribosomal cellular fraction dataset, that is a subset of a fragmentation parameters optimization dataset (PRIDE project PXD006131).\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stems (not provided in text); subset of PXD006131 fragmentation parameters optimization dataset\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"subset of a fragmentation parameters optimization dataset (PRIDE project PXD006131).\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "HEK 293",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "HEK 293 cell lysate",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[cell type]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"ribosomal fraction\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"cross-linked ribosomal cellular fraction\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"HEK 293\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking mass spectrometry\",\n    \"evidence_location\": \"Title / Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"PXD006131 ribosomal cellular fraction reanalysis (combined ribosomal fractions from HEK293 size-exclusion chromatography)\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Reanalysis of a cross-linked ribosomal cellular fraction dataset, that is a subset of a fragmentation parameters optimization dataset (PRIDE project PXD006131).\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stems (not provided in text); subset of PXD006131 fragmentation parameters optimization dataset\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"subset of a fragmentation parameters optimization dataset (PRIDE project PXD006131).\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[material type]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"ribosomal fraction\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"cross-linked ribosomal cellular fraction\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"HEK 293\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking mass spectrometry\",\n    \"evidence_location\": \"Title / Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"PXD006131 ribosomal cellular fraction reanalysis (combined ribosomal fractions from HEK293 size-exclusion chromatography)\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Reanalysis of a cross-linked ribosomal cellular fraction dataset, that is a subset of a fragmentation parameters optimization dataset (PRIDE project PXD006131).\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stems (not provided in text); subset of PXD006131 fragmentation parameters optimization dataset\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"subset of a fragmentation parameters optimization dataset (PRIDE project PXD006131).\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "whole cell lysate",
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": "combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[strain or breed]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"ribosomal fraction\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"cross-linked ribosomal cellular fraction\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"HEK 293\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking mass spectrometry\",\n    \"evidence_location\": \"Title / Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"PXD006131 ribosomal cellular fraction reanalysis (combined ribosomal fractions from HEK293 size-exclusion chromatography)\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Reanalysis of a cross-linked ribosomal cellular fraction dataset, that is a subset of a fragmentation parameters optimization dataset (PRIDE project PXD006131).\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stems (not provided in text); subset of PXD006131 fragmentation parameters optimization dataset\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"subset of a fragmentation parameters optimization dataset (PRIDE project PXD006131).\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[developmental stage]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"ribosomal fraction\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"cross-linked ribosomal cellular fraction\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"HEK 293\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking mass spectrometry\",\n    \"evidence_location\": \"Title / Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"PXD006131 ribosomal cellular fraction reanalysis (combined ribosomal fractions from HEK293 size-exclusion chromatography)\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Reanalysis of a cross-linked ribosomal cellular fraction dataset, that is a subset of a fragmentation parameters optimization dataset (PRIDE project PXD006131).\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stems (not provided in text); subset of PXD006131 fragmentation parameters optimization dataset\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"subset of a fragmentation parameters optimization dataset (PRIDE project PXD006131).\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "technology type": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"ribosomal fraction\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"cross-linked ribosomal cellular fraction\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"HEK 293\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking mass spectrometry\",\n    \"evidence_location\": \"Title / Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"PXD006131 ribosomal cellular fraction reanalysis (combined ribosomal fractions from HEK293 size-exclusion chromatography)\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Reanalysis of a cross-linked ribosomal cellular fraction dataset, that is a subset of a fragmentation parameters optimization dataset (PRIDE project PXD006131).\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stems (not provided in text); subset of PXD006131 fragmentation parameters optimization dataset\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"subset of a fragmentation parameters optimization dataset (PRIDE project PXD006131).\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "proteomic profiling by mass spectrometry",
+          "accession": "PRIDE:0000663",
+          "confidence": "high",
+          "evidence_quote": "cross-linking mass spectrometry",
+          "evidence_location": "Title / Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "source name": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"ribosomal fraction\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"cross-linked ribosomal cellular fraction\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"HEK 293\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking mass spectrometry\",\n    \"evidence_location\": \"Title / Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"PXD006131 ribosomal cellular fraction reanalysis (combined ribosomal fractions from HEK293 size-exclusion chromatography)\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Reanalysis of a cross-linked ribosomal cellular fraction dataset, that is a subset of a fragmentation parameters optimization dataset (PRIDE project PXD006131).\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stems (not provided in text); subset of PXD006131 fragmentation parameters optimization dataset\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"subset of a fragmentation parameters optimization dataset (PRIDE project PXD006131).\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "PXD006131 ribosomal cellular fraction reanalysis (combined ribosomal fractions from HEK293 size-exclusion chromatography)",
+          "accession": "PRIDE:0000623",
+          "confidence": "low",
+          "evidence_quote": "Reanalysis of a cross-linked ribosomal cellular fraction dataset, that is a subset of a fragmentation parameters optimization dataset (PRIDE project PXD006131).",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "assay name": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"ribosomal fraction\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"cross-linked ribosomal cellular fraction\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"HEK 293\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking mass spectrometry\",\n    \"evidence_location\": \"Title / Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"PXD006131 ribosomal cellular fraction reanalysis (combined ribosomal fractions from HEK293 size-exclusion chromatography)\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Reanalysis of a cross-linked ribosomal cellular fraction dataset, that is a subset of a fragmentation parameters optimization dataset (PRIDE project PXD006131).\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stems (not provided in text); subset of PXD006131 fragmentation parameters optimization dataset\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"subset of a fragmentation parameters optimization dataset (PRIDE project PXD006131).\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "Auto-generated from raw file stems (not provided in text); subset of PXD006131 fragmentation parameters optimization dataset",
+          "accession": "NCIT:C178857",
+          "confidence": "low",
+          "evidence_quote": "subset of a fragmentation parameters optimization dataset (PRIDE project PXD006131).",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[sex]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Cell line (HEK 293) has no defined donor sex.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"The combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Text indicates combined fractions, but does not explicitly state pooling of biological samples; defaulting to not pooled.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "not applicable",
+          "accession": "PATO:0000047",
+          "confidence": "high",
+          "evidence_quote": "HEK 293 cell lysate",
+          "evidence_location": "Methods",
+          "instructions_note": "Cell line (HEK 293) has no defined donor sex."
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[age]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Cell line (HEK 293) has no defined donor sex.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"The combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Text indicates combined fractions, but does not explicitly state pooling of biological samples; defaulting to not pooled.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000246",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[ancestry category]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Cell line (HEK 293) has no defined donor sex.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"The combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Text indicates combined fractions, but does not explicitly state pooling of biological samples; defaulting to not pooled.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "HANCESTRO",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[biological replicate]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Cell line (HEK 293) has no defined donor sex.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"The combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Text indicates combined fractions, but does not explicitly state pooling of biological samples; defaulting to not pooled.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "MS:1001809",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[genotype]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Cell line (HEK 293) has no defined donor sex.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"The combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Text indicates combined fractions, but does not explicitly state pooling of biological samples; defaulting to not pooled.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000513",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[pooled sample]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Cell line (HEK 293) has no defined donor sex.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"The combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Text indicates combined fractions, but does not explicitly state pooling of biological samples; defaulting to not pooled.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "not pooled",
+          "accession": "NCIT:C165587",
+          "confidence": "low",
+          "evidence_quote": "The combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate",
+          "evidence_location": "Methods",
+          "instructions_note": "Text indicates combined fractions, but does not explicitly state pooling of biological samples; defaulting to not pooled."
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[phosphate]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Cell line (HEK 293) has no defined donor sex.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"The combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Text indicates combined fractions, but does not explicitly state pooling of biological samples; defaulting to not pooled.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000805",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[temperature]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Cell line (HEK 293) has no defined donor sex.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"The combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Text indicates combined fractions, but does not explicitly state pooling of biological samples; defaulting to not pooled.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000703",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "comment[cleavage agent details]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"digested with trypsin (50:1 protein to enzyme w/w ratio, 37 °C, over-night).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HCD fragmented part of the dataset was searched with the Cross-Linking MS identification tools OpenPepXL, pLink2, Kojak and XiSearch.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"alkylated by iodoacetamid (IAA, 5 mM, RT for 30 min in the dark).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": \"high-pH reversed-phase chromatography\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"alkylated by iodoacetamid (IAA, 5 mM, RT for 30 min in the dark).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation (ribosomal fraction obtained by size exclusion chromatography; no LC-MS/MS peptide fractionation scheme described)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": [
+            "NT=Trypsin;AC=MS:1001251"
+          ],
+          "accession": "MS:1001251",
+          "confidence": "high",
+          "evidence_quote": "digested with trypsin (50:1 protein to enzyme w/w ratio, 37 °C, over-night).",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[label]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"digested with trypsin (50:1 protein to enzyme w/w ratio, 37 °C, over-night).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HCD fragmented part of the dataset was searched with the Cross-Linking MS identification tools OpenPepXL, pLink2, Kojak and XiSearch.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"alkylated by iodoacetamid (IAA, 5 mM, RT for 30 min in the dark).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": \"high-pH reversed-phase chromatography\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"alkylated by iodoacetamid (IAA, 5 mM, RT for 30 min in the dark).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation (ribosomal fraction obtained by size exclusion chromatography; no LC-MS/MS peptide fractionation scheme described)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "NT=label free sample;AC=MS:1002038",
+          "accession": "MS:1002038",
+          "confidence": "high",
+          "evidence_quote": "The HCD fragmented part of the dataset was searched with the Cross-Linking MS identification tools OpenPepXL, pLink2, Kojak and XiSearch.",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[alkylation reagent]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"digested with trypsin (50:1 protein to enzyme w/w ratio, 37 °C, over-night).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HCD fragmented part of the dataset was searched with the Cross-Linking MS identification tools OpenPepXL, pLink2, Kojak and XiSearch.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"alkylated by iodoacetamid (IAA, 5 mM, RT for 30 min in the dark).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": \"high-pH reversed-phase chromatography\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"alkylated by iodoacetamid (IAA, 5 mM, RT for 30 min in the dark).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation (ribosomal fraction obtained by size exclusion chromatography; no LC-MS/MS peptide fractionation scheme described)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "iodoacetamide",
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": "alkylated by iodoacetamid (IAA, 5 mM, RT for 30 min in the dark).",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[fractionation method]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"digested with trypsin (50:1 protein to enzyme w/w ratio, 37 °C, over-night).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HCD fragmented part of the dataset was searched with the Cross-Linking MS identification tools OpenPepXL, pLink2, Kojak and XiSearch.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"alkylated by iodoacetamid (IAA, 5 mM, RT for 30 min in the dark).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": \"high-pH reversed-phase chromatography\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"alkylated by iodoacetamid (IAA, 5 mM, RT for 30 min in the dark).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation (ribosomal fraction obtained by size exclusion chromatography; no LC-MS/MS peptide fractionation scheme described)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "high-pH reversed-phase chromatography",
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": "combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[modification parameters]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"digested with trypsin (50:1 protein to enzyme w/w ratio, 37 °C, over-night).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HCD fragmented part of the dataset was searched with the Cross-Linking MS identification tools OpenPepXL, pLink2, Kojak and XiSearch.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"alkylated by iodoacetamid (IAA, 5 mM, RT for 30 min in the dark).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": \"high-pH reversed-phase chromatography\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"alkylated by iodoacetamid (IAA, 5 mM, RT for 30 min in the dark).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation (ribosomal fraction obtained by size exclusion chromatography; no LC-MS/MS peptide fractionation scheme described)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": [
+            "NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed",
+            "NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable"
+          ],
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "alkylated by iodoacetamid (IAA, 5 mM, RT for 30 min in the dark).",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[fraction identifier]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"digested with trypsin (50:1 protein to enzyme w/w ratio, 37 °C, over-night).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HCD fragmented part of the dataset was searched with the Cross-Linking MS identification tools OpenPepXL, pLink2, Kojak and XiSearch.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"alkylated by iodoacetamid (IAA, 5 mM, RT for 30 min in the dark).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": \"high-pH reversed-phase chromatography\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"alkylated by iodoacetamid (IAA, 5 mM, RT for 30 min in the dark).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation (ribosomal fraction obtained by size exclusion chromatography; no LC-MS/MS peptide fractionation scheme described)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "no fractionation (ribosomal fraction obtained by size exclusion chromatography; no LC-MS/MS peptide fractionation scheme described)",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "The combined ribosomal fractions obtained by size exclusion chromatography of HEK 293 cell lysate",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "characteristics[crosslinking reaction time]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"2 h\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The mixture was incubated on ice for 2 h before the reaction was stopped\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"on ice\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The mixture was incubated on ice for 2 h\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": \"no enrichment\",\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Samples were dried in a vacuum concentrator and resuspended in 6 M urea / 2 M thiourea... digested with trypsin... Digests were desalted using self-made C18 StageTips\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "2 h",
+          "accession": "PRIDE:0000949",
+          "confidence": "high",
+          "evidence_quote": "The mixture was incubated on ice for 2 h before the reaction was stopped",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "characteristics[crosslinking temperature]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"2 h\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The mixture was incubated on ice for 2 h before the reaction was stopped\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"on ice\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The mixture was incubated on ice for 2 h\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": \"no enrichment\",\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Samples were dried in a vacuum concentrator and resuspended in 6 M urea / 2 M thiourea... digested with trypsin... Digests were desalted using self-made C18 StageTips\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "on ice",
+          "accession": "PRIDE:0000950",
+          "confidence": "medium",
+          "evidence_quote": "The mixture was incubated on ice for 2 h",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "comment[crosslink enrichment method]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"2 h\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The mixture was incubated on ice for 2 h before the reaction was stopped\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"on ice\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The mixture was incubated on ice for 2 h\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": \"no enrichment\",\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Samples were dried in a vacuum concentrator and resuspended in 6 M urea / 2 M thiourea... digested with trypsin... Digests were desalted using self-made C18 StageTips\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "characteristics[enrichment process]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"2 h\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The mixture was incubated on ice for 2 h before the reaction was stopped\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"on ice\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The mixture was incubated on ice for 2 h\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": \"no enrichment\",\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Samples were dried in a vacuum concentrator and resuspended in 6 M urea / 2 M thiourea... digested with trypsin... Digests were desalted using self-made C18 StageTips\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "no enrichment",
+          "accession": "EFO:0009090",
+          "confidence": "medium",
+          "evidence_quote": "Samples were dried in a vacuum concentrator and resuspended in 6 M urea / 2 M thiourea... digested with trypsin... Digests were desalted using self-made C18 StageTips",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "comment[cross-linker]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": null,\n    \"NT\": null,\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": \"1:1 (w/w)\",\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Proteins were cross-linked using a 1:1 weight-to-weight (w/w) cross-linker to protein ratio.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"ammonium bicarbonate (ABC)\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"before the reaction was stopped by ammonium bicarbonate (ABC, 50 mM final concentration).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linked ribosomal cellular fraction dataset\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "NT": null,
+          "AC": null,
+          "CL": null,
+          "TA": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[crosslinker concentration]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": null,\n    \"NT\": null,\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": \"1:1 (w/w)\",\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Proteins were cross-linked using a 1:1 weight-to-weight (w/w) cross-linker to protein ratio.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"ammonium bicarbonate (ABC)\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"before the reaction was stopped by ammonium bicarbonate (ABC, 50 mM final concentration).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linked ribosomal cellular fraction dataset\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000951",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[crosslinker to protein ratio]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": null,\n    \"NT\": null,\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": \"1:1 (w/w)\",\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Proteins were cross-linked using a 1:1 weight-to-weight (w/w) cross-linker to protein ratio.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"ammonium bicarbonate (ABC)\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"before the reaction was stopped by ammonium bicarbonate (ABC, 50 mM final concentration).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linked ribosomal cellular fraction dataset\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "1:1 (w/w)",
+          "accession": "PRIDE:0000952",
+          "confidence": "high",
+          "evidence_quote": "Proteins were cross-linked using a 1:1 weight-to-weight (w/w) cross-linker to protein ratio.",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[quenching reagent]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": null,\n    \"NT\": null,\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": \"1:1 (w/w)\",\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Proteins were cross-linked using a 1:1 weight-to-weight (w/w) cross-linker to protein ratio.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"ammonium bicarbonate (ABC)\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"before the reaction was stopped by ammonium bicarbonate (ABC, 50 mM final concentration).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linked ribosomal cellular fraction dataset\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "ammonium bicarbonate (ABC)",
+          "accession": "PRIDE:0000953",
+          "confidence": "high",
+          "evidence_quote": "before the reaction was stopped by ammonium bicarbonate (ABC, 50 mM final concentration).",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "characteristics[crosslink distance]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": null,\n    \"NT\": null,\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": \"1:1 (w/w)\",\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Proteins were cross-linked using a 1:1 weight-to-weight (w/w) cross-linker to protein ratio.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"ammonium bicarbonate (ABC)\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"before the reaction was stopped by ammonium bicarbonate (ABC, 50 mM final concentration).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linked ribosomal cellular fraction dataset\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000948",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[chemical cross-linking coupled with ms]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": null,\n    \"NT\": null,\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": \"1:1 (w/w)\",\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Proteins were cross-linked using a 1:1 weight-to-weight (w/w) cross-linker to protein ratio.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"ammonium bicarbonate (ABC)\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"before the reaction was stopped by ammonium bicarbonate (ABC, 50 mM final concentration).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linked ribosomal cellular fraction dataset\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "cross-linking mass spectrometry",
+          "accession": "PRIDE:0000430",
+          "confidence": "high",
+          "evidence_quote": "cross-linked ribosomal cellular fraction dataset",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      }
+    }
+  }
+}

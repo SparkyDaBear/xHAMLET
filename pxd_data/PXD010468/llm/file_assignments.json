@@ -1,0 +1,42 @@
+{
+  "metadata": {
+    "pxd": "PXD010468",
+    "category": "llm",
+    "saved_at": "2026-06-30T14:58:58.660430",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"chd1_loss_control_igg_ctl\",\n      \"description\": \"Human IgG control and CHD1-related samples (CHD1 loss and/or H3K4me-related states) analyzed together as a single condition group due to missing crosslinker and explicit condition mapping in filenames.\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": null,\n      \"biological_condition\": \"CHD1 loss / H3K4me state vs IgG control (condition mapping not fully resolvable from filenames alone)\",\n      \"files\": [\n        \"CHD1_1_f03560.raw\",\n        \"CHD1_2_f03822.raw\",\n        \"H3K4me_1_f03563.raw\",\n        \"H3K4me_2_f03823.raw\",\n        \"IgG_Ctl_1_f03558.raw\",\n        \"IgG_Ctl_2_f03824.raw\"\n      ],\n      \"confidence\": \"low\",\n      \"evidence_quote\": \"CHD1 loss alters AR binding at lineage-specific enhancers and modulates distinct transcriptional programs to drive prostate tumorigenesis\",\n      \"reasoning\": \"Filenames indicate three related sample types: CHD1_*, H3K4me_*, and IgG_Ctl_*. However, the provided publication excerpt does not specify the XL-MS crosslinker, and it does not explicitly map these filename prefixes to distinct XL-MS biological conditions in a way that can be reliably separated into multiple clusters. Given the task requirement to use the smallest number of biologically meaningful groups and the lack of crosslinker information, all files are grouped into one cluster representing the overall CHD1/H3K4me/IgG-control experimental set.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 6,\n    \"n_assigned_files\": 6,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 1,\n    \"overall_confidence\": \"low\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "chd1_loss_control_igg_ctl",
+          "description": "Human IgG control and CHD1-related samples (CHD1 loss and/or H3K4me-related states) analyzed together as a single condition group due to missing crosslinker and explicit condition mapping in filenames.",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": null,
+          "biological_condition": "CHD1 loss / H3K4me state vs IgG control (condition mapping not fully resolvable from filenames alone)",
+          "files": [
+            "CHD1_1_f03560.raw",
+            "CHD1_2_f03822.raw",
+            "H3K4me_1_f03563.raw",
+            "H3K4me_2_f03823.raw",
+            "IgG_Ctl_1_f03558.raw",
+            "IgG_Ctl_2_f03824.raw"
+          ],
+          "confidence": "low",
+          "evidence_quote": "CHD1 loss alters AR binding at lineage-specific enhancers and modulates distinct transcriptional programs to drive prostate tumorigenesis",
+          "reasoning": "Filenames indicate three related sample types: CHD1_*, H3K4me_*, and IgG_Ctl_*. However, the provided publication excerpt does not specify the XL-MS crosslinker, and it does not explicitly map these filename prefixes to distinct XL-MS biological conditions in a way that can be reliably separated into multiple clusters. Given the task requirement to use the smallest number of biologically meaningful groups and the lack of crosslinker information, all files are grouped into one cluster representing the overall CHD1/H3K4me/IgG-control experimental set."
+        }
+      ],
+      "summary": {
+        "n_input_files": 6,
+        "n_assigned_files": 6,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 1,
+        "overall_confidence": "low"
+      }
+    }
+  }
+}

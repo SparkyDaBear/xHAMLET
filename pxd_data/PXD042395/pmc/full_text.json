@@ -1,0 +1,2188 @@
+{
+  "metadata": {
+    "pxd": "PXD042395",
+    "category": "pmc",
+    "saved_at": "2026-06-30T15:33:53.210648",
+    "filename": "full_text"
+  },
+  "data": [
+    {
+      "source": "PMC",
+      "date": "20230813",
+      "key": "pmc.key",
+      "infons": {},
+      "documents": [
+        {
+          "id": "10415142",
+          "infons": {
+            "license": "CC BY-NC"
+          },
+          "passages": [
+            {
+              "offset": 0,
+              "infons": {
+                "article-id_doi": "10.1093/nar/gkad557",
+                "article-id_pmc": "10415142",
+                "article-id_pmid": "37395449",
+                "article-id_publisher-id": "gkad557",
+                "fpage": "e79",
+                "issue": "14",
+                "license": "This is an Open Access article distributed under the terms of the Creative Commons Attribution-NonCommercial License (https://creativecommons.org/licenses/by-nc/4.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited. For commercial re-use, please contact journals.permissions@oup.com",
+                "lpage": "e79",
+                "name_0": "surname:Trendel;given-names:Jakob",
+                "name_1": "surname:Boileau;given-names:Etienne",
+                "name_2": "surname:Jochem;given-names:Marco",
+                "name_3": "surname:Dieterich;given-names:Christoph",
+                "name_4": "surname:Krijgsveld;given-names:Jeroen",
+                "section_type": "TITLE",
+                "type": "front",
+                "volume": "51",
+                "year": "2023"
+              },
+              "text": "PEPseq quantifies transcriptome-wide changes in protein occupancy and reveals selective translational repression after translational stress",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 140,
+              "infons": {
+                "section_type": "ABSTRACT",
+                "type": "abstract_title_1"
+              },
+              "text": "Abstract",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 149,
+              "infons": {
+                "section_type": "ABSTRACT",
+                "type": "abstract"
+              },
+              "text": "Post-transcriptional gene regulation is accomplished by the interplay of the transcriptome with RNA-binding proteins, which occurs in a dynamic manner in response to altered cellular conditions. Recording the combined occupancy of all proteins binding to the transcriptome offers the opportunity to interrogate if a particular treatment leads to any interaction changes, pointing to sites in RNA that undergo post-transcriptional regulation. Here, we establish a method to monitor protein occupancy in a transcriptome-wide fashion by RNA sequencing. To this end, peptide-enhanced pull-down for RNA sequencing (or PEPseq) uses metabolic RNA labelling with 4-thiouridine (4SU) for light-induced protein–RNA crosslinking, and N-hydroxysuccinimide (NHS) chemistry to isolate protein-crosslinked RNA fragments across all long RNA biotypes. We use PEPseq to investigate changes in protein occupancy during the onset of arsenite-induced translational stress in human cells and reveal an increase of protein interactions in the coding region of a distinct set of mRNAs, including mRNAs coding for the majority of cytosolic ribosomal proteins. We use quantitative proteomics to demonstrate that translation of these mRNAs remains repressed during the initial hours of recovery after arsenite stress. Thus, we present PEPseq as a discovery platform for the unbiased investigation of post-transcriptional regulation.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 1557,
+              "infons": {
+                "section_type": "ABSTRACT",
+                "type": "abstract_title_1"
+              },
+              "text": "Graphical Abstract",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 1576,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "title_1"
+              },
+              "text": "INTRODUCTION",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 1589,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "Protein–RNA interactions organize many cellular processes, ranging from transcription, splicing and translation of protein-coding RNA, to a multitude of regulatory functions organized by small and long non-coding RNA that we are only beginning to understand. Protein–RNA interactions are not only vital for the basal cellular operation under homeostatic conditions, but they also allow cells to respond to environmental changes and elicit a commensurate response. In fact, post-transcriptional regulation can effectuate fast changes in gene expression that can often not be realized in time on a transcriptional level. For example, regulation at the level of protein translation occurs in human cells during hypoxia, when non-ribosomal RNA-binding proteins organize the recruitment of the translation machinery to a specific set of messenger RNAs (mRNAs) coding for growth factor receptors and metabolic proteins, ultimately leading to a swift metabolic switch. Investigating the binding events occurring for any of these proteins usually requires prior knowledge of their identity. For instance, in the above example RBM4 was identified as an interactor of HIF-2α during hypoxia before crosslinking and immunoprecipitation followed by sequencing (CLIPseq), confirmed its binding to a particular motif on the mRNAs that are regulated by the complex between the two proteins. Later, it was demonstrated that beside RBM4 multiple other RNA-binding proteins influence translation during hypoxia, confirming the notion that translation regulation in response to a stimulus that affects the entire cell involves a superposition of many altered protein–RNA interactions. Significant efforts have been invested into mapping the transcriptome-wide interaction sites of hundreds of human RNA-binding proteins with CLIPseq as part of the ENCODE project. In cases where a biological process is known to involve particular RNA transcripts, this information can be leveraged to identify potential RNA-binding proteins that might bind and affect their function. Yet, for the unbiased investigation of a post-transcriptional event involving unknown proteins and RNAs, it is desirable to map the interaction sites of all RNA-binding proteins across the transcriptome to pinpoint positions where changes in protein occupancy occur during a cellular perturbation. Such data can directly identify RNAs that underlie cellular adaptation, and subsequently be intersected with other sequencing data derived by CLIPseq, Ribo-seq or similar, in order to determine what RNA-binding proteins contributed to the changed protein occupancy.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 4208,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "Previous methodologies for mapping protein occupancy across the transcriptome used two main approaches—one involving metabolic labelling of the RNA and another one using in situ chemical crosslinking. For metabolic labelling of RNA, human cells are cultured in the presence of 4-thiouridine (4SU), a photoactivatable nucleotide that is readily incorporated into nascent RNA. Short UV irradiation of intact, live cells chemically activates 4SU-labelled sites in the transcriptome to form covalent crosslinks with interacting proteins in the direct vicinity. RNA extracted from such cells will then lead to characteristic errors during the generation of cDNA for sequencing, introducing T to C transitions at the protein-crosslinked, 4SU-labelled site. Methods such as ‘photoactivatable ribonucleotide-enhanced crosslinking and immunoprecipitation’ (PAR-CLIP) use these diagnostic transitions in RNA sequencing reads to pinpoint protein–RNA interactions sites with quasi nucleotide resolution. Similarly, ‘protein occupancy profiling’ uses poly-dT enrichment to retrieve polyadenylated RNA from lysates of UV-crosslinked cells, where polyadenylated RNA (i.e. mostly mRNA) is crosslinked not to one particular but to all proteins with which it interacts. After sequencing T-C transitions are leveraged to map protein interaction sites within these transcripts. So far, protein occupancy profiling has been used to compare the static protein interactions with mRNA between cell lines.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 5701,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "Alternatively, chemical crosslinking has been used to map protein–RNA interaction sites. One recently reported method, called ‘ribonucleoprotein networks analysed by mutational profiling’ (RNP-MaP), first reacts a bi-reactive probe with lysine residues on proteins in live cells, and subsequently uses UV activation to crosslink them to protein-bound RNA. Here, too, diagnostic mutations are introduced into RNA sequencing reads when the reverse transcriptase traverses a protein–RNA crosslink, which can be used to pinpoint protein interaction sites in a transcriptome-wide manner.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 6292,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "We recently reported ‘protein-crosslinked RNA extraction’ (XRNAX) as a universal method for the purification of photo-crosslinked protein–RNA complexes from UV-irradiated cells. We used XRNAX along with MS-based proteomics to establish that the RNA-bound proteome is significantly altered during arsenite-induced translational stress, which similarly to hypoxia leads to impaired translation initiation via EIF2α phosphorylation. In this study we aimed to develop a complementary RNA sequencing method to characterize the protein-bound transcriptome and monitor protein occupancy during translational stress. Specifically, we sought to investigate where in the transcriptome the most significant changes in protein–RNA interactions occurred when cells undergo arsenite treatment and how these might relate to adaptive cellular mechanisms. To this end we developed PEPseq (for peptide-enhanced pull-down for RNA sequencing), which uses N-hydroxysuccinimide (NHS) chemistry to exploit the presence of primary amines on peptide-crosslinked RNA to enrich protein–RNA interaction sites and detect them by RNA sequencing. PEPseq employs XRNAX as a starting point for the initial isolation of photo-crosslinked protein–RNA hybrids, which opens the possibility to analyse protein–RNA complexes with a proteomic or transcriptomic read-out from the same sample. Applying PEPseq to human MCF7 cells during the course of arsenite-induced translational arrest we reveal increased protein occupancy across the coding sequences of specific mRNAs. We find that mRNAs particularly affected by this are strongly excluded from stress granules and encode proteins involved in translation, especially cytosolic ribosomal proteins. Using proteomics, we demonstrate that after arsenite washout and during the recovery from stress, protein production from these mRNAs remains repressed whereas translation of transcripts with strong stress granule localization is prioritized.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 8260,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_1"
+              },
+              "text": "MATERIALS AND METHODS",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 8282,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "Cell culture and SILAC",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 8305,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "All experiments were performed with MCF7 (ATCC, RRID:CVCL_0031) cells maintained in Dulbecco's modified Eagle's medium (DMEM) supplemented with 10% FBS and Pen-Strep (100 U/ml penicillin, 100 mg/ml streptomycin, Gibco 15140-122) at 37°C, 5% CO2. DMEM for SILAC (Silantes 280001300) was supplemented with 10% dialyzed FBS (Gibco 26400–044), 1 mM l-lysine Silantes 211104113, 201204102) and 0.5 mM L-arginine (Silantes 211604102, 201604102) for SILAC intermediate or heavy labels, respectively. Additionally, 1.7 mM light l-proline and 1× GlutaMAX (Gibco 35050061) were added. Complete SILAC labels were introduced during six passages in the respective SILAC media. Experiments were performed at 70% confluence and always three days after seeding.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 9056,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "Peptide-enhanced pull-down for RNA sequencing (PEPseq)",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 9111,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "For PEPseq two 24 cm × 24 cm square culture dishes were seeded with one confluent 15 cm dish of MCF7 cells 3 days prior to arsenite treatment. One day before arsenite treatment 4-thiouridine (biomol, Cay-16373) was added at 100 μM concentration. On the treatment day sodium arsenite (Santa Cruz, sc-301816) was added to a final concentration of 400 μM and cell culture continued normally for 15 or 30 min, respectively. The media was then discarded and cells washed twice with ice-cold PBS. The dish was put on ice and UV-irradiated with 0.2 J/cm2 in a Vilber Bio-Link mounted with 365 nm UV lamps. Cells were immediately covered in 10 ml PBS and harvested by scraping. Residual cells were collected in another 10 ml PBS and combined in one tube (40 ml total from two dishes) to be spun down at 4°C with 1000 g for 5 min. All PBS was removed and protein-crosslinked RNA extracted by XRNAX as reported before. The entire XRNAX extract was taken up in 1 ml of trypsin digestion buffer (50 mM Tris–Cl pH 7.4, 0.1% SDS), denatured at 85°C for 2 min and allowed to reach room temperature. Subsequently, 10 μg of trypsin/LysC (Promega, V5073) were added and samples incubated for four hours at 37°C, 700 rpm shaking. Peptide-crosslinked RNA was then purified with the RNeasy Midi Kit (Quiagen, 75144) according to the manufacturer's instructions and eluted into 250 μl water. Thirty microliter PBS 10 x concentrate (Calbiochem, 524650) was added, samples brought to 300 μl total volume and heated to 85°C for 2 min before cooling on ice. Samples were then divided in two microTUBEs with AFA fiber (Covaris, 520045) and sonicated on a Covaris S220 (peak power 175, duty factor 50, cycles/burst 200, average power 87.5) for 900 s at 4°C. Samples were recombined and for the matched input control 30 μl aliquoted and stored at -80°C before further processing. The remaining sample was brought to a final 400 μl of PBS containing 0.1% SDS. Again, samples were heated to 85°C for 2 min and allowed to reach room temperature. Per sample 100 μl of NHS-activated magnetic beads (Pierce, 88826) was washed three times with 1 ml and reconstituted in 100 μl PBS containing 0.1% SDS. Beads were combined with the samples and coupling allowed to occur in a total volume of 500 μl on a rotating wheel overnight. Beads were washed 3 times with 1 ml wash buffer 1 (Tris–Cl 50 mM, 0.1% SDS) and 3 times with wash buffer 2 (Tris–Cl 50 mM), each time incubating samples for 5 min at 55°C, 700 rpm shaking. In order to introduce the right phosphorylation status on the RNA fragments for sequencing library preparation, beads were treated with 10 μl T4 PNK (Thermo, EK0031) in 90 μl 1× PNK buffer for 30 min at 37°C, 700 rpm shaking. Beads were washed again twice with 1 ml wash buffer 1 and RNA fragments eluted with 20 μl proteinase K (Thermo, EO0491) in 80 μl proteinase K buffer (Tris–Cl 50 mM, EDTA 10 mM, NaCl 150 mM, SDS 1%) for 30 min at 55°C, 700 rpm shaking. RNA aliquoted for the matched input control was treated with 10 μl PNK in a total volume of 50 μl of 1× PNK buffer for 30 min at 37°C, 700 rpm shaking. Ten microliters proteinase K were added along with 40 μl 2× proteinase K buffer and samples digested for 30 min at 55°C, 700 rpm shaking. Both pull-down and input were cleaned up with the RNeasy Mini Kit (Quiagen, 74106) according to the manufacturer's instructions and eluted into 30 μl water. RNA in the input sample was quantified on a NanoDrop photometer and 1 μg used for sequencing library preparation. The pull-down was used unquantified and the maximum volume applied undiluted for sequencing library preparation. Sequencing library preparation occurred with the NEXTflex Small RNA Sequencing Kit (Perkin Elmer) according to the manufacturer's instructions using the protocol for long reads and gel-based selection.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 12977,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "Processing of RNA sequencing and reference data",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 13025,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "RNA sequencing reads were pre-processed to make use of the unique molecular identifiers introduced by the NEXTflex Kit, which includes 4 random nucleotides on each side of the read adjacent to the adapter sequence. Pre-processing steps before read alignment occurred with fastp. First, 3’ sequencing adapters (TGGAATTCTCGGGTGCCAAGG) were trimmed and reads deduplicated (–dedup –dup_calc_accuracy 6 –adapter_sequence TGGAATTCTCGGGTGCCAAGG –length_required 26). Subsequently, random 4-mers were removed from the 3’ and 5’ ends, and reads shorter than 18 nucleotides were discarded (–disable_adapter_trimming –disable_quality_filtering -f 4 -t 4). Reference protein occupancy data of MCF7 cells by Schueler et al. were downloaded from GEO and processed identically using the adapter sequence TCGTATGCCGTCTTCTGCTTGT and without trimming of random 4-mers. Sequences for ribosomal RNA (NR_003286.4, NR_003285.3, NR_003287.4) were added to the human GENCODEv31 transcriptome (CHR) and annotated as such in the accompanying GTF file. For the T-C tolerant alignment with HISAT-3N an index was built for the GENCODEv31 transcriptome (CHR&rRNA) (./hisat-3n-build –base-change C,T gencode_v31_transcriptome.fasta genome). Reads were then mapped to the GENCODEv31 transcriptome (CHR&rRNA) applying directional mapping, which maps reads only to the actual reference sequence and not its reverse complement (./hisat-3n -x genome -q $input_file -S $input_file.sam –base-change T,C –no-repeat-index –directional-mapping). In order to make the differential quantification with PEPseq as straightforward as possible, we applied a two-step mapping strategy that aimed to identify the one transcript that represents all products of a gene in an optimal way (Figure S1C). Therefore, we created a reduced transcriptome to which reads in our entire experiment (pull-down and input) mapped best. We defined two easy criteria all transcript isoforms of a gene were scored by, (i) number of mapped reads (ii) length. After mapping reads to the entire GENCODEv31 transcriptome, reads were counted (samtools idxstats,).Then, for each gene in the GENCODEv31 (CHR&rRNA) annotation we selected the shortest transcript containing the most reads. The maximum number of reads is sometimes achieved by especially long transcript isoforms that score many singleton reads despite mediocre overall coverage. Therefore, we first ranked isoforms of one gene by the number of reads they contained and selected the subgroup of isoforms that contained more than 95% of the maximum number of reads achieved by any of them. Within this subgroup the shortest isoform was selected as representative isoform for this gene. This resulted in our reduced transcriptome (GENCODEv31 transcriptome reduced) used throughout the rest of our analysis. For our transcriptomic analysis we again used HISAT-3N and identical settings to map reads again to the reduced transcriptome. From this alignment all following analyses were performed. For our proteomic analysis we translated coding transcripts in the reduced transcriptome (annotated with a CDSs in the GENCODEv31 annotation) to protein and used this as a reference database for the search of our proteomic data. For the gene browser views in Figures S1D-F, HISAT-3N was used to map PEPseq and the published dataset by Schueler et al. to the Hg38 human genome (GRCh38.p13, ALL).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 16426,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "Quantitative analysis of PEPseq data",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 16463,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "In order to make PEPseq available for a wide audience we used two simple samtools commands to count reads or T-C transitions and DESeq2 for differential testing. Bam files with reads mapped against the reduced GENCODEv31 transcriptome were analysed with samtools to yield read counts per transcript (samtools idxstats) or T-C transitions at a particular position in the transcriptome (samtools mpileup with vcf output). To retrieve counts for the individual mRNA regions bam files were split with samtools (samtools view with bed file containing GENCODEv31 region information) and reads were counted individually in the resulting bam files (samtools idxstats). To identify differentially occupied transcripts using read counts we applied a DESeq2 model with an interaction term in order to take the pull-down and the input into account during differential testing (∼ experiment + arsenite + experiment:arsenite). Fold changes were corrected with apeglm either testing for the combined effect (arsenite_treated_vs_untreated) or the differential effect (experimentpull_down.arsenitetreated) as discussed in the main text.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 17589,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "Sequence analysis for the discovery of motifs and binding site motifs",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 17659,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "For the discovery of sequence motifs around protein–RNA crosslinking sites, we first compared the T-C transition frequency of each pull-down sample to the matched input control. Transcriptome positions with a T-C transition frequency (count of reads with T-C over count of all reads covering the position) twice as high in the pull-down as in the input were considered to be protein–RNA crosslinking sites in a given pull-down/input pair. Crosslinking sites were assigned to the mRNA regions 5’UTR, CDS or 3’UTR or to the biotype lncRNA according to their annotation in the GENCODEv31 GTF file. A sequence window of 50 nt upstream and downstream of each crosslinking site (101 nt total length) was extracted from the reduced GENCODEv31 transcriptome and used to determine nucleotide frequencies around crosslinking sites and for motif discovery. For the discovery of sequence motifs we used STREME from the MEME suite of sequence analysis tools. Therefore, sequence windows from replicates of one time point were combined and time points were compared (e.g. comparing windows in the CDS from 30-minute arsenite to untreated cells, streme –minw 8 –maxw 15 –thresh 0.05 –align center –p CDS_windows_30min.fasta –n CDS_windows_0min.fasta). Resulting HTML files for all STREME analyses are provided as Supplementary Files 1. The same approach was used for the discovery of protein binding site motifs from the set of human RNA-binding proteins reported by Ray et al. using SEA, also included in the MEME suite (e.g. comparing windows in the CDS from 30-minute arsenite to untreated cells, sea –oc. –thresh 10.0 –align center –p CDS_windows_30min.fasta –n CDS_windows_0min.fasta –m motif_db/RNA/Ray2013_rbp_Homo_sapiens.dna_encoded.meme). Result HTML files for all SEA analysis are provided as Supplementary Files 2.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 19503,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "Analysis of published datasets",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 19534,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "For our re-analysis of the Ribo-seq data from arsenite-treated HEK293T cells, raw data with the accession number PRJNA729461 corresponding to SRR14510024, SRR14510025 (Ribo-seq), and SRR14510056, SRR14510057 (Ribo-seq, arsenite treatment) were downloaded from the NCBI BioProject database. Reads aligning to a custom bowtie2 v2.3.0 ribosomal index were discarded. Remaining reads were then aligned in genomic coordinates to the human genome (GRCh38.p13) with STAR v2.5.3a using the following options: '–quantMode TranscriptomeSAM –alignIntronMin 20 –alignIntronMax 100000 –outFilterMismatchNmax 1 –outFilterMismatchNoverLmax 0.04 –outFilterType BySJout –outFilterIntronMotifs RemoveNoncanonicalUnannotated –sjdbOverhang 33 –seedSearchStartLmaxOverLread 0.5 –winAnchorMultimapNmax 100'. We used evidence from periodic fragment lengths only. Therefore, for each sample individually, fragment lengths and ribosome P-site offsets were determined from a metagene analysis using uniquely mapped reads with our previously developed tool Ribosome profiling with Bayesian predictions (Rp-Bp). Fragments with lengths 21 and 28 were extracted from the transcriptome alignment files, and summary statistics calculated with samtools idxstats. In order to avoid redundant use of read counts, for each ENSEMBL gene ID, the transcript with the most reads across all samples was selected as the representative isoform. Ratios of translation efficiencies were adapted from the original publication as reported in Table_S7. To avoid redundancy and give the most conservative representation of translation efficiencies after arsenite stress, only the transcript with the largest ratio for each gene name was used.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 21248,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Position weight matrices (PWMs) for binding site motifs of RNA-binding proteins derived by RNAcompete by Ray et al. were downloaded from their website (https://hugheslab.ccbr.utoronto.ca/supplementary-data/RNAcompete_eukarya/) and replotted with the R package universal motif.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 21525,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "For our re-analysis of the stress granule transcriptome from U2OS cells, FPKM values and ratios were adapted from the original publication as reported in Data S1. For each ENSEMBL gene id, only the transcript with the highest FPKM value in the total transcriptome was used as the representative isoform. We note here that no filtering led to a very similar outcome.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 21891,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "Pulsed-SILAC-AHA labeling for translatome analysis during stress recovery",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 21965,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Fifteen-centimeter dishes were seeded with 1.3 million fully SILAC intermediate-labeled MCF7 cells and cultured for 3 days until 80% confluency. The old medium was removed and cells were washed twice with PBS. Cells were accustomed to AHA by incubating them 30 min in AHA-SILAC intermediate DMEM (reduced component DMEM (AthenaES 0430), sodium bicarbonate 3.7 g/l, sodium pyruvate 1 mM, HEPES 10 mM, GlutaMax 1×, l-proline 300 mg/l, l-cystine 63 mg/l, l-leucine 105 mg/l, dialyzed FBS 10%, l-lysine 146 mg/l, l-arginine 84 mg/l, l-azidohomoalanine 18.1 mg/l (Click Chemistry Tools, 1066-1000)). Half of the cultures were treated with 400 μM sodium arsenite for another 30 min, the other half was kept untreated. The old medium was removed and cells were washed twice with PBS. The treated cells were then pulsed in DMEM AHA-SILAC-heavy medium, the untreated cells in DMEM AHA-SILAC-light medium for the time points 15, 30, 60, 120 and 180 min. At the same time a second replicate with SILAC label swap was produced. The media was discarded and cells were washed with ice-cold PBS. Cells were harvested into 2 × 10 ml ice-cold PBS by scraping and collected by centrifugation. Supernatants were discarded and cell pellets stored at −20°C until lysis.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 23222,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "AHA-labelled proteins were enriched using the Click-it Protein Enrichment kit (Invitrogen C10416) according to the manufacturer's instructions. Proteins were digested from the beads with 200 μl digestion buffer (Tris–Cl 100 mM, acetonitrile 5%, CaCl2 2 mM) containing 500 ng trypsin/LysC overnight at 37°C, 1000 rpm shaking in 2 ml tubes. Beads were pelleted by centrifugation and the digest transferred to a new vial. Residual peptides were flushed off the beads with additional 600 μl of water and combined with the digest. Peptides were desalted with an Oasis PRiME HKB μElution Plate and analysed on a QExactive HF HPLC-MS (Thermo Scientific). Separation by HPLC prior to MS occurred on an Easy-nLC1200 system (Thermo Scientific) using an Acclaim PepMap RSCL 2 μM C18, 75 μm × 50 cm column (Thermo Scientific) heated to 45°C with a MonoSLEEVE column oven (Analytical Sales and Services). Buffer A was 0.1% formic acid, buffer B was 0.1% formic acid in 80% acetonitrile. The gradient used was: 0 min 3% B, 0–4 min linear gradient to 8% B, 4–6 min linear gradient to 10% B, 6–74 min linear gradient to 32% B, 74–86 min linear gradient to 50% B, 86–87 min linear gradient to 100% B, 87–94 min 100% B, 94–95 linear gradient to 3% B, 95–105 min 3% B. The MS detection method was MS1 detection at 120 000 resolution, AGC target 3E6, maximal injection time 32 ms and a scan range of 350–1500 DA. MS2 detection occurred with stepped NCE 26 and detection in top20 mode with an isolation window of 2 Da, AGC target 1E5 and maximal injection time of 50 ms.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 24802,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "MS database search and data analysis",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 24839,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Mass spectrometry data was search with MaxQuant v1.6.0.16 using the translatome produced from the reduced GENCODEv31 transcriptome (see Processing of RNA sequencing and reference data above) and the default Andromeda list of contaminants. Settings were left at their default values except for the SILAC configurations and activation of the match-between-runs as well as the requantify feature.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 25233,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "For the proteomic data analysis the MaxQuant proteinGroups.txt output was used. Filtering occurred for the columns ‘Potential contaminants’, ‘Reverse’ and ‘Only identified by site’. For the quantification of nascent protein after arsenite stress, unnormalized SILAC heavy/intermediate and light/intermediate ratios were used. Within each time point replicates were combined by inverting one the swapped label and calculating the mean between the ratios. In order to exclude outliers within each time point, filtering occurred for proteins with a standard error of the mean (SEM) larger 30%.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 25836,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "Gene ontology (GO) enrichment analysis",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 25875,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Ranked GO enrichment analysis was performed using the GOrilla web interface and ENSEMBL transcript IDs used as input.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 25993,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "Functional annotation of transcripts and proteins",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 26043,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Information about transcript biotypes was extracted from the GENCODEv31 annotation. ENSEMBL BioMart was accessed via biomaRt and GO annotations used for the functional annotation of proteins.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 26235,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "Statistical analysis and data visualization",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 26279,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "All data handling apart from what is mentioned above was performed in R (4.1.2) with RStudio (1.4.1103) and visualized using the ggplot2 library. Figures were arranged in Adobe Illustrator (26.0.2). The schemes in Figure 1A, Figure S4E and the graphical abstract were generated with Biorender.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 26573,
+              "infons": {
+                "file": "gkad557fig1.jpg",
+                "id": "F1",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "PEPseq captures RNA fragments UV-crosslinked to protein interactors. (A) Experimental outline for peptide-enhanced pull-down for RNA sequencing. Cells are 4SU labeled for 24 h, UV irradiated and protein-crosslinked RNA extracted with XRNAX. Trypsin digestion of the XRNAX input leaves behind peptides crosslinked to the RNA, whereas non-crosslinked peptides are removed using conventional silica columns. Ultrasonicated RNA fragments are applied for the pull-down and also sequenced as matched input control. For the pull-down primary amines are reacted to NHS-activated beads thereby covalently capturing fragments carrying crosslinking sites. Elution occurs with proteinase K, cleaving captured fragments off the beads while avoiding harsh elutions that release non-covalently captured background fragments. (B) Agarose gel electrophoresis comparing the NHS-mediated pull-down of protein-crosslinked RNA and non-crosslinked, protein-free RNA. Protein-free RNA (total RNA) was extracted from untreated MCF7 cells using standard silica spin columns with additional proteinase K digestion. The preparation of peptide-crosslinked RNA (peptide-XL-RNA) and the NHS-mediated pull-down occurred as described in (A). (C) Bar graph comparing nucleotide transition frequencies in unique sequencing reads for different versions of the PEPseq protocol and the previously published protein occupancy profiling by Schueler et al., all in MCF7 cells. The final protocol is displayed in red (proteinase K elution). For details see text. (D) Linegraph illustrating the combined read coverage around positions in the transcriptome with T-C transition frequencies ten times higher in the pull-down than in the input (red line, see also Figure S1B) or similar to the one in the input (light red line, see also Figure S1B). Coverage at each position was normalized to the maximum. (E) Bar graph comparing read counts within GENCODE RNA biotypes between the pull-down and input.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 28533,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_1"
+              },
+              "text": "RESULTS",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 28541,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "Utilizing NHS-chemistry to capture peptide-RNA hybrids for RNA sequencing",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 28615,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "We previously developed XRNAX to purify UV-crosslinked protein–RNA complexes from cultured human cells. To achieve this, cells are UV-irradiated for covalent protein–RNA crosslinking and subjected to conventional TRIZOL extraction, where instead of the aqueous phase—containing protein-free RNA—the interphase is collected. This interphase sequesters UV-crosslinked protein–RNA complexes but also contains the cells’ chromatin. XRNAX is a dedicated process that purifies protein-crosslinked RNA from the interphase by sequential steps of solubilization, DNA digestion and precipitation, yielding a concentrated extract containing only protein and RNA. To complement our previous proteomic analyses of the RNA-bound proteome from this extract we set out to explore the protein-bound transcriptome via RNA sequencing. Conventional sequencing of protein-crosslinked RNA that was extracted via XRNAX from 4SU-treated MCF7 cells resulted in an increased T-C transition frequency, yet, not to the degree that permitted mapping of protein occupancy in a meaningful way. This indicated that an additional enrichment step was necessary to selectively extract RNA fragments carrying UV crosslinking sites, and to eliminate non-crosslinked RNA. Protein-crosslinked RNA that is extracted with XRNAX, digested with proteinase K and cleaned up with silica spin columns, is mostly protein-free with sporadic modifications by crosslinked peptide residues. We exploited the presence of a primary amine in such peptide remnants, which is absent in non-crosslinked RNA, by reacting NHS-biotin with RNA prepared via XRNAX, for subsequent enrichment of peptide-RNA hybrids on streptavidin beads. RNA sequencing confirmed that the number of diagnostic T-C transitions had strongly increased, occurring on average in more than 70% of the sequencing reads (Figure 1C). Because the streptavidin-biotin interaction is very stable, biotinylated peptide-RNA hybrids needed to be released by boiling the beads in formamide. We hypothesized that this also released non-crosslinked RNA fragments covering the beads, which normal washing had not been able to effectively remove resulting in a significant background of reads not carrying T-C transitions. This hypothesis was supported by the failure of various washing buffer formulations to reduce the background. In addition, we noticed that the frequency of T-C transitions in reads from the XRNAX input was much higher than what we had previously observed and only 1.5 times lower than their frequency in reads from the pull-down (Figure 1C). To control for the harsh elution conditions, the XRNAX input had also been mock-treated and boiled in formamide before sequencing. We therefore suspected that boiling might have induced artefactual T-C transitions. Hence, we designed an alternative capture strategy for enzymatic elution of RNA fragments at moderate conditions. Instead of using proteinase K, which cleaves after any amino acid in a peptide sequence, we pivoted to trypsin for the initial digestion step, which only cuts after lysine or arginine and therefore leaves longer peptides attached to a UV-crosslinked RNA fragment. Tryptic peptides carry primary amines only at their termini so that the peptide sequence in between remained as a spacer that was accessible to other peptidases. This meant we could omit biotinylation and instead directly couple peptide-bearing RNA fragments covalently to NHS-activated beads. Subsequently, we used proteinase K at moderate conditions to digest the remaining amino acid sequence and liberate the RNA fragment from the bead (Figure 1A). This enzymatic elution strongly decreased the background so that virtually no RNA could be enriched from non-crosslinked, protein-free RNA, whereas efficient enrichment occurred from protein-crosslinked and trypsin-digested RNA (Figure 1B). RNA sequencing demonstrated that this strategy greatly increased T-C transitions, so that on average each read from the pull-down carried approximately 1.4 T-C transitions whereas they were five times less likely to occur in reads from the XRNAX input (Figure 1C). A comparison to published protein occupancy profiling data by Schueler et al. showed a similar T-C transition frequency per read in their data from the same cell line. This indicated that our new elution strategy had greatly reduced the background of non-crosslinked RNA fragments and allowed us to sequence fragments strongly enriched in protein–RNA interaction sites. It also indicated that there was a considerable background of T-C transitions in the input, which previous methodology had not taken into account. We named our new method peptide-enhanced pull-down for RNA sequencing (PEPseq).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 33343,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "In summary, we utilize XRNAX and NHS click-chemistry to covalently enrich peptide-RNA hybrids for RNA sequencing in PEPseq - a dedicated method for the transcriptome-wide mapping of protein–RNA interaction sites.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 33558,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "Read coverage and diagnostic mutations map protein–RNA interactions in PEPseq data",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 33643,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Combining all reads from our PEPseq pull-down T-C transitions occurred equally frequent at each read position (Figure S1A). Increased frequency of T-C transitions (T-C count normalized by coverage at position) in the pull-down compared to the input was evident at individual transcriptome positions (Figure S1B), although some positions had a higher background of T-C transition frequencies than others. Since our biological interpretation of an increased T-C transition frequency was protein binding, this background needed to be considered during our following analysis. Conceptually, PEPseq offers two read-outs for protein–RNA interactions, namely the count of diagnostic T-C transitions in reads covering a certain position in the transcriptome, and the read-count itself. As calculating meaningful T-C transition frequencies requires robust coverage of a transcript by many reads per position, simply counting reads might include transcripts with low coverage in the analysis, for which no reliable T-C transition frequency would normally be calculated. To validate pull-down reads in PEPseq as an indicator for protein occupancy, we selected transcriptome sites where the T-C transition frequency in the pull-down was at least ten times higher than in the input—i.e. high-confidence protein–RNA interaction sites—as well as sites with similar transition frequencies—i.e. low-confidence protein–RNA interaction sites (Figure S1B). Figure 1D shows that the read coverage around high-confidence sites was on average more than one order of magnitude higher than at low confidence sites, strongly indicating that pull-down reads in PEPseq libraries are in fact a proxy for protein occupancy as well. Notably, this property of PEPseq reads has great advantages for their visualization in a genome browser or the analysis by conventional peak calling algorithms that rely on reads and not T-C transitions. This is illustrated in Figures S1D and E, showing two exemplary genome browser views of the protein-coding genes TXNIP and CDKN1A, where sequencing coverage in unperturbed MCF7 cells is compared between our PEPseq and published protein occupancy data. Since pulled-down RNA fragments are a direct read-out in PEPseq, its read coverage immediately translates into protein occupancy. In contrast, for the previously published protein occupancy profiling the interpretation of read coverage in a genome browser is not as straightforward because by design the method relies solely on T-C transitions to call protein–RNA interaction sites. A closer look at the 3’ untranslated region (3’ UTR) of the CDKN1A mRNA illustrates that in many instances this can be unintuitive: As read coverage in the protein occupancy profiling data by Schueler et al. does not translate to protein interactions, the actual protein occupancy is hard to deduce from a plain view at the sequencing data without additional statistics (Figure S1F). Conversely, interesting sites in the same 3’UTR become immediately visible in our PEPseq data, where read coverage in the pull-down can be compared to the input, and high T-C transition frequencies provide an additional level of confidence for localizing strong protein–RNA interaction sites.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 36884,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Earlier studies revealed that a static view on protein occupancy across mRNA gives little insight into post-transcriptional processes. Since we aimed to design PEPseq for the quantification of changes in protein occupancy between conditions, we therefore introduced four design paradigms to harmonize our experimental setup with the subsequent computational analysis and differential testing (Figure S1C). First, since the sequence complexity was greatly reduced in pull-down samples we used unique molecular identifiers (UMIs) to identify true replicate reads and exclude PCR replicates. Second, we sequenced the input from which the pull-down occurred in the exact same way as the pull-down, thus increasing the power of subsequent statistical analyses. Third, we applied the T-C transition-tolerant HISAT-3N algorithm with the ability to align reads carrying many T-C transitions, which markedly increased the fraction of reads in PEPseq libraries that could be successfully aligned compared to its precursor HISAT-2. And, lastly, we limited our reference transcriptome to one transcript per gene, and extended this principle in our proteomics follow-up experiments to one gene – one transcript – one protein. This greatly simplified and strengthened our quantification because no statistical power was lost to isoform information, which we did not intend to use anyway. We note here that because of this one gene—one transcript—one protein approach, we use for clarity ‘gene’ in the following as an umbrella term to refer to any of them.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 38438,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Overall this illustrates how read counts as well as T-C transitions set up PEPseq for the differential quantification of protein binding across the entire transcriptome.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 38608,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "Translation arrest induces distinct changes in protein occupancy within mRNA regions",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 38693,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "To benchmark PEPseq we applied it to a system where robust changes in protein–RNA interactions are expected. Since mRNAs are continuously traversed by translating ribosomes we anticipated that inhibiting translation should lead to a strong change in their interaction with RNA-binding proteins involved in translation. Hence, we inhibited translation in MCF7 cells to investigate (i) if PEPseq was able to detect changes in protein–RNA interactions across mRNA, (ii) if this change differed between coding and non-coding regions of mRNA and (iii) if changes could also be observed across non-coding RNAs. In order to follow the change in protein occupancy over time we chose arsenite as a translation inhibitor, which, unlike antibiotic inhibitors of the ribosome, does not lead to immediate translational arrest but induces progressive translational shutdown within 30 minutes of treatment. We created PEPseq sequencing libraries comprising pull-downs and matched inputs from biological duplicates of untreated MCF7 cells, and cells treated with arsenite for 15 or 30 minutes. PEPseq reads mapped to 31 346 unique genes, 99.6% of which were represented in the input where reads mapped to 41883 unique genes. Figure 1E shows that PEPseq libraries had a much smaller proportion of reads mapping to ribosomal RNA (rRNA), while they contained a higher proportion of protein-coding and long intergenic non-coding RNA (lincRNA). This effect has been previously observed in other applications that apply metabolic labelling with 4SU, where it was proposed that ribosomes and rRNA are turned over more slowly than other RNA biotypes and, thus, accumulate a much weaker 4SU label. Comparing the T-C transition frequency between the pull-down and input at all sites in the transcriptome, we observed good reproducibility between replicates (Figure S2A).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 40543,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "We turned our attention to mRNA and combined the T-C signal of all detected coding transcripts to monitor common trends across their three functionally defined regions, i.e. the 3’ untranslated region (3’ UTR), the protein coding sequence (CDS) and the 5’ untranslated region (5’ UTR). Because longer transcripts have a higher chance of accumulating T-C transitions we normalized the absolute T-C count to the region length of each individual transcript. Indeed, Figure 2A shows that cumulative T-C counts within each of these regions distributed very reproducibly between replicates and showed a distinct change after 30 minutes of arsenite treatment. In unperturbed cells, normalized T-C counts were higher in the UTRs, and particularly high in the 3’ UTR. This clearly recapitulated the three functional mRNA regions, which could be readily distinguished by their distinct T-C counts, indicating distinct protein occupancy. Interestingly, in arsenite-treated cells we observed a drop in occupancy of the UTRs, whereas this remained constant in the CDS. A similar observation was made when employing read coverage instead of T-C counts (Figure S2B). To better resolve the change over time we normalized cumulative T-C transitions in the pull-down to the input and compared later time points to the untreated sample (Figure 2B & Figure S2C). For cells treated with arsenite for 15 minutes, this indicated that the protein occupancy was overall slightly lower across all mRNA regions compared to untreated cells. For cells treated for 30 minutes, protein occupancy decreased even further, however, only in the 5’ and 3’ UTR and not the CDS. The same analysis using read coverage instead of T-C transitions as a read-out for protein occupancy revealed the same effect, even suggesting that the CDS slightly gained protein occupancy 30 minutes into arsenite stress (Figure 2C and Figure S2D).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 42448,
+              "infons": {
+                "file": "gkad557fig2.jpg",
+                "id": "F2",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Changes in protein occupancy across mRNA upon arsenite-induced translational arrest. (A) Metagene plot summarizing T-C transitions in the 5’ untranslated region (5’UTR), the coding region (CDS) and the 3’ untranslated region (3’UTR) of all detected mRNAs in untreated (left), 15 min (middle) and 30 min (right) arsenite treated MCF7 cells. The T-C count was normalized to the length of each region for each particular transcript and to the number of reads mapping to mRNA in the individual sample. (B) Metagene plot illustrating the change in T-C transitions upon arsenite stress across all detected mRNAs. Ratios of ratios comparing the indicated time point to the untreated control, and normalizing the pull-down to the XRNAX input. Thick lines indicate ratio means, shaded areas one composite standard deviation. See also Figure S2C. (C) Same as in B but read coverage is used as proxy for protein occupancy instead of T-C transitions. See also Figure S2D.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 43417,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "These experiments confirmed that PEPseq is able to capture changes in protein–RNA interactions, and to locate these changes in the transcriptome in a biologically meaningful way.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 43598,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "Sequence motifs occupied by protein differ before and after arsenite stress",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 43674,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "The UTRs of mRNAs are known regulatory hubs for RNA-binding proteins and their association with a transcript can regulate its location, stability or translation. These regulatory processes are mitigated by RNA sequences in the UTRs, which recruit specific RNA-binding proteins that recognize short sequence or structural motifs. Since our PEPseq data showed a characteristic loss of protein occupancy in the UTRs during arsenite stress, we were interested to see if this happened in a particular sequence context or around particular motifs, which might imply known protein interactors. Therefore, we analysed a sequence window of 100 nucleotides around all positions in the transcriptome that had a 2-fold higher T-C transition frequency in the pull-down than in the input and were therefore considered to be protein–RNA crosslinks. Figure S3A shows how the sequence context around these crosslinking sites differed between the mRNA regions for all timepoints combined. In the 5’ UTR the surrounding of crosslinking sites was T and C-rich, whereas in the 3’ UTR it was only T-rich. Nucleotide frequencies in both UTRs were very different to the CDS, where the sequence context of crosslinking sites was T-poor and periodic for all nucleotides in relation to their appearance in codon triplets. When comparing nucleotide frequencies around crosslinking sites between time points we noticed a reduced occurrence of T in both UTRs starting 15 minutes into arsenite stress and even more reduced after 30 minutes (Figure 3A and C). In addition, for crosslinking sites in the CDS, G-rich sequences became markedly more abundant over time (Figure 3B). To investigate this further, we performed a differential sequence analysis in the 100 nt windows, which aimed at the discovery of sequence motifs enriched in one time point of arsenite treatment over another (STREME analysis in discriminative mode, see Methods for details). Indeed, this revealed several significantly enriched motifs for all mRNA regions, following the trend observed at the single nucleotide level (Figures 3D–F, Supplementary Files 1). Motif discovery of the 30-min time point against the untreated sample as control primarily revealed G-rich motifs with relatively low information content for the CDS and 3’UTR (Figures 3E and F, top), but an abundant motif with the consensus CAGGACCG in the 5’UTR (P = 1.7E-7, Figure 3D, top). Conversely, A-rich motifs were detected in the untreated sample using the 30-min time point as control. In this comparison, stretches of poly-A were significantly enriched in the 5’UTR (P = 3.3E-8) and especially in the 3’UTR (P = 3.3E-23). The motif enrichment was much weaker in the CDS, which showed a periodic enrichment of A every three nucleotides in the untreated samples and a GC-rich motif with low information content upon arsenite stress. Interestingly, the motif enrichment between the 15-minute arsenite and untreated samples was overall weaker, although with similar tendencies in the UTRs (Figure S3B–D).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 46718,
+              "infons": {
+                "file": "gkad557fig3.jpg",
+                "id": "F3",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "The changing sequence context of protein–RNA crosslinking sites during translational arrest. (A–C) Linegraphs showing nucleotide frequencies around protein–RNA crosslinking sites on mRNA defined by 2-fold higher T-C transition frequency in the pull-down than in the matched input control. Within the 5’UTR (A), CDS (B) and 3’ UTR (C), the sequence context of crosslinks is compared between time points; for a comparison of all time points combined see Figure S3A. D)-F) Sequence logos for the most abundant motifs discovered in 100 nucleotide windows around protein–RNA crosslinking sites. The upper logos show motifs enriched in sequences from 30 min arsenite-treated cells compared to untreated cells (differential STREME analysis, see Materials and Methods), the lower logos from the inverse comparison (see also Supplementary Files 1). (G–I) Sequence logos of the position weight matrices reported by Ray et al. for cytosolic RNA-binding proteins, whose binding sites showed the strongest enrichment in 100 nucleotide sequence windows around protein–RNA crosslinking sites in the 5′UTR (G), CDS (H) and 3′UTR (I) (see also Supplementary Files 2). The top three binding site motifs enriched in arsenite-treated cells compared to untreated cells are displayed on top, the inverse comparison below.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 48040,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Having revealed numerous sequence motifs in the vicinity of crosslinking sites across mRNA, we next asked which RNA-binding proteins might be implied to bind them. We used the same differential approach to compare sequences around crosslinking sites between time points to search a published set of in vitro-derived binding motifs of RNA-binding proteins (Supplementary Files 2, see Methods for details). Because we were interested in the effect of arsenite on translation, we focused on proteins that are known to occur in the cytosol and not exclusively in the nucleus. In accordance with the previously observed sequence motifs in the UTRs, we found an enrichment of A and T-rich binding site motifs for proteins such as PABPC1, PABPC4, ELAVL1 (aka. HuR) and TIA1 around crosslinking sites in the untreated control (Figure 3G–I, bottom). Similarly, binding site motifs for ELAVL1, TIA1 and KHDRBS1 (aka. SAM68) were enriched in the CDS. Conversely, under arsenite treatment we found an enrichment of GC-rich binding sites compared to the untreated control (Figure 3G–I, top). Arsenite is commonly used to induce stress granules—large protein–RNA aggregates that form in the cytosol upon translational arrest and whose cellular functions are still poorly understood. Interestingly, the top hit in all mRNA regions were binding sites for SAMD4A, a translational repressor known to induce stress-granule-like mRNA foci in human cells. Binding sites for other proteins known to localize to ribonucleoprotein granules were found enriched, including in the 5’UTR the stress granule marker G3BP2 and the translation regulator LIN28A, as well as MBNL1 and FXR2 in the CDS. In the 3’UTR we observed a strong enrichment of the binding site of RBM4, which has been shown to organize selective cap-dependent translation for a specific set of transcripts under hypoxia.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 49912,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "In summary, analysis of the RNA sequence context of protein–RNA crosslinks revealed sequence and protein binding site motifs specific to the mRNA regions. These sequence features differed between treatments, so that in untreated cells crosslinking sites fell in the vicinity of binding sites for proteins associated with normal cap-dependent translation (PABPC1, PABPC4, ELAVL1 etc.), whereas in arsenite-treated cells they were located near binding sites for proteins associated with translational repression and mRNA granulation (SAMD4A, G3BP2, FXR2 etc.).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 50473,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "A specific set of mRNAs becomes occupied in their CDS during stress",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 50541,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "In order to better understand if certain mRNAs increased their protein occupancy more than others, we next focused our analysis on individual transcripts. Instead of T-C transitions we now used read counts and the differential expression analysis tool DESeq2. In order to normalize read counts in the pull-down to the input we applied a model with interaction terms (read count ∼ treatment + experiment + treatment:experiment, where treatment is either arsenite or untreated and experiment either pull-down or input). Specifically, in one analysis, samples from the untreated control were compared to the 15 or 30-minute arsenite-treated samples to identify genes with significantly changed read counts in the pull-down when normalized to the read counts of their matched inputs. As part of the standard DESeq2 process, read counts of all samples underwent median centring before differential testing between time points. The model allowed us to identify two types of events, i.e. genes that changed significantly in the same direction in both the pull-down and input (combined effect, Figures 4A and S4A, Table S1) or genes that changed significantly in the pull-down relative to the input (differential effect, Figures 4B and S4B, Table S1).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 51793,
+              "infons": {
+                "file": "gkad557fig4.jpg",
+                "id": "F4",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Arsenite stress leads to distinctive changes in protein occupancy across specific transcripts. (A) Left: volcano plot illustrating DEseq2 results for the combined effect between pull-down and XRNAX input upon 30 min arsenite stress. Each point represents one transcript/ gene. Right: ranked GO enrichment on protein coding transcripts in the DEseq2 analysis sorted by their foldchange. Shown are the top 3 non-redundant GO terms. (B) Same as in (A) but for the differential effect detected by DESeq2 between pull-down and XRNAX input. (C) Same as in (B) but for functional regions of protein coding transcripts. DEseq2 was applied to test for the differential effect within the 5’ UTR (left), CDS (middle) and 3’ UTR (right) using the differential effect between pull-down and XRNAX input. (D) Exemplary genome browser view for an iPO mRNA coding for a ribosomal protein with strongly increased protein occupancy in the CDS as detected in (C). More examples are shown in Figures S4D. (E) Exemplary genome browser view for an iPO mRNA with known cap-independent translation activity. See also Figure S4E.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 52902,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Genes showing a strong combined effect after 30 minutes of arsenite stress were mainly those encoding proteins involved in the heat-shock or misfolded protein response. Beside proteins from the actual heat-shock family (HSPA1B, HSPA1A, DNAJB1, HSPA1L), this encompassed the stress-related transcription factors NR4A1, EGR1 and JUN/FOS, which are known ‘immediate-early’ regulators for cell survival. Gene browser views in Figure S4C illustrate, for a selection of these genes, how read counts increased in both the PEPseq pull-down and their corresponding input. Ranked gene ontology enrichment on the list of genes sorted by this combined effect confirmed that the transcriptional profile after 30 minutes arsenite stress was dominated by the misfolded protein response and transcription regulation (Figure 4A, right). The effect was much less developed at the 15-minute time point, yet, similar tendencies became evident, highlighting an early induction of EGR1 (Figure S4A). As a general trend we observed that the expression of protein-coding genes was slightly reduced, whereas the expression of long non-coding RNAs (lncRNAs) was increased (Figure 4A). Overall, these observations indicated that the combined effect captured the transcriptional response of the cell that progressively increased the production of RNA coding for proteins managing the proteotoxic effects of arsenite.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 54295,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Next, we examined the differential effect that identified genes where read counts significantly deviated in the pull-down between time points when normalized to the matched inputs (Figures 4B and S4B). Since reads in the pull-down mapped protein–RNA interactions (Figure 1D), this implied the differential effect offered an input-controlled way to monitor genes changing their protein occupancy over time. Strikingly, we identified numerous genes coding for proteins involved in translation with significantly increased protein occupancy 30 minutes into arsenite stress (Figure 4B). In fact, among the 67 detected genes coding for cytosolic ribosomal proteins, 33 showed significantly (adjusted p < 0.05) higher protein occupancy after 30 minutes of arsenite stress. Consequently, gene ontology enrichment on the protein coding genes in the analysis sorted by the 30-minute differential effect returned ‘structural constituent of ribosome’ as the top-ranking term (adj. P = 4.1E-25). This implied that differentially occupied genes were functionally related, coding for translation-associated proteins and especially cytosolic ribosomal proteins. No significant changes in protein occupancy were detected at the 15 minute time point (Figure S4B). In order to better understand the altered protein–RNA interaction sites, we repeated the differential DESeq2 analysis for the individual functional regions of mRNA (Figure 4C). This clearly indicated that the increase occurred in the CDS, which was confirmed by manual inspection of the most strongly affected mRNAs in the genome browser (Figures 4D and Figure S4E). With regard to our previous observations on the combination of all mRNAs (Figure 2), these additional findings now implied that the increase of protein occupancy across the CDS occurred on specific mRNA species with a common biological function. We used the 30-minute time point to select sets of genes with significantly (adj. P < 0.05, Table S1) increased protein occupancy (iPO mRNAs, 107 protein coding genes) or decreased protein occupancy (dPO mRNAs, 87 protein coding genes) in their CDS for our follow-up analysis.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 56448,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Since arsenite leads to inhibition of cap-dependent translation, we intersected our PEPseq data with a screen by Weingarten-Gabbay et al., who systematically searched for sequences inducing cap-independent translation in human cells. Of the 105 genes they reported with an effect above background, we found six in our PEPseq data with significantly increased protein occupancy 30 minutes into arsenite stress (Figure 4B). This included the mRNA coding for EIF4G1 (1.8-fold increased occupancy, P = 0.05, Figure S4D), a classic example for IRES-mediated cap-independent translation, and the mRNA coding for HIPK1 (1.7-fold increased occupancy, P = 0.01, Figure 4E), which scored in the top 3% of sequences reported by Weingarten-Gabbay et al. Both transcripts showed markedly increased PEPseq signal in the CDS, suggesting that cap-independent translation led to increased ribosome occupancy across these transcripts while normal cap-dependent translation was coming to a halt.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 57430,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Collectively, we demonstrate that PEPseq data carries two layers of transcriptomic information, on the one hand confirming an arsenite-induced transcriptional response geared towards the production of stress-related proteins, and on the other hand revealing increased protein binding in the CDS of mRNAs coding for translation-associated proteins.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 57778,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "Deciphering arsenite-induced changes in protein occupancy across iPO mRNAs",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 57853,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "While cap-independent translation could explain the increased protein occupancy in the CDS upon arsenite stress in a few prominent cases, a different explanation was needed for the majority of iPO mRNAs (95%) whose translation is only known to proceed in a cap-dependent manner. Still assuming a link between their protein occupancy and translation, we considered three hypotheses: First, arsenite-induced translational arrest might have reduced ribosome traffic across the CDS to such an extent that non-ribosomal RNA-binding proteins had a better chance for populating this part of the mRNA, from which they would normally be evicted immediately. Since iPO mRNAs coded for many abundantly produced proteins (such as ACTB, translation factors and cytosolic ribosomal proteins) whose mRNAs are heavily frequented by ribosomes, this re-population of the CDS might have been particularly strong. Second, arsenite might have interfered with ribosomes themselves or their translation activity, resulting in stalled ribosomes in the CDS. And third, a combination of the two might have occurred, where stalled ribosomes had blocked the way for other ribosomes to traverse the CDS leaving open stretches of unoccupied RNA that could now be populated by non-ribosomal proteins (Figure S4F).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 59136,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "To seek evidence for these possibilities and possibly distinguish between them, we re-analyzed data by Ichihara et al., who had compared untreated and arsenite-treated HEK293 cells using ribosome profiling (Ribo-seq). In this dataset, translation efficiencies of iPO mRNAs decreased strongly upon arsenite (P = 2.7E-7, two-sided Kolmogorov-Smirnoff test, Figure S4G). This confirmed our hypotheses that the decrease in ribosomes traversing the CDS during stress was especially strong for this heavily translated subset of transcripts. We next asked if the ribosomes that remained on the RNA during stress had stalled. Using cryo-electron microscopy we recently reported that 80S ribosomes from arsenite-treated MCF7 cells adopt almost exclusively a post-translocation conformation, indicating that their normal ratcheting motion becomes impaired, potentially leading to stalling on mRNA. For Ribo-seq data from yeast and human cells it was demonstrated that the length of a ribosome footprint informs about the conformation of the ribosome during its ratcheting motion on mRNA. Thus, we quantified 21 and 28 nucleotide reads from untreated and arsenite-treated cells in the dataset by Ichihara et al. and indeed observed a strong 2.5-fold shift from 21 nucleotide reads (pre-translocation) to 28 nucleotide reads (post-translocation) upon arsenite treatment (two-sided Kolmogorov-Smirnov test P < 2E-16, Figure S4H). This aligned with our cryo-EM findings, and overall suggested that arsenite stress led to an accumulation of 80S ribosomes in the post-translocation conformation across the CDS. Moreover, ribosome footprints, indicative of the post-translocation conformation, increased on average twice as much for iPO mRNAs during stress compared to all other transcripts (P = 2.5E-8, Figure S4I). In order to connect these observations to our PEPseq dataset we analysed if protein crosslinking sites occurred in a periodic pattern, as is typically observed for ribosome profiling data, and if this periodicity might be affected by translation inhibition through arsenite. Indeed, Figure 5A shows that in untreated cells the likelihood for a protein crosslink to occur in the CDS of all detected mRNAs was elevated in the third codon position compared to the first or second position (P < 0.05, one-sided Student's t test). Upon arsenite treatment this slightly changed and crosslinking in the second codon position became more likely. In the case of iPO mRNAs the change was more pronounced so that all positions were almost equally likely to carry a crosslink after 30 minutes of arsenite stress. This loss of periodicity suggested that the CDS of iPO mRNAs was occupied by more RNA-binding proteins that did not crosslink in alignment to the codon triplets.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 61909,
+              "infons": {
+                "file": "gkad557fig5.jpg",
+                "id": "F5",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Protein production during the recovery from arsenite-induced translational arrest. (A) Barplot comparing the likelihood for a protein-crosslink detected by PEPseq to occur at a certain codon position. The frequency of protein crosslinks at each position was normalize to the frequency of this position to carry a T – the only base that can crosslink in 4SU-treated cells. (B) Experimental scheme for the quantification of nascent protein during recovery from arsenite stress. For details see text. (C) Timeline displaying the protein produced in MCF7 cells after 30 min of arsenite stress. Each line represents one protein. Only proteins quantified across all time points with a relative standard error of the mean (REM) smaller 30% are displayed. (D) Boxplot comparing the protein production after stress for all detected proteins (arsenite, untreated) to protein produced from iPO mRNAs. Proteins were filtered for REM < 30% within each time point and treatment. Testing occurred with a two-sided Kolmogorov-Smirnov test and Bonferroni–Holm correction. (E) Density plots comparing the GC3 content of mRNA groups.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 63031,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "These analyses revealed that upon arsenite stress (i) much fewer ribosomes resided in the CDS of iPO mRNAs and the remaining ones showed signs of stalling, and (ii) the periodicity of crosslinking sites in the CDS of iPO mRNAs disappeared largely. This implied that most likely a combination of stalled ribosomes and non-ribosomal proteins contributed to the increased protein occupancy on iPO mRNAs.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 63432,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "Changing binding patterns of RNA-binding proteins on iPO mRNA alongside stress granule formation",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 63529,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "We were interested to see if the association of proteins to iPO mRNAs during the course of arsenite stress might have left additional traces in our PEPseq data. Therefore, we asked if binding site motifs around crosslinking sites differed between arsenite-treated to untreated cells. Again, we compared 100 nt sequence windows around protein–RNA crosslinking sites, but this time exclusively for iPO mRNAs. In samples treated for 30 minutes with arsenite, we found G-rich binding site motifs for RBM4, FXR1 and CELF6 significantly enriched around crosslinking sites compared to the untreated control (Figure S5A, Supplementary Files 2). Conversely, A or T-rich binding site motifs for TIA1, PABC4 and CPEB4 were enriched when comparing the untreated control to the 30-minute time point. Because we directly compared the surrounding of crosslinking sites across the same 107 transcripts (iPO mRNAs), this implied that not only more protein had bound after 30 minutes of arsenite, but also the sequence preferences of binding proteins were starkly different to those binding in untreated cells. We conclude that the composition of RNA-binding proteins associating with the CDS of iPO mRNAs changed during stress.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 64742,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "During the formation of arsenite-induced stress granules various RNA-binding proteins coalesce around a subset of the transcriptome to form large, phase-separated protein–RNA aggregates. Hence, the increased protein occupancy across iPO mRNAs could potentially be the result of new interactions with stress-granule proteins during the aggregation process. Antithetically, it has been reported that stalled 80S complexes prevent the recruitment of individual transcripts into stress granules, which are known to sequester pre-initiation complexes, yet, do not contain 60S ribosomal subunits. Consequently, iPO mRNAs should be excluded from stress granules, if they collected stalled 80S complexes during arsenite stress. To elucidate these possibilities we used data by Khong et al., who sequenced the stress granule transcriptome using an immunoprecipitation strategy towards the stress granule marker G3BP1 in arsenite-treated U2OS cells. By comparing read counts from the RNA sequencing of immunoprecipitated stress granules to the total RNA of the same cells (Figure S5B), the authors devised a fold change (in the following referred to as SG score by Khong et al.) to rank transcripts according to the degree they became sequestered into stress granules (high SG score) or remained dissolved in the cytosol (low SG score). When applying this SG score to our data, we observed that iPO mRNAs preferentially localized outside of stress granules (two-sided Kolmogorov–Smirnov test, P = 1.9E-5), whereas dPOs localized inside of stress granules (P = 0.01, Figure S5C). Interestingly, the most strongly excluded group of transcripts consisted of mRNA coding for cytosolic ribosomal proteins (P < 2.0E-16), many of which were included in the iPO mRNAs discovered by PEPseq. This was independent of their absolute expression levels in the total transcriptome, spanning more than three orders of magnitude (Figure S5B). Accordingly, ranked GO enrichment analysis on the list of protein-coding genes by Khong et al., sorted from most depleted to most included in stress granules, returned ‘structural constituent of ribosome’ as top hit (adj. P = 4.3E-59, Figure S5D). Hence, the increased PEPseq signal on iPO mRNAs was unlikely a consequence of protein interactions inside of stress granules, as there were many transcripts with much stronger stress granule localization that did not show increased occupancy.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 67168,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "In summary, this analysis showed that (i) binding site motifs of non-ribosomal proteins changed around crosslinking sites on iPO mRNAs, and (ii) iPO mRNAs are depleted from stress granules. Again, this strengthened our conclusion that both non-ribosomal proteins as well as 80S ribosomes contributed to the increased protein occupancy on iPO mRNAs.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 67518,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "Protein production from mRNAs with increased protein occupancy is repressed after stress",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 67607,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "We hypothesized that a protein accumulation in the CDS would probably not be an obstacle for protein synthesis during arsenite stress because translation would be arrested at the point of initiation and, consequently, no more ribosomes would engage in traversing the mRNA. However, proteins in the CDS would become an obstacle once arsenite stress was overcome, translational arrest was resolved, and mRNAs were translated again. To investigate if this might influence protein expression from specific mRNAs after stress, we designed a proteomic experiment which selectively monitored the resumption of translation during the recovery from arsenite-induced translational arrest (Figure 5B). Specifically, MCF7 cells carrying an intermediate SILAC label were switched to media containing azidohomoalanine (AHA) instead of methionine for 30 minutes in order to generate an equal amount of SILAC-intermediate-labelled proteins to quantify against. Subsequently, cells were left untreated or exposed to arsenite for another 30 minutes, washed, and switched to AHA-containing media with a heavy SILAC label (for arsenite-treated cells) or light SILAC label (for untreated cells). During a subsequent chase, six time points between 15–240 minutes were collected, and untreated or arsenite-treated cells of each time point were combined to quantify proteins that were newly synthesized during this period. Therefore, AHA-containing proteins were enriched by click-chemistry, proteolytically digested, and analysed by mass spectrometry. Depending on the labelling time and treatment this quantified between 1597–3245 proteins at each time point after filtering (REM < 30%, Figure S5E). Ratios between the SILAC intermediate label and the heavy or light label were used to assess which proteins were produced immediately after arsenite stress compared to unperturbed controls (Figure 5C, Table S2). As expected, we observed that during the initial phase after arsenite removal, protein production was weak. Two hours of recovery marked an inflection point where most proteins returned to a production rate similar to the one observed in untreated control cells. Strikingly, protein production from iPO mRNAs was reduced compared to the overall protein production during the early time points of recovery and especially 30 minutes after arsenite stress (Figure 5D, two-sided Kolmogorov–Smirnov test with Bonferroni-Holm correction, P = 2.1E-5). Because iPO mRNAs preferably located outside of stress granules (Figure S5B and C), we next asked if in general mRNAs inside or outside of stress granules were translated differently during the recovery from translation arrest. Indeed, at time points immediately after arsenite treatment we found a weak positive correlation between the SG score by Khong et al. and the relative protein production (Spearman correlation ρ ≤ 0.28 after 15 min, Figure S5F). In contrast, for untreated cells we observed a weak anticorrelation between protein production and stress granule localization throughout all time points. To substantiate this further, we selected the 100 proteins within each time point whose cognate mRNA had the highest or lowest SG score according to Khong et al., and compared their relative protein production. This revealed highly significant differences between the two groups (Figure S5G). Especially during the early time points until two hours after arsenite stress, proteins were much stronger produced from mRNA with strong stress granule localization (Wilcoxon ranksum test with Bonferroni-Holm correction, P < 1.2E-7 for all time points before 120 min). In untreated control cells, we observed the opposite trend, such that transcripts outside of stress granules were stronger translated at all time points (P < 1.5E-5 for all time points after 30 min). In arsenite-treated cells, 2 h marked an inflection point where mRNAs with reportedly weak stress granule localization picked up protein production and became significantly more translated than mRNAs with strong stress granule localization (P < 4.5E-7 for all time points after 120 min). We asked if there were common sequence features among iPO mRNAs that could explain their similar behavior, i.e. accumulating protein density in the CDS during stress, being excluded from stress granules and translationally repressed during recovery. Almost all mRNAs coding for cytosolic ribosomal proteins carry a 5’ terminal oligopyrimidine (5’ TOP) motif, which is known to be involved in translational control via interactions with RNA-binding proteins such as LARP1. Many iPO mRNAs coding for non-ribosomal proteins, however, did not carry a 5’ TOP and so do hundreds of other mRNAs strongly excluded from stress granules, so the motif is not predictive of either protein occupancy in the CDS nor stress granule depletion. Yet, a comparison between iPO and dPO mRNAs with respect to the sequence context of protein–RNA crosslinks revealed major differences in the 5’ UTR, where in iPO mRNAs crosslinks occurred in a remarkably GC-rich context whereas in dPO mRNAs no preference for any nucleotide was observed (Figure S5H). The strongest unifying feature among iPO mRNAs separating them from dPO mRNAs was the occurrence of purine bases in the wobble position (GC3 content), which was remarkably high in iPO mRNAs (Figure 5E), raising the possibility that the sequence composition of the CDS could confer functionality. In yeast, for example, it was shown that oxidation of G to 8-oxo-G results in very effective ribosome stalling during oxidative stress.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 73200,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Overall, these data imply that mRNA excluded from stress granules during translational arrest, such as iPO mRNAs, are translationally repressed during the initial stress recovery, while the opposite is true for mRNA with strong stress granule localization. These genes appear to establish a program to reorganize the cell after stress, representing a previously unrecognized modality of post-transcriptional gene regulation.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 73625,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "Arsenite-induced changes in protein–RNA interactions across non-coding RNA",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 73702,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Apart from the observations we made for protein-coding transcripts, we found profound effects of arsenite on the protein occupancy of the non-coding transcriptome. Among these was the long non-coding RNA NORAD (combined effect adj. P = 0.03, Figure 4A), which has been reported to form cytosolic condensates with the PUM family of proteins upon arsenite stress. Indeed, we were able to identify one particular region in NORAD with an increase in protein occupancy that overlapped with published PUM1 and PUM2 CLIPseq data from K562 cells (Figure S6A). When normalized to their total expression in the input, most lncRNAs retained or decreased their protein interactions upon arsenite stress (differential effect, Figure 4B). For example, the highly abundant transcripts NEAT1 and MALAT1 showed half the protein occupancy after 30 minutes of treatment (adj. P = 2.2E-11 and P = 4E-4, Table S1). Notably, this reduction occurred across the entire body of the transcripts (Figure 6A and Figure S6B). Both MALAT1 and NEAT1 have been reported to bind sites of active transcription suggesting that arsenite led to release of their chromatin interactions during the transcriptional transition from growth and proliferation towards stress and survival. The loss of interaction for MALAT1 was particularly strong in the first 2000 nucleotides – a region that reportedly associates with serine/arginine (SR) proteins to modulate alternative splicing by acting as a molecular sponge for hyperphosphorylated splicing factors. Since many arsenite response genes such as HSPA1A, HSPA1B, DNAJB1, EGR1, JUN or FOS (Figure 4A) have no or very few introns, this might reflect changes in the RNA splicing behaviour of stressed cells, where overall fewer splicing operations occur. Only a small number of non-coding RNAs increased their protein occupancy during arsenite stress, including the lncRNA SNHG29 (2.8-fold increase over untreated, adj. P = 0.01, Figure 4B). SNHG29 has been reported to stabilize the transcription factor YAP by binding to it, potentially inhibiting apoptosis in stressed cells. Our PEPseq analysis highlighted two regions in SNHG29 where such an interaction might occur (Figure S6C). Finally, we were interested in the sequence context of protein–RNA crosslinks on lncRNA and how this might compare to protein-coding transcripts. Interestingly, nucleotide frequencies around T-C transitions on lncRNAs were very similar to the ones observed for the 3’UTR of mRNA (Figure 6B and Figure 3A), showing a distinct T preference despite equal frequencies of all other nucleotides. We searched for RNA sequence motifs enriched around protein–RNA crosslinking sites using 100 nucleotide windows from the different time points. Similar to 3’UTRs, this revealed poly-A-rich motifs when querying the untreated controls while using arsenite-treated samples as background (Figure 6C), whereas no significant motif was discovered in the inverse analysis (Supplementary files 1). Yet, when searching for binding site motifs in 30-minute arsenite treated samples using the untreated samples as a control we identified various splicing factors with GC-rich binding preferences as significantly enriched (MBNL1, SRSF9, SRSF1, SRSF7, HNRNPA2B1, ESRP2 etc., Figure S6D top, Supplementary Files 2). In the untreated samples binding site motifs for poly-T and poly-A binding proteins were prevalent (CPEB2, ELAVL1, U2AF2, PTBP1, PABPC4, ZC3H14 etc., Figure S6D bottom, Supplementary Files 2). This again highlighted that the arsenite-induced changes in protein–RNA interactions towards lncRNA were similar to the ones observed for the 3’UTRs of mRNA.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 77360,
+              "infons": {
+                "file": "gkad557fig6.jpg",
+                "id": "F6",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Changes in protein occupancy across the lncRNA MALAT1 during arsenite stress. (A) Gene browser view of MALAT1. For each replicate the pair of pull-down (up, dark) and the matched input (down, light) are shown. T-C transitions with an allele frequency >10% are indicated with black bars. For better visibility scaling is logarithmic and ranges in all plots from 0 to 3200 reads. Occurrence of the SRSF1/2 motifs GAAGAA are indicated below. The density plot at the bottom shows the cumulative distribution of T-C transitions along the transcript for each replicate of the pull-down. (B) Linegraphs showing nucleotide frequencies around protein–RNA crosslinking sites on mRNA defined by 2-fold higher T-C transition frequency in the pull-down than in the matched input control. Displayed are nucleotide frequencies for all time points in the arsenite treatment combined. (C) Sequence logos for the most abundant motifs discovered in 100 nucleotide windows around protein–RNA crosslinking sites. The upper motif was found enriched in sequences from cells treated with arsenite for 15 min (upper panel) or 30 min (lower panel), each compared to sequences from untreated cells (differential STREME analysis, see Material and Methods).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 78597,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "In summary, these examples illustrate how PEPseq can be applied to monitor protein interactions with non-coding RNA across many thousands down to few nucleotides.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 78760,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "title_1"
+              },
+              "text": "DISCUSSION",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 78771,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "title_2"
+              },
+              "text": "A straightforward RNA sequencing strategy for transcriptome-wide mapping of protein occupancy",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 78865,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "paragraph"
+              },
+              "text": "Powerful methods exist that interrogate the interactions between a single, known protein towards the transcriptome in order to elucidate hypotheses about a particular post-transcriptional mechanism. However, an unbiased approach such as PEPseq can help to generate new hypotheses about potential post-transcriptional regulation, without requiring prior knowledge about the identity of the proteins involved. An analogy can be drawn to the study of transcription regulation and widely used methods such as DNase-seq or ATAC-seq, that probe chromatin accessibility to identify regulated sites in the genome while staying agnostic to the identity of the proteins that access them. Because RNA in contrast to DNA is not covered in histones, PEPseq uses changes in protein–RNA interactions to locate sites of potential regulation. Conceptually, PEPseq is related to protein occupancy profiling, however, it introduces a number of key improvements. First, PEPseq uses XRNAX instead of poly-dT enrichment and is therefore able to obtain the protein occupancy of the entire transcriptome and not only the polyadenylated part. We demonstrate that PEPseq provides two quantitative measures, T-C transitions and read counts, which can be applied depending on the use case. While read counts are more sensitive and allow screening for changes in protein occupancy across the entire transcriptome, T-C transitions provide quasi nucleotide resolution and the ability to pinpoint interaction changes on abundant transcripts. Because every PEPseq read directly represents an RNA fragment crosslinked to protein, PEPseq read-coverage can be interpreted in a straightforward manner using a genome browser, whereas previously the interpretation of protein occupancy data required a dedicated analysis of T-C transitions. Next, PEPseq was designed for straightforward comparisons between conditions and uses an input-controlled quantification implemented with the easy-to-use RNA sequencing tool DESeq2, making it accessible to less-specialized users. Compared to the recently published RNP-MaP, which requires cells to be exposed to an NHS-activated crosslinking probe for 15 minutes at room temperature followed by ten minutes of UV crosslinking, PEPseq requires approximately one minute of UV crosslinking on ice. Consequently, PEPseq has a resolution of minutes and the ability to quantify changes between time points, whereas RNP-MaP has so far been used to probe static interactions at one time point. Additionally, PEPseq starts with XRNAX and therefore offers the potential to investigate protein–RNA interactions both in a proteome-centric and transcriptome-centric manner from the same sample. We imagine future applications of PEPseq in the discovery of post-transcriptional regulatory processes during other perturbations such as the exposure of cells to drugs, infections, or during development.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 81758,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "title_2"
+              },
+              "text": "PEPseq opens new perspectives on protein–RNA interactions to aid hypothesis generation",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 81847,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "paragraph"
+              },
+              "text": "Using PEPseq, we observed immediate differences in protein occupancy between the three functional mRNA regions and a loss of interactions in the UTRs during translational stress. Differential sequence analysis around protein–RNA crosslinking sites revealed highly enriched RNA motifs and binding site motifs for RNA-binding proteins, which could be directly related to known biological effects of arsenite on translation and protein–RNA aggregation. Moreover, PEPseq identified a number of differentially occupied mRNAs, for which we could show strongly repressed translation hours after arsenite washout. Conceptually, this illustrates the enabling power of PEPseq to generate hypotheses from a global view of protein occupancy across the transcriptome during a particular treatment.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 82636,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "paragraph"
+              },
+              "text": "Arsenite exposure has long been known to coincide with activation of the integrated stress response (ISR) and phosphorylation of EIF2α, leading to translational arrest at the stage of translation initiation. So far, it was assumed that arsenite triggers translational arrest by causing covalent modifications to cysteines, consequent protein misfolding and activation of the ISR kinase PERK, which phosphorylates EIF2α and inhibits translation initiation. Studies in mouse and human cells, however, showed that arsenite exclusively activates the two ISR kinases HRI and GCN2, but not PERK. Therefore, at present it remains unclear what the molecular trigger for the activation of the ISR pathway upon arsenite stress really is. Our findings indicated that the cue might be stalling ribosomes, which, like arsenite, have been reported to be a potent activator of the ISR kinase GCN2. Future studies may investigate if arsenite itself traps 80S ribosomes in a post-translocation conformation, and if in turn they activate GCN2.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 83670,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "title_2"
+              },
+              "text": "Translational control after stress follows a restart sequence that represses growth and fosters regulation",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 83777,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "paragraph"
+              },
+              "text": "The biological purpose for the formation of stress granules remains enigmatic, and it is still debated what determines their mRNA composition. We show that mRNAs with strong stress-granule localization get an immediate kick-start in translation upon stress withdrawal, whereas mRNAs excluded from stress granules remain repressed for some time. Transcripts that are included or excluded from stress granules contain groups of mRNAs coding for proteins with shared biological functions. This suggests that the sorting of mRNAs into stress granules prepares a biological program that is activated when stress signals subside. We show that after stress this leads to increased expression of DNA-binding and heat shock proteins, whereas expression of ribosomal proteins remains repressed for some time. Intuitively, this makes sense because after an emergency event has led to translational shutdown, it seems in the best interest of the cell to take control of the stress situation first before investing resources in expanding its translational machinery again. Khong et al. demonstrated that most of the mRNAs present in the total transcriptome seem to be present in stress granules, although in strongly skewed abundances (Figure S5B). This suggests that the process of stress granule aggregation samples RNA from the entire cytosolic transcriptome, and that sampling is not random as demonstrated by mRNAs coding for cytosolic ribosomal proteins. Overall, we propose that stress granules collect healthy mRNA that organize the recovery of the cell when stress is overcome, and when conditions for normal translation are restored.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 85409,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "paragraph"
+              },
+              "text": "Collectively, our findings illustrate how monitoring changes in protein occupancy with PEPseq can highlight previously unknown protein–RNA interactions to form a working hypothesis for the post-transcriptional response towards a particular treatment. Thus, PEPseq offers an unbiased discovery platform for the investigation of post-transcriptional processes in differentially treated cells.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 85802,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "title_1"
+              },
+              "text": "Supplementary Material",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 85825,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "title_1"
+              },
+              "text": "Data Availability",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 85843,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "paragraph"
+              },
+              "text": "Sequence data from PEPseq libraries generated in this study have been submitted to EMBL-EBI ENA under the accession PRJEB58258. Proteomics data are available via ProteomeXchange with identifier PXD042395.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 86048,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "title_1"
+              },
+              "text": "SUPPLEMENTARY DATA",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 86067,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "paragraph"
+              },
+              "text": " Supplementary Data are available at NAR Online.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 86116,
+              "infons": {
+                "section_type": "ACK_FUND",
+                "type": "title_1"
+              },
+              "text": "FUNDING",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 86124,
+              "infons": {
+                "section_type": "ACK_FUND",
+                "type": "paragraph"
+              },
+              "text": "Funding for open access charge: Institutional house funding. E.B. and C.D. acknowledge funding by the Klaus Tschira Foundation under grant 00.013.2021 and the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) under grant TRR 319 (439669440).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 86382,
+              "infons": {
+                "section_type": "ACK_FUND",
+                "type": "paragraph"
+              },
+              "text": " Conflict of interest statement. None declared.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 86430,
+              "infons": {
+                "section_type": "REF",
+                "type": "title"
+              },
+              "text": "REFERENCES",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 86441,
+              "infons": {
+                "fpage": "77",
+                "lpage": "94",
+                "pub-id_pmid": "24679528",
+                "section_type": "REF",
+                "source": "Cell",
+                "type": "ref",
+                "volume": "157",
+                "year": "2014"
+              },
+              "text": "The noncoding RNA revolution - trashing old rules to forge new ones",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 86509,
+              "infons": {
+                "fpage": "126",
+                "lpage": "129",
+                "pub-id_pmid": "22678294",
+                "section_type": "REF",
+                "source": "Nature",
+                "type": "ref",
+                "volume": "486",
+                "year": "2012"
+              },
+              "text": "An oxygen-regulated switch in the protein synthesis machinery",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 86571,
+              "infons": {
+                "fpage": "2677",
+                "pub-id_pmid": "32472050",
+                "section_type": "REF",
+                "source": "Nat. Commun.",
+                "type": "ref",
+                "volume": "11",
+                "year": "2020"
+              },
+              "text": "A network of RNA-binding proteins controls translation efficiency to activate anaerobic metabolism",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 86670,
+              "infons": {
+                "fpage": "225",
+                "lpage": "234",
+                "pub-id_pmid": "30804549",
+                "section_type": "REF",
+                "source": "Nat. Methods",
+                "type": "ref",
+                "volume": "16",
+                "year": "2019"
+              },
+              "text": "Methods to study RNA–protein interactions",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 86714,
+              "infons": {
+                "fpage": "354",
+                "lpage": "369",
+                "pub-id_pmid": "29395060",
+                "section_type": "REF",
+                "source": "Mol. Cell",
+                "type": "ref",
+                "volume": "69",
+                "year": "2018"
+              },
+              "text": "Advances in CLIP technologies for studies of protein–RNA interactions",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 86786,
+              "infons": {
+                "fpage": "275",
+                "lpage": "287",
+                "pub-id_pmid": "23478349",
+                "section_type": "REF",
+                "source": "Nat. Rev. Genet.",
+                "type": "ref",
+                "volume": "14",
+                "year": "2013"
+              },
+              "text": "How cells get the message: dynamic assembly and function of mRNA-protein complexes",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 86869,
+              "infons": {
+                "fpage": "533",
+                "lpage": "543",
+                "pub-id_pmid": "17572691",
+                "section_type": "REF",
+                "source": "Nat. Rev. Genet.",
+                "type": "ref",
+                "volume": "8",
+                "year": "2007"
+              },
+              "text": "RNA regulons: coordination of post-transcriptional events",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 86927,
+              "infons": {
+                "fpage": "185",
+                "lpage": "198",
+                "pub-id_pmid": "33235359",
+                "section_type": "REF",
+                "source": "Nat. Rev. Genet.",
+                "type": "ref",
+                "volume": "22",
+                "year": "2021"
+              },
+              "text": "RNA-binding proteins in human genetic disease",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 86973,
+              "infons": {
+                "fpage": "711",
+                "lpage": "719",
+                "pub-id_pmid": "32728246",
+                "section_type": "REF",
+                "source": "Nature",
+                "type": "ref",
+                "volume": "583",
+                "year": "2020"
+              },
+              "text": "A large-scale binding and functional map of human RNA-binding proteins",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 87044,
+              "infons": {
+                "fpage": "1198",
+                "lpage": "1204",
+                "pub-id_pmid": "28945705",
+                "section_type": "REF",
+                "source": "Nat. Methods",
+                "type": "ref",
+                "volume": "14",
+                "year": "2017"
+              },
+              "text": "Thiol-linked alkylation of RNA to assess expression dynamics",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 87105,
+              "infons": {
+                "fpage": "129",
+                "lpage": "141",
+                "pub-id_pmid": "20371350",
+                "section_type": "REF",
+                "source": "Cell",
+                "type": "ref",
+                "volume": "141",
+                "year": "2010"
+              },
+              "text": "Transcriptome-wide identification of RNA-binding protein and MicroRNA target sites by PAR-CLIP",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 87200,
+              "infons": {
+                "fpage": "674",
+                "lpage": "690",
+                "pub-id_pmid": "22681889",
+                "section_type": "REF",
+                "source": "Mol. Cell",
+                "type": "ref",
+                "volume": "46",
+                "year": "2012"
+              },
+              "text": "The mRNA-bound proteome and its global occupancy profile on protein-coding transcripts",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 87287,
+              "infons": {
+                "fpage": "R15",
+                "pub-id_pmid": "24417896",
+                "section_type": "REF",
+                "source": "Genome Biol.",
+                "type": "ref",
+                "volume": "15",
+                "year": "2014"
+              },
+              "text": "Differential protein occupancy profiling of the mRNA transcriptome",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 87354,
+              "infons": {
+                "fpage": "347",
+                "lpage": "356",
+                "pub-id_pmid": "33077962",
+                "section_type": "REF",
+                "source": "Nat. Biotechnol.",
+                "type": "ref",
+                "volume": "39",
+                "year": "2021"
+              },
+              "text": "Analysis of RNA–protein networks with RNP-MaP defines functional hubs on RNA",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 87433,
+              "infons": {
+                "fpage": "391",
+                "lpage": "403",
+                "pub-id_pmid": "30528433",
+                "section_type": "REF",
+                "source": "Cell",
+                "type": "ref",
+                "volume": "176",
+                "year": "2019"
+              },
+              "text": "The human RNA-binding proteome and its dynamics during translational arrest",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 87509,
+              "infons": {
+                "fpage": "32886",
+                "pub-id_pmid": "27633668",
+                "section_type": "REF",
+                "source": "Sci. Rep.",
+                "type": "ref",
+                "volume": "6",
+                "year": "2016"
+              },
+              "text": "Integrated stress response of vertebrates is regulated by four eIF2α kinases",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 87590,
+              "infons": {
+                "fpage": "i884",
+                "lpage": "i890",
+                "pub-id_pmid": "30423086",
+                "section_type": "REF",
+                "source": "Bioinformatics",
+                "type": "ref",
+                "volume": "34",
+                "year": "2018"
+              },
+              "text": "Fastp: an ultra-fast all-in-one FASTQ preprocessor",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 87641,
+              "infons": {
+                "fpage": "1290",
+                "lpage": "1295",
+                "pub-id_pmid": "34103331",
+                "section_type": "REF",
+                "source": "Genome Res.",
+                "type": "ref",
+                "volume": "31",
+                "year": "2021"
+              },
+              "text": "Rapid and accurate alignment of nucleotide conversion sequencing reads with HISAT-3N",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 87726,
+              "infons": {
+                "fpage": "giab008",
+                "pub-id_pmid": "33590861",
+                "section_type": "REF",
+                "source": "Gigascience",
+                "type": "ref",
+                "volume": "10",
+                "year": "2021"
+              },
+              "text": "Twelve years of SAMtools and BCFtools",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 87764,
+              "infons": {
+                "fpage": "550",
+                "pub-id_pmid": "25516281",
+                "section_type": "REF",
+                "source": "Genome Biol.",
+                "type": "ref",
+                "volume": "15",
+                "year": "2014"
+              },
+              "text": "Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 87844,
+              "infons": {
+                "fpage": "2084",
+                "lpage": "2092",
+                "pub-id_pmid": "30395178",
+                "section_type": "REF",
+                "source": "Bioinformatics",
+                "type": "ref",
+                "volume": "35",
+                "year": "2019"
+              },
+              "text": "Heavy-tailed prior distributions for sequence count data: removing the noise and preserving large differences",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 87954,
+              "infons": {
+                "fpage": "2834",
+                "lpage": "2840",
+                "pub-id_pmid": "33760053",
+                "section_type": "REF",
+                "source": "Bioinformatics",
+                "type": "ref",
+                "volume": "37",
+                "year": "2021"
+              },
+              "text": "STREME: accurate and versatile sequence motif discovery",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 88010,
+              "infons": {
+                "fpage": "28",
+                "lpage": "36",
+                "pub-id_pmid": "7584402",
+                "section_type": "REF",
+                "source": "Proc. Int. Conf. Intell. Syst. Mol. Biol.",
+                "type": "ref",
+                "volume": "2",
+                "year": "1994"
+              },
+              "text": "Fitting a mixture model by expectation maximization to discover motifs in biopolymers",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 88096,
+              "infons": {
+                "fpage": "172",
+                "lpage": "177",
+                "pub-id_pmid": "23846655",
+                "section_type": "REF",
+                "source": "Nature",
+                "type": "ref",
+                "volume": "499",
+                "year": "2013"
+              },
+              "text": "A compendium of RNA-binding motifs for decoding gene regulation",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 88160,
+              "infons": {
+                "comment": "bioRxiv doi: 24 August 2021, preprint: not peer reviewed",
+                "pub-id_doi": "10.1101/2021.08.23.457422",
+                "section_type": "REF",
+                "type": "ref",
+                "year": "2021"
+              },
+              "text": "SEA: simple Enrichment Analysis of motifs",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 88202,
+              "infons": {
+                "fpage": "7298",
+                "lpage": "7317",
+                "pub-id_pmid": "34226921",
+                "section_type": "REF",
+                "source": "Nucleic Acids Res.",
+                "type": "ref",
+                "volume": "49",
+                "year": "2021"
+              },
+              "text": "Combinatorial analysis of translation dynamics reveals eIF2 dependence of translation initiation at near-cognate codons",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 88322,
+              "infons": {
+                "fpage": "357",
+                "lpage": "359",
+                "pub-id_pmid": "22388286",
+                "section_type": "REF",
+                "source": "Nat. Methods",
+                "type": "ref",
+                "volume": "9",
+                "year": "2012"
+              },
+              "text": "Fast gapped-read alignment with Bowtie 2",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 88363,
+              "infons": {
+                "fpage": "15",
+                "lpage": "21",
+                "pub-id_pmid": "23104886",
+                "section_type": "REF",
+                "source": "Bioinformatics",
+                "type": "ref",
+                "volume": "29",
+                "year": "2013"
+              },
+              "text": "STAR: ultrafast universal RNA-seq aligner",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 88405,
+              "infons": {
+                "fpage": "2960",
+                "lpage": "2972",
+                "pub-id_pmid": "28126919",
+                "section_type": "REF",
+                "source": "Nucleic Acids Res.",
+                "type": "ref",
+                "volume": "45",
+                "year": "2017"
+              },
+              "text": "Bayesian prediction of RNA translation from ribosome profiling",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 88468,
+              "infons": {
+                "fpage": "808",
+                "lpage": "820",
+                "pub-id_pmid": "29129640",
+                "section_type": "REF",
+                "source": "Mol. Cell",
+                "type": "ref",
+                "volume": "68",
+                "year": "2017"
+              },
+              "text": "The stress granule transcriptome reveals principles of mRNA accumulation in stress granules",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 88560,
+              "infons": {
+                "fpage": "1367",
+                "lpage": "1372",
+                "pub-id_pmid": "19029910",
+                "section_type": "REF",
+                "source": "Nat. Biotechnol.",
+                "type": "ref",
+                "volume": "26",
+                "year": "2008"
+              },
+              "text": "MaxQuant enables high peptide identification rates, individualized p.p.b.-range mass accuracies and proteome-wide protein quantification",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 88697,
+              "infons": {
+                "fpage": "48",
+                "section_type": "REF",
+                "source": "BMC Bioinf.",
+                "type": "ref",
+                "volume": "10",
+                "year": "2009"
+              },
+              "text": "GOrilla: a tool for discovery and visualization of enriched GO terms in ranked gene lists",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 88787,
+              "infons": {
+                "section_type": "REF",
+                "source": "ggplot2",
+                "type": "ref",
+                "year": "2016"
+              },
+              "text": "",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 88788,
+              "infons": {
+                "fpage": "16925",
+                "lpage": "16933",
+                "pub-id_pmid": "15684421",
+                "section_type": "REF",
+                "source": "J. Biol. Chem.",
+                "type": "ref",
+                "volume": "280",
+                "year": "2005"
+              },
+              "text": "Heme-regulated inhibitor kinase-mediated phosphorylation of eukaryotic translation initiation factor 2 inhibits translation, induces stress granule formation, and mediates survival upon arsenite exposure",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 88992,
+              "infons": {
+                "section_type": "REF",
+                "source": "Eukaryotic Transcriptional and Post-Transcriptional Gene Expression Regulation",
+                "type": "ref",
+                "year": "2017"
+              },
+              "text": "",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 88993,
+              "infons": {
+                "fpage": "158",
+                "lpage": "174",
+                "pub-id_pmid": "29165424",
+                "section_type": "REF",
+                "source": "Nat. Rev. Mol. Cell Biol.",
+                "type": "ref",
+                "volume": "19",
+                "year": "2018"
+              },
+              "text": "Functional 5′ UTR mRNA structures in eukaryotic translation regulation and how to find them",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 89087,
+              "infons": {
+                "fpage": "a034728",
+                "pub-id_pmid": "30181377",
+                "section_type": "REF",
+                "source": "Cold Spring Harb. Perspect. Biol.",
+                "type": "ref",
+                "volume": "11",
+                "year": "2019"
+              },
+              "text": "What are 3′ utrs doing?",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 89113,
+              "infons": {
+                "fpage": "854",
+                "lpage": "867",
+                "pub-id_pmid": "29883606",
+                "section_type": "REF",
+                "source": "Mol. Cell",
+                "type": "ref",
+                "volume": "70",
+                "year": "2018"
+              },
+              "text": "Sequence, Structure, and Context Preferences of Human RNA Binding Proteins",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 89188,
+              "infons": {
+                "fpage": "363",
+                "lpage": "373",
+                "pub-id_pmid": "33725420",
+                "section_type": "REF",
+                "source": "FEBS J.",
+                "type": "ref",
+                "volume": "289",
+                "year": "2022"
+              },
+              "text": "Stress granules: regulators or by-products?",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 89232,
+              "infons": {
+                "fpage": "43131",
+                "lpage": "43140",
+                "pub-id_pmid": "16221671",
+                "section_type": "REF",
+                "source": "J. Biol. Chem.",
+                "type": "ref",
+                "volume": "280",
+                "year": "2005"
+              },
+              "text": "Mammalian smaug is a translational repressor that forms cytoplasmic foci similar to stress granules",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 89332,
+              "infons": {
+                "fpage": "135",
+                "lpage": "146",
+                "pub-id_pmid": "23279204",
+                "section_type": "REF",
+                "source": "Genes Cells",
+                "type": "ref",
+                "volume": "18",
+                "year": "2013"
+              },
+              "text": "Both G3BP1 and G3BP2 contribute to stress granule formation",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 89392,
+              "infons": {
+                "fpage": "359",
+                "pub-id_pmid": "33742080",
+                "section_type": "REF",
+                "source": "Commun. Biol.",
+                "type": "ref",
+                "volume": "4",
+                "year": "2021"
+              },
+              "text": "Lin28, a major translation reprogramming factor, gains access to YB-1-packaged mRNA through its cold-shock domain",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 89506,
+              "infons": {
+                "fpage": "1994",
+                "lpage": "2002",
+                "pub-id_pmid": "18335541",
+                "section_type": "REF",
+                "source": "J. Neurosci. Res.",
+                "type": "ref",
+                "volume": "86",
+                "year": "2008"
+              },
+              "text": "MBNL1 associates with YB-1 in cytoplasmic stress granules",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 89564,
+              "infons": {
+                "fpage": "876",
+                "lpage": "891",
+                "pub-id_pmid": "33217318",
+                "section_type": "REF",
+                "source": "Mol. Cell",
+                "type": "ref",
+                "volume": "80",
+                "year": "2020"
+              },
+              "text": "Spatiotemporal proteomic analysis of stress granule disassembly using APEX reveals regulation by SUMOylation and links to ALS pathogenesis",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 89703,
+              "infons": {
+                "fpage": "R106",
+                "pub-id_pmid": "20979621",
+                "section_type": "REF",
+                "source": "Genome Biol.",
+                "type": "ref",
+                "volume": "11",
+                "year": "2010"
+              },
+              "text": "Differential expression analysis for sequence count data",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 89760,
+              "infons": {
+                "fpage": "6158",
+                "lpage": "6162",
+                "pub-id_pmid": "10557107",
+                "section_type": "REF",
+                "source": "Oncogene",
+                "type": "ref",
+                "volume": "18",
+                "year": "1999"
+              },
+              "text": "Diverse functions of JNK signaling and c-Jun in stress response and apoptosis",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 89838,
+              "infons": {
+                "fpage": "527",
+                "lpage": "538",
+                "pub-id_pmid": "24515801",
+                "section_type": "REF",
+                "source": "Mol. Cancer Res.",
+                "type": "ref",
+                "volume": "12",
+                "year": "2014"
+              },
+              "text": "The orphan nuclear receptor NR4A1 (Nur77) regulates oxidative and endoplasmic reticulum stress in pancreatic cancer cells",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 89960,
+              "infons": {
+                "fpage": "2915",
+                "lpage": "2926",
+                "pub-id_pmid": "9671412",
+                "section_type": "REF",
+                "source": "Oncogene",
+                "type": "ref",
+                "volume": "16",
+                "year": "1998"
+              },
+              "text": "Stress-induced immediate-early gene, egr-1, involves activation of p38/JNK1",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 90036,
+              "infons": {
+                "fpage": "aad4939",
+                "section_type": "REF",
+                "source": "Science (80-.).",
+                "type": "ref",
+                "volume": "351",
+                "year": "2016"
+              },
+              "text": "Systematic discovery of cap-independent translation sequences in human and viral genomes",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 90125,
+              "infons": {
+                "fpage": "5006",
+                "lpage": "5012",
+                "pub-id_pmid": "9478948",
+                "section_type": "REF",
+                "source": "J. Biol. Chem.",
+                "type": "ref",
+                "volume": "273",
+                "year": "1998"
+              },
+              "text": "Functional characterization of the internal ribosome entry site of eIF4g mRNA",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 90203,
+              "infons": {
+                "comment": "bioRxiv doi: 13 May 2022, preprint: not peer reviewed",
+                "pub-id_doi": "10.1101/2022.05.13.491786",
+                "section_type": "REF",
+                "type": "ref",
+                "year": "2022"
+              },
+              "text": "Translational activity controls ribophagic flux and turnover of distinct ribosome pools",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 90291,
+              "infons": {
+                "fpage": "959",
+                "lpage": "970",
+                "pub-id_pmid": "30686592",
+                "section_type": "REF",
+                "source": "Mol. Cell",
+                "type": "ref",
+                "volume": "73",
+                "year": "2019"
+              },
+              "text": "High-resolution ribosome profiling defines discrete ribosome Elongation States and Translational Regulation during Cellular Stress",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 90422,
+              "infons": {
+                "fpage": "e202004120",
+                "pub-id_pmid": "32520986",
+                "section_type": "REF",
+                "source": "J. Cell Biol.",
+                "type": "ref",
+                "volume": "219",
+                "year": "2020"
+              },
+              "text": "Coupling of translation quality control and mRNA targeting to stress granules",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 90500,
+              "infons": {
+                "fpage": "1099",
+                "lpage": "1108",
+                "pub-id_pmid": "11106749",
+                "section_type": "REF",
+                "source": "Mol. Cell",
+                "type": "ref",
+                "volume": "6",
+                "year": "2000"
+              },
+              "text": "Regulated translation initiation controls stress-induced gene expression in mammalian cells",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 90592,
+              "infons": {
+                "fpage": "619",
+                "lpage": "633",
+                "pub-id_pmid": "12667446",
+                "section_type": "REF",
+                "source": "Mol. Cell",
+                "type": "ref",
+                "volume": "11",
+                "year": "2003"
+              },
+              "text": "An integrated stress response regulates amino acid metabolism and resistance to oxidative stress",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 90689,
+              "infons": {
+                "fpage": "3707",
+                "lpage": "3715",
+                "pub-id_pmid": "18480124",
+                "section_type": "REF",
+                "source": "Nucleic Acids Res.",
+                "type": "ref",
+                "volume": "36",
+                "year": "2008"
+              },
+              "text": "Comprehensive detection of human terminal oligo-pyrimidine (TOP) genes and analysis of their characteristics",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 90798,
+              "infons": {
+                "fpage": "1256",
+                "lpage": "1264",
+                "pub-id_pmid": "25456128",
+                "section_type": "REF",
+                "source": "Cell Rep.",
+                "type": "ref",
+                "volume": "9",
+                "year": "2014"
+              },
+              "text": "An active role for the ribosome in determining the fate of oxidized mRNA",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 90871,
+              "infons": {
+                "fpage": "303",
+                "lpage": "308",
+                "pub-id_pmid": "34108682",
+                "section_type": "REF",
+                "source": "Nature",
+                "type": "ref",
+                "volume": "595",
+                "year": "2021"
+              },
+              "text": "NORAD-induced Pumilio phase separation is required for genome stability",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 90943,
+              "infons": {
+                "fpage": "791",
+                "lpage": "802",
+                "pub-id_pmid": "25155612",
+                "section_type": "REF",
+                "source": "Mol. Cell",
+                "type": "ref",
+                "volume": "55",
+                "year": "2014"
+              },
+              "text": "The long noncoding RNAs NEAT1 and MALAT1 bind active chromatin sites",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 91012,
+              "infons": {
+                "fpage": "925",
+                "lpage": "938",
+                "pub-id_pmid": "20797886",
+                "section_type": "REF",
+                "source": "Mol. Cell",
+                "type": "ref",
+                "volume": "39",
+                "year": "2010"
+              },
+              "text": "The nuclear-retained noncoding RNA MALAT1 regulates alternative splicing by modulating SR splicing factor phosphorylation",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 91134,
+              "infons": {
+                "fpage": "2995",
+                "lpage": "3010",
+                "pub-id_pmid": "33992804",
+                "section_type": "REF",
+                "source": "Mol. Ther.",
+                "type": "ref",
+                "volume": "29",
+                "year": "2021"
+              },
+              "text": "Targeting cholesterol biosynthesis promotes anti-tumor immunity by inhibiting long noncoding RNA SNHG29-mediated YAP activation",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 91262,
+              "infons": {
+                "fpage": "207",
+                "lpage": "220",
+                "pub-id_pmid": "30675018",
+                "section_type": "REF",
+                "source": "Nat. Rev. Genet.",
+                "type": "ref",
+                "volume": "20",
+                "year": "2019"
+              },
+              "text": "Chromatin accessibility and the regulatory epigenome",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 91315,
+              "infons": {
+                "fpage": "897",
+                "lpage": "904",
+                "pub-id_pmid": "10882126",
+                "section_type": "REF",
+                "source": "Mol. Cell",
+                "type": "ref",
+                "volume": "5",
+                "year": "2000"
+              },
+              "text": "Perk is essential for translational regulation and cell survival during the unfolded protein response",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 91417,
+              "infons": {
+                "fpage": "43927",
+                "lpage": "43943",
+                "pub-id_pmid": "26556863",
+                "section_type": "REF",
+                "source": "Oncotarget",
+                "type": "ref",
+                "volume": "6",
+                "year": "2015"
+              },
+              "text": "Sorafenib, a multikinase inhibitor, induces formation of stress granules in hepatocarcinoma cells",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "offset": 91515,
+              "infons": {
+                "fpage": "e14295",
+                "pub-id_pmid": "27085088",
+                "section_type": "REF",
+                "source": "Elife",
+                "type": "ref",
+                "volume": "5",
+                "year": "2016"
+              },
+              "text": "Activation of GCN2 kinase by ribosome stalling links translation elongation with translation initiation",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            }
+          ],
+          "annotations": [],
+          "relations": []
+        }
+      ]
+    }
+  ]
+}

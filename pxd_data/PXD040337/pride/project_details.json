@@ -1,0 +1,309 @@
+{
+  "metadata": {
+    "pxd": "PXD040337",
+    "category": "pride",
+    "saved_at": "2026-06-30T15:31:53.067712",
+    "filename": "project_details"
+  },
+  "data": {
+    "accession": "PXD040337",
+    "title": "Identifying interactors of IRF1 and STAT1 during type I and type II interferon treatment using proximity-dependent labeling",
+    "additionalAttributes": [],
+    "projectDescription": "Identifying interactors of IRF1 and STAT1 in bone marrow-derived macrophages during type I and type II interferon treatment using the proximity-dependent labeling approach TurboID followed by Mass Spectrometry",
+    "sampleProcessingProtocol": "Cells were seeded in 15cm dishes 2 days before harvesting. Single cell clone of RAW264.7 Stat1-/- cells transduced with STAT1-TurboID-V5 as well as V5-TurboID-NLS were treated for 24 hours with Doxycycline (final concentration: 2μg/ml). Single cell clone of RAW264.7 Irf1-/- cells transduced with V5-TurboID-IRF1 as well as V5-TurboID-NLS were treated with 2μg/ml Doxycycline for 4 hours. Cells were either treated with IFNβ or IFNγ for 3 hours and biotinylation was induced by adding 500μM Biotin for 10 minutes. Single cell clone of RAW264.7 Stat1-/- cells transduced with V5-TurboID-STAT1 as well as V5-TurboID-NLS were treated with 2μg/ml Doxycycline for 24 hours. Cells were either treated with IFNβ or IFNγ for 3 hours and biotinylation was induced by adding 500μM Biotin for 10 minutes. The experiment was performed in biological triplicates. Cells were washed 3 times in ice cold PBS, cell number counted, and aliquots (2x106 cells per tube) snap frozen in liquid nitrogen before storing them at -80°C. 2x106 cells were lysed for 15 minutes on ice in CEB buffer (10mM Hepes, 10mM KCl, 1.5mM MgCl2, 0.1% NP-40 and complete EDTA-free protease inhibitor cocktail). Cells were centrifuged for 5 minutes at 500rcf and 4°C. Nuclear pellet was washed 3 times with wash buffer A (10mM Hepes, 10mM KCl, 1.5mM MgCl2, 0.1% NP-40 and EDTA-free protease inhibitor cocktail). Pellet was lysed in 200μl NEB (25mM Hepes pH 7.9, 1.5M MgCl2, 0.1M EDTA) supplemented with EDTA-free protease inhibitor cocktail, 1mM PMSF, 1mM Na2VO3 and 550mM NaCl. Nuclei were vortexed 5 times every 10 minutes for 10 seconds while being kept on ice, centrifuged for 5 minutes at 16.000rcf at 4°C and transferred to a fresh, protein low bind tube. Protein concentration was measured using Pierce™ BCA Protein Assay kit (Thermo-Fisher Scientific). 200μg protein was added to 100μl acetylated beads 75 and filled up with NEB to reach a final concentration of 200mM NaCl. Samples were incubated overnight at 4°C while rotating. Next day, beads were washed once for 5 minutes with NEB, three times for 5 minutes with RIPA buffer (0.1% SDS, 0.5% Sodium Deoxycholate, 1% NP40 substitute, 50mM Tris, 150mM NaCl, 1mM Na3VO4, 2mM NaF, 2mM PMSF, Protease Inhibitor) and 6 times with TBS (50mM Tris, 150mM NaCl pH 7.5).",
+    "dataProcessingProtocol": "MS raw data split for each CV using FreeStyle 1.7 (Thermo Fisher), were analyzed using the MaxQuant software package (version 2.1.4.0) with the Uniprot mouse reference proteome (version 2022.03, www.uniprot.org), as well as a database of most common contaminants. The search was performed with full trypsin specificity and a maximum of two missed cleavages at a protein and peptide spectrum match false discovery rate of 1%. Carbamidomethylation of cysteine residues was set as fixed, oxidation of methionine, and N-terminal acetylation as variable modifications. For label-free quantification the “match between runs” only within the sample batch and the LFQ function were activated - all other parameters were left at default.  MaxQuant output tables were further processed in R 4.2.1 using Cassiopeia_LFQ (https://github.com/moritzmadern/Cassiopeia_LFQ). Reverse database identifications, contaminant proteins, protein groups identified only by a modified peptide, protein groups with less than two quantitative values in one experimental group, and protein groups with less than 2 razor peptides were removed for further analysis. Missing values were replaced by randomly drawing data points from a normal distribution model on the whole dataset (data mean shifted by -1.8 standard deviations, a width of the distribution of 0.3 standard deviations). Differences between groups were statistically evaluated using the LIMMA 3.52.1 with batch correction at 5% FDR (Benjamini-Hochberg).",
+    "projectTags": [],
+    "keywords": [
+      "Turboid",
+      "Interactors",
+      "Irf1",
+      "Ifn-ii",
+      "Ifn-i",
+      "Stat1"
+    ],
+    "doi": "",
+    "submissionType": "PARTIAL",
+    "license": "Creative Commons Public Domain (CC0)",
+    "submissionDate": "2023-02-22",
+    "publicationDate": "2024-03-12",
+    "submitters": [
+      {
+        "title": "Dr",
+        "firstName": "WeiQiang",
+        "lastName": "Chen",
+        "identifier": "700143",
+        "affiliation": "Mass Spectrometry Facility, Max Perutz Laboratories Support GmbH",
+        "email": "chenweiqiang@gmail.com",
+        "country": "Austria",
+        "orcid": "",
+        "name": "WeiQiang Chen",
+        "id": "700143"
+      }
+    ],
+    "labPIs": [
+      {
+        "title": "Dr",
+        "firstName": "Thomas",
+        "lastName": "Decker",
+        "identifier": "2521117",
+        "affiliation": "Max Perutz Labs, Vienna Biocenter Campus (VBC), Vienna 1030, Austria University of Vienna, Center for Molecular Biology, Department of Microbiology, Immunobiology and Genetics, Vienna 1030, Austria",
+        "email": "thomas.decker@univie.ac.at",
+        "country": "",
+        "orcid": "",
+        "name": "Thomas Decker",
+        "id": "2521117"
+      }
+    ],
+    "instruments": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1003028",
+        "name": "Orbitrap Exploris 480"
+      }
+    ],
+    "softwares": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1001583",
+        "name": "MaxQuant"
+      }
+    ],
+    "experimentTypes": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000429",
+        "name": "Shotgun proteomics"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000433",
+        "name": "Affinity purification coupled with mass spectrometry proteomics"
+      }
+    ],
+    "quantificationMethods": [],
+    "countries": [
+      "Austria"
+    ],
+    "sampleAttributes": [
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "EFO:0000635",
+          "name": "organism part"
+        },
+        "value": [
+          {
+            "cvLabel": "BTO",
+            "accession": "BTO:0000214",
+            "name": "cell culture"
+          }
+        ]
+      },
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "OBI:0100026",
+          "name": "organism"
+        },
+        "value": [
+          {
+            "cvLabel": "NEWT",
+            "accession": "NEWT:10090",
+            "name": "Mus musculus (Mouse)"
+          }
+        ]
+      }
+    ],
+    "organisms": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "NEWT",
+        "accession": "NEWT:10090",
+        "name": "Mus musculus (mouse)"
+      }
+    ],
+    "organismParts": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "BTO",
+        "accession": "BTO:0000214",
+        "name": "Cell culture"
+      }
+    ],
+    "diseases": [],
+    "references": [],
+    "identifiedPTMStrings": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:01885",
+        "name": "biotinylated residue"
+      }
+    ],
+    "totalFileDownloads": 1391,
+    "botCount": 428,
+    "hubCount": 913,
+    "organicCount": 50,
+    "files": {
+      "files": [
+        {
+          "fileName": "20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_IRF1_rep2_s12_18c80p.raw",
+          "fileSizeBytes": 960592913,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD040337/20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_IRF1_rep2_s12_18c80p.raw"
+        },
+        {
+          "fileName": "20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_noBiotin_control_s25_33p.raw",
+          "fileSizeBytes": 958947739,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD040337/20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_noBiotin_control_s25_33p.raw"
+        },
+        {
+          "fileName": "MaxQuant_result_txt_STAT1.zip",
+          "fileSizeBytes": 798435931,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD040337/MaxQuant_result_txt_STAT1.zip"
+        },
+        {
+          "fileName": "20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_IRF1_rep1_s3_34c40p.raw",
+          "fileSizeBytes": 958713208,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD040337/20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_IRF1_rep1_s3_34c40p.raw"
+        },
+        {
+          "fileName": "20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_IRF1_rep2_s11_77c10p.raw",
+          "fileSizeBytes": 970184183,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD040337/20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_IRF1_rep2_s11_77c10p.raw"
+        },
+        {
+          "fileName": "20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_IRF1_rep3_s20_22c80p.raw",
+          "fileSizeBytes": 977203739,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD040337/20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_IRF1_rep3_s20_22c80p.raw"
+        },
+        {
+          "fileName": "20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_STAT1_rep1_s5_67c90p.raw",
+          "fileSizeBytes": 1051939851,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD040337/20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_STAT1_rep1_s5_67c90p.raw"
+        },
+        {
+          "fileName": "20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_STAT1_rep2_s13_62c40p.raw",
+          "fileSizeBytes": 1126479111,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD040337/20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_STAT1_rep2_s13_62c40p.raw"
+        },
+        {
+          "fileName": "checksum.txt",
+          "fileSizeBytes": 4591,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD040337/checksum.txt"
+        },
+        {
+          "fileName": "MaxQuant_result_txt_IRF1.zip",
+          "fileSizeBytes": 682325345,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD040337/MaxQuant_result_txt_IRF1.zip"
+        },
+        {
+          "fileName": "20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_IRF1_rep3_s17_38c80p.raw",
+          "fileSizeBytes": 964534914,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD040337/20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_IRF1_rep3_s17_38c80p.raw"
+        },
+        {
+          "fileName": "20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_STAT1_rep2_s14_42p.raw",
+          "fileSizeBytes": 1098308620,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD040337/20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_STAT1_rep2_s14_42p.raw"
+        },
+        {
+          "fileName": "20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_STAT1_rep1_s8_21p.raw",
+          "fileSizeBytes": 1072185671,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD040337/20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_STAT1_rep1_s8_21p.raw"
+        },
+        {
+          "fileName": "20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_STAT1_rep1_s7_64c80p.raw",
+          "fileSizeBytes": 1112967029,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD040337/20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_STAT1_rep1_s7_64c80p.raw"
+        },
+        {
+          "fileName": "20221020_E3_RSLC6_Fischer_Decker_MPL_UniWien_STAT1_rep3_s21_50c30p.raw",
+          "fileSizeBytes": 1070657641,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD040337/20221020_E3_RSLC6_Fischer_Decker_MPL_UniWien_STAT1_rep3_s21_50c30p.raw"
+        },
+        {
+          "fileName": "20221020_E3_RSLC6_Fischer_Decker_MPL_UniWien_STAT1_rep3_s24_37c30p.raw",
+          "fileSizeBytes": 1099751609,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD040337/20221020_E3_RSLC6_Fischer_Decker_MPL_UniWien_STAT1_rep3_s24_37c30p.raw"
+        },
+        {
+          "fileName": "20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_STAT1_rep2_s16_17c30p.raw",
+          "fileSizeBytes": 1082319109,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD040337/20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_STAT1_rep2_s16_17c30p.raw"
+        },
+        {
+          "fileName": "20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_noBiotin_control_s25_52c60p.raw",
+          "fileSizeBytes": 1020088312,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD040337/20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_noBiotin_control_s25_52c60p.raw"
+        },
+        {
+          "fileName": "20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_IRF1_rep2_s9_58c20p.raw",
+          "fileSizeBytes": 920476585,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD040337/20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_IRF1_rep2_s9_58c20p.raw"
+        },
+        {
+          "fileName": "20221020_E3_RSLC6_Fischer_Decker_MPL_UniWien_STAT1_rep3_s22_44p.raw",
+          "fileSizeBytes": 1092789182,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD040337/20221020_E3_RSLC6_Fischer_Decker_MPL_UniWien_STAT1_rep3_s22_44p.raw"
+        },
+        {
+          "fileName": "20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_IRF1_rep1_s4_60c10p.raw",
+          "fileSizeBytes": 973513271,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD040337/20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_IRF1_rep1_s4_60c10p.raw"
+        },
+        {
+          "fileName": "20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_IRF1_rep1_s1_66p.raw",
+          "fileSizeBytes": 979722314,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD040337/20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_IRF1_rep1_s1_66p.raw"
+        },
+        {
+          "fileName": "Raw_file_experiment_list.xlsx",
+          "fileSizeBytes": 13590,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD040337/Raw_file_experiment_list.xlsx"
+        },
+        {
+          "fileName": "20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_IRF1_rep3_s18_45c40p.raw",
+          "fileSizeBytes": 982217926,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD040337/20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_IRF1_rep3_s18_45c40p.raw"
+        },
+        {
+          "fileName": "20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_IRF1_rep2_s10_86c80p.raw",
+          "fileSizeBytes": 928082916,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD040337/20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_IRF1_rep2_s10_86c80p.raw"
+        },
+        {
+          "fileName": "20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_IRF1_rep3_s19_41c60p.raw",
+          "fileSizeBytes": 986851110,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD040337/20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_IRF1_rep3_s19_41c60p.raw"
+        },
+        {
+          "fileName": "20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_STAT1_rep2_s15_26c60p.raw",
+          "fileSizeBytes": 1144064356,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD040337/20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_STAT1_rep2_s15_26c60p.raw"
+        },
+        {
+          "fileName": "20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_STAT1_rep1_s6_45p.raw",
+          "fileSizeBytes": 1091830798,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD040337/20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_STAT1_rep1_s6_45p.raw"
+        },
+        {
+          "fileName": "20221020_E3_RSLC6_Fischer_Decker_MPL_UniWien_STAT1_rep3_s23_26c90p.raw",
+          "fileSizeBytes": 1113927176,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD040337/20221020_E3_RSLC6_Fischer_Decker_MPL_UniWien_STAT1_rep3_s23_26c90p.raw"
+        },
+        {
+          "fileName": "20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_IRF1_rep1_s2_49c50p.raw",
+          "fileSizeBytes": 928586364,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/03/PXD040337/20221014_E3_RSLC1_Fischer_Decker_MPL_UniWien_IRF1_rep1_s2_49c50p.raw"
+        }
+      ],
+      "totalCount": 30
+    }
+  }
+}

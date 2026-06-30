@@ -1,0 +1,208 @@
+{
+  "metadata": {
+    "pxd": "PXD045071",
+    "category": "pride",
+    "saved_at": "2026-06-30T15:36:14.842459",
+    "filename": "project_details"
+  },
+  "data": {
+    "accession": "PXD045071",
+    "title": "Genetic and proteomic screens reveal perturbed nucleotide metabolism and DNA-protein crosslink formation as central mediators of decitabine cytotoxicity",
+    "additionalAttributes": [],
+    "projectDescription": "Decitabine (5-aza-dC) is a DNMT1-DPC inducing agent used to treat several hematological cancers. However, response rates vary, relapse is common, and predictive biomarkers are unknown. Here, we develop an adaptation of identification of proteins on nascent DNA (iPOND) by combining EdU with 5-aza-dC incorporation by itself or the presence of either ubiquitin E1 or SUMO E1 inhibitor which we term iPOND-DPC. The purpose of this experiments is to identify proteins that are recruited to DNMT1-DPCs and categorize whether their recruitment is dependent on SUMOylation or ubiquitylation.",
+    "sampleProcessingProtocol": "Cell culture 5x106 HeLa TREx cells were seeded in two 15 cm dishes per condition and synchronized by double thymidine block. Cells were seeded in the morning and thymidine containing media (2 mM, T9250) was added after 8 h. The next morning, cells were washed twice with PBS and fresh, thymidine-free media was added for 9 h before re-adding thymidine containing media and incubation overnight. Then, cells were washed twice with PBS, released into thymidine-free media and treated with EdU (10 μM) (Jena Bioscience, CLK-N001-100), 5-azadC (10 μM) (Sigma, A3656), Ub-E1 inhibitor TAK-243 (1 μM) (Chemietek, AOB87172) or SUMO-E1 inhibitor ML-792 (5 μM) (Axon Medchem, 3109). Sample processing/preparation prior to MS sample prep Treated cells were fixed in 10 ml 1% formaldehyde (FA) for 20 min at room temperature (RT). Unreacted FA was quenched by the addition of 1 ml of 1.25 M glycine and incubation at RT for 10 min. Cells were scraped into 50 ml conical tubes, washed twice with PBS, snap frozen in liquid nitrogen and stored at -80 °C until processed. Technical duplicates were pooled at this step.  Pellets were resuspended in 1 ml permeabilization buffer (0.25% Triton-X100 in PBS) and incubated for 30 min at RT. The permeabilized cells were washed once with each 0.5% BSA in PBS and PBS prior to resuspending in 500 μl click reaction buffer (1xPBS, 10 μM biotin-azide, 100 mM sodium ascorbate, 100 mM copper sulfate). After 1h incubation at RT, cells were washed once with each 0.5% BSA in PBS and resuspended in 1 ml RIPA lysis buffer (100 mM Tris pH 7.5, 150 mM NaCl, 1% IGEPAL, 0.1% SDS, 0.5% sodium deoxycholate, cOmplete EDTA-free protease inhibitor cocktail). The lysate was sonicated in an ultrasonicator (Covaris E220 evolution) for 10 minutes followed by centrifugation at 21,130 g for 10 min. The supernatant was incubated with 30 μl streptavidin-sepharose (Cytavia, 90100484) at 4 °C overnight. The next day, beads were washed with lysis buffer, 1 M NaCl and once more with lysis buffer before snap freezing in liquid nitrogen and storage at -80 °C. MS-based proteome analysis After the pulldown, beads were incubated for 1 hour in 2M Urea, 50mM Tris-HCl (pH 7.5), 5mM dithithreitol containing trypsin. Beads were washed and the supernatant was saved. A reduction step with 5mM dithithreitol and an alkylation step with 20mM chloracetamid followed. Next, samples were digested overnight with trypsin. Samples were acidified using 1% formic acid and subsequently subjected to TMT labeling at 1.5:1 ratio for 1 hour in 150mM HEPES buffer (pH 8.5). TMT labeling was terminated with the addition of a 0.4% hydroxylamine solution, and excess labels were removed using reverse-phase Sep-Pak C18 cartridges. The TMT-labeled samples were pooled and desalted as previously described (Yu et al., 2021). MS analysis Peptide fractions were analyzed on a quadrupole Orbitrap mass spectrometer (Orbitrap Exploris 480, Thermo Scientific) equipped with a UHPLC system (EASY-nLC 1000, Thermo Scientific) as described (Michalski et al., 2011; Kelstrup et al., 2012). Peptide samples were loaded onto C18 reversed-phase columns (15 cm length, 75 μm inner diameter, 1.9 μm bead size) and eluted with a linear gradient from 8 to 40% acetonitrile containing 0.1% formic acid in 2 h. The mass spectrometer was operated in data-dependent mode, automatically switching between MS and MS2 acquisition. Survey full scan MS spectra (m/z 300–1650) were acquired in the Orbitrap. The 10 most intense ions were sequentially isolated and fragmented by higher-energy C-trap dissociation (HCD) (Olsen et al., 2007). Peptides with unassigned charge states, as well as with charge state less than +2 were excluded from fragmentation. Fragment spectra were acquired in the Orbitrap mass analyzer.",
+    "dataProcessingProtocol": "Peptide identification Raw data files were analyzed using MaxQuant (development version 1.6.14.0) (Cox & Mann, 2008). Parent ion and MS2 spectra were searched against a database containing 98,566 human protein sequences obtained from UniProtKB (July 2021 release) using the Andromeda search engine (Cox et al., 2011). Spectra were searched with a mass tolerance of 6 ppm in MS mode, 20 ppm in HCD MS2 mode and strict trypsin specificity, allowing up to three missed cleavages. Cysteine carbamidomethylation was searched as a fixed modification, whereas protein N-terminal acetylation and methionine oxidation were searched as variable modifications. The dataset was filtered based on posterior error probability (PEP) to arrive at a false discovery rate (FDR) of less than 1% estimated using a target-decoy approach (Elias et al., 2007).  Computational analysis of MS data For statistical analysis, MaxQuant output data were imported into R. Only proteins identified in all conditions were kept for downstream analysis. Intensities were log2 transformed and quantile normalised between the replicates using the R package preprocessCore. Significantly enriched proteins were identified by employing a moderated t-test using the R package limma with Benjamini-Hochberg FDR correction. Protein-protein interactions were predicted using the STRING web application only displaying interactions from textmining, experiments and co-occurrence with a minimum interaction score of 0.7. The resulting network was visualized in R using the ggnet2 package.",
+    "projectTags": [],
+    "keywords": [
+      "Decitabine",
+      "Dna-protein crosslink",
+      "Topors",
+      "Global-genome dpc repair",
+      "Dna methylation",
+      "Sumo",
+      "Dnmt1"
+    ],
+    "doi": "",
+    "submissionType": "PARTIAL",
+    "license": "Creative Commons Public Domain (CC0)",
+    "submissionDate": "2023-09-04",
+    "publicationDate": "2024-04-18",
+    "submitters": [
+      {
+        "title": "Professor",
+        "firstName": "Petra",
+        "lastName": "Beli",
+        "identifier": "1760101",
+        "affiliation": "Institute of Molecular Biology (IMB), Mainz, Germany",
+        "email": "p.beli@imb-mainz.de",
+        "country": "Germany",
+        "orcid": "0000-0001-9507-9820",
+        "name": "Petra Beli",
+        "id": "1760101"
+      }
+    ],
+    "labPIs": [
+      {
+        "title": "Dr",
+        "firstName": "Petra",
+        "lastName": "Beli",
+        "identifier": "2735130",
+        "affiliation": "Institute of Molecular Biology Mainz, Germany",
+        "email": "p.beli@imb-mainz.de",
+        "country": "",
+        "orcid": "",
+        "name": "Petra Beli",
+        "id": "2735130"
+      }
+    ],
+    "instruments": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1003028",
+        "name": "Orbitrap Exploris 480"
+      }
+    ],
+    "softwares": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1001583",
+        "name": "MaxQuant"
+      }
+    ],
+    "experimentTypes": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000429",
+        "name": "Shotgun proteomics"
+      }
+    ],
+    "quantificationMethods": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000314",
+        "name": "TMT"
+      }
+    ],
+    "countries": [
+      "Germany"
+    ],
+    "sampleAttributes": [
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "EFO:0000635",
+          "name": "organism part"
+        },
+        "value": [
+          {
+            "cvLabel": "BTO",
+            "accession": "BTO:0000214",
+            "name": "cell culture"
+          },
+          {
+            "cvLabel": "CL",
+            "accession": "CL:0000002",
+            "name": "permanent cell line cell"
+          }
+        ]
+      },
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "OBI:0100026",
+          "name": "organism"
+        },
+        "value": [
+          {
+            "cvLabel": "NEWT",
+            "accession": "NEWT:9606",
+            "name": "Homo sapiens (Human)"
+          }
+        ]
+      }
+    ],
+    "organisms": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "NEWT",
+        "accession": "NEWT:9606",
+        "name": "Homo sapiens (human)"
+      }
+    ],
+    "organismParts": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "CL",
+        "accession": "CL:0000002",
+        "name": "Permanent cell line cell"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "BTO",
+        "accession": "BTO:0000214",
+        "name": "Cell culture"
+      }
+    ],
+    "diseases": [],
+    "references": [
+      {
+        "pubmedID": 0,
+        "doi": "10.1038/S44318-024-00108-2"
+      }
+    ],
+    "identifiedPTMStrings": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00425",
+        "name": "monohydroxylated residue"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00397",
+        "name": "iodoacetamide derivatized residue"
+      }
+    ],
+    "totalFileDownloads": 354,
+    "botCount": 178,
+    "hubCount": 164,
+    "organicCount": 12,
+    "files": {
+      "files": [
+        {
+          "fileName": "20220712_SFB1_PBE_CB_Stingele_Goetz_iDPC_TMT16_R3.raw",
+          "fileSizeBytes": 1584149245,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/04/PXD045071/20220712_SFB1_PBE_CB_Stingele_Goetz_iDPC_TMT16_R3.raw"
+        },
+        {
+          "fileName": "20220712_SFB1_PBE_CB_Stingele_Goetz_iDPC_TMT16_R2.raw",
+          "fileSizeBytes": 1571798027,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/04/PXD045071/20220712_SFB1_PBE_CB_Stingele_Goetz_iDPC_TMT16_R2.raw"
+        },
+        {
+          "fileName": "20220712_SFB1_PBE_CB_Stingele_Goetz_iDPC_TMT16_R1.raw",
+          "fileSizeBytes": 1573467463,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/04/PXD045071/20220712_SFB1_PBE_CB_Stingele_Goetz_iDPC_TMT16_R1.raw"
+        },
+        {
+          "fileName": "checksum.txt",
+          "fileSizeBytes": 928,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/04/PXD045071/checksum.txt"
+        },
+        {
+          "fileName": "20220712_CB_Stingele_Goetz_iDPC_TMT16_PRIDE.zip",
+          "fileSizeBytes": 293891312,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/04/PXD045071/20220712_CB_Stingele_Goetz_iDPC_TMT16_PRIDE.zip"
+        }
+      ],
+      "totalCount": 5
+    }
+  }
+}

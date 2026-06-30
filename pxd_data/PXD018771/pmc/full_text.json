@@ -1,0 +1,1522 @@
+{
+  "metadata": {
+    "pxd": "PXD018771",
+    "category": "pmc",
+    "saved_at": "2026-06-30T15:09:24.755430",
+    "filename": "full_text"
+  },
+  "data": [
+    {
+      "bioctype": "BioCCollection",
+      "source": "PMC",
+      "date": "20260128",
+      "key": "pmc.key",
+      "version": "1.0",
+      "infons": {},
+      "documents": [
+        {
+          "bioctype": "BioCDocument",
+          "id": "PMC7534832",
+          "infons": {
+            "license": "NO-CC CODE"
+          },
+          "passages": [
+            {
+              "bioctype": "BioCPassage",
+              "offset": 0,
+              "infons": {
+                "article-id_doi": "10.1038/s41592-020-0959-9",
+                "article-id_manuscript": "NIHMS1622379",
+                "article-id_pmc": "PMC7534832",
+                "article-id_pmid": "32994567",
+                "fpage": "985",
+                "issue": "10",
+                "license": "Users may view, print, copy, and download text and data-mine the content in such documents, for the purposes of academic research, subject always to the full Conditions of use:",
+                "lpage": "988",
+                "name_0": "surname:Yugandhar;given-names:Kumar",
+                "name_1": "surname:Wang;given-names:Ting-Yi",
+                "name_2": "surname:Wierbowski;given-names:Shayne D.",
+                "name_3": "surname:Shayhidin;given-names:Elnur Elyar",
+                "name_4": "surname:Yu;given-names:Haiyuan",
+                "section_type": "TITLE",
+                "type": "front",
+                "volume": "17",
+                "year": "2021"
+              },
+              "text": "Structure-based validation can drastically under-estimate error rate in proteome-wide cross-linking mass spectrometry studies",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 126,
+              "infons": {
+                "section_type": "ABSTRACT",
+                "type": "abstract"
+              },
+              "text": "Thorough quality assessment of novel interactions identified by proteome-wide cross-linking mass spectrometry (XL-MS) studies is critical. Almost all current XL-MS studies have validated cross-links against known 3D structures of representative protein complexes. Here we provide theoretical and experimental evidence demonstrating this approach can drastically underestimate error rates for proteome-wide XL-MS datasets, and propose a comprehensive set of four data-quality metrics to address this issue.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 632,
+              "infons": {
+                "section_type": "ABSTRACT",
+                "type": "abstract_title_1"
+              },
+              "text": "Editorial summary:",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 651,
+              "infons": {
+                "section_type": "ABSTRACT",
+                "type": "abstract"
+              },
+              "text": "The current standard approach for estimating error in proteome-scale crosslinking-mass spectrometry datasets has severe limitations. A proposed set of data-quality metrics provides a more accurate assessment of error rate.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 874,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "Cross-linking mass spectrometry (XL-MS) is a powerful platform capable of unveiling protein interactions and capturing their structural dynamics. The wealth of information from proteome-wide XL-MS approaches facilitate large-sale identification of protein-protein interactions, and high-throughput three dimensional structural modeling of functional protein complexes. With the increased throughput of these techniques, the number of false positive cross-links and incorrect interactions can quickly add up with just one large-scale XL-MS experiment, if one is not careful. Therefore, thorough quality assessment has become critically important.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 1520,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "It has been shown that the conventional false discovery rate (FDR) calculations for XL-MS can be susceptible to error propagation (Supplementary Note 1). Currently, almost all proteome-wide XL-MS studies leverage available 3D structures of representative complexes for validation and quality assessment. Here, we demonstrate fundamental flaws in this structure-based quality assessment approach that can drastically underestimate the error rates of large-scale XL-MS datasets.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 1997,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "In small-scale XL-MS studies, the fraction of cross-linked residue pairs that satisfy the maximum distance a given cross-linker can span (e.g. 30Å for DSSO) provides meaningful insights into protein flexibility and the quality of the cross-links detected. In proteome-wide XL-MS studies, researchers extend this concept and use representative, highly abundant complexes such as the ribosome and proteasome to estimate the quality of all cross-links reported. However, true positive and false positive cross-links in these large-scale studies are not equally likely to successfully map onto an existing 3D structure, leading to massive underestimation of false positives (Fig.1a).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 2678,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "To theoretically demonstrate this, let us consider a reference protein complex structure consisting of 100 subunits. Because a false positive cross-link can be detected between any two random proteins within the proteome (~20,000 proteins for human proteome-wide experiments), for a given false positive with one of its ends mapped to the reference complex, the probability that the second end also maps to this complex by random chance is 5×10−3 (100/20000). It should be noted that this probability would be even lower for the often used ribosome (76 subunits: PDB ID 5T2C) or proteasome (34 subunits: PDB ID 5GJQ) complexes. However, these probabilities only hold for random peptide pairs (derived from false positive cross-links); true positive cross-links are much more likely to perfectly map to existing 3D structures. Conceptually, this is very similar to the fact that false positive cross-links are much more likely to be interprotein than intraprotein as shown by previous studies. We expect that almost all false positive cross-links will have only one peptide mapped to the reference complex structure. The current structural-mapping approach explicitly considers only cross-links where both peptides map to the same complex structure, and in doing so, it enriches for true positive cross-links and massively underestimates the error rates for proteome-wide XL-MS datasets. Consequentially, this validation approach may erroneously annotate artifacts as novel interactions, resulting in less reliable experimental datasets for further studies.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 4238,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "To demonstrate our theory experimentally, we obtained a subset of 122 raw files from our recent proteome-wide human K562 XL-MS study. Next, in order to generate three sets of cross-links with drastically different qualities, we ran the XlinkX search engine (Proteome Discoverer 2.2) using three criteria of increasing stringency (‘10% FDR’, ‘1% FDR’ and ‘1% FDR with ΔXlinkX score≥50’; Methods). As shown in Fig.1b, at 10% FDR, a set of 35,561 interprotein cross-links were identified (we intentionally chose 10% FDR to obtain a low-quality set of cross-links with many false positives), 1% FDR yielded 16,591 interprotein cross-links, whereas ‘1% FDR with ΔXlinkX score≥50’ yielded 985 interprotein cross-links. We mapped the interprotein cross-link residue pairs from these three sets separately onto the 3D structure of the human proteasome following the conventional methodology. We then calculated the percentage of mapped residue pairs that satisfied DSSO’s theoretical constraint (≤30Å). We observed that there was no significant difference (all P>0.85) among the three sets in terms of their percentage of residue pairs satisfying the distance constraint (Fig.1c), even though the overall qualities of these three sets are drastically different by design. Additionally, we utilized our recently published search engine, MaXLinker, to repeat the analysis and observed similar results, confirming that these findings are software-independent (Extended Data Fig.1a,1b). We further re-analyzed raw files from two other publicly available studies representing different organisms (E. coli and Mouse) and cellular compartments (mitochondria) (Fig.2a,b and Extended Data Fig.2a,b). These experimental results confirm that the current structure-mapping approach fails to capture the underlying error rate and indicate an urgent need for reliable metrics to estimate the quality of proteome-wide cross-linking datasets.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 6184,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "To address the pitfalls of the current validation approach, we propose the following comprehensive set of four measurements:",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 6309,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "(i) Fraction of structure-corroborating identifications (FSI): The current structure-based validation approach considers only those cross-links where both peptides mapped to the reference structure. Here, we propose FSI as an improved structure-based metric that uses the number of all interprotein cross-links with at least one peptide mapped to the reference structure, not just those with both peptides mapped, as the denominator (Methods).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 6753,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "(ii) Fraction of mis-identifications (FMI): Including the proteome of an unrelated organism in the search database as an internal negative control can be an efficient way to independently assess the underlying error rate of the cross-link search algorithm (Methods).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 7020,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "(iii) Fraction of interprotein cross-links from known interactions (FKI): Using prior knowledge of experimentally-detected protein interactions to calculate the FKI provides a comparative quality estimate (Methods).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 7236,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "(iv) Fraction of validated novel interactions using orthogonal experimental assays: It is essential to validate a representative set of novel interactions identified in proteome-wide XL-MS studies using an orthogonal experimental assay (e.g., Y2H, PCA), to ensure data quality and reproducibility (Methods). Furthermore, using a Bayesian framework (Supplementary Note 2) and leveraging the validation rates among a positive reference set (PRS) of well-known interactions and a negative reference set (RRS) of random pairs, we can calculate the absolute precision of the novel interactions detected in a XL-MS study.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 7852,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "We next applied our proposed metrics on our human proteome-wide XL-MS results, and demonstrated how each of them efficiently captures the differences in data quality among the three filtered sets (Fig.1d-g). Fig.1d shows that our improved structure-based metric FSI, differentiates the three sets with statistical significance, which could not be achieved by the conventional structure-based approach (Fig.1c). The results are consistent with our prior theoretical expectation that applying more stringent quality filters would remove predominantly (likely false positive) cross-links with only one peptide mapped to the structure, and thereby result in higher FSI values (Fig.1b,d). Furthermore, Fig.1e reveals the exact same trend: FMI is significantly lower for the ‘1% FDR with ΔXlinkX score≥50’ set compared to the other two sets. Moreover, as shown in Fig. 1f, FKI exhibits great agreement with the expected data quality of different data sets (at ‘1% FDR with ΔXlinkX score≥50’, FKI is 55.5%; but at ‘10% FDR’, FKI is merely 4.4%; P<1×10−20).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 8923,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "Finally, we performed a thorough orthogonal experimental validation of randomly chosen novel interactions from the three sets using a protein complementation assay (PCA). The fraction of PCA-positive novel interactions from ‘1% FDR with ΔXlinkX Score ≥50’ set (the highest quality set) is distinctively higher compared to the other two sets and indistinguishable from that of PRS (P=0.17; Fig.1g). Notably, the fraction of PCA-positive interactions for ‘1% FDR’ and ‘10% FDR’ are indistinguishable from that of RRS. Furthermore, using the Bayesian framework (Supplementary Note 2), we calculated the absolute precision of the novel interactions detected in our human XL-MS study (Extended Data Fig.3). Especially since the true FDR at the protein pair level can be significantly higher than the estimated FDR at the peptide pair level, absolute precision will be critically important for confirming the quality of novel protein-protein interactions identified in a large-scale cross-linking study. Finally, we confirmed the usefulness and robustness of the three computational metrics (namely FSI, FMI and FKI) on the re-analyzed E. coli (Fig.2c-e) and Mouse mitochondrial (Extended Data Fig.2c-e) XL-MS datasets, and using the additional search engine MaXLinker (Extended Data Fig.1c-e).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 10227,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "Taken together, our four metrics constitute a comprehensive framework to facilitate both relative comparison across different datasets and absolute estimation of error rates. Moreover, because these metrics stem from different principles, they provide complementary insights to various aspects of the data quality. FMI provides an orthogonal estimation of FDR and serves as an absolute measure of error rate. In fact, other methods have been reported to provide complementary error estimates for XL-MS studies, and show good agreement with FMI in terms of the relative data quality across different datasets (Supplementary Note 3). Since FSI typically leverages thoroughly studied complexes, in theory, it should provide an absolute estimate of quality. Nonetheless, we do note that it may only provide relative comparison especially in cases where limited or incomplete 3D reference structures are available (Fig.2c and Extended Data Fig.2c). FKI and ‘fraction of validated novel interactions using orthogonal experimental assays’ specifically addresses the quality of detected interactions inferred from interprotein cross-links. Because a large fraction of true protein interactions is yet to be discovered, FKI only provides relative estimates of quality among comparable datasets. Finally, even if high-throughput orthogonal assays are not available, we recommend that low-throughput validation assays (such as co-immunoprecipitation) be performed on a meaningful subset of the interactions identified (Supplementary Note 4).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 11762,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "In conclusion, we theoretically and experimentally illustrated the limitation of the current structure-based validation approach for evaluating proteome-wide XL-MS results. Furthermore, we proposed a comprehensive set of four metrics, and demonstrated their ability to distinguish datasets with varying qualities. Moreover, we acknowledge that this drastic under-estimation of the error rate by the conventional structure-based method is unlikely to pose a serious issue for XL-MS studies focused on specific proteins and individual complexes as long as the cross-link search is performed against only proteins that are included in the experiment. Importantly, this issue is highly relevant for the increasingly popular proteome-wide XL-MS experiments and cross-linking immunoprecipitation MS (xIP-MS) studies. Going forward, a comprehensive and accurate quality assessment framework such as the one proposed in this work needs to be adapted to aid in the advancement of XL-MS technologies.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 12753,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_1"
+              },
+              "text": "Methods",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 12761,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "Data processing",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 12777,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Cross-links were identified using XlinkX software (Proteome discoverer 2.2). PD templates for different XlinkX search methodologies were obtained from Rosa Viner (Thermo fisher Scientific). The raw files for E. coli XL-MS dataset (MS2-MS3) were obtained through e-mail request to Dr. Fan Liu. In addition to filtering XLs at ‘10% FDR’ and ‘1% FDR’, we further filtered the ‘1% FDR’ set using ‘ΔXlinkX score’ cut off ≥50. ΔXlinkX score is a CSM-level scoring parameter in XlinkX software that indicates confidence in identifying a peptide pair over the next best competing peptide pair for a given precursor mass (higher score implies better quality). In addition to the three sets, we also filtered cross-links at ‘20% FDR’ and carried out the structure-based mapping analyses to verify that the trend observed in Fig. 1c, Fig. 2b and Extended Data Fig. 2b holds at a this much higher FDR threshold (Extended Data Fig.4). During generation of 20% FDR set using MaXLinker software, the FDR was estimated at the CSM level.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 13822,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Target protein sequences were downloaded from Uniprot database (with filter ‘reviewed’): [(i) Escherichia coli: 5268 sequences; downloaded on 28th October 2017, (ii) Saccharomyces cerevisiae: 7904 sequences; downloaded on 28th September 2017 (‘reviewed: yes’), (iii) Human (Homo sapiens): 42202 sequences (20206 canonical; 21996 isoforms); downloaded on 23rd June 2017), and (iii) Mouse (Mus musculus): 17019 sequences; downloaded on 8th July 2019]. More specifically, the human database consists of 21,996 isoform sequences in addition to the 20,206 canonical sequences. The mouse database consists of the canonical sequences for 17019 proteins. The E. coli database contains of 5268 sequences in total, consisting of 4436 sequences from K12 strain (4436; most common) and the remaining 832 sequences from other less common strains. Similarly, for Saccharomyces cerevisiae the fasta database consists of 6721 sequences from the common strain ‘ATCC 204508’ and the remaining sequences comes from other lesser common strains such as ‘YJM789’, ‘RM11-1a’ and ‘JAY291’. We utilized the full list of protein entries (did not rely the protein grouping) to classify each cross-link as ‘interprotein’ or ‘intraprotein’, to avoid any inconsistencies that might occur due to potential protein grouping artifacts. When performing searches for Fig.1e and Extended Data Fig.5a, XlinkX crashed multiple times given the huge number of raw files (122 files) and the enormous search space (H. sapiens + S. cerevisiae ). Hence, we ran the searches on a smaller set of raw files (25 files) to generate Fig.1e and Extended Data Fig.5a.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 15470,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "Mapping of cross-links to existing PDB structures",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 15520,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Cross-links from our human K562 proteome-wide XL-MS dataset were mapped to the 3D structure of human 26S proteasome (PDB id: 5GJQ) utilizing residue level mappings between Uniprot and PDB entries obtained from SIFTS database. In cases where multiple positions within the PDB structure were valid, the mapping with the shortest distance was prioritized. For the re-analyzed mouse mitochondrial XL-MS dataset, the cross-links were mapped to homologous complexes (PDB IDs 1EUC, 1T9G, 5LNK, 1ZOY, 1NTM, 1V54) as shown previously. In brief, the protein sequences for all proteins involved in detected cross-links were aligned against a reference database containing PDB sequences of interest using BLAST. All BLAST matches with significant E-value and percent identity greater than 70% were retained. Exact positions for each cross-link were mapped against homologous PDB structures using a pairwise alignment, and cross-links were only considered successfully mapped if the cross-linked lysine was conserved in the structure. In cases where multiple positions within the PDB structure were valid, the mapping with the shortest distance was prioritized. Any cross-links where the exact position of the cross-linked lysine was not structurally resolved in a homologous PDB structure, were considered partially mapped. Because SIFT residue-level mapping for most of the representative structures (PDB IDs 2VRH, 1DKG, 1PCQ, 3JCD, 4PC1, and 2LRX) was unavailable for the E. coli dataset, we utilized the above mentioned homology based approach and the closest homologous complexes (PDB IDs 5MY1, 5ADY, 5ME0, 2RDO, 2VRH, 4JK2, 4YLN, 4YLO, 4XO2, 4YFH, 4YF0).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 17168,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "Fraction of structure-corroborating identifications (FSI)",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 17226,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "FSI can be calculated using the following equation: ",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 17279,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "In this work, we used 30Å as the maximum distance constraint for DSSO.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 17351,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "Fraction of mis-identifications (FMI)",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 17389,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "FMI is the fraction of cross-link identifications from a false search space (from an unrelated organism) among all the identified cross-links. It can be calculated using the following equation: ",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 17584,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "In the current work, all the raw files were re-analyzed against a sequence database containing all the sequences from the target organism’s proteome and all the sequences from S. cerevisiae proteome. Then the fraction of mis-identifications i.e., cross-links with at least one of the two linked residues unambiguously mapped to proteins from S. cerevisiae is calculated (if any cross-link has peptide shared between homologous proteins from the target organism and S. cerevisiae, it was considered a true identification). Importantly, when choosing an unrelated organism, it is important to make sure that there is no potential experimental contamination with proteins from that organism. It should be noted that another decoy database (reverse sequences of proteomes from both organisms) is generated for the FDR calculation by Proteome Discoverer. It is also noteworthy that FMI is estimated after the cross-link results are filtered at a conventional FDR threshold (‘1% FDR’ in the current study). Additionally, it should be pointed out that similar to the conventional FDR calculations, FMI calculations can also be sensitive to drastic differences in sizes of the proteome database of the unrelated organism. We utilized the following equation adapted from Fischer and Rappsilber to account for difference in database sizes and observed similar trend to that of uncorrected FMI across all three data sets analyzed in the current study (Extended data Fig.5).  where, TT is the number of target-target matches, DD is the number of decoy-decoy matches, and TD is number of target-decoy and decoy-target matches. TDDB is the number of all possible unique target-decoy and decoy-target peptide pairs and DDDB is the number of all possible unique decoy-decoy peptide pairs.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 19363,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "Fraction of interprotein cross-links from known interactions (FKI)",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 19430,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "FKI for proteome-wide XL-MS studies can be defined as the fraction of the identified interprotein cross-links from previously known protein-protein interactions. It can be derived using the following equation:  where, “positives” refer to all the identified interprotein cross-links, and “true positives” refer to interprotein cross-links from known protein-protein interactions. If a given interprotein cross-link represents multiple potential interactions and at least one of those potential interactions was mapped to the list of known protein-protein interactions, it was counted as a “true positive”. We compiled the known protein-protein interactions for E. coli (24,745), Mouse (40,527) and Human (336,033) from seven primary interaction databases. These databases include IMEx partners IntAct, MINT, and DIP; IMEx observer BioGRID; and additional sources HPRD, MIPS, and iRefWeb. Furthermore, iRefWeb combines interaction data from CORUM, BIND, MPPI and OPHID. We converted all gene identifiers in each database to Entrez gene IDs and then mapped to Uniprot IDs.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 20513,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "We would like to point out that FSI and FKI are calculated using similar denominator, conceptually. For FSI, the dominator consists of all interprotein XLs with at least one of the two peptides mapped to the reference structure. In case of FKI, the denominator consists of all the interprotein XLs in the dataset. Even though FKI’s equation does not explicitly require all the XLs to have at least one of the two proteins to be present in the reference interactome database, we expect that almost all interprotein XLs to satisfy this criterion. Moreover, we analyzed all the datasets from the current study and noted that all the datasets have more than 97% of all their interprotein XLs with at least one of the proteins in the reference interactome database. We acknowledge that someone who has a smaller reference database might not note the same observation. However, we argue that such case would lead to underestimation of FKI (i.e., overestimation of error rate), thereby making FKI more stringent.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 21521,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "Fraction of validated novel interactions using orthogonal experiment, namely protein complementation assay (PCA)",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 21634,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "The ORFs of novel protein-protein interactions in pDONR223 vector was innoculated from hORFeome v8.1 library. In each of the categories, namely ‘1% FDR with ΔXlinkX Score ≥50’, ‘1% FDR’, and ‘10% FDR’, 93 protein pairs were randomly picked without any overlaps between categories. The Gateway LR reactions were performed to clone the individual bait and prey protein of each protein pair into the expression plasmids containing the complementation fragments of the fluorescent protein Venus. To perform the assay, the HEK293T cells were prepared in Dulbecco’s Modified Eagle Medium (DMEM) supplemented with 10% fetal bovine serum (FBS) (ATCC) in black 96-well flat-bottom plates (Costar) with 5% CO2 at 37°C. When reaching 60-70% confluency, the cells were co-transfected with both plasmids containing the Venus fragments-tagged bait and prey ORF (100 ng for each) which were pre-mixed and incubated with polyethylenimine (PEI) (Polysciences Inc.) and OptiMEM (Gibco). For positive and negative controls, the set containing previously published 92 positive reference pairs and 92 negative reference pairs were simultaneously examined. After 58 hours, the fluorescence intensity of the transfected cells was measured and recorded using Infinite M1000 microplate reader (Tecan) (excitation = 514 ± 5 nm / emission = 527 ± 5 nm). The PCA experiments were performed and analyzed in triplicate. We performed a statistical power analysis (Using in-built R v3.6.3 functions and Python 2.7) and confirmed that using 92 interactions would give us >97% power to detect the difference for the ‘Positive Reference Set (PRS)’ versus ‘Random Reference Set (RRS)’, ‘1% FDR with ΔXlinkXScore≥50’ versus the ‘1% FDR’ and ‘10% FDR’ datasets. The effect sizes (Cohen’s d) were calculated from the means and pooled standard deviation of given two groups under comparison (all effect sizes were large i.e., d > 0.8). The results are provided in Supplementary Table 1. Additionally, a short discussion on the utility of PCA to validate interactions from large-scale XL-MS studies on cell organelles and different organisms is provided in Supplementary Note 5.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 23817,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "title_1"
+              },
+              "text": "Data Availability Statement",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 23845,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "paragraph"
+              },
+              "text": "The human K562 XL-MS raw files [122 raw files (97 HILIC and 25 SCX fractions) from our recent proteome-wide human K562 XL-MS study] analyzed in this study have been deposited to the ProteomeXchange Consortium via the PRIDE partner repository with the dataset identifier PXD018771. Raw data from our PCA experiments are available from the corresponding author upon request. Protein sequences were obtained from Uniprot database (https://www.uniprot.org/). Residue level mapping was performed using data from SIFTS database (https://www.ebi.ac.uk/pdbe/docs/sifts/index.html). Protein three dimensional structures utilized in this study were obtained from PDB (https://www.rcsb.org/ ; Accession codes: 5GJQ, 1EUC, 1T9G, 5LNK, 1ZOY, 1NTM, 1V54, 5MY1, 5ADY, 5ME0, 2RDO, 2VRH, 4JK2, 4YLN, 4YLO, 4XO2, 4YFH and 4YF0).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 24656,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "title_1"
+              },
+              "text": "Extended Data",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 24670,
+              "infons": {
+                "file": "nihms-1622379-f0003.jpg",
+                "id": "F3",
+                "section_type": "FIG",
+                "type": "fig_title_caption"
+              },
+              "text": "Analysis of the human proteome-wide XL-MS dataset using MaXLinker software.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 24746,
+              "infons": {
+                "file": "nihms-1622379-f0003.jpg",
+                "id": "F3",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "(a) Table showing the number of cross-links obtained at different filtering criteria, and upon mapping to a representative 3D structure of a human 26S proteasome (PDB id: 5GJQ). (b) Comparison of the fraction of validated cross-links using the conventional structure-based approach (n = 49 XLs for ‘1% FDR’; n = 65 XLs for ‘10% FDR). (c) Comparison using the fraction of structure-corroborating identifications (FSI) (n = 63 XLs for ‘1% FDR’; n = 125 XLs for ‘10% FDR). (d) Comparison using the fraction of mis-identifications (FMI) (n = 8127 XLs for ‘1% FDR’; n = 15110 XLs for ‘10% FDR). (e) Comparison using the fraction of interprotein cross-links from known interactions (FKI) (n = 1144 XLs for ‘1% FDR’; n = 5158 XLs for ‘10% FDR). for (b-e), the P values were calculated using a two-sided Z-test and the error bars indicate +/− SE of proportion.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 25625,
+              "infons": {
+                "file": "nihms-1622379-f0004.jpg",
+                "id": "F4",
+                "section_type": "FIG",
+                "type": "fig_title_caption"
+              },
+              "text": "Demonstration of the utility of our comprehensive set of validation metrics on a publicly available mouse mitochondrial XL-MS dataset.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 25760,
+              "infons": {
+                "file": "nihms-1622379-f0004.jpg",
+                "id": "F4",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "(a) Table showing the number of cross-links obtained at different filtering criteria, and upon mapping to representative 3D structures. (b) Conventional structure-based validation (n = 47 XLs for ‘1% FDR with ΔXlinkX score≥50’; n = 59 XLs for ‘1% FDR’; n = 63 XLs for ‘10% FDR’). (c) Fraction of structure-corroborating identifications (FSI) (n = 360 XLs for ‘1% FDR with ΔXlinkX score≥50’; n = 1402 XLs for ‘1% FDR’; n = 2097 XLs for ‘10% FDR’). (d) Fraction of mis-identifications (FMI) (n = 4814 XLs for ‘1% FDR with ΔXlinkX score≥50’; n = 15323 XLs for ‘1% FDR’; n = 24317 XLs for ‘10% FDR’). (e) Fraction of interprotein cross-links from known interactions (FKI) (n = 2368 XLs for ‘1% FDR with ΔXlinkX score≥50’; n = 11418 XLs for ‘1% FDR’; n = 19665 XLs for ‘10% FDR’). P values in (b-e) were calculated using a two-sided Z-test and the error bars indicate +/− SE of proportion.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 26707,
+              "infons": {
+                "file": "nihms-1622379-f0005.jpg",
+                "id": "F5",
+                "section_type": "FIG",
+                "type": "fig_title_caption"
+              },
+              "text": "Estimated precision using PCA experiments for the three datasets of different quality from our human K562 proteome-wide XL-MS study. Derived from Fig.1g.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 26861,
+              "infons": {
+                "file": "nihms-1622379-f0005.jpg",
+                "id": "F5",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "(n = 3 independent experiments; See Methods). The error bars indicate +/− SE of proportion (see Supplementary Note 2 for a detailed description of the methodology).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 27028,
+              "infons": {
+                "file": "nihms-1622379-f0006.jpg",
+                "id": "F6",
+                "section_type": "FIG",
+                "type": "fig_title_caption"
+              },
+              "text": "Structure-based mapping analysis at 20% FDR, extension to the analysis shown in Fig.1, Fig.2, and Extended Data Fig.2.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 27147,
+              "infons": {
+                "file": "nihms-1622379-f0006.jpg",
+                "id": "F6",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "a. Human proteome-wide XL-MS study: (i) Conventional structure-based validation (n = 43 XLs for ‘1% FDR with ΔXlinkX score≥50’; n = 72 XLs for ‘1% FDR’; n = 73 XLs for ‘10% FDR’; n = 73 XLs for ‘20% FDR’). (ii) Fraction of structure-corroborating identifications (FSI) (n = 52 XLs for ‘1% FDR with ΔXlinkX score≥50’; n = 262 XLs for ‘1% FDR’; n = 426 XLs for ‘10% FDR’; n = 605 XLs for ‘20% FDR’). b.\nE. coli proteome-wide XL-MS study: (i) Conventional structure-based validation (n = 14 XLs for ‘1% FDR with ΔXlinkX score≥50’; n = 17 XLs for ‘1% FDR’; n = 17 XLs for ‘10% FDR’; n = 17 XLs for ‘20% FDR’). (ii) Fraction of structure-corroborating identifications (FSI) (n = 31 XLs for ‘1% FDR with ΔXlinkX score≥50’; n = 55 XLs for ‘1% FDR’; n = 101 XLs for ‘10% FDR’; n = 123 XLs for ‘20% FDR’). c. Mouse mitochondrial XL-MS study: (i) Conventional structure-based validation (n = 47 XLs for ‘1% FDR with ΔXlinkX score≥50’; n = 59 XLs for ‘1% FDR’; n = 63 XLs for ‘10% FDR’; n = 63 XLs for ‘20% FDR’). (ii) Fraction of structure-corroborating identifications (FSI) (n = 360 XLs for ‘1% FDR with ΔXlinkX score≥50’; n = 1402 XLs for ‘1% FDR’; n = 2097 XLs for ‘10% FDR’; n = 2751 XLs for ‘20% FDR’). P values in all the panels were calculated using a two-sided Z-test and the error bars indicate +/− SE of proportion.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28580,
+              "infons": {
+                "file": "nihms-1622379-f0007.jpg",
+                "id": "F7",
+                "section_type": "FIG",
+                "type": "fig_title_caption"
+              },
+              "text": "Corrected FMI for the three datasets analyzed in the study (Utilizing equation 3 from Methods section).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28684,
+              "infons": {
+                "file": "nihms-1622379-f0007.jpg",
+                "id": "F7",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "(a) Human proteome-wide XL-MS (n = 668 XLs for ‘1% FDR with ΔXlinkX score≥50’; n = 3029 XLs for ‘1% FDR’; n = 4957 XLs for ‘10% FDR). (b)\nE. coli proteome-wide XL-MS (n = 340 XLs for ‘1% FDR with ΔXlinkX score≥50’; n = 553 XLs for ‘1% FDR’; n = 755 XLs for ‘10% FDR). (c) Mouse mitochondrial XL-MS (n = 4814 XLs for ‘1% FDR with ΔXlinkX score≥50’; n = 15323 XLs for ‘1% FDR’; n = 24317 XLs for ‘10% FDR). P values in all the panels were calculated using a two-sided Z-test and the error bars indicate +/− SE of proportion.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 29248,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "title_1"
+              },
+              "text": "Supplementary Material",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 29271,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "footnote"
+              },
+              "text": "Competing Financial Interests",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 29301,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "footnote"
+              },
+              "text": "The authors declare no competing financial interests.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 29355,
+              "infons": {
+                "section_type": "REF",
+                "type": "title"
+              },
+              "text": "References",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 29366,
+              "infons": {
+                "fpage": "144",
+                "lpage": "165",
+                "name_0": "surname:Yu;given-names:C",
+                "name_1": "surname:Huang;given-names:L",
+                "pub-id_pmid": "29160693",
+                "section_type": "REF",
+                "source": "Analytical Chemistry",
+                "type": "ref",
+                "volume": "90",
+                "year": "2018"
+              },
+              "text": "Cross-Linking Mass Spectrometry: An Emerging Technology for Interactomics and Structural Biology",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 29463,
+              "infons": {
+                "fpage": "554",
+                "name_0": "surname:Yugandhar;given-names:K",
+                "pub-id_pmid": "31839598",
+                "section_type": "REF",
+                "source": "Molecular & Cellular Proteomics",
+                "type": "ref",
+                "volume": "19",
+                "year": "2020"
+              },
+              "text": "MaXLinker: Proteome-wide Cross-link Identifications with High Specificity and Sensitivity",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 29553,
+              "infons": {
+                "fpage": "48",
+                "lpage": "53",
+                "name_0": "surname:Iacobucci;given-names:C",
+                "name_1": "surname:Götze;given-names:M",
+                "name_2": "surname:Sinz;given-names:A",
+                "pub-id_pmid": "31891863",
+                "section_type": "REF",
+                "source": "Current Opinion in Biotechnology",
+                "type": "ref",
+                "volume": "63",
+                "year": "2020"
+              },
+              "text": "Cross-linking/mass spectrometry to get a closer view on protein interaction networks",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 29638,
+              "infons": {
+                "fpage": "515",
+                "lpage": "520",
+                "name_0": "surname:Ferber;given-names:M",
+                "pub-id_pmid": "27111507",
+                "section_type": "REF",
+                "source": "Nature Methods",
+                "type": "ref",
+                "volume": "13",
+                "year": "2016"
+              },
+              "text": "Automated structure modeling of large protein assemblies using crosslinks as distance restraints",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 29735,
+              "infons": {
+                "fpage": "897",
+                "name_0": "surname:Karaca;given-names:E",
+                "name_1": "surname:Rodrigues;given-names:JPGLM",
+                "name_2": "surname:Graziadei;given-names:A",
+                "name_3": "surname:Bonvin;given-names:AMJJ",
+                "name_4": "surname:Carlomagno;given-names:T",
+                "pub-id_pmid": "28805795",
+                "section_type": "REF",
+                "source": "Nature Methods",
+                "type": "ref",
+                "volume": "14",
+                "year": "2017"
+              },
+              "text": "M3: an integrative framework for structure determination of molecular machines",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 29814,
+              "infons": {
+                "fpage": "192",
+                "name_0": "surname:Hauri;given-names:S",
+                "section_type": "REF",
+                "source": "Nature Communications",
+                "type": "ref",
+                "volume": "10",
+                "year": "2019"
+              },
+              "text": "Rapid determination of quaternary protein structures in complex biological samples",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 29897,
+              "infons": {
+                "fpage": "3829",
+                "lpage": "3833",
+                "name_0": "surname:Fischer;given-names:L",
+                "name_1": "surname:Rappsilber;given-names:J",
+                "pub-id_pmid": "28267312",
+                "section_type": "REF",
+                "source": "Analytical Chemistry",
+                "type": "ref",
+                "volume": "89",
+                "year": "2017"
+              },
+              "text": "Quirks of Error Estimation in Cross-Linking/Mass Spectrometry",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 29959,
+              "infons": {
+                "fpage": "1000",
+                "lpage": "1008",
+                "name_0": "surname:O’Reilly;given-names:FJ",
+                "name_1": "surname:Rappsilber;given-names:J",
+                "section_type": "REF",
+                "source": "Nature Structural & Molecular Biology",
+                "type": "ref",
+                "volume": "25",
+                "year": "2018"
+              },
+              "text": "Cross-linking mass spectrometry: methods and applications in structural, molecular and systems biology",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 30062,
+              "infons": {
+                "fpage": "2964",
+                "lpage": "2990",
+                "name_0": "surname:Klykov;given-names:O",
+                "pub-id_pmid": "30446747",
+                "section_type": "REF",
+                "source": "Nature Protocols",
+                "type": "ref",
+                "volume": "13",
+                "year": "2018"
+              },
+              "text": "Efficient and robust proteome-wide approaches for cross-linking mass spectrometry",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 30144,
+              "infons": {
+                "fpage": "216",
+                "name_0": "surname:Liu;given-names:F",
+                "name_1": "surname:Lössl;given-names:P",
+                "name_2": "surname:Rabbitts;given-names:BM",
+                "name_3": "surname:Balaban;given-names:RS",
+                "name_4": "surname:Heck;given-names:AJR",
+                "pub-id_pmid": "29222160",
+                "section_type": "REF",
+                "source": "Molecular & Cellular Proteomics",
+                "type": "ref",
+                "volume": "17",
+                "year": "2018"
+              },
+              "text": "The interactome of intact mitochondria by cross-linking mass spectrometry provides evidence for coexisting respiratory supercomplexes",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 30278,
+              "infons": {
+                "name_0": "surname:Keller;given-names:A",
+                "name_1": "surname:Chavez;given-names:JD",
+                "name_2": "surname:Felt;given-names:KC",
+                "name_3": "surname:Bruce;given-names:JE",
+                "section_type": "REF",
+                "source": "Journal of Proteome Research",
+                "type": "ref",
+                "year": "2019"
+              },
+              "text": "Prediction of an Upper Limit for the Fraction of Interprotein Cross-Links in Large-Scale In Vivo Cross-Linking Studies",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 30397,
+              "infons": {
+                "fpage": "1874",
+                "lpage": "1882",
+                "name_0": "surname:Bartolec;given-names:TK",
+                "pub-id_pmid": "31851481",
+                "section_type": "REF",
+                "source": "Analytical Chemistry",
+                "type": "ref",
+                "volume": "92",
+                "year": "2020"
+              },
+              "text": "Cross-linking Mass Spectrometry Analysis of the Yeast Nucleus Reveals Extensive Protein–Protein Interactions Not Detected by Systematic Two-Hybrid or Affinity Purification-Mass Spectrometry",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 30589,
+              "infons": {
+                "fpage": "15473",
+                "name_0": "surname:Liu;given-names:F",
+                "name_1": "surname:Lössl;given-names:P",
+                "name_2": "surname:Scheltema;given-names:R",
+                "name_3": "surname:Viner;given-names:R",
+                "name_4": "surname:Heck;given-names:AJR",
+                "section_type": "REF",
+                "source": "Nature Communications",
+                "type": "ref",
+                "volume": "8",
+                "year": "2017"
+              },
+              "text": "Optimized fragmentation schemes and data analysis strategies for proteome-wide cross-link identification",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 30694,
+              "infons": {
+                "fpage": "3404",
+                "name_0": "surname:Chen;given-names:Z-L",
+                "section_type": "REF",
+                "source": "Nature Communications",
+                "type": "ref",
+                "volume": "10",
+                "year": "2019"
+              },
+              "text": "A high-speed search engine pLink 2 with systematic evaluation for proteome-scale identification of cross-linked peptides",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 30815,
+              "infons": {
+                "fpage": "10236",
+                "lpage": "10244",
+                "name_0": "surname:Götze;given-names:M",
+                "name_1": "surname:Iacobucci;given-names:C",
+                "name_2": "surname:Ihling;given-names:CH",
+                "name_3": "surname:Sinz;given-names:A",
+                "pub-id_pmid": "31283178",
+                "section_type": "REF",
+                "source": "Analytical Chemistry",
+                "type": "ref",
+                "volume": "91",
+                "year": "2019"
+              },
+              "text": "A Simple Cross-Linking/Mass Spectrometry Workflow for Studying System-wide Protein Interactions",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 30911,
+              "infons": {
+                "fpage": "104",
+                "name_0": "surname:Yu;given-names:H",
+                "pub-id_pmid": "18719252",
+                "section_type": "REF",
+                "source": "Science",
+                "type": "ref",
+                "volume": "322",
+                "year": "2008"
+              },
+              "text": "High-Quality Binary Protein Interaction Map of the Yeast Interactome Network",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 30988,
+              "infons": {
+                "fpage": "310",
+                "lpage": "323",
+                "name_0": "surname:Vo;given-names:Tommy V.",
+                "pub-id_pmid": "26771498",
+                "section_type": "REF",
+                "source": "Cell",
+                "type": "ref",
+                "volume": "164",
+                "year": "2016"
+              },
+              "text": "A Proteome-wide Fission Yeast Interactome Reveals Network Evolution Principles from Yeasts to Human",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 31088,
+              "infons": {
+                "fpage": "6350",
+                "name_0": "surname:Nyfeler;given-names:B",
+                "name_1": "surname:Michnick;given-names:SW",
+                "name_2": "surname:Hauri;given-names:H-P",
+                "pub-id_pmid": "15849265",
+                "section_type": "REF",
+                "source": "Proceedings of the National Academy of Sciences of the United States of America",
+                "type": "ref",
+                "volume": "102",
+                "year": "2005"
+              },
+              "text": "Capturing protein interactions in the secretory pathway of living cells",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 31160,
+              "infons": {
+                "fpage": "91",
+                "name_0": "surname:Braun;given-names:P",
+                "pub-id_pmid": "19060903",
+                "section_type": "REF",
+                "source": "Nature Methods",
+                "type": "ref",
+                "volume": "6",
+                "year": "2008"
+              },
+              "text": "An experimentally derived confidence score for binary protein-protein interactions",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 31243,
+              "infons": {
+                "fpage": "854",
+                "name_0": "surname:Makowski;given-names:MM",
+                "name_1": "surname:Willems;given-names:E",
+                "name_2": "surname:Jansen;given-names:PWTC",
+                "name_3": "surname:Vermeulen;given-names:M",
+                "pub-id_pmid": "26560067",
+                "section_type": "REF",
+                "source": "Molecular & Cellular Proteomics",
+                "type": "ref",
+                "volume": "15",
+                "year": "2016"
+              },
+              "text": "Cross-linking immunoprecipitation-MS (xIP-MS): Topological Analysis of Chromatin-associated Protein Complexes Using Single Affinity Purification",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 31388,
+              "infons": {
+                "fpage": "742",
+                "name_0": "surname:Beveridge;given-names:R",
+                "name_1": "surname:Stadlmann;given-names:J",
+                "name_2": "surname:Penninger;given-names:JM",
+                "name_3": "surname:Mechtler;given-names:K",
+                "section_type": "REF",
+                "source": "Nature Communications",
+                "type": "ref",
+                "volume": "11",
+                "year": "2020"
+              },
+              "text": "A synthetic peptide library for benchmarking crosslinking-mass spectrometry search engines for proteins and protein complexes",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 31514,
+              "infons": {
+                "fpage": "1173",
+                "lpage": "1178",
+                "name_0": "surname:Rual;given-names:J-F",
+                "pub-id_pmid": "16189514",
+                "section_type": "REF",
+                "source": "Nature",
+                "type": "ref",
+                "volume": "437",
+                "year": "2005"
+              },
+              "text": "Towards a proteome-scale map of the human protein–protein interaction network",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 31594,
+              "infons": {
+                "fpage": "854",
+                "name_0": "surname:Makowski;given-names:MM",
+                "name_1": "surname:Willems;given-names:E",
+                "name_2": "surname:Jansen;given-names:PWTC",
+                "name_3": "surname:Vermeulen;given-names:M",
+                "pub-id_pmid": "26560067",
+                "section_type": "REF",
+                "source": "Molecular & Cellular Proteomics",
+                "type": "ref",
+                "volume": "15",
+                "year": "2016"
+              },
+              "text": "Cross-linking immunoprecipitation-MS (xIP-MS): Topological Analysis of Chromatin-associated Protein Complexes Using Single Affinity Purification",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 31739,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title"
+              },
+              "text": "Methods-only References",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 31763,
+              "infons": {
+                "fpage": "D158",
+                "lpage": "D169",
+                "pub-id_pmid": "27899622",
+                "section_type": "REF",
+                "source": "Nucleic Acids Research",
+                "type": "ref",
+                "volume": "45",
+                "year": "2017"
+              },
+              "text": "UniProt: the universal protein knowledgebase",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 31808,
+              "infons": {
+                "fpage": "D482",
+                "lpage": "D489",
+                "name_0": "surname:Dana;given-names:JM",
+                "section_type": "REF",
+                "source": "Nucleic Acids Research",
+                "type": "ref",
+                "volume": "47",
+                "year": "2018"
+              },
+              "text": "SIFTS: updated Structure Integration with Function, Taxonomy and Sequences resource allows 40-fold increase in coverage of structure-based annotations for proteins",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 31972,
+              "infons": {
+                "fpage": "403",
+                "lpage": "410",
+                "name_0": "surname:Altschul;given-names:SF",
+                "name_1": "surname:Gish;given-names:W",
+                "name_2": "surname:Miller;given-names:W",
+                "name_3": "surname:Myers;given-names:EW",
+                "name_4": "surname:Lipman;given-names:DJ",
+                "pub-id_pmid": "2231712",
+                "section_type": "REF",
+                "source": "Journal of Molecular Biology",
+                "type": "ref",
+                "volume": "215",
+                "year": "1990"
+              },
+              "text": "Basic local alignment search tool",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 32006,
+              "infons": {
+                "fpage": "1111",
+                "lpage": "1120",
+                "name_0": "surname:Gupta;given-names:N",
+                "name_1": "surname:Bandeira;given-names:N",
+                "name_2": "surname:Keich;given-names:U",
+                "name_3": "surname:Pevzner;given-names:PA",
+                "pub-id_pmid": "21953092",
+                "section_type": "REF",
+                "source": "Journal of The American Society for Mass Spectrometry",
+                "type": "ref",
+                "volume": "22",
+                "year": "2011"
+              },
+              "text": "Target-Decoy Approach and False Discovery Rate: When Things May Go Wrong",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 32079,
+              "infons": {
+                "fpage": "345",
+                "name_0": "surname:Orchard;given-names:S",
+                "pub-id_pmid": "22453911",
+                "section_type": "REF",
+                "source": "Nature Methods",
+                "type": "ref",
+                "volume": "9",
+                "year": "2012"
+              },
+              "text": "Protein interaction data curation: the International Molecular Exchange (IMEx) consortium",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 32169,
+              "infons": {
+                "fpage": "D841",
+                "lpage": "D846",
+                "name_0": "surname:Kerrien;given-names:S",
+                "pub-id_pmid": "22121220",
+                "section_type": "REF",
+                "source": "Nucleic Acids Research",
+                "type": "ref",
+                "volume": "40",
+                "year": "2012"
+              },
+              "text": "The IntAct molecular interaction database in 2012",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 32219,
+              "infons": {
+                "fpage": "D857",
+                "lpage": "D861",
+                "name_0": "surname:Licata;given-names:L",
+                "pub-id_pmid": "22096227",
+                "section_type": "REF",
+                "source": "Nucleic Acids Research",
+                "type": "ref",
+                "volume": "40",
+                "year": "2012"
+              },
+              "text": "MINT, the molecular interaction database: 2012 update",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 32273,
+              "infons": {
+                "fpage": "D449",
+                "lpage": "D451",
+                "name_0": "surname:Salwinski;given-names:L",
+                "pub-id_pmid": "14681454",
+                "section_type": "REF",
+                "source": "Nucleic Acids Research",
+                "type": "ref",
+                "volume": "32",
+                "year": "2004"
+              },
+              "text": "The Database of Interacting Proteins: 2004 update",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 32323,
+              "infons": {
+                "fpage": "D470",
+                "lpage": "D478",
+                "name_0": "surname:Chatr-aryamontri;given-names:A",
+                "pub-id_pmid": "25428363",
+                "section_type": "REF",
+                "source": "Nucleic Acids Research",
+                "type": "ref",
+                "volume": "43",
+                "year": "2015"
+              },
+              "text": "The BioGRID interaction database: 2015 update",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 32369,
+              "infons": {
+                "fpage": "D767",
+                "lpage": "D772",
+                "name_0": "surname:Keshava Prasad;given-names:TS",
+                "pub-id_pmid": "18988627",
+                "section_type": "REF",
+                "source": "Nucleic Acids Research",
+                "type": "ref",
+                "volume": "37",
+                "year": "2009"
+              },
+              "text": "Human Protein Reference Database—2009 update",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 32416,
+              "infons": {
+                "fpage": "832",
+                "lpage": "834",
+                "name_0": "surname:Pagel;given-names:P",
+                "pub-id_pmid": "15531608",
+                "section_type": "REF",
+                "source": "Bioinformatics",
+                "type": "ref",
+                "volume": "21",
+                "year": "2005"
+              },
+              "text": "The MIPS mammalian protein–protein interaction database",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 32474,
+              "infons": {
+                "fpage": "baq023",
+                "lpage": "baq023",
+                "name_0": "surname:Turner;given-names:B",
+                "section_type": "REF",
+                "source": "Database 2010",
+                "type": "ref",
+                "year": "2010"
+              },
+              "text": "iRefWeb: interactive analysis of consolidated protein interaction data and their supporting evidence",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 32575,
+              "infons": {
+                "fpage": "D497",
+                "lpage": "D501",
+                "name_0": "surname:Ruepp;given-names:A",
+                "pub-id_pmid": "19884131",
+                "section_type": "REF",
+                "source": "Nucleic Acids Research",
+                "type": "ref",
+                "volume": "38",
+                "year": "2010"
+              },
+              "text": "CORUM: the comprehensive resource of mammalian protein complexes—2009",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 32647,
+              "infons": {
+                "fpage": "D418",
+                "lpage": "D424",
+                "name_0": "surname:Alfarano;given-names:C",
+                "pub-id_pmid": "15608229",
+                "section_type": "REF",
+                "source": "Nucleic Acids Research",
+                "type": "ref",
+                "volume": "33",
+                "year": "2005"
+              },
+              "text": "The Biomolecular Interaction Network Database and related tools 2005 update",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 32723,
+              "infons": {
+                "fpage": "2076",
+                "lpage": "2082",
+                "name_0": "surname:Brown;given-names:KR",
+                "name_1": "surname:Jurisica;given-names:I",
+                "pub-id_pmid": "15657099",
+                "section_type": "REF",
+                "source": "Bioinformatics",
+                "type": "ref",
+                "volume": "21",
+                "year": "2005"
+              },
+              "text": "Online Predicted Human Interaction Database",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 32767,
+              "infons": {
+                "fpage": "659",
+                "name_0": "surname:Yang;given-names:X",
+                "pub-id_pmid": "21706014",
+                "section_type": "REF",
+                "source": "Nature Methods",
+                "type": "ref",
+                "volume": "8",
+                "year": "2011"
+              },
+              "text": "A public genome-scale lentiviral expression library of human ORFs",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 32833,
+              "infons": {
+                "fpage": "83",
+                "name_0": "surname:Venkatesan;given-names:K",
+                "pub-id_pmid": "19060904",
+                "section_type": "REF",
+                "source": "Nature Methods",
+                "type": "ref",
+                "volume": "6",
+                "year": "2008"
+              },
+              "text": "An empirical framework for binary interactome mapping",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 32887,
+              "infons": {
+                "fpage": "D442",
+                "lpage": "D450",
+                "name_0": "surname:Perez-Riverol;given-names:Y",
+                "section_type": "REF",
+                "source": "Nucleic Acids Research",
+                "type": "ref",
+                "volume": "47",
+                "year": "2018"
+              },
+              "text": "The PRIDE database and related tools and resources in 2019: improving support for quantification data",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 32989,
+              "infons": {
+                "file": "nihms-1622379-f0001.jpg",
+                "id": "F1",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Evaluation of the conventional 3D structure-based validation approach for proteome-wide cross-linking mass spectrometry using human K562 DSSO XL-MS data. (a) In the current structure-mapping approach for validating the false positive cross-link identifications, most false positive cross-links only have one peptide mapped to the structure and are therefore ignored. (b) Table showing the number of cross-links obtained at different filtering criteria, and upon mapping to a representative 3D structure of a human 26S proteasome. (c) Fraction of cross-links satisfying the maximum distance constraint (≤30Å) across the three sets, according to the conventional structure-based validation approach (n = 43 XLs for ‘1% FDR with ΔXlinkX score≥50’; n = 72 XLs for ‘1% FDR’; n = 73 XLs for ‘10% FDR’). (d) Fraction of structure-corroborating identifications (FSI) across the three sets (n = 52 XLs for ‘1% FDR with ΔXlinkX score≥50’; n = 262 XLs for ‘1% FDR’; n = 426 XLs for ‘10% FDR’). (e) Fraction of misidentifications (FMI) across the three sets (n = 668 XLs for ‘1% FDR with ΔXlinkX score≥50’; n = 3029 XLs for ‘1% FDR’; n = 4957 XLs for ‘10% FDR’; See Methods). (f) Fraction of interprotein cross-links from known interactions (FKI) across the three sets (n = 985 XLs for ‘1% FDR with ΔXlinkX score≥50’; n = 16,591 XLs for ‘1% FDR’; n = 35,561 XLs for ‘10% FDR’). For (c – f), P values were calculated using a two-sided Z-test. The error bars indicate +/− SE of proportion and the centre of the error bars indicate the proportion. (g) Orthogonal experimental validation of a random subset of novel interactions from the three sets using protein complementation assay (PCA). [PRS(Positive Reference Set): mean fraction positive: 0.286; RRS (Random Reference Set): mean fraction positive: 0.098; ‘10% FDR’: mean fraction positive: 0.152; ‘1% FDR’: mean fraction positive: 0.152; ‘1% FDR with ΔXlinkX score≥50’: mean fraction positive: 0.258]. The error bars indicate +/− standard deviation and the centre of the error bars indicate mean fraction positive; P values were calculated using a two-sided t-test on the log-transformed measurements (n = 3 independent experiments; See Methods); 95% confidence interval; t-statistic 4.04 for ‘10% FDR’ versus RRS, 7.20 for ‘1% FDR with ΔXlinkX score ≥50’ versus ‘1% FDR’, 2.13 for PRS versus ‘1% FDR with ΔXlinkX score ≥50’; 2 degrees of freedom.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 35484,
+              "infons": {
+                "file": "nihms-1622379-f0002.jpg",
+                "id": "F2",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Demonstration of our set of validation metrics on a publicly available E. coli proteome-wide XL-MS dataset. (a) Table showing the number of cross-links obtained at different filtering criteria, and upon mapping to representative 3D structures. (b) Fraction of cross-links satisfying the maximum distance constraint (≤30Å) across the three sets, according to the conventional structure-based validation approach (n = 14 XLs for ‘1% FDR with ΔXlinkX score≥50’; n = 17 XLs for ‘1% FDR’; n = 17 XLs for ‘10% FDR’). (c) Fraction of structure-corroborating identifications (FSI) (n = 31 XLs for ‘1% FDR with ΔXlinkX score≥50’; n = 55 XLs for ‘1% FDR’; n = 101 XLs for ‘10% FDR’). (d) Fraction of mis-identifications (FMI) (n = 340 XLs for ‘1% FDR with ΔXlinkX score≥50’; n = 553 XLs for ‘1% FDR’; n = 755 XLs for ‘10% FDR’). (e) Fraction of interprotein cross-links from known interactions (FKI) (n = 54 XLs for ‘1% FDR with ΔXlinkX score≥50’; n = 120 XLs for ‘1% FDR’; n = 329 XLs for ‘10% FDR’). For (b-e), the P values were calculated using a two-sided Z-test and the error bars indicate +/− SE of proportion.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            }
+          ],
+          "annotations": [],
+          "relations": []
+        }
+      ]
+    }
+  ]
+}

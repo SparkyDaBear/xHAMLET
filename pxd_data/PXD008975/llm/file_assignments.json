@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "pxd": "PXD008975",
+    "category": "llm",
+    "saved_at": "2026-06-30T14:56:59.321935",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"ecoli_k12_bdppnhp_mango_mixed_timepoints\",\n      \"description\": \"Escherichia coli K-12 stationary-phase cells crosslinked with BDP-NHP (CID-cleavable Mango crosslinker), including multiple NCE30 4hr and 4hr conditions as captured by the provided raw filenames.\",\n      \"organism\": \"Escherichia coli K-12\",\n      \"taxid\": \"NCBITaxon:511145\",\n      \"crosslinker\": \"BDP-NHP\",\n      \"biological_condition\": \"stationary phase; NCE30 4hr and 4hr timepoints/conditions (as indicated by filenames)\",\n      \"files\": [\n        \"012618_Eco1_noXL_mango_1.raw\",\n        \"051917_Eco1_F10_NCE30_4hr_1.raw\",\n        \"051917_Eco1_F11_14_NCE30_4hr_1.raw\",\n        \"051917_Eco1_F6_7_NCE30_4hr_1.raw\",\n        \"051917_Eco1_F8_NCE30_4hr_1.raw\",\n        \"051917_Eco1_F9_NCE30_4hr_1.raw\",\n        \"052117_Eco1_F10_NCE30_4hr_1.raw\",\n        \"052117_Eco1_F11_14_NCE30_4hr_1.raw\",\n        \"052117_Eco1_F6_7_NCE30_4hr_1.raw\",\n        \"052117_Eco1_F8_NCE30_4hr_1.raw\",\n        \"052117_Eco1_F9_NCE30_4hr_1.raw\",\n        \"061417_Eco1_F10_4hr.raw\",\n        \"061417_Eco1_F11_14_4hr.raw\",\n        \"061417_Eco1_F6_7_4hr.raw\",\n        \"061417_Eco1_F8_4hr.raw\",\n        \"061417_Eco1_F9_4hr.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"E. coli (K12) was grown to stationary phase in LB media... biotin aspartate proline-N-hydroxyphtalamide (BDP-NHP)... added to a final concentration of 10 mM.\",\n      \"reasoning\": \"All filenames are clearly from the same proteome (Eco1 / E. coli) and the publication specifies the cleavable crosslinker used for the Mango workflow as BDP-NHP. The filenames include multiple SCX fraction groupings (F6_7, F8, F9, F10, F11_14) and different acquisition/perturbation tags (NCE30_4hr vs 4hr), but the task forbids splitting by fraction and there is no explicit second crosslinker or separate biological condition definition beyond these tags. Therefore, the smallest biologically meaningful grouping is a single E. coli K-12 BDP-NHP cluster covering the provided timepoint/acquisition variants. The file '012618_Eco1_noXL_mango_1.raw' suggests a no-crosslink control; however, no separate crosslinker/control metadata is provided in the prompt, so it is included with medium confidence rather than creating a separate cluster.\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a distinct biological XL-MS condition from the provided information.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"All provided raw filenames appear to be biological E. coli runs (Eco1) rather than QC/calibration/blank files, so no files were left unassigned.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 15,\n    \"n_assigned_files\": 15,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 1,\n    \"overall_confidence\": \"medium\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "ecoli_k12_bdppnhp_mango_mixed_timepoints",
+          "description": "Escherichia coli K-12 stationary-phase cells crosslinked with BDP-NHP (CID-cleavable Mango crosslinker), including multiple NCE30 4hr and 4hr conditions as captured by the provided raw filenames.",
+          "organism": "Escherichia coli K-12",
+          "taxid": "NCBITaxon:511145",
+          "crosslinker": "BDP-NHP",
+          "biological_condition": "stationary phase; NCE30 4hr and 4hr timepoints/conditions (as indicated by filenames)",
+          "files": [
+            "012618_Eco1_noXL_mango_1.raw",
+            "051917_Eco1_F10_NCE30_4hr_1.raw",
+            "051917_Eco1_F11_14_NCE30_4hr_1.raw",
+            "051917_Eco1_F6_7_NCE30_4hr_1.raw",
+            "051917_Eco1_F8_NCE30_4hr_1.raw",
+            "051917_Eco1_F9_NCE30_4hr_1.raw",
+            "052117_Eco1_F10_NCE30_4hr_1.raw",
+            "052117_Eco1_F11_14_NCE30_4hr_1.raw",
+            "052117_Eco1_F6_7_NCE30_4hr_1.raw",
+            "052117_Eco1_F8_NCE30_4hr_1.raw",
+            "052117_Eco1_F9_NCE30_4hr_1.raw",
+            "061417_Eco1_F10_4hr.raw",
+            "061417_Eco1_F11_14_4hr.raw",
+            "061417_Eco1_F6_7_4hr.raw",
+            "061417_Eco1_F8_4hr.raw",
+            "061417_Eco1_F9_4hr.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "E. coli (K12) was grown to stationary phase in LB media... biotin aspartate proline-N-hydroxyphtalamide (BDP-NHP)... added to a final concentration of 10 mM.",
+          "reasoning": "All filenames are clearly from the same proteome (Eco1 / E. coli) and the publication specifies the cleavable crosslinker used for the Mango workflow as BDP-NHP. The filenames include multiple SCX fraction groupings (F6_7, F8, F9, F10, F11_14) and different acquisition/perturbation tags (NCE30_4hr vs 4hr), but the task forbids splitting by fraction and there is no explicit second crosslinker or separate biological condition definition beyond these tags. Therefore, the smallest biologically meaningful grouping is a single E. coli K-12 BDP-NHP cluster covering the provided timepoint/acquisition variants. The file '012618_Eco1_noXL_mango_1.raw' suggests a no-crosslink control; however, no separate crosslinker/control metadata is provided in the prompt, so it is included with medium confidence rather than creating a separate cluster."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a distinct biological XL-MS condition from the provided information.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "All provided raw filenames appear to be biological E. coli runs (Eco1) rather than QC/calibration/blank files, so no files were left unassigned."
+        }
+      ],
+      "summary": {
+        "n_input_files": 15,
+        "n_assigned_files": 15,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 1,
+        "overall_confidence": "medium"
+      }
+    }
+  }
+}

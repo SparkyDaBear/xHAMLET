@@ -1,0 +1,1121 @@
+{
+  "metadata": {
+    "pxd": "PXD021822",
+    "category": "enhanced",
+    "saved_at": "2026-06-30T15:13:49.688199",
+    "filename": "metadata"
+  },
+  "data": {
+    "pxd": "PXD021822",
+    "processed_at": "2026-06-30T15:13:11.638349",
+    "stages": {
+      "pride": "success",
+      "publication": "failed",
+      "file_clustering": "failed",
+      "raw_processing": "skipped_no_download",
+      "spectral_merge": "success",
+      "llm": "success",
+      "sdrf": "success",
+      "sdrf_validation": "success_with_warnings",
+      "xi_configs": "success",
+      "relink": "skipped",
+      "compilation": "success"
+    },
+    "spectral_summary": {
+      "source_files_parsed": 0,
+      "per_file": [],
+      "instrument": "6540 Q-TOF LC/MS"
+    },
+    "sdrf_path": "pxd_data/PXD021822/sdrf/PXD021822.sdrf.tsv",
+    "sdrf_validation_warnings": "Traceback (most recent call last):\n  File \"/home/ians/git_repos/xHAMLET/.venv/bin/parse_sdrf\", line 6, in <module>\n    sys.exit(main())\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/sdrf_pipelines/parse_sdrf.py\", line 770, in main\n    cli()\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/click/core.py\", line 1524, in __call__\n    return self.main(*args, **kwargs)\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/click/core.py\", line 1445, in main\n    rv = self.invoke(ctx)\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/click/core.py\", line 1912, in invoke\n    return _process_result(sub_ctx.command.invoke(sub_ctx))\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/click/core.py\", line 1308, in invoke\n    return ctx.invoke(self.callback, **ctx.params)\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/click/core.py\", line 877, in invoke\n    return callback(*args, **kwargs)\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/click/decorators.py\", line 34, in new_func\n    return f(get_current_context(), *args, **kwargs)\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/sdrf_pipelines/parse_sdrf.py\", line 266, in validate_sdrf\n    sdrf_df = read_sdrf(sdrf_file)\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/sdrf_pipelines/sdrf/sdrf.py\", line 325, in read_sdrf\n    raise ValueError(\"No valid data found in the file\")\nValueError: No valid data found in the file",
+    "xi_config_paths": {
+      "crosslinking": "pxd_data/PXD021822/configs/xi_crosslinking.conf",
+      "linear": "pxd_data/PXD021822/configs/xi_linear.conf"
+    },
+    "pride_data": {
+      "accession": "PXD021822",
+      "title": "Identification of proteins in the interactomes of 4 DNA-repair proteins of Deinococcus radiodurans",
+      "additionalAttributes": [],
+      "projectDescription": "Project includes identification of the interacting partners of the four important DNA-repair proteins (DdrA, DdrB, RecA, Ssb) of the extremophile D. radiodurans. The interacting proteins were crosslinked with DSP, immunoprecipitated using antibodies against the four DNA repair proteins,  followed by protein identification by LC MS/MS.",
+      "sampleProcessingProtocol": "Protein complexes in D. radiodurans cells were cross-linked in vivo with 1mM DSP at room temperature for 30 mins and the reaction was quenched by 40mM Tris-HCl, pH 7.4. Subsequently, the DSP cross-linked cells were snap frozen and stored at -80°C until use. The cross-linked D. radiodurans cells were re-suspended in 1x coupling buffer (0.01M sodium phosphate, 0.15M NaCl; pH 7.2 supplemented with protease inhibitor cocktail). The cells were lysed by sonication and the lysate was centrifuged at 10,000g for 10 min and clarified cellular extract was incubated with appropriate IP-antibody (anti-DdrA, Anti-DdrB, anti-RecA or anti-Ssb) coupled resin for at least 4h at 4°C. The clarified cellular extract was also incubated with antibodies present in preimmune serum to precipitate control interactome comprising proteins binding to the antibodies present in preimmune serum or to the resin. Washing of the beads and elution of protein complexes were carried out as per manufacturer’s recommendation. The eluted protein complexes were uncross-linked using 50mM DTT at 37°C for 30 min. Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates. In each experiment, the eluted fractions were resolved by SDS-PAGE and stained with silver staining to ascertain presence of proteins and consistency between the replicate samples. The eluted proteins were identified by LC-MS/MS analyses. LC-MS/MS data were acquired for proteins interacting with the four DNA repair bait proteins (DdrA, DdrB, RecA or Ssb) and the negative control. In brief, proteins were reduced with DTT (Cat. No. D0632; Sigma, India), alkylated with iodoacetamide (Cat. No. I1149; Sigma, India) and digested with trypsin (Cat. No. 90057; Pierce Thermo Scientific) for 16h at 37°C. LC-MS/MS analyses were performed on 6540 UHD Accurate-Mass Q-TOF LC/MS system (Agilent Technologies) coupled to a nano-LC chip (Agilent 1260 infinity HPLC-Chip/MS). The peptides were eluted using a gradient of solvent A (0.1% formic acid) and solvent B (90% ACN in 0.1% formic acid) at a flow rate of 300 nl/min over 120 min. Spectra were acquired in positive ion mode and in a mass range from 275 to 1700 m/z. MS scan rate was 5 - 8 spectra/sec and MS/MS scan rate was 3 spectra/sec. Total ion chromatograms were acquired using Agilent Mass Hunter software",
+      "dataProcessingProtocol": "Label-free MS/MS data contained 15 raw files (3 biological replicates for each of the 4 DNA repair proteins and negative control). The raw files were processed using the open-source R packages MSGF-plus and msnID. The raw mass spectral files were converted to the widely accepted mzML format using the msconvert tool  followed by the mass-spectra analyses using the two packages MSGF-plus and msnID in Rstudio . Then, all the protein sequences from D. radiodurans were downloaded from the UNIPROT database and, the sequence and decoy databases were generated using the MSGF-plus. Peptide spectral matching was carried out using the R package MSGF-plus. The following parameters were used for the peptide spectral matching: Cleaving enzyme: Trypsin; Maximum number of missed cleavages allowed: 2; precursor ion mass tolerance: 20ppm; Fixed modifications: Carbamidomethyl cysteine (Unimass: 57.021463735); Variable modifications: Oxidation on the Methionine (Unimass: 15.99491463) and CAMthiopropanoyl modification on lysine (Unimass: 145.019749205) (24); peptide length range (3-40), precursors charge range (2-6) and target decoy approach. Protein having at least one unique peptide matched to the spectra, spectral-Evalue < 10-6 and decoy as false was considered as a valid identification. Further, the peptides were filtered based on the absolute parent mass error and the MSMS Score was optimized for each replicate using the Nelder-Mead optimization method, given in the MsnID package with a false positive threshold of 1% at the peptide and protein level.",
+      "projectTags": [],
+      "keywords": [
+        "Deinococcus radiodurans dna damage repair"
+      ],
+      "doi": "10.6019/PXD021822",
+      "submissionType": "COMPLETE",
+      "license": "Creative Commons Public Domain (CC0)",
+      "submissionDate": "2020-10-05",
+      "publicationDate": "2021-05-07",
+      "submitters": [
+        {
+          "title": "Mr",
+          "firstName": "Mahesh Kumar",
+          "lastName": "Padwal",
+          "identifier": "2178833",
+          "affiliation": "Bhabha Atomic Research Center Mumbai ",
+          "email": "mkpadwal@barc.gov.in",
+          "country": "India",
+          "orcid": "",
+          "name": "Mahesh Kumar Padwal",
+          "id": "2178833"
+        }
+      ],
+      "labPIs": [
+        {
+          "title": "Dr",
+          "firstName": "Dr. BHAKTI",
+          "lastName": "BASU",
+          "identifier": "2161930",
+          "affiliation": "BHABHA ATOMIC RESEARCH CENTER MUMBAI",
+          "email": "bbasu@barc.gov.in",
+          "country": "",
+          "orcid": "",
+          "name": "Dr. BHAKTI BASU",
+          "id": "2161930"
+        }
+      ],
+      "instruments": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MS",
+          "accession": "MS:1002789",
+          "name": "6540 Q-TOF LC/MS"
+        }
+      ],
+      "softwares": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MS",
+          "accession": "MS:1002048",
+          "name": "MS-GF+"
+        },
+        {
+          "@type": "CvParam",
+          "cvLabel": "MS",
+          "accession": "MS:1002205",
+          "name": "ProteoWizard msconvert"
+        }
+      ],
+      "experimentTypes": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "PRIDE",
+          "accession": "PRIDE:0000429",
+          "name": "Shotgun proteomics"
+        },
+        {
+          "@type": "CvParam",
+          "cvLabel": "PRIDE",
+          "accession": "PRIDE:0000433",
+          "name": "Affinity purification coupled with mass spectrometry proteomics"
+        }
+      ],
+      "quantificationMethods": [],
+      "countries": [
+        "India"
+      ],
+      "sampleAttributes": [
+        {
+          "@type": "Tuple",
+          "key": {
+            "cvLabel": "EFO",
+            "accession": "OBI:0100026",
+            "name": "organism"
+          },
+          "value": [
+            {
+              "cvLabel": "NEWT",
+              "accession": "NEWT:243230",
+              "name": "Deinococcus radiodurans R1"
+            }
+          ]
+        }
+      ],
+      "organisms": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "NEWT",
+          "accession": "NEWT:243230",
+          "name": "Deinococcus radiodurans r1"
+        }
+      ],
+      "organismParts": [],
+      "diseases": [],
+      "references": [
+        {
+          "referenceLine": "Ujaoney AK, Padwal MK, Basu B. An <i>in vivo</i> Interaction Network of DNA-Repair Proteins: A Snapshot at Double Strand Break Repair in <i>Deinococcus radiodurans</i>. J Proteome Res. 2021",
+          "pubmedID": 33929844,
+          "doi": "10.1021/acs.jproteome.1c00078"
+        }
+      ],
+      "identifiedPTMStrings": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MOD",
+          "accession": "MOD:00425",
+          "name": "monohydroxylated residue"
+        },
+        {
+          "@type": "CvParam",
+          "cvLabel": "MOD",
+          "accession": "MOD:01251",
+          "name": "N6-[3-(carboxamidomethylthio)propanoyl]lysine"
+        },
+        {
+          "@type": "CvParam",
+          "cvLabel": "MOD",
+          "accession": "MOD:00397",
+          "name": "iodoacetamide derivatized residue"
+        }
+      ],
+      "totalFileDownloads": 2804,
+      "botCount": 1162,
+      "hubCount": 1590,
+      "organicCount": 52,
+      "files": {
+        "files": [
+          {
+            "fileName": "RecA3.mzML",
+            "fileSizeBytes": 191490577,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/RecA3.mzML"
+          },
+          {
+            "fileName": "180623-Shantani-732A-00.mzXML",
+            "fileSizeBytes": 169992615,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/180623-Shantani-732A-00.mzXML"
+          },
+          {
+            "fileName": "DdrB2.mzML",
+            "fileSizeBytes": 256751021,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/DdrB2.mzML"
+          },
+          {
+            "fileName": "Ssb1.mzid.gz",
+            "fileSizeBytes": 18304822,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/Ssb1.mzid.gz"
+          },
+          {
+            "fileName": "180719-Shantani-736A-00.mzXML",
+            "fileSizeBytes": 132851482,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/180719-Shantani-736A-00.mzXML"
+          },
+          {
+            "fileName": "DdrB1.mzid.gz",
+            "fileSizeBytes": 21781647,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/DdrB1.mzid.gz"
+          },
+          {
+            "fileName": "180517-Shantani-721B-00.mzXML",
+            "fileSizeBytes": 130917917,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/180517-Shantani-721B-00.mzXML"
+          },
+          {
+            "fileName": "181103-Shantani-786B-00.mzXML",
+            "fileSizeBytes": 101354450,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/181103-Shantani-786B-00.mzXML"
+          },
+          {
+            "fileName": "181103-Shantani-786A-00.mzXML",
+            "fileSizeBytes": 78868329,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/181103-Shantani-786A-00.mzXML"
+          },
+          {
+            "fileName": "180623-Shantani-731B-00.mzXML",
+            "fileSizeBytes": 136569758,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/180623-Shantani-731B-00.mzXML"
+          },
+          {
+            "fileName": "Ssb2.mzid.gz",
+            "fileSizeBytes": 22462201,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/Ssb2.mzid.gz"
+          },
+          {
+            "fileName": "180517-Shantani-721A-00.mzXML",
+            "fileSizeBytes": 315227943,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/180517-Shantani-721A-00.mzXML"
+          },
+          {
+            "fileName": "DdrB3.mzML",
+            "fileSizeBytes": 210757813,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/DdrB3.mzML"
+          },
+          {
+            "fileName": "Ssb1.mzML",
+            "fileSizeBytes": 202305376,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/Ssb1.mzML"
+          },
+          {
+            "fileName": "180719-Shantani-736C-00.mzXML",
+            "fileSizeBytes": 141305932,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/180719-Shantani-736C-00.mzXML"
+          },
+          {
+            "fileName": "ctrl3.mzid.gz",
+            "fileSizeBytes": 5811877,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/ctrl3.mzid.gz"
+          },
+          {
+            "fileName": "ctrl3.mzML",
+            "fileSizeBytes": 200876405,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/ctrl3.mzML"
+          },
+          {
+            "fileName": "ddrA.mzXML",
+            "fileSizeBytes": 128306693,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/ddrA.mzXML"
+          },
+          {
+            "fileName": "DdrB2.mzid.gz",
+            "fileSizeBytes": 20778263,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/DdrB2.mzid.gz"
+          },
+          {
+            "fileName": "RecA1.mzML",
+            "fileSizeBytes": 212919254,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/RecA1.mzML"
+          },
+          {
+            "fileName": "ctrl1.mzML",
+            "fileSizeBytes": 234049605,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/ctrl1.mzML"
+          },
+          {
+            "fileName": "RecA3.mzid.gz",
+            "fileSizeBytes": 15364913,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/RecA3.mzid.gz"
+          },
+          {
+            "fileName": "180801-Shantani-741B-00.mzXML",
+            "fileSizeBytes": 140513421,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/180801-Shantani-741B-00.mzXML"
+          },
+          {
+            "fileName": "ctrl2.mzML",
+            "fileSizeBytes": 176248359,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/ctrl2.mzML"
+          },
+          {
+            "fileName": "DdrB1.mzML",
+            "fileSizeBytes": 441852552,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/DdrB1.mzML"
+          },
+          {
+            "fileName": "DdrA1.mzid.gz",
+            "fileSizeBytes": 9825196,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/DdrA1.mzid.gz"
+          },
+          {
+            "fileName": "DdrA2.mzid.gz",
+            "fileSizeBytes": 19931185,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/DdrA2.mzid.gz"
+          },
+          {
+            "fileName": "181103-Shantani-786C-00.mzXML",
+            "fileSizeBytes": 110405826,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/181103-Shantani-786C-00.mzXML"
+          },
+          {
+            "fileName": "RecA1.mzid.gz",
+            "fileSizeBytes": 19340036,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/RecA1.mzid.gz"
+          },
+          {
+            "fileName": "DdrA3.mzid.gz",
+            "fileSizeBytes": 20963840,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/DdrA3.mzid.gz"
+          },
+          {
+            "fileName": "ctrl2.mzid.gz",
+            "fileSizeBytes": 5484409,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/ctrl2.mzid.gz"
+          },
+          {
+            "fileName": "DdrA1.mzML",
+            "fileSizeBytes": 184935833,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/DdrA1.mzML"
+          },
+          {
+            "fileName": "DdrB3.mzid.gz",
+            "fileSizeBytes": 20051095,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/DdrB3.mzid.gz"
+          },
+          {
+            "fileName": "180517-Shantani-720C-00.mzXML",
+            "fileSizeBytes": 128169628,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/180517-Shantani-720C-00.mzXML"
+          },
+          {
+            "fileName": "RecA2.mzML",
+            "fileSizeBytes": 300464726,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/RecA2.mzML"
+          },
+          {
+            "fileName": "180623-Shantani-731C-00.mzXML",
+            "fileSizeBytes": 173681791,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/180623-Shantani-731C-00.mzXML"
+          },
+          {
+            "fileName": "DdrA2.mzML",
+            "fileSizeBytes": 215155839,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/DdrA2.mzML"
+          },
+          {
+            "fileName": "RecA2.mzid.gz",
+            "fileSizeBytes": 23787674,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/RecA2.mzid.gz"
+          },
+          {
+            "fileName": "180517-Shantani-721C-00.mzXML",
+            "fileSizeBytes": 122145847,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/180517-Shantani-721C-00.mzXML"
+          },
+          {
+            "fileName": "Ssb3.mzML",
+            "fileSizeBytes": 224582818,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/Ssb3.mzML"
+          },
+          {
+            "fileName": "180516-Shantani-720B-00.mzXML",
+            "fileSizeBytes": 93309613,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/180516-Shantani-720B-00.mzXML"
+          },
+          {
+            "fileName": "Ssb2.mzML",
+            "fileSizeBytes": 250658500,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/Ssb2.mzML"
+          },
+          {
+            "fileName": "ctrl1.mzid.gz",
+            "fileSizeBytes": 6952699,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/ctrl1.mzid.gz"
+          },
+          {
+            "fileName": "Ssb3.mzid.gz",
+            "fileSizeBytes": 20055471,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/Ssb3.mzid.gz"
+          },
+          {
+            "fileName": "DdrA3.mzML",
+            "fileSizeBytes": 184489615,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/DdrA3.mzML"
+          }
+        ],
+        "totalCount": 45
+      }
+    },
+    "publication_metadata": null,
+    "llm_responses": {
+      "characteristics[disease]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"DSP cross-linking\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Protein complexes in D. radiodurans cells were cross-linked in vivo with 1mM DSP at room temperature for 30 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": \"DSP\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"cross-linked in vivo with 1mM DSP\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": \"1 mM\",\n    \"accession\": \"NCIT:C25488\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"with 1mM DSP\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"cross-linking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Protein complexes in D. radiodurans cells were cross-linked in vivo\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The eluted protein complexes were uncross-linked using 50mM DTT at 37°C for 30 min.\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[phenotype]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"DSP cross-linking\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Protein complexes in D. radiodurans cells were cross-linked in vivo with 1mM DSP at room temperature for 30 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": \"DSP\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"cross-linked in vivo with 1mM DSP\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": \"1 mM\",\n    \"accession\": \"NCIT:C25488\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"with 1mM DSP\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"cross-linking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Protein complexes in D. radiodurans cells were cross-linked in vivo\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The eluted protein complexes were uncross-linked using 50mM DTT at 37°C for 30 min.\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[treatment]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"DSP cross-linking\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Protein complexes in D. radiodurans cells were cross-linked in vivo with 1mM DSP at room temperature for 30 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": \"DSP\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"cross-linked in vivo with 1mM DSP\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": \"1 mM\",\n    \"accession\": \"NCIT:C25488\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"with 1mM DSP\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"cross-linking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Protein complexes in D. radiodurans cells were cross-linked in vivo\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The eluted protein complexes were uncross-linked using 50mM DTT at 37°C for 30 min.\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "DSP cross-linking",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "Protein complexes in D. radiodurans cells were cross-linked in vivo with 1mM DSP at room temperature for 30 mins",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[compound]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"DSP cross-linking\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Protein complexes in D. radiodurans cells were cross-linked in vivo with 1mM DSP at room temperature for 30 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": \"DSP\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"cross-linked in vivo with 1mM DSP\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": \"1 mM\",\n    \"accession\": \"NCIT:C25488\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"with 1mM DSP\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"cross-linking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Protein complexes in D. radiodurans cells were cross-linked in vivo\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The eluted protein complexes were uncross-linked using 50mM DTT at 37°C for 30 min.\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "DSP",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "cross-linked in vivo with 1mM DSP",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[dose]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"DSP cross-linking\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Protein complexes in D. radiodurans cells were cross-linked in vivo with 1mM DSP at room temperature for 30 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": \"DSP\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"cross-linked in vivo with 1mM DSP\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": \"1 mM\",\n    \"accession\": \"NCIT:C25488\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"with 1mM DSP\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"cross-linking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Protein complexes in D. radiodurans cells were cross-linked in vivo\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The eluted protein complexes were uncross-linked using 50mM DTT at 37°C for 30 min.\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "1 mM",
+          "accession": "NCIT:C25488",
+          "confidence": "high",
+          "evidence_quote": "with 1mM DSP",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[genetic modification]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"DSP cross-linking\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Protein complexes in D. radiodurans cells were cross-linked in vivo with 1mM DSP at room temperature for 30 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": \"DSP\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"cross-linked in vivo with 1mM DSP\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": \"1 mM\",\n    \"accession\": \"NCIT:C25488\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"with 1mM DSP\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"cross-linking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Protein complexes in D. radiodurans cells were cross-linked in vivo\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The eluted protein complexes were uncross-linked using 50mM DTT at 37°C for 30 min.\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[perturbation]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"DSP cross-linking\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Protein complexes in D. radiodurans cells were cross-linked in vivo with 1mM DSP at room temperature for 30 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": \"DSP\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"cross-linked in vivo with 1mM DSP\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": \"1 mM\",\n    \"accession\": \"NCIT:C25488\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"with 1mM DSP\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"cross-linking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Protein complexes in D. radiodurans cells were cross-linked in vivo\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The eluted protein complexes were uncross-linked using 50mM DTT at 37°C for 30 min.\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "cross-linking",
+          "accession": "PRIDE:0000700",
+          "confidence": "low",
+          "evidence_quote": "Protein complexes in D. radiodurans cells were cross-linked in vivo",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[depletion]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"DSP cross-linking\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Protein complexes in D. radiodurans cells were cross-linked in vivo with 1mM DSP at room temperature for 30 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": \"DSP\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"cross-linked in vivo with 1mM DSP\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": \"1 mM\",\n    \"accession\": \"NCIT:C25488\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"with 1mM DSP\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"cross-linking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Protein complexes in D. radiodurans cells were cross-linked in vivo\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The eluted protein complexes were uncross-linked using 50mM DTT at 37°C for 30 min.\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "no depletion",
+          "accession": "PRIDE:0000020",
+          "confidence": "medium",
+          "evidence_quote": "The eluted protein complexes were uncross-linked using 50mM DTT at 37°C for 30 min.",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "factor value cell line": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"DSP (dithiobis(succinimidyl)propionate)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Protein complexes in D. radiodurans cells were cross-linked in vivo with 1mM DSP at room temperature\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "CLO:0000031",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value compound": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"DSP (dithiobis(succinimidyl)propionate)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Protein complexes in D. radiodurans cells were cross-linked in vivo with 1mM DSP at room temperature\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "DSP (dithiobis(succinimidyl)propionate)",
+          "accession": "CHEBI:37577",
+          "confidence": "medium",
+          "evidence_quote": "Protein complexes in D. radiodurans cells were cross-linked in vivo with 1mM DSP at room temperature",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value disease": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"DSP (dithiobis(succinimidyl)propionate)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Protein complexes in D. radiodurans cells were cross-linked in vivo with 1mM DSP at room temperature\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "OGMS:0000031",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value dose": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"DSP (dithiobis(succinimidyl)propionate)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Protein complexes in D. radiodurans cells were cross-linked in vivo with 1mM DSP at room temperature\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000428",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value organism part": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"DSP (dithiobis(succinimidyl)propionate)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Protein complexes in D. radiodurans cells were cross-linked in vivo with 1mM DSP at room temperature\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000635",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value time": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"DSP (dithiobis(succinimidyl)propionate)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Protein complexes in D. radiodurans cells were cross-linked in vivo with 1mM DSP at room temperature\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000721",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value treatment": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"DSP (dithiobis(succinimidyl)propionate)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Protein complexes in D. radiodurans cells were cross-linked in vivo with 1mM DSP at room temperature\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000727",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "comment[instrument]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=6540 UHD Accurate-Mass Q-TOF LC/MS system (Agilent Technologies);AC=null\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"LC-MS/MS analyses were performed on 6540 UHD Accurate-Mass Q-TOF LC/MS system (Agilent Technologies)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"MS/MS scan rate was 3 spectra/sec\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated (biological triplicates per IP-antibody)\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "NT=6540 UHD Accurate-Mass Q-TOF LC/MS system (Agilent Technologies);AC=null",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "LC-MS/MS analyses were performed on 6540 UHD Accurate-Mass Q-TOF LC/MS system (Agilent Technologies)",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[proteomics data acquisition method]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=6540 UHD Accurate-Mass Q-TOF LC/MS system (Agilent Technologies);AC=null\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"LC-MS/MS analyses were performed on 6540 UHD Accurate-Mass Q-TOF LC/MS system (Agilent Technologies)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"MS/MS scan rate was 3 spectra/sec\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated (biological triplicates per IP-antibody)\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "NT=data-dependent acquisition;AC=PRIDE:0000041",
+          "accession": "PRIDE:0000041",
+          "confidence": "low",
+          "evidence_quote": "MS/MS scan rate was 3 spectra/sec",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[dissociation method]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=6540 UHD Accurate-Mass Q-TOF LC/MS system (Agilent Technologies);AC=null\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"LC-MS/MS analyses were performed on 6540 UHD Accurate-Mass Q-TOF LC/MS system (Agilent Technologies)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"MS/MS scan rate was 3 spectra/sec\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated (biological triplicates per IP-antibody)\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[collision energy]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=6540 UHD Accurate-Mass Q-TOF LC/MS system (Agilent Technologies);AC=null\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"LC-MS/MS analyses were performed on 6540 UHD Accurate-Mass Q-TOF LC/MS system (Agilent Technologies)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"MS/MS scan rate was 3 spectra/sec\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated (biological triplicates per IP-antibody)\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[dia method]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=6540 UHD Accurate-Mass Q-TOF LC/MS system (Agilent Technologies);AC=null\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"LC-MS/MS analyses were performed on 6540 UHD Accurate-Mass Q-TOF LC/MS system (Agilent Technologies)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"MS/MS scan rate was 3 spectra/sec\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated (biological triplicates per IP-antibody)\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[fragment mass tolerance]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=6540 UHD Accurate-Mass Q-TOF LC/MS system (Agilent Technologies);AC=null\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"LC-MS/MS analyses were performed on 6540 UHD Accurate-Mass Q-TOF LC/MS system (Agilent Technologies)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"MS/MS scan rate was 3 spectra/sec\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated (biological triplicates per IP-antibody)\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[precursor mass tolerance]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=6540 UHD Accurate-Mass Q-TOF LC/MS system (Agilent Technologies);AC=null\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"LC-MS/MS analyses were performed on 6540 UHD Accurate-Mass Q-TOF LC/MS system (Agilent Technologies)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"MS/MS scan rate was 3 spectra/sec\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated (biological triplicates per IP-antibody)\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[technical replicate]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=6540 UHD Accurate-Mass Q-TOF LC/MS system (Agilent Technologies);AC=null\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"LC-MS/MS analyses were performed on 6540 UHD Accurate-Mass Q-TOF LC/MS system (Agilent Technologies)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"MS/MS scan rate was 3 spectra/sec\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated (biological triplicates per IP-antibody)\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "no technical replicates stated (biological triplicates per IP-antibody)",
+          "accession": "MS:1001808",
+          "confidence": "medium",
+          "evidence_quote": "Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[data file]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=6540 UHD Accurate-Mass Q-TOF LC/MS system (Agilent Technologies);AC=null\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"LC-MS/MS analyses were performed on 6540 UHD Accurate-Mass Q-TOF LC/MS system (Agilent Technologies)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"MS/MS scan rate was 3 spectra/sec\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated (biological triplicates per IP-antibody)\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "MS:1003083",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "characteristics[organism]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Deinococcus radiodurans\",\n    \"accession\": \"NCBITaxon:545\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Project includes identification of the interacting partners of the four important DNA-repair proteins (DdrA, DdrB, RecA, Ssb) of the extremophile D. radiodurans.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linked D. radiodurans cells were re-suspended... The cells were lysed by sonication and the lysate was centrifuged... clarified cellular extract was incubated with appropriate IP-antibody...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cells were lysed by sonication and the lysate was centrifuged... clarified cellular extract was incubated with appropriate IP-antibody...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"followed by protein identification by LC MS/MS.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"condition/bait-specific IP sample naming pattern (e.g., DdrA IP, DdrB IP, RecA IP, Ssb IP, and negative control) with biological triplicates\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"assay name\": {\n    \"value\": \"LC-MS/MS run identifier corresponding to each IP sample (bait-specific IP and negative control) and replicate\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"LC-MS/MS data were acquired for proteins interacting with the four DNA repair bait proteins (DdrA, DdrB, RecA or Ssb) and the negative control.\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "Deinococcus radiodurans",
+          "accession": "NCBITaxon:545",
+          "confidence": "high",
+          "evidence_quote": "Project includes identification of the interacting partners of the four important DNA-repair proteins (DdrA, DdrB, RecA, Ssb) of the extremophile D. radiodurans.",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[organism part]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Deinococcus radiodurans\",\n    \"accession\": \"NCBITaxon:545\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Project includes identification of the interacting partners of the four important DNA-repair proteins (DdrA, DdrB, RecA, Ssb) of the extremophile D. radiodurans.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linked D. radiodurans cells were re-suspended... The cells were lysed by sonication and the lysate was centrifuged... clarified cellular extract was incubated with appropriate IP-antibody...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cells were lysed by sonication and the lysate was centrifuged... clarified cellular extract was incubated with appropriate IP-antibody...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"followed by protein identification by LC MS/MS.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"condition/bait-specific IP sample naming pattern (e.g., DdrA IP, DdrB IP, RecA IP, Ssb IP, and negative control) with biological triplicates\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"assay name\": {\n    \"value\": \"LC-MS/MS run identifier corresponding to each IP sample (bait-specific IP and negative control) and replicate\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"LC-MS/MS data were acquired for proteins interacting with the four DNA repair bait proteins (DdrA, DdrB, RecA or Ssb) and the negative control.\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "whole cell lysate",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "The cross-linked D. radiodurans cells were re-suspended... The cells were lysed by sonication and the lysate was centrifuged... clarified cellular extract was incubated with appropriate IP-antibody...",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[cell line]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Deinococcus radiodurans\",\n    \"accession\": \"NCBITaxon:545\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Project includes identification of the interacting partners of the four important DNA-repair proteins (DdrA, DdrB, RecA, Ssb) of the extremophile D. radiodurans.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linked D. radiodurans cells were re-suspended... The cells were lysed by sonication and the lysate was centrifuged... clarified cellular extract was incubated with appropriate IP-antibody...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cells were lysed by sonication and the lysate was centrifuged... clarified cellular extract was incubated with appropriate IP-antibody...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"followed by protein identification by LC MS/MS.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"condition/bait-specific IP sample naming pattern (e.g., DdrA IP, DdrB IP, RecA IP, Ssb IP, and negative control) with biological triplicates\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"assay name\": {\n    \"value\": \"LC-MS/MS run identifier corresponding to each IP sample (bait-specific IP and negative control) and replicate\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"LC-MS/MS data were acquired for proteins interacting with the four DNA repair bait proteins (DdrA, DdrB, RecA or Ssb) and the negative control.\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[cell type]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Deinococcus radiodurans\",\n    \"accession\": \"NCBITaxon:545\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Project includes identification of the interacting partners of the four important DNA-repair proteins (DdrA, DdrB, RecA, Ssb) of the extremophile D. radiodurans.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linked D. radiodurans cells were re-suspended... The cells were lysed by sonication and the lysate was centrifuged... clarified cellular extract was incubated with appropriate IP-antibody...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cells were lysed by sonication and the lysate was centrifuged... clarified cellular extract was incubated with appropriate IP-antibody...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"followed by protein identification by LC MS/MS.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"condition/bait-specific IP sample naming pattern (e.g., DdrA IP, DdrB IP, RecA IP, Ssb IP, and negative control) with biological triplicates\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"assay name\": {\n    \"value\": \"LC-MS/MS run identifier corresponding to each IP sample (bait-specific IP and negative control) and replicate\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"LC-MS/MS data were acquired for proteins interacting with the four DNA repair bait proteins (DdrA, DdrB, RecA or Ssb) and the negative control.\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[material type]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Deinococcus radiodurans\",\n    \"accession\": \"NCBITaxon:545\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Project includes identification of the interacting partners of the four important DNA-repair proteins (DdrA, DdrB, RecA, Ssb) of the extremophile D. radiodurans.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linked D. radiodurans cells were re-suspended... The cells were lysed by sonication and the lysate was centrifuged... clarified cellular extract was incubated with appropriate IP-antibody...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cells were lysed by sonication and the lysate was centrifuged... clarified cellular extract was incubated with appropriate IP-antibody...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"followed by protein identification by LC MS/MS.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"condition/bait-specific IP sample naming pattern (e.g., DdrA IP, DdrB IP, RecA IP, Ssb IP, and negative control) with biological triplicates\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"assay name\": {\n    \"value\": \"LC-MS/MS run identifier corresponding to each IP sample (bait-specific IP and negative control) and replicate\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"LC-MS/MS data were acquired for proteins interacting with the four DNA repair bait proteins (DdrA, DdrB, RecA or Ssb) and the negative control.\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "whole cell lysate",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "The cells were lysed by sonication and the lysate was centrifuged... clarified cellular extract was incubated with appropriate IP-antibody...",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[strain or breed]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Deinococcus radiodurans\",\n    \"accession\": \"NCBITaxon:545\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Project includes identification of the interacting partners of the four important DNA-repair proteins (DdrA, DdrB, RecA, Ssb) of the extremophile D. radiodurans.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linked D. radiodurans cells were re-suspended... The cells were lysed by sonication and the lysate was centrifuged... clarified cellular extract was incubated with appropriate IP-antibody...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cells were lysed by sonication and the lysate was centrifuged... clarified cellular extract was incubated with appropriate IP-antibody...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"followed by protein identification by LC MS/MS.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"condition/bait-specific IP sample naming pattern (e.g., DdrA IP, DdrB IP, RecA IP, Ssb IP, and negative control) with biological triplicates\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"assay name\": {\n    \"value\": \"LC-MS/MS run identifier corresponding to each IP sample (bait-specific IP and negative control) and replicate\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"LC-MS/MS data were acquired for proteins interacting with the four DNA repair bait proteins (DdrA, DdrB, RecA or Ssb) and the negative control.\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[developmental stage]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Deinococcus radiodurans\",\n    \"accession\": \"NCBITaxon:545\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Project includes identification of the interacting partners of the four important DNA-repair proteins (DdrA, DdrB, RecA, Ssb) of the extremophile D. radiodurans.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linked D. radiodurans cells were re-suspended... The cells were lysed by sonication and the lysate was centrifuged... clarified cellular extract was incubated with appropriate IP-antibody...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cells were lysed by sonication and the lysate was centrifuged... clarified cellular extract was incubated with appropriate IP-antibody...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"followed by protein identification by LC MS/MS.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"condition/bait-specific IP sample naming pattern (e.g., DdrA IP, DdrB IP, RecA IP, Ssb IP, and negative control) with biological triplicates\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"assay name\": {\n    \"value\": \"LC-MS/MS run identifier corresponding to each IP sample (bait-specific IP and negative control) and replicate\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"LC-MS/MS data were acquired for proteins interacting with the four DNA repair bait proteins (DdrA, DdrB, RecA or Ssb) and the negative control.\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "technology type": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Deinococcus radiodurans\",\n    \"accession\": \"NCBITaxon:545\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Project includes identification of the interacting partners of the four important DNA-repair proteins (DdrA, DdrB, RecA, Ssb) of the extremophile D. radiodurans.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linked D. radiodurans cells were re-suspended... The cells were lysed by sonication and the lysate was centrifuged... clarified cellular extract was incubated with appropriate IP-antibody...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cells were lysed by sonication and the lysate was centrifuged... clarified cellular extract was incubated with appropriate IP-antibody...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"followed by protein identification by LC MS/MS.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"condition/bait-specific IP sample naming pattern (e.g., DdrA IP, DdrB IP, RecA IP, Ssb IP, and negative control) with biological triplicates\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"assay name\": {\n    \"value\": \"LC-MS/MS run identifier corresponding to each IP sample (bait-specific IP and negative control) and replicate\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"LC-MS/MS data were acquired for proteins interacting with the four DNA repair bait proteins (DdrA, DdrB, RecA or Ssb) and the negative control.\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "proteomic profiling by mass spectrometry",
+          "accession": "PRIDE:0000663",
+          "confidence": "high",
+          "evidence_quote": "followed by protein identification by LC MS/MS.",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "source name": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Deinococcus radiodurans\",\n    \"accession\": \"NCBITaxon:545\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Project includes identification of the interacting partners of the four important DNA-repair proteins (DdrA, DdrB, RecA, Ssb) of the extremophile D. radiodurans.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linked D. radiodurans cells were re-suspended... The cells were lysed by sonication and the lysate was centrifuged... clarified cellular extract was incubated with appropriate IP-antibody...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cells were lysed by sonication and the lysate was centrifuged... clarified cellular extract was incubated with appropriate IP-antibody...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"followed by protein identification by LC MS/MS.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"condition/bait-specific IP sample naming pattern (e.g., DdrA IP, DdrB IP, RecA IP, Ssb IP, and negative control) with biological triplicates\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"assay name\": {\n    \"value\": \"LC-MS/MS run identifier corresponding to each IP sample (bait-specific IP and negative control) and replicate\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"LC-MS/MS data were acquired for proteins interacting with the four DNA repair bait proteins (DdrA, DdrB, RecA or Ssb) and the negative control.\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "condition/bait-specific IP sample naming pattern (e.g., DdrA IP, DdrB IP, RecA IP, Ssb IP, and negative control) with biological triplicates",
+          "accession": "PRIDE:0000623",
+          "confidence": "low",
+          "evidence_quote": "Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "assay name": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Deinococcus radiodurans\",\n    \"accession\": \"NCBITaxon:545\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Project includes identification of the interacting partners of the four important DNA-repair proteins (DdrA, DdrB, RecA, Ssb) of the extremophile D. radiodurans.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linked D. radiodurans cells were re-suspended... The cells were lysed by sonication and the lysate was centrifuged... clarified cellular extract was incubated with appropriate IP-antibody...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cells were lysed by sonication and the lysate was centrifuged... clarified cellular extract was incubated with appropriate IP-antibody...\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"followed by protein identification by LC MS/MS.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"condition/bait-specific IP sample naming pattern (e.g., DdrA IP, DdrB IP, RecA IP, Ssb IP, and negative control) with biological triplicates\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"assay name\": {\n    \"value\": \"LC-MS/MS run identifier corresponding to each IP sample (bait-specific IP and negative control) and replicate\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"LC-MS/MS data were acquired for proteins interacting with the four DNA repair bait proteins (DdrA, DdrB, RecA or Ssb) and the negative control.\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "LC-MS/MS run identifier corresponding to each IP sample (bait-specific IP and negative control) and replicate",
+          "accession": "NCIT:C178857",
+          "confidence": "low",
+          "evidence_quote": "LC-MS/MS data were acquired for proteins interacting with the four DNA repair bait proteins (DdrA, DdrB, RecA or Ssb) and the negative control.",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[sex]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Deinococcus radiodurans cells\",\n    \"evidence_location\": \"Methods\",\n    \"notes\": \"Sample is from a bacterial organism with no defined biological sex.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"3 biological replicates (each IP experiment with each IP-antibody performed at least three times)\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.\",\n    \"evidence_location\": \"Methods\",\n    \"notes\": \"No explicit statement of pooling; replicate experiments are described separately.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null,\n    \"notes\": \"Sodium phosphate is mentioned as part of coupling buffer, not as an environmental/water phosphate concentration.\"\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null,\n    \"notes\": \"Room temperature is used for DSP crosslinking; this term is intended for environmental sampling temperature.\"\n  }\n}",
+        "parsed": {
+          "value": "not applicable",
+          "accession": "PATO:0000047",
+          "confidence": "high",
+          "evidence_quote": "Deinococcus radiodurans cells",
+          "evidence_location": "Methods",
+          "notes": "Sample is from a bacterial organism with no defined biological sex."
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[age]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Deinococcus radiodurans cells\",\n    \"evidence_location\": \"Methods\",\n    \"notes\": \"Sample is from a bacterial organism with no defined biological sex.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"3 biological replicates (each IP experiment with each IP-antibody performed at least three times)\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.\",\n    \"evidence_location\": \"Methods\",\n    \"notes\": \"No explicit statement of pooling; replicate experiments are described separately.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null,\n    \"notes\": \"Sodium phosphate is mentioned as part of coupling buffer, not as an environmental/water phosphate concentration.\"\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null,\n    \"notes\": \"Room temperature is used for DSP crosslinking; this term is intended for environmental sampling temperature.\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000246",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[ancestry category]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Deinococcus radiodurans cells\",\n    \"evidence_location\": \"Methods\",\n    \"notes\": \"Sample is from a bacterial organism with no defined biological sex.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"3 biological replicates (each IP experiment with each IP-antibody performed at least three times)\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.\",\n    \"evidence_location\": \"Methods\",\n    \"notes\": \"No explicit statement of pooling; replicate experiments are described separately.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null,\n    \"notes\": \"Sodium phosphate is mentioned as part of coupling buffer, not as an environmental/water phosphate concentration.\"\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null,\n    \"notes\": \"Room temperature is used for DSP crosslinking; this term is intended for environmental sampling temperature.\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "HANCESTRO",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[biological replicate]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Deinococcus radiodurans cells\",\n    \"evidence_location\": \"Methods\",\n    \"notes\": \"Sample is from a bacterial organism with no defined biological sex.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"3 biological replicates (each IP experiment with each IP-antibody performed at least three times)\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.\",\n    \"evidence_location\": \"Methods\",\n    \"notes\": \"No explicit statement of pooling; replicate experiments are described separately.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null,\n    \"notes\": \"Sodium phosphate is mentioned as part of coupling buffer, not as an environmental/water phosphate concentration.\"\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null,\n    \"notes\": \"Room temperature is used for DSP crosslinking; this term is intended for environmental sampling temperature.\"\n  }\n}",
+        "parsed": {
+          "value": "3 biological replicates (each IP experiment with each IP-antibody performed at least three times)",
+          "accession": "MS:1001809",
+          "confidence": "high",
+          "evidence_quote": "Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[genotype]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Deinococcus radiodurans cells\",\n    \"evidence_location\": \"Methods\",\n    \"notes\": \"Sample is from a bacterial organism with no defined biological sex.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"3 biological replicates (each IP experiment with each IP-antibody performed at least three times)\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.\",\n    \"evidence_location\": \"Methods\",\n    \"notes\": \"No explicit statement of pooling; replicate experiments are described separately.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null,\n    \"notes\": \"Sodium phosphate is mentioned as part of coupling buffer, not as an environmental/water phosphate concentration.\"\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null,\n    \"notes\": \"Room temperature is used for DSP crosslinking; this term is intended for environmental sampling temperature.\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000513",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[pooled sample]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Deinococcus radiodurans cells\",\n    \"evidence_location\": \"Methods\",\n    \"notes\": \"Sample is from a bacterial organism with no defined biological sex.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"3 biological replicates (each IP experiment with each IP-antibody performed at least three times)\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.\",\n    \"evidence_location\": \"Methods\",\n    \"notes\": \"No explicit statement of pooling; replicate experiments are described separately.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null,\n    \"notes\": \"Sodium phosphate is mentioned as part of coupling buffer, not as an environmental/water phosphate concentration.\"\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null,\n    \"notes\": \"Room temperature is used for DSP crosslinking; this term is intended for environmental sampling temperature.\"\n  }\n}",
+        "parsed": {
+          "value": "not pooled",
+          "accession": "NCIT:C165587",
+          "confidence": "medium",
+          "evidence_quote": "Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.",
+          "evidence_location": "Methods",
+          "notes": "No explicit statement of pooling; replicate experiments are described separately."
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[phosphate]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Deinococcus radiodurans cells\",\n    \"evidence_location\": \"Methods\",\n    \"notes\": \"Sample is from a bacterial organism with no defined biological sex.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"3 biological replicates (each IP experiment with each IP-antibody performed at least three times)\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.\",\n    \"evidence_location\": \"Methods\",\n    \"notes\": \"No explicit statement of pooling; replicate experiments are described separately.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null,\n    \"notes\": \"Sodium phosphate is mentioned as part of coupling buffer, not as an environmental/water phosphate concentration.\"\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null,\n    \"notes\": \"Room temperature is used for DSP crosslinking; this term is intended for environmental sampling temperature.\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000805",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null,
+          "notes": "Sodium phosphate is mentioned as part of coupling buffer, not as an environmental/water phosphate concentration."
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[temperature]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Deinococcus radiodurans cells\",\n    \"evidence_location\": \"Methods\",\n    \"notes\": \"Sample is from a bacterial organism with no defined biological sex.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"3 biological replicates (each IP experiment with each IP-antibody performed at least three times)\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates.\",\n    \"evidence_location\": \"Methods\",\n    \"notes\": \"No explicit statement of pooling; replicate experiments are described separately.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null,\n    \"notes\": \"Sodium phosphate is mentioned as part of coupling buffer, not as an environmental/water phosphate concentration.\"\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null,\n    \"notes\": \"Room temperature is used for DSP crosslinking; this term is intended for environmental sampling temperature.\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000703",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null,
+          "notes": "Room temperature is used for DSP crosslinking; this term is intended for environmental sampling temperature."
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "comment[cleavage agent details]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"digested with trypsin (Cat. No. 90057; Pierce Thermo Scientific) for 16h at 37°C\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"alkylated with iodoacetamide (Cat. No. I1149; Sigma, India)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"alkylated with iodoacetamide ... and digested with trypsin\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"In each experiment, the eluted fractions were resolved by SDS-PAGE and stained with silver staining\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": [
+            "NT=Trypsin;AC=MS:1001251"
+          ],
+          "accession": "MS:1001251",
+          "confidence": "high",
+          "evidence_quote": "digested with trypsin (Cat. No. 90057; Pierce Thermo Scientific) for 16h at 37°C",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[label]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"digested with trypsin (Cat. No. 90057; Pierce Thermo Scientific) for 16h at 37°C\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"alkylated with iodoacetamide (Cat. No. I1149; Sigma, India)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"alkylated with iodoacetamide ... and digested with trypsin\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"In each experiment, the eluted fractions were resolved by SDS-PAGE and stained with silver staining\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "NT=label free sample;AC=MS:1002038",
+          "accession": "MS:1002038",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[alkylation reagent]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"digested with trypsin (Cat. No. 90057; Pierce Thermo Scientific) for 16h at 37°C\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"alkylated with iodoacetamide (Cat. No. I1149; Sigma, India)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"alkylated with iodoacetamide ... and digested with trypsin\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"In each experiment, the eluted fractions were resolved by SDS-PAGE and stained with silver staining\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "iodoacetamide",
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": "alkylated with iodoacetamide (Cat. No. I1149; Sigma, India)",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[fractionation method]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"digested with trypsin (Cat. No. 90057; Pierce Thermo Scientific) for 16h at 37°C\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"alkylated with iodoacetamide (Cat. No. I1149; Sigma, India)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"alkylated with iodoacetamide ... and digested with trypsin\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"In each experiment, the eluted fractions were resolved by SDS-PAGE and stained with silver staining\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[modification parameters]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"digested with trypsin (Cat. No. 90057; Pierce Thermo Scientific) for 16h at 37°C\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"alkylated with iodoacetamide (Cat. No. I1149; Sigma, India)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"alkylated with iodoacetamide ... and digested with trypsin\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"In each experiment, the eluted fractions were resolved by SDS-PAGE and stained with silver staining\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": [
+            "NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed",
+            "NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable"
+          ],
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "alkylated with iodoacetamide ... and digested with trypsin",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[fraction identifier]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"digested with trypsin (Cat. No. 90057; Pierce Thermo Scientific) for 16h at 37°C\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"alkylated with iodoacetamide (Cat. No. I1149; Sigma, India)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"alkylated with iodoacetamide ... and digested with trypsin\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"In each experiment, the eluted fractions were resolved by SDS-PAGE and stained with silver staining\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "no fractionation",
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": "In each experiment, the eluted fractions were resolved by SDS-PAGE and stained with silver staining",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "characteristics[crosslinking reaction time]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"30 min\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linked in vivo with 1mM DSP at room temperature for 30 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"room temperature\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linked in vivo with 1mM DSP at room temperature for 30 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"incubated with appropriate IP-antibody ... coupled resin\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"incubated with appropriate IP-antibody ... coupled resin\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "30 min",
+          "accession": "PRIDE:0000949",
+          "confidence": "high",
+          "evidence_quote": "cross-linked in vivo with 1mM DSP at room temperature for 30 mins",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "characteristics[crosslinking temperature]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"30 min\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linked in vivo with 1mM DSP at room temperature for 30 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"room temperature\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linked in vivo with 1mM DSP at room temperature for 30 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"incubated with appropriate IP-antibody ... coupled resin\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"incubated with appropriate IP-antibody ... coupled resin\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "room temperature",
+          "accession": "PRIDE:0000950",
+          "confidence": "high",
+          "evidence_quote": "cross-linked in vivo with 1mM DSP at room temperature for 30 mins",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "comment[crosslink enrichment method]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"30 min\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linked in vivo with 1mM DSP at room temperature for 30 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"room temperature\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linked in vivo with 1mM DSP at room temperature for 30 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"incubated with appropriate IP-antibody ... coupled resin\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"incubated with appropriate IP-antibody ... coupled resin\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "incubated with appropriate IP-antibody ... coupled resin",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "characteristics[enrichment process]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"30 min\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linked in vivo with 1mM DSP at room temperature for 30 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"room temperature\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linked in vivo with 1mM DSP at room temperature for 30 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"incubated with appropriate IP-antibody ... coupled resin\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"incubated with appropriate IP-antibody ... coupled resin\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": "incubated with appropriate IP-antibody ... coupled resin",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "comment[cross-linker]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=DSP;AC=null;CL=null;TA=K,nterm\",\n    \"NT\": \"DSP\",\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": \"K,nterm\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"cross-linked in vivo with 1mM DSP at room temperature for 30 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"1 mM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linked in vivo with 1mM DSP at room temperature for 30 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"Tris-HCl\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"and the reaction was quenched by 40mM Tris-HCl, pH 7.4.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"followed by protein identification by LC MS/MS.\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "NT=DSP;AC=null;CL=null;TA=K,nterm",
+          "NT": "DSP",
+          "AC": null,
+          "CL": null,
+          "TA": "K,nterm",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "cross-linked in vivo with 1mM DSP at room temperature for 30 mins",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[crosslinker concentration]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=DSP;AC=null;CL=null;TA=K,nterm\",\n    \"NT\": \"DSP\",\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": \"K,nterm\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"cross-linked in vivo with 1mM DSP at room temperature for 30 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"1 mM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linked in vivo with 1mM DSP at room temperature for 30 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"Tris-HCl\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"and the reaction was quenched by 40mM Tris-HCl, pH 7.4.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"followed by protein identification by LC MS/MS.\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "1 mM",
+          "accession": "PRIDE:0000951",
+          "confidence": "high",
+          "evidence_quote": "cross-linked in vivo with 1mM DSP at room temperature for 30 mins",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[crosslinker to protein ratio]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=DSP;AC=null;CL=null;TA=K,nterm\",\n    \"NT\": \"DSP\",\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": \"K,nterm\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"cross-linked in vivo with 1mM DSP at room temperature for 30 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"1 mM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linked in vivo with 1mM DSP at room temperature for 30 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"Tris-HCl\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"and the reaction was quenched by 40mM Tris-HCl, pH 7.4.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"followed by protein identification by LC MS/MS.\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000952",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[quenching reagent]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=DSP;AC=null;CL=null;TA=K,nterm\",\n    \"NT\": \"DSP\",\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": \"K,nterm\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"cross-linked in vivo with 1mM DSP at room temperature for 30 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"1 mM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linked in vivo with 1mM DSP at room temperature for 30 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"Tris-HCl\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"and the reaction was quenched by 40mM Tris-HCl, pH 7.4.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"followed by protein identification by LC MS/MS.\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "Tris-HCl",
+          "accession": "PRIDE:0000953",
+          "confidence": "high",
+          "evidence_quote": "and the reaction was quenched by 40mM Tris-HCl, pH 7.4.",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "characteristics[crosslink distance]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=DSP;AC=null;CL=null;TA=K,nterm\",\n    \"NT\": \"DSP\",\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": \"K,nterm\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"cross-linked in vivo with 1mM DSP at room temperature for 30 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"1 mM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linked in vivo with 1mM DSP at room temperature for 30 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"Tris-HCl\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"and the reaction was quenched by 40mM Tris-HCl, pH 7.4.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"followed by protein identification by LC MS/MS.\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000948",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[chemical cross-linking coupled with ms]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=DSP;AC=null;CL=null;TA=K,nterm\",\n    \"NT\": \"DSP\",\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": \"K,nterm\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"cross-linked in vivo with 1mM DSP at room temperature for 30 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"1 mM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linked in vivo with 1mM DSP at room temperature for 30 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"Tris-HCl\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"and the reaction was quenched by 40mM Tris-HCl, pH 7.4.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"followed by protein identification by LC MS/MS.\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "cross-linking mass spectrometry",
+          "accession": "PRIDE:0000430",
+          "confidence": "high",
+          "evidence_quote": "followed by protein identification by LC MS/MS.",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      }
+    }
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "pxd": "PXD015863",
+    "category": "llm",
+    "saved_at": "2026-06-30T15:06:45.443139",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"chikv_infection_4su_vir-clasp_homo_sapiens\",\n      \"description\": \"CHIKV infection with 4-thiouridine (4SU) labeling for VIR-CLASP (UV365 crosslinking), human host proteome.\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": \"null\",\n      \"biological_condition\": \"CHIKV infection with 4SU-labeled virus (VIR-CLASP) and UV365nm crosslinking\",\n      \"files\": [\n        \"ah_5073_MA_1219174_1.raw\",\n        \"ah_5073_MA_1219174_2.raw\",\n        \"ah_5073_MA_1219174_3.raw\",\n        \"ah_5073_MA_1219174_4.raw\",\n        \"ah_5073_MA_1219174_5.raw\",\n        \"ah_5073_MA_1219174_6.raw\",\n        \"ah_5073_MA_1219174_9.raw\",\n        \"ah_5073_MA_1219174_10.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"For VIR-CLASP, cells were infected with 1000 MOI of non-labeled or 4SU-labeled virus for 1 hr at 4°C and uninfected virus was washed away with cold PBS.\",\n      \"reasoning\": \"Filenames prefixed with 'ah_' and the dataset title indicate VIR-CLASP across viruses; the publication explicitly describes 4SU-labeled virus conditions for VIR-CLASP followed by UV365nm crosslinking. The raw files with the same 'ah_5073_MA_1219174_*' pattern are grouped as one CHIKV/4SU VIR-CLASP condition. Crosslinker is not a chemical crosslinker (e.g., BS3/DSS) but UV365nm; since the requested field is crosslinking reagent and no explicit reagent name is provided in the filenames, it is set to null.\"\n    },\n    {\n      \"cluster_id\": \"cluster_2\",\n      \"cluster_label\": \"iav_infection_no4su_vir-clasp_homo_sapiens\",\n      \"description\": \"Influenza A virus infection without 4SU labeling for VIR-CLASP (UV365 crosslinking), human host proteome.\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": \"null\",\n      \"biological_condition\": \"IAV infection with non-labeled virus (no 4SU) and UV365nm crosslinking\",\n      \"files\": [\n        \"IAV_hour1_rep1.raw\",\n        \"IAV_hour1_rep2.raw\",\n        \"IAV_no4SU_rep1.raw\",\n        \"IAV_no4SU_rep2.raw\"\n      ],\n      \"confidence\": \"high\",\n      \"evidence_quote\": \"For VIR-CLASP, cells were infected with 1000 MOI of non-labeled or 4SU-labeled virus for 1 hr at 4°C\",\n      \"reasoning\": \"Filenames explicitly contain 'IAV' and 'no4SU' plus 'hour1', indicating IAV VIR-CLASP conditions without 4SU labeling. Replicates are grouped together as instructed. Crosslinking is UV365nm per the method, but no chemical crosslinker is specified in the filenames; therefore crosslinker is set to null.\"\n    },\n    {\n      \"cluster_id\": \"cluster_3\",\n      \"cluster_label\": \"chikv_infection_4su_vir_only_homo_sapiens\",\n      \"description\": \"CHIKV 'vir only' condition (VIR-CLASP context), human host proteome.\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": \"null\",\n      \"biological_condition\": \"CHIKV 'vir only' condition (virus-only exposure in VIR-CLASP study) with UV365nm crosslinking\",\n      \"files\": [\n        \"sh_5534_MA_072419_Vir_only_1.raw\",\n        \"sh_5534_MA_072419_Vir_only_2.raw\"\n      ],\n      \"confidence\": \"low\",\n      \"evidence_quote\": \"The earliest interactions between incoming RNA viral genomes and host proteins can be crucial to viral replication.\",\n      \"reasoning\": \"The filename contains 'Vir_only', which likely corresponds to a virus-only control within the VIR-CLASP framework, but the publication text provided does not explicitly define this exact condition or its labeling status (4SU vs non-labeled) or timepoint. Because organism is given as Homo sapiens in the metadata, these are grouped as a single 'vir only' condition but with low confidence.\"\n    },\n    {\n      \"cluster_id\": \"cluster_4\",\n      \"cluster_label\": \"chikv_infection_4su_homo_sapiens\",\n      \"description\": \"CHIKV infection condition (non-'vir only') in VIR-CLASP context, human host proteome.\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": \"null\",\n      \"biological_condition\": \"CHIKV infection (VIR-CLASP context) with UV365nm crosslinking\",\n      \"files\": [\n        \"4701_MA_011417_1.raw\",\n        \"4701_MA_011417_2.raw\",\n        \"sh_5018_BK_101917_5.raw\",\n        \"sh_5018_BK_101917_6.raw\",\n        \"sh_5018_BK_101917_7.raw\",\n        \"sh_5018_BK_101917_8.raw\",\n        \"sh_5018_BK_101917_9.raw\",\n        \"sh_5018_BK_101917_10.raw\",\n        \"sh_5018_BK_101917_11.raw\",\n        \"sh_5018_BK_101917_12.raw\",\n        \"sh_5018_BK_101917_13.raw\",\n        \"sh_5018_BK_101917_14.raw\",\n        \"sh_5018_BK_101917_15.raw\",\n        \"sh_5018_BK_101917_16.raw\"\n      ],\n      \"confidence\": \"low\",\n      \"evidence_quote\": \"We developed VIR-CLASP ... We investigated the infection of human cells using Chikungunya virus (CHIKV) and Influenza A virus\",\n      \"reasoning\": \"The remaining files (besides the clearly IAV-labeled ones and the 'Vir_only' ones) appear to correspond to CHIKV-related VIR-CLASP samples, but the filenames do not explicitly state '4SU' vs 'no4SU', timepoint, or IFN pretreatment. Since the dataset is human and CHIKV is the other major virus in the study, these are grouped as one CHIKV infection condition with low confidence rather than over-splitting.\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a biological XL-MS condition.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"No files were identified as explicit QC/calibrant/blank/test runs from the provided filenames.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 22,\n    \"n_assigned_files\": 22,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 4,\n    \"overall_confidence\": \"medium\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "chikv_infection_4su_vir-clasp_homo_sapiens",
+          "description": "CHIKV infection with 4-thiouridine (4SU) labeling for VIR-CLASP (UV365 crosslinking), human host proteome.",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": "null",
+          "biological_condition": "CHIKV infection with 4SU-labeled virus (VIR-CLASP) and UV365nm crosslinking",
+          "files": [
+            "ah_5073_MA_1219174_1.raw",
+            "ah_5073_MA_1219174_2.raw",
+            "ah_5073_MA_1219174_3.raw",
+            "ah_5073_MA_1219174_4.raw",
+            "ah_5073_MA_1219174_5.raw",
+            "ah_5073_MA_1219174_6.raw",
+            "ah_5073_MA_1219174_9.raw",
+            "ah_5073_MA_1219174_10.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "For VIR-CLASP, cells were infected with 1000 MOI of non-labeled or 4SU-labeled virus for 1 hr at 4°C and uninfected virus was washed away with cold PBS.",
+          "reasoning": "Filenames prefixed with 'ah_' and the dataset title indicate VIR-CLASP across viruses; the publication explicitly describes 4SU-labeled virus conditions for VIR-CLASP followed by UV365nm crosslinking. The raw files with the same 'ah_5073_MA_1219174_*' pattern are grouped as one CHIKV/4SU VIR-CLASP condition. Crosslinker is not a chemical crosslinker (e.g., BS3/DSS) but UV365nm; since the requested field is crosslinking reagent and no explicit reagent name is provided in the filenames, it is set to null."
+        },
+        {
+          "cluster_id": "cluster_2",
+          "cluster_label": "iav_infection_no4su_vir-clasp_homo_sapiens",
+          "description": "Influenza A virus infection without 4SU labeling for VIR-CLASP (UV365 crosslinking), human host proteome.",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": "null",
+          "biological_condition": "IAV infection with non-labeled virus (no 4SU) and UV365nm crosslinking",
+          "files": [
+            "IAV_hour1_rep1.raw",
+            "IAV_hour1_rep2.raw",
+            "IAV_no4SU_rep1.raw",
+            "IAV_no4SU_rep2.raw"
+          ],
+          "confidence": "high",
+          "evidence_quote": "For VIR-CLASP, cells were infected with 1000 MOI of non-labeled or 4SU-labeled virus for 1 hr at 4°C",
+          "reasoning": "Filenames explicitly contain 'IAV' and 'no4SU' plus 'hour1', indicating IAV VIR-CLASP conditions without 4SU labeling. Replicates are grouped together as instructed. Crosslinking is UV365nm per the method, but no chemical crosslinker is specified in the filenames; therefore crosslinker is set to null."
+        },
+        {
+          "cluster_id": "cluster_3",
+          "cluster_label": "chikv_infection_4su_vir_only_homo_sapiens",
+          "description": "CHIKV 'vir only' condition (VIR-CLASP context), human host proteome.",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": "null",
+          "biological_condition": "CHIKV 'vir only' condition (virus-only exposure in VIR-CLASP study) with UV365nm crosslinking",
+          "files": [
+            "sh_5534_MA_072419_Vir_only_1.raw",
+            "sh_5534_MA_072419_Vir_only_2.raw"
+          ],
+          "confidence": "low",
+          "evidence_quote": "The earliest interactions between incoming RNA viral genomes and host proteins can be crucial to viral replication.",
+          "reasoning": "The filename contains 'Vir_only', which likely corresponds to a virus-only control within the VIR-CLASP framework, but the publication text provided does not explicitly define this exact condition or its labeling status (4SU vs non-labeled) or timepoint. Because organism is given as Homo sapiens in the metadata, these are grouped as a single 'vir only' condition but with low confidence."
+        },
+        {
+          "cluster_id": "cluster_4",
+          "cluster_label": "chikv_infection_4su_homo_sapiens",
+          "description": "CHIKV infection condition (non-'vir only') in VIR-CLASP context, human host proteome.",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": "null",
+          "biological_condition": "CHIKV infection (VIR-CLASP context) with UV365nm crosslinking",
+          "files": [
+            "4701_MA_011417_1.raw",
+            "4701_MA_011417_2.raw",
+            "sh_5018_BK_101917_5.raw",
+            "sh_5018_BK_101917_6.raw",
+            "sh_5018_BK_101917_7.raw",
+            "sh_5018_BK_101917_8.raw",
+            "sh_5018_BK_101917_9.raw",
+            "sh_5018_BK_101917_10.raw",
+            "sh_5018_BK_101917_11.raw",
+            "sh_5018_BK_101917_12.raw",
+            "sh_5018_BK_101917_13.raw",
+            "sh_5018_BK_101917_14.raw",
+            "sh_5018_BK_101917_15.raw",
+            "sh_5018_BK_101917_16.raw"
+          ],
+          "confidence": "low",
+          "evidence_quote": "We developed VIR-CLASP ... We investigated the infection of human cells using Chikungunya virus (CHIKV) and Influenza A virus",
+          "reasoning": "The remaining files (besides the clearly IAV-labeled ones and the 'Vir_only' ones) appear to correspond to CHIKV-related VIR-CLASP samples, but the filenames do not explicitly state '4SU' vs 'no4SU', timepoint, or IFN pretreatment. Since the dataset is human and CHIKV is the other major virus in the study, these are grouped as one CHIKV infection condition with low confidence rather than over-splitting."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a biological XL-MS condition.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "No files were identified as explicit QC/calibrant/blank/test runs from the provided filenames."
+        }
+      ],
+      "summary": {
+        "n_input_files": 22,
+        "n_assigned_files": 22,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 4,
+        "overall_confidence": "medium"
+      }
+    }
+  }
+}

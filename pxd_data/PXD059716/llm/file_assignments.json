@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "pxd": "PXD059716",
+    "category": "llm",
+    "saved_at": "2026-06-30T15:48:20.888745",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"mock_vs_p301l_surbo_taurd\",\n      \"description\": \"HEK293T/SH-SY5Y cell lysates expressing sTurbo TauRD constructs (P301L mutant vs mock reagent-only) with biotin proximity labeling; crosslinker not specified in provided metadata.\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": null,\n      \"biological_condition\": \"mock and P301L TauRD transfection with biotin labeling (proximity labeling); reagent alone vs P301L condition\",\n      \"files\": [\n        \"sarah_20ip_01-Mock-1-1.raw\",\n        \"sarah_20ip_04-Mock-1-4.raw\",\n        \"sarah_20ip_05-Mock-2-1.raw\",\n        \"sarah_20ip_06-Mock-2-2.raw\",\n        \"sarah_20ip_08-Mock-2-4.raw\",\n        \"sarah_20ip_09-Mock-3-1.raw\",\n        \"sarah_20ip_11-P301L-1-1.raw\",\n        \"sarah_20ip_12-P301L-1-2.raw\",\n        \"sarah_20ip_13-P301L-1-3.raw\",\n        \"sarah_20ip_14-P301L-1-4.raw\",\n        \"sarah_20ip_15-P301L-2-1.raw\",\n        \"sarah_20ip_16-P301L-2-2.raw\",\n        \"sarah_20ip_17-P301L-2-3.raw\",\n        \"sarah_20ip_18-P301L-2-4.raw\",\n        \"sarah_20ip_19-P301L-3-2.raw\",\n        \"sarah_20ip_20-P301L-3-1.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"Three biological replicates were collected for experiments where transfection conditions included ... or reagent alone (mock).\",\n      \"reasoning\": \"All filenames share the same experiment prefix (sarah_20ip_) and differ only by condition tag (Mock vs P301L) and replicate/run suffixes. The provided publication describes proximity labeling with split TurboID (biotin), not a chemical crosslinker (BS3/DSS/etc.), and no crosslinker is stated in the excerpt. Because the task requires clustering by biological condition, organism, and crosslinker, but crosslinker is unknown and the filenames do not encode crosslinker, the most defensible minimal grouping is a single Homo sapiens cluster covering the two labeled transfection states present in the filenames (mock reagent-only and P301L TauRD).\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a biological XL-MS condition.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"No QC/calibration/blank/test files were provided; all input filenames match biological condition patterns (Mock or P301L).\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 20,\n    \"n_assigned_files\": 20,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 1,\n    \"overall_confidence\": \"medium\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "mock_vs_p301l_surbo_taurd",
+          "description": "HEK293T/SH-SY5Y cell lysates expressing sTurbo TauRD constructs (P301L mutant vs mock reagent-only) with biotin proximity labeling; crosslinker not specified in provided metadata.",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": null,
+          "biological_condition": "mock and P301L TauRD transfection with biotin labeling (proximity labeling); reagent alone vs P301L condition",
+          "files": [
+            "sarah_20ip_01-Mock-1-1.raw",
+            "sarah_20ip_04-Mock-1-4.raw",
+            "sarah_20ip_05-Mock-2-1.raw",
+            "sarah_20ip_06-Mock-2-2.raw",
+            "sarah_20ip_08-Mock-2-4.raw",
+            "sarah_20ip_09-Mock-3-1.raw",
+            "sarah_20ip_11-P301L-1-1.raw",
+            "sarah_20ip_12-P301L-1-2.raw",
+            "sarah_20ip_13-P301L-1-3.raw",
+            "sarah_20ip_14-P301L-1-4.raw",
+            "sarah_20ip_15-P301L-2-1.raw",
+            "sarah_20ip_16-P301L-2-2.raw",
+            "sarah_20ip_17-P301L-2-3.raw",
+            "sarah_20ip_18-P301L-2-4.raw",
+            "sarah_20ip_19-P301L-3-2.raw",
+            "sarah_20ip_20-P301L-3-1.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "Three biological replicates were collected for experiments where transfection conditions included ... or reagent alone (mock).",
+          "reasoning": "All filenames share the same experiment prefix (sarah_20ip_) and differ only by condition tag (Mock vs P301L) and replicate/run suffixes. The provided publication describes proximity labeling with split TurboID (biotin), not a chemical crosslinker (BS3/DSS/etc.), and no crosslinker is stated in the excerpt. Because the task requires clustering by biological condition, organism, and crosslinker, but crosslinker is unknown and the filenames do not encode crosslinker, the most defensible minimal grouping is a single Homo sapiens cluster covering the two labeled transfection states present in the filenames (mock reagent-only and P301L TauRD)."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a biological XL-MS condition.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "No QC/calibration/blank/test files were provided; all input filenames match biological condition patterns (Mock or P301L)."
+        }
+      ],
+      "summary": {
+        "n_input_files": 20,
+        "n_assigned_files": 20,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 1,
+        "overall_confidence": "medium"
+      }
+    }
+  }
+}

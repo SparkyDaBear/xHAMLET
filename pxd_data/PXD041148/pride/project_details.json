@@ -1,0 +1,405 @@
+{
+  "metadata": {
+    "pxd": "PXD041148",
+    "category": "pride",
+    "saved_at": "2026-06-30T15:33:08.017968",
+    "filename": "project_details"
+  },
+  "data": {
+    "accession": "PXD041148",
+    "title": "Progress Toward Proteome-Wide Photo-Crosslinking to Enable Residue-Level Visualization of Protein Structure and Networks in vivo",
+    "additionalAttributes": [],
+    "projectDescription": "Crosslinking mass spectrometry (XL-MS) is emerging as a method at the crossroads of structural and cellular biology, uniquely capable of identifying protein-protein interactions with residue-level resolution and on the proteome-wide scale. With the development of crosslinkers that can form linkages inside cells and easily cleave during fragmentation on the mass spectrometer (MS-cleavable crosslinks), it has become increasingly facile to identify contacts between any two proteins in complex samples, including in live cells or tissues.  Photo-crosslinkers possess the advantages of high temporal resolution and high reactivity, thereby engaging all residue-types (rather than just lysine); nevertheless, photo-crosslinkers have not enjoyed widespread use, and have yet to be employed for proteome-wide studies, because their products are challenging to identify. Here, we demonstrate the synthesis and application of two heterobifunctional photo-crosslinkers that feature diazirines and N-hydroxy-succinimidyl carbamate groups, the latter of which unveil symmetrical MS-cleavable linkages upon acyl transfer to protein targets. Moreover, these crosslinkers demonstrate high water-solubility and cell-permeability. Using these compounds, we demonstrate the feasibility of proteome-wide photo-crosslinking in cellulo. These studies elucidate a small portion of E. coli’s interaction network, albeit with residue-level resolution.  With further optimization, these methods will enable the detection of protein quinary interaction networks in their native environment at residue-level resolution, and we expect they will prove useful toward the effort to explore the molecular sociology of the cell.",
+    "sampleProcessingProtocol": "E. coli cells (K12 subst. MG1655) were grown overnight in LB (5 mL) at 37 °C, 220 rpm. Overnight cultures were diluted into 50 mL LB with an initial OD600 of 0.05 until a final OD600 of 1.0 was reached. 50 mL LB cultures (OD600 1.0) were pelleted  and the supernatant was discarded. Cells were resuspended and washed in 20 mL of HEPES reaction buffer four times. After the final centrifugation, cells were resuspended in 1 mL HEPES reaction buffer, and the NHS-carbamate coupling reactions were performed by the addition of DizSEC or DizSPC (10 mM final concentration). Cell suspensions were gently mixed by inversion, then incubated at room temperature on an end-over-end rotator for 2 h (10 rpm). The crosslinking reaction was quenched by the addition of Tris pH 8 (100 mM, final concentration), and incubation for 15 minutes at room temperature. Cell suspensions were diluted 10-fold by the addition of 9 mL HEPES reaction buffer before photolysis to prevent excessive scattering.  The photolysis apparatus consisted of the LED Spot W UV-LED array with a 1 mm pathlength quartz flow-cell (Starna Cells, PN: 45-Q-1) affixed directly to the LED array surface with tape. The flow cell was connected to a Masterflex L/S Model 77200-50 peristaltic pump via 1.6 mm ID C-Flex biocompatible tubing (Masterflex). The tubing and flow cell were primed with water at max speed to remove bubbles. The cell suspension was pumped through the flow cell at 50 rpm (approximately 1 s exposure time), collected, and centrifuged at 4000 g for 10 min. The supernatant was discarded and crosslinked cells were resuspended in 1 mL HEPES reaction buffer, then lysed by sonication and normalized to 1.0 mg/mL protein using the BCA assay. Crosslinked protein mixtures (typically 1 mL of 1.0 mg/mL) were denatured by addition of urea (1.92 g), ammonium bicarbonate (Ambic, 15.8 mg) and diluted to a final volume of 4 mL by addition of Millipore water to generate samples that are 0.25 mg/mL protein, 8 M urea, and 50 mM Ambic (pH 8).  These samples were reduced by the addition of dithiothreitol (DTT) to 10 mM final concentration and incubation at 37 ºC with agitation (700 rpm) in a benchtop ThermoMixer (Eppendorf) for 45 minutes. Samples were then alkylated by the addition of iodoacetamide (IAA) to 40 mM final concentration and incubation at room temperature in the dark for 30 min. Samples were either: (i) diluted with 3 volumes of 50 mM Ambic and digested with trypsin (1:50 enzyme:protein w/w ratio, Pierce) overnight (ca. 16 h) at 25 ºC, 700 RPM in a ThermoMixer; or (ii) digested serially – first with Lys-C (1:100 enzyme:protein w/w ratio, Pierce) for 2 h at 37 ºC, then diluted with 3 volumes of 50 mM Ambic followed by second digestion with trypsin overnight (ca. 16 h). Desalting of protein digests was performed using Sep-Pak C18 cartridges (Waters). Crosslinked peptides derived from E. coli extracts and in-cell crosslinked samples were enriched by peptide size exclusion chromatography (SEC). Dried peptides were reconstituted in 250 µL of 3% acetonitrile, 0.1% TFA with vigorous sonication. Peptides were fractionated on an AKTA Go FPLC (Cytiva) with a Superdex 30 10/300 GL gel filtration column. Chromatography used an isocratic method with Solvent A (3% acetonitrile, 0.1% TFA) and a flow rate of 0.4 mL/min (approximate column pressure 2.5 MPa) with a column temperature of 4 ºC. Prior to fractionation, the column was equilibrated with Solvent A for 2 hours.  250 µL peptides were injected onto the column after being loaded into a 500 µL loop, and 0.2 column volumes (the void volume) were passed to waste without being collected. Elution volumes were set to 0.5 mL for fractions 1–12, and 1.0 mL for fractions 12–24. Out of 24 fractions, 4–20 were found to be enriched with crosslinked peptides, and these fractions were selected for LC-MS/MS analysis.",
+    "dataProcessingProtocol": "Raw files were converted to the .mgf file format with mass calibration conducted by MSConvert (run via a script, also available on the Zenodo deposition). MSConvert was directed to identify the optimal mass shift by comparing spectra against a FASTA file containing the 400 most abundant proteins in E. coli (as based on a ranked list of number of PSMs from a separate search of linear peptides conducted in Proteome Discoverer).  Recalibrated .mgf files, settings files, and FASTA files were moved to the Rockfish computing cluster at Advanced Research Computing at Hopkins (ARCH) via the file transfer program, WinSCP (Version 5.21.7). Individual recalibrated .mgf files were searched with XiSearch (Version 1.7.6.7) for crosslinked peptides using a range of search settings (both inclusive and conservative), as described in the text and shown in Table 1.  All versions of the settings included the variable modifications of the oxidation of methionine (+15.99491463 Da) and the crosslinker loop-link modification at Lys and the N-terminus (+97.05276383 Da for DizSEC or +111.06841389 for DizSPC) as well as the fixed modification of the carbamidomethylation of Cys (+57.021464). XiSearch was set to search only b- and y- ions, and the digestion enzyme was set to “constrained” (blocked by proline) trypsin. Water loss (-18.01056027 Da) was allowed at Ser, Thr, Asp, Glu, and the C-terminus. Ammonia loss was allowed at Arg, Lys, Gln, Asn, and the N-terminus. DizSEC was encoded as a crosslinker with a mass of 97.05276383 Da with the first linked amino acid as Lys or the N-terminus and all canonical amino acids and the termini allowed as the second linked amino acid. DizSEC cleavage products were encoded as modifications of 25.97926456 Da at Lys or the N-terminus (lysCO), 0 Da at Lys or the N-terminus (lyspep), and 71.07349927 Da (nonamine) or 97.05276383 Da (nonisocyanate) at any amino acid. DizSPC cleavage products were encoded as losses of 25.97926456 Da at Lys or the N-terminus (lysCO), 0 Da at Lys or the N-terminus (lyspep), and 85.08914933 Da (nonamine) or 111.0684189 Da (nonisocyanate) at any amino acid.  For the “inclusive” search settings, 3 missed cleavages and 3 modifications per peptide were allowed. The inclusive settings used wider tolerances of 10.0 ppm at the MS1 level and 20.0 ppm at the MS2 level. The inclusive search used the full E. coli FASTA file, consisting of 4448 proteins.  These searches were computationally expensive and required high-performance computational clusters with high memory allocations (500 GB) to run to completion. The conservative settings allowed only 1 missed cleavage and 1 modification per peptide. These settings used a tighter mass tolerance of 5.0 ppm at the MS1 level and 15.0 ppm at the MS2 level. The conservative search used a smaller FASTA file that contained the top 2000 proteins by number of PSMs as identified by Proteome Discoverer.  These searches could in principle be run on a conventional lab workstation (ours has 8 cores with 2.934 GHz processors and 64 GB RAM). Searches were run on Rockfish via the SSH client, PuTTY (Version 0.78), using a script to specify the FASTA and search settings.  Submission of searches were automated with a multi-submission script; these scripts are provided on the Zenodo deposition. Of note, the searches were run using 500 GB of RAM, which was critical for completion of searches using the inclusive settings.  Search output files that corresponded to a single experimental condition (e.g., all fractions that were collected using the DizSEC crosslinker for in cellulo crosslinking) were concatenated using a script (available on Zenodo). The concatenated data file was provided to the XiFDR GUI along with the appropriate settings file and FASTA.  Several validation settings were tested (see Table 2); the setting we settled on was XiFDR’s default with two modifications: a prefilter for doublet counts (CCfragmentdoubletcount) to be greater than 0 and boosting on “between” (interprotein) crosslinks.  Figure S12 shows a flow-chart diagram illustrating the computational workflow.  Network Analysis.  MeroX data and XiFDR data were exported from their respective programs in the XiView format, including identification and sequence files. These files were uploaded to XiView50 with a Met oxidation modification mass of 15.99491 Da and a Cys carbamidomethylation modification mass of 57.02146 Da. Each set of experimental data were aggregated together on the XiView server to form network diagrams. Protein Data Bank (PDB) codes were imported into XiView and Euclidian crosslink distance measurements were exported into PyMol scripts. Structures with mapped crosslinks were generated in PyMOL by importing the PDB file and running the appropriate PyMOL command script.",
+    "projectTags": [],
+    "keywords": [
+      "Diazirines",
+      "Cleavable cross-linkers",
+      "Proteomics",
+      "Quinary interactions",
+      "Nhs-carbamate.",
+      "Photo-crosslinking",
+      "Protein interaction networks"
+    ],
+    "doi": "",
+    "submissionType": "PARTIAL",
+    "license": "Creative Commons Public Domain (CC0)",
+    "submissionDate": "2023-03-28",
+    "publicationDate": "2023-06-27",
+    "submitters": [
+      {
+        "title": "Dr",
+        "firstName": "Anneliese",
+        "lastName": "Faustino",
+        "identifier": "2717944",
+        "affiliation": "The Wistar Institute",
+        "email": "anneliesefaustino@yahoo.com",
+        "country": "United States",
+        "orcid": "",
+        "name": "Anneliese Faustino",
+        "id": "2717944"
+      }
+    ],
+    "labPIs": [
+      {
+        "title": "Dr",
+        "firstName": "Stephen",
+        "lastName": "Fried",
+        "identifier": "2553135",
+        "affiliation": "Johns Hopkins University, Department of Chemistry, Johns Hopkins University, Baltimore, MD 21218, USA, Thomas C. Jenkins Department of Biophysics, Johns Hopkins University, Baltimore, MD 21218, USA",
+        "email": "sdfried@jhu.edu",
+        "country": "",
+        "orcid": "",
+        "name": "Stephen Fried",
+        "id": "2553135"
+      }
+    ],
+    "instruments": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1002877",
+        "name": "Q Exactive HF-X"
+      }
+    ],
+    "softwares": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1000650",
+        "name": "Proteome Discoverer"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1002205",
+        "name": "ProteoWizard msconvert"
+      }
+    ],
+    "experimentTypes": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000430",
+        "name": "Chemical cross-linking coupled with mass spectrometry proteomics"
+      }
+    ],
+    "quantificationMethods": [],
+    "countries": [
+      "United States"
+    ],
+    "sampleAttributes": [
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "OBI:0100026",
+          "name": "organism"
+        },
+        "value": [
+          {
+            "cvLabel": "NEWT",
+            "accession": "NEWT:562",
+            "name": "Escherichia coli"
+          }
+        ]
+      }
+    ],
+    "organisms": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "NEWT",
+        "accession": "NEWT:562",
+        "name": "Escherichia coli"
+      }
+    ],
+    "organismParts": [],
+    "diseases": [],
+    "references": [
+      {
+        "referenceLine": "Faustino AM, Sharma P, Manriquez-Sandoval E, Yadav D, Fried SD. Progress toward Proteome-Wide Photo-Cross-Linking to Enable Residue-Level Visualization of Protein Structures and Networks In Vivo. Anal Chem. 2023",
+        "pubmedID": 37341467,
+        "doi": "10.1021/acs.analchem.3c01369"
+      }
+    ],
+    "identifiedPTMStrings": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00425",
+        "name": "monohydroxylated residue"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00397",
+        "name": "iodoacetamide derivatized residue"
+      }
+    ],
+    "totalFileDownloads": 5227,
+    "botCount": 1742,
+    "hubCount": 3161,
+    "organicCount": 324,
+    "files": {
+      "files": [
+        {
+          "fileName": "DizSPC_LysC_InCell_Frac18.mgf",
+          "fileSizeBytes": 270768326,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSPC_LysC_InCell_Frac18.mgf"
+        },
+        {
+          "fileName": "DizSPC_LysC_InCell_Frac4.mgf",
+          "fileSizeBytes": 302290495,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSPC_LysC_InCell_Frac4.mgf"
+        },
+        {
+          "fileName": "DizSEC_LysC_InCell_Frac16.mgf",
+          "fileSizeBytes": 468163345,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSEC_LysC_InCell_Frac16.mgf"
+        },
+        {
+          "fileName": "DizSEC_LysC_InCell_Frac13.mgf",
+          "fileSizeBytes": 769405565,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSEC_LysC_InCell_Frac13.mgf"
+        },
+        {
+          "fileName": "DizSPC_LysC_InCell_Frac5.mgf",
+          "fileSizeBytes": 408729201,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSPC_LysC_InCell_Frac5.mgf"
+        },
+        {
+          "fileName": "DizSEC_LysC_InCell_Frac8.mgf",
+          "fileSizeBytes": 644562355,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSEC_LysC_InCell_Frac8.mgf"
+        },
+        {
+          "fileName": "DizSEC_Bigmem_proteingroups_xiFDR2.1.5.5.csv",
+          "fileSizeBytes": 249284,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSEC_Bigmem_proteingroups_xiFDR2.1.5.5.csv"
+        },
+        {
+          "fileName": "DizSEC_LysC_InCell_Frac7.mgf",
+          "fileSizeBytes": 658507701,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSEC_LysC_InCell_Frac7.mgf"
+        },
+        {
+          "fileName": "DizSEC_Bigmem_Links_xiFDR2.1.5.5.csv",
+          "fileSizeBytes": 592839,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSEC_Bigmem_Links_xiFDR2.1.5.5.csv"
+        },
+        {
+          "fileName": "DizSEC_LysC_InCell_Frac17.mgf",
+          "fileSizeBytes": 366870399,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSEC_LysC_InCell_Frac17.mgf"
+        },
+        {
+          "fileName": "DizSPC_LysC_InCell_Frac10.mgf",
+          "fileSizeBytes": 752861863,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSPC_LysC_InCell_Frac10.mgf"
+        },
+        {
+          "fileName": "DizSEC_Combined.csv",
+          "fileSizeBytes": 764444381,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSEC_Combined.csv"
+        },
+        {
+          "fileName": "DizSEC_LysC_InCell_Frac4.mgf",
+          "fileSizeBytes": 186686054,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSEC_LysC_InCell_Frac4.mgf"
+        },
+        {
+          "fileName": "DizSEC_Config_V3.conf",
+          "fileSizeBytes": 7364,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSEC_Config_V3.conf"
+        },
+        {
+          "fileName": "DizSEC_Bigmem_ppi_xiFDR2.1.5.5.csv",
+          "fileSizeBytes": 175703,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSEC_Bigmem_ppi_xiFDR2.1.5.5.csv"
+        },
+        {
+          "fileName": "DizSEC_LysC_InCell_Frac18.mgf",
+          "fileSizeBytes": 258670656,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSEC_LysC_InCell_Frac18.mgf"
+        },
+        {
+          "fileName": "DizSEC_LysC_InCell_Frac9.mgf",
+          "fileSizeBytes": 811529559,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSEC_LysC_InCell_Frac9.mgf"
+        },
+        {
+          "fileName": "DizSPC_LysC_InCell_Frac19.mgf",
+          "fileSizeBytes": 136382159,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSPC_LysC_InCell_Frac19.mgf"
+        },
+        {
+          "fileName": "DizSEC_LysC_InCell_Frac12.mgf",
+          "fileSizeBytes": 743558937,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSEC_LysC_InCell_Frac12.mgf"
+        },
+        {
+          "fileName": "DizSEC_Bigmem_summary_xiFDR2.1.5.5.csv",
+          "fileSizeBytes": 3206,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSEC_Bigmem_summary_xiFDR2.1.5.5.csv"
+        },
+        {
+          "fileName": "DizSEC_LysC_InCell_Frac11.mgf",
+          "fileSizeBytes": 746249695,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSEC_LysC_InCell_Frac11.mgf"
+        },
+        {
+          "fileName": "dizspc_bigmem_proteingroups_xiFDR2.1.5.5.csv",
+          "fileSizeBytes": 183533,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/dizspc_bigmem_proteingroups_xiFDR2.1.5.5.csv"
+        },
+        {
+          "fileName": "DizSEC_LysC_InCell_Frac6.mgf",
+          "fileSizeBytes": 532682304,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSEC_LysC_InCell_Frac6.mgf"
+        },
+        {
+          "fileName": "DizSPC_Combined.csv",
+          "fileSizeBytes": 795080931,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSPC_Combined.csv"
+        },
+        {
+          "fileName": "DizSEC_LysC_InCell_Frac19.mgf",
+          "fileSizeBytes": 121320006,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSEC_LysC_InCell_Frac19.mgf"
+        },
+        {
+          "fileName": "DizSPC_LysC_InCell_Frac14.mgf",
+          "fileSizeBytes": 631695232,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSPC_LysC_InCell_Frac14.mgf"
+        },
+        {
+          "fileName": "DizSPC_LysC_InCell_Frac15.mgf",
+          "fileSizeBytes": 523741811,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSPC_LysC_InCell_Frac15.mgf"
+        },
+        {
+          "fileName": "DizSEC_Bigmem_CSM_xiFDR2.1.5.5.csv",
+          "fileSizeBytes": 938039,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSEC_Bigmem_CSM_xiFDR2.1.5.5.csv"
+        },
+        {
+          "fileName": "dizspc_bigmem_CSM_xiFDR2.1.5.5.csv",
+          "fileSizeBytes": 614648,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/dizspc_bigmem_CSM_xiFDR2.1.5.5.csv"
+        },
+        {
+          "fileName": "K12.fasta",
+          "fileSizeBytes": 1905647,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/K12.fasta"
+        },
+        {
+          "fileName": "checksum.txt",
+          "fileSizeBytes": 7405,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/checksum.txt"
+        },
+        {
+          "fileName": "DizSPC_LysC_InCell_Frac9.mgf",
+          "fileSizeBytes": 717268724,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSPC_LysC_InCell_Frac9.mgf"
+        },
+        {
+          "fileName": "DizSEC_LysC_InCell_Frac14.mgf",
+          "fileSizeBytes": 690683978,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSEC_LysC_InCell_Frac14.mgf"
+        },
+        {
+          "fileName": "DizSPC_LysC_InCell_Frac7.mgf",
+          "fileSizeBytes": 654996240,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSPC_LysC_InCell_Frac7.mgf"
+        },
+        {
+          "fileName": "DizSPC_InCell_Combined.csv",
+          "fileSizeBytes": 795080931,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSPC_InCell_Combined.csv"
+        },
+        {
+          "fileName": "dizspc_bigmem_ppi_xiFDR2.1.5.5.csv",
+          "fileSizeBytes": 127043,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/dizspc_bigmem_ppi_xiFDR2.1.5.5.csv"
+        },
+        {
+          "fileName": "dizspc_bigmem_Links_xiFDR2.1.5.5.csv",
+          "fileSizeBytes": 393484,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/dizspc_bigmem_Links_xiFDR2.1.5.5.csv"
+        },
+        {
+          "fileName": "DizSEC_LysC_InCell_Frac5.mgf",
+          "fileSizeBytes": 409578778,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSEC_LysC_InCell_Frac5.mgf"
+        },
+        {
+          "fileName": "DizSPC_V2.conf",
+          "fileSizeBytes": 7367,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSPC_V2.conf"
+        },
+        {
+          "fileName": "DizSPC_LysC_InCell_Frac8.mgf",
+          "fileSizeBytes": 700633972,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSPC_LysC_InCell_Frac8.mgf"
+        },
+        {
+          "fileName": "dizspc_bigmem_PeptidePairs_xiFDR2.1.5.5.csv",
+          "fileSizeBytes": 527200,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/dizspc_bigmem_PeptidePairs_xiFDR2.1.5.5.csv"
+        },
+        {
+          "fileName": "dizspc_bigmem_summary_xiFDR2.1.5.5.csv",
+          "fileSizeBytes": 3006,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/dizspc_bigmem_summary_xiFDR2.1.5.5.csv"
+        },
+        {
+          "fileName": "DizSEC_LysC_InCell_Frac15.mgf",
+          "fileSizeBytes": 568993434,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSEC_LysC_InCell_Frac15.mgf"
+        },
+        {
+          "fileName": "DizSEC_Bigmem_PeptidePairs_xiFDR2.1.5.5.csv",
+          "fileSizeBytes": 794139,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSEC_Bigmem_PeptidePairs_xiFDR2.1.5.5.csv"
+        },
+        {
+          "fileName": "DizSPC_LysC_InCell_Frac17.mgf",
+          "fileSizeBytes": 355059375,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSPC_LysC_InCell_Frac17.mgf"
+        },
+        {
+          "fileName": "DizSPC_LysC_InCell_Frac13.mgf",
+          "fileSizeBytes": 686070396,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSPC_LysC_InCell_Frac13.mgf"
+        },
+        {
+          "fileName": "DizSPC_LysC_InCell_Frac6.mgf",
+          "fileSizeBytes": 528093767,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSPC_LysC_InCell_Frac6.mgf"
+        },
+        {
+          "fileName": "DizSEC_LysC_InCell_Frac10.mgf",
+          "fileSizeBytes": 806767786,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSEC_LysC_InCell_Frac10.mgf"
+        },
+        {
+          "fileName": "DizSPC_LysC_InCell_Frac11.mgf",
+          "fileSizeBytes": 754067720,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSPC_LysC_InCell_Frac11.mgf"
+        },
+        {
+          "fileName": "DizSPC_LysC_InCell_Frac16.mgf",
+          "fileSizeBytes": 456398527,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/DizSPC_LysC_InCell_Frac16.mgf"
+        },
+        {
+          "fileName": "combined_csv.csv",
+          "fileSizeBytes": 241229805,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/06/PXD041148/combined_csv.csv"
+        }
+      ],
+      "totalCount": 51
+    }
+  }
+}

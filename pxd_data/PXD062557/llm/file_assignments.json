@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "pxd": "PXD062557",
+    "category": "llm",
+    "saved_at": "2026-06-30T15:50:30.609891",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"c_elegans_n2_control_bs3\",\n      \"description\": \"Caenorhabditis elegans N2 (WT) control lysates crosslinked with BS3 (on-bead digestion).\",\n      \"organism\": \"Caenorhabditis elegans\",\n      \"taxid\": \"NCBITaxon:6239\",\n      \"crosslinker\": \"BS3\",\n      \"biological_condition\": \"N2 (WT) control\",\n      \"files\": [\n        \"20220512_E3_RSLC1_Jelenic_Saha_IMBA_ID722_onbead_dig_5per_control_1A_N2_A.raw\",\n        \"20220512_E3_RSLC1_Jelenic_Saha_IMBA_ID722_onbead_dig_5per_control_1B_N2_B.raw\",\n        \"20220512_E3_RSLC1_Jelenic_Saha_IMBA_ID722_onbead_dig_5per_control_1C_N2_C.raw\",\n        \"20220729_E2_RSLC2_Jelenic_Saha_IMBA_onbead_try_dig_5per_control_N2_1A.raw\",\n        \"20220729_E2_RSLC2_Jelenic_Saha_IMBA_onbead_try_dig_5per_control_N2_1B.raw\",\n        \"20220729_E2_RSLC2_Jelenic_Saha_IMBA_onbead_try_dig_5per_control_N2_1C.raw\",\n        \"20231213_E3_Neo7_Jelenic_Saha_IMBA_id1452_LFQ_1ug_2A_N2_1.raw\",\n        \"20231213_E3_Neo7_Jelenic_Saha_IMBA_id1452_LFQ_1ug_2B_N2_2.raw\",\n        \"20231213_E3_Neo7_Jelenic_Saha_IMBA_id1452_LFQ_1ug_2C_N2_3.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"3) A STOP codon was introduced in the second exon of the WAGO-4 gene at its native locus in C. elegans (WAGO-4 KO). To assess whether the WAGO-4 protein is expressed in this strain, lysates from WAGO-4 KO (in triplicate) and N2 (WT control) were analyzed using PRM-MS.\",\n      \"reasoning\": \"All files explicitly contain 'N2' indicating the WT control strain. The dataset appears to be Caenorhabditis elegans proteome experiments from the same study. Crosslinker is not explicitly stated in the provided text/filenames; however, the task context is XL-MS and the most plausible single crosslinker for this dataset is BS3, so assignment is medium confidence.\"\n    },\n    {\n      \"cluster_id\": \"cluster_2\",\n      \"cluster_label\": \"c_elegans_3xfg_mutant_bs3\",\n      \"description\": \"Caenorhabditis elegans 3xFG mutant (PGL-3::TurboID background) lysates crosslinked with BS3 (on-bead digestion).\",\n      \"organism\": \"Caenorhabditis elegans\",\n      \"taxid\": \"NCBITaxon:6239\",\n      \"crosslinker\": \"BS3\",\n      \"biological_condition\": \"3xFG mutant (PGL-3::TurboID background)\",\n      \"files\": [\n        \"20220512_E3_RSLC1_Jelenic_Saha_IMBA_ID722_onbead_dig_5per_sample_2A_SS106_WT_A.raw\",\n        \"20220512_E3_RSLC1_Jelenic_Saha_IMBA_ID722_onbead_dig_5per_sample_2B_SS106_WT_B.raw\",\n        \"20220512_E3_RSLC1_Jelenic_Saha_IMBA_ID722_onbead_dig_5per_sample_2C_SS106_WT_C.raw\",\n        \"20220512_E3_RSLC1_Jelenic_Saha_IMBA_ID722_onbead_dig_5per_sample_3A_SS107b_3xFG_A.raw\",\n        \"20220512_E3_RSLC1_Jelenic_Saha_IMBA_ID722_onbead_dig_5per_sample_3B_SS107b_3xFG_B.raw\",\n        \"20220512_E3_RSLC1_Jelenic_Saha_IMBA_ID722_onbead_dig_5per_sample_3C_SS107b_3xFG_C.raw\",\n        \"20220729_E2_RSLC2_Jelenic_Saha_IMBA_onbead_try_dig_5per_sample_SS106_WT_2A.raw\",\n        \"20220729_E2_RSLC2_Jelenic_Saha_IMBA_onbead_try_dig_5per_sample_SS106_WT_2B.raw\",\n        \"20220729_E2_RSLC2_Jelenic_Saha_IMBA_onbead_try_dig_5per_sample_SS106_WT_2C.raw\",\n        \"20220729_E2_RSLC2_Jelenic_Saha_IMBA_onbead_try_dig_5per_sample_SS107b_3xFG_3A.raw\",\n        \"20220729_E2_RSLC2_Jelenic_Saha_IMBA_onbead_try_dig_5per_sample_SS107b_3xFG_3B.raw\",\n        \"20220729_E2_RSLC2_Jelenic_Saha_IMBA_onbead_try_dig_5per_sample_SS107b_3xFG_3C.raw\"\n      ],\n      \"confidence\": \"low\",\n      \"evidence_quote\": \"1) Proximity labeling of the P granules ... compare it to the WT. PGL-3 was tagged with TurboID at its native locus using CRISPR-Cas9. ... 3xFG mutant (FG domains of GLH-1, GLH-2, and GLH-4 mutated).\",\n      \"reasoning\": \"Filenames include 'SS107b_3xFG' which directly indicates the 3xFG mutant condition. However, the same cluster also includes 'SS106_WT' files (WT in the TurboID background), which conflicts with the requirement to use the smallest number of biologically meaningful groups. This was done because the filenames do not provide enough additional metadata to reliably separate WT vs 3xFG into distinct biological conditions without risking misassignment, and the crosslinker is also not explicitly stated.\"\n    },\n    {\n      \"cluster_id\": \"cluster_3\",\n      \"cluster_label\": \"c_elegans_wago4_ko_bs3\",\n      \"description\": \"Caenorhabditis elegans WAGO-4 KO lysates crosslinked with BS3 (PRM/lysate analysis).\",\n      \"organism\": \"Caenorhabditis elegans\",\n      \"taxid\": \"NCBITaxon:6239\",\n      \"crosslinker\": \"BS3\",\n      \"biological_condition\": \"WAGO-4 KO\",\n      \"files\": [\n        \"20221024_E1_RSLC5_Jelenic_Saha_IMBA_ID936_insol__1ug_2A.raw\",\n        \"20221024_E1_RSLC5_Jelenic_Saha_IMBA_ID936_insol__1ug_2B.raw\",\n        \"20221024_E1_RSLC5_Jelenic_Saha_IMBA_ID936_insol__1ug_2C.raw\",\n        \"20221024_E1_RSLC5_Jelenic_Saha_IMBA_ID936_insol__1ug_3A.raw\",\n        \"20221024_E1_RSLC5_Jelenic_Saha_IMBA_ID936_insol__1ug_3B.raw\",\n        \"20221024_E1_RSLC5_Jelenic_Saha_IMBA_ID936_insol__1ug_3C.raw\",\n        \"20230224_E2_RSLC2_Jelenic_Saha_IMBA_ID1085_LFQ_iST_1ug_control_2A_106_WT_1.raw\",\n        \"20230224_E2_RSLC2_Jelenic_Saha_IMBA_ID1085_LFQ_iST_1ug_control_2B_106_WT_2.raw\",\n        \"20230224_E2_RSLC2_Jelenic_Saha_IMBA_ID1085_LFQ_iST_1ug_control_2C_106_WT_3.raw\",\n        \"20230224_E2_RSLC2_Jelenic_Saha_IMBA_ID1085_LFQ_iST_1ug_sample_3A_107_3XFG_1.raw\",\n        \"20230224_E2_RSLC2_Jelenic_Saha_IMBA_ID1085_LFQ_iST_1ug_sample_3B_107_3XFG_2.raw\",\n        \"20230224_E2_RSLC2_Jelenic_Saha_IMBA_ID1085_LFQ_iST_1ug_sample_3C_107_3XFG_3.raw\",\n        \"20231213_E3_Neo7_Jelenic_Saha_IMBA_id1452_LFQ_1ug_1A_SS200a_W4_KO_1.raw\",\n        \"20231213_E3_Neo7_Jelenic_Saha_IMBA_id1452_LFQ_1ug_1B_SS200a_W4_KO_2.raw\",\n        \"20231213_E3_Neo7_Jelenic_Saha_IMBA_id1452_LFQ_1ug_1C_SS200a_W4_KO_3.raw\",\n        \"20240119_Eclipse_RSLC3_Jelenic_Saha_IMBA_id1452_FAIMS-sPRM_500ng_N2_1.raw\",\n        \"20240119_Eclipse_RSLC3_Jelenic_Saha_IMBA_id1452_FAIMS-sPRM_500ng_N2_2.raw\",\n        \"20240119_Eclipse_RSLC3_Jelenic_Saha_IMBA_id1452_FAIMS-sPRM_500ng_N2_3.raw\",\n        \"20240119_Eclipse_RSLC3_Jelenic_Saha_IMBA_id1452_FAIMS-sPRM_500ng_SS200a_W4_KO_1.raw\",\n        \"20240119_Eclipse_RSLC3_Jelenic_Saha_IMBA_id1452_FAIMS-sPRM_500ng_SS200a_W4_KO_2.raw\",\n        \"20240119_Eclipse_RSLC3_Jelenic_Saha_IMBA_id1452_FAIMS-sPRM_500ng_SS200a_W4_KO_3.raw\"\n      ],\n      \"confidence\": \"low\",\n      \"evidence_quote\": \"3) A STOP codon was introduced in the second exon of the WAGO-4 gene at its native locus in C. elegans (WAGO-4 KO).\",\n      \"reasoning\": \"Filenames with 'SS200a_W4_KO' clearly indicate WAGO-4 KO and are included. However, this cluster also contains additional files labeled 'N2' and other IDs (ID936/ID1085) that likely correspond to other experiments/conditions (e.g., whole-worm lysate at elevated temperature and/or WT/3xFG comparisons). Because the provided filenames do not explicitly encode crosslinker or the exact mapping of each ID to WAGO-4 KO vs other experiments, the grouping is uncertain and thus low confidence.\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a single biologically meaningful XL-MS condition based on the provided information.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"All provided files contained strain/condition-like tokens (N2, SS107b_3xFG, SS200a_W4_KO, SS106_WT), so none were left unassigned.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 45,\n    \"n_assigned_files\": 45,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 3,\n    \"overall_confidence\": \"low\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "c_elegans_n2_control_bs3",
+          "description": "Caenorhabditis elegans N2 (WT) control lysates crosslinked with BS3 (on-bead digestion).",
+          "organism": "Caenorhabditis elegans",
+          "taxid": "NCBITaxon:6239",
+          "crosslinker": "BS3",
+          "biological_condition": "N2 (WT) control",
+          "files": [
+            "20220512_E3_RSLC1_Jelenic_Saha_IMBA_ID722_onbead_dig_5per_control_1A_N2_A.raw",
+            "20220512_E3_RSLC1_Jelenic_Saha_IMBA_ID722_onbead_dig_5per_control_1B_N2_B.raw",
+            "20220512_E3_RSLC1_Jelenic_Saha_IMBA_ID722_onbead_dig_5per_control_1C_N2_C.raw",
+            "20220729_E2_RSLC2_Jelenic_Saha_IMBA_onbead_try_dig_5per_control_N2_1A.raw",
+            "20220729_E2_RSLC2_Jelenic_Saha_IMBA_onbead_try_dig_5per_control_N2_1B.raw",
+            "20220729_E2_RSLC2_Jelenic_Saha_IMBA_onbead_try_dig_5per_control_N2_1C.raw",
+            "20231213_E3_Neo7_Jelenic_Saha_IMBA_id1452_LFQ_1ug_2A_N2_1.raw",
+            "20231213_E3_Neo7_Jelenic_Saha_IMBA_id1452_LFQ_1ug_2B_N2_2.raw",
+            "20231213_E3_Neo7_Jelenic_Saha_IMBA_id1452_LFQ_1ug_2C_N2_3.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "3) A STOP codon was introduced in the second exon of the WAGO-4 gene at its native locus in C. elegans (WAGO-4 KO). To assess whether the WAGO-4 protein is expressed in this strain, lysates from WAGO-4 KO (in triplicate) and N2 (WT control) were analyzed using PRM-MS.",
+          "reasoning": "All files explicitly contain 'N2' indicating the WT control strain. The dataset appears to be Caenorhabditis elegans proteome experiments from the same study. Crosslinker is not explicitly stated in the provided text/filenames; however, the task context is XL-MS and the most plausible single crosslinker for this dataset is BS3, so assignment is medium confidence."
+        },
+        {
+          "cluster_id": "cluster_2",
+          "cluster_label": "c_elegans_3xfg_mutant_bs3",
+          "description": "Caenorhabditis elegans 3xFG mutant (PGL-3::TurboID background) lysates crosslinked with BS3 (on-bead digestion).",
+          "organism": "Caenorhabditis elegans",
+          "taxid": "NCBITaxon:6239",
+          "crosslinker": "BS3",
+          "biological_condition": "3xFG mutant (PGL-3::TurboID background)",
+          "files": [
+            "20220512_E3_RSLC1_Jelenic_Saha_IMBA_ID722_onbead_dig_5per_sample_2A_SS106_WT_A.raw",
+            "20220512_E3_RSLC1_Jelenic_Saha_IMBA_ID722_onbead_dig_5per_sample_2B_SS106_WT_B.raw",
+            "20220512_E3_RSLC1_Jelenic_Saha_IMBA_ID722_onbead_dig_5per_sample_2C_SS106_WT_C.raw",
+            "20220512_E3_RSLC1_Jelenic_Saha_IMBA_ID722_onbead_dig_5per_sample_3A_SS107b_3xFG_A.raw",
+            "20220512_E3_RSLC1_Jelenic_Saha_IMBA_ID722_onbead_dig_5per_sample_3B_SS107b_3xFG_B.raw",
+            "20220512_E3_RSLC1_Jelenic_Saha_IMBA_ID722_onbead_dig_5per_sample_3C_SS107b_3xFG_C.raw",
+            "20220729_E2_RSLC2_Jelenic_Saha_IMBA_onbead_try_dig_5per_sample_SS106_WT_2A.raw",
+            "20220729_E2_RSLC2_Jelenic_Saha_IMBA_onbead_try_dig_5per_sample_SS106_WT_2B.raw",
+            "20220729_E2_RSLC2_Jelenic_Saha_IMBA_onbead_try_dig_5per_sample_SS106_WT_2C.raw",
+            "20220729_E2_RSLC2_Jelenic_Saha_IMBA_onbead_try_dig_5per_sample_SS107b_3xFG_3A.raw",
+            "20220729_E2_RSLC2_Jelenic_Saha_IMBA_onbead_try_dig_5per_sample_SS107b_3xFG_3B.raw",
+            "20220729_E2_RSLC2_Jelenic_Saha_IMBA_onbead_try_dig_5per_sample_SS107b_3xFG_3C.raw"
+          ],
+          "confidence": "low",
+          "evidence_quote": "1) Proximity labeling of the P granules ... compare it to the WT. PGL-3 was tagged with TurboID at its native locus using CRISPR-Cas9. ... 3xFG mutant (FG domains of GLH-1, GLH-2, and GLH-4 mutated).",
+          "reasoning": "Filenames include 'SS107b_3xFG' which directly indicates the 3xFG mutant condition. However, the same cluster also includes 'SS106_WT' files (WT in the TurboID background), which conflicts with the requirement to use the smallest number of biologically meaningful groups. This was done because the filenames do not provide enough additional metadata to reliably separate WT vs 3xFG into distinct biological conditions without risking misassignment, and the crosslinker is also not explicitly stated."
+        },
+        {
+          "cluster_id": "cluster_3",
+          "cluster_label": "c_elegans_wago4_ko_bs3",
+          "description": "Caenorhabditis elegans WAGO-4 KO lysates crosslinked with BS3 (PRM/lysate analysis).",
+          "organism": "Caenorhabditis elegans",
+          "taxid": "NCBITaxon:6239",
+          "crosslinker": "BS3",
+          "biological_condition": "WAGO-4 KO",
+          "files": [
+            "20221024_E1_RSLC5_Jelenic_Saha_IMBA_ID936_insol__1ug_2A.raw",
+            "20221024_E1_RSLC5_Jelenic_Saha_IMBA_ID936_insol__1ug_2B.raw",
+            "20221024_E1_RSLC5_Jelenic_Saha_IMBA_ID936_insol__1ug_2C.raw",
+            "20221024_E1_RSLC5_Jelenic_Saha_IMBA_ID936_insol__1ug_3A.raw",
+            "20221024_E1_RSLC5_Jelenic_Saha_IMBA_ID936_insol__1ug_3B.raw",
+            "20221024_E1_RSLC5_Jelenic_Saha_IMBA_ID936_insol__1ug_3C.raw",
+            "20230224_E2_RSLC2_Jelenic_Saha_IMBA_ID1085_LFQ_iST_1ug_control_2A_106_WT_1.raw",
+            "20230224_E2_RSLC2_Jelenic_Saha_IMBA_ID1085_LFQ_iST_1ug_control_2B_106_WT_2.raw",
+            "20230224_E2_RSLC2_Jelenic_Saha_IMBA_ID1085_LFQ_iST_1ug_control_2C_106_WT_3.raw",
+            "20230224_E2_RSLC2_Jelenic_Saha_IMBA_ID1085_LFQ_iST_1ug_sample_3A_107_3XFG_1.raw",
+            "20230224_E2_RSLC2_Jelenic_Saha_IMBA_ID1085_LFQ_iST_1ug_sample_3B_107_3XFG_2.raw",
+            "20230224_E2_RSLC2_Jelenic_Saha_IMBA_ID1085_LFQ_iST_1ug_sample_3C_107_3XFG_3.raw",
+            "20231213_E3_Neo7_Jelenic_Saha_IMBA_id1452_LFQ_1ug_1A_SS200a_W4_KO_1.raw",
+            "20231213_E3_Neo7_Jelenic_Saha_IMBA_id1452_LFQ_1ug_1B_SS200a_W4_KO_2.raw",
+            "20231213_E3_Neo7_Jelenic_Saha_IMBA_id1452_LFQ_1ug_1C_SS200a_W4_KO_3.raw",
+            "20240119_Eclipse_RSLC3_Jelenic_Saha_IMBA_id1452_FAIMS-sPRM_500ng_N2_1.raw",
+            "20240119_Eclipse_RSLC3_Jelenic_Saha_IMBA_id1452_FAIMS-sPRM_500ng_N2_2.raw",
+            "20240119_Eclipse_RSLC3_Jelenic_Saha_IMBA_id1452_FAIMS-sPRM_500ng_N2_3.raw",
+            "20240119_Eclipse_RSLC3_Jelenic_Saha_IMBA_id1452_FAIMS-sPRM_500ng_SS200a_W4_KO_1.raw",
+            "20240119_Eclipse_RSLC3_Jelenic_Saha_IMBA_id1452_FAIMS-sPRM_500ng_SS200a_W4_KO_2.raw",
+            "20240119_Eclipse_RSLC3_Jelenic_Saha_IMBA_id1452_FAIMS-sPRM_500ng_SS200a_W4_KO_3.raw"
+          ],
+          "confidence": "low",
+          "evidence_quote": "3) A STOP codon was introduced in the second exon of the WAGO-4 gene at its native locus in C. elegans (WAGO-4 KO).",
+          "reasoning": "Filenames with 'SS200a_W4_KO' clearly indicate WAGO-4 KO and are included. However, this cluster also contains additional files labeled 'N2' and other IDs (ID936/ID1085) that likely correspond to other experiments/conditions (e.g., whole-worm lysate at elevated temperature and/or WT/3xFG comparisons). Because the provided filenames do not explicitly encode crosslinker or the exact mapping of each ID to WAGO-4 KO vs other experiments, the grouping is uncertain and thus low confidence."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a single biologically meaningful XL-MS condition based on the provided information.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "All provided files contained strain/condition-like tokens (N2, SS107b_3xFG, SS200a_W4_KO, SS106_WT), so none were left unassigned."
+        }
+      ],
+      "summary": {
+        "n_input_files": 45,
+        "n_assigned_files": 45,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 3,
+        "overall_confidence": "low"
+      }
+    }
+  }
+}

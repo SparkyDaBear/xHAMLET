@@ -1,0 +1,939 @@
+{
+  "metadata": {
+    "pxd": "PXD009648",
+    "category": "enhanced",
+    "saved_at": "2026-06-30T14:58:19.960140",
+    "filename": "metadata"
+  },
+  "data": {
+    "pxd": "PXD009648",
+    "processed_at": "2026-06-30T14:57:30.048509",
+    "stages": {
+      "pride": "success",
+      "publication": "failed",
+      "file_clustering": "success",
+      "raw_processing": "skipped_no_download",
+      "spectral_merge": "success",
+      "llm": "success",
+      "sdrf": "success",
+      "sdrf_validation": "success_with_warnings",
+      "xi_configs": "success",
+      "relink": "skipped",
+      "compilation": "success"
+    },
+    "file_assignments": {
+      "Rappsilber_CLMS_xlinkAOC-1.raw": {
+        "cluster_id": "cluster_1",
+        "cluster_label": "s_cerevisiae_aoc_bs3",
+        "organism": "Saccharomyces cerevisiae",
+        "taxid": "NCBITaxon:4932"
+      },
+      "Rappsilber_CLMS_xlinkAOC-2.raw": {
+        "cluster_id": "cluster_1",
+        "cluster_label": "s_cerevisiae_aoc_bs3",
+        "organism": "Saccharomyces cerevisiae",
+        "taxid": "NCBITaxon:4932"
+      },
+      "Rappsilber_CLMS_xlinkAOC-3.raw": {
+        "cluster_id": "cluster_1",
+        "cluster_label": "s_cerevisiae_aoc_bs3",
+        "organism": "Saccharomyces cerevisiae",
+        "taxid": "NCBITaxon:4932"
+      }
+    },
+    "spectral_summary": {
+      "source_files_parsed": 0,
+      "per_file": [],
+      "instrument": "Orbitrap Fusion Lumos"
+    },
+    "sdrf_path": "pxd_data/PXD009648/sdrf/PXD009648.sdrf.tsv",
+    "sdrf_validation_warnings": "WARNING: Term: not available in column 'comment[instrument]', is not found in the given ontology list ms;pride\nERROR: Column 'comment[instrument]' contains 'not available' values but requires actual values\nERROR: Term: not available in column 'comment[dissociation method]', is not found in the given ontology list ms;pride\nERROR: Column 'comment[dissociation method]' contains 'not available' values but requires actual values\nThere were validation errors.",
+    "xi_config_paths": {
+      "crosslinking": "pxd_data/PXD009648/configs/xi_crosslinking.conf",
+      "linear": "pxd_data/PXD009648/configs/xi_linear.conf"
+    },
+    "pride_data": {
+      "accession": "PXD009648",
+      "title": "Cross-linking/mass spectrometry analysis of the AOC complex",
+      "additionalAttributes": [],
+      "projectDescription": "As a part of a study on how kinetochors are assembled at the centromeres of the chromosomes, cross-linking/mass spectrometry has been applied to investigate interactions between Okp1/ Ame1 heterodimer, which is part of the COMA complex,  and CENP-A from Saccharomyces cerevisiae.",
+      "sampleProcessingProtocol": "The purified Ame1/Okp1/Cse4N complex at a concentration of 1.2 mg/ml was crosslinked with 150 μM BS3 (bis(sulfosuccinimidyl) suberate) in 50 mM HEPES, pH 7.5, 200 mM NaCl and 1 mM DTT and incubated for 2 h on ice. The reaction was stopped with 50 mM Tris-HCl, pH 7.5, and proteins were separated by SDS-PAGE electrophoresis. A gel band corresponding to the monomeric cross-linked Ame1/Okp1/Cse4N complex was excised from the gel and digested with trypsin (Pierce, Germany) (Shevchenko et al., 2006). The resulting tryptic peptides were extracted from the gel de-salted using C18 StageTips (Rappsilber et al., 2003).  LC-MS/MS analysis was conducted in triplicates, performed on an Orbitrap FusionTM LumosTM TribridTM mass spectrometer (Thermo Fisher Scientific, Germany) coupled on-line to Ultimate 3000 RSLCano Systems (Dionex, Thermo Fisher Scientific, Germany). The eluted peptides are ionized by an EASY-Spray source (Thermo Scientific). Mobile phase A consists of water, 0.1% v/v formic acid and mobile phase B consists of 80% v/v acetonitrile and 0.1% v/v formic acid. For CLMS analysis, peptides are loaded at a flow-rate of 0.3 μL/min and eluted at 0.2 μL/min using a linear gradient going from 2% mobile phase B to 40% mobile phase B over 139 min, followed by a linear increase from 45% to 95% mobile phase B in twelve min. The MS data is acquired in the data-dependent mode with the top-speed option. For each three-second acquisition cycle, the full scan mass spectrum was recorded in the Orbitrap with a resolution of 120,000. The ions with a precursor charge state between 3+ and 7+ were isolated and fragmented. Each cross-linked sample was analysed with two LC-MS/MS acquisitions, in one acquisition, peptides were fragmented using Higher-energy collisional dissociation (HCD) with 30% collision energy. The fragmentation spectra were then recorded in the Orbitrap with a resolution of 30000. Dynamic exclusion was enabled with single repeat count and 60-second exclusion duration.",
+      "dataProcessingProtocol": "The MS2 peak lists were generated from the raw mass spectrometric data files using msConvert (version 3.0.11729) (Chamber MC et al, 2012) with default settings. The precursor m/z was recalibrated based on high confidence (<1% FDR) linear peptide identifications, using an in-house script. The recalibrated peak lists were searched against the sequences and the reversed sequences (as decoys) of cross-linked proteins using Xi software (https://github.com/Rappsilber-Laboratory/XiSearch) for identification of cross-linked peptides. The following parameters were applied for the search: MS accuracy = 6 ppm; MS2 accuracy = 20 ppm; enzyme = trypsin (with full tryptic specificity); allowed number of missed cleavages = four; cross-linker = BS3 the reaction specificity for BS3 was assumed to be for lysine, serine, threonine, tyrosine and protein N termini); fixed modifications = carbamidomethylation on cysteine; variable modifications = oxidation on methionine, modifications by BS3 that are hydrolyzed or reacted with Tris on the end. All identified cross-linked peptides passed auto-validated by Xi with an estimated FDR<1.1%.",
+      "projectTags": [
+        "Biological"
+      ],
+      "keywords": [
+        "Protein interaction",
+        "Cenp-a",
+        "Okp1",
+        "Centromere",
+        "Cross-linking/mass spectrometry",
+        "Ame1"
+      ],
+      "doi": "",
+      "submissionType": "PARTIAL",
+      "license": "EBI terms of use",
+      "submissionDate": "2018-05-02",
+      "publicationDate": "2018-10-30",
+      "submitters": [
+        {
+          "title": "Dr",
+          "firstName": "Zhuo",
+          "lastName": "Chen",
+          "identifier": "103230149",
+          "affiliation": "Technischen Universität Berlin",
+          "email": "zhuo.chen@tu-berlin.de",
+          "country": "Germany",
+          "orcid": "0000-0003-0811-8348",
+          "name": "Zhuo Chen",
+          "id": "103230149"
+        }
+      ],
+      "labPIs": [
+        {
+          "title": "Dr",
+          "firstName": "Juri",
+          "lastName": "Rappsilber",
+          "identifier": "102560100",
+          "affiliation": "Technischen Universität Berlin wellcome trust centre for cell biology, University of Edinburgh",
+          "email": "Juri.Rappsilber@tu-Berlin.de",
+          "country": "",
+          "orcid": "",
+          "name": "Juri Rappsilber",
+          "id": "102560100"
+        }
+      ],
+      "instruments": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MS",
+          "accession": "MS:1002732",
+          "name": "Orbitrap Fusion Lumos"
+        }
+      ],
+      "softwares": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MS",
+          "accession": "MS:1002205",
+          "name": "ProteoWizard msconvert"
+        }
+      ],
+      "experimentTypes": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "PRIDE",
+          "accession": "PRIDE:0000430",
+          "name": "Chemical cross-linking coupled with mass spectrometry proteomics"
+        }
+      ],
+      "quantificationMethods": [],
+      "countries": [
+        "Germany"
+      ],
+      "sampleAttributes": [
+        {
+          "@type": "Tuple",
+          "key": {
+            "cvLabel": "EFO",
+            "accession": "OBI:0100026",
+            "name": "organism"
+          },
+          "value": [
+            {
+              "cvLabel": "NEWT",
+              "accession": "NEWT:4932",
+              "name": "Saccharomyces cerevisiae (Baker's yeast)"
+            }
+          ]
+        }
+      ],
+      "organisms": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "NEWT",
+          "accession": "NEWT:4932",
+          "name": "Saccharomyces cerevisiae (baker's yeast)"
+        }
+      ],
+      "organismParts": [],
+      "diseases": [],
+      "references": [
+        {
+          "referenceLine": "Anedchenko EA, Samel-Pommerencke A, Tran Nguyen TM, Shahnejat-Bushehri S, Pöpsel J, Lauster D, Herrmann A, Rappsilber J, Cuomo A, Bonaldi T, Ehrenhofer-Murray AE. The kinetochore module Okp1CENP-Q/Ame1CENP-U is a reader for N-terminal modifications on the centromeric histone Cse4CENP-A. EMBO J. 2018",
+          "pubmedID": 30389668,
+          "doi": "10.15252/embj.201898991"
+        }
+      ],
+      "identifiedPTMStrings": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MOD",
+          "accession": "MOD:00425",
+          "name": "monohydroxylated residue"
+        },
+        {
+          "@type": "CvParam",
+          "cvLabel": "MOD",
+          "accession": "MOD:00397",
+          "name": "iodoacetamide derivatized residue"
+        }
+      ],
+      "totalFileDownloads": 665,
+      "botCount": 306,
+      "hubCount": 341,
+      "organicCount": 18,
+      "files": {
+        "files": [
+          {
+            "fileName": "recal_Rappsilber_CLMS_xlinkAOC-1.mgf",
+            "fileSizeBytes": 102834630,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/10/PXD009648/recal_Rappsilber_CLMS_xlinkAOC-1.mgf"
+          },
+          {
+            "fileName": "recal_Rappsilber_CLMS_xlinkAOC-3.mgf",
+            "fileSizeBytes": 94097906,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/10/PXD009648/recal_Rappsilber_CLMS_xlinkAOC-3.mgf"
+          },
+          {
+            "fileName": "recal_Rappsilber_CLMS_xlinkAOC-2.mgf",
+            "fileSizeBytes": 103474116,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/10/PXD009648/recal_Rappsilber_CLMS_xlinkAOC-2.mgf"
+          },
+          {
+            "fileName": "Rappsilber_CLMS_xlinkAOC_SearchResults.csv",
+            "fileSizeBytes": 50803,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/10/PXD009648/Rappsilber_CLMS_xlinkAOC_SearchResults.csv"
+          },
+          {
+            "fileName": "Rappsilber_CLMS_xlinkAOC-3.raw",
+            "fileSizeBytes": 1726598455,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/10/PXD009648/Rappsilber_CLMS_xlinkAOC-3.raw"
+          },
+          {
+            "fileName": "Rappsilber_CLMS_xlinkAOC-2.raw",
+            "fileSizeBytes": 1688290666,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/10/PXD009648/Rappsilber_CLMS_xlinkAOC-2.raw"
+          },
+          {
+            "fileName": "Rappsilber_CLMS_xlinkAOC-1.raw",
+            "fileSizeBytes": 1692448957,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/10/PXD009648/Rappsilber_CLMS_xlinkAOC-1.raw"
+          }
+        ],
+        "totalCount": 7
+      }
+    },
+    "publication_metadata": null,
+    "llm_responses": {
+      "characteristics[disease]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"BS3 (bis(sulfosuccinimidyl) suberate) crosslinking\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": \"BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"150 μM BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": \"150 μM\",\n    \"accession\": \"NCIT:C25488\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"150 μM BS3 (bis(sulfosuccinimidyl) suberate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"chemical crosslinking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[phenotype]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"BS3 (bis(sulfosuccinimidyl) suberate) crosslinking\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": \"BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"150 μM BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": \"150 μM\",\n    \"accession\": \"NCIT:C25488\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"150 μM BS3 (bis(sulfosuccinimidyl) suberate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"chemical crosslinking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[treatment]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"BS3 (bis(sulfosuccinimidyl) suberate) crosslinking\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": \"BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"150 μM BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": \"150 μM\",\n    \"accession\": \"NCIT:C25488\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"150 μM BS3 (bis(sulfosuccinimidyl) suberate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"chemical crosslinking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "BS3 (bis(sulfosuccinimidyl) suberate) crosslinking",
+          "accession": "EFO:0000727",
+          "confidence": "medium",
+          "evidence_quote": "crosslinked with 150 μM BS3 (bis(sulfosuccinimidyl) suberate)",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[compound]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"BS3 (bis(sulfosuccinimidyl) suberate) crosslinking\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": \"BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"150 μM BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": \"150 μM\",\n    \"accession\": \"NCIT:C25488\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"150 μM BS3 (bis(sulfosuccinimidyl) suberate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"chemical crosslinking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "BS3 (bis(sulfosuccinimidyl) suberate)",
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": "150 μM BS3 (bis(sulfosuccinimidyl) suberate)",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[dose]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"BS3 (bis(sulfosuccinimidyl) suberate) crosslinking\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": \"BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"150 μM BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": \"150 μM\",\n    \"accession\": \"NCIT:C25488\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"150 μM BS3 (bis(sulfosuccinimidyl) suberate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"chemical crosslinking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "150 μM",
+          "accession": "NCIT:C25488",
+          "confidence": "high",
+          "evidence_quote": "150 μM BS3 (bis(sulfosuccinimidyl) suberate",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[genetic modification]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"BS3 (bis(sulfosuccinimidyl) suberate) crosslinking\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": \"BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"150 μM BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": \"150 μM\",\n    \"accession\": \"NCIT:C25488\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"150 μM BS3 (bis(sulfosuccinimidyl) suberate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"chemical crosslinking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[perturbation]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"BS3 (bis(sulfosuccinimidyl) suberate) crosslinking\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": \"BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"150 μM BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": \"150 μM\",\n    \"accession\": \"NCIT:C25488\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"150 μM BS3 (bis(sulfosuccinimidyl) suberate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"chemical crosslinking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "chemical crosslinking",
+          "accession": "PRIDE:0000700",
+          "confidence": "medium",
+          "evidence_quote": "crosslinked with 150 μM BS3",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[depletion]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"BS3 (bis(sulfosuccinimidyl) suberate) crosslinking\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": \"BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"150 μM BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": \"150 μM\",\n    \"accession\": \"NCIT:C25488\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"150 μM BS3 (bis(sulfosuccinimidyl) suberate\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"chemical crosslinking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "no depletion",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "factor value cell line": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": \"150 μM\",\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "CLO:0000031",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value compound": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": \"150 μM\",\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "BS3 (bis(sulfosuccinimidyl) suberate)",
+          "accession": "CHEBI:37577",
+          "confidence": "high",
+          "evidence_quote": "crosslinked with 150 μM BS3 (bis(sulfosuccinimidyl) suberate)",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value disease": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": \"150 μM\",\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "OGMS:0000031",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value dose": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": \"150 μM\",\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "150 μM",
+          "accession": "EFO:0000428",
+          "confidence": "medium",
+          "evidence_quote": "crosslinked with 150 μM BS3",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value organism part": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": \"150 μM\",\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000635",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value time": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": \"150 μM\",\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000721",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value treatment": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": \"150 μM\",\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000727",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "comment[instrument]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\"\n    ],\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"performed on an Orbitrap FusionTM LumosTM TribridTM mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The MS data is acquired in the data-dependent mode with the top-speed option.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": [\n      \"NT=HCD;AC=MS:1000422\"\n    ],\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"peptides were fragmented using Higher-energy collisional dissociation (HCD) with 30% collision energy.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"30% NCE\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HCD with 30% collision energy.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"3 technical replicates (triplicates) per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": [
+            "NT=Orbitrap Fusion Lumos;AC=MS:1002732"
+          ],
+          "accession": "MS:1002732",
+          "confidence": "high",
+          "evidence_quote": "performed on an Orbitrap FusionTM LumosTM TribridTM mass spectrometer",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[proteomics data acquisition method]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\"\n    ],\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"performed on an Orbitrap FusionTM LumosTM TribridTM mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The MS data is acquired in the data-dependent mode with the top-speed option.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": [\n      \"NT=HCD;AC=MS:1000422\"\n    ],\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"peptides were fragmented using Higher-energy collisional dissociation (HCD) with 30% collision energy.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"30% NCE\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HCD with 30% collision energy.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"3 technical replicates (triplicates) per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "NT=data-dependent acquisition;AC=PRIDE:0000041",
+          "accession": "PRIDE:0000041",
+          "confidence": "high",
+          "evidence_quote": "The MS data is acquired in the data-dependent mode with the top-speed option.",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[dissociation method]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\"\n    ],\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"performed on an Orbitrap FusionTM LumosTM TribridTM mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The MS data is acquired in the data-dependent mode with the top-speed option.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": [\n      \"NT=HCD;AC=MS:1000422\"\n    ],\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"peptides were fragmented using Higher-energy collisional dissociation (HCD) with 30% collision energy.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"30% NCE\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HCD with 30% collision energy.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"3 technical replicates (triplicates) per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": [
+            "NT=HCD;AC=MS:1000422"
+          ],
+          "accession": "MS:1000422",
+          "confidence": "high",
+          "evidence_quote": "peptides were fragmented using Higher-energy collisional dissociation (HCD) with 30% collision energy.",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[collision energy]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\"\n    ],\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"performed on an Orbitrap FusionTM LumosTM TribridTM mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The MS data is acquired in the data-dependent mode with the top-speed option.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": [\n      \"NT=HCD;AC=MS:1000422\"\n    ],\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"peptides were fragmented using Higher-energy collisional dissociation (HCD) with 30% collision energy.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"30% NCE\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HCD with 30% collision energy.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"3 technical replicates (triplicates) per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "30% NCE",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "HCD with 30% collision energy.",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[dia method]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\"\n    ],\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"performed on an Orbitrap FusionTM LumosTM TribridTM mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The MS data is acquired in the data-dependent mode with the top-speed option.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": [\n      \"NT=HCD;AC=MS:1000422\"\n    ],\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"peptides were fragmented using Higher-energy collisional dissociation (HCD) with 30% collision energy.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"30% NCE\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HCD with 30% collision energy.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"3 technical replicates (triplicates) per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[fragment mass tolerance]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\"\n    ],\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"performed on an Orbitrap FusionTM LumosTM TribridTM mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The MS data is acquired in the data-dependent mode with the top-speed option.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": [\n      \"NT=HCD;AC=MS:1000422\"\n    ],\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"peptides were fragmented using Higher-energy collisional dissociation (HCD) with 30% collision energy.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"30% NCE\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HCD with 30% collision energy.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"3 technical replicates (triplicates) per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[precursor mass tolerance]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\"\n    ],\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"performed on an Orbitrap FusionTM LumosTM TribridTM mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The MS data is acquired in the data-dependent mode with the top-speed option.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": [\n      \"NT=HCD;AC=MS:1000422\"\n    ],\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"peptides were fragmented using Higher-energy collisional dissociation (HCD) with 30% collision energy.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"30% NCE\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HCD with 30% collision energy.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"3 technical replicates (triplicates) per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[technical replicate]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\"\n    ],\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"performed on an Orbitrap FusionTM LumosTM TribridTM mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The MS data is acquired in the data-dependent mode with the top-speed option.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": [\n      \"NT=HCD;AC=MS:1000422\"\n    ],\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"peptides were fragmented using Higher-energy collisional dissociation (HCD) with 30% collision energy.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"30% NCE\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HCD with 30% collision energy.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"3 technical replicates (triplicates) per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "3 technical replicates (triplicates) per sample",
+          "accession": "MS:1001808",
+          "confidence": "medium",
+          "evidence_quote": "LC-MS/MS analysis was conducted in triplicates",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[data file]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\"\n    ],\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"performed on an Orbitrap FusionTM LumosTM TribridTM mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The MS data is acquired in the data-dependent mode with the top-speed option.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": [\n      \"NT=HCD;AC=MS:1000422\"\n    ],\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"peptides were fragmented using Higher-energy collisional dissociation (HCD) with 30% collision energy.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"30% NCE\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HCD with 30% collision energy.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"3 technical replicates (triplicates) per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "MS:1003083",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "characteristics[organism]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Saccharomyces cerevisiae\",\n    \"accession\": \"NCBITaxon:4932\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"interactions between Okp1/ Ame1 heterodimer, which is part of the COMA complex, and CENP-A from Saccharomyces cerevisiae.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The purified Ame1/Okp1/Cse4N complex at a concentration of 1.2 mg/ml was crosslinked with 150 μM BS3\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking/mass spectrometry has been applied\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"Not stated (sample naming convention not provided in the provided text).\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Not stated (run/raw file naming convention not provided in the provided text).\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "Saccharomyces cerevisiae",
+          "accession": "NCBITaxon:4932",
+          "confidence": "high",
+          "evidence_quote": "interactions between Okp1/ Ame1 heterodimer, which is part of the COMA complex, and CENP-A from Saccharomyces cerevisiae.",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[organism part]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Saccharomyces cerevisiae\",\n    \"accession\": \"NCBITaxon:4932\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"interactions between Okp1/ Ame1 heterodimer, which is part of the COMA complex, and CENP-A from Saccharomyces cerevisiae.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The purified Ame1/Okp1/Cse4N complex at a concentration of 1.2 mg/ml was crosslinked with 150 μM BS3\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking/mass spectrometry has been applied\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"Not stated (sample naming convention not provided in the provided text).\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Not stated (run/raw file naming convention not provided in the provided text).\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[cell line]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Saccharomyces cerevisiae\",\n    \"accession\": \"NCBITaxon:4932\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"interactions between Okp1/ Ame1 heterodimer, which is part of the COMA complex, and CENP-A from Saccharomyces cerevisiae.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The purified Ame1/Okp1/Cse4N complex at a concentration of 1.2 mg/ml was crosslinked with 150 μM BS3\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking/mass spectrometry has been applied\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"Not stated (sample naming convention not provided in the provided text).\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Not stated (run/raw file naming convention not provided in the provided text).\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[cell type]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Saccharomyces cerevisiae\",\n    \"accession\": \"NCBITaxon:4932\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"interactions between Okp1/ Ame1 heterodimer, which is part of the COMA complex, and CENP-A from Saccharomyces cerevisiae.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The purified Ame1/Okp1/Cse4N complex at a concentration of 1.2 mg/ml was crosslinked with 150 μM BS3\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking/mass spectrometry has been applied\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"Not stated (sample naming convention not provided in the provided text).\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Not stated (run/raw file naming convention not provided in the provided text).\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[material type]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Saccharomyces cerevisiae\",\n    \"accession\": \"NCBITaxon:4932\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"interactions between Okp1/ Ame1 heterodimer, which is part of the COMA complex, and CENP-A from Saccharomyces cerevisiae.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The purified Ame1/Okp1/Cse4N complex at a concentration of 1.2 mg/ml was crosslinked with 150 μM BS3\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking/mass spectrometry has been applied\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"Not stated (sample naming convention not provided in the provided text).\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Not stated (run/raw file naming convention not provided in the provided text).\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "purified proteins",
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": "The purified Ame1/Okp1/Cse4N complex at a concentration of 1.2 mg/ml was crosslinked with 150 μM BS3",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[strain or breed]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Saccharomyces cerevisiae\",\n    \"accession\": \"NCBITaxon:4932\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"interactions between Okp1/ Ame1 heterodimer, which is part of the COMA complex, and CENP-A from Saccharomyces cerevisiae.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The purified Ame1/Okp1/Cse4N complex at a concentration of 1.2 mg/ml was crosslinked with 150 μM BS3\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking/mass spectrometry has been applied\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"Not stated (sample naming convention not provided in the provided text).\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Not stated (run/raw file naming convention not provided in the provided text).\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[developmental stage]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Saccharomyces cerevisiae\",\n    \"accession\": \"NCBITaxon:4932\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"interactions between Okp1/ Ame1 heterodimer, which is part of the COMA complex, and CENP-A from Saccharomyces cerevisiae.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The purified Ame1/Okp1/Cse4N complex at a concentration of 1.2 mg/ml was crosslinked with 150 μM BS3\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking/mass spectrometry has been applied\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"Not stated (sample naming convention not provided in the provided text).\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Not stated (run/raw file naming convention not provided in the provided text).\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "technology type": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Saccharomyces cerevisiae\",\n    \"accession\": \"NCBITaxon:4932\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"interactions between Okp1/ Ame1 heterodimer, which is part of the COMA complex, and CENP-A from Saccharomyces cerevisiae.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The purified Ame1/Okp1/Cse4N complex at a concentration of 1.2 mg/ml was crosslinked with 150 μM BS3\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking/mass spectrometry has been applied\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"Not stated (sample naming convention not provided in the provided text).\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Not stated (run/raw file naming convention not provided in the provided text).\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "proteomic profiling by mass spectrometry",
+          "accession": "PRIDE:0000663",
+          "confidence": "high",
+          "evidence_quote": "cross-linking/mass spectrometry has been applied",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "source name": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Saccharomyces cerevisiae\",\n    \"accession\": \"NCBITaxon:4932\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"interactions between Okp1/ Ame1 heterodimer, which is part of the COMA complex, and CENP-A from Saccharomyces cerevisiae.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The purified Ame1/Okp1/Cse4N complex at a concentration of 1.2 mg/ml was crosslinked with 150 μM BS3\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking/mass spectrometry has been applied\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"Not stated (sample naming convention not provided in the provided text).\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Not stated (run/raw file naming convention not provided in the provided text).\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "Not stated (sample naming convention not provided in the provided text).",
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "assay name": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"Saccharomyces cerevisiae\",\n    \"accession\": \"NCBITaxon:4932\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"interactions between Okp1/ Ame1 heterodimer, which is part of the COMA complex, and CENP-A from Saccharomyces cerevisiae.\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The purified Ame1/Okp1/Cse4N complex at a concentration of 1.2 mg/ml was crosslinked with 150 μM BS3\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking/mass spectrometry has been applied\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"Not stated (sample naming convention not provided in the provided text).\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Not stated (run/raw file naming convention not provided in the provided text).\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "Not stated (run/raw file naming convention not provided in the provided text).",
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[sex]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The purified Ame1/Okp1/Cse4N complex\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "not applicable",
+          "accession": "PATO:0000047",
+          "confidence": "high",
+          "evidence_quote": "The purified Ame1/Okp1/Cse4N complex",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[age]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The purified Ame1/Okp1/Cse4N complex\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000246",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[ancestry category]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The purified Ame1/Okp1/Cse4N complex\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "HANCESTRO",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[biological replicate]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The purified Ame1/Okp1/Cse4N complex\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "LC-MS/MS analysis was conducted in triplicates",
+          "accession": "MS:1001809",
+          "confidence": "medium",
+          "evidence_quote": "LC-MS/MS analysis was conducted in triplicates",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[genotype]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The purified Ame1/Okp1/Cse4N complex\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000513",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[pooled sample]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The purified Ame1/Okp1/Cse4N complex\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "not pooled",
+          "accession": "NCIT:C165587",
+          "confidence": "medium",
+          "evidence_quote": "LC-MS/MS analysis was conducted in triplicates",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[phosphate]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The purified Ame1/Okp1/Cse4N complex\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000805",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[temperature]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The purified Ame1/Okp1/Cse4N complex\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000703",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "comment[cleavage agent details]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"digested with trypsin (Pierce, Germany)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": \"UNIMOD:21\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"A gel band corresponding to the monomeric cross-linked Ame1/Okp1/Cse4N complex was excised from the gel\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": [
+            "NT=Trypsin;AC=MS:1001251"
+          ],
+          "accession": "MS:1001251",
+          "confidence": "high",
+          "evidence_quote": "digested with trypsin (Pierce, Germany)",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[label]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"digested with trypsin (Pierce, Germany)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": \"UNIMOD:21\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"A gel band corresponding to the monomeric cross-linked Ame1/Okp1/Cse4N complex was excised from the gel\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "NT=label free sample;AC=MS:1002038",
+          "accession": "MS:1002038",
+          "confidence": "high",
+          "evidence_quote": "LC-MS/MS analysis was conducted in triplicates",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[alkylation reagent]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"digested with trypsin (Pierce, Germany)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": \"UNIMOD:21\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"A gel band corresponding to the monomeric cross-linked Ame1/Okp1/Cse4N complex was excised from the gel\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[fractionation method]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"digested with trypsin (Pierce, Germany)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": \"UNIMOD:21\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"A gel band corresponding to the monomeric cross-linked Ame1/Okp1/Cse4N complex was excised from the gel\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[modification parameters]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"digested with trypsin (Pierce, Germany)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": \"UNIMOD:21\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"A gel band corresponding to the monomeric cross-linked Ame1/Okp1/Cse4N complex was excised from the gel\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": [
+            "NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable"
+          ],
+          "accession": "UNIMOD:21",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[fraction identifier]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"digested with trypsin (Pierce, Germany)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"LC-MS/MS analysis was conducted in triplicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": \"UNIMOD:21\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"A gel band corresponding to the monomeric cross-linked Ame1/Okp1/Cse4N complex was excised from the gel\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "no fractionation",
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": "A gel band corresponding to the monomeric cross-linked Ame1/Okp1/Cse4N complex was excised from the gel",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "characteristics[crosslinking reaction time]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"2 h\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"incubated for 2 h on ice.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"on ice\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"incubated for 2 h on ice.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"A gel band corresponding to the monomeric cross-linked Ame1/Okp1/Cse4N complex was excised from the gel and digested with trypsin.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"A gel band corresponding to the monomeric cross-linked Ame1/Okp1/Cse4N complex was excised from the gel and digested with trypsin.\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "2 h",
+          "accession": "PRIDE:0000949",
+          "confidence": "high",
+          "evidence_quote": "incubated for 2 h on ice.",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "characteristics[crosslinking temperature]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"2 h\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"incubated for 2 h on ice.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"on ice\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"incubated for 2 h on ice.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"A gel band corresponding to the monomeric cross-linked Ame1/Okp1/Cse4N complex was excised from the gel and digested with trypsin.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"A gel band corresponding to the monomeric cross-linked Ame1/Okp1/Cse4N complex was excised from the gel and digested with trypsin.\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "on ice",
+          "accession": "PRIDE:0000950",
+          "confidence": "medium",
+          "evidence_quote": "incubated for 2 h on ice.",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "comment[crosslink enrichment method]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"2 h\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"incubated for 2 h on ice.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"on ice\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"incubated for 2 h on ice.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"A gel band corresponding to the monomeric cross-linked Ame1/Okp1/Cse4N complex was excised from the gel and digested with trypsin.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"A gel band corresponding to the monomeric cross-linked Ame1/Okp1/Cse4N complex was excised from the gel and digested with trypsin.\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": "A gel band corresponding to the monomeric cross-linked Ame1/Okp1/Cse4N complex was excised from the gel and digested with trypsin.",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "characteristics[enrichment process]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"2 h\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"incubated for 2 h on ice.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"on ice\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"incubated for 2 h on ice.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"A gel band corresponding to the monomeric cross-linked Ame1/Okp1/Cse4N complex was excised from the gel and digested with trypsin.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"A gel band corresponding to the monomeric cross-linked Ame1/Okp1/Cse4N complex was excised from the gel and digested with trypsin.\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": "A gel band corresponding to the monomeric cross-linked Ame1/Okp1/Cse4N complex was excised from the gel and digested with trypsin.",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "comment[cross-linker]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=BS3 (bis(sulfosuccinimidyl) suberate);AC=XLMOD:02000;CL=no;TA=K,nterm\",\n    \"NT\": \"BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"AC\": \"XLMOD:02000\",\n    \"CL\": \"no\",\n    \"TA\": \"K,nterm\",\n    \"accession\": \"XLMOD:02000\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"150 μM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"Tris-HCl\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The reaction was stopped with 50 mM Tris-HCl, pH 7.5\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Cross-linking/mass spectrometry analysis\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "NT=BS3 (bis(sulfosuccinimidyl) suberate);AC=XLMOD:02000;CL=no;TA=K,nterm",
+          "NT": "BS3 (bis(sulfosuccinimidyl) suberate)",
+          "AC": "XLMOD:02000",
+          "CL": "no",
+          "TA": "K,nterm",
+          "accession": "XLMOD:02000",
+          "confidence": "high",
+          "evidence_quote": "crosslinked with 150 μM BS3 (bis(sulfosuccinimidyl) suberate)",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[crosslinker concentration]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=BS3 (bis(sulfosuccinimidyl) suberate);AC=XLMOD:02000;CL=no;TA=K,nterm\",\n    \"NT\": \"BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"AC\": \"XLMOD:02000\",\n    \"CL\": \"no\",\n    \"TA\": \"K,nterm\",\n    \"accession\": \"XLMOD:02000\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"150 μM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"Tris-HCl\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The reaction was stopped with 50 mM Tris-HCl, pH 7.5\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Cross-linking/mass spectrometry analysis\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "150 μM",
+          "accession": "PRIDE:0000951",
+          "confidence": "high",
+          "evidence_quote": "crosslinked with 150 μM BS3",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[crosslinker to protein ratio]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=BS3 (bis(sulfosuccinimidyl) suberate);AC=XLMOD:02000;CL=no;TA=K,nterm\",\n    \"NT\": \"BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"AC\": \"XLMOD:02000\",\n    \"CL\": \"no\",\n    \"TA\": \"K,nterm\",\n    \"accession\": \"XLMOD:02000\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"150 μM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"Tris-HCl\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The reaction was stopped with 50 mM Tris-HCl, pH 7.5\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Cross-linking/mass spectrometry analysis\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000952",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[quenching reagent]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=BS3 (bis(sulfosuccinimidyl) suberate);AC=XLMOD:02000;CL=no;TA=K,nterm\",\n    \"NT\": \"BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"AC\": \"XLMOD:02000\",\n    \"CL\": \"no\",\n    \"TA\": \"K,nterm\",\n    \"accession\": \"XLMOD:02000\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"150 μM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"Tris-HCl\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The reaction was stopped with 50 mM Tris-HCl, pH 7.5\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Cross-linking/mass spectrometry analysis\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "Tris-HCl",
+          "accession": "PRIDE:0000953",
+          "confidence": "medium",
+          "evidence_quote": "The reaction was stopped with 50 mM Tris-HCl, pH 7.5",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "characteristics[crosslink distance]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=BS3 (bis(sulfosuccinimidyl) suberate);AC=XLMOD:02000;CL=no;TA=K,nterm\",\n    \"NT\": \"BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"AC\": \"XLMOD:02000\",\n    \"CL\": \"no\",\n    \"TA\": \"K,nterm\",\n    \"accession\": \"XLMOD:02000\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"150 μM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"Tris-HCl\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The reaction was stopped with 50 mM Tris-HCl, pH 7.5\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Cross-linking/mass spectrometry analysis\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000948",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[chemical cross-linking coupled with ms]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=BS3 (bis(sulfosuccinimidyl) suberate);AC=XLMOD:02000;CL=no;TA=K,nterm\",\n    \"NT\": \"BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"AC\": \"XLMOD:02000\",\n    \"CL\": \"no\",\n    \"TA\": \"K,nterm\",\n    \"accession\": \"XLMOD:02000\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3 (bis(sulfosuccinimidyl) suberate)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"150 μM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinked with 150 μM BS3\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"Tris-HCl\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The reaction was stopped with 50 mM Tris-HCl, pH 7.5\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Cross-linking/mass spectrometry analysis\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "cross-linking mass spectrometry",
+          "accession": "PRIDE:0000430",
+          "confidence": "high",
+          "evidence_quote": "Cross-linking/mass spectrometry analysis",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      }
+    }
+  }
+}

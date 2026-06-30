@@ -14,12 +14,23 @@ output_format: NT=<name>;AC=<XLMOD or ChEBI accession>;CL=<yes/no>;TA=<residue t
     NT = full chemical name or common abbreviation (e.g. BS3, DSSO, DSS, DSBU, EDC,
          formaldehyde, SDA, sulfo-SDA, BMOE, Sulfo-LC-SDA, PIR, CBDPS)
     AC = XLMOD or ChEBI accession if identifiable (else null)
-    CL = yes if MS-cleavable (DSSO, DSBU, SSD, PIR, etc.), no if non-cleavable (BS3,
-         DSS, EDC, etc.), null if not stated
+    CL = yes if MS-cleavable (DSSO, DSBU, DSBSO, DHSO, BMSO, SDASO, SSD, CBDPS, iQlnk, etc.), no if non-cleavable (BS3, DSS, EDC, PhoX, SDA, PIR, etc.), null if not stated
     TA = comma-separated reactive residues (e.g. K,nterm or K,S,T,Y or D,E or C)
 instructions: Extract from Methods section. If multiple crosslinkers, return a list.
-  Common cleavable: DSSO (K,S,T,Y), DSBU (K,S,T,Y), SSD, PIR, CBDPS
-  Common non-cleavable: BS3/BS2G (K,nterm), DSS (K,nterm), EDC (D,E,nterm), formaldehyde (K,nterm)
+  ALWAYS populate NT with the reagent name as written in the text, even if the XLMOD
+  accession is unknown — set AC=null in that case. Only return value=null if no
+  crosslinker is mentioned anywhere in the provided text.
+  Common cleavable: DSSO (K,S,T,Y; AC=XLMOD:02126), DSBU (K,S,T,Y; AC=XLMOD:02120),
+    DSBSO (K,nterm; AC=null), Azide-A-DSBSO (K,nterm; AC=XLMOD:02222), Alkyne-A-DSBSO (K,nterm; AC=XLMOD:02223),
+    DSAU (K,nterm; AC=XLMOD:09317), DSPU (K,nterm), DSSBU (K,nterm),
+    DHSO (carbonyl-reactive D,E; AC=XLMOD:02226), BMSO (cysteine-specific; C),
+    SDASO (K,nterm; photo+MS-cleavable), SDASO-L (K,nterm; photo+MS-cleavable),
+    SSD (K,nterm), CBDPS (K,nterm), iQlnk (K,nterm)
+  PIR-type enrichable (reporter-ion, NOT backbone MS-cleavable): PIR (K,nterm), BDP-NHP (K,nterm)
+  Common non-cleavable: BS3/BS2G (K,nterm; AC=XLMOD:02000/02005), DSS (K,nterm; AC=XLMOD:02001), EDC (D,E,nterm; AC=XLMOD:02010), formaldehyde (K,nterm)
+  IMAC-enrichable (non-cleavable): PhoX (K,nterm; AC=XLMOD:02258), pDSPE (K,nterm; AC=null)
+  Photo-crosslinkers (non-cleavable, UV-activated): diazirine (K or incorporated aa), benzophenone (Bpa, pBpa; C or incorporated aa), SDA/sulfo-SDA (K,nterm; AC=XLMOD:02134/02136), aryl azide
+  NOTE: Do NOT extract proximity labeling enzymes (TurboID, BioID, APEX, biotin-phenol+H2O2) as crosslinkers — these are NOT chemical cross-linking reagents.
 
 term: crosslinker concentration
 sdrf_column: comment[crosslinker concentration]
@@ -38,11 +49,22 @@ instructions: Return null if not stated.
 term: quenching reagent
 sdrf_column: comment[quenching reagent]
 ontology: PRIDE:0000953
-description: Reagent used to quench (stop) the crosslinking reaction.
-instructions: Common quenchers: Tris, ammonium bicarbonate (ABC), glycine, lysine.
-  Include concentration if stated (e.g. "50 mM Tris-HCl, pH 7.5").
-  Return null if not stated.
-
+description: Reagent used to stop, quench, neutralize, terminate, or consume the crosslinking reaction.
+instructions:
+  Extract only if explicitly stated in the paper, PRIDE metadata, or cited protocol text.
+  Search for synonyms including: quenched, stopped, terminated, neutralized, blocked,
+  residual crosslinker, washed with, incubated with, reaction was halted.
+Common quenchers:
+  - NHS ester crosslinkers such as BS3, DSS, DSSO, DSBU: Tris, ammonium bicarbonate, glycine, lysine
+  - Formaldehyde crosslinking: glycine or Tris are common, but only annotate if explicitly stated
+For formaldehyde datasets:
+  - Inspect the 3–5 sentences after the formaldehyde crosslinking sentence.
+  - If the text says "as described previously" or "as described before", and no quencher is named, attempt to read the cited artical and extract the quenching reagent from its methods section.
+    If that fall back failes then return value=null with confidence="low" and reasoning="quenching reagent not explicitly stated in provided text; may require cited protocol."
+  - Do NOT infer glycine solely because formaldehyde was used.
+  - Do NOT treat PBS washes alone as a quenching reagent.
+  - Treat Tris-containing lysis buffer as a possible quencher only if the text clearly implies it was use
+  
 term: crosslink distance
 sdrf_column: characteristics[crosslink distance]
 ontology: PRIDE:0000948

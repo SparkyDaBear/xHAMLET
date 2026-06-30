@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "pxd": "PXD067354",
+    "category": "llm",
+    "saved_at": "2026-06-30T15:52:26.005097",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"arabidopsis_erc1_turboid_biotin_control\",\n      \"description\": \"Arabidopsis seedlings expressing TurboID-tagged ERC1 in atg7-2 background (biotin proximity labeling); includes TurboID control condition.\",\n      \"organism\": \"Arabidopsis thaliana\",\n      \"taxid\": \"NCBITaxon:3702\",\n      \"crosslinker\": null,\n      \"biological_condition\": \"ERC1-TurboID (atg7-2) and TurboID control (UBQ10 promoter) proximity labeling with biotin\",\n      \"files\": [\n        \"ERC1_TurboID_1.raw\",\n        \"ERC1_TurboID_2.raw\",\n        \"ERC1_TurboID_3.raw\",\n        \"TurboID_Control_1.raw\",\n        \"TurboID_Control_2.raw\",\n        \"TurboID_Control_3.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"Proximity labeling – LC/MS-MS with ERC1-TurboID/atg7-2 Arabidopsis seedlings\",\n      \"reasoning\": \"Filenames indicate two biological conditions: ERC1_TurboID replicates and TurboID_Control replicates. However, the provided publication text describes biotin-based proximity labeling (TurboID) rather than chemical crosslinking, so crosslinker is null. Because the task asks for smallest number of biologically meaningful groups and the dataset appears to be a single proximity-labeling study with control included, these are grouped into one cluster representing the overall ERC1-TurboID proximity labeling experiment with its control. If strict separation of ERC1-TurboID vs TurboID_Control is required, this would be split into two clusters.\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a biological XL-MS condition.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"All provided raw files match the biological naming patterns for ERC1_TurboID and TurboID_Control; no QC/calibration/blank files were present.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 6,\n    \"n_assigned_files\": 6,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 1,\n    \"overall_confidence\": \"medium\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "arabidopsis_erc1_turboid_biotin_control",
+          "description": "Arabidopsis seedlings expressing TurboID-tagged ERC1 in atg7-2 background (biotin proximity labeling); includes TurboID control condition.",
+          "organism": "Arabidopsis thaliana",
+          "taxid": "NCBITaxon:3702",
+          "crosslinker": null,
+          "biological_condition": "ERC1-TurboID (atg7-2) and TurboID control (UBQ10 promoter) proximity labeling with biotin",
+          "files": [
+            "ERC1_TurboID_1.raw",
+            "ERC1_TurboID_2.raw",
+            "ERC1_TurboID_3.raw",
+            "TurboID_Control_1.raw",
+            "TurboID_Control_2.raw",
+            "TurboID_Control_3.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "Proximity labeling – LC/MS-MS with ERC1-TurboID/atg7-2 Arabidopsis seedlings",
+          "reasoning": "Filenames indicate two biological conditions: ERC1_TurboID replicates and TurboID_Control replicates. However, the provided publication text describes biotin-based proximity labeling (TurboID) rather than chemical crosslinking, so crosslinker is null. Because the task asks for smallest number of biologically meaningful groups and the dataset appears to be a single proximity-labeling study with control included, these are grouped into one cluster representing the overall ERC1-TurboID proximity labeling experiment with its control. If strict separation of ERC1-TurboID vs TurboID_Control is required, this would be split into two clusters."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a biological XL-MS condition.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "All provided raw files match the biological naming patterns for ERC1_TurboID and TurboID_Control; no QC/calibration/blank files were present."
+        }
+      ],
+      "summary": {
+        "n_input_files": 6,
+        "n_assigned_files": 6,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 1,
+        "overall_confidence": "medium"
+      }
+    }
+  }
+}

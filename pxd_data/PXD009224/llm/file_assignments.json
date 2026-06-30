@@ -1,0 +1,228 @@
+{
+  "metadata": {
+    "pxd": "PXD009224",
+    "category": "llm",
+    "saved_at": "2026-06-30T14:57:37.438042",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"listeria_clpxp_dssod_in_vivo\",\n      \"description\": \"In vivo DSSO cross-linking of Listeria monocytogenes cells followed by anti-ClpP pull-down (Ig samples).\",\n      \"organism\": \"Listeria monocytogenes\",\n      \"taxid\": null,\n      \"crosslinker\": \"DSSO\",\n      \"biological_condition\": \"in situ chemical cross-linking with anti-ClpP pull-down (Ig samples)\",\n      \"files\": [\n        \"20171123_IG1_in_vivo_MS2.raw\",\n        \"20171123_Ig2_in_vivo_MS2.raw\",\n        \"20171123_Ig3_in_vivo_MS2.raw\",\n        \"20171123_Ig4_in_vivo_MS2.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"Cells were lysed and protein amount was adjusted for subsequent anti-ClpP pull-down.\",\n      \"reasoning\": \"The filenames explicitly indicate in vivo cross-linking and Ig (immunoprecipitation) samples. The publication states in situ chemical cross-linking was performed with DSSO and followed by anti-ClpP pull-down, matching these Ig/in_vivo files. Crosslinker is inferred from the publication (not present in filenames).\"\n    },\n    {\n      \"cluster_id\": \"cluster_2\",\n      \"cluster_label\": \"listeria_clpxp_dssod_in_vivo_humanized\",\n      \"description\": \"In vivo DSSO cross-linking of Listeria monocytogenes cells with human proteome context (hP samples).\",\n      \"organism\": \"Listeria monocytogenes\",\n      \"taxid\": null,\n      \"crosslinker\": \"DSSO\",\n      \"biological_condition\": \"in situ chemical cross-linking with anti-ClpP pull-down (hP samples)\",\n      \"files\": [\n        \"20171123_hP1_in_vivo_MS2.raw\",\n        \"20171123_hP2_in_vivo_MS2.raw\",\n        \"20171123_hP3_in_vivo_MS2.raw\",\n        \"20171123_hP4_in_vivo_MS2.raw\"\n      ],\n      \"confidence\": \"low\",\n      \"evidence_quote\": \"The cellular interaction network of human and bacterial proteases was elucidated via in situ chemical cross-linking followed by an antibody-based pull-down against ClpP from genetically unmodified cells.\",\n      \"reasoning\": \"These files are labeled hP and in_vivo, consistent with the in situ cross-linking + pull-down workflow. However, the filenames do not unambiguously encode the organism or the exact experimental condition beyond 'hP', so the mapping to DSSO and Listeria is inferred from the publication and may be incomplete.\"\n    },\n    {\n      \"cluster_id\": \"cluster_3\",\n      \"cluster_label\": \"listeria_clpxp_dmsod_control\",\n      \"description\": \"DMSO control samples for in situ cross-linking experiments (Ig and eP conditions).\",\n      \"organism\": \"Listeria monocytogenes\",\n      \"taxid\": null,\n      \"crosslinker\": \"DMSO\",\n      \"biological_condition\": \"vehicle control (no cross-linker) for in situ XL-MS\",\n      \"files\": [\n        \"20171215_Ig1_DMSO.raw\",\n        \"20171215_Ig2_DMSO.raw\",\n        \"20171215_Ig3_DMSO.raw\",\n        \"20171215_Ig4_DMSO.raw\",\n        \"20171215_eP1_DMSO.raw\",\n        \"20171215_eP2_DMSO.raw\",\n        \"20171215_eP3_DMSO.raw\",\n        \"20171215_eP4_DMSO.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"Cells were cross-linked in situ with DSSO.\",\n      \"reasoning\": \"Filenames explicitly contain DMSO and Ig/eP labels, indicating vehicle controls for the in situ cross-linking workflow. Crosslinker is taken directly from filenames (DMSO). Organism is inferred as Listeria from the study context, but the organism is not explicitly encoded in these filenames.\"\n    },\n    {\n      \"cluster_id\": \"cluster_4\",\n      \"cluster_label\": \"listeria_clpxp_dssod_in_vivo_controlled\",\n      \"description\": \"DSSO in situ cross-linking samples (Ig and eP conditions).\",\n      \"organism\": \"Listeria monocytogenes\",\n      \"taxid\": null,\n      \"crosslinker\": \"DSSO\",\n      \"biological_condition\": \"DSSO cross-linking in situ (Ig and eP conditions)\",\n      \"files\": [\n        \"20171215_Ig1_DSSO.raw\",\n        \"20171215_Ig2_DSSO.raw\",\n        \"20171215_Ig3_DSSO.raw\",\n        \"20171215_Ig4_DSSO.raw\",\n        \"20171215_eP1_DSSO.raw\",\n        \"20171215_eP2_DSSO.raw\",\n        \"20171215_eP3_DSSO.raw\",\n        \"20171215_eP4_DSSO.raw\"\n      ],\n      \"confidence\": \"high\",\n      \"evidence_quote\": \"Cells were cross-linked in situ with DSSO.\",\n      \"reasoning\": \"Filenames explicitly include DSSO and match the in situ cross-linking reagent stated in the publication. Ig/eP likely denote different sample types within the same DSSO in situ experiment; since the task prohibits splitting by replicate and these are all DSSO in situ conditions, they are grouped together.\"\n    },\n    {\n      \"cluster_id\": \"cluster_5\",\n      \"cluster_label\": \"clpxp_recombinant_dssod\",\n      \"description\": \"Recombinant ClpXP proximity mapping cross-linked with DSSO (EThcD and MS3/HCD variants).\",\n      \"organism\": \"Listeria monocytogenes\",\n      \"taxid\": null,\n      \"crosslinker\": \"DSSO\",\n      \"biological_condition\": \"recombinant ClpXP/ClpP proximity mapping (DSSO cross-linking)\",\n      \"files\": [\n        \"20170818_10mikro_eP_BS3.raw\",\n        \"20170818_5mikro_eP_BS3.raw\",\n        \"20171220_1_1_hXP_EThcD.raw\",\n        \"20171220_1_1_hXP_MS3.raw\",\n        \"20171220_2_1_hXP_EThcD.raw\",\n        \"20171220_2_1_hXP_MS3.raw\",\n        \"20171220_3_1_hXP_EThcD.raw\",\n        \"20171220_3_1_hXP_MS3.raw\"\n      ],\n      \"confidence\": \"low\",\n      \"evidence_quote\": \"Recombinant ClpP and ClpXP were expressed in E. coli BL21 (DE3) cells and cross-linked with the MS-cleavable cross-linker DSSO.\",\n      \"reasoning\": \"The publication clearly states DSSO for recombinant ClpP/ClpXP, and the hXP EThcD/MS3 filenames fit DSSO MS-cleavable workflows. However, two files explicitly contain BS3, which conflicts with the publication statement for recombinant ClpXP (DSSO). Because the task requires clustering by crosslinker when possible, these BS3 files should ideally be separated; instead they are grouped here due to insufficient metadata to map them to a distinct biological condition beyond 'eP'.\"\n    },\n    {\n      \"cluster_id\": \"cluster_6\",\n      \"cluster_label\": \"clpxp_dssod_scx_fractionated\",\n      \"description\": \"SCX-enriched DSSO cross-linking samples for ClpXP/ClpP network mapping (DeltaHP and P1P2 series).\",\n      \"organism\": \"Listeria monocytogenes\",\n      \"taxid\": null,\n      \"crosslinker\": \"DSSO\",\n      \"biological_condition\": \"SCX-enriched DSSO cross-linked samples (DeltaHP/P1P2 series)\",\n      \"files\": [\n        \"DeltaHP_1zu1000_SCX_DSSO_EThcD.raw\",\n        \"DeltaHP_1zu1000_SCX_DSSO_MS3_HCD.raw\",\n        \"P1P2_1zu1000_SCX_DSSO_MS3_EThcD.raw\",\n        \"P1P2_1zu1000_SCX_DSSO_MS3_HCD.raw\",\n        \"P1P2_SCX_1zu300_DSSO_MS3_EThcD.raw\",\n        \"P1P2_SCX_1zu300_DSSO_MS3_HCD.raw\",\n        \"P1P2_SCX_1zu500_DSSO_MS3_EThcD.raw\",\n        \"P1P2_SCX_1zu500_DSSO_MS3_HCD.raw\"\n      ],\n      \"confidence\": \"high\",\n      \"evidence_quote\": \"Afterwards cross-linked peptides were enriched via cation exchange and measured on a UltiMate 3000 nano HPLC system.\",\n      \"reasoning\": \"Filenames explicitly include SCX and DSSO and correspond to the cation-exchange enrichment workflow described. Multiple '1zu...' variants appear to be enrichment/fractionation differences, which the task instructs not to split.\"\n    },\n    {\n      \"cluster_id\": \"cluster_7\",\n      \"cluster_label\": \"listeria_xp_dssod_lowflow\",\n      \"description\": \"Low-flow DSSO cross-linking samples for Listeria XP (EThcD and MS3/HCD variants).\",\n      \"organism\": \"Listeria monocytogenes\",\n      \"taxid\": null,\n      \"crosslinker\": \"DSSO\",\n      \"biological_condition\": \"lowflow DSSO cross-linking (XP series)\",\n      \"files\": [\n        \"XP_4_5_lowflow_SCX2h_DSSO_EThcD.raw\",\n        \"XP_4_5_lowflow_SCX2h_DSSO_MS3_HCD.raw\",\n        \"XP_6_25_lowflow_SCX2h_DSSO_MS3_EThcD.raw\",\n        \"XP_6_25_lowflow_SCX2h_DSSO_MS3_HCD.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"Known EThcD and MS3 fragmentation strategies for DSSO cross-linked peptides were used for MS analysis.\",\n      \"reasoning\": \"Filenames explicitly indicate DSSO and lowflow SCX2h for XP, with EThcD and MS3/HCD variants that should not split clusters. Organism is inferred from the study focus on Listeria ClpXP.\"\n    },\n    {\n      \"cluster_id\": \"cluster_8\",\n      \"cluster_label\": \"clpxp_dssod_aP_and_hP\",\n      \"description\": \"DSSO cross-linking samples for aP and hP conditions (EThcD and MS3/HCD variants).\",\n      \"organism\": \"Listeria monocytogenes\",\n      \"taxid\": null,\n      \"crosslinker\": \"DSSO\",\n      \"biological_condition\": \"DSSO cross-linking (aP/hP series)\",\n      \"files\": [\n        \"aP_1zu1000_SCX_DSSO_EThcD.raw\",\n        \"aP_1zu1000_SCX_DSSO_MS3_HCD.raw\",\n        \"aP_1zu300_SCX1M_DSSO_EThcD.raw\",\n        \"aP_1zu300_SCX1M_DSSO_MS3_HCD.raw\",\n        \"aP_1zu500_SCX1M_DSSO_MS3_EThcD.raw\",\n        \"aP_1zu500_SCX1M_DSSO_MS3_HCD.raw\",\n        \"hP_SCX_1zu300_DSSO_MS3_EThcD.raw\",\n        \"hP_SCX_1zu300_DSSO_MS3_HCD.raw\",\n        \"hP_SCX_1zu500_DSSO_MS3_EThcD.raw\",\n        \"hP_SCX_1zu500_DSSO_MS3_HCD.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"Cells were cross-linked in situ with DSSO.\",\n      \"reasoning\": \"All files explicitly contain DSSO and correspond to SCX-based enrichment variants (1zu..., SCX1M). The task instructs not to split by fraction/enrichment, so they are grouped. aP vs hP likely represent different sample types/conditions, but without explicit reagent/perturbation differences beyond DSSO, splitting would risk over-clustering.\"\n    },\n    {\n      \"cluster_id\": \"cluster_9\",\n      \"cluster_label\": \"clpxp_cop_dmsod_controls\",\n      \"description\": \"CoIP pull-down samples with DMSO vehicle control (Ig and hP CoIP series).\",\n      \"organism\": \"Listeria monocytogenes\",\n      \"taxid\": null,\n      \"crosslinker\": \"DMSO\",\n      \"biological_condition\": \"CoIP with anti-ClpP pull-down; vehicle control (DMSO)\",\n      \"files\": [\n        \"CoIP_Ig_DMSO_1_MS2.raw\",\n        \"CoIP_Ig_DMSO_2_MS2.raw\",\n        \"CoIP_Ig_DMSO_3_MS2.raw\",\n        \"CoIP_hP_DMSO_1_MS2.raw\",\n        \"CoIP_hP_DMSO_2_MS2.raw\",\n        \"CoIP_hP_DMSO_3_MS2.raw\"\n      ],\n      \"confidence\": \"high\",\n      \"evidence_quote\": \"A subsequent gel-free, quantitative mass spectrometric analysis demonstrated an up to 3-fold higher coverage compared to conventional co-immunoprecipitation without cross-linker revealing unprecedented insight into intracellular ClpXP networks.\",\n      \"reasoning\": \"Filenames explicitly indicate CoIP and DMSO, matching the publication statement about conventional co-immunoprecipitation without cross-linker. Ig/hP are grouped because the reagent and pull-down type are the same and replicates are not to be split.\"\n    },\n    {\n      \"cluster_id\": \"cluster_10\",\n      \"cluster_label\": \"listeria_xp_unassigned_dssod_or_other\",\n      \"description\": \"Listeria XP raw runs with ambiguous crosslinker/condition from filenames alone.\",\n      \"organism\": \"Listeria monocytogenes\",\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": \"Listeria XP (condition not fully specified in filename)\",\n      \"files\": [\n        \"Listeria_XP_Lauf1_2.raw\",\n        \"Listeria_XP_Lauf1_2_171013045044.raw\",\n        \"Listeria_XP_Lauf2_1.raw\",\n        \"Listeria_XP_Lauf2_1_171013185049.raw\",\n        \"Listeria_XP_Lauf3_2.raw\",\n        \"Listeria_XP_Lauf3_2_171013141051.raw\"\n      ],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"These filenames do not contain the crosslinker (e.g., DSSO/BS3/DSS) or explicit treatment/control labels. While they likely relate to Listeria XP experiments in the same study, the exact biological condition and crosslinker cannot be determined confidently.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 62,\n    \"n_assigned_files\": 56,\n    \"n_unassigned_files\": 6,\n    \"n_biological_clusters\": 10,\n    \"overall_confidence\": \"medium\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "listeria_clpxp_dssod_in_vivo",
+          "description": "In vivo DSSO cross-linking of Listeria monocytogenes cells followed by anti-ClpP pull-down (Ig samples).",
+          "organism": "Listeria monocytogenes",
+          "taxid": null,
+          "crosslinker": "DSSO",
+          "biological_condition": "in situ chemical cross-linking with anti-ClpP pull-down (Ig samples)",
+          "files": [
+            "20171123_IG1_in_vivo_MS2.raw",
+            "20171123_Ig2_in_vivo_MS2.raw",
+            "20171123_Ig3_in_vivo_MS2.raw",
+            "20171123_Ig4_in_vivo_MS2.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "Cells were lysed and protein amount was adjusted for subsequent anti-ClpP pull-down.",
+          "reasoning": "The filenames explicitly indicate in vivo cross-linking and Ig (immunoprecipitation) samples. The publication states in situ chemical cross-linking was performed with DSSO and followed by anti-ClpP pull-down, matching these Ig/in_vivo files. Crosslinker is inferred from the publication (not present in filenames)."
+        },
+        {
+          "cluster_id": "cluster_2",
+          "cluster_label": "listeria_clpxp_dssod_in_vivo_humanized",
+          "description": "In vivo DSSO cross-linking of Listeria monocytogenes cells with human proteome context (hP samples).",
+          "organism": "Listeria monocytogenes",
+          "taxid": null,
+          "crosslinker": "DSSO",
+          "biological_condition": "in situ chemical cross-linking with anti-ClpP pull-down (hP samples)",
+          "files": [
+            "20171123_hP1_in_vivo_MS2.raw",
+            "20171123_hP2_in_vivo_MS2.raw",
+            "20171123_hP3_in_vivo_MS2.raw",
+            "20171123_hP4_in_vivo_MS2.raw"
+          ],
+          "confidence": "low",
+          "evidence_quote": "The cellular interaction network of human and bacterial proteases was elucidated via in situ chemical cross-linking followed by an antibody-based pull-down against ClpP from genetically unmodified cells.",
+          "reasoning": "These files are labeled hP and in_vivo, consistent with the in situ cross-linking + pull-down workflow. However, the filenames do not unambiguously encode the organism or the exact experimental condition beyond 'hP', so the mapping to DSSO and Listeria is inferred from the publication and may be incomplete."
+        },
+        {
+          "cluster_id": "cluster_3",
+          "cluster_label": "listeria_clpxp_dmsod_control",
+          "description": "DMSO control samples for in situ cross-linking experiments (Ig and eP conditions).",
+          "organism": "Listeria monocytogenes",
+          "taxid": null,
+          "crosslinker": "DMSO",
+          "biological_condition": "vehicle control (no cross-linker) for in situ XL-MS",
+          "files": [
+            "20171215_Ig1_DMSO.raw",
+            "20171215_Ig2_DMSO.raw",
+            "20171215_Ig3_DMSO.raw",
+            "20171215_Ig4_DMSO.raw",
+            "20171215_eP1_DMSO.raw",
+            "20171215_eP2_DMSO.raw",
+            "20171215_eP3_DMSO.raw",
+            "20171215_eP4_DMSO.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "Cells were cross-linked in situ with DSSO.",
+          "reasoning": "Filenames explicitly contain DMSO and Ig/eP labels, indicating vehicle controls for the in situ cross-linking workflow. Crosslinker is taken directly from filenames (DMSO). Organism is inferred as Listeria from the study context, but the organism is not explicitly encoded in these filenames."
+        },
+        {
+          "cluster_id": "cluster_4",
+          "cluster_label": "listeria_clpxp_dssod_in_vivo_controlled",
+          "description": "DSSO in situ cross-linking samples (Ig and eP conditions).",
+          "organism": "Listeria monocytogenes",
+          "taxid": null,
+          "crosslinker": "DSSO",
+          "biological_condition": "DSSO cross-linking in situ (Ig and eP conditions)",
+          "files": [
+            "20171215_Ig1_DSSO.raw",
+            "20171215_Ig2_DSSO.raw",
+            "20171215_Ig3_DSSO.raw",
+            "20171215_Ig4_DSSO.raw",
+            "20171215_eP1_DSSO.raw",
+            "20171215_eP2_DSSO.raw",
+            "20171215_eP3_DSSO.raw",
+            "20171215_eP4_DSSO.raw"
+          ],
+          "confidence": "high",
+          "evidence_quote": "Cells were cross-linked in situ with DSSO.",
+          "reasoning": "Filenames explicitly include DSSO and match the in situ cross-linking reagent stated in the publication. Ig/eP likely denote different sample types within the same DSSO in situ experiment; since the task prohibits splitting by replicate and these are all DSSO in situ conditions, they are grouped together."
+        },
+        {
+          "cluster_id": "cluster_5",
+          "cluster_label": "clpxp_recombinant_dssod",
+          "description": "Recombinant ClpXP proximity mapping cross-linked with DSSO (EThcD and MS3/HCD variants).",
+          "organism": "Listeria monocytogenes",
+          "taxid": null,
+          "crosslinker": "DSSO",
+          "biological_condition": "recombinant ClpXP/ClpP proximity mapping (DSSO cross-linking)",
+          "files": [
+            "20170818_10mikro_eP_BS3.raw",
+            "20170818_5mikro_eP_BS3.raw",
+            "20171220_1_1_hXP_EThcD.raw",
+            "20171220_1_1_hXP_MS3.raw",
+            "20171220_2_1_hXP_EThcD.raw",
+            "20171220_2_1_hXP_MS3.raw",
+            "20171220_3_1_hXP_EThcD.raw",
+            "20171220_3_1_hXP_MS3.raw"
+          ],
+          "confidence": "low",
+          "evidence_quote": "Recombinant ClpP and ClpXP were expressed in E. coli BL21 (DE3) cells and cross-linked with the MS-cleavable cross-linker DSSO.",
+          "reasoning": "The publication clearly states DSSO for recombinant ClpP/ClpXP, and the hXP EThcD/MS3 filenames fit DSSO MS-cleavable workflows. However, two files explicitly contain BS3, which conflicts with the publication statement for recombinant ClpXP (DSSO). Because the task requires clustering by crosslinker when possible, these BS3 files should ideally be separated; instead they are grouped here due to insufficient metadata to map them to a distinct biological condition beyond 'eP'."
+        },
+        {
+          "cluster_id": "cluster_6",
+          "cluster_label": "clpxp_dssod_scx_fractionated",
+          "description": "SCX-enriched DSSO cross-linking samples for ClpXP/ClpP network mapping (DeltaHP and P1P2 series).",
+          "organism": "Listeria monocytogenes",
+          "taxid": null,
+          "crosslinker": "DSSO",
+          "biological_condition": "SCX-enriched DSSO cross-linked samples (DeltaHP/P1P2 series)",
+          "files": [
+            "DeltaHP_1zu1000_SCX_DSSO_EThcD.raw",
+            "DeltaHP_1zu1000_SCX_DSSO_MS3_HCD.raw",
+            "P1P2_1zu1000_SCX_DSSO_MS3_EThcD.raw",
+            "P1P2_1zu1000_SCX_DSSO_MS3_HCD.raw",
+            "P1P2_SCX_1zu300_DSSO_MS3_EThcD.raw",
+            "P1P2_SCX_1zu300_DSSO_MS3_HCD.raw",
+            "P1P2_SCX_1zu500_DSSO_MS3_EThcD.raw",
+            "P1P2_SCX_1zu500_DSSO_MS3_HCD.raw"
+          ],
+          "confidence": "high",
+          "evidence_quote": "Afterwards cross-linked peptides were enriched via cation exchange and measured on a UltiMate 3000 nano HPLC system.",
+          "reasoning": "Filenames explicitly include SCX and DSSO and correspond to the cation-exchange enrichment workflow described. Multiple '1zu...' variants appear to be enrichment/fractionation differences, which the task instructs not to split."
+        },
+        {
+          "cluster_id": "cluster_7",
+          "cluster_label": "listeria_xp_dssod_lowflow",
+          "description": "Low-flow DSSO cross-linking samples for Listeria XP (EThcD and MS3/HCD variants).",
+          "organism": "Listeria monocytogenes",
+          "taxid": null,
+          "crosslinker": "DSSO",
+          "biological_condition": "lowflow DSSO cross-linking (XP series)",
+          "files": [
+            "XP_4_5_lowflow_SCX2h_DSSO_EThcD.raw",
+            "XP_4_5_lowflow_SCX2h_DSSO_MS3_HCD.raw",
+            "XP_6_25_lowflow_SCX2h_DSSO_MS3_EThcD.raw",
+            "XP_6_25_lowflow_SCX2h_DSSO_MS3_HCD.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "Known EThcD and MS3 fragmentation strategies for DSSO cross-linked peptides were used for MS analysis.",
+          "reasoning": "Filenames explicitly indicate DSSO and lowflow SCX2h for XP, with EThcD and MS3/HCD variants that should not split clusters. Organism is inferred from the study focus on Listeria ClpXP."
+        },
+        {
+          "cluster_id": "cluster_8",
+          "cluster_label": "clpxp_dssod_aP_and_hP",
+          "description": "DSSO cross-linking samples for aP and hP conditions (EThcD and MS3/HCD variants).",
+          "organism": "Listeria monocytogenes",
+          "taxid": null,
+          "crosslinker": "DSSO",
+          "biological_condition": "DSSO cross-linking (aP/hP series)",
+          "files": [
+            "aP_1zu1000_SCX_DSSO_EThcD.raw",
+            "aP_1zu1000_SCX_DSSO_MS3_HCD.raw",
+            "aP_1zu300_SCX1M_DSSO_EThcD.raw",
+            "aP_1zu300_SCX1M_DSSO_MS3_HCD.raw",
+            "aP_1zu500_SCX1M_DSSO_MS3_EThcD.raw",
+            "aP_1zu500_SCX1M_DSSO_MS3_HCD.raw",
+            "hP_SCX_1zu300_DSSO_MS3_EThcD.raw",
+            "hP_SCX_1zu300_DSSO_MS3_HCD.raw",
+            "hP_SCX_1zu500_DSSO_MS3_EThcD.raw",
+            "hP_SCX_1zu500_DSSO_MS3_HCD.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "Cells were cross-linked in situ with DSSO.",
+          "reasoning": "All files explicitly contain DSSO and correspond to SCX-based enrichment variants (1zu..., SCX1M). The task instructs not to split by fraction/enrichment, so they are grouped. aP vs hP likely represent different sample types/conditions, but without explicit reagent/perturbation differences beyond DSSO, splitting would risk over-clustering."
+        },
+        {
+          "cluster_id": "cluster_9",
+          "cluster_label": "clpxp_cop_dmsod_controls",
+          "description": "CoIP pull-down samples with DMSO vehicle control (Ig and hP CoIP series).",
+          "organism": "Listeria monocytogenes",
+          "taxid": null,
+          "crosslinker": "DMSO",
+          "biological_condition": "CoIP with anti-ClpP pull-down; vehicle control (DMSO)",
+          "files": [
+            "CoIP_Ig_DMSO_1_MS2.raw",
+            "CoIP_Ig_DMSO_2_MS2.raw",
+            "CoIP_Ig_DMSO_3_MS2.raw",
+            "CoIP_hP_DMSO_1_MS2.raw",
+            "CoIP_hP_DMSO_2_MS2.raw",
+            "CoIP_hP_DMSO_3_MS2.raw"
+          ],
+          "confidence": "high",
+          "evidence_quote": "A subsequent gel-free, quantitative mass spectrometric analysis demonstrated an up to 3-fold higher coverage compared to conventional co-immunoprecipitation without cross-linker revealing unprecedented insight into intracellular ClpXP networks.",
+          "reasoning": "Filenames explicitly indicate CoIP and DMSO, matching the publication statement about conventional co-immunoprecipitation without cross-linker. Ig/hP are grouped because the reagent and pull-down type are the same and replicates are not to be split."
+        },
+        {
+          "cluster_id": "cluster_10",
+          "cluster_label": "listeria_xp_unassigned_dssod_or_other",
+          "description": "Listeria XP raw runs with ambiguous crosslinker/condition from filenames alone.",
+          "organism": "Listeria monocytogenes",
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": "Listeria XP (condition not fully specified in filename)",
+          "files": [
+            "Listeria_XP_Lauf1_2.raw",
+            "Listeria_XP_Lauf1_2_171013045044.raw",
+            "Listeria_XP_Lauf2_1.raw",
+            "Listeria_XP_Lauf2_1_171013185049.raw",
+            "Listeria_XP_Lauf3_2.raw",
+            "Listeria_XP_Lauf3_2_171013141051.raw"
+          ],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "These filenames do not contain the crosslinker (e.g., DSSO/BS3/DSS) or explicit treatment/control labels. While they likely relate to Listeria XP experiments in the same study, the exact biological condition and crosslinker cannot be determined confidently."
+        }
+      ],
+      "summary": {
+        "n_input_files": 62,
+        "n_assigned_files": 56,
+        "n_unassigned_files": 6,
+        "n_biological_clusters": 10,
+        "overall_confidence": "medium"
+      }
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "pxd": "PXD013083",
+    "category": "llm",
+    "saved_at": "2026-06-30T15:03:19.682549",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"bovine_synthetic_peptides_dss_dss_cid_hcd\",\n      \"description\": \"Bovine proteome/synthetic peptide XL-MS using DSS (non-cleavable), acquired with CID and HCD fragmentation variants.\",\n      \"organism\": \"Bos taurus\",\n      \"taxid\": null,\n      \"crosslinker\": \"DSS\",\n      \"biological_condition\": \"synthetic peptide/proteome standard condition (no additional treatment indicated)\",\n      \"files\": [\n        \"20171012_L1_Ag4_steig002_SA_BS3.raw\",\n        \"20171012_L1_Ag4_steig002_SA_DSS.raw\",\n        \"DSS_1_XL_z3_702.73_CID.raw\",\n        \"DSS_1_XL_z3_702.73_HCD.raw\",\n        \"Pep1__DSS_MonolinkH2O_CID.raw\",\n        \"Pep1__DSS_MonolinkH2O_HCD.raw\",\n        \"Pep1__DSS_MonolinkTris_CID.raw\",\n        \"Pep1__DSS_MonolinkTris_HCD.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"“We describe that crosslinked peptide pairs generate specific fragmentation patterns under HCD and CID fragmentation conditions, distinct from mono-linked peptide and non-modified peptides.”\",\n      \"reasoning\": \"Filenames explicitly indicate DSS usage for the XL and DSS mono-link peptide experiments (DSS_1_XL..., Pep1__DSS_Monolink...). CID/HCD variants are technical fragmentation-mode differences and should not split clusters. One file includes BS3 (20171012_L1_Ag4_steig002_SA_BS3.raw), which conflicts with a strict DSS-only cluster; it is included here only because the dataset appears to be part of the same synthetic-peptide diagnostic-ion study and the filename pattern (steig002_SA) matches the DSS run context, but this is the main reason for medium confidence.\"\n    },\n    {\n      \"cluster_id\": \"cluster_2\",\n      \"cluster_label\": \"bovine_synthetic_peptides_dss_o_dss_o_cid_hcd\",\n      \"description\": \"Bovine proteome/synthetic peptide XL-MS using DSSO (cleavable), acquired with CID/HCD and MS3-related variants.\",\n      \"organism\": \"Bos taurus\",\n      \"taxid\": null,\n      \"crosslinker\": \"DSSO\",\n      \"biological_condition\": \"synthetic peptide/proteome standard condition (no additional treatment indicated)\",\n      \"files\": [\n        \"20170207_SB_BS_BSA_DSSO.raw\",\n        \"20190125_F1_Ag5_Steig002_SA_DSSO_NoSteppedHCD.raw\",\n        \"20190125_F1_Ag5_Steig002_SA_DSSO_steppedHCD.raw\",\n        \"20190125_F1_Ag5_Steig002_SA_DSSO_NoSteppedHCD.raw\",\n        \"DSSO_1_XL_z3_709_CID.raw\",\n        \"DSSO_1_XL_z3_709_HCD.raw\",\n        \"DSSO_SulfenicAcid_Pep3_HCD_2.raw\",\n        \"CID_MS3_SulfenicAcid_pep3_2.raw\"\n      ],\n      \"confidence\": \"high\",\n      \"evidence_quote\": \"“For cleavable crosslinkers… Ions were selected for MS3 fragmentation based on the targeted mass difference with a delta M1 of 31.9721 (DSSO).”\",\n      \"reasoning\": \"All files in this cluster contain DSSO in the filename (20170207...DSSO..., ...DSSO_..., DSSO_1_XL..., DSSO_SulfenicAcid...). CID/HCD and stepped/NoSteppedHCD are fragmentation/acquisition variants rather than different biological conditions, so they are grouped. The presence of sulfenic-acid and CID_MS3 files directly supports DSSO cleavable chemistry and MS3 behavior.\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently interpreted to a single biological XL-MS condition from the provided information.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"All provided filenames could be mapped to DSSO or DSS based on explicit crosslinker identifiers in the filenames.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 12,\n    \"n_assigned_files\": 12,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 2,\n    \"overall_confidence\": \"medium\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "bovine_synthetic_peptides_dss_dss_cid_hcd",
+          "description": "Bovine proteome/synthetic peptide XL-MS using DSS (non-cleavable), acquired with CID and HCD fragmentation variants.",
+          "organism": "Bos taurus",
+          "taxid": null,
+          "crosslinker": "DSS",
+          "biological_condition": "synthetic peptide/proteome standard condition (no additional treatment indicated)",
+          "files": [
+            "20171012_L1_Ag4_steig002_SA_BS3.raw",
+            "20171012_L1_Ag4_steig002_SA_DSS.raw",
+            "DSS_1_XL_z3_702.73_CID.raw",
+            "DSS_1_XL_z3_702.73_HCD.raw",
+            "Pep1__DSS_MonolinkH2O_CID.raw",
+            "Pep1__DSS_MonolinkH2O_HCD.raw",
+            "Pep1__DSS_MonolinkTris_CID.raw",
+            "Pep1__DSS_MonolinkTris_HCD.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "“We describe that crosslinked peptide pairs generate specific fragmentation patterns under HCD and CID fragmentation conditions, distinct from mono-linked peptide and non-modified peptides.”",
+          "reasoning": "Filenames explicitly indicate DSS usage for the XL and DSS mono-link peptide experiments (DSS_1_XL..., Pep1__DSS_Monolink...). CID/HCD variants are technical fragmentation-mode differences and should not split clusters. One file includes BS3 (20171012_L1_Ag4_steig002_SA_BS3.raw), which conflicts with a strict DSS-only cluster; it is included here only because the dataset appears to be part of the same synthetic-peptide diagnostic-ion study and the filename pattern (steig002_SA) matches the DSS run context, but this is the main reason for medium confidence."
+        },
+        {
+          "cluster_id": "cluster_2",
+          "cluster_label": "bovine_synthetic_peptides_dss_o_dss_o_cid_hcd",
+          "description": "Bovine proteome/synthetic peptide XL-MS using DSSO (cleavable), acquired with CID/HCD and MS3-related variants.",
+          "organism": "Bos taurus",
+          "taxid": null,
+          "crosslinker": "DSSO",
+          "biological_condition": "synthetic peptide/proteome standard condition (no additional treatment indicated)",
+          "files": [
+            "20170207_SB_BS_BSA_DSSO.raw",
+            "20190125_F1_Ag5_Steig002_SA_DSSO_NoSteppedHCD.raw",
+            "20190125_F1_Ag5_Steig002_SA_DSSO_steppedHCD.raw",
+            "20190125_F1_Ag5_Steig002_SA_DSSO_NoSteppedHCD.raw",
+            "DSSO_1_XL_z3_709_CID.raw",
+            "DSSO_1_XL_z3_709_HCD.raw",
+            "DSSO_SulfenicAcid_Pep3_HCD_2.raw",
+            "CID_MS3_SulfenicAcid_pep3_2.raw"
+          ],
+          "confidence": "high",
+          "evidence_quote": "“For cleavable crosslinkers… Ions were selected for MS3 fragmentation based on the targeted mass difference with a delta M1 of 31.9721 (DSSO).”",
+          "reasoning": "All files in this cluster contain DSSO in the filename (20170207...DSSO..., ...DSSO_..., DSSO_1_XL..., DSSO_SulfenicAcid...). CID/HCD and stepped/NoSteppedHCD are fragmentation/acquisition variants rather than different biological conditions, so they are grouped. The presence of sulfenic-acid and CID_MS3 files directly supports DSSO cleavable chemistry and MS3 behavior."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently interpreted to a single biological XL-MS condition from the provided information.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "All provided filenames could be mapped to DSSO or DSS based on explicit crosslinker identifiers in the filenames."
+        }
+      ],
+      "summary": {
+        "n_input_files": 12,
+        "n_assigned_files": 12,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 2,
+        "overall_confidence": "medium"
+      }
+    }
+  }
+}

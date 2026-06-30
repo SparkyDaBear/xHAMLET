@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "pxd": "PXD046990",
+    "category": "llm",
+    "saved_at": "2026-06-30T15:37:54.260194",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"ufrel_urel_ribosome_dsbu\",\n      \"description\": \"Human (HEK293-derived) UFM1 E3 ligase UREL–ribosome XL-MS samples crosslinked with DSBU.\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": \"DSBU\",\n      \"biological_condition\": \"UREL bound to 60S/80S ribosomes (UFMylation-related ribosome complex)\",\n      \"files\": [\n        \"23089_Anton_Ecl_DSBU_XL_TRAP_50cm_90min_Dundee_1.raw\",\n        \"23089_Anton_Ecl_DSBU_XL_TRAP_50cm_90min_Dundee_2.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"The UFM1 E3 ligase recognizes and releases 60S ribosomes from ER translocons\",\n      \"reasoning\": \"Both files share the same DSBU crosslinker token and appear to be biological XL-MS replicates (suffix _1/_2) from the same experimental setup. The publication context is UREL/UREL–ribosome biology, so the most parsimonious biological condition is UREL-associated ribosome complexes crosslinked with DSBU. Exact complex composition (e.g., 60S vs 80S, in vitro vs cellular) is not explicitly encoded in filenames, hence medium confidence.\"\n    },\n    {\n      \"cluster_id\": \"cluster_2\",\n      \"cluster_label\": \"riboe3_dsbu\",\n      \"description\": \"Human ribosome E3 (RiboE3) XL-MS samples crosslinked with DSBU.\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": \"DSBU\",\n      \"biological_condition\": \"RiboE3 condition (as labeled in filename)\",\n      \"files\": [\n        \"fbstcm_220922_04_RiboE3_XL.raw\"\n      ],\n      \"confidence\": \"low\",\n      \"evidence_quote\": \"fbstcm_220922_04_RiboE3_XL.raw\",\n      \"reasoning\": \"The filename clearly indicates an XL-MS condition labeled 'RiboE3', but it does not explicitly include the crosslinker name. Given the dataset filenames include DSBU and the publication is about UFM1 E3 ligase (UREL) and ribosome release, this file is tentatively grouped under a DSBU crosslinker cluster; however, the crosslinker is not directly verifiable from this filename, so confidence is low.\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a biological XL-MS condition.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"No files were left unassigned.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 3,\n    \"n_assigned_files\": 3,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 2,\n    \"overall_confidence\": \"medium\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "ufrel_urel_ribosome_dsbu",
+          "description": "Human (HEK293-derived) UFM1 E3 ligase UREL–ribosome XL-MS samples crosslinked with DSBU.",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": "DSBU",
+          "biological_condition": "UREL bound to 60S/80S ribosomes (UFMylation-related ribosome complex)",
+          "files": [
+            "23089_Anton_Ecl_DSBU_XL_TRAP_50cm_90min_Dundee_1.raw",
+            "23089_Anton_Ecl_DSBU_XL_TRAP_50cm_90min_Dundee_2.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "The UFM1 E3 ligase recognizes and releases 60S ribosomes from ER translocons",
+          "reasoning": "Both files share the same DSBU crosslinker token and appear to be biological XL-MS replicates (suffix _1/_2) from the same experimental setup. The publication context is UREL/UREL–ribosome biology, so the most parsimonious biological condition is UREL-associated ribosome complexes crosslinked with DSBU. Exact complex composition (e.g., 60S vs 80S, in vitro vs cellular) is not explicitly encoded in filenames, hence medium confidence."
+        },
+        {
+          "cluster_id": "cluster_2",
+          "cluster_label": "riboe3_dsbu",
+          "description": "Human ribosome E3 (RiboE3) XL-MS samples crosslinked with DSBU.",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": "DSBU",
+          "biological_condition": "RiboE3 condition (as labeled in filename)",
+          "files": [
+            "fbstcm_220922_04_RiboE3_XL.raw"
+          ],
+          "confidence": "low",
+          "evidence_quote": "fbstcm_220922_04_RiboE3_XL.raw",
+          "reasoning": "The filename clearly indicates an XL-MS condition labeled 'RiboE3', but it does not explicitly include the crosslinker name. Given the dataset filenames include DSBU and the publication is about UFM1 E3 ligase (UREL) and ribosome release, this file is tentatively grouped under a DSBU crosslinker cluster; however, the crosslinker is not directly verifiable from this filename, so confidence is low."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a biological XL-MS condition.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "No files were left unassigned."
+        }
+      ],
+      "summary": {
+        "n_input_files": 3,
+        "n_assigned_files": 3,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 2,
+        "overall_confidence": "medium"
+      }
+    }
+  }
+}

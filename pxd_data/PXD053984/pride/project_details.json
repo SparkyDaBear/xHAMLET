@@ -1,0 +1,326 @@
+{
+  "metadata": {
+    "pxd": "PXD053984",
+    "category": "pride",
+    "saved_at": "2026-06-30T15:44:25.166538",
+    "filename": "project_details"
+  },
+  "data": {
+    "accession": "PXD053984",
+    "title": "Cross-Linking MS of Parvulin 14 and 17",
+    "additionalAttributes": [],
+    "projectDescription": "Here we performed a set of cross linking experiments with Parvulin 14 and 17 in order to understand the intramolecular contacts the proteins form. Also we investigated the interaction of Par14 with actin using CL-MS.",
+    "sampleProcessingProtocol": "Sample preparation for LC/MS/MS. Samples for LC-MS from cross-linked proteins were digested in-solution (ISD). For ISD cross-linked proteins were reduced with DTT (5 mM) in 6 M urea and 50 mM ammonium bicarbonate (ABC) for 30 min at room temperature. Protein reduction was followed by alkylation with iodoacetamide (IAM, 10 mM also in 50 mM ABC, 30 min, room temperature) and quenching of excess IAM with DTT (final concentration DTT 10 mM). Samples were then first digested with LysC for 3 h at 37 °C. After adjusting the urea concentration to 0.8 M urea the samples were digested for 16 h with trypsin at 37 °C. The digestion was stopped by adding formic acid (FA) to a final concentration of 0.5 %. The supernatant containing the digestion products was passed through home-made glass microfiber StageTips (GE Healthcare; poresize: 1.2 µM; thickness: 0.26 mm). Cleared tryptic digests were then desalted on home-made C18 StageTips as described. Briefly, peptides were passed over a 2 disc StageTip. After elution from the StageTips, samples were dried using a vacuum concentrator (Eppendorf) and the peptides were taken up in 0.1% FA solution (10 μL). The thus prepared samples were directly used for single play MS/MS experiments (see below for details). For double play MS/MS experiments samples were fractionated on homemade SCX StageTips as described. Briefly, the analytes were immobilized on 0.1% FA pre-equilibrated SCX StageTips. Peptides were then eluted using 20 µL salt plugs with increasing ABC concentration (0, 10, 50, 100, 150, 200, 250, 300, 400, 500, 1000 mM ABC). The collected fractions were then dried in a vacuum concentrator, taken up in 10 µL 0.1% FA and directly used for LC-MS analysis. LC/MS/MS: Experiments were performed on an Orbitrap Elite or Orbitrap Fusion Lumos mass spectrometer (Thermo Fischer Scientific, Waltham, Massachusetts, USA) that were coupled to an EASY-nLC 1000 or 1200 liquid chromatography (LC) system (Thermo Fischer scientific, Waltham, Massachusetts, USA). The LCs were operated in the one-column mode. The analytical column was a fused silica capillary (inner diameter 75 μm × 35-45 cm) with an integrated PicoFrit emitter (New Objective, Woburn, USA) packed in-house with Reprosil-Pur 120 C18-AQ 1.9 μm (Dr. Maisch). The analytical column was encased by a column oven (Sonation, Biberach an der Riß, Germany) and attached to a nanospray flex ion source (Thermo Fischer scientific, Waltham, Massachusetts, USA). The column oven temperature was adjusted to 45°C or 50°C during data acquisition. The LC was equipped with two mobile phases: solvent A (0.1 or 0.2% formic acid, FA, in water) and solvent B (0.1 or 0.2 % FA, 20% H2O, in acetonitrile, ACN). All solvents were of UHPLC (ultra-high-performance liquid chromatography) grade (Honeywell, Seelze, Germany). Peptides were directly loaded onto the analytical column with a maximum flow rate that would not exceed the set pressure limit of 980 bar (usually around 0.5 – 0.8 µL/min). Peptide solutions (SCX fractionated or non-SCX fractionated) were subsequently separated on the analytical column using different gradients (for details see Sample_Legend_and_LC-MS_Settings_v01.docx). The mass spectrometers were operated using Xcalibur software (Elite: v2.2 SP1.48; Lumos: v4.3.7.3.11). The mass spectrometers were set in the positive ion mode. Precursor ion scanning (MS1) was performed in the Orbitrap analyzer (FTMS; Fourier Transform Mass Spectrometry with the internal lock mass option turned on (lock mass was 445.120025 m/z, polysiloxane) (Olsen et al., 2005). MS2 Product ion spectra were recorded only from ions with a charge bigger than +2 and in a data dependent fashion in the FTMS. MS3 product ion spectra were only triggered when the targeted mass difference for DSSO (31.9721 Da) was detected. MS3 spectra were recorded in the IT (ion trap). All relevant MS settings (Resolution, scan range, AGC, ion acquisition time, charge states isolation window, fragmentation type and details, cycle time, number of scans performed, and various other settings) for the individual experiments can be found in Sample_Legend_and_LC-MS_Settings_v01.docx",
+    "dataProcessingProtocol": "Data Analysis: The raw data files for DSSO cross linking experiments were directly processed in Thermo Scientific Proteome Discoverer (PD, version 2.2. or 2.4.) with the add-on node XlinkX. The MS1 and MS2 spectra were extracted using the “Spectrum Selector” node with the default settings. In the “Scan Event Filter” the activation type (HCD or CID/ETD) and the MS order were adjusted depending on the experiment. In the “XlinkX Detect” node the DSSO cross linker was selected as “Crosslink Modification” (158.004 Da, Specificity STYK). From here the analysis branched off to the “XlinkX search” or a “SEQUEST” search. The following settings were used for the XlinkX search: precursor ion mass tolerance, 10 ppm; product ion mass tolerance, 20 ppm; fixed modification, Cys carbamidomethylation; variable modification, Met oxidation; allowed number of miss-cleavages, 2. All MS/MS spectra were searched against the sequences of interest concatenated to the Uniprot E. coli database (one protein per gene; retrieved in December 2018, containing 4308 target protein entries). FDR calculation (“XlinkX validation” node) is based on a target-Decoy approach. All peptides not considered to be cross-linked were analyzed with SEQUEST. The same database as in the XlinkX search was used. The settings are as follows: precursor ion mass tolerance, 10 ppm; fragment ion mass tolerance, 0.1 Da; fixed modification, Cys carbamidomethylation; variable modification, Met oxidation, DSSO (non cross-linked), DSSO amidated and DSSO hydrolyzed; allowed number of miss-cleavages was set to 2. The output files from XlinkX were submitted to the xiNET website for visualization48. Experiments with where Leu and Met were replaced by photo-Leu and photo-Met were analysed using StavroX (v3.6.6.6). To this end photo-Leu and photo-Met were added as custom amino acids (Name: photo-Met; OneLetterAbbr.: x; MonoisotopicMass: 130.0745; ChemicalFormula: C6H9N3O and Name: photo-Leu; OneLetterAbbr.: #; MonoisotopicMass: 125.0589; ChemicalFormula: C5H7N3O). Both amino acids were setup as cross linkers (Name: -N2; Site 1: x or #; site 2: ACDEFGHIKLMNPQRSTVWYx#; mass: -28.006). The Raw files were first converted to mzML format using PD2.2./2.4. The detailed search settings and a legend for the RAW files submitted to the PRIDE repository can be found in in Sample_Legend_and_LC-MS_Settings_v01.docx. The results from all searches were manually evaluated.",
+    "projectTags": [],
+    "keywords": [
+      "Peptidyl-prolyl-cis/trans isomerase; parvulin; cross linking"
+    ],
+    "doi": "",
+    "submissionType": "PARTIAL",
+    "license": "Creative Commons Public Domain (CC0)",
+    "submissionDate": "2024-07-16",
+    "publicationDate": "2025-08-24",
+    "submitters": [
+      {
+        "title": "Dr",
+        "firstName": "Farnusch",
+        "lastName": "Kaschani",
+        "identifier": "56290130",
+        "affiliation": "University Duisburg-Essen",
+        "email": "farnusch.kaschani@uni-due.de",
+        "country": "Germany",
+        "orcid": "0000-0001-6572-3232",
+        "name": "Farnusch Kaschani",
+        "id": "56290130"
+      }
+    ],
+    "labPIs": [
+      {
+        "title": "Dr",
+        "firstName": "Farnusch",
+        "lastName": "Kaschani",
+        "identifier": "2971108",
+        "affiliation": "Farnusch Kaschani, Analytics Core Facility Essen (ACE), Chemische Biologie, Universität Duisburg-Essen, ZMB, Germany",
+        "email": "farnusch.kaschani@uni-due.de",
+        "country": "",
+        "orcid": "",
+        "name": "Farnusch Kaschani",
+        "id": "2971108"
+      }
+    ],
+    "instruments": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1002732",
+        "name": "Orbitrap Fusion Lumos",
+        "value": ""
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1001910",
+        "name": "LTQ Orbitrap Elite",
+        "value": ""
+      }
+    ],
+    "softwares": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1000650",
+        "name": "Proteome Discoverer"
+      }
+    ],
+    "experimentTypes": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000430",
+        "name": "Chemical cross-linking coupled with mass spectrometry proteomics"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000428",
+        "name": "Bottom-up proteomics"
+      }
+    ],
+    "quantificationMethods": [],
+    "countries": [
+      "Germany"
+    ],
+    "sampleAttributes": [
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "OBI:0100026",
+          "name": "organism"
+        },
+        "value": [
+          {
+            "cvLabel": "NEWT",
+            "accession": "NEWT:9606",
+            "name": "Homo sapiens (Human)",
+            "value": ""
+          }
+        ]
+      }
+    ],
+    "organisms": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "NEWT",
+        "accession": "NEWT:9606",
+        "name": "Homo sapiens (human)",
+        "value": ""
+      }
+    ],
+    "organismParts": [],
+    "diseases": [],
+    "references": [
+      {
+        "referenceLine": "Sternberg A, Borger JL, Thies M, Matena A, Blueggel M, Kamba BE, Beuck C, Kaschani F, Kaiser M, Bayer P. The Actin-Binding Prolyl-Isomerase Par17 Sustains Its Substrate Selectivity by Interdomain Allostery. Proteins. 2025 93(9):1481-1497",
+        "pubmedID": 40071814,
+        "doi": "10.1002/prot.26807"
+      }
+    ],
+    "identifiedPTMStrings": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00425",
+        "name": "monohydroxylated residue",
+        "value": ""
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00397",
+        "name": "iodoacetamide derivatized residue",
+        "value": ""
+      }
+    ],
+    "totalFileDownloads": 315,
+    "botCount": 161,
+    "hubCount": 148,
+    "organicCount": 6,
+    "files": {
+      "files": [
+        {
+          "fileName": "ACE_0366_AG04-C9.raw",
+          "fileSizeBytes": 195205598,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD053984/ACE_0366_AG04-C9.raw"
+        },
+        {
+          "fileName": "ACE_0366_AG04-C3.raw",
+          "fileSizeBytes": 173973042,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD053984/ACE_0366_AG04-C3.raw"
+        },
+        {
+          "fileName": "ACE_0403_UP000000625_83333_plus_hPar17-WT_v01.fasta",
+          "fileSizeBytes": 1843354,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD053984/ACE_0403_UP000000625_83333_plus_hPar17-WT_v01.fasta"
+        },
+        {
+          "fileName": "hPar17ML.fasta",
+          "fileSizeBytes": 169,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD053984/hPar17ML.fasta"
+        },
+        {
+          "fileName": "Par14ML.fasta",
+          "fileSizeBytes": 147,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD053984/Par14ML.fasta"
+        },
+        {
+          "fileName": "ACE_0403_AG01.raw",
+          "fileSizeBytes": 379186711,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD053984/ACE_0403_AG01.raw"
+        },
+        {
+          "fileName": "ACE_0366_AG01-C11.raw",
+          "fileSizeBytes": 160775854,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD053984/ACE_0366_AG01-C11.raw"
+        },
+        {
+          "fileName": "ACE_0366_AG04-C7.raw",
+          "fileSizeBytes": 176903746,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD053984/ACE_0366_AG04-C7.raw"
+        },
+        {
+          "fileName": "Par14M-part.fasta",
+          "fileSizeBytes": 151,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD053984/Par14M-part.fasta"
+        },
+        {
+          "fileName": "ACE_0366_AG01-C3.raw",
+          "fileSizeBytes": 172806806,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD053984/ACE_0366_AG01-C3.raw"
+        },
+        {
+          "fileName": "Par14L.fasta",
+          "fileSizeBytes": 146,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD053984/Par14L.fasta"
+        },
+        {
+          "fileName": "ACE_0366_AG01-C4.raw",
+          "fileSizeBytes": 165545293,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD053984/ACE_0366_AG01-C4.raw"
+        },
+        {
+          "fileName": "ACE_0403_AG02.raw",
+          "fileSizeBytes": 409075543,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD053984/ACE_0403_AG02.raw"
+        },
+        {
+          "fileName": "SEARCH.zip",
+          "fileSizeBytes": 18924981,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD053984/SEARCH.zip"
+        },
+        {
+          "fileName": "ACE_0366_AG04-C5.raw",
+          "fileSizeBytes": 162477138,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD053984/ACE_0366_AG04-C5.raw"
+        },
+        {
+          "fileName": "ACE_0366_AG04-C10.raw",
+          "fileSizeBytes": 205647900,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD053984/ACE_0366_AG04-C10.raw"
+        },
+        {
+          "fileName": "ACE_0366_AG01-C8.raw",
+          "fileSizeBytes": 149741250,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD053984/ACE_0366_AG01-C8.raw"
+        },
+        {
+          "fileName": "ACE_0403_UP000000625_83333_plus_hPar14-WT_v01.fasta",
+          "fileSizeBytes": 1843317,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD053984/ACE_0403_UP000000625_83333_plus_hPar14-WT_v01.fasta"
+        },
+        {
+          "fileName": "Sample_Legend_and_LC-MS_Settings_v01.docx",
+          "fileSizeBytes": 106560,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD053984/Sample_Legend_and_LC-MS_Settings_v01.docx"
+        },
+        {
+          "fileName": "ACE_0439_UP000000625_83333_SOI.fasta",
+          "fileSizeBytes": 1845322,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD053984/ACE_0439_UP000000625_83333_SOI.fasta"
+        },
+        {
+          "fileName": "ACE_0366_AG01-C5.raw",
+          "fileSizeBytes": 158325363,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD053984/ACE_0366_AG01-C5.raw"
+        },
+        {
+          "fileName": "ACE_0366_AG04-C11.raw",
+          "fileSizeBytes": 189551418,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD053984/ACE_0366_AG04-C11.raw"
+        },
+        {
+          "fileName": "ACE_0366_AG01-C6.raw",
+          "fileSizeBytes": 155313927,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD053984/ACE_0366_AG01-C6.raw"
+        },
+        {
+          "fileName": "Par14.fasta",
+          "fileSizeBytes": 145,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD053984/Par14.fasta"
+        },
+        {
+          "fileName": "Par14M.fasta",
+          "fileSizeBytes": 145,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD053984/Par14M.fasta"
+        },
+        {
+          "fileName": "ACE_0366_AG04-C4.raw",
+          "fileSizeBytes": 174507432,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD053984/ACE_0366_AG04-C4.raw"
+        },
+        {
+          "fileName": "ACE_0366_AG01-C10.raw",
+          "fileSizeBytes": 153388187,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD053984/ACE_0366_AG01-C10.raw"
+        },
+        {
+          "fileName": "ACE_0366_AG01-C9.raw",
+          "fileSizeBytes": 150510802,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD053984/ACE_0366_AG01-C9.raw"
+        },
+        {
+          "fileName": "ACE_0366_AG04-C8.raw",
+          "fileSizeBytes": 185155596,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD053984/ACE_0366_AG04-C8.raw"
+        },
+        {
+          "fileName": "checksum.txt",
+          "fileSizeBytes": 3659,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD053984/checksum.txt"
+        },
+        {
+          "fileName": "ACE_0366_AG01-C7.raw",
+          "fileSizeBytes": 144348347,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD053984/ACE_0366_AG01-C7.raw"
+        },
+        {
+          "fileName": "ACE_0439_SOI_v01.fasta",
+          "fileSizeBytes": 1571,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD053984/ACE_0439_SOI_v01.fasta"
+        },
+        {
+          "fileName": "ACE_0439_AG02-02_MS2_MS3.raw",
+          "fileSizeBytes": 602874840,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD053984/ACE_0439_AG02-02_MS2_MS3.raw"
+        },
+        {
+          "fileName": "ACE_0366_AG04-C6.raw",
+          "fileSizeBytes": 163053874,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD053984/ACE_0366_AG04-C6.raw"
+        }
+      ],
+      "totalCount": 34
+    }
+  }
+}

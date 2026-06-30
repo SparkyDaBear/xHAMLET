@@ -1,0 +1,332 @@
+{
+  "metadata": {
+    "pxd": "PXD065739",
+    "category": "pride",
+    "saved_at": "2026-06-30T15:51:33.093168",
+    "filename": "project_details"
+  },
+  "data": {
+    "accession": "PXD065739",
+    "title": "A Proximity dependent labeling approach to define flotillin-2 interacting proteins within Membrane Domains of HeLa cells",
+    "additionalAttributes": [],
+    "projectDescription": "The formation of plasma membrane microdomains, known as lipid rafts, is driven by specific interactions among cholesterol, sphingolipids, and certain proteins such as flotillins. Flotillins are known to oligomerize and associate with defined lipid assemblies, thereby promoting the coalescence and stabilization of these membrane rafts. Acting as scaffolding molecules, flotillins play critical roles in various cellular processes, including the spatial organization of signaling complexes and membrane compartmentalization. To identify flotillin-associated proteins within membrane rafts in vivo, we employed the BioID proximity labeling technique to analyze the flotillin-2 interactome in living HeLa cells. Flotillin-2 was fused to the promiscuous biotin ligase BirA* at either the N- or C-terminus and expressed in HeLa cells, enabling biotinylation of proximal proteins. Biotinylated proteins were enriched on streptavidin affinity beads and subsequently identified via LC-MS analysis. This investigation of the flotillin-2 interactome provides new insights into the molecular composition of membrane rafts and offers a valuable framework for understanding the mechanisms underlying raft formation, regulation, and associated cellular functions in native membranes.",
+    "sampleProcessingProtocol": "Plasmid constructs were generated using the pSTVH8 vector encoding flotillin-2 fused to the promiscuous biotin ligase BirA* at either the N- or C-terminus. As controls, constructs encoding monomeric enhanced GFP (mEGFP) fused to BirA* at both termini were similarly prepared. These plasmids were transiently transfected into HeLa cells to enable inducible expression of BirA*-tagged flotillin-2. 48 hours post-transfection, biotin was added to the culture medium to facilitate biotinylation of endogenous proteins in close proximity to the BirA*-tagged flotillin-2. To enrich for membrane domain associated proteins, detergent-resistant membrane (DRM) fractions were isolated by solubilizing cellular membranes with a non-ionic detergent followed by sucrose density gradient centrifugation. DRMs were then subjected to streptavidin-based affinity purification. After extensive washing (including three last washes in a detergent-free buffer) bead-bound proteins were denatured at 65°C for 10 minutes in 25 mM Tris pH 7.5, 0.1% sodium deoxycholate. Subsequently, 100 ng of trypsin was added to the samples for an overnight on-bead digestion in 37°C. Next day the solution was separated from the beads, acidified and sodium deoxycholate was removed by centrifugation. The supernatant was then desalted with a STAGE tip procedure. LC-MS was performed on an M-Class Acquity UPLC connected to a Synapt XS HDMS equipped with a nanoESI source. Mobile phase A consisted of H2O + 0.1% FA, while mobile phase B of ACN + 0.1% FA. An 8–40% B 60min linear gradient at a 300nL/min flow rate was applied for sample separation on a C18 75μm x 250mm analytical column kept at 45°C. A 5-minute sample trapping step was performed prior to analytical column separation. MS data were collected in ion mobility DIA (HDMSE) at a scan rate of 0.6 seconds in a 50–2000 m/z range. Source conditions were fine-tuned as follows: Capillary: 2.6kV; Sampling Cone: 35V; Source Offset: 15V; Source temperature: 80°C; cone gas flow: 40L/h, purge gas flow: 100L/h, NanoFlow gas pressure: 0.5Bar. For MS2, a collision energy ramp of 27–47V was set on the transfer cell. A (Glu1)-Fibrinopeptide B solution was acquired in-parallel in reference function, and mass correction was applied post-acquisition.",
+    "dataProcessingProtocol": "Raw processing was performed using Progenesis QiP v4.2.7. QiP’s autovalues were unchanged for the deconvolution, and the auto-optimization of low and high energy ion thresholds was chosen. Signal intensity between samples was normalized according to the “Normalise to All proteins” option (robust standard deviation of each samples ions’ intensity estimate followed by a scalar multiplication of all ions based on that estimate). Deconvoluted data was searched via Ion Accounting against the human protein sequence databank (UP000005640) to which porcine trypsin, eGFP, streptavidin, and BirA sequences were appended (UniProt entries). The search parameters were as follows; peptide mass tolerance: 7 ppm; fragment mass tolerance: 20 ppm; min. fragments/peptide: 1; min. fragments/protein: 3; min. peptides/protein: 1; max. protein mass: 1 MDa; digest reagent: trypsin; max. missed cleavages: 2; variable modification: oxidation of methionine; FDR: 4% (protein-level FDR as set in QiP; the actual peptide-level PSM FDR estimated to ~2%). Protein grouping was enabled, and the Hi-N method with the top 3 most abundant peptides was chosen for protein quantification. The normalized intensity values for each protein in each sample were extracted from the QiP protein output .csv file and uploaded as a generic matrix into Perseus software for statistical analysis. Only proteins with at least two valid values within a group were considered, with the single invalid value (if present) imputated according to normal distribution. A both-sided T-test was performed to identify significantly enriched proteins in the BirA-flotillin-2 and flotillin-2-BirA samples, relative to their respective controls (BirA-eGFP, eGFP-BirA). A p≤0.05 and fold-change (FCH)≥2 thresholds were assumed as meaningful enrichment (logarithmic values:  -log10(p)=1.25, log2(FCH)=1).",
+    "projectTags": [],
+    "keywords": [
+      "Flotillin-2 flot2 ppi protein-protein interactions bioid proximity labelling drm lipid rafts hela"
+    ],
+    "doi": "10.6019/PXD065739",
+    "submissionType": "COMPLETE",
+    "license": "Creative Commons Public Domain (CC0)",
+    "submissionDate": "2025-07-03",
+    "publicationDate": "2025-08-22",
+    "submitters": [
+      {
+        "title": "Dr",
+        "firstName": "Michał",
+        "lastName": "Tracz",
+        "identifier": "3141988",
+        "affiliation": "Laboratory of Mass Spectrometry, Faculty of Biotechnology, University of Wroclaw",
+        "email": "michal.tracz2@uwr.edu.pl",
+        "country": "Poland",
+        "orcid": "0000-0001-7510-5024",
+        "name": "Michał Tracz",
+        "id": "3141988"
+      }
+    ],
+    "labPIs": [
+      {
+        "title": "Dr",
+        "firstName": "Michał",
+        "lastName": "Tracz",
+        "identifier": "3181190",
+        "affiliation": "Mass Spectrometry Laboratory, Faculty of Biotechnology, University of Wroclaw",
+        "email": "michal.tracz2@uwr.edu.pl",
+        "country": "",
+        "orcid": "",
+        "name": "Michał Tracz",
+        "id": "3181190"
+      }
+    ],
+    "instruments": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1001782",
+        "name": "Synapt MS",
+        "value": ""
+      }
+    ],
+    "softwares": [],
+    "experimentTypes": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000452",
+        "name": "HDMSE"
+      }
+    ],
+    "quantificationMethods": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000425",
+        "name": "MS1 intensity based label-free quantification method"
+      }
+    ],
+    "countries": [
+      "Poland"
+    ],
+    "sampleAttributes": [
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "EFO:0000635",
+          "name": "organism part"
+        },
+        "value": [
+          {
+            "cvLabel": "BTO",
+            "accession": "BTO:0000214",
+            "name": "cell culture",
+            "value": ""
+          },
+          {
+            "cvLabel": "CL",
+            "accession": "CL:0000066",
+            "name": "epithelial cell",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "OBI:0100026",
+          "name": "organism"
+        },
+        "value": [
+          {
+            "cvLabel": "NEWT",
+            "accession": "NEWT:9606",
+            "name": "Homo sapiens (Human)",
+            "value": ""
+          }
+        ]
+      }
+    ],
+    "organisms": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "NEWT",
+        "accession": "NEWT:9606",
+        "name": "Homo sapiens (human)",
+        "value": ""
+      }
+    ],
+    "organismParts": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "CL",
+        "accession": "CL:0000066",
+        "name": "Epithelial cell",
+        "value": ""
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "BTO",
+        "accession": "BTO:0000214",
+        "name": "Cell culture",
+        "value": ""
+      }
+    ],
+    "diseases": [],
+    "references": [
+      {
+        "pubmedID": 0,
+        "doi": "10.1016/J.DIB.2025.111970"
+      }
+    ],
+    "identifiedPTMStrings": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000398",
+        "name": "No PTMs are included in the dataset",
+        "value": ""
+      }
+    ],
+    "totalFileDownloads": 347,
+    "botCount": 156,
+    "hubCount": 182,
+    "organicCount": 9,
+    "files": {
+      "files": [
+        {
+          "fileName": "250131_ZCYT_AHR_10_HDMSe.raw.zip",
+          "fileSizeBytes": 5937822279,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD065739/250131_ZCYT_AHR_10_HDMSe.raw.zip"
+        },
+        {
+          "fileName": "BIOGRID-GENE-108608-4.4.247.tab3.xlsx",
+          "fileSizeBytes": 177597,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD065739/BIOGRID-GENE-108608-4.4.247.tab3.xlsx"
+        },
+        {
+          "fileName": "250611_ZCYT_AHR_Cterm.csv",
+          "fileSizeBytes": 238591,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD065739/250611_ZCYT_AHR_Cterm.csv"
+        },
+        {
+          "fileName": "250611_ZCYT_AHR_Cterm.DerivedFromSearch7e6a71e0-03f4-481b-9d04-bfbf885aaf20.mgf",
+          "fileSizeBytes": 76036242,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD065739/250611_ZCYT_AHR_Cterm.DerivedFromSearch7e6a71e0-03f4-481b-9d04-bfbf885aaf20.mgf"
+        },
+        {
+          "fileName": "250131_ZCYT_AHR_3_HDMSe.raw.zip",
+          "fileSizeBytes": 5333485402,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD065739/250131_ZCYT_AHR_3_HDMSe.raw.zip"
+        },
+        {
+          "fileName": "250204_ZCYT_AHR_NTerm.mzid",
+          "fileSizeBytes": 37628941,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD065739/250204_ZCYT_AHR_NTerm.mzid"
+        },
+        {
+          "fileName": "NTermEnriched_Paspect_SOT.xml",
+          "fileSizeBytes": 8240572,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD065739/NTermEnriched_Paspect_SOT.xml"
+        },
+        {
+          "fileName": "250131_ZCYT_AHR_5_HDMSe.raw.zip",
+          "fileSizeBytes": 5690182608,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD065739/250131_ZCYT_AHR_5_HDMSe.raw.zip"
+        },
+        {
+          "fileName": "250606_ZCYT_AHR_FL2BirA_3.raw.zip",
+          "fileSizeBytes": 7259318210,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD065739/250606_ZCYT_AHR_FL2BirA_3.raw.zip"
+        },
+        {
+          "fileName": "250204_ZCYT_AHR_NTerm.DerivedFromSearchfec64cab-73fe-4e5c-8bf2-7498b5cce8bb.mgf",
+          "fileSizeBytes": 20267361,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD065739/250204_ZCYT_AHR_NTerm.DerivedFromSearchfec64cab-73fe-4e5c-8bf2-7498b5cce8bb.mgf"
+        },
+        {
+          "fileName": "250611_ZCYT_AHR_CTerm_ForPersesus.tsv",
+          "fileSizeBytes": 102819,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD065739/250611_ZCYT_AHR_CTerm_ForPersesus.tsv"
+        },
+        {
+          "fileName": "250204_ZCYT_AHR_NTerm.csv",
+          "fileSizeBytes": 108624,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD065739/250204_ZCYT_AHR_NTerm.csv"
+        },
+        {
+          "fileName": "250131_ZCYT_AHR_4_HDMSe.raw.zip",
+          "fileSizeBytes": 5560591614,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD065739/250131_ZCYT_AHR_4_HDMSe.raw.zip"
+        },
+        {
+          "fileName": "250131_ZCYT_AHR_6_HDMSe.raw.zip",
+          "fileSizeBytes": 5335397764,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD065739/250131_ZCYT_AHR_6_HDMSe.raw.zip"
+        },
+        {
+          "fileName": "250131_ZCYT_AHR_2_HDMSe.raw.zip",
+          "fileSizeBytes": 4727137762,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD065739/250131_ZCYT_AHR_2_HDMSe.raw.zip"
+        },
+        {
+          "fileName": "250606_ZCYT_AHR_FL2BirA_1.raw.zip",
+          "fileSizeBytes": 6907963884,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD065739/250606_ZCYT_AHR_FL2BirA_1.raw.zip"
+        },
+        {
+          "fileName": "CTermEnriched_Paspect_SOT.xml",
+          "fileSizeBytes": 2375,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD065739/CTermEnriched_Paspect_SOT.xml"
+        },
+        {
+          "fileName": "250131_ZCYT_AHR_7_HDMSe.raw.zip",
+          "fileSizeBytes": 5334994008,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD065739/250131_ZCYT_AHR_7_HDMSe.raw.zip"
+        },
+        {
+          "fileName": "250131_ZCYT_AHR_8_HDMSe.raw.zip",
+          "fileSizeBytes": 5024154719,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD065739/250131_ZCYT_AHR_8_HDMSe.raw.zip"
+        },
+        {
+          "fileName": "250204_ZCYT_AHR_NTerm_ForPersesus.tsv",
+          "fileSizeBytes": 64901,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD065739/250204_ZCYT_AHR_NTerm_ForPersesus.tsv"
+        },
+        {
+          "fileName": "250606_ZCYT_AHR_eGFPBirA_3.raw.zip",
+          "fileSizeBytes": 6855094600,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD065739/250606_ZCYT_AHR_eGFPBirA_3.raw.zip"
+        },
+        {
+          "fileName": "sample_legend.txt",
+          "fileSizeBytes": 730,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD065739/sample_legend.txt"
+        },
+        {
+          "fileName": "ZCYT_AHR_flot2_bioid.sps",
+          "fileSizeBytes": 6696929,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD065739/ZCYT_AHR_flot2_bioid.sps"
+        },
+        {
+          "fileName": "250611_ZCYT_AHR_Cterm.mzid",
+          "fileSizeBytes": 72657034,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD065739/250611_ZCYT_AHR_Cterm.mzid"
+        },
+        {
+          "fileName": "250606_ZCYT_AHR_eGFPBirA_2.raw.zip",
+          "fileSizeBytes": 6890866687,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD065739/250606_ZCYT_AHR_eGFPBirA_2.raw.zip"
+        },
+        {
+          "fileName": "NTermAll_Caspect_SOT.xml",
+          "fileSizeBytes": 626717,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD065739/NTermAll_Caspect_SOT.xml"
+        },
+        {
+          "fileName": "250131_ZCYT_AHR_1_HDMSe.raw.zip",
+          "fileSizeBytes": 4704662243,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD065739/250131_ZCYT_AHR_1_HDMSe.raw.zip"
+        },
+        {
+          "fileName": "250627_ZCYT_AHR_summary.xlsx",
+          "fileSizeBytes": 27075,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD065739/250627_ZCYT_AHR_summary.xlsx"
+        },
+        {
+          "fileName": "250606_ZCYT_AHR_FL2BirA_2.raw.zip",
+          "fileSizeBytes": 7008345678,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD065739/250606_ZCYT_AHR_FL2BirA_2.raw.zip"
+        },
+        {
+          "fileName": "CTermAll_Caspect_SOT.xml",
+          "fileSizeBytes": 2415857,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD065739/CTermAll_Caspect_SOT.xml"
+        },
+        {
+          "fileName": "250606_ZCYT_AHR_eGFPBirA_1_opt.raw.zip",
+          "fileSizeBytes": 6602158050,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD065739/250606_ZCYT_AHR_eGFPBirA_1_opt.raw.zip"
+        },
+        {
+          "fileName": "250131_ZCYT_AHR_9_HDMSe.raw.zip",
+          "fileSizeBytes": 5680734207,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/08/PXD065739/250131_ZCYT_AHR_9_HDMSe.raw.zip"
+        }
+      ],
+      "totalCount": 32
+    }
+  }
+}

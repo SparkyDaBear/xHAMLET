@@ -1,0 +1,303 @@
+{
+  "metadata": {
+    "pxd": "PXD009260",
+    "category": "pride",
+    "saved_at": "2026-06-30T14:57:19.245579",
+    "filename": "project_details"
+  },
+  "data": {
+    "accession": "PXD009260",
+    "title": "Cross-linking of the microtubule binding N-terminal domain of the companion of cellulose synthase 1 protein (CC1∆C223) from Arabidopsis thaliana with tubulin",
+    "additionalAttributes": [],
+    "projectDescription": "In this study, we use Cross-linking Mass Spectrometry to identify the interaction sites of the microtubule binding N-terminal domain of the companion of cellulose synthase 1 protein (CC1∆C223) from Arabidopsis thaliana with tubulin. We consistently detected four cross-linked peptides of CC1∆C223 to β-tubulin (K40 to E111, K94 to E111, K96 to E111 and K96 to E158; letters and numbers indicate specific amino acids in the protein sequence of CC1∆C223 and β-tubulin, respectively) and one cross-linked peptide of CC1∆C223 to α-tubulin (K40 to D327).",
+    "sampleProcessingProtocol": "His-CC1ΔC223 was purified in 50 mM sodium phosphate buffer (pH 7.0), 200 mM NaCl. The protein was diluted in the same buffer to a concentration of 1 mg/ml.  Tubulin was solubilized to a final concentration of 1 mg/ml in 50 mM sodium phosphate buffer (pH 7.0). 100 µl tubulin and 72 µl His-CC1ΔC223 were mixed with 28 µl of 50 mM sodium phosphate buffer (pH 7.0). Accordingly, the final concentration of both proteins in the reaction mixture was 40 µM. Cross-linking was initiated by adding 10 µl 1-ethyl-3-(3-dimethylaminopropyl)carbodiimide hydrochloride (EDC) (10 mg/ml in water). The reaction was incubated at RT on a rotating device (600 rpm) for 2 h. Free EDC was removed by gel filtration using PD midiTrap G-25 columns (GE Healthcare, USA) according to the spin protocol in the manual. The column was equilibrated with 50 mM sodium phosphate buffer (pH 7.0) and 200 mM NaCl. 50 µl of the EDC sample was subjected to in solution digestion with trypsin and 75 µl was used for SDS-PAGE. In solution digestion with trypsin (“Trypsin Gold, Mass Spectrometry Grade”, Promega, USA) was performed as described by (Medzihradszky, 2006). Deviating from the protocol, no alkylation of cysteines was performed (His-CC1ΔC223 only consists of one cysteine at the C-terminus).  For in gel digestion, the sample was divided into 3 aliquots and loaded on a gradient protein gel (NuPAGE™ 4-12% Bis-Tris Protein Gels, 1.5 mm, 10-well, Thermo Fisher Scientific). SDS-PAGE was performed as described by (Laemmli, 1970). The bands corresponding to the molecular weight of tubulin cross-linked to  His-CC1ΔC223 were excised and combined. In-gel digestion of the cut bands was performed as described by Shevchenko et al. (2007). Deviating from the protocol, no alkylation of cysteines was performed (His-CC1ΔC223 only consists of one cysteine at the C-terminus). LC/MS/MS analysis of the cross-linked samples was performed on an Orbitrap Fusion™ Lumos™ Tribrid™ Mass Spectrometer (Thermo Fisher Scientific) fitted with a nanoflow HPLC (Ultimate 3000 RSLC, Dionex). The nano-LC system was equipped with an Acclaim Pepmap nano-trap column (Dionex – C18, 100 Å, 75 μm × 2 cm) and an Acclaim Pepmap RSLC analytical column (Dionex – C18, 100 Å, 75 μm × 50 cm). The samples were loaded on the trap column with an isocratic flow of 5 μl/min of 3% CH3CN containing 0.1% formic acid for 5min before it was switched in-line with the analytical column. Samples were eluted with 0.1% (v/v) formic acid (A) and 100% CH3CN/0.1% formic acid (v/v) (B). Solvents were applied with the following gradient: 3% B to 12% B for 1 min, 12% B to 35% B in 43 min, 35% B to 80% B in 2 min. The MS system was operated in positive ion mode at a resolution of 120,000 in full scan mode using data-dependent acquisition (DDA). The MS2 was operated in HCD mode with a resolution of 30,000, AGC target of 50,000 and Activation Q of 0.25 for ions above 50,000 with a charge state between 3 and 8. Raw data was converted to mgf or mzML format with MSconvert (Holman et al., 2014) with peak picking enabled.",
+    "dataProcessingProtocol": "A sequence database comprising the CC1 protein (including N-terminal 6xHis), tubulin beta chain (TBB_PIG) and tubulin alpha-1A chain (TBA1A_PIG) was employed for all queries. For analysis with StavroX, the four mgf files where combined into a single file with the automated batch file from PROTEIN METRICS: http://www.proteinmetrics.com/merging-multiple-mgf-files/  For the initial identification of cross-linked peptides, four different tools were used with the following parameters and settings:  Crux  Crux (Park et al., 2008) version 3.0 with the following search string and parameters on single mzML files:  crux search-for-xlinks --enzyme trypsin --fragment-mass mono --precursor-window 5 --precursor-window-type ppm K:E,K:D -18.01056466)  After initial identification, the “xlink-assign-ions” command of Crux  was subsequently applied to all detected inter-peptide cross-links between His-CC1ΔC223 and a tubulin  with a p-value below 0.05 using the mzML files as input. The “xlink-assign-ions” command, which creates a tab delimited text file with the assigned ions, was applied in the following way:  crux xlink-assign-ions --mz-bin-width 0.02  <peptide A> <peptide B> <pos A> <pos B> -18.01056466 <charge state> <scan number> <mzML file> > “outputfile-name”.txt  The inter-peptide cross-links between His-CC1ΔC223 and a tubulin with their assigned ions were considered for final evaluation.   Spectrum Identification Machine (SIM-XL) SIM-XL (Lima et al., 2015) version 1.2.2.2: Single RAW files were used as input. A zero-length cross-linker with a mass shift of -18.0106 and reaction sites between E,K and D,K was defined. The precursor mass error was set to 5 ppm, the fragment ion mass error was set to 20 ppm. Trypsin with full specificity was set as the digestive enzyme. The fragmentation method was set to HCD and a variable oxidation of methionine with a mass shift of 15.9549 was considered. Four isotopic possibilities were allowed. Peptides with a minimum of 4 residues per chain,  a maximum of 3 missed cleavages, a minimum mass of 600 Da and a maximum mass of 6000 Da were defined to be analyzed. All detected inter-peptide cross-links between His-CC1ΔC223 and a tubulin were considered for final evaluation.   pLink pLink (Yang et al., 2012) version 1.23 was used with an ini-file containing the following parameters on single mgf files:  sample.num=1 sample1.spectra.instrument=HCD sample1.spectra.format=mgf enzyme.name=Trypsin mod.fixed.total=0 mod.variable.total=1 mod.variable.1=Oxidation[M] linker.total=2 linker.name1=EDC-D linker.name2=EDC-E noninterexport=false drawpsm=false peptide_tol_total=1 peptide_tol1=10 peptide_tol_type1=ppm peptide_tol_base1=0.000000 peptide_tol_base_type1=Da peptide_tol2=10 peptide_tol_type2=ppm peptide_tol_base2=1.007825035 peptide_tol_base_type2=Da peptide_tol3=10 peptide_tol_type3=ppm peptide_tol_base3=2.01565007 peptide_tol_base_type3=Da peptide_tol4=10 peptide_tol_type4=ppm peptide_tol_base4=3.023475105 peptide_tol_base_type4=Da peptide_tol5=10 peptide_tol_type5=ppm peptide_tol_base5=4.03130014 peptide_tol_base_type5=Da filter_peptide_tol_base=0,1.007825035,2.01565007,3.023475105,4.03130014 filter_peptide_tol_lb=-10,-10,-10,-10,-10 filter_peptide_tol_ub=10,10,10,10,10 filter_peptide_tol_type=ppm evalue_max=1 SeparateTypeFilter=1  All detected inter-peptide cross-links between His-CC1ΔC223 and a tubulin were considered for final evaluation.   StavroX StavroX (Götze et al., 2012) version 3.6.0.1: Merged mgf files were used as input. Protease sites were set to be R or K and to be blocked by a following P. Maximum number of missed cleavages was set to 3. Oxidation of methionine was defined as a variable modification (max. number=2). EDC was chosen as the cross-linking agent. The precursor mass error was set to 5 ppm, the fragment ion mass error was set to 10 ppm. HCD was defined as the the fragmentation method and de-isotoping was enabled. Peptides with a minimum mass of 600 Da and a maximum mass of 6000 Da were defined to be analyzed. The minimal signal to noise ratio was set to 1.5. Decoy analysis was enabled with standard scoring, an FDR cutoff of 5% and mixed target decoys. For the decoy analysis the sequences were shuffled but protease sites were kept. All detected inter-peptide cross-links between His-CC1ΔC223 and a tubulin with an FDR<5% were considered for final evaluation.   Lastly, all identified spectra corresponding to cross-linked peptides from the four different tools were manually inspected for false positives.",
+    "projectTags": [
+      "Biological"
+    ],
+    "keywords": [
+      "Arabidopsis thaliana",
+      "Cx-ms",
+      "Cross-linking",
+      "Microtubule",
+      "Tubulin"
+    ],
+    "doi": "",
+    "submissionType": "PARTIAL",
+    "license": "EBI terms of use",
+    "submissionDate": "2018-03-20",
+    "publicationDate": "2019-01-08",
+    "submitters": [
+      {
+        "title": "Mr",
+        "firstName": "Christopher",
+        "lastName": "Kesten",
+        "identifier": "98230130",
+        "affiliation": "ETH Zurich",
+        "email": "kestenc@ethz.ch",
+        "country": "Switzerland",
+        "orcid": "0000-0003-0794-2415",
+        "name": "Christopher Kesten",
+        "id": "98230130"
+      }
+    ],
+    "labPIs": [
+      {
+        "title": "Dr",
+        "firstName": "Staffan",
+        "lastName": "Persson",
+        "identifier": "98370100",
+        "affiliation": "School of Biosciences, Parkville, VIC 3010, Melbourne, Australia",
+        "email": "Staffan.persson@unimelb.edu.au",
+        "country": "",
+        "orcid": "",
+        "name": "Staffan Persson",
+        "id": "98370100"
+      }
+    ],
+    "instruments": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1002732",
+        "name": "Orbitrap Fusion Lumos"
+      }
+    ],
+    "softwares": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1003109",
+        "name": "SIM-XL"
+      }
+    ],
+    "experimentTypes": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000430",
+        "name": "Chemical cross-linking coupled with mass spectrometry proteomics"
+      }
+    ],
+    "quantificationMethods": [],
+    "countries": [
+      "Switzerland"
+    ],
+    "sampleAttributes": [
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "OBI:0100026",
+          "name": "organism"
+        },
+        "value": [
+          {
+            "cvLabel": "NEWT",
+            "accession": "NEWT:3702",
+            "name": "Arabidopsis thaliana (Mouse-ear cress)"
+          }
+        ]
+      }
+    ],
+    "organisms": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "NEWT",
+        "accession": "NEWT:3702",
+        "name": "Arabidopsis thaliana (mouse-ear cress)"
+      }
+    ],
+    "organismParts": [],
+    "diseases": [],
+    "references": [
+      {
+        "referenceLine": "Kesten C, Wallmann A, Schneider R, McFarlane HE, Diehl A, Khan GA, van Rossum BJ, Lampugnani ER, Szymanski WG, Cremer N, Schmieder P, Ford KL, Seiter F, Heazlewood JL, Sanchez-Rodriguez C, Oschkinat H, Persson S. The companion of cellulose synthase 1 confers salt tolerance through a Tau-like mechanism in plants. Nat Commun. 2019 10(1):857",
+        "pubmedID": 30787279,
+        "doi": "10.1038/s41467-019-08780-3"
+      }
+    ],
+    "identifiedPTMStrings": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000398",
+        "name": "No PTMs are included in the dataset"
+      }
+    ],
+    "totalFileDownloads": 2943,
+    "botCount": 1032,
+    "hubCount": 1885,
+    "organicCount": 26,
+    "files": {
+      "files": [
+        {
+          "fileName": "Ingel4.raw",
+          "fileSizeBytes": 636690426,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD009260/Ingel4.raw"
+        },
+        {
+          "fileName": "CruxResultscombined.xlsx",
+          "fileSizeBytes": 1378319,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD009260/CruxResultscombined.xlsx"
+        },
+        {
+          "fileName": "Insol3.mzML",
+          "fileSizeBytes": 1411443785,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD009260/Insol3.mzML"
+        },
+        {
+          "fileName": "Ingel2.mzML",
+          "fileSizeBytes": 1386474322,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD009260/Ingel2.mzML"
+        },
+        {
+          "fileName": "Ingel3.mgf",
+          "fileSizeBytes": 551973564,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD009260/Ingel3.mgf"
+        },
+        {
+          "fileName": "Ingel2.mgf",
+          "fileSizeBytes": 731887704,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD009260/Ingel2.mgf"
+        },
+        {
+          "fileName": "CruxCandidatesassignedIons.xlsx",
+          "fileSizeBytes": 892106,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD009260/CruxCandidatesassignedIons.xlsx"
+        },
+        {
+          "fileName": "Ingel3.mzML",
+          "fileSizeBytes": 1535700289,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD009260/Ingel3.mzML"
+        },
+        {
+          "fileName": "Insol3.mgf",
+          "fileSizeBytes": 1103821451,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD009260/Insol3.mgf"
+        },
+        {
+          "fileName": "Ingel4.mzML",
+          "fileSizeBytes": 1563684660,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD009260/Ingel4.mzML"
+        },
+        {
+          "fileName": "Ingel1.mgf",
+          "fileSizeBytes": 824947975,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD009260/Ingel1.mgf"
+        },
+        {
+          "fileName": "SIM-XLResultIngel.simxlr",
+          "fileSizeBytes": 909850,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD009260/SIM-XLResultIngel.simxlr"
+        },
+        {
+          "fileName": "StavroxResultInsol.zhrs",
+          "fileSizeBytes": 230897368,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD009260/StavroxResultInsol.zhrs"
+        },
+        {
+          "fileName": "Insol2.mgf",
+          "fileSizeBytes": 1150757351,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD009260/Insol2.mgf"
+        },
+        {
+          "fileName": "Ingel1.mzML",
+          "fileSizeBytes": 1243726942,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD009260/Ingel1.mzML"
+        },
+        {
+          "fileName": "Insol4.mzML",
+          "fileSizeBytes": 1441107791,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD009260/Insol4.mzML"
+        },
+        {
+          "fileName": "StavroxResultIngel.zhrs",
+          "fileSizeBytes": 96115529,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD009260/StavroxResultIngel.zhrs"
+        },
+        {
+          "fileName": "Ingel1.raw",
+          "fileSizeBytes": 502318926,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD009260/Ingel1.raw"
+        },
+        {
+          "fileName": "SIM-XLResultInsol12.simxlr",
+          "fileSizeBytes": 1084199,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD009260/SIM-XLResultInsol12.simxlr"
+        },
+        {
+          "fileName": "Insol2.mzML",
+          "fileSizeBytes": 1423637050,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD009260/Insol2.mzML"
+        },
+        {
+          "fileName": "Insol3.raw",
+          "fileSizeBytes": 562283684,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD009260/Insol3.raw"
+        },
+        {
+          "fileName": "SIM-XLResultInsol34.simxlr",
+          "fileSizeBytes": 2177259,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD009260/SIM-XLResultInsol34.simxlr"
+        },
+        {
+          "fileName": "Insol1.mgf",
+          "fileSizeBytes": 495377139,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD009260/Insol1.mgf"
+        },
+        {
+          "fileName": "Insol4.mgf",
+          "fileSizeBytes": 1126641154,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD009260/Insol4.mgf"
+        },
+        {
+          "fileName": "Insol2.raw",
+          "fileSizeBytes": 565609412,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD009260/Insol2.raw"
+        },
+        {
+          "fileName": "Insol1.mzML",
+          "fileSizeBytes": 1438918082,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD009260/Insol1.mzML"
+        },
+        {
+          "fileName": "Insol4.raw",
+          "fileSizeBytes": 573883150,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD009260/Insol4.raw"
+        },
+        {
+          "fileName": "Sequencedatabase.fasta",
+          "fileSizeBytes": 1126,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD009260/Sequencedatabase.fasta"
+        },
+        {
+          "fileName": "Ingel4.mgf",
+          "fileSizeBytes": 664945505,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD009260/Ingel4.mgf"
+        },
+        {
+          "fileName": "Insol1.raw",
+          "fileSizeBytes": 579077572,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD009260/Insol1.raw"
+        },
+        {
+          "fileName": "Ingel2.raw",
+          "fileSizeBytes": 561742900,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD009260/Ingel2.raw"
+        },
+        {
+          "fileName": "Ingel3.raw",
+          "fileSizeBytes": 626389818,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD009260/Ingel3.raw"
+        },
+        {
+          "fileName": "pLinkResultscombined.xlsx",
+          "fileSizeBytes": 347251,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2019/01/PXD009260/pLinkResultscombined.xlsx"
+        }
+      ],
+      "totalCount": 33
+    }
+  }
+}

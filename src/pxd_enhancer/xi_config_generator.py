@@ -89,7 +89,7 @@ topmgxhits:10
 
 ##################
 ## how many misscleavages are considered
-missedcleavages:3
+missedcleavages:1
 
 ####################
 ## define a minimum peptide length (default 2)

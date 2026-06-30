@@ -1,0 +1,256 @@
+{
+  "metadata": {
+    "pxd": "PXD059960",
+    "category": "pride",
+    "saved_at": "2026-06-30T15:48:20.245643",
+    "filename": "project_details"
+  },
+  "data": {
+    "accession": "PXD059960",
+    "title": "Trifunctional lipid derivatives: PEs mi-tochondrial interactome",
+    "additionalAttributes": [],
+    "projectDescription": "In this study, we employed chemically synthesized trifunctional lipid probes to identify putative protein partners that interact with lipids in HeLa cells. These probes incorporate three distinct chemical functionalities. First, a coumarin-based “caging” moiety is added to the lipid head group, which shields the lipid from metabolic degradation and facilitates its uptake by cells. Second, a diazirine group is embedded within the acyl chain. Upon photoactivation (e.g., exposure to UV light), this diazirine crosslinks the lipid probe to nearby proteins. Finally, an alkyne group is introduced at the tail of the acyl chain, enabling click chemistry conjugation to azide-functionalized beads.This permits the selective enrichment of crosslinked protein complexes for downstream isolation and mass spectrometry–based proteomic analysis. This strategy allows the  identification of native lipid–protein interactions while minimally perturbing cellular systems. Using HeLa cells as our experimental model, we were able to detect and enrich candidate lipid-binding proteins for subsequent in-depth proteomic characterization.",
+    "sampleProcessingProtocol": "HeLa cells were seeded in 10 cm dishes and grown to confluency. Cells were loaded with 10µM of the lipid probes in DMEM overnight. The cells were subjected to photocross-linking directly after uncaging. After photo-cross-linking, cells were washed with PBS and scraped into PBS. Cells were pelleted by centrifugation (500g for 5 min) and the supernatant was discarded.  Cells fractions were then isolated using the MinElute plasma membrane protein isolation kit (Invent Biotechnologies, Cat No SM-005). The total membrane fraction (resuspended in PBS:0.5% Triton X-100) for each sample were incubated with 200 Âµl prewashed picolyl-azide agarose beads (Click Chemistry Tools, Cat No 1235, Component A) in presence of 1 mM final CuSO4, 100 ÂµM BTTAA and 1 mM sodium ascorbate to catalyze the click reaction (RT for 1 h agitating). The beads were then extensively washed in disposable PD-10 columns (full column volume of each buffer): 3x with PBS, 3x with 50mM ammonium-bicarbonate, 3x 50 mM ammonium-bicarbonate 3M urea and 3x with 50 mM ammonium-bicarbonate to remove unspecific binders. The beads were then transferred to a clean Eppendorf tube, spun down and resuspended in 500 ÂµL 50 mM ammonium-bicarbonate/3 M urea. Bound proteins were reduced via the addition of 5 mM final TCEP and incubated at 55Â°C with orbital shaking for 30 min. Proteins were then alkylated with 10 mM iodoacetamide (final concentration) for 20 min, incubated at RT in the dark, followed by the addition of 20 mM final DTT for 10 min at RT with shaking. The beads were precipitated vie centrifugation and the supernatant was removed from the beads. The beads were resuspended in 150Âµl 50 mM ammonium-bicarbonate/2M urea. 3 Âµg of MS grade trypsin was added and incubated overnight at 37Â°C with vigorous shaking to prevent the beads from settling. In the morning 1 µg fresh trypsin was added and incubated for additional 2h. The supernatant was saved and beads washed once with 250 Âµl 50 mM ammonium-bicarbonate/2M urea that was added to the previous supernatant containing digested peptides. The total supernatant containing the digested peptides was acidified with 0.5% TFA (final concentration). The peptides were purified on a C18 desalting column, and dried.  Identification of proteins by LC-MS/MS : Dried peptides were shipped to the EMBL proteomics core facility, where they were TMT-labeled using the TMT-16-plex system and analyzed by LC-MS/MS on an Orbitrap Fusion Lumos mass spectrometer (Thermo Scientific). Peptides were separated using an Ultimate 3000 nano RSLC system (Dionex) equipped with a trapping cartridge (Precolumn C18 PepMap100, 5 mm, 300 Î¼m i.d., 5 Î¼m, 100 Ã…) and an analytical column (Acclaim PepMap 100. 75 Ã— 50 cm C18, 3 mm, 100 Ã…) connected to a nanospray-Flex ion source. The peptides were loaded onto the trap column at 30 Î¼L per min using solvent A (0.1% formic acid) and eluted using a gradient from 2 to 80% Solvent B (0.1% formic acid in acetonitrile) over 2 h at 0.3 Î¼L per min (all solvents were of LC-MS grade). The Orbitrap Fusion Lumos was operated in positive ion mode with a spray voltage of 2.2 kV and capillary temperature of 275 Â°C. Full scan MS spectra with a mass range of 375â€“1500 m/z were acquired in profile mode using a resolution of 120,000 with a maximum injection time of 50 ms, AGC operated in standard mode, and an RF lens setting of 30%. Fragmentation was triggered for 3 s cycle time for peptide-like features with charge states of 2â€“7 on the MS scan (data-dependent acquisition). Precursors were isolated using the quadrupole with a window of 0.7 m/z and fragmented with a normalized collision energy of 34%. Fragment mass spectra were acquired in profile mode and a resolution of 30,000. The maximum injection time was set to 94 ms and AGC target to custom. The dynamic exclusion was set to 60 s.",
+    "dataProcessingProtocol": "Acquired data were analyzed using IsobarQuant and Mascot V2.4 (Matrix Science) using a reverse UniProt FASTA Homo sapiens database (UP000005640 from May 2016) including common contaminants. The following modifications were taken into account: Carbamidomethyl (C, fixed), TMT16plex (K, fixed), Acetyl (N-term, variable), Oxidation (M, variable) and TMT16plex (N-term, variable). The mass error tolerance for full scan MS spectra was set to 10 ppm and for MS/MS spectra to 0.02 Da. A maximum of 2 missed cleavages were allowed. A minimum of 2 unique peptides with a peptide length of at least seven amino acids and a false discovery rate below 0.01 were required on the peptide and protein level. only proteins which were identified in two out of two mass spec runs were kept. Log2 transformed raw TMT reporter ion intensities (â€˜signal_sumâ€™ columns) were first cleaned for batch effects using limma and further normalized using vsn (variance stabilization normalization. Different normalization coefficients were estimated for +UV and -UV conditions in order to maintain for the abundance difference. Proteins were tested for differential expression using the limma package. The replicate information was added as a factor in the design matrix given as an argument to the â€˜lmFitâ€™ function of limma.",
+    "projectTags": [],
+    "keywords": [
+      "Phosphatidic-acid",
+      "Trifunctional lipid",
+      "Phospholipid",
+      "Phosphatidylinositol",
+      "Phosphatidylethanolamine",
+      "Lipid interactome"
+    ],
+    "doi": "",
+    "submissionType": "PARTIAL",
+    "license": "Creative Commons Public Domain (CC0)",
+    "submissionDate": "2025-01-20",
+    "publicationDate": "2025-01-21",
+    "submitters": [
+      {
+        "title": "Mr",
+        "firstName": "Frank",
+        "lastName": "Stein",
+        "identifier": "95870166",
+        "affiliation": "EMBL",
+        "email": "frank.stein@embl.de",
+        "country": "Germany",
+        "orcid": "",
+        "name": "Frank Stein",
+        "id": "95870166"
+      }
+    ],
+    "labPIs": [
+      {
+        "title": "Dr",
+        "firstName": "Carsten",
+        "lastName": "Schultz",
+        "identifier": "3093121",
+        "affiliation": "Professor of Chemical Physiology and Biochemistry, School of Medicine at OHSU Chair, Chemical Physiology and Biochemistry, School of Medicine Helen Jo Whitsell Dean's Leadership Professor Graduate Program in Biomedical Sciences, School of Medicine",
+        "email": "schulcar@ohsu.edu",
+        "country": "",
+        "orcid": "",
+        "name": "Carsten Schultz",
+        "id": "3093121"
+      }
+    ],
+    "instruments": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1002732",
+        "name": "Orbitrap Fusion Lumos"
+      }
+    ],
+    "softwares": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1001207",
+        "name": "Mascot"
+      }
+    ],
+    "experimentTypes": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000429",
+        "name": "Shotgun proteomics"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000428",
+        "name": "Bottom-up proteomics"
+      }
+    ],
+    "quantificationMethods": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000314",
+        "name": "TMT"
+      }
+    ],
+    "countries": [
+      "Germany"
+    ],
+    "sampleAttributes": [
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "EFO:0000635",
+          "name": "organism part"
+        },
+        "value": [
+          {
+            "cvLabel": "CL",
+            "accession": "CL:0000002",
+            "name": "permanent cell line cell"
+          },
+          {
+            "cvLabel": "CL",
+            "accession": "CL:0000066",
+            "name": "epithelial cell"
+          }
+        ]
+      },
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "OBI:0100026",
+          "name": "organism"
+        },
+        "value": [
+          {
+            "cvLabel": "NEWT",
+            "accession": "NEWT:9606",
+            "name": "Homo sapiens (Human)"
+          }
+        ]
+      },
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "EFO:0000408",
+          "name": "disease"
+        },
+        "value": [
+          {
+            "cvLabel": "DOID",
+            "accession": "DOID:2893",
+            "name": "cervix carcinoma"
+          }
+        ]
+      }
+    ],
+    "organisms": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "NEWT",
+        "accession": "NEWT:9606",
+        "name": "Homo sapiens (human)"
+      }
+    ],
+    "organismParts": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "CL",
+        "accession": "CL:0000066",
+        "name": "Epithelial cell"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "CL",
+        "accession": "CL:0000002",
+        "name": "Permanent cell line cell"
+      }
+    ],
+    "diseases": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "DOID",
+        "accession": "DOID:2893",
+        "name": "Cervix carcinoma"
+      }
+    ],
+    "references": [
+      {
+        "pubmedID": 0,
+        "doi": "10.1039/D4CC03599B"
+      }
+    ],
+    "identifiedPTMStrings": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000398",
+        "name": "No PTMs are included in the dataset"
+      }
+    ],
+    "totalFileDownloads": 367,
+    "files": {
+      "files": [
+        {
+          "fileName": "Lara_210908_P1779_PH_AK_sample_M_rep2_5prc_R1_T.raw",
+          "fileSizeBytes": 1646022627,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059960/Lara_210908_P1779_PH_AK_sample_M_rep2_5prc_R1_T.raw"
+        },
+        {
+          "fileName": "P1779_AK_Lara_210908_P1779_PH_AK_sample_M_rep2_5prc_R1_T_results_20210909_1030_proteins.txt",
+          "fileSizeBytes": 1299517,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059960/P1779_AK_Lara_210908_P1779_PH_AK_sample_M_rep2_5prc_R1_T_results_20210909_1030_proteins.txt"
+        },
+        {
+          "fileName": "Lara_210908_P1779_PH_AK_sample_M_rep1_5prc_R1_T.raw",
+          "fileSizeBytes": 1707105914,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059960/Lara_210908_P1779_PH_AK_sample_M_rep1_5prc_R1_T.raw"
+        },
+        {
+          "fileName": "metadata_new_membrane.csv",
+          "fileSizeBytes": 1535,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059960/metadata_new_membrane.csv"
+        },
+        {
+          "fileName": "F110623.dat",
+          "fileSizeBytes": 199367814,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059960/F110623.dat"
+        },
+        {
+          "fileName": "P1779_AK_Lara_210908_P1779_PH_AK_sample_M_rep2_5prc_R1_T_results_20210909_1030_peptides.txt",
+          "fileSizeBytes": 9075633,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059960/P1779_AK_Lara_210908_P1779_PH_AK_sample_M_rep2_5prc_R1_T_results_20210909_1030_peptides.txt"
+        },
+        {
+          "fileName": "P1779_AK_Lara_210908_P1779_PH_AK_sample_M_rep1_5prc_R1_T_results_20210909_1024_proteins.txt",
+          "fileSizeBytes": 1486041,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059960/P1779_AK_Lara_210908_P1779_PH_AK_sample_M_rep1_5prc_R1_T_results_20210909_1024_proteins.txt"
+        },
+        {
+          "fileName": "P1779_AK_Lara_210908_P1779_PH_AK_sample_M_rep1_5prc_R1_T_results_20210909_1024_peptides.txt",
+          "fileSizeBytes": 10684983,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059960/P1779_AK_Lara_210908_P1779_PH_AK_sample_M_rep1_5prc_R1_T_results_20210909_1024_peptides.txt"
+        },
+        {
+          "fileName": "P1779_AK_Lara_210908_P1779_PH_AK_sample_M_rep1_5prc_R1_T_results_20210909_1024_summary.txt",
+          "fileSizeBytes": 2026,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059960/P1779_AK_Lara_210908_P1779_PH_AK_sample_M_rep1_5prc_R1_T_results_20210909_1024_summary.txt"
+        },
+        {
+          "fileName": "F110620.dat",
+          "fileSizeBytes": 217832219,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059960/F110620.dat"
+        },
+        {
+          "fileName": "P1779_AK_Lara_210908_P1779_PH_AK_sample_M_rep2_5prc_R1_T_results_20210909_1030_summary.txt",
+          "fileSizeBytes": 2025,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059960/P1779_AK_Lara_210908_P1779_PH_AK_sample_M_rep2_5prc_R1_T_results_20210909_1030_summary.txt"
+        }
+      ],
+      "totalCount": 11
+    }
+  }
+}

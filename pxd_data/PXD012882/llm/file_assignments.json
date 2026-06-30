@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "pxd": "PXD012882",
+    "category": "llm",
+    "saved_at": "2026-06-30T15:02:41.124297",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"cpc_nucleosome_edc_r1_r3\",\n      \"description\": \"Chromosomal passenger complex (CPC) crosslinked to nucleosome complexes using EDC; includes non-phospho and phospho-targeted datasets as indicated by filenames.\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": \"EDC\",\n      \"biological_condition\": \"CPC–nucleosome interaction (non-perturbed), with phospho-specific sample set included by filename\",\n      \"files\": [\n        \"Zou_Rappsilber_JP_CPC_EDC_R1.raw\",\n        \"Zou_Rappsilber_JP_CPC_EDC_R2.raw\",\n        \"Zou_Rappsilber_JP_CPC_EDC_R3.raw\",\n        \"Zou_Rappsilber_JP_CPC_phospho_EDC_R1.raw\",\n        \"Zou_Rappsilber_JP_CPC_phospho_EDC_R2.raw\",\n        \"Zou_Rappsilber_JP_CPC_phospho_EDC_R3.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"Zou_Rappsilber_JP_CPC_EDC_R1.raw (and R2/R3); Zou_Rappsilber_JP_CPC_phospho_EDC_R1.raw (and R2/R3)\",\n      \"reasoning\": \"All files share the same core biological target 'CPC' and the same crosslinker token 'EDC' in the filename, with only a 'phospho' modifier distinguishing the sample set. The task requires clustering by biological/experimental condition, organism, and crosslinker; however, the publication text provided does not explicitly map 'phospho' to a distinct XL-MS condition label beyond the general study of Borealin–nucleosome interactions and centromere enrichment. Therefore, these are grouped into one EDC CPC-related cluster to avoid over-splitting based solely on the filename modifier.\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a biological XL-MS condition.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"No QC/calibrant/blank/test files were provided in the input list; all files appear to be CPC EDC biological runs.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 6,\n    \"n_assigned_files\": 6,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 1,\n    \"overall_confidence\": \"medium\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "cpc_nucleosome_edc_r1_r3",
+          "description": "Chromosomal passenger complex (CPC) crosslinked to nucleosome complexes using EDC; includes non-phospho and phospho-targeted datasets as indicated by filenames.",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": "EDC",
+          "biological_condition": "CPC–nucleosome interaction (non-perturbed), with phospho-specific sample set included by filename",
+          "files": [
+            "Zou_Rappsilber_JP_CPC_EDC_R1.raw",
+            "Zou_Rappsilber_JP_CPC_EDC_R2.raw",
+            "Zou_Rappsilber_JP_CPC_EDC_R3.raw",
+            "Zou_Rappsilber_JP_CPC_phospho_EDC_R1.raw",
+            "Zou_Rappsilber_JP_CPC_phospho_EDC_R2.raw",
+            "Zou_Rappsilber_JP_CPC_phospho_EDC_R3.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "Zou_Rappsilber_JP_CPC_EDC_R1.raw (and R2/R3); Zou_Rappsilber_JP_CPC_phospho_EDC_R1.raw (and R2/R3)",
+          "reasoning": "All files share the same core biological target 'CPC' and the same crosslinker token 'EDC' in the filename, with only a 'phospho' modifier distinguishing the sample set. The task requires clustering by biological/experimental condition, organism, and crosslinker; however, the publication text provided does not explicitly map 'phospho' to a distinct XL-MS condition label beyond the general study of Borealin–nucleosome interactions and centromere enrichment. Therefore, these are grouped into one EDC CPC-related cluster to avoid over-splitting based solely on the filename modifier."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a biological XL-MS condition.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "No QC/calibrant/blank/test files were provided in the input list; all files appear to be CPC EDC biological runs."
+        }
+      ],
+      "summary": {
+        "n_input_files": 6,
+        "n_assigned_files": 6,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 1,
+        "overall_confidence": "medium"
+      }
+    }
+  }
+}

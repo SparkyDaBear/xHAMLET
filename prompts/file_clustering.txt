@@ -1,66 +1,133 @@
-You are a proteomics expert analyzing crosslinking mass spectrometry datasets.
+You are a proteomics expert analyzing crosslinking mass spectrometry (XL-MS) datasets.
 
-Your task: Cluster raw spectral files into biologically meaningful groups based on:
-1. EXPERIMENTAL CONDITIONS (sample treatment, carbon source, growth medium, etc.)
-2. ORGANISMS (if multi-organism dataset, group by species)
-3. CROSSLINKING REAGENT (if mixed crosslinkers, group by reagent)
+Your task is to cluster raw spectral files into biologically meaningful groups.
 
-**IGNORE**: Fraction numbers, technical replicates, and sample replicate IDs within a condition.
-Group replicates of the same condition together.
+A cluster should represent a unique combination of:
+1. Biological / experimental condition
+   - Examples: treatment, control, carbon source, growth medium, cell state, tissue, disease state, time point, perturbation, purified complex, recombinant standard set.
+2. Source organism of the proteome being analyzed
+   - Return the full scientific name.
+   - Use the organism of the biological sample or proteome of interest, not necessarily the expression host.
+   - Example: if human proteins are expressed in E. coli and analyzed as human recombinant standards, the source organism is Homo sapiens.
+   - If the dataset intentionally contains multiple source organisms, create separate clusters by organism when possible.
+3. Crosslinking reagent
+   - Examples: BS3, DSS, DSSO, DSBU, formaldehyde.
+   - If multiple crosslinkers are used, create separate clusters by reagent when possible.
+
+Do NOT split clusters by:
+- fraction number
+- LC fraction
+- technical replicate
+- biological replicate ID
+- injection number
+- file numbering
+- enrichment fraction
+- instrument run order
+- search batch
+- calibration/QC files
+
+Replicates, fractions, and repeated injections from the same biological condition should be grouped together.
 
 ---
 
-INPUT:
-Raw filenames (list):
+INPUTS
+
+Raw filenames:
 {raw_filenames}
 
-Publication text & PRIDE metadata:
+Publication text and PRIDE metadata:
 {publication_text}
 
-Organism(s) and NCBI taxid(s) already extracted:
+Previously extracted organism(s) and NCBI taxid(s):
 {organisms_with_taxids}
 
 ---
 
-TASK:
-1. Identify distinct biological conditions from publication + metadata + filenames
-2. Assign each raw file to a condition cluster
-3. For each cluster, specify:
-   - cluster_id: "cluster_1", "cluster_2", etc.
-   - cluster_label: Short, descriptive name (e.g., "yeast_glucose_BS3")
-   - description: Human-readable summary of the condition
-   - organism: Full organism name
-   - taxid: NCBI Taxonomy ID (e.g., "NCBITaxon:4932")
-   - files: List of raw filenames in this cluster
+TASKS
 
-4. Assign any files you cannot confidently cluster to "unassigned" cluster (cluster_0)
-5. Provide confidence level: "high", "medium", or "low"
-6. Provide evidence_quote: A sentence from the publication justifying the clustering
+1. Identify the distinct biological/experimental conditions described by the publication, PRIDE metadata, and filenames.
+
+2. Assign every raw file to exactly one cluster.
+
+3. Define clusters using the smallest number of biologically meaningful groups. Do not over-cluster based only on replicate, fraction, or run-number differences.
+
+4. For each cluster, report:
+   - cluster_id: "cluster_1", "cluster_2", etc.
+   - cluster_label: short machine-readable label using lowercase words separated by underscores
+   - description: concise human-readable summary of the condition
+   - organism: full scientific name of the proteome/sample organism
+   - taxid: NCBI Taxonomy CURIE, e.g. "NCBITaxon:9606"; use null if unknown
+   - crosslinker: crosslinking reagent; use null if unknown
+   - biological_condition: short phrase describing the treatment/control/state
+   - files: list of raw filenames assigned to this cluster
+   - confidence: "high", "medium", or "low"
+   - evidence_quote: exact sentence or short phrase from the publication, PRIDE metadata, or filename pattern that supports this cluster assignment
+   - reasoning: brief explanation of why these files belong together
+
+5. Assign files that cannot be confidently interpreted to cluster_0 with:
+   - cluster_label: "unassigned"
+   - confidence: "low"
+   - evidence_quote: null
+   - reasoning: explain why assignment was not possible
+
+6. QC, calibrant, blank, wash, or test files should be assigned to cluster_0 unless the publication clearly states they are part of the biological experiment.
+
+7. If all biological files appear to come from one condition, create only cluster_1 plus cluster_0 if there are unassigned/QC files.
+
+8. Confidence guidelines:
+   - "high": filenames and publication/metadata agree clearly
+   - "medium": assignment is likely but partially inferred from filenames or incomplete metadata
+   - "low": weak evidence, ambiguous naming, missing metadata, or conflicting information
+
+9. If publication text and filenames conflict, prioritize the publication/PRIDE metadata, but mention the conflict in reasoning.
+
+10. Return ONLY valid JSON. Do not include markdown, comments, or explanatory text outside the JSON.
 
 ---
 
-OUTPUT JSON STRUCTURE:
+OUTPUT JSON STRUCTURE
+
 {
   "clusters": [
     {
       "cluster_id": "cluster_1",
-      "cluster_label": "yeast_glucose_BS3",
-      "description": "Yeast mitochondria cultured in glucose-rich medium, crosslinked with BS3",
+      "cluster_label": "yeast_glucose_bs3",
+      "description": "Saccharomyces cerevisiae samples grown in glucose-rich medium and crosslinked with BS3.",
       "organism": "Saccharomyces cerevisiae",
       "taxid": "NCBITaxon:4932",
-      "files": ["YeastGlu_R1.raw", "YeastGlu_R2.raw", "YeastGlu_R3.raw"]
+      "crosslinker": "BS3",
+      "biological_condition": "glucose-rich medium",
+      "files": [
+        "YeastGlu_R1.raw",
+        "YeastGlu_R2.raw",
+        "YeastGlu_fraction_01.raw"
+      ],
+      "confidence": "high",
+      "evidence_quote": "Yeast cells were cultured in glucose- or glycerol-containing medium and crosslinked with BS3.",
+      "reasoning": "The filenames contain Glu and the publication states that glucose-grown yeast samples were crosslinked with BS3."
+    },
+    {
+      "cluster_id": "cluster_0",
+      "cluster_label": "unassigned",
+      "description": "Files that could not be confidently assigned to a biological XL-MS condition.",
+      "organism": null,
+      "taxid": null,
+      "crosslinker": null,
+      "biological_condition": null,
+      "files": [
+        "calibrant.raw",
+        "QC.raw"
+      ],
+      "confidence": "low",
+      "evidence_quote": null,
+      "reasoning": "These files appear to be QC or calibration runs rather than biological samples."
     }
   ],
-  "unassigned_files": ["calibrant.raw", "QC.raw"],
-  "confidence": "high",
-  "evidence_quote": "Yeast mitochondria were cultured in glucose or glycerol-containing medium..."
+  "summary": {
+    "n_input_files": 5,
+    "n_assigned_files": 3,
+    "n_unassigned_files": 2,
+    "n_biological_clusters": 1,
+    "overall_confidence": "high"
+  }
 }
-
----
-
-RULES:
-- If a file name contains a condition keyword (e.g., "glucose", "glycerol", "BS3", "DSS"), use it
-- If the publication describes distinct experimental arms, create one cluster per arm
-- If all files appear to be from ONE condition, create only cluster_1
-- Confidence should reflect clarity of clustering boundaries in publication/filenames
-- Return ONLY valid JSON; no explanatory text before or after

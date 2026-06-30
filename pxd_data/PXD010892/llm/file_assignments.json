@@ -1,0 +1,94 @@
+{
+  "metadata": {
+    "pxd": "PXD010892",
+    "category": "llm",
+    "saved_at": "2026-06-30T15:00:07.517768",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"saccharomyces_cerevisiae_bpa_aha2_trpaspn_uv\",\n      \"description\": \"Saccharomyces cerevisiae in vivo cross-linking using BPA-AHA2 with TrpAspN digestion under UV conditions (UV110/180/260).\",\n      \"organism\": \"Saccharomyces cerevisiae\",\n      \"taxid\": \"NCBITaxon:4932\",\n      \"crosslinker\": \"BPA-AHA2 (p-benzoyl-phenylalanine)\",\n      \"biological_condition\": \"in vivo BPA-AHA2 cross-linking with UV activation (TrpAspN double digestion)\",\n      \"files\": [\n        \"10_S229UV110TrpAspN_R3.raw\",\n        \"11_S229UV180TrpAspN_R3.raw\",\n        \"12_S229UV260TrpAspN_R3.raw\",\n        \"6_H225noUV110_TrpAspN_R3.raw\",\n        \"7_H225UV110_TrpAspN_R3.raw\",\n        \"8_H225UV180_TrpAspN_R3.raw\",\n        \"9_H225UV260_TrpAspN_R3.raw\",\n        \"H225_UV110_TrpAspN_R1.raw\",\n        \"H225_UV180_TrpAspN_R1.raw\",\n        \"H225_UV260_TrpAspN_R1.raw\",\n        \"S229B_UV110_TrpAspN_R2.raw\",\n        \"S229_UV110_TrpAspN_R1.raw\",\n        \"S229_UV180_TrpAspN_R1.raw\",\n        \"S229_UV260_TrpAspN_R1.raw\",\n        \"S229_UV260_TrpAspN_R2.raw\",\n        \"S229_no110_TrpAspN_R1.raw\",\n        \"S229_no110_july_TrpAspN_R2.raw\",\n        \"S229_no180_TrpAspN_R1.raw\",\n        \"S229_no180_july_TrpAspN_R2.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"In this study we used in vivo cross-linking experiments with a photo-reactive unnatural amino acid, p-benzoyl-phenylalanine (BPA) and tandem mass spectrometry\",\n      \"reasoning\": \"All listed files contain 'TrpAspN' indicating the same double-digestion workflow (Trypsin + AspN). Filenames include 'UV' and 'noUV' variants, consistent with photo-activation vs dark control for BPA-AHA2; the publication explicitly centers on BPA photo-crosslinking. The dataset includes multiple UV intensities (110/180/260) and controls, but these are treated as the same BPA-AHA2 experimental setup rather than separate biological conditions because the task forbids splitting by run/injection/fraction and the filenames do not provide distinct biological perturbations beyond UV activation state.\"\n    },\n    {\n      \"cluster_id\": \"cluster_2\",\n      \"cluster_label\": \"saccharomyces_cerevisiae_bpa_aha2_trpchym_uv\",\n      \"description\": \"Saccharomyces cerevisiae in vivo cross-linking using BPA-AHA2 with TrpChym digestion under UV conditions (UV110/180/260).\",\n      \"organism\": \"Saccharomyces cerevisiae\",\n      \"taxid\": \"NCBITaxon:4932\",\n      \"crosslinker\": \"BPA-AHA2 (p-benzoyl-phenylalanine)\",\n      \"biological_condition\": \"in vivo BPA-AHA2 cross-linking with UV activation (TrpChym double digestion)\",\n      \"files\": [\n        \"1_H225noUV110TrpChym_R3.raw\",\n        \"2_H225noUV180TrpChym_R3.raw\",\n        \"3_H225UV110TrpChym_R3.raw\",\n        \"4_H225UV180TrpChym_R3.raw\",\n        \"5_H225UV260TrpChym_R3.raw\",\n        \"H225_UV110_TrpChym_R1.raw\",\n        \"H225_UV180_TrpChym_R1.raw\",\n        \"H225_UV260_TrpChym_R1.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"Protein was digested with 200 ng Trypsin (Promega) ... then with 200 ng Chymotrypsin (Roche) ... for double digestion.\",\n      \"reasoning\": \"All listed files contain 'TrpChym' indicating the Trypsin + Chymotrypsin double-digestion workflow. The publication describes BPA photo-crosslinking as the key chemical condition; filenames include UV/noUV but no other distinct biological perturbations. Therefore these files are grouped as the same BPA-AHA2 experiment with the TrpChym digestion variant.\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a specific biological XL-MS condition from the provided information.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [\n        \"S229B_UV260_Trypsin_notReject2.raw\",\n        \"S229_UV260_TrpAspN_R1.raw\",\n        \"S229_UV260_TrpAspN_R2.raw\"\n      ],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"One file ('S229B_UV260_Trypsin_notReject2.raw') lacks the 'TrpAspN'/'TrpChym' digestion label used for the other groups, so its intended biological/processing condition is ambiguous. Additionally, 'S229_UV260_TrpAspN_R1.raw' and 'S229_UV260_TrpAspN_R2.raw' appear to be duplicates of files already captured in the TrpAspN UV cluster; they are left unassigned here due to an inconsistency in the provided filename list handling.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 26,\n    \"n_assigned_files\": 25,\n    \"n_unassigned_files\": 1,\n    \"n_biological_clusters\": 2,\n    \"overall_confidence\": \"medium\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "saccharomyces_cerevisiae_bpa_aha2_trpaspn_uv",
+          "description": "Saccharomyces cerevisiae in vivo cross-linking using BPA-AHA2 with TrpAspN digestion under UV conditions (UV110/180/260).",
+          "organism": "Saccharomyces cerevisiae",
+          "taxid": "NCBITaxon:4932",
+          "crosslinker": "BPA-AHA2 (p-benzoyl-phenylalanine)",
+          "biological_condition": "in vivo BPA-AHA2 cross-linking with UV activation (TrpAspN double digestion)",
+          "files": [
+            "10_S229UV110TrpAspN_R3.raw",
+            "11_S229UV180TrpAspN_R3.raw",
+            "12_S229UV260TrpAspN_R3.raw",
+            "6_H225noUV110_TrpAspN_R3.raw",
+            "7_H225UV110_TrpAspN_R3.raw",
+            "8_H225UV180_TrpAspN_R3.raw",
+            "9_H225UV260_TrpAspN_R3.raw",
+            "H225_UV110_TrpAspN_R1.raw",
+            "H225_UV180_TrpAspN_R1.raw",
+            "H225_UV260_TrpAspN_R1.raw",
+            "S229B_UV110_TrpAspN_R2.raw",
+            "S229_UV110_TrpAspN_R1.raw",
+            "S229_UV180_TrpAspN_R1.raw",
+            "S229_UV260_TrpAspN_R1.raw",
+            "S229_UV260_TrpAspN_R2.raw",
+            "S229_no110_TrpAspN_R1.raw",
+            "S229_no110_july_TrpAspN_R2.raw",
+            "S229_no180_TrpAspN_R1.raw",
+            "S229_no180_july_TrpAspN_R2.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "In this study we used in vivo cross-linking experiments with a photo-reactive unnatural amino acid, p-benzoyl-phenylalanine (BPA) and tandem mass spectrometry",
+          "reasoning": "All listed files contain 'TrpAspN' indicating the same double-digestion workflow (Trypsin + AspN). Filenames include 'UV' and 'noUV' variants, consistent with photo-activation vs dark control for BPA-AHA2; the publication explicitly centers on BPA photo-crosslinking. The dataset includes multiple UV intensities (110/180/260) and controls, but these are treated as the same BPA-AHA2 experimental setup rather than separate biological conditions because the task forbids splitting by run/injection/fraction and the filenames do not provide distinct biological perturbations beyond UV activation state."
+        },
+        {
+          "cluster_id": "cluster_2",
+          "cluster_label": "saccharomyces_cerevisiae_bpa_aha2_trpchym_uv",
+          "description": "Saccharomyces cerevisiae in vivo cross-linking using BPA-AHA2 with TrpChym digestion under UV conditions (UV110/180/260).",
+          "organism": "Saccharomyces cerevisiae",
+          "taxid": "NCBITaxon:4932",
+          "crosslinker": "BPA-AHA2 (p-benzoyl-phenylalanine)",
+          "biological_condition": "in vivo BPA-AHA2 cross-linking with UV activation (TrpChym double digestion)",
+          "files": [
+            "1_H225noUV110TrpChym_R3.raw",
+            "2_H225noUV180TrpChym_R3.raw",
+            "3_H225UV110TrpChym_R3.raw",
+            "4_H225UV180TrpChym_R3.raw",
+            "5_H225UV260TrpChym_R3.raw",
+            "H225_UV110_TrpChym_R1.raw",
+            "H225_UV180_TrpChym_R1.raw",
+            "H225_UV260_TrpChym_R1.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "Protein was digested with 200 ng Trypsin (Promega) ... then with 200 ng Chymotrypsin (Roche) ... for double digestion.",
+          "reasoning": "All listed files contain 'TrpChym' indicating the Trypsin + Chymotrypsin double-digestion workflow. The publication describes BPA photo-crosslinking as the key chemical condition; filenames include UV/noUV but no other distinct biological perturbations. Therefore these files are grouped as the same BPA-AHA2 experiment with the TrpChym digestion variant."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a specific biological XL-MS condition from the provided information.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [
+            "S229B_UV260_Trypsin_notReject2.raw",
+            "S229_UV260_TrpAspN_R1.raw",
+            "S229_UV260_TrpAspN_R2.raw"
+          ],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "One file ('S229B_UV260_Trypsin_notReject2.raw') lacks the 'TrpAspN'/'TrpChym' digestion label used for the other groups, so its intended biological/processing condition is ambiguous. Additionally, 'S229_UV260_TrpAspN_R1.raw' and 'S229_UV260_TrpAspN_R2.raw' appear to be duplicates of files already captured in the TrpAspN UV cluster; they are left unassigned here due to an inconsistency in the provided filename list handling."
+        }
+      ],
+      "summary": {
+        "n_input_files": 26,
+        "n_assigned_files": 25,
+        "n_unassigned_files": 1,
+        "n_biological_clusters": 2,
+        "overall_confidence": "medium"
+      }
+    }
+  }
+}

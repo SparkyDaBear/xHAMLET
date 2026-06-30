@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "pxd": "PXD058168",
+    "category": "llm",
+    "saved_at": "2026-06-30T15:47:16.273761",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"s_pombe_mock_gly_bs3\",\n      \"description\": \"Schizosaccharomyces pombe mock control (no Spt5 tag) grown/handled for glycine condition and crosslinked with BS3.\",\n      \"organism\": \"Schizosaccharomyces pombe\",\n      \"taxid\": \"NCBITaxon:6239\",\n      \"crosslinker\": \"BS3\",\n      \"biological_condition\": \"mock control; glycine condition\",\n      \"files\": [\n        \"QEX03_MF_220531_KK1_BS3_1_138.raw\",\n        \"QEX03_MF_220531_KK1_BS3_2_139.raw\"\n      ],\n      \"confidence\": \"high\",\n      \"evidence_quote\": \"QEX03_MF_220531_KK1_BS3_1_138.raw / QEX03_MF_220531_KK1_BS3_2_139.raw\",\n      \"reasoning\": \"Both files explicitly contain 'BS3' in the filename and are the only BS3-labeled raw files. The publication describes a mock control strain without tag on Spt5, and the dataset includes a mock-related condition; with only BS3 files present here, these are assigned to the mock/glycine BS3 group. Replicates are indicated by _1 and _2 and are kept together.\"\n    },\n    {\n      \"cluster_id\": \"cluster_2\",\n      \"cluster_label\": \"s_pombe_spt5_gly_bs3\",\n      \"description\": \"Schizosaccharomyces pombe Spt5-WT (tagged) in glycine condition crosslinked with BS3.\",\n      \"organism\": \"Schizosaccharomyces pombe\",\n      \"taxid\": \"NCBITaxon:6239\",\n      \"crosslinker\": \"BS3\",\n      \"biological_condition\": \"Spt5-WT; glycine condition\",\n      \"files\": [\n        \"QEX03_MF_210314_KK2_MOCK_GLY_192.raw\",\n        \"QEX03_MF_210314_KK5_SPT5_GLY_198.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"DSIF factor Spt5 coordinates transcription, maturation and exoribonucleolysis of RNA polymerase II transcripts\",\n      \"reasoning\": \"Filenames indicate 'SPT5_GLY' and 'MOCK_GLY', consistent with tagged Spt5 vs mock under a glycine-related condition. However, these specific files do not explicitly contain 'BS3' in the filename, so the crosslinker assignment to BS3 is inferred from the publication emphasis on 'in vitro BS3 crosslinking experiments'. Kept together because they represent the only glycine/mock vs Spt5 pair in the provided list.\"\n    },\n    {\n      \"cluster_id\": \"cluster_3\",\n      \"cluster_label\": \"s_pombe_xl_ft_bs3\",\n      \"description\": \"Schizosaccharomyces pombe in vitro crosslinked transcription machinery (Xrn2/Spt4/5/Xrn2M/Rai1 context) using BS3; FT indicates reconstituted complex crosslinking workflow.\",\n      \"organism\": \"Schizosaccharomyces pombe\",\n      \"taxid\": \"NCBITaxon:6239\",\n      \"crosslinker\": \"BS3\",\n      \"biological_condition\": \"reconstituted Pol II transcription machinery crosslinking (FT/flow-through or fraction tag)\",\n      \"files\": [\n        \"QEX03_MF_211013_KK_XL_FT_105.raw\",\n        \"QEX03_MF_211124_KK_XL_FT2_035_211124142958.raw\"\n      ],\n      \"confidence\": \"low\",\n      \"evidence_quote\": \"Alternatively, the complex was assembled and crosslinked and then purified by Superose 6 3.2/300.\",\n      \"reasoning\": \"Filenames contain 'XL_FT' / 'XL_FT2', suggesting crosslinked reconstituted complexes and an FT/fraction-like label. Crosslinker is not explicitly stated in filenames, so BS3 is inferred from the publication's BS3 crosslinking experiments with purified components. Only two files match this pattern, so they form a small inferred XL/FT BS3 cluster.\"\n    },\n    {\n      \"cluster_id\": \"cluster_4\",\n      \"cluster_label\": \"s_pombe_xl_bs3_unknown_condition\",\n      \"description\": \"Schizosaccharomyces pombe crosslinked samples (XL) with unknown biological condition; BS3 inferred from publication.\",\n      \"organism\": \"Schizosaccharomyces pombe\",\n      \"taxid\": \"NCBITaxon:6239\",\n      \"crosslinker\": \"BS3\",\n      \"biological_condition\": \"crosslinked (XL) sample; condition not recoverable from filename\",\n      \"files\": [\n        \"QEX01_MF_210720_KK_XL_145.raw\",\n        \"QEX02_MF_210420_KK1_173.raw\",\n        \"QEX02_MF_210420_KK2_175.raw\",\n        \"QEX02_MF_210420_KK3_177.raw\",\n        \"QEX02_MF_210420_KK4_179.raw\",\n        \"QEX02_MF_210420_KK5_181.raw\"\n      ],\n      \"confidence\": \"low\",\n      \"evidence_quote\": \"QEX01_MF_210720_KK_XL_145.raw / QEX02_MF_210420_KK1_173.raw ... QEX02_MF_210420_KK5_181.raw\",\n      \"reasoning\": \"These files contain 'XL' but do not specify the crosslinker or biological condition in the filename. The publication centers BS3 crosslinking, so BS3 is used as an inferred default. The multiple KK replicates are grouped together as they likely represent the same biological XL condition.\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a specific biological/experimental condition and crosslinker from the provided information.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"All provided files matched at least a generic XL/BS3 or glycine/mock/SPT5 pattern based on filenames and publication context.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 12,\n    \"n_assigned_files\": 12,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 4,\n    \"overall_confidence\": \"medium\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "s_pombe_mock_gly_bs3",
+          "description": "Schizosaccharomyces pombe mock control (no Spt5 tag) grown/handled for glycine condition and crosslinked with BS3.",
+          "organism": "Schizosaccharomyces pombe",
+          "taxid": "NCBITaxon:6239",
+          "crosslinker": "BS3",
+          "biological_condition": "mock control; glycine condition",
+          "files": [
+            "QEX03_MF_220531_KK1_BS3_1_138.raw",
+            "QEX03_MF_220531_KK1_BS3_2_139.raw"
+          ],
+          "confidence": "high",
+          "evidence_quote": "QEX03_MF_220531_KK1_BS3_1_138.raw / QEX03_MF_220531_KK1_BS3_2_139.raw",
+          "reasoning": "Both files explicitly contain 'BS3' in the filename and are the only BS3-labeled raw files. The publication describes a mock control strain without tag on Spt5, and the dataset includes a mock-related condition; with only BS3 files present here, these are assigned to the mock/glycine BS3 group. Replicates are indicated by _1 and _2 and are kept together."
+        },
+        {
+          "cluster_id": "cluster_2",
+          "cluster_label": "s_pombe_spt5_gly_bs3",
+          "description": "Schizosaccharomyces pombe Spt5-WT (tagged) in glycine condition crosslinked with BS3.",
+          "organism": "Schizosaccharomyces pombe",
+          "taxid": "NCBITaxon:6239",
+          "crosslinker": "BS3",
+          "biological_condition": "Spt5-WT; glycine condition",
+          "files": [
+            "QEX03_MF_210314_KK2_MOCK_GLY_192.raw",
+            "QEX03_MF_210314_KK5_SPT5_GLY_198.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "DSIF factor Spt5 coordinates transcription, maturation and exoribonucleolysis of RNA polymerase II transcripts",
+          "reasoning": "Filenames indicate 'SPT5_GLY' and 'MOCK_GLY', consistent with tagged Spt5 vs mock under a glycine-related condition. However, these specific files do not explicitly contain 'BS3' in the filename, so the crosslinker assignment to BS3 is inferred from the publication emphasis on 'in vitro BS3 crosslinking experiments'. Kept together because they represent the only glycine/mock vs Spt5 pair in the provided list."
+        },
+        {
+          "cluster_id": "cluster_3",
+          "cluster_label": "s_pombe_xl_ft_bs3",
+          "description": "Schizosaccharomyces pombe in vitro crosslinked transcription machinery (Xrn2/Spt4/5/Xrn2M/Rai1 context) using BS3; FT indicates reconstituted complex crosslinking workflow.",
+          "organism": "Schizosaccharomyces pombe",
+          "taxid": "NCBITaxon:6239",
+          "crosslinker": "BS3",
+          "biological_condition": "reconstituted Pol II transcription machinery crosslinking (FT/flow-through or fraction tag)",
+          "files": [
+            "QEX03_MF_211013_KK_XL_FT_105.raw",
+            "QEX03_MF_211124_KK_XL_FT2_035_211124142958.raw"
+          ],
+          "confidence": "low",
+          "evidence_quote": "Alternatively, the complex was assembled and crosslinked and then purified by Superose 6 3.2/300.",
+          "reasoning": "Filenames contain 'XL_FT' / 'XL_FT2', suggesting crosslinked reconstituted complexes and an FT/fraction-like label. Crosslinker is not explicitly stated in filenames, so BS3 is inferred from the publication's BS3 crosslinking experiments with purified components. Only two files match this pattern, so they form a small inferred XL/FT BS3 cluster."
+        },
+        {
+          "cluster_id": "cluster_4",
+          "cluster_label": "s_pombe_xl_bs3_unknown_condition",
+          "description": "Schizosaccharomyces pombe crosslinked samples (XL) with unknown biological condition; BS3 inferred from publication.",
+          "organism": "Schizosaccharomyces pombe",
+          "taxid": "NCBITaxon:6239",
+          "crosslinker": "BS3",
+          "biological_condition": "crosslinked (XL) sample; condition not recoverable from filename",
+          "files": [
+            "QEX01_MF_210720_KK_XL_145.raw",
+            "QEX02_MF_210420_KK1_173.raw",
+            "QEX02_MF_210420_KK2_175.raw",
+            "QEX02_MF_210420_KK3_177.raw",
+            "QEX02_MF_210420_KK4_179.raw",
+            "QEX02_MF_210420_KK5_181.raw"
+          ],
+          "confidence": "low",
+          "evidence_quote": "QEX01_MF_210720_KK_XL_145.raw / QEX02_MF_210420_KK1_173.raw ... QEX02_MF_210420_KK5_181.raw",
+          "reasoning": "These files contain 'XL' but do not specify the crosslinker or biological condition in the filename. The publication centers BS3 crosslinking, so BS3 is used as an inferred default. The multiple KK replicates are grouped together as they likely represent the same biological XL condition."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a specific biological/experimental condition and crosslinker from the provided information.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "All provided files matched at least a generic XL/BS3 or glycine/mock/SPT5 pattern based on filenames and publication context."
+        }
+      ],
+      "summary": {
+        "n_input_files": 12,
+        "n_assigned_files": 12,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 4,
+        "overall_confidence": "medium"
+      }
+    }
+  }
+}

@@ -1,0 +1,433 @@
+{
+  "metadata": {
+    "pxd": "PXD052310",
+    "category": "pride",
+    "saved_at": "2026-06-30T15:42:09.190706",
+    "filename": "project_details"
+  },
+  "data": {
+    "accession": "PXD052310",
+    "title": "A proteomic and functional view of intrabacterial lipid inclusion biogenesis in mycobacteria",
+    "additionalAttributes": [],
+    "projectDescription": "During infection and granuloma formation, pathogenic mycobacteria accumulate triacylglycerol in the form of Intrabacterial Lipid Inclusions (ILI). These organelles facilitate bacterial evasion from the immune system and serve as a carbon source to sustain bacterial persistence within the infected host. M. abscessus, a rapidly-growing non-tuberculous opportunistic pathogen, was previously shown to generate similar structures throughout their infectious cycle. Herein, it was used as a model organism to identify, at a global level, the ILI-associated proteins (IAP) involved in ILI accumulation.  By implementing the APEX2 proximity labeling method using an in vitro model for ILI accumulation, we identified 228 proteins potentially implicated in ILI biosynthesis.",
+    "sampleProcessingProtocol": "M. abscessus S strains harboring the tgs1-apex2-pMV306 plasmid were cultured in MSM and MSM NL at 37°C under agitation at 200 rpm as previously described (1). Cells were harvested by centrifugation for 10 min at 3,500 g at 20°C, and the pellets were washed twice with PBS and re-suspended in PBS to an OD600nm of 40. 100 mM of biotin phenol (Iris Biotech) was added to each vial and incubated at 37°C, 200 rpm, in the dark for 30 min. Subsequently, 100 mM of hydrogen peroxide was added under the same conditions for exactly 2 min. The reaction was stopped by 1 mL of 2× quenching solution composed of PBS, 1 M sodium ascorbate (Sigma), and 1 M sodium azide (Sigma), followed by centrifugation at 3,500 g for 10 min at 20°C. Pellets were washed twice with 1 mL of 1× quenching solution and 1 mL of PBS-Tween 80 (0.05%, v/v) each, and re-suspended in 2 mL ice-cold PBS-protease inhibitor cocktail (cOmplete Mini, EDTA-free, Sigma Aldrich) (19). Cells were lysed using Mini-Beadbeater-96 (BioSpec) for 3×4 min with 250 µL of glass beads (0.1 mm-diameter glass beads, BioSpec). The lysates were centrifuged for 5 min at 1,300 g at 4°C, and the supernatant was collected. Protein concentration in each sample was measured using the Bradford technique (Bio-Rad). Streptavidin enrichment Twenty µL of a 10 mg/mL Streptavidin agarose resin (ThermoFisher Scientific, Waltham, MA) were washed twice with 500 µL of PBS and centrifuged for 5 min at 5,000 g. In parallel, 1 mg of each lysate was heated at 95°C for 5 min. Then, washed streptavidin was mixed with each heated lysate and incubated under gentle rotative agitation (15 rpm) for 3 h. The beads were washed with 200 µL PBS-2% SDS and incubated for 20 min on the orbital shaker (15 rpm/min) at room temperature. The mixture was washed twice with PBS and centrifuged at 5,000 g for 5 min. SDS loading dye 1× was added, and the sample was boiled for 10 min at 95°C. Santucci P, Johansen MD, Point V, Poncin I, Viljoen A, Cavalier JF, Kremer L, Canaan S. 2019. Nitrogen deprivation induces triacylglycerol accumulation, drug tolerance and hypervirulence in mycobacteria. Sci Rep 9:019-45164.",
+    "dataProcessingProtocol": "Biotinylated proteome: For relative proteomic analysis, biotinylated proteins were solubilized in LDS sample buffer (2× concentrated) (Invitrogen, Life Technologies), before loading on NuPAGE™ 4–12% Bis–tris acrylamide gels according to the manufacturer’s instructions (Invitrogen, Life Technologies). Running of samples was stopped as soon as proteins stacked as a single band, and following imperial blue staining (Life Technologies), the upper part of the gel containing the proteins was cut and processed for classical in-gel digestion (washes, thiols reduction with 10 mM DTT, and cysteine alkylation with 55 mM iodoacetamide). Extracted peptides were concentrated under speed-vacuum. Samples were reconstituted with 0.1% trifluoroacetic acid in 2% acetonitrile and analyzed by liquid chromatography (LC)-tandem MS (MS/MS) using an Q Exactive Plus Hybrid Quadrupole-Orbitrap online with a nanoLC Ultimate 3,000 chromatography system (ThermoFisher Scientific™, San Jose, CA). Peptides were ionized in the EASYSpray source, with a spray voltage set at 1.9 kV and the capillary temperature at 250°C. All samples were measured in a data-dependent acquisition mode. Peptide masses were measured in a survey full scan (scan range 375-1,500 m/z, with 70 K FWHM resolution at m/z=400, target AGC value of 3.00×106 and maximum injection time of 100 ms), and the 10 most intense data-dependent precursor ions were successively fragmented in the HCD cell and measured in Orbitrap (normalized collision energy of 25%, activation time of 10 ms, target AGC value of 1.00×105, intensity threshold 1.00×104 maximum injection time 100 ms, isolation window 2 m/z, 17.5 K FWHM resolution, scan range 200 to 2000 m/z). Dynamic exclusion was implemented with a repeat count of 1 and exclusion duration of 20 s. Relative intensity-based label-free quantification (LFQ) was processed using the MaxLFQ algorithm available on the MaxQuant computational proteomics platform, version 1.6.3.4. Analysis was performed on three biological replicates, each injected twice into mass spectrometers. The acquired raw LC Orbitrap MS data underwent initial processing using the integrated Andromeda search engine. Spectra were searched against the M. abscessus database (UP000007137) extracted from UniProt on March 10, 2021, containing 4,940 entries. The false discovery rate (FDR) at the peptide and protein levels was set to 1% and determined by searching a reverse database. For protein grouping, all proteins that could not be distinguished based on their identified peptides were assembled into a single entry according to the MaxQuant rules.  Statistical analysis was conducted using the Perseus program (version 1.6.15.0) from the MaxQuant environment (http://www.maxquant.org). Quantifiable proteins were defined as those detected in above 70% of samples in one condition or more. Missing values were replaced using data imputation by randomly selecting from a normal distribution centered on the lower edge of the intensity values that simulates signals of low abundant proteins using default parameters (a downshift of 1.8 standard deviation and a width of 0.3 of the original distribution). To determine whether a given detected protein was specifically differential, a two-sample t-test was performed using permutation-based FDR control at 0.05 and employing 250 permutations. The p-value was adjusted using a scaling factor s0 with a value of 1. Analysis was performed on biological triplicates, each injected twice on mass spectrometers.",
+    "projectTags": [],
+    "keywords": [
+      "Lc-msms",
+      "Intracellular lipid inclusion",
+      "Lipid metabolism",
+      "Apex2",
+      "Persistence",
+      "Ili-associated proteins",
+      "Proteomic",
+      "Mycobacterium abscessus",
+      "Proximity labelling"
+    ],
+    "doi": "",
+    "submissionType": "PARTIAL",
+    "license": "Creative Commons Public Domain (CC0)",
+    "submissionDate": "2024-05-16",
+    "publicationDate": "2025-02-27",
+    "submitters": [
+      {
+        "title": "Dr",
+        "firstName": "AUDEBERT",
+        "lastName": "Stephane",
+        "identifier": "470151",
+        "affiliation": "Marseille Proteomic, Centre de Recherche en Cancérologie de Marseille, Inserm UMR1068, CNRS UMR7258, Aix Marseille Université U105, Institut Paoli Calmettes, 27 Boulevard Leï Roure CS30059 13273 Marseille Cedex 09 France ",
+        "email": "stephane.audebert@inserm.fr",
+        "country": "France",
+        "orcid": "0000-0002-9409-2588",
+        "name": "AUDEBERT Stephane",
+        "id": "470151"
+      }
+    ],
+    "labPIs": [
+      {
+        "title": "Dr",
+        "firstName": "Stéphane Canaan, Ph.",
+        "lastName": "D",
+        "identifier": "2915112",
+        "affiliation": "Stéphane Canaan, Ph. D , Group Leader, \"Lipolysis and Bacterial Pathogenicity\"  Laboratory of Engineering of Macromolecular Systems   UMR7255-CNRS,  31 Chemin Joseph-Aiguier  13402 MARSEILLE cedex 20",
+        "email": "Stephane.canaan@imm.cnrs.fr",
+        "country": "",
+        "orcid": "",
+        "name": "Stéphane Canaan, Ph. D",
+        "id": "2915112"
+      }
+    ],
+    "instruments": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1002634",
+        "name": "Q Exactive Plus",
+        "value": ""
+      }
+    ],
+    "softwares": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1001583",
+        "name": "MaxQuant"
+      }
+    ],
+    "experimentTypes": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000635",
+        "name": "Affinity proteomics"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000428",
+        "name": "Bottom-up proteomics"
+      }
+    ],
+    "quantificationMethods": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000323",
+        "name": "TIC"
+      }
+    ],
+    "countries": [
+      "France"
+    ],
+    "sampleAttributes": [
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "OBI:0100026",
+          "name": "organism"
+        },
+        "value": [
+          {
+            "cvLabel": "NCBITAXON",
+            "accession": "NCBITaxon:1773",
+            "name": "Mycobacterium tuberculosis",
+            "value": ""
+          },
+          {
+            "cvLabel": "NEWT",
+            "accession": "NEWT:36809",
+            "name": "Mycobacterium abscessus",
+            "value": ""
+          }
+        ]
+      }
+    ],
+    "organisms": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "NCBITAXON",
+        "accession": "NCBITaxon:1773",
+        "name": "Mycobacterium tuberculosis",
+        "value": ""
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "NEWT",
+        "accession": "NEWT:36809",
+        "name": "Mycobacterium abscessus",
+        "value": ""
+      }
+    ],
+    "organismParts": [],
+    "diseases": [],
+    "references": [
+      {
+        "referenceLine": "Dargham T, Aguilera-Correa JJ, Avellan R, Mallick I, Celik L, Santucci P, Brasseur G, Poncin I, Point V, Audebert S, Camoin L, Daher W, Cavalier J-F, Kremer L, Canaan S. A proteomic and functional view of intrabacterial lipid inclusion biogenesis in mycobacteria. mBio. 2025:e0147524",
+        "pubmedID": 39998225,
+        "doi": "10.1128/mbio.01475-24"
+      }
+    ],
+    "identifiedPTMStrings": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00425",
+        "name": "monohydroxylated residue",
+        "value": ""
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00397",
+        "name": "iodoacetamide derivatized residue",
+        "value": ""
+      }
+    ],
+    "totalFileDownloads": 1601,
+    "otherOmicsLinks": [
+      "pride.project:PXD052312",
+      "px:PXD052312"
+    ],
+    "files": {
+      "files": [
+        {
+          "fileName": "Results.zip",
+          "fileSizeBytes": 1581983824,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/Results.zip"
+        },
+        {
+          "fileName": "24_MSM1_20211210102314.raw",
+          "fileSizeBytes": 1252169348,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/24_MSM1_20211210102314.raw"
+        },
+        {
+          "fileName": "andromeda.zip",
+          "fileSizeBytes": 25823265178,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/andromeda.zip"
+        },
+        {
+          "fileName": "24_MSM1_BP_20211212065454.raw",
+          "fileSizeBytes": 971562774,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/24_MSM1_BP_20211212065454.raw"
+        },
+        {
+          "fileName": "48_NL3.raw",
+          "fileSizeBytes": 1232699828,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/48_NL3.raw"
+        },
+        {
+          "fileName": "24_NL3_BP.raw",
+          "fileSizeBytes": 1310524613,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/24_NL3_BP.raw"
+        },
+        {
+          "fileName": "48_NL3_BP.raw",
+          "fileSizeBytes": 1354115456,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/48_NL3_BP.raw"
+        },
+        {
+          "fileName": "48_MSM2_20211214192349.raw",
+          "fileSizeBytes": 1315087927,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/48_MSM2_20211214192349.raw"
+        },
+        {
+          "fileName": "48_NL2_20211215024916.raw",
+          "fileSizeBytes": 1229149649,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/48_NL2_20211215024916.raw"
+        },
+        {
+          "fileName": "48_MSM3.raw",
+          "fileSizeBytes": 1283010636,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/48_MSM3.raw"
+        },
+        {
+          "fileName": "48_NL3_BP_20211217141106.raw",
+          "fileSizeBytes": 1346200358,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/48_NL3_BP_20211217141106.raw"
+        },
+        {
+          "fileName": "24_MSM3.raw",
+          "fileSizeBytes": 1269894654,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/24_MSM3.raw"
+        },
+        {
+          "fileName": "24_MSM3_BP_20211213123551.raw",
+          "fileSizeBytes": 982111334,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/24_MSM3_BP_20211213123551.raw"
+        },
+        {
+          "fileName": "48_MSM2.raw",
+          "fileSizeBytes": 1285981808,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/48_MSM2.raw"
+        },
+        {
+          "fileName": "24_NL3_20211211232930.raw",
+          "fileSizeBytes": 1271351645,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/24_NL3_20211211232930.raw"
+        },
+        {
+          "fileName": "48_NL2.raw",
+          "fileSizeBytes": 1223364412,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/48_NL2.raw"
+        },
+        {
+          "fileName": "48_NL2_BP.raw",
+          "fileSizeBytes": 1386568168,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/48_NL2_BP.raw"
+        },
+        {
+          "fileName": "checksum.txt",
+          "fileSizeBytes": 6337,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/checksum.txt"
+        },
+        {
+          "fileName": "48_NL2_BP_20211216232035.raw",
+          "fileSizeBytes": 1386074831,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/48_NL2_BP_20211216232035.raw"
+        },
+        {
+          "fileName": "24_MSM2_20211211011349.raw",
+          "fileSizeBytes": 1271558827,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/24_MSM2_20211211011349.raw"
+        },
+        {
+          "fileName": "24_NL2.raw",
+          "fileSizeBytes": 1295563234,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/24_NL2.raw"
+        },
+        {
+          "fileName": "24_NL1_BP.raw",
+          "fileSizeBytes": 1376707935,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/24_NL1_BP.raw"
+        },
+        {
+          "fileName": "48_MSM3_BP.raw",
+          "fileSizeBytes": 1217215861,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/48_MSM3_BP.raw"
+        },
+        {
+          "fileName": "48_MSM1_BP.raw",
+          "fileSizeBytes": 1289388737,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/48_MSM1_BP.raw"
+        },
+        {
+          "fileName": "24_MSM3_20211211160415.raw",
+          "fileSizeBytes": 1278692725,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/24_MSM3_20211211160415.raw"
+        },
+        {
+          "fileName": "24_MSM3_BP.raw",
+          "fileSizeBytes": 1054985299,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/24_MSM3_BP.raw"
+        },
+        {
+          "fileName": "24_NL1_BP_20211212142007.raw",
+          "fileSizeBytes": 1367533640,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/24_NL1_BP_20211212142007.raw"
+        },
+        {
+          "fileName": "24_MSM2.raw",
+          "fileSizeBytes": 1270533899,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/24_MSM2.raw"
+        },
+        {
+          "fileName": "48_NL1.raw",
+          "fileSizeBytes": 1348418118,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/48_NL1.raw"
+        },
+        {
+          "fileName": "48_MSM3_BP_20211217064549.raw",
+          "fileSizeBytes": 1215192572,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/48_MSM3_BP_20211217064549.raw"
+        },
+        {
+          "fileName": "24_MSM2_BP_20211212214522.raw",
+          "fileSizeBytes": 1172251326,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/24_MSM2_BP_20211212214522.raw"
+        },
+        {
+          "fileName": "24_MSM1_BP.raw",
+          "fileSizeBytes": 1196025957,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/24_MSM1_BP.raw"
+        },
+        {
+          "fileName": "24_NL2_BP_20211213051036.raw",
+          "fileSizeBytes": 1265221563,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/24_NL2_BP_20211213051036.raw"
+        },
+        {
+          "fileName": "24_NL2_20211211083902.raw",
+          "fileSizeBytes": 1302975217,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/24_NL2_20211211083902.raw"
+        },
+        {
+          "fileName": "48_MSM2_BP.raw",
+          "fileSizeBytes": 1268839738,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/48_MSM2_BP.raw"
+        },
+        {
+          "fileName": "24_MSM2_BP.raw",
+          "fileSizeBytes": 1160524400,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/24_MSM2_BP.raw"
+        },
+        {
+          "fileName": "24_NL1_20211210174829.raw",
+          "fileSizeBytes": 1251727813,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/24_NL1_20211210174829.raw"
+        },
+        {
+          "fileName": "48_MSM2_BP_20211216155518.raw",
+          "fileSizeBytes": 1264450173,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/48_MSM2_BP_20211216155518.raw"
+        },
+        {
+          "fileName": "48_MSM1_BP_20211216010500.raw",
+          "fileSizeBytes": 1281557075,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/48_MSM1_BP_20211216010500.raw"
+        },
+        {
+          "fileName": "48_MSM1_20211214043322.raw",
+          "fileSizeBytes": 1288273263,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/48_MSM1_20211214043322.raw"
+        },
+        {
+          "fileName": "48_MSM1.raw",
+          "fileSizeBytes": 1251259850,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/48_MSM1.raw"
+        },
+        {
+          "fileName": "48_NL1_BP_20211216083009.raw",
+          "fileSizeBytes": 1416237383,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/48_NL1_BP_20211216083009.raw"
+        },
+        {
+          "fileName": "24_NL3_BP_20211213200124.raw",
+          "fileSizeBytes": 1314298894,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/24_NL3_BP_20211213200124.raw"
+        },
+        {
+          "fileName": "24_NL1.raw",
+          "fileSizeBytes": 1251617158,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/24_NL1.raw"
+        },
+        {
+          "fileName": "48_NL1_20211214115832.raw",
+          "fileSizeBytes": 1358238122,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/48_NL1_20211214115832.raw"
+        },
+        {
+          "fileName": "24_NL3.raw",
+          "fileSizeBytes": 1275818424,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/24_NL3.raw"
+        },
+        {
+          "fileName": "48_MSM3_20211215101429.raw",
+          "fileSizeBytes": 1301275129,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/48_MSM3_20211215101429.raw"
+        },
+        {
+          "fileName": "48_NL3_20211215173947.raw",
+          "fileSizeBytes": 1224243682,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/48_NL3_20211215173947.raw"
+        },
+        {
+          "fileName": "24_NL2_BP.raw",
+          "fileSizeBytes": 1317977227,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/24_NL2_BP.raw"
+        },
+        {
+          "fileName": "24_MSM1.raw",
+          "fileSizeBytes": 1234363852,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/24_MSM1.raw"
+        },
+        {
+          "fileName": "48_NL1_BP.raw",
+          "fileSizeBytes": 1411523686,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/02/PXD052310/48_NL1_BP.raw"
+        }
+      ],
+      "totalCount": 51
+    }
+  }
+}

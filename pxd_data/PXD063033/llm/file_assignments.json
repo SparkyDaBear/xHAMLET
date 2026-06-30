@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "pxd": "PXD063033",
+    "category": "llm",
+    "saved_at": "2026-06-30T15:50:56.239377",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"surA_oNBA_methoxy_bs3\",\n      \"description\": \"SurA (E. coli) crosslinked using BS3 with oNBA methoxy hetero/homo samples (paper set).\",\n      \"organism\": \"Escherichia coli\",\n      \"taxid\": \"NCBITaxon:562\",\n      \"crosslinker\": \"BS3\",\n      \"biological_condition\": \"SurA crosslinking with o-nitrobenzyl alcohol (oNBA) methoxy probe; hetero and homo samples\",\n      \"files\": [\n        \"24224_Ecl01_Anton_BS3_XL_TRAP_50cm_65min_BSA_hetero_1.raw\",\n        \"24224_Ecl01_Anton_BS3_XL_TRAP_50cm_65min_BSA_hetero_2.raw\",\n        \"25001_Ecl01_Adam_BS3_XL_TRAP_50cm_65min_SurAOmpX_Hetero_paper.raw\",\n        \"25001_Ecl01_Adam_BS3_XL_TRAP_50cm_65min_SurAOmpX_Homo_paper.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"Our studies identified an amide-substituted probe that labels proteins with high efficiency. We next incorporated this optimised oNBA moiety into a homo-bifunctional crosslinker and a hetero-bifunctional crosslinker\",\n      \"reasoning\": \"All assigned files contain 'BS3_XL' in the filename, indicating BS3-based crosslinking. The publication focuses on oNBA-based lysine-reactive crosslinkers and reports homo/hetero bifunctional designs; the filenames include 'hetero'/'Homo' and 'SurAOmpX' (SurA/OmpX complex) alongside BS3. The exact mapping of 'Anton'/'Adam' and 'BSA' to the oNBA methoxy probe is inferred from the study theme and the presence of oNBA-related filenames elsewhere in the dataset; however, the BS3 reagent is explicit, so the cluster is likely but not fully certain.\"\n    },\n    {\n      \"cluster_id\": \"cluster_2\",\n      \"cluster_label\": \"surA_oNBA_methoxy_dss_like\",\n      \"description\": \"SurA (E. coli) crosslinked using oNBA methoxy chemistry (oNBA methoxy) with DDA runs (hetero/homo).\",\n      \"organism\": \"Escherichia coli\",\n      \"taxid\": \"NCBITaxon:562\",\n      \"crosslinker\": null,\n      \"biological_condition\": \"oNBA methoxy crosslinking chemistry; BSA oNBA methoxy samples (multiple replicates)\",\n      \"files\": [\n        \"24224_Ecl_DDA_IT500_TRAP_50cm_100ng_65min_BSA_oNBA_Methoxy_2.raw\",\n        \"24224_Ecl_DDA_IT500_TRAP_50cm_100ng_65min_BSA_oNBA_Methoxy_3.raw\",\n        \"24224_Ecl_DDA_IT500_TRAP_50cm_100ng_65min_BSA_oNBA_methoxy_1.raw\",\n        \"24224_Ecl_DDA_IT500_TRAP_50cm_100ng_95min_BSA_oNBA_1.raw\",\n        \"24224_Ecl_DDA_IT500_TRAP_50cm_100ng_95min_BSA_oNBA_2.raw\",\n        \"24224_Ecl_DDA_IT500_TRAP_50cm_100ng_95min_BSA_oNBA_3.raw\"\n      ],\n      \"confidence\": \"low\",\n      \"evidence_quote\": \"We performed a systematic analysis of ortho-nitrobenzyl alcohol (oNBA) reactivity for integration into novel reagents for chemical crosslinking-mass spectrometry.\",\n      \"reasoning\": \"Filenames explicitly indicate 'BSA_oNBA_Methoxy' and 'BSA_oNBA' and include 'Ecl' (E. coli) and DDA acquisition. However, the crosslinker reagent is not explicitly stated as BS3/DSS/DSSO/etc. in these filenames (unlike the BS3 files). Therefore, the biological condition (oNBA methoxy vs oNBA) is inferred, but the exact crosslinker cannot be confidently assigned.\"\n    },\n    {\n      \"cluster_id\": \"cluster_3\",\n      \"cluster_label\": \"surA_bs3_bsa_homo\",\n      \"description\": \"BS3 crosslinked BSA homo sample set (E. coli).\",\n      \"organism\": \"Escherichia coli\",\n      \"taxid\": \"NCBITaxon:562\",\n      \"crosslinker\": \"BS3\",\n      \"biological_condition\": \"homo sample; BS3 crosslinking\",\n      \"files\": [\n        \"25001_Ecl01_Adam_BS3_XL_TRAP_50cm_65min_BSA_Hetero_paper.raw\",\n        \"25001_Ecl01_Adam_BS3_XL_TRAP_50cm_65min_BSA_Homo.raw\",\n        \"25001_Ecl01_Adam_BS3_XL_TRAP_50cm_65min_BSA_Homo_2.raw\",\n        \"25001_Ecl01_Adam_BS3_XL_TRAP_50cm_65min_BSA_Homo_3.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"Our findings highlight that optimised oNBA-based reactive groups are viable UV-activated warheads that can deliver high labelling yields and efficient protein crosslinking\",\n      \"reasoning\": \"These files explicitly contain 'BS3_XL' and 'BSA' with 'Hetero'/'Homo' labels. The organism is inferred from 'Ecl01' and the provided organism list includes Escherichia coli. The separation from cluster_1 is based on the distinct filename group ('BSA_Homo'/'BSA_Hetero_paper' vs 'BSA_hetero_1/2' and 'SurAOmpX_*_paper'), which likely correspond to different experimental sample sets (BSA-only vs SurA/OmpX complex).\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a biological XL-MS condition.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"All provided files were assigned to at least one cluster based on explicit reagent/sample markers in filenames.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 12,\n    \"n_assigned_files\": 12,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 3,\n    \"overall_confidence\": \"medium\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "surA_oNBA_methoxy_bs3",
+          "description": "SurA (E. coli) crosslinked using BS3 with oNBA methoxy hetero/homo samples (paper set).",
+          "organism": "Escherichia coli",
+          "taxid": "NCBITaxon:562",
+          "crosslinker": "BS3",
+          "biological_condition": "SurA crosslinking with o-nitrobenzyl alcohol (oNBA) methoxy probe; hetero and homo samples",
+          "files": [
+            "24224_Ecl01_Anton_BS3_XL_TRAP_50cm_65min_BSA_hetero_1.raw",
+            "24224_Ecl01_Anton_BS3_XL_TRAP_50cm_65min_BSA_hetero_2.raw",
+            "25001_Ecl01_Adam_BS3_XL_TRAP_50cm_65min_SurAOmpX_Hetero_paper.raw",
+            "25001_Ecl01_Adam_BS3_XL_TRAP_50cm_65min_SurAOmpX_Homo_paper.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "Our studies identified an amide-substituted probe that labels proteins with high efficiency. We next incorporated this optimised oNBA moiety into a homo-bifunctional crosslinker and a hetero-bifunctional crosslinker",
+          "reasoning": "All assigned files contain 'BS3_XL' in the filename, indicating BS3-based crosslinking. The publication focuses on oNBA-based lysine-reactive crosslinkers and reports homo/hetero bifunctional designs; the filenames include 'hetero'/'Homo' and 'SurAOmpX' (SurA/OmpX complex) alongside BS3. The exact mapping of 'Anton'/'Adam' and 'BSA' to the oNBA methoxy probe is inferred from the study theme and the presence of oNBA-related filenames elsewhere in the dataset; however, the BS3 reagent is explicit, so the cluster is likely but not fully certain."
+        },
+        {
+          "cluster_id": "cluster_2",
+          "cluster_label": "surA_oNBA_methoxy_dss_like",
+          "description": "SurA (E. coli) crosslinked using oNBA methoxy chemistry (oNBA methoxy) with DDA runs (hetero/homo).",
+          "organism": "Escherichia coli",
+          "taxid": "NCBITaxon:562",
+          "crosslinker": null,
+          "biological_condition": "oNBA methoxy crosslinking chemistry; BSA oNBA methoxy samples (multiple replicates)",
+          "files": [
+            "24224_Ecl_DDA_IT500_TRAP_50cm_100ng_65min_BSA_oNBA_Methoxy_2.raw",
+            "24224_Ecl_DDA_IT500_TRAP_50cm_100ng_65min_BSA_oNBA_Methoxy_3.raw",
+            "24224_Ecl_DDA_IT500_TRAP_50cm_100ng_65min_BSA_oNBA_methoxy_1.raw",
+            "24224_Ecl_DDA_IT500_TRAP_50cm_100ng_95min_BSA_oNBA_1.raw",
+            "24224_Ecl_DDA_IT500_TRAP_50cm_100ng_95min_BSA_oNBA_2.raw",
+            "24224_Ecl_DDA_IT500_TRAP_50cm_100ng_95min_BSA_oNBA_3.raw"
+          ],
+          "confidence": "low",
+          "evidence_quote": "We performed a systematic analysis of ortho-nitrobenzyl alcohol (oNBA) reactivity for integration into novel reagents for chemical crosslinking-mass spectrometry.",
+          "reasoning": "Filenames explicitly indicate 'BSA_oNBA_Methoxy' and 'BSA_oNBA' and include 'Ecl' (E. coli) and DDA acquisition. However, the crosslinker reagent is not explicitly stated as BS3/DSS/DSSO/etc. in these filenames (unlike the BS3 files). Therefore, the biological condition (oNBA methoxy vs oNBA) is inferred, but the exact crosslinker cannot be confidently assigned."
+        },
+        {
+          "cluster_id": "cluster_3",
+          "cluster_label": "surA_bs3_bsa_homo",
+          "description": "BS3 crosslinked BSA homo sample set (E. coli).",
+          "organism": "Escherichia coli",
+          "taxid": "NCBITaxon:562",
+          "crosslinker": "BS3",
+          "biological_condition": "homo sample; BS3 crosslinking",
+          "files": [
+            "25001_Ecl01_Adam_BS3_XL_TRAP_50cm_65min_BSA_Hetero_paper.raw",
+            "25001_Ecl01_Adam_BS3_XL_TRAP_50cm_65min_BSA_Homo.raw",
+            "25001_Ecl01_Adam_BS3_XL_TRAP_50cm_65min_BSA_Homo_2.raw",
+            "25001_Ecl01_Adam_BS3_XL_TRAP_50cm_65min_BSA_Homo_3.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "Our findings highlight that optimised oNBA-based reactive groups are viable UV-activated warheads that can deliver high labelling yields and efficient protein crosslinking",
+          "reasoning": "These files explicitly contain 'BS3_XL' and 'BSA' with 'Hetero'/'Homo' labels. The organism is inferred from 'Ecl01' and the provided organism list includes Escherichia coli. The separation from cluster_1 is based on the distinct filename group ('BSA_Homo'/'BSA_Hetero_paper' vs 'BSA_hetero_1/2' and 'SurAOmpX_*_paper'), which likely correspond to different experimental sample sets (BSA-only vs SurA/OmpX complex)."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a biological XL-MS condition.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "All provided files were assigned to at least one cluster based on explicit reagent/sample markers in filenames."
+        }
+      ],
+      "summary": {
+        "n_input_files": 12,
+        "n_assigned_files": 12,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 3,
+        "overall_confidence": "medium"
+      }
+    }
+  }
+}

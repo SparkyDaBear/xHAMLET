@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "pxd": "PXD002293",
+    "category": "llm",
+    "saved_at": "2026-06-30T14:51:59.677353",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"yeast_wt_polyadenylated_uv_capture\",\n      \"description\": \"Saccharomyces cerevisiae wild-type mRBPome captured from polyadenylated mRNA after UV crosslinking (biological replicates).\",\n      \"organism\": \"Saccharomyces cerevisiae\",\n      \"taxid\": \"NCBITaxon:4932\",\n      \"crosslinker\": null,\n      \"biological_condition\": \"WT / poly(A) mRNA capture after UV crosslinking\",\n      \"files\": [\n        \"WT_Yeast_1.raw\",\n        \"WT_Yeast_2.raw\",\n        \"WT_Yeast_3.raw\"\n      ],\n      \"confidence\": \"high\",\n      \"evidence_quote\": \"For UV-crosslinking, the cells were resuspended in 25 ml of PBS and exposed to 1,200 mJ/cm2 of 254 nm UV light\",\n      \"reasoning\": \"The three files share the same WT_Yeast prefix and differ only by replicate number, matching the publication description of three biological replicates for the mRBPome (poly(A) capture). No crosslinker name is provided in the filenames or excerpt, so crosslinker is left null.\"\n    },\n    {\n      \"cluster_id\": \"cluster_2\",\n      \"cluster_label\": \"yeast_negativecontrol_rnaseone\",\n      \"description\": \"Saccharomyces cerevisiae negative control where RNA is digested with RNase ONE prior to poly(A) capture (biological replicates).\",\n      \"organism\": \"Saccharomyces cerevisiae\",\n      \"taxid\": \"NCBITaxon:4932\",\n      \"crosslinker\": null,\n      \"biological_condition\": \"RNase ONE treated negative control\",\n      \"files\": [\n        \"Yeast_NegativeControl_RNase_2.raw\",\n        \"Yeast_NegativeControl_RNase_3.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"the extract was either supplemented with 100 U RNase ONE (Promega, M4265) for 2 h at 37 °C to digest RNA\",\n      \"reasoning\": \"Filenames explicitly indicate RNase ONE negative control and include replicate numbers. The dataset includes RNase_2 and RNase_3 but not RNase_1; assignment is still grouped by condition and organism.\"\n    },\n    {\n      \"cluster_id\": \"cluster_3\",\n      \"cluster_label\": \"yeast_negativecontrol_polyA_competition\",\n      \"description\": \"Saccharomyces cerevisiae negative control using poly(A) competition during capture.\",\n      \"organism\": \"Saccharomyces cerevisiae\",\n      \"taxid\": \"NCBITaxon:4932\",\n      \"crosslinker\": null,\n      \"biological_condition\": \"poly(A) competition negative control\",\n      \"files\": [\n        \"Yeast_NegativeControl_PolyA.raw\"\n      ],\n      \"confidence\": \"high\",\n      \"evidence_quote\": \"or 20 mg of poly(A) (Sigma, P9403) was added to the extract for competition experiments.\",\n      \"reasoning\": \"The filename explicitly states PolyA negative control. The publication describes poly(A) competition as a distinct control condition.\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a biological XL-MS condition based on provided filenames/publication excerpt.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"No additional QC/calibration/blank files were provided; all input filenames match WT or explicit negative control conditions.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 6,\n    \"n_assigned_files\": 6,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 3,\n    \"overall_confidence\": \"high\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "yeast_wt_polyadenylated_uv_capture",
+          "description": "Saccharomyces cerevisiae wild-type mRBPome captured from polyadenylated mRNA after UV crosslinking (biological replicates).",
+          "organism": "Saccharomyces cerevisiae",
+          "taxid": "NCBITaxon:4932",
+          "crosslinker": null,
+          "biological_condition": "WT / poly(A) mRNA capture after UV crosslinking",
+          "files": [
+            "WT_Yeast_1.raw",
+            "WT_Yeast_2.raw",
+            "WT_Yeast_3.raw"
+          ],
+          "confidence": "high",
+          "evidence_quote": "For UV-crosslinking, the cells were resuspended in 25 ml of PBS and exposed to 1,200 mJ/cm2 of 254 nm UV light",
+          "reasoning": "The three files share the same WT_Yeast prefix and differ only by replicate number, matching the publication description of three biological replicates for the mRBPome (poly(A) capture). No crosslinker name is provided in the filenames or excerpt, so crosslinker is left null."
+        },
+        {
+          "cluster_id": "cluster_2",
+          "cluster_label": "yeast_negativecontrol_rnaseone",
+          "description": "Saccharomyces cerevisiae negative control where RNA is digested with RNase ONE prior to poly(A) capture (biological replicates).",
+          "organism": "Saccharomyces cerevisiae",
+          "taxid": "NCBITaxon:4932",
+          "crosslinker": null,
+          "biological_condition": "RNase ONE treated negative control",
+          "files": [
+            "Yeast_NegativeControl_RNase_2.raw",
+            "Yeast_NegativeControl_RNase_3.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "the extract was either supplemented with 100 U RNase ONE (Promega, M4265) for 2 h at 37 °C to digest RNA",
+          "reasoning": "Filenames explicitly indicate RNase ONE negative control and include replicate numbers. The dataset includes RNase_2 and RNase_3 but not RNase_1; assignment is still grouped by condition and organism."
+        },
+        {
+          "cluster_id": "cluster_3",
+          "cluster_label": "yeast_negativecontrol_polyA_competition",
+          "description": "Saccharomyces cerevisiae negative control using poly(A) competition during capture.",
+          "organism": "Saccharomyces cerevisiae",
+          "taxid": "NCBITaxon:4932",
+          "crosslinker": null,
+          "biological_condition": "poly(A) competition negative control",
+          "files": [
+            "Yeast_NegativeControl_PolyA.raw"
+          ],
+          "confidence": "high",
+          "evidence_quote": "or 20 mg of poly(A) (Sigma, P9403) was added to the extract for competition experiments.",
+          "reasoning": "The filename explicitly states PolyA negative control. The publication describes poly(A) competition as a distinct control condition."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a biological XL-MS condition based on provided filenames/publication excerpt.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "No additional QC/calibration/blank files were provided; all input filenames match WT or explicit negative control conditions."
+        }
+      ],
+      "summary": {
+        "n_input_files": 6,
+        "n_assigned_files": 6,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 3,
+        "overall_confidence": "high"
+      }
+    }
+  }
+}

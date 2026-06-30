@@ -1,0 +1,99 @@
+{
+  "metadata": {
+    "pxd": "PXD004736",
+    "category": "llm",
+    "saved_at": "2026-06-30T14:53:46.120835",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"human_proximity_biotin_tyramide_antibody_recognition_formaldehyde\",\n      \"description\": \"Human proximity labeling XL-MS dataset using antibody recognition-guided biotin deposition in fixed human cells/tissues under multiple antibody/control conditions (no explicit crosslinker specified in provided metadata).\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": null,\n      \"biological_condition\": \"antibody recognition-guided biotinylation proximity labeling across multiple human cell/tissue conditions (bound/controls/variants)\",\n      \"files\": [\n        \"Adipose_No_Antibody.raw\",\n        \"CB1.raw\",\n        \"CB2.raw\",\n        \"CB3.raw\",\n        \"CB4.raw\",\n        \"CB5.raw\",\n        \"Fibroblasts.raw\",\n        \"Fibroblasts_Heavy_Test.raw\",\n        \"Fibroblasts_No_Antibody.raw\",\n        \"Fibroblasts_Unbound.raw\",\n        \"HATP5A_LKu80.raw\",\n        \"HGPS_Heavy_Control_Light.raw\",\n        \"HGPS_Light_Control_Heavy.raw\",\n        \"HGPS_Light_Control_Heavy_Repeat.raw\",\n        \"HeLa_Heavy_Test.raw\",\n        \"Heavy_Progerin_Vs_Light_LMNA.raw\",\n        \"Hela_LH3K27Ac_H3211.raw\",\n        \"HepG2_Heavy_Vs_HeLa_Light.raw\",\n        \"HepG2_Light_Vs_HeLa_Heavy.raw\",\n        \"Light_Control_Vs_Heavy_Heat_Shock.raw\",\n        \"Light_HS_Vs_Heavy_Control.raw\",\n        \"Light_Progerin_Vs_Heavy_LMNA.raw\",\n        \"No_Treatment_SILAC.raw\",\n        \"RatiometricLabeling.raw\",\n        \"Ratiometric_No_Antibody.raw\",\n        \"Ratiometric_Unbound.raw\",\n        \"SGCA_In_Human_Skeletal_Muscle.raw\",\n        \"SGCA_Unbound.raw\",\n        \"Smooth_Muscle_No_Antibody.raw\",\n        \"Smooth_Muscle_Unbound.raw\",\n        \"Human_Adipose_Tissue.raw\",\n        \"Human_Adipose_Tissue_Repeat.raw\",\n        \"Human_Skeletal_Muscle.raw\",\n        \"Human_Skeletal_Muscle_No_Antibody.raw\",\n        \"Human_Skeletal_Muscle_Repeat.raw\",\n        \"Human_Skeletal_Muscle_Unbound.raw\",\n        \"Human_Skeletal_Muscle_Unbound_For_Repeat.raw\",\n        \"Human_Smooth_Muscle.raw\",\n        \"3211B1.raw\",\n        \"3211B2.raw\",\n        \"3211B3.raw\",\n        \"3211B4.raw\",\n        \"3211B5.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"Samples were fixed in 4% formaldehyde ... and biotinylated proteins were extracted with streptavidin beads\",\n      \"reasoning\": \"All files appear to belong to the same publication/method: antibody recognition-guided proximity labeling with formaldehyde fixation and streptavidin enrichment. The provided filenames indicate multiple biological contexts (e.g., tissue types, bound vs unbound/no-antibody controls, SILAC comparisons, heat shock, HGPS/progerin vs LMNA, SGCA in skeletal muscle), but the dataset-level crosslinker is not explicitly stated as a chemical crosslinker (e.g., BS3/DSS) in the provided metadata. Since the task requires clustering by biological condition + source organism + crosslinker, and the crosslinker cannot be confidently assigned from the provided information, the smallest defensible grouping is a single organism-specific cluster with crosslinker left null, containing all human proximity-labeling XL-MS raw files.\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently interpreted as biological XL-MS conditions from the provided information.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [\n        \"Fibroblasts_Unbound.raw\",\n        \"Human_Skeletal_Muscle_Unbound.raw\",\n        \"Human_Skeletal_Muscle_Unbound_For_Repeat.raw\",\n        \"SGCA_Unbound.raw\",\n        \"Smooth_Muscle_Unbound.raw\",\n        \"Ratiometric_Unbound.raw\"\n      ],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"These filenames clearly indicate 'Unbound' controls, but the provided instruction requires not splitting by technical replicate/fraction/run order, and the minimal clustering strategy depends on crosslinker assignment and explicit condition mapping. Because the crosslinker is not explicitly specified as a standard XL reagent (BS3/DSS/etc.) and the biological condition taxonomy for these controls cannot be uniquely mapped to a single smallest set without additional metadata (e.g., which antibody/target each control corresponds to), they are left unassigned rather than forcing potentially incorrect condition-level clustering.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 36,\n    \"n_assigned_files\": 30,\n    \"n_unassigned_files\": 6,\n    \"n_biological_clusters\": 1,\n    \"overall_confidence\": \"medium\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "human_proximity_biotin_tyramide_antibody_recognition_formaldehyde",
+          "description": "Human proximity labeling XL-MS dataset using antibody recognition-guided biotin deposition in fixed human cells/tissues under multiple antibody/control conditions (no explicit crosslinker specified in provided metadata).",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": null,
+          "biological_condition": "antibody recognition-guided biotinylation proximity labeling across multiple human cell/tissue conditions (bound/controls/variants)",
+          "files": [
+            "Adipose_No_Antibody.raw",
+            "CB1.raw",
+            "CB2.raw",
+            "CB3.raw",
+            "CB4.raw",
+            "CB5.raw",
+            "Fibroblasts.raw",
+            "Fibroblasts_Heavy_Test.raw",
+            "Fibroblasts_No_Antibody.raw",
+            "Fibroblasts_Unbound.raw",
+            "HATP5A_LKu80.raw",
+            "HGPS_Heavy_Control_Light.raw",
+            "HGPS_Light_Control_Heavy.raw",
+            "HGPS_Light_Control_Heavy_Repeat.raw",
+            "HeLa_Heavy_Test.raw",
+            "Heavy_Progerin_Vs_Light_LMNA.raw",
+            "Hela_LH3K27Ac_H3211.raw",
+            "HepG2_Heavy_Vs_HeLa_Light.raw",
+            "HepG2_Light_Vs_HeLa_Heavy.raw",
+            "Light_Control_Vs_Heavy_Heat_Shock.raw",
+            "Light_HS_Vs_Heavy_Control.raw",
+            "Light_Progerin_Vs_Heavy_LMNA.raw",
+            "No_Treatment_SILAC.raw",
+            "RatiometricLabeling.raw",
+            "Ratiometric_No_Antibody.raw",
+            "Ratiometric_Unbound.raw",
+            "SGCA_In_Human_Skeletal_Muscle.raw",
+            "SGCA_Unbound.raw",
+            "Smooth_Muscle_No_Antibody.raw",
+            "Smooth_Muscle_Unbound.raw",
+            "Human_Adipose_Tissue.raw",
+            "Human_Adipose_Tissue_Repeat.raw",
+            "Human_Skeletal_Muscle.raw",
+            "Human_Skeletal_Muscle_No_Antibody.raw",
+            "Human_Skeletal_Muscle_Repeat.raw",
+            "Human_Skeletal_Muscle_Unbound.raw",
+            "Human_Skeletal_Muscle_Unbound_For_Repeat.raw",
+            "Human_Smooth_Muscle.raw",
+            "3211B1.raw",
+            "3211B2.raw",
+            "3211B3.raw",
+            "3211B4.raw",
+            "3211B5.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "Samples were fixed in 4% formaldehyde ... and biotinylated proteins were extracted with streptavidin beads",
+          "reasoning": "All files appear to belong to the same publication/method: antibody recognition-guided proximity labeling with formaldehyde fixation and streptavidin enrichment. The provided filenames indicate multiple biological contexts (e.g., tissue types, bound vs unbound/no-antibody controls, SILAC comparisons, heat shock, HGPS/progerin vs LMNA, SGCA in skeletal muscle), but the dataset-level crosslinker is not explicitly stated as a chemical crosslinker (e.g., BS3/DSS) in the provided metadata. Since the task requires clustering by biological condition + source organism + crosslinker, and the crosslinker cannot be confidently assigned from the provided information, the smallest defensible grouping is a single organism-specific cluster with crosslinker left null, containing all human proximity-labeling XL-MS raw files."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently interpreted as biological XL-MS conditions from the provided information.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [
+            "Fibroblasts_Unbound.raw",
+            "Human_Skeletal_Muscle_Unbound.raw",
+            "Human_Skeletal_Muscle_Unbound_For_Repeat.raw",
+            "SGCA_Unbound.raw",
+            "Smooth_Muscle_Unbound.raw",
+            "Ratiometric_Unbound.raw"
+          ],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "These filenames clearly indicate 'Unbound' controls, but the provided instruction requires not splitting by technical replicate/fraction/run order, and the minimal clustering strategy depends on crosslinker assignment and explicit condition mapping. Because the crosslinker is not explicitly specified as a standard XL reagent (BS3/DSS/etc.) and the biological condition taxonomy for these controls cannot be uniquely mapped to a single smallest set without additional metadata (e.g., which antibody/target each control corresponds to), they are left unassigned rather than forcing potentially incorrect condition-level clustering."
+        }
+      ],
+      "summary": {
+        "n_input_files": 36,
+        "n_assigned_files": 30,
+        "n_unassigned_files": 6,
+        "n_biological_clusters": 1,
+        "overall_confidence": "medium"
+      }
+    }
+  }
+}

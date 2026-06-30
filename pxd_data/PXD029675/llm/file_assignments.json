@@ -1,0 +1,68 @@
+{
+  "metadata": {
+    "pxd": "PXD029675",
+    "category": "llm",
+    "saved_at": "2026-06-30T15:21:35.692064",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"pdu_bmc_dssO_xl\",\n      \"description\": \"Pdu microcompartment (BMC) samples from PduST + R995 grown with 1,2-propanediol, crosslinked with DS(S)O (DSSO).\",\n      \"organism\": \"Escherichia coli\",\n      \"taxid\": null,\n      \"crosslinker\": \"DSSO\",\n      \"biological_condition\": \"Pdu microcompartments induced with 0.5% (v/v) 1,2-propanediol (native BMC state)\",\n      \"files\": [\n        \"4_DSSO_XL_ETD.raw\",\n        \"4_DSSO_XL_MS2.raw\",\n        \"4_DSSO_XL_MS2MS3.raw\"\n      ],\n      \"confidence\": \"high\",\n      \"evidence_quote\": \"PduST + R995 was always grown in 2xYT media supplemented with kanamycin at 37°C. Supplementation with 1,2-propanediol to 0.5% (v/v) was used to induce expression of Pdu microcompartments.\",\n      \"reasoning\": \"All three files share the same DSSO XL prefix (4_DSSO_XL_*) indicating the same crosslinker and biological sample. Different acquisition modes (ETD, MS2, MS2MS3) are technical and should not split clusters. The publication describes Pdu microcompartment induction with 1,2-propanediol, consistent with the native BMC condition used for XL-MS.\"\n    },\n    {\n      \"cluster_id\": \"cluster_2\",\n      \"cluster_label\": \"pdu_bmc_bs3_xl\",\n      \"description\": \"Pdu microcompartment (BMC) samples from PduA/PduST constructs, crosslinked with BS3.\",\n      \"organism\": \"Escherichia coli\",\n      \"taxid\": null,\n      \"crosslinker\": \"BS3\",\n      \"biological_condition\": \"Pdu microcompartments (native BMC state) from E. coli\",\n      \"files\": [\n        \"PDUA_PDUD_BS3.raw\",\n        \"PDUA_PDUP_BS3.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"Data and code availability ... The mass spectrometry raw files acquired at the Proteomics Laboratory at NYU (including BS(PEG)5, DSBU cross-linking, and hydroxyl-footprinting data) are accessible ... The mass spectrometry proteomics data for DSSO datasets ... identifier PXD029675.\",\n      \"reasoning\": \"Both files are explicitly BS3 crosslinking runs (BS3 in filename) and appear to be from the same overall Pdu BMC experimental context. However, the filenames (PDUA_PDUD vs PDUA_PDUP) suggest potentially different constructs/variants, and the provided text does not clearly define these as distinct biological conditions. Therefore they are grouped together as the smallest biologically meaningful split available (BS3 vs DSSO), with medium confidence.\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a biological XL-MS condition.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"All provided raw filenames match either DSSO XL or BS3 XL patterns and can be assigned to biologically meaningful clusters.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 5,\n    \"n_assigned_files\": 5,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 2,\n    \"overall_confidence\": \"high\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "pdu_bmc_dssO_xl",
+          "description": "Pdu microcompartment (BMC) samples from PduST + R995 grown with 1,2-propanediol, crosslinked with DS(S)O (DSSO).",
+          "organism": "Escherichia coli",
+          "taxid": null,
+          "crosslinker": "DSSO",
+          "biological_condition": "Pdu microcompartments induced with 0.5% (v/v) 1,2-propanediol (native BMC state)",
+          "files": [
+            "4_DSSO_XL_ETD.raw",
+            "4_DSSO_XL_MS2.raw",
+            "4_DSSO_XL_MS2MS3.raw"
+          ],
+          "confidence": "high",
+          "evidence_quote": "PduST + R995 was always grown in 2xYT media supplemented with kanamycin at 37°C. Supplementation with 1,2-propanediol to 0.5% (v/v) was used to induce expression of Pdu microcompartments.",
+          "reasoning": "All three files share the same DSSO XL prefix (4_DSSO_XL_*) indicating the same crosslinker and biological sample. Different acquisition modes (ETD, MS2, MS2MS3) are technical and should not split clusters. The publication describes Pdu microcompartment induction with 1,2-propanediol, consistent with the native BMC condition used for XL-MS."
+        },
+        {
+          "cluster_id": "cluster_2",
+          "cluster_label": "pdu_bmc_bs3_xl",
+          "description": "Pdu microcompartment (BMC) samples from PduA/PduST constructs, crosslinked with BS3.",
+          "organism": "Escherichia coli",
+          "taxid": null,
+          "crosslinker": "BS3",
+          "biological_condition": "Pdu microcompartments (native BMC state) from E. coli",
+          "files": [
+            "PDUA_PDUD_BS3.raw",
+            "PDUA_PDUP_BS3.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "Data and code availability ... The mass spectrometry raw files acquired at the Proteomics Laboratory at NYU (including BS(PEG)5, DSBU cross-linking, and hydroxyl-footprinting data) are accessible ... The mass spectrometry proteomics data for DSSO datasets ... identifier PXD029675.",
+          "reasoning": "Both files are explicitly BS3 crosslinking runs (BS3 in filename) and appear to be from the same overall Pdu BMC experimental context. However, the filenames (PDUA_PDUD vs PDUA_PDUP) suggest potentially different constructs/variants, and the provided text does not clearly define these as distinct biological conditions. Therefore they are grouped together as the smallest biologically meaningful split available (BS3 vs DSSO), with medium confidence."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a biological XL-MS condition.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "All provided raw filenames match either DSSO XL or BS3 XL patterns and can be assigned to biologically meaningful clusters."
+        }
+      ],
+      "summary": {
+        "n_input_files": 5,
+        "n_assigned_files": 5,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 2,
+        "overall_confidence": "high"
+      }
+    }
+  }
+}

@@ -1,0 +1,381 @@
+{
+  "metadata": {
+    "pxd": "PXD021822",
+    "category": "pride",
+    "saved_at": "2026-06-30T15:13:12.422692",
+    "filename": "project_details"
+  },
+  "data": {
+    "accession": "PXD021822",
+    "title": "Identification of proteins in the interactomes of 4 DNA-repair proteins of Deinococcus radiodurans",
+    "additionalAttributes": [],
+    "projectDescription": "Project includes identification of the interacting partners of the four important DNA-repair proteins (DdrA, DdrB, RecA, Ssb) of the extremophile D. radiodurans. The interacting proteins were crosslinked with DSP, immunoprecipitated using antibodies against the four DNA repair proteins,  followed by protein identification by LC MS/MS.",
+    "sampleProcessingProtocol": "Protein complexes in D. radiodurans cells were cross-linked in vivo with 1mM DSP at room temperature for 30 mins and the reaction was quenched by 40mM Tris-HCl, pH 7.4. Subsequently, the DSP cross-linked cells were snap frozen and stored at -80°C until use. The cross-linked D. radiodurans cells were re-suspended in 1x coupling buffer (0.01M sodium phosphate, 0.15M NaCl; pH 7.2 supplemented with protease inhibitor cocktail). The cells were lysed by sonication and the lysate was centrifuged at 10,000g for 10 min and clarified cellular extract was incubated with appropriate IP-antibody (anti-DdrA, Anti-DdrB, anti-RecA or anti-Ssb) coupled resin for at least 4h at 4°C. The clarified cellular extract was also incubated with antibodies present in preimmune serum to precipitate control interactome comprising proteins binding to the antibodies present in preimmune serum or to the resin. Washing of the beads and elution of protein complexes were carried out as per manufacturer’s recommendation. The eluted protein complexes were uncross-linked using 50mM DTT at 37°C for 30 min. Each IP experiment with each IP-antibody was performed at least three times to generate biological triplicates. In each experiment, the eluted fractions were resolved by SDS-PAGE and stained with silver staining to ascertain presence of proteins and consistency between the replicate samples. The eluted proteins were identified by LC-MS/MS analyses. LC-MS/MS data were acquired for proteins interacting with the four DNA repair bait proteins (DdrA, DdrB, RecA or Ssb) and the negative control. In brief, proteins were reduced with DTT (Cat. No. D0632; Sigma, India), alkylated with iodoacetamide (Cat. No. I1149; Sigma, India) and digested with trypsin (Cat. No. 90057; Pierce Thermo Scientific) for 16h at 37°C. LC-MS/MS analyses were performed on 6540 UHD Accurate-Mass Q-TOF LC/MS system (Agilent Technologies) coupled to a nano-LC chip (Agilent 1260 infinity HPLC-Chip/MS). The peptides were eluted using a gradient of solvent A (0.1% formic acid) and solvent B (90% ACN in 0.1% formic acid) at a flow rate of 300 nl/min over 120 min. Spectra were acquired in positive ion mode and in a mass range from 275 to 1700 m/z. MS scan rate was 5 - 8 spectra/sec and MS/MS scan rate was 3 spectra/sec. Total ion chromatograms were acquired using Agilent Mass Hunter software",
+    "dataProcessingProtocol": "Label-free MS/MS data contained 15 raw files (3 biological replicates for each of the 4 DNA repair proteins and negative control). The raw files were processed using the open-source R packages MSGF-plus and msnID. The raw mass spectral files were converted to the widely accepted mzML format using the msconvert tool  followed by the mass-spectra analyses using the two packages MSGF-plus and msnID in Rstudio . Then, all the protein sequences from D. radiodurans were downloaded from the UNIPROT database and, the sequence and decoy databases were generated using the MSGF-plus. Peptide spectral matching was carried out using the R package MSGF-plus. The following parameters were used for the peptide spectral matching: Cleaving enzyme: Trypsin; Maximum number of missed cleavages allowed: 2; precursor ion mass tolerance: 20ppm; Fixed modifications: Carbamidomethyl cysteine (Unimass: 57.021463735); Variable modifications: Oxidation on the Methionine (Unimass: 15.99491463) and CAMthiopropanoyl modification on lysine (Unimass: 145.019749205) (24); peptide length range (3-40), precursors charge range (2-6) and target decoy approach. Protein having at least one unique peptide matched to the spectra, spectral-Evalue < 10-6 and decoy as false was considered as a valid identification. Further, the peptides were filtered based on the absolute parent mass error and the MSMS Score was optimized for each replicate using the Nelder-Mead optimization method, given in the MsnID package with a false positive threshold of 1% at the peptide and protein level.",
+    "projectTags": [],
+    "keywords": [
+      "Deinococcus radiodurans dna damage repair"
+    ],
+    "doi": "10.6019/PXD021822",
+    "submissionType": "COMPLETE",
+    "license": "Creative Commons Public Domain (CC0)",
+    "submissionDate": "2020-10-05",
+    "publicationDate": "2021-05-07",
+    "submitters": [
+      {
+        "title": "Mr",
+        "firstName": "Mahesh Kumar",
+        "lastName": "Padwal",
+        "identifier": "2178833",
+        "affiliation": "Bhabha Atomic Research Center Mumbai ",
+        "email": "mkpadwal@barc.gov.in",
+        "country": "India",
+        "orcid": "",
+        "name": "Mahesh Kumar Padwal",
+        "id": "2178833"
+      }
+    ],
+    "labPIs": [
+      {
+        "title": "Dr",
+        "firstName": "Dr. BHAKTI",
+        "lastName": "BASU",
+        "identifier": "2161930",
+        "affiliation": "BHABHA ATOMIC RESEARCH CENTER MUMBAI",
+        "email": "bbasu@barc.gov.in",
+        "country": "",
+        "orcid": "",
+        "name": "Dr. BHAKTI BASU",
+        "id": "2161930"
+      }
+    ],
+    "instruments": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1002789",
+        "name": "6540 Q-TOF LC/MS"
+      }
+    ],
+    "softwares": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1002048",
+        "name": "MS-GF+"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1002205",
+        "name": "ProteoWizard msconvert"
+      }
+    ],
+    "experimentTypes": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000429",
+        "name": "Shotgun proteomics"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000433",
+        "name": "Affinity purification coupled with mass spectrometry proteomics"
+      }
+    ],
+    "quantificationMethods": [],
+    "countries": [
+      "India"
+    ],
+    "sampleAttributes": [
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "OBI:0100026",
+          "name": "organism"
+        },
+        "value": [
+          {
+            "cvLabel": "NEWT",
+            "accession": "NEWT:243230",
+            "name": "Deinococcus radiodurans R1"
+          }
+        ]
+      }
+    ],
+    "organisms": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "NEWT",
+        "accession": "NEWT:243230",
+        "name": "Deinococcus radiodurans r1"
+      }
+    ],
+    "organismParts": [],
+    "diseases": [],
+    "references": [
+      {
+        "referenceLine": "Ujaoney AK, Padwal MK, Basu B. An <i>in vivo</i> Interaction Network of DNA-Repair Proteins: A Snapshot at Double Strand Break Repair in <i>Deinococcus radiodurans</i>. J Proteome Res. 2021",
+        "pubmedID": 33929844,
+        "doi": "10.1021/acs.jproteome.1c00078"
+      }
+    ],
+    "identifiedPTMStrings": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00425",
+        "name": "monohydroxylated residue"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:01251",
+        "name": "N6-[3-(carboxamidomethylthio)propanoyl]lysine"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00397",
+        "name": "iodoacetamide derivatized residue"
+      }
+    ],
+    "totalFileDownloads": 2804,
+    "botCount": 1162,
+    "hubCount": 1590,
+    "organicCount": 52,
+    "files": {
+      "files": [
+        {
+          "fileName": "RecA3.mzML",
+          "fileSizeBytes": 191490577,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/RecA3.mzML"
+        },
+        {
+          "fileName": "180623-Shantani-732A-00.mzXML",
+          "fileSizeBytes": 169992615,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/180623-Shantani-732A-00.mzXML"
+        },
+        {
+          "fileName": "DdrB2.mzML",
+          "fileSizeBytes": 256751021,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/DdrB2.mzML"
+        },
+        {
+          "fileName": "Ssb1.mzid.gz",
+          "fileSizeBytes": 18304822,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/Ssb1.mzid.gz"
+        },
+        {
+          "fileName": "180719-Shantani-736A-00.mzXML",
+          "fileSizeBytes": 132851482,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/180719-Shantani-736A-00.mzXML"
+        },
+        {
+          "fileName": "DdrB1.mzid.gz",
+          "fileSizeBytes": 21781647,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/DdrB1.mzid.gz"
+        },
+        {
+          "fileName": "180517-Shantani-721B-00.mzXML",
+          "fileSizeBytes": 130917917,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/180517-Shantani-721B-00.mzXML"
+        },
+        {
+          "fileName": "181103-Shantani-786B-00.mzXML",
+          "fileSizeBytes": 101354450,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/181103-Shantani-786B-00.mzXML"
+        },
+        {
+          "fileName": "181103-Shantani-786A-00.mzXML",
+          "fileSizeBytes": 78868329,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/181103-Shantani-786A-00.mzXML"
+        },
+        {
+          "fileName": "180623-Shantani-731B-00.mzXML",
+          "fileSizeBytes": 136569758,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/180623-Shantani-731B-00.mzXML"
+        },
+        {
+          "fileName": "Ssb2.mzid.gz",
+          "fileSizeBytes": 22462201,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/Ssb2.mzid.gz"
+        },
+        {
+          "fileName": "180517-Shantani-721A-00.mzXML",
+          "fileSizeBytes": 315227943,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/180517-Shantani-721A-00.mzXML"
+        },
+        {
+          "fileName": "DdrB3.mzML",
+          "fileSizeBytes": 210757813,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/DdrB3.mzML"
+        },
+        {
+          "fileName": "Ssb1.mzML",
+          "fileSizeBytes": 202305376,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/Ssb1.mzML"
+        },
+        {
+          "fileName": "180719-Shantani-736C-00.mzXML",
+          "fileSizeBytes": 141305932,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/180719-Shantani-736C-00.mzXML"
+        },
+        {
+          "fileName": "ctrl3.mzid.gz",
+          "fileSizeBytes": 5811877,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/ctrl3.mzid.gz"
+        },
+        {
+          "fileName": "ctrl3.mzML",
+          "fileSizeBytes": 200876405,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/ctrl3.mzML"
+        },
+        {
+          "fileName": "ddrA.mzXML",
+          "fileSizeBytes": 128306693,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/ddrA.mzXML"
+        },
+        {
+          "fileName": "DdrB2.mzid.gz",
+          "fileSizeBytes": 20778263,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/DdrB2.mzid.gz"
+        },
+        {
+          "fileName": "RecA1.mzML",
+          "fileSizeBytes": 212919254,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/RecA1.mzML"
+        },
+        {
+          "fileName": "ctrl1.mzML",
+          "fileSizeBytes": 234049605,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/ctrl1.mzML"
+        },
+        {
+          "fileName": "RecA3.mzid.gz",
+          "fileSizeBytes": 15364913,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/RecA3.mzid.gz"
+        },
+        {
+          "fileName": "180801-Shantani-741B-00.mzXML",
+          "fileSizeBytes": 140513421,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/180801-Shantani-741B-00.mzXML"
+        },
+        {
+          "fileName": "ctrl2.mzML",
+          "fileSizeBytes": 176248359,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/ctrl2.mzML"
+        },
+        {
+          "fileName": "DdrB1.mzML",
+          "fileSizeBytes": 441852552,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/DdrB1.mzML"
+        },
+        {
+          "fileName": "DdrA1.mzid.gz",
+          "fileSizeBytes": 9825196,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/DdrA1.mzid.gz"
+        },
+        {
+          "fileName": "DdrA2.mzid.gz",
+          "fileSizeBytes": 19931185,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/DdrA2.mzid.gz"
+        },
+        {
+          "fileName": "181103-Shantani-786C-00.mzXML",
+          "fileSizeBytes": 110405826,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/181103-Shantani-786C-00.mzXML"
+        },
+        {
+          "fileName": "RecA1.mzid.gz",
+          "fileSizeBytes": 19340036,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/RecA1.mzid.gz"
+        },
+        {
+          "fileName": "DdrA3.mzid.gz",
+          "fileSizeBytes": 20963840,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/DdrA3.mzid.gz"
+        },
+        {
+          "fileName": "ctrl2.mzid.gz",
+          "fileSizeBytes": 5484409,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/ctrl2.mzid.gz"
+        },
+        {
+          "fileName": "DdrA1.mzML",
+          "fileSizeBytes": 184935833,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/DdrA1.mzML"
+        },
+        {
+          "fileName": "DdrB3.mzid.gz",
+          "fileSizeBytes": 20051095,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/DdrB3.mzid.gz"
+        },
+        {
+          "fileName": "180517-Shantani-720C-00.mzXML",
+          "fileSizeBytes": 128169628,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/180517-Shantani-720C-00.mzXML"
+        },
+        {
+          "fileName": "RecA2.mzML",
+          "fileSizeBytes": 300464726,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/RecA2.mzML"
+        },
+        {
+          "fileName": "180623-Shantani-731C-00.mzXML",
+          "fileSizeBytes": 173681791,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/180623-Shantani-731C-00.mzXML"
+        },
+        {
+          "fileName": "DdrA2.mzML",
+          "fileSizeBytes": 215155839,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/DdrA2.mzML"
+        },
+        {
+          "fileName": "RecA2.mzid.gz",
+          "fileSizeBytes": 23787674,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/RecA2.mzid.gz"
+        },
+        {
+          "fileName": "180517-Shantani-721C-00.mzXML",
+          "fileSizeBytes": 122145847,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/180517-Shantani-721C-00.mzXML"
+        },
+        {
+          "fileName": "Ssb3.mzML",
+          "fileSizeBytes": 224582818,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/Ssb3.mzML"
+        },
+        {
+          "fileName": "180516-Shantani-720B-00.mzXML",
+          "fileSizeBytes": 93309613,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/180516-Shantani-720B-00.mzXML"
+        },
+        {
+          "fileName": "Ssb2.mzML",
+          "fileSizeBytes": 250658500,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/Ssb2.mzML"
+        },
+        {
+          "fileName": "ctrl1.mzid.gz",
+          "fileSizeBytes": 6952699,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/ctrl1.mzid.gz"
+        },
+        {
+          "fileName": "Ssb3.mzid.gz",
+          "fileSizeBytes": 20055471,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/Ssb3.mzid.gz"
+        },
+        {
+          "fileName": "DdrA3.mzML",
+          "fileSizeBytes": 184489615,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021822/DdrA3.mzML"
+        }
+      ],
+      "totalCount": 45
+    }
+  }
+}

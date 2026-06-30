@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "pxd": "PXD034965",
+    "category": "llm",
+    "saved_at": "2026-06-30T15:26:54.772568",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"human_wp_dia_mixed_crosslinker_unknown\",\n      \"description\": \"Human proteome samples labeled as 'wp' (biological condition inferred from filename) analyzed by DIA; crosslinker not specified in provided metadata.\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": null,\n      \"biological_condition\": \"wp condition (inferred from filename suffix)\",\n      \"files\": [\n        \"211221_AB_WP_DIA_A4_mT_MG_wp_10.raw\",\n        \"211221_AB_WP_DIA_A4_mT_MG_wp_13.raw\",\n        \"211221_AB_WP_DIA_A4_mT_MG_wp_16.raw\",\n        \"211221_AB_WP_DIA_A4_mT_MG_wp_19.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"Filename pattern: 211221_AB_WP_DIA_A4_mT_MG_wp_*.raw\",\n      \"reasoning\": \"All four files share the same condition-defining tokens (AB_WP, DIA, A4, mT_MG, wp) and differ only by run index (10/13/16/19), which should not split clusters. The publication text describes DIA label-free proteasome interactome mapping but does not provide the XL crosslinker identity for these raw files, so crosslinker remains unknown.\"\n    },\n    {\n      \"cluster_id\": \"cluster_2\",\n      \"cluster_label\": \"human_nt_wp_dia_mixed_crosslinker_unknown\",\n      \"description\": \"Human proteome samples labeled as 'nt_wp' (biological condition inferred from filename) analyzed by DIA; crosslinker not specified in provided metadata.\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": null,\n      \"biological_condition\": \"nt_wp condition (inferred from filename suffix)\",\n      \"files\": [\n        \"211221_AB_WP_DIA_A4_mT_nt_wp_10.raw\",\n        \"211221_AB_WP_DIA_A4_mT_nt_wp_13.raw\",\n        \"211221_AB_WP_DIA_A4_mT_nt_wp_16.raw\",\n        \"211221_AB_WP_DIA_A4_mT_nt_wp_19.raw\",\n        \"211221_AB_WP_DIA_mT_nt_wp_10_211227155224.raw\",\n        \"211221_AB_WP_DIA_mT_nt_wp_13.raw\",\n        \"211221_AB_WP_DIA_mT_nt_wp_16.raw\",\n        \"211221_AB_WP_DIA_mT_nt_wp_19.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"Filename pattern: 211221_AB_WP_DIA_*_mT_nt_wp_*.raw\",\n      \"reasoning\": \"These eight files share the same key condition tokens (AB_WP, DIA, mT_nt_wp) and differ by run index and one additional trailing date-like token in a single filename, which is consistent with technical/run bookkeeping rather than a biological change. The publication does not specify the crosslinker used for these DIA raw files, so crosslinker is left null.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 12,\n    \"n_assigned_files\": 12,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 2,\n    \"overall_confidence\": \"medium\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "human_wp_dia_mixed_crosslinker_unknown",
+          "description": "Human proteome samples labeled as 'wp' (biological condition inferred from filename) analyzed by DIA; crosslinker not specified in provided metadata.",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": null,
+          "biological_condition": "wp condition (inferred from filename suffix)",
+          "files": [
+            "211221_AB_WP_DIA_A4_mT_MG_wp_10.raw",
+            "211221_AB_WP_DIA_A4_mT_MG_wp_13.raw",
+            "211221_AB_WP_DIA_A4_mT_MG_wp_16.raw",
+            "211221_AB_WP_DIA_A4_mT_MG_wp_19.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "Filename pattern: 211221_AB_WP_DIA_A4_mT_MG_wp_*.raw",
+          "reasoning": "All four files share the same condition-defining tokens (AB_WP, DIA, A4, mT_MG, wp) and differ only by run index (10/13/16/19), which should not split clusters. The publication text describes DIA label-free proteasome interactome mapping but does not provide the XL crosslinker identity for these raw files, so crosslinker remains unknown."
+        },
+        {
+          "cluster_id": "cluster_2",
+          "cluster_label": "human_nt_wp_dia_mixed_crosslinker_unknown",
+          "description": "Human proteome samples labeled as 'nt_wp' (biological condition inferred from filename) analyzed by DIA; crosslinker not specified in provided metadata.",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": null,
+          "biological_condition": "nt_wp condition (inferred from filename suffix)",
+          "files": [
+            "211221_AB_WP_DIA_A4_mT_nt_wp_10.raw",
+            "211221_AB_WP_DIA_A4_mT_nt_wp_13.raw",
+            "211221_AB_WP_DIA_A4_mT_nt_wp_16.raw",
+            "211221_AB_WP_DIA_A4_mT_nt_wp_19.raw",
+            "211221_AB_WP_DIA_mT_nt_wp_10_211227155224.raw",
+            "211221_AB_WP_DIA_mT_nt_wp_13.raw",
+            "211221_AB_WP_DIA_mT_nt_wp_16.raw",
+            "211221_AB_WP_DIA_mT_nt_wp_19.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "Filename pattern: 211221_AB_WP_DIA_*_mT_nt_wp_*.raw",
+          "reasoning": "These eight files share the same key condition tokens (AB_WP, DIA, mT_nt_wp) and differ by run index and one additional trailing date-like token in a single filename, which is consistent with technical/run bookkeeping rather than a biological change. The publication does not specify the crosslinker used for these DIA raw files, so crosslinker is left null."
+        }
+      ],
+      "summary": {
+        "n_input_files": 12,
+        "n_assigned_files": 12,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 2,
+        "overall_confidence": "medium"
+      }
+    }
+  }
+}

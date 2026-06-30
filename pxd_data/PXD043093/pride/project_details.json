@@ -1,0 +1,304 @@
+{
+  "metadata": {
+    "pxd": "PXD043093",
+    "category": "pride",
+    "saved_at": "2026-06-30T15:35:10.194740",
+    "filename": "project_details"
+  },
+  "data": {
+    "accession": "PXD043093",
+    "title": "UV-inducible crosslinking IP-MS to elucidate the role of nuclear Hsp104 during quiescence in Saccharomyces cerevisiae",
+    "additionalAttributes": [],
+    "projectDescription": "In this study, we utilize high-content microscopy screening and quantitative proteomics to establish a function of nuclear Hsp104 during aging. We find that the cytosolic-nuclear partitioning of Hsp104 is critical to maintain nuclear proteostasis in quiescent cells. Whereas high global translation rates in rapidly growing cells constrain Hsp104 to the cytosol, a decrease in protein biosynthesis re-directs the disaggregase to the nucleus dependent on a specific C-terminal motif. Nuclear Hsp104 interacts with latent eIF2 translation initiation subcomplexes and suppresses protein aggregation. This protects the dormant translation machinery from age-induced damage, enabling the rapid resumption of protein synthesis upon re-entry into the cell cycle. In this project two separate IP-MS experiments are included, KGSBVK (IP-MS, 9 samples) and GMCAVK (UV-inducible crosslinking IP-MS, 12 samples).",
+    "sampleProcessingProtocol": "Sample preparation for mass spectrometry Both: The bead-bound proteins were reduced in 1 mM DTT at room temperature for 30 minutes. Next, samples were alkylated by incubation in the dark at room temperature in 5 mM Chloroacetamide for 20 minutes. After incubation the remaining Chloroacetamide was quenched by the addition of 5 mM DTT. Digestion was carried out by the addition of 0.5-2 µg Trypsin (sequencing grade modified, Pierce) and over-night incubation at 37°C. After bead-digestion, peptide clean-up was performed by a modified sp3 protocol (Moggridge et al., 2018). Briefly, the peptides were resuspended in 30 µl of 50mM HEPES buffer solution and 10 µl Sera‐Mag SP3 bead mix was added to the sample. Next, 100% acetonitrile was added to achieve a final concentration of >95%. Samples were pipette-mixed and incubated for 18-20 minutes at room temperature and then placed on a magnetic rack. The supernatant was aspirated and discarded, and the beads were washed in 200 µl of acetonitrile. Samples were removed from the magnetic rack and beads were reconstituted in 200 µl of MQ water. Then the beads were placed on a magnetic rack again and the supernatant was recovered and transferred to an MS-vial and dried in a vacuum centrifuge. The dried peptides were then resuspended in 15 µl of a 3% ACN and 0.1% formic acid solution. Mass spectrometry based quantitative proteomics LC-ESI-MS/MS Q-Exactive Online LC-MS was performed using a Dionex Ultimate™ 3000 RSLCnano System coupled to a Q-Exactive mass spectrometer (Thermo Scientific). 5 µL was injected from each sample. Samples were trapped on a C18 guard desalting column (Acclaim PepMap 100, 75um x 2 cm, nanoViper, C18, 5 µm, 100 Å), and separated on a 50 cm long C18 column (Easy spray PepMap RSLC, C18, 2 µm, 100Å, 75 µmx50cm). The nano capillary solvent A was 95% water, 5%DMSO, 0.1% formic acid; and solvent B was 5% water, 5% DMSO, 95% acetonitrile, 0.1% formic acid. At a constant flow of 0.25 μl min−1, the curved gradient went from 6%B up to 43%B in 180 min, followed by a steep increase to 100%B in 5 min. FTMS master scans with 60,000 resolution (and mass range 300-1500 m/z) were followed by data-dependent MS/MS (30 000 resolution) on the top 5 ions using higher energy collision dissociation (HCD) at 30% normalized collision energy. Precursors were isolated with a 2m/z window. Automatic gain control (AGC) targets were 1e6 for MS1 and 1e5 for MS2. Maximum injection times were 100ms for MS1 and MS2. The entire duty cycle lasted ~2.5s. Dynamic exclusion was used with 60s duration. Precursors with unassigned charge state or charge state 1 were excluded. An underfill ratio of 1% was used.",
+    "dataProcessingProtocol": "Peptide and protein identification KGSBVK: The MS raw files were searched using Sequest-Percolator or Target Decoy PSM Validator under the software platform Proteome Discoverer 1.4 (Thermo Scientific) against Saccharomyces cerevisiae Uniprot database (accessed in 2020/06/10) and filtered to a 1% FDR cut off.  We used a precursor ion mass tolerance of 10 ppm, and product ion mass tolerances of 0.02 Da for HCD-FTMS. The algorithm considered tryptic peptides with maximum 2 missed cleavage; carbamidomethylation (C) as fixed modifications; oxidation (M) as variable modifications.   GMCAVK: Orbitrap raw MS/MS files were converted to mzML format using msConvert from the ProteoWizard tool suite. Spectra were searched using MSGF+ search engine (v2020.03.14)(Kim and Pevzner, 2014)  and Percolator (v3.04.0) (Granholm et al., 2014) for Percolator target-decoy scoring.  All searches were done against the Saccharomyces cerevisiae Uniprot database (accessed in 20220227) using our proteomics workflow (https://github.com/lehtiolab/ddamsproteomics vs2.7) which was run with Nextflow (v20.01.0).   MSGF+ settings included precursor mass tolerance of 10 ppm, fully-tryptic peptides, maximum peptide length of 50 amino acids and a maximum charge of 6. Fixed modifications was carbamidomethylation on cysteine residues, a variable modification was used for oxidation on methionine residues.  MS1 feature detection and quantification was performed using Dinosaur (https://github.com/fickludd/dinosaur, (Teleman et al., 2016). PSMs found at 1% FDR (false discovery rate) were used to infer gene identities.    Protein quantification by precursor peptides was calculated using the average of the top-3 highest intensity peptides; with peptide MS1 quantification by summed peak intensity. Protein false discovery rates were calculated using the picked-FDR method using gene symbols as protein groups and limited to 1% FDR (Savitski et al., 2015). ",
+    "projectTags": [],
+    "keywords": [
+      "P-benzoyl-l-phenylalanine",
+      "Yeast",
+      "Quiescence",
+      "Uv-inducible crosslinking",
+      "Nuclear protein quality control",
+      "Ip-ms",
+      "Ageing",
+      "Co-immunoprecipitation",
+      "Lc-ms/ms",
+      "Translation",
+      "Hsp104",
+      "Proteomics",
+      "Disaggregation"
+    ],
+    "doi": "",
+    "submissionType": "PARTIAL",
+    "license": "Creative Commons Public Domain (CC0)",
+    "submissionDate": "2023-06-19",
+    "publicationDate": "2024-01-12",
+    "submitters": [
+      {
+        "title": "Mr",
+        "firstName": "Georgios",
+        "lastName": "Mermelekas",
+        "identifier": "145770157",
+        "affiliation": "Karolinska Institutet",
+        "email": "georgios.mermelekas@scilifelab.se",
+        "country": "Sweden",
+        "orcid": "",
+        "name": "Georgios Mermelekas",
+        "id": "145770157"
+      }
+    ],
+    "labPIs": [
+      {
+        "title": "Dr",
+        "firstName": "Janne",
+        "lastName": "Lehtiö",
+        "identifier": "2613105",
+        "affiliation": "Department of Oncology, Karolinska Inasitutet, Scilifelab, Stockholm, Sweden",
+        "email": "janne.lehtio@ki.se",
+        "country": "",
+        "orcid": "",
+        "name": "Janne Lehtiö",
+        "id": "2613105"
+      }
+    ],
+    "instruments": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1002523",
+        "name": "Q Exactive HF",
+        "value": ""
+      }
+    ],
+    "softwares": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1001208",
+        "name": "Sequest"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1002048",
+        "name": "MS-GF+"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1000650",
+        "name": "Proteome Discoverer"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1002205",
+        "name": "ProteoWizard msconvert"
+      }
+    ],
+    "experimentTypes": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000429",
+        "name": "Shotgun proteomics"
+      }
+    ],
+    "quantificationMethods": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000323",
+        "name": "TIC"
+      }
+    ],
+    "countries": [
+      "Sweden"
+    ],
+    "sampleAttributes": [
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "OBI:0100026",
+          "name": "organism"
+        },
+        "value": [
+          {
+            "cvLabel": "NEWT",
+            "accession": "NEWT:4932",
+            "name": "Saccharomyces cerevisiae (Baker's yeast)",
+            "value": ""
+          }
+        ]
+      }
+    ],
+    "organisms": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "NEWT",
+        "accession": "NEWT:4932",
+        "name": "Saccharomyces cerevisiae (baker's yeast)",
+        "value": ""
+      }
+    ],
+    "organismParts": [],
+    "diseases": [],
+    "references": [
+      {
+        "pubmedID": 0,
+        "doi": "10.1038/S41467-023-44538-8"
+      }
+    ],
+    "identifiedPTMStrings": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00425",
+        "name": "monohydroxylated residue",
+        "value": ""
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00397",
+        "name": "iodoacetamide derivatized residue",
+        "value": ""
+      }
+    ],
+    "totalFileDownloads": 1530,
+    "otherOmicsLinks": [
+      "pride.project:PXD042987"
+    ],
+    "files": {
+      "files": [
+        {
+          "fileName": "Sample_description.txt",
+          "fileSizeBytes": 1351,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/01/PXD043093/Sample_description.txt"
+        },
+        {
+          "fileName": "GMCAVK1-12_genes_table.txt",
+          "fileSizeBytes": 326180,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/01/PXD043093/GMCAVK1-12_genes_table.txt"
+        },
+        {
+          "fileName": "GMCAVK1_12_20220216_5out15_3hgrad_sample11.raw",
+          "fileSizeBytes": 2058399577,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/01/PXD043093/GMCAVK1_12_20220216_5out15_3hgrad_sample11.raw"
+        },
+        {
+          "fileName": "GMCAVK1_12_20220216_5out15_3hgrad_sample4.raw",
+          "fileSizeBytes": 2037650169,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/01/PXD043093/GMCAVK1_12_20220216_5out15_3hgrad_sample4.raw"
+        },
+        {
+          "fileName": "GMCAVK1_12_20220216_5out15_3hgrad_sample3.raw",
+          "fileSizeBytes": 2060198706,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/01/PXD043093/GMCAVK1_12_20220216_5out15_3hgrad_sample3.raw"
+        },
+        {
+          "fileName": "kaveh_20210120_labelfree_3hLG_5of10uL_S4.raw",
+          "fileSizeBytes": 1859512051,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/01/PXD043093/kaveh_20210120_labelfree_3hLG_5of10uL_S4.raw"
+        },
+        {
+          "fileName": "kaveh_20210120_labelfree_3hLG_5of10uL_S7.raw",
+          "fileSizeBytes": 1855561821,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/01/PXD043093/kaveh_20210120_labelfree_3hLG_5of10uL_S7.raw"
+        },
+        {
+          "fileName": "GMCAVK1_12_20220216_5out15_3hgrad_sample7.raw",
+          "fileSizeBytes": 2015380188,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/01/PXD043093/GMCAVK1_12_20220216_5out15_3hgrad_sample7.raw"
+        },
+        {
+          "fileName": "GMCAVK1_12_20220216_5out15_3hgrad_sample8.raw",
+          "fileSizeBytes": 2025565564,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/01/PXD043093/GMCAVK1_12_20220216_5out15_3hgrad_sample8.raw"
+        },
+        {
+          "fileName": "kaveh_20210120_labelfree_3hLG_5of10uL_S3.raw",
+          "fileSizeBytes": 1863527894,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/01/PXD043093/kaveh_20210120_labelfree_3hLG_5of10uL_S3.raw"
+        },
+        {
+          "fileName": "GMCAVK1_12_20220216_5out15_3hgrad_sample2.raw",
+          "fileSizeBytes": 2076675281,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/01/PXD043093/GMCAVK1_12_20220216_5out15_3hgrad_sample2.raw"
+        },
+        {
+          "fileName": "kaveh_20210120_labelfree_3hLG_5of10uL_S9.raw",
+          "fileSizeBytes": 1846846441,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/01/PXD043093/kaveh_20210120_labelfree_3hLG_5of10uL_S9.raw"
+        },
+        {
+          "fileName": "kaveh_20210120_labelfree_3hLG_5of10uL_S6.raw",
+          "fileSizeBytes": 1874483222,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/01/PXD043093/kaveh_20210120_labelfree_3hLG_5of10uL_S6.raw"
+        },
+        {
+          "fileName": "kaveh_20210120_labelfree_3hLG_5of10uL_S1.raw",
+          "fileSizeBytes": 1875829937,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/01/PXD043093/kaveh_20210120_labelfree_3hLG_5of10uL_S1.raw"
+        },
+        {
+          "fileName": "checksum.txt",
+          "fileSizeBytes": 3837,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/01/PXD043093/checksum.txt"
+        },
+        {
+          "fileName": "GMCAVK1_12_20220216_5out15_3hgrad_sample9.raw",
+          "fileSizeBytes": 2045029888,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/01/PXD043093/GMCAVK1_12_20220216_5out15_3hgrad_sample9.raw"
+        },
+        {
+          "fileName": "Protein_results_KGSBVK1-9.xlsx",
+          "fileSizeBytes": 323374,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/01/PXD043093/Protein_results_KGSBVK1-9.xlsx"
+        },
+        {
+          "fileName": "GMCAVK1_12_20220216_5out15_3hgrad_sample6.raw",
+          "fileSizeBytes": 2039250109,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/01/PXD043093/GMCAVK1_12_20220216_5out15_3hgrad_sample6.raw"
+        },
+        {
+          "fileName": "GMCAVK1_12_20220216_5out15_3hgrad_sample5.raw",
+          "fileSizeBytes": 2072469471,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/01/PXD043093/GMCAVK1_12_20220216_5out15_3hgrad_sample5.raw"
+        },
+        {
+          "fileName": "GMCAVK1_12_20220216_5out15_3hgrad_sample10.raw",
+          "fileSizeBytes": 1994975857,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/01/PXD043093/GMCAVK1_12_20220216_5out15_3hgrad_sample10.raw"
+        },
+        {
+          "fileName": "kaveh_20210120_labelfree_3hLG_5of10uL_S2.raw",
+          "fileSizeBytes": 1850035384,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/01/PXD043093/kaveh_20210120_labelfree_3hLG_5of10uL_S2.raw"
+        },
+        {
+          "fileName": "kaveh_20210120_labelfree_3hLG_5of10uL_S5.raw",
+          "fileSizeBytes": 1836429195,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/01/PXD043093/kaveh_20210120_labelfree_3hLG_5of10uL_S5.raw"
+        },
+        {
+          "fileName": "GMCAVK1_12_20220216_5out15_3hgrad_sample1.raw",
+          "fileSizeBytes": 1957776032,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/01/PXD043093/GMCAVK1_12_20220216_5out15_3hgrad_sample1.raw"
+        },
+        {
+          "fileName": "GMCAVK1_12_20220216_5out15_3hgrad_sample12.raw",
+          "fileSizeBytes": 2153537588,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/01/PXD043093/GMCAVK1_12_20220216_5out15_3hgrad_sample12.raw"
+        },
+        {
+          "fileName": "kaveh_20210120_labelfree_3hLG_5of10uL_S8.raw",
+          "fileSizeBytes": 1877248268,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/01/PXD043093/kaveh_20210120_labelfree_3hLG_5of10uL_S8.raw"
+        }
+      ],
+      "totalCount": 25
+    }
+  }
+}

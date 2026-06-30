@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "pxd": "PXD023525",
+    "category": "llm",
+    "saved_at": "2026-06-30T15:15:09.097942",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"human_ecoli_mixed_bs3\",\n      \"description\": \"Biological condition not specified in provided metadata; crosslinker inferred from filenames as DSBU. Proteome source organism(s) include Homo sapiens and Escherichia coli, but no file-level mapping to organism is provided.\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": \"DSBU\",\n      \"biological_condition\": \"unspecified condition (no treatment/state/timepoint provided)\",\n      \"files\": [\n        \"E1aE2oDSBU.raw\",\n        \"E1oE2oDSBU.raw\"\n      ],\n      \"confidence\": \"low\",\n      \"evidence_quote\": \"Raw filenames: E1aE2oDSBU.raw; E1oE2oDSBU.raw\",\n      \"reasoning\": \"The only interpretable factor from filenames is the crosslinker suffix 'DSBU'. The publication title/abstract discuss 2-oxoacid dehydrogenase complexes and protein-protein interactions, but no explicit experimental condition (e.g., control vs treatment, timepoint, medium) is provided in the prompt. The PRIDE metadata lists both Escherichia coli and Homo sapiens as organisms, but filenames do not encode which organism each file corresponds to; therefore, assignment to a single organism is uncertain. Cluster groups all DSBU files together as the smallest meaningful split possible given available information.\"\n    },\n    {\n      \"cluster_id\": \"cluster_2\",\n      \"cluster_label\": \"human_ecoli_mixed_cdi\",\n      \"description\": \"Biological condition not specified in provided metadata; crosslinker inferred from filenames as CDI. Proteome source organism(s) include Homo sapiens and Escherichia coli, but no file-level mapping to organism is provided.\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": \"CDI\",\n      \"biological_condition\": \"unspecified condition (no treatment/state/timepoint provided)\",\n      \"files\": [\n        \"E1oE2oCDI.raw\"\n      ],\n      \"confidence\": \"low\",\n      \"evidence_quote\": \"Raw filename: E1oE2oCDI.raw\",\n      \"reasoning\": \"The only interpretable factor from the filename is the crosslinker suffix 'CDI'. No other condition-defining metadata (treatment/control/timepoint) is present in the prompt. Organism mapping is ambiguous because the provided organism list includes both Escherichia coli and Homo sapiens, but the filename does not indicate which proteome was analyzed.\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a biological XL-MS condition beyond crosslinker inference.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"All provided files contained crosslinker-identifying suffixes (DSBU or CDI) and were therefore assigned to crosslinker-based clusters. No additional QC/calibration/blank files were provided.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 3,\n    \"n_assigned_files\": 3,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 2,\n    \"overall_confidence\": \"low\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "human_ecoli_mixed_bs3",
+          "description": "Biological condition not specified in provided metadata; crosslinker inferred from filenames as DSBU. Proteome source organism(s) include Homo sapiens and Escherichia coli, but no file-level mapping to organism is provided.",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": "DSBU",
+          "biological_condition": "unspecified condition (no treatment/state/timepoint provided)",
+          "files": [
+            "E1aE2oDSBU.raw",
+            "E1oE2oDSBU.raw"
+          ],
+          "confidence": "low",
+          "evidence_quote": "Raw filenames: E1aE2oDSBU.raw; E1oE2oDSBU.raw",
+          "reasoning": "The only interpretable factor from filenames is the crosslinker suffix 'DSBU'. The publication title/abstract discuss 2-oxoacid dehydrogenase complexes and protein-protein interactions, but no explicit experimental condition (e.g., control vs treatment, timepoint, medium) is provided in the prompt. The PRIDE metadata lists both Escherichia coli and Homo sapiens as organisms, but filenames do not encode which organism each file corresponds to; therefore, assignment to a single organism is uncertain. Cluster groups all DSBU files together as the smallest meaningful split possible given available information."
+        },
+        {
+          "cluster_id": "cluster_2",
+          "cluster_label": "human_ecoli_mixed_cdi",
+          "description": "Biological condition not specified in provided metadata; crosslinker inferred from filenames as CDI. Proteome source organism(s) include Homo sapiens and Escherichia coli, but no file-level mapping to organism is provided.",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": "CDI",
+          "biological_condition": "unspecified condition (no treatment/state/timepoint provided)",
+          "files": [
+            "E1oE2oCDI.raw"
+          ],
+          "confidence": "low",
+          "evidence_quote": "Raw filename: E1oE2oCDI.raw",
+          "reasoning": "The only interpretable factor from the filename is the crosslinker suffix 'CDI'. No other condition-defining metadata (treatment/control/timepoint) is present in the prompt. Organism mapping is ambiguous because the provided organism list includes both Escherichia coli and Homo sapiens, but the filename does not indicate which proteome was analyzed."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a biological XL-MS condition beyond crosslinker inference.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "All provided files contained crosslinker-identifying suffixes (DSBU or CDI) and were therefore assigned to crosslinker-based clusters. No additional QC/calibration/blank files were provided."
+        }
+      ],
+      "summary": {
+        "n_input_files": 3,
+        "n_assigned_files": 3,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 2,
+        "overall_confidence": "low"
+      }
+    }
+  }
+}

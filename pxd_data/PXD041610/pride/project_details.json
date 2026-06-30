@@ -1,0 +1,288 @@
+{
+  "metadata": {
+    "pxd": "PXD041610",
+    "category": "pride",
+    "saved_at": "2026-06-30T15:33:22.129926",
+    "filename": "project_details"
+  },
+  "data": {
+    "accession": "PXD041610",
+    "title": "Proximity labeling in Arabidopsis seedlings expressing R-degron-Turbo vs. M-degron-Turbo vs. L-degron-Turbo untreated (DMSO control), treated with 10µM Bortezomib and treated with 1µM Concanamycin A.",
+    "additionalAttributes": [],
+    "projectDescription": "Goal was to identify N-recognins for Arginine and Leucine by comparison of biotinylated proteins from 1 week old whole Arabidopsis seedlings constitutively expressing the bait constructs R-degron-Turbo or L-degron-Turbo. M-degron-Turbo served as a negative control. The plants were treated with 50µM biotin and either the proteasome inhibitor Bortezomib (10µM) or the inhibitor of vacuolar acidification Concanamycin A (1µM) or DMSO one hour before harvest.",
+    "sampleProcessingProtocol": "Arabidopsis plants (15 seedlings per well, 24 well plate) constitutively expressing R-degon-Turbo, M-degron-Turbo or L-degron-Turbo were grown 1 week in liquid culture (1ml 1x MS medium + 1% sucrose per well) under long day conditions (21°C, 8/16h dark/light cycle, respectively). Medium was exchanged with medium either  + 10µM Bortezomib + 50µM biotin or  + 1µM Concanamycin A + 50µM biotin or  DMSO (solvent control) for one hour before harvest.  Plants were 4x washed with 2ml ice cold water, 1ml water was added, then they were dried and snap frozen in liquid nitrogen. Seedlings were ground in cooled Tissue Lyser (2x 10 min, 28 Hz) then 170µl extraction buffer (50 mM Tris pH 7.5, 150 mM NaCl, 1 mM EDTA, 0.5% NP-40 substitute, 3 mM DTT, 1x plant protease inhibitor cocktail Sigma P9599) was added. Extracts from 3 wells were pooled (= ~500µl crude extract as input). After centrifugation (5 min max, 4°C) SN was transferred and centrifuged again (5 min max, 4°C). 500µl of the SN was loaded onto a Sephadex G-25 column (Cytiva MiniTrap PD-10) and eluted with 1ml extraction buffer to remove free biotin. The protein concentration of the eluate was determined by Bradford Assay and amounts of extracts were adjusted to the sample with the lowest protein concentration (0.9 mg total protein). This amount was incubated for 60 min rotating at 4°C with Pierce Magnetic Streptavidin beads (25µl beads per sample) equilibrated in extraction buffer. The beads were 4x washed with 1ml wash buffer (20 mM Tris pH 7.5, 500 mM NaCl, 0.5 mM EDTA), transferred to a fresh low binding tube, washed again with 1ml wash buffer and finally resuspended in 500µl wash buffer. The beads were resuspended in 50 µL 1 M urea and 50 mM ammonium bicarbonate. Disulfide bonds were reduced with 2 µL of 250 mM dithiothreitol (DTT) for 30 min at room temperature before adding 2 µL of 500 mM iodoacetamide and incubating for 30 min at room temperature in the dark. The remaining iodoacetamide was quenched with 1 µL of 250 mM DTT for 10 min. Proteins were digested with 150 ng LysC (mass spectrometry grade, FUJIFILM Wako chemicals) in 1.5 µL 50 mM ammonium bicarbonate at 25°C overnight. The supernatant without beads was digested with 150 ng trypsin (Trypsin Gold, Promega) in 1.5 µL 50 mM ammonium bicarbonate followed by incubation at 37°C for 5 hours. The digest was stopped by the addition of trifluoroacetic acid (TFA) to a final concentration of 0.5 %, and the peptides were desalted using C18 Stagetips.",
+    "dataProcessingProtocol": "MS raw data split for each CV using FreeStyle 1.7 (Thermo Fisher), were analyzed using the MaxQuant software package (version 2.1.0.0, Tyanova et al., 2016) with the Uniprot Arabidopsis reference proteome (version 2022.01, www.uniprot.org),target sequences,  as well as a database of most common contaminants. The search was performed with full trypsin specificity and a maximum of two missed cleavages at a protein and peptide spectrum match false discovery rate of 1%. Carbamidomethylation of cysteine residues was set as fixed, oxidation of methionine, and N-terminal acetylation as variable modifications. For label-free quantification the “match between runs” only within the sample batch and the LFQ function were activated - all other parameters were left at default.  MaxQuant output tables were further processed in R 4.2.1 (https://www.R-project.org ) using Cassiopeia_LFQ (https://github.com/moritzmadern/Cassiopeia_LFQ). Reverse database identifications, contaminant proteins, protein groups identified only by a modified peptide, protein groups with less than two quantitative values in one experimental group, and protein groups with less than 2 razor peptides were removed for further analysis. Missing values were replaced by randomly drawing data points from a normal distribution model on the whole dataset (data mean shifted by -1.8 standard deviations, a width of the distribution of 0.3 standard deviations). Differences between groups were statistically evaluated using the LIMMA 3.52.1 (Ritchie et al., 2015) at 5% FDR (Benjamini-Hochberg).",
+    "projectTags": [],
+    "keywords": [
+      "Bortezomib",
+      "N-degron pathway",
+      "Proximity labeling",
+      "Concanamycin a",
+      "Protein turnover",
+      "Turbo"
+    ],
+    "doi": "",
+    "submissionType": "PARTIAL",
+    "license": "Creative Commons Public Domain (CC0)",
+    "submissionDate": "2023-04-18",
+    "publicationDate": "2024-04-15",
+    "submitters": [
+      {
+        "title": "Dr",
+        "firstName": "WeiQiang",
+        "lastName": "Chen",
+        "identifier": "700143",
+        "affiliation": "Mass Spectrometry Facility, Max Perutz Laboratories Support GmbH",
+        "email": "chenweiqiang@gmail.com",
+        "country": "Austria",
+        "orcid": "",
+        "name": "WeiQiang Chen",
+        "id": "700143"
+      }
+    ],
+    "labPIs": [
+      {
+        "title": "Dr",
+        "firstName": "Andreas",
+        "lastName": "Bachmair",
+        "identifier": "2559197",
+        "affiliation": "Max Perutz Labs, University of Vienna",
+        "email": "andreas.bachmair@univie.ac.at",
+        "country": "",
+        "orcid": "",
+        "name": "Andreas Bachmair",
+        "id": "2559197"
+      }
+    ],
+    "instruments": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1003028",
+        "name": "Orbitrap Exploris 480"
+      }
+    ],
+    "softwares": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1001583",
+        "name": "MaxQuant"
+      }
+    ],
+    "experimentTypes": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000429",
+        "name": "Shotgun proteomics"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000433",
+        "name": "Affinity purification coupled with mass spectrometry proteomics"
+      }
+    ],
+    "quantificationMethods": [],
+    "countries": [
+      "Austria"
+    ],
+    "sampleAttributes": [
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "EFO:0000635",
+          "name": "organism part"
+        },
+        "value": [
+          {
+            "cvLabel": "BTO",
+            "accession": "BTO:0001489",
+            "name": "whole body"
+          }
+        ]
+      },
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "OBI:0100026",
+          "name": "organism"
+        },
+        "value": [
+          {
+            "cvLabel": "NEWT",
+            "accession": "NEWT:3702",
+            "name": "Arabidopsis thaliana (Mouse-ear cress)"
+          }
+        ]
+      }
+    ],
+    "organisms": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "NEWT",
+        "accession": "NEWT:3702",
+        "name": "Arabidopsis thaliana (mouse-ear cress)"
+      }
+    ],
+    "organismParts": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "BTO",
+        "accession": "BTO:0001489",
+        "name": "Whole body"
+      }
+    ],
+    "diseases": [],
+    "references": [
+      {
+        "pubmedID": 0,
+        "doi": "10.1093/PLCELL/KOAE117"
+      }
+    ],
+    "identifiedPTMStrings": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:01885",
+        "name": "biotinylated residue"
+      }
+    ],
+    "totalFileDownloads": 1941,
+    "botCount": 581,
+    "hubCount": 1331,
+    "organicCount": 29,
+    "otherOmicsLinks": [
+      "bioproject:PRJNA975350",
+      "bioproject:PRJNA1046295"
+    ],
+    "files": {
+      "files": [
+        {
+          "fileName": "20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s15_50p.raw",
+          "fileSizeBytes": 885279668,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/04/PXD041610/20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s15_50p.raw"
+        },
+        {
+          "fileName": "20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s6_50p.raw",
+          "fileSizeBytes": 839006163,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/04/PXD041610/20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s6_50p.raw"
+        },
+        {
+          "fileName": "txt.zip",
+          "fileSizeBytes": 923221820,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/04/PXD041610/txt.zip"
+        },
+        {
+          "fileName": "20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s18_50p.raw",
+          "fileSizeBytes": 806760561,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/04/PXD041610/20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s18_50p.raw"
+        },
+        {
+          "fileName": "20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s20_50p.raw",
+          "fileSizeBytes": 755152656,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/04/PXD041610/20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s20_50p.raw"
+        },
+        {
+          "fileName": "20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s5_50p.raw",
+          "fileSizeBytes": 835528692,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/04/PXD041610/20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s5_50p.raw"
+        },
+        {
+          "fileName": "20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s7_50p.raw",
+          "fileSizeBytes": 820352132,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/04/PXD041610/20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s7_50p.raw"
+        },
+        {
+          "fileName": "20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s19_50p.raw",
+          "fileSizeBytes": 753187406,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/04/PXD041610/20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s19_50p.raw"
+        },
+        {
+          "fileName": "Raw_file_experiment_list.xlsx",
+          "fileSizeBytes": 13338,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/04/PXD041610/Raw_file_experiment_list.xlsx"
+        },
+        {
+          "fileName": "checksum.txt",
+          "fileSizeBytes": 3400,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/04/PXD041610/checksum.txt"
+        },
+        {
+          "fileName": "20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s2_50p.raw",
+          "fileSizeBytes": 798045769,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/04/PXD041610/20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s2_50p.raw"
+        },
+        {
+          "fileName": "20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s17_50p.raw",
+          "fileSizeBytes": 828753188,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/04/PXD041610/20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s17_50p.raw"
+        },
+        {
+          "fileName": "20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s14_50p.raw",
+          "fileSizeBytes": 902136280,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/04/PXD041610/20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s14_50p.raw"
+        },
+        {
+          "fileName": "20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s16_50p.raw",
+          "fileSizeBytes": 836104850,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/04/PXD041610/20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s16_50p.raw"
+        },
+        {
+          "fileName": "20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s13_50p.raw",
+          "fileSizeBytes": 877000130,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/04/PXD041610/20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s13_50p.raw"
+        },
+        {
+          "fileName": "20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s8_50p.raw",
+          "fileSizeBytes": 803043729,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/04/PXD041610/20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s8_50p.raw"
+        },
+        {
+          "fileName": "20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s10_50p.raw",
+          "fileSizeBytes": 845603787,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/04/PXD041610/20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s10_50p.raw"
+        },
+        {
+          "fileName": "20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s11_50p.raw",
+          "fileSizeBytes": 822111809,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/04/PXD041610/20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s11_50p.raw"
+        },
+        {
+          "fileName": "20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s1_50p.raw",
+          "fileSizeBytes": 805063238,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/04/PXD041610/20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s1_50p.raw"
+        },
+        {
+          "fileName": "20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_3_50p.raw",
+          "fileSizeBytes": 836560070,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/04/PXD041610/20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_3_50p.raw"
+        },
+        {
+          "fileName": "20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s12_50p.raw",
+          "fileSizeBytes": 813340347,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/04/PXD041610/20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s12_50p.raw"
+        },
+        {
+          "fileName": "20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s9_50p.raw",
+          "fileSizeBytes": 812795994,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/04/PXD041610/20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s9_50p.raw"
+        },
+        {
+          "fileName": "20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s4_50p.raw",
+          "fileSizeBytes": 842547463,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/04/PXD041610/20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s4_50p.raw"
+        },
+        {
+          "fileName": "20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s21_50p.raw",
+          "fileSizeBytes": 765972314,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/04/PXD041610/20220502_E2_RSLC2_Winter_Bachmair_MPL_UniWien_s21_50p.raw"
+        }
+      ],
+      "totalCount": 24
+    }
+  }
+}

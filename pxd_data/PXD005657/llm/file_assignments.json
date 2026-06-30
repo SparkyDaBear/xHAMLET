@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "pxd": "PXD005657",
+    "category": "llm",
+    "saved_at": "2026-06-30T14:54:30.275557",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"alzheimer_ad_picup_claβ_dimer_tryp_dimer_gluc\",\n      \"description\": \"PICUP synthetic cross-linked Aβ(1-40) dimers used as standards; trypsin digestion; DDA/PRM acquisition for CL Aβ dimer peptides.\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": \"PICUP\",\n      \"biological_condition\": \"Alzheimer’s disease (AD) synthetic PICUP cross-linked Aβ(1-40) dimer standard\",\n      \"files\": [\n        \"std_Ab40_Dimer_tryp_DDA.raw\",\n        \"std_Ab40_Dimer_tryp_PRM.raw\",\n        \"AD1_tryp_PRM.raw\",\n        \"AD2_tryp_PRM.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"First, we validated a type of synthetic cross-linked Aβ (CL Aβ) dimers, obtained by means of the photo-induced cross-linking of unmodified proteins (PICUP) reaction, as well-defined mimics of putative native CL Aβ dimers.\",\n      \"reasoning\": \"Filenames containing 'std_Ab40_Dimer_tryp' indicate synthetic Aβ(1-40) dimer standards digested with trypsin. The publication states these standards are PICUP cross-linked. The AD1/AD2 files include 'tryp_PRM' and match the study’s application to native Aβ dimer samples from AD brains using the CL Aβ(6-16)2 target; however, the exact crosslinker used for native samples is not explicitly stated in the provided text, so confidence is medium.\"\n    },\n    {\n      \"cluster_id\": \"cluster_2\",\n      \"cluster_label\": \"alzheimer_ad_picup_claβ_dimer_gluc\",\n      \"description\": \"PICUP synthetic cross-linked Aβ(1-40) dimers used as standards; GluC digestion; DDA acquisition for CL Aβ dimer peptides.\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": \"PICUP\",\n      \"biological_condition\": \"Alzheimer’s disease (AD) synthetic PICUP cross-linked Aβ(1-40) dimer standard\",\n      \"files\": [\n        \"std_Ab40_Dimer_GluC_DDA.raw\"\n      ],\n      \"confidence\": \"high\",\n      \"evidence_quote\": \"Trypsin or GluC digested PICUP CL Aβ(1-40) dimer samples were loaded onto an Acclaim PepMap100 C18 Trap column...\",\n      \"reasoning\": \"The filename explicitly indicates 'std_Ab40_Dimer_GluC_DDA', and the methods state GluC-digested PICUP CL Aβ(1-40) dimer samples were analyzed.\"\n    },\n    {\n      \"cluster_id\": \"cluster_3\",\n      \"cluster_label\": \"alzheimer_ad_picup_claβ_dimer_tryp_dimer_gluc\",\n      \"description\": \"PICUP synthetic cross-linked Aβ(1-40) dimers used as standards; trypsin digestion; DDA acquisition for CL Aβ dimer peptides (separate from PRM/AD runs by acquisition type).\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": \"PICUP\",\n      \"biological_condition\": \"Alzheimer’s disease (AD) synthetic PICUP cross-linked Aβ(1-40) dimer standard\",\n      \"files\": [\n        \"std_Ab40_Dimer_GluC_DDA.raw\",\n        \"std_Ab40_Dimer_tryp_DDA.raw\",\n        \"std_Ab40_Dimer_tryp_PRM.raw\"\n      ],\n      \"confidence\": \"low\",\n      \"evidence_quote\": \"Trypsin or GluC digested PICUP CL Aβ(1-40) dimer samples were loaded onto...\",\n      \"reasoning\": \"This cluster overlaps with cluster_1 and cluster_2 by filename content; however, the dataset includes both DDA and PRM for standards and AD PRM runs. Because the task requests not to split by acquisition type, this cluster is marked low confidence and is effectively redundant. (If strict de-duplication is required, these files should be kept only in cluster_1/cluster_2.)\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a unique biological XL-MS condition.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"All provided filenames appear to correspond to either AD trypsin PRM runs or synthetic PICUP Aβ(1-40) dimer standards (trypsin or GluC).\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 5,\n    \"n_assigned_files\": 5,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 3,\n    \"overall_confidence\": \"medium\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "alzheimer_ad_picup_claβ_dimer_tryp_dimer_gluc",
+          "description": "PICUP synthetic cross-linked Aβ(1-40) dimers used as standards; trypsin digestion; DDA/PRM acquisition for CL Aβ dimer peptides.",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": "PICUP",
+          "biological_condition": "Alzheimer’s disease (AD) synthetic PICUP cross-linked Aβ(1-40) dimer standard",
+          "files": [
+            "std_Ab40_Dimer_tryp_DDA.raw",
+            "std_Ab40_Dimer_tryp_PRM.raw",
+            "AD1_tryp_PRM.raw",
+            "AD2_tryp_PRM.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "First, we validated a type of synthetic cross-linked Aβ (CL Aβ) dimers, obtained by means of the photo-induced cross-linking of unmodified proteins (PICUP) reaction, as well-defined mimics of putative native CL Aβ dimers.",
+          "reasoning": "Filenames containing 'std_Ab40_Dimer_tryp' indicate synthetic Aβ(1-40) dimer standards digested with trypsin. The publication states these standards are PICUP cross-linked. The AD1/AD2 files include 'tryp_PRM' and match the study’s application to native Aβ dimer samples from AD brains using the CL Aβ(6-16)2 target; however, the exact crosslinker used for native samples is not explicitly stated in the provided text, so confidence is medium."
+        },
+        {
+          "cluster_id": "cluster_2",
+          "cluster_label": "alzheimer_ad_picup_claβ_dimer_gluc",
+          "description": "PICUP synthetic cross-linked Aβ(1-40) dimers used as standards; GluC digestion; DDA acquisition for CL Aβ dimer peptides.",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": "PICUP",
+          "biological_condition": "Alzheimer’s disease (AD) synthetic PICUP cross-linked Aβ(1-40) dimer standard",
+          "files": [
+            "std_Ab40_Dimer_GluC_DDA.raw"
+          ],
+          "confidence": "high",
+          "evidence_quote": "Trypsin or GluC digested PICUP CL Aβ(1-40) dimer samples were loaded onto an Acclaim PepMap100 C18 Trap column...",
+          "reasoning": "The filename explicitly indicates 'std_Ab40_Dimer_GluC_DDA', and the methods state GluC-digested PICUP CL Aβ(1-40) dimer samples were analyzed."
+        },
+        {
+          "cluster_id": "cluster_3",
+          "cluster_label": "alzheimer_ad_picup_claβ_dimer_tryp_dimer_gluc",
+          "description": "PICUP synthetic cross-linked Aβ(1-40) dimers used as standards; trypsin digestion; DDA acquisition for CL Aβ dimer peptides (separate from PRM/AD runs by acquisition type).",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": "PICUP",
+          "biological_condition": "Alzheimer’s disease (AD) synthetic PICUP cross-linked Aβ(1-40) dimer standard",
+          "files": [
+            "std_Ab40_Dimer_GluC_DDA.raw",
+            "std_Ab40_Dimer_tryp_DDA.raw",
+            "std_Ab40_Dimer_tryp_PRM.raw"
+          ],
+          "confidence": "low",
+          "evidence_quote": "Trypsin or GluC digested PICUP CL Aβ(1-40) dimer samples were loaded onto...",
+          "reasoning": "This cluster overlaps with cluster_1 and cluster_2 by filename content; however, the dataset includes both DDA and PRM for standards and AD PRM runs. Because the task requests not to split by acquisition type, this cluster is marked low confidence and is effectively redundant. (If strict de-duplication is required, these files should be kept only in cluster_1/cluster_2.)"
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a unique biological XL-MS condition.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "All provided filenames appear to correspond to either AD trypsin PRM runs or synthetic PICUP Aβ(1-40) dimer standards (trypsin or GluC)."
+        }
+      ],
+      "summary": {
+        "n_input_files": 5,
+        "n_assigned_files": 5,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 3,
+        "overall_confidence": "medium"
+      }
+    }
+  }
+}

@@ -1,0 +1,352 @@
+{
+  "metadata": {
+    "pxd": "PXD054249",
+    "category": "pride",
+    "saved_at": "2026-06-30T15:44:34.912348",
+    "filename": "project_details"
+  },
+  "data": {
+    "accession": "PXD054249",
+    "title": "SMAP3-ID for identification of protein-protein interactions in native cells",
+    "additionalAttributes": [],
+    "projectDescription": "Proteins regulate biological functions through formation of distinct protein complexes. Identification and characterization of these protein-protein interactions are critical to decipher their mechanism of action. Different antibody- or crosslinking-based methods have been developed to identify the protein-protein interactions. However, these methods require genetic engineering and/or other means to disrupt the native environments. To circumvent this limitation, we introduce here SMAP3-ID (Small Molecule Assisted identification of Protein-Protein interactions through Proximity) method to identify protein-protein interactions in native cells. This method entails a selective ligand for binding to a protein of interest for photocrosslinking, a live-cell compatible bioorthogonal click reaction with a trifunctional chemical probe and a final photocrosslinking reaction to covalently capture the interacting proteins. Using SMAP3-ID method and nuclear lamin as an example, we identified lamin-interactors in native cells. Significantly, we identified a number of mitochondrial enzymes as novel lamin A (LA)-interactors. The interactions between mitochondrial enzymes and LA were further validated, which provides mechanistic insights underlying the metabolic alterations caused by mutations in LA. We conclude that SMAP3-ID is a powerful and generalizable method to identify protein-protein interactions in the native cellular environment.",
+    "sampleProcessingProtocol": "MDA-MB-468 cells were purchased from Developmental Therapeutics Program at the National Cancer Institute. Cells were cultured in high-glucose Dulbecco’s Modified Eagle’s Medium (DMEM, Life Technologies) supplemented with 10% FBS (Hyclone) and nonessential amino acids (Life Technologies) at 37C with 5% CO2. All the cells were authenticated using STR profiling and used within 50 passages. A small molecule LBL1-PCF probe was designed to bind to lamins in living cells that could be UV photo cross-linked (365 nm) for covalent lamin attachment. Lamin binding of probe was verified via click chemistry addition of biotin and streptavidin pull down and comparison to DMSO only treatment. To identify proteins interacting with lamins, a trifunctional dibenzocyclooctyne (DBCO) probe (DDZ3) was constructed. DDZ3 contains a DBCO unit to undergo SPAAC, a diazirine unit to covalently capture lamin-interacting proteins and a terminal alkyne for another CuAAC reaction to enrich the captured proteins. DDZ3 reacts with LBL1-PCF via strain-promoted azide-alkyne cycloaddition (SPAAC). Additional UV photo cross-linking was used for covalent attachment of DDZ3 to proteins in close proximity to lamins. Resulting protein complexes were enriched after click chemistry addition of biotin and streptavidin pull down.  Affinity purified proteins were dried by vacuum centrifugation, redissolved in 150 microliters of 5% SDS in 50 mM triethylammonium bicarbonate (TEAB). Samples were reduced with dithiothreitol and alkylated with idoacetamide followed by trypsin digestion on S-Trap micro (Protifi, Inc.) according to the manufacturer’s suggested protocol. After digestion overnight at 37C, the peptides were eluted with 40 microliters of 50 mM TEAB, followed 0.2% formic acid in ddI water and 50% acetonitrile in ddI water containing 0.2% formic acid. The elutions were pooled, dried in a speedvac and redissolved in 20 microliters of 5% formic acid and subjected to LC/MS/MS analysis.   Each peptide elution was chromatographically separated using a Dionex RSLC UHPLC system and delivered to a Q-Exactive HF mass spectrometer (Thermo Scientific) using electrospray ionization with a Nano Flex Ion Spray Source fitted with a 20-micron stainless steel nano-bore emitter spray tip and 1.0 kV source voltage. Xcalibur version 4.0 was used to control the system. Samples were applied at 10 microliters/min to a Symmetry C18 trap cartridge (Waters) for 5 min, then switched onto a 75 micron × 250 mm NanoAcquity BEH 130 C18 column with 1.7-micron particles (Waters) using mobile phases water (A) and acetonitrile (B) containing 0.1% formic acid, 7.5%‒30% acetonitrile gradient over 90 min, and 300 nanoliter/min flow rate. Survey mass spectra were acquired over m/z 375−1400 at 120,000 resolution (m/z 200) and data-dependent acquisition selected the top 10 most abundant precursor ions for tandem mass spectrometry by HCD fragmentation using an isolation width of 1.2 m/z, normalized collision energy of 30, and a resolution of 30,000. Dynamic exclusion was set to auto, charge state for MS/MS +2 to +7, maximum ion time 100 ms, minimum AGC target of 3 million in MS1 mode and 5 thousand in MS2 mode.",
+    "dataProcessingProtocol": "Comet (v. 2016.01, rev. 3) was used to search MS2 spectra against a UniProt canonical human reference proteome FASTA collection (v2022.10 with 20,607 sequences [one protein per gene]). The FASTA file was augmented with 175 common contaminant sequences and concatenated sequence-reversed entries of all proteins (to estimate error rates). The database processing used Python scripts available at https://github.com/pwilmart/fasta_utilities.git. Comet searches for all samples were performed with trypsin enzyme specificity (maximum of two missed cleavages) with monoisotopic parent ion mass tolerance set to 1.25 Da and monoisotopic fragment ion mass tolerance set at 1.0005 Da. A static modification of +57.02146 Da added to all cysteine residues, and a variable modification of +15.9949 Da for methionine residues. Comet top-hit scores were combined into linear discriminant function scores using the PAW pipeline (https://github.com/pwilmart/PAW_pipeline.git) and discriminant score histograms created separately for each peptide charge state (2+, 3+, and 4+). Histograms were created for peptide-spectrum-matches (PSMs) to forward sequences and for matches to reversed sequences for peptides of seven amino acids or longer. The score histograms of reversed matches were used to estimate PSM false discovery rates (FDR) and set score thresholds for each PSM class. PSMs passing thresholds (1.2% FDR) were mapped to proteins using basic and extended parsimony principles. Protein identification required at least two distinct peptide sequences per protein.",
+    "projectTags": [],
+    "keywords": [
+      "Lamin",
+      "Smap3-id",
+      "Protein-protein interaction",
+      "Lbl1-pcf",
+      "Native"
+    ],
+    "doi": "",
+    "submissionType": "PARTIAL",
+    "license": "Creative Commons Public Domain (CC0)",
+    "submissionDate": "2024-07-25",
+    "publicationDate": "2025-05-25",
+    "submitters": [
+      {
+        "title": "Dr",
+        "firstName": "Phillip",
+        "lastName": "Wilmarth",
+        "identifier": "6950170",
+        "affiliation": "OHSU",
+        "email": "wilmarth@ohsu.edu",
+        "country": "United States",
+        "orcid": "0000-0002-7559-8727",
+        "name": "Phillip Wilmarth",
+        "id": "6950170"
+      }
+    ],
+    "labPIs": [
+      {
+        "title": "Dr",
+        "firstName": "Dr. Xiangshu",
+        "lastName": "Xiao",
+        "identifier": "2975119",
+        "affiliation": "Department of Chemical Physiology and Biochemistry Oregon Health & Science University Portland, OR, USA.",
+        "email": "xiaoxi@ohsu.edu",
+        "country": "",
+        "orcid": "",
+        "name": "Dr. Xiangshu Xiao",
+        "id": "2975119"
+      }
+    ],
+    "instruments": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1001911",
+        "name": "Q Exactive"
+      }
+    ],
+    "softwares": [],
+    "experimentTypes": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000428",
+        "name": "Bottom-up proteomics"
+      }
+    ],
+    "quantificationMethods": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000436",
+        "name": "Spectrum counting"
+      }
+    ],
+    "countries": [
+      "United States"
+    ],
+    "sampleAttributes": [
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "OBI:0100026",
+          "name": "organism"
+        },
+        "value": [
+          {
+            "cvLabel": "NEWT",
+            "accession": "NEWT:9606",
+            "name": "Homo sapiens (Human)"
+          }
+        ]
+      }
+    ],
+    "organisms": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "NEWT",
+        "accession": "NEWT:9606",
+        "name": "Homo sapiens (human)"
+      }
+    ],
+    "organismParts": [],
+    "diseases": [],
+    "references": [
+      {
+        "referenceLine": "Warren J, Wang J, Dhoro F, Chao B, Reddy A, Petrie SK, David LL, Xiao X, Li BX. SMAP3-ID for Identification of Endogenous Protein-Protein Interactions Reveals Regulation of Mitochondrial Activity by Lamins. JACS Au. 2025 5(1):302-319",
+        "pubmedID": 39886595,
+        "doi": "10.1021/jacsau.4c00988"
+      }
+    ],
+    "identifiedPTMStrings": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00425",
+        "name": "monohydroxylated residue"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00397",
+        "name": "iodoacetamide derivatized residue"
+      }
+    ],
+    "totalFileDownloads": 1032,
+    "botCount": 578,
+    "hubCount": 434,
+    "organicCount": 20,
+    "files": {
+      "files": [
+        {
+          "fileName": "grouped_protein_summary_9.txt",
+          "fileSizeBytes": 383455,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/grouped_protein_summary_9.txt"
+        },
+        {
+          "fileName": "XIAO-1197_Human_737-147-D-10_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_filtered.ms2",
+          "fileSizeBytes": 146180815,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/XIAO-1197_Human_737-147-D-10_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_filtered.ms2"
+        },
+        {
+          "fileName": "XIAO-1197_Human_737-147-5_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_peptide_results_9.txt",
+          "fileSizeBytes": 1925783,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/XIAO-1197_Human_737-147-5_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_peptide_results_9.txt"
+        },
+        {
+          "fileName": "peptide_summary_9.txt",
+          "fileSizeBytes": 1683852,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/peptide_summary_9.txt"
+        },
+        {
+          "fileName": "XIAO-1197_Human_737-147-5_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_filtered.txt",
+          "fileSizeBytes": 2696728,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/XIAO-1197_Human_737-147-5_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_filtered.txt"
+        },
+        {
+          "fileName": "XIAO-1197_Human_737-147-D-D_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE.raw",
+          "fileSizeBytes": 1092828076,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/XIAO-1197_Human_737-147-D-D_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE.raw"
+        },
+        {
+          "fileName": "XIAO-1197_Human_737-147-D-10_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_filtered.sqt",
+          "fileSizeBytes": 18367145,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/XIAO-1197_Human_737-147-D-10_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_filtered.sqt"
+        },
+        {
+          "fileName": "PAW_results.log",
+          "fileSizeBytes": 34989,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/PAW_results.log"
+        },
+        {
+          "fileName": "XIAO-1197_Human_737-147-5_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_filtered.sqt",
+          "fileSizeBytes": 8232359,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/XIAO-1197_Human_737-147-5_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_filtered.sqt"
+        },
+        {
+          "fileName": "XIAO-1197_Human_737-147-5-10_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_filtered.ms2",
+          "fileSizeBytes": 128213660,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/XIAO-1197_Human_737-147-5-10_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_filtered.ms2"
+        },
+        {
+          "fileName": "XIAO-1197_Human_737-147-D_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_filtered.sqt",
+          "fileSizeBytes": 7813893,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/XIAO-1197_Human_737-147-D_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_filtered.sqt"
+        },
+        {
+          "fileName": "XIAO-1197_Human_737-147-5_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE.raw",
+          "fileSizeBytes": 1151901807,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/XIAO-1197_Human_737-147-5_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE.raw"
+        },
+        {
+          "fileName": "PAW_protein_grouper.log",
+          "fileSizeBytes": 86595,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/PAW_protein_grouper.log"
+        },
+        {
+          "fileName": "XIAO-1197_Human_737-147-D_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_peptide_results_9.txt",
+          "fileSizeBytes": 1774861,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/XIAO-1197_Human_737-147-D_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_peptide_results_9.txt"
+        },
+        {
+          "fileName": "XIAO-1197_Grouped_Protein_Results.xlsx",
+          "fileSizeBytes": 627190,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/XIAO-1197_Grouped_Protein_Results.xlsx"
+        },
+        {
+          "fileName": "XIAO-1197_Human_737-147-5-10_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_filtered.sqt",
+          "fileSizeBytes": 16081460,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/XIAO-1197_Human_737-147-5-10_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_filtered.sqt"
+        },
+        {
+          "fileName": "XIAO-1197_Grouped_Peptide_Standards.xlsx",
+          "fileSizeBytes": 1319688,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/XIAO-1197_Grouped_Peptide_Standards.xlsx"
+        },
+        {
+          "fileName": "XIAO-1197_Human_737-147-D-D_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_peptide_results_9.txt",
+          "fileSizeBytes": 2949738,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/XIAO-1197_Human_737-147-D-D_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_peptide_results_9.txt"
+        },
+        {
+          "fileName": "sample_key.xlsx",
+          "fileSizeBytes": 9336,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/sample_key.xlsx"
+        },
+        {
+          "fileName": "XIAO-1197_Human_737-147-D_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_filtered.ms2",
+          "fileSizeBytes": 36055115,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/XIAO-1197_Human_737-147-D_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_filtered.ms2"
+        },
+        {
+          "fileName": "XIAO-1197_Human_737-147-D-10_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_peptide_results_9.txt",
+          "fileSizeBytes": 3970132,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/XIAO-1197_Human_737-147-D-10_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_peptide_results_9.txt"
+        },
+        {
+          "fileName": "checksum.txt",
+          "fileSizeBytes": 5357,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/checksum.txt"
+        },
+        {
+          "fileName": "XIAO-1197_Human_737-147-D_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_filtered.txt",
+          "fileSizeBytes": 2511044,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/XIAO-1197_Human_737-147-D_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_filtered.txt"
+        },
+        {
+          "fileName": "XIAO-1197_Human_737-147-5-10_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE.raw",
+          "fileSizeBytes": 1625436339,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/XIAO-1197_Human_737-147-5-10_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE.raw"
+        },
+        {
+          "fileName": "2022.10_Homo-Sapiens_UP000005640_9606_both.fasta",
+          "fileSizeBytes": 26122254,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/2022.10_Homo-Sapiens_UP000005640_9606_both.fasta"
+        },
+        {
+          "fileName": "XIAO-1197_Human_737-147-D-D_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_filtered.sqt",
+          "fileSizeBytes": 12068451,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/XIAO-1197_Human_737-147-D-D_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_filtered.sqt"
+        },
+        {
+          "fileName": "XIAO-1197_Human_737-147-5_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_filtered.ms2",
+          "fileSizeBytes": 38324758,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/XIAO-1197_Human_737-147-5_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_filtered.ms2"
+        },
+        {
+          "fileName": "PAW_table_descriptions_9.txt",
+          "fileSizeBytes": 6828,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/PAW_table_descriptions_9.txt"
+        },
+        {
+          "fileName": "XIAO-1197_Human_737-147-D-D_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_filtered.ms2",
+          "fileSizeBytes": 63083815,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/XIAO-1197_Human_737-147-D-D_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_filtered.ms2"
+        },
+        {
+          "fileName": "XIAO-1197_Human_737-147-D-10_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_filtered.txt",
+          "fileSizeBytes": 5221044,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/XIAO-1197_Human_737-147-D-10_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_filtered.txt"
+        },
+        {
+          "fileName": "MSConvert_GUI_log.txt",
+          "fileSizeBytes": 2487,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/MSConvert_GUI_log.txt"
+        },
+        {
+          "fileName": "XIAO-1197_Human_737-147-5-10_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_filtered.txt",
+          "fileSizeBytes": 5210349,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/XIAO-1197_Human_737-147-5-10_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_filtered.txt"
+        },
+        {
+          "fileName": "grouped_peptide_summary_9.txt",
+          "fileSizeBytes": 1519074,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/grouped_peptide_summary_9.txt"
+        },
+        {
+          "fileName": "msn_files_PAW_log.txt",
+          "fileSizeBytes": 8051,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/msn_files_PAW_log.txt"
+        },
+        {
+          "fileName": "XIAO-1197_Human_737-147-D-10_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE.raw",
+          "fileSizeBytes": 1381298996,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/XIAO-1197_Human_737-147-D-10_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE.raw"
+        },
+        {
+          "fileName": "XIAO-1197_Human_737-147-D-D_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_filtered.txt",
+          "fileSizeBytes": 4313379,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/XIAO-1197_Human_737-147-D-D_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_filtered.txt"
+        },
+        {
+          "fileName": "fasta_utilities.log",
+          "fileSizeBytes": 194,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/fasta_utilities.log"
+        },
+        {
+          "fileName": "ThresholdFigures.zip",
+          "fileSizeBytes": 394254,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/ThresholdFigures.zip"
+        },
+        {
+          "fileName": "comet.params",
+          "fileSizeBytes": 9194,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/comet.params"
+        },
+        {
+          "fileName": "protein_summary_9.txt",
+          "fileSizeBytes": 410810,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/protein_summary_9.txt"
+        },
+        {
+          "fileName": "XIAO-1197_Human_737-147-5-10_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_peptide_results_9.txt",
+          "fileSizeBytes": 3708169,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/XIAO-1197_Human_737-147-5-10_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE_peptide_results_9.txt"
+        },
+        {
+          "fileName": "XIAO-1197_Human_737-147-D_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE.raw",
+          "fileSizeBytes": 1132572450,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD054249/XIAO-1197_Human_737-147-D_StrapDig_PSRtrapPGcolumn_25cm_90min_20230314_QE.raw"
+        }
+      ],
+      "totalCount": 42
+    }
+  }
+}

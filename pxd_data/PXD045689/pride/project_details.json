@@ -1,0 +1,587 @@
+{
+  "metadata": {
+    "pxd": "PXD045689",
+    "category": "pride",
+    "saved_at": "2026-06-30T15:36:28.286789",
+    "filename": "project_details"
+  },
+  "data": {
+    "accession": "PXD045689",
+    "title": "Deciphering the ghost proteome in ovarian cancer cells by deep proteogenomic characterization.",
+    "additionalAttributes": [],
+    "projectDescription": "Proteogenomics is becoming a powerful tool in personalized medicine by linking genomics, transcriptomics, and mass spectrometry (MS)-based proteomics. Due to increasing evidence of alternative open reading frame-encoded proteins (AltProts), proteogenomics has high potential to unravel the characteristics, variants, and expression levels of the alternative proteome in cells. To characterize a broader view of the proteome of ovarian cancer cells compared to ovarian epithelial cells, cell-specific RNA-sequencing databases were generated.128 reference proteins (RefProts) and 30 AltProts were identified exclusively shared by SKOV-3 and PEO-4. Among them, an AltProt variant of IP_715944 was identified mutated (Leu44Pro) and translated from DHX8. Additionally, the abundance level of the proteome was assessed, finding specific expression variation of RefProts and AltProts in different subcellular compartments. The identification of 117 RefProt and two AltProt variants was highlighted, along with their possible implications in the different physio-pathological characteristics. To identify the possible involvement of AltProts in cellular processes, crosslinking-MS (XL-MS) was performed in each cell line to identify AltProt-RefProt protein-protein interactions. An interaction of POLD3 and the AltProt IP_183088 was identified, which after molecular docking was placed between POLD3-POLD2 binding sites highlighting the possibility of the involvement of IP_183088 in the cellular processes of DNA replication and repair.",
+    "sampleProcessingProtocol": "Human SKOV-3, PEO-4 and T1074 cell lines were crosslinked employing DSSO. After quenching, the Subcellular Protein Fractionation Kit for Cultured Cells (Thermo Fisher Scientific) was utilized to isolate five distinct protein cell compartments from the crosslinked cells. for each subcellular compartment Filter Aided Sample Preparation (FASP) was employed. Trypsin/Lys-c and Chymotrypsin sequential digestion was performed in each comparment.  Analyze samples on a nanoAcquity (Waters) coupled to a Q Exactive mass spectrometer (Thermo Fisher Scientific).",
+    "dataProcessingProtocol": "Processing workflow. The raw data obtained by nanoLC-MS/MS analysis were analyzed using Proteome Discoverer V2.5 (Thermo Fisher Scientific). For each subcellular compartment, a different LFQ analysis was performed. In each compartment’s workflow, three processing steps (for each cell line replicates) were employed using Minor Feature Detector and three iterative Sequest HT nodes (Figure 1A). In the first Sequest HT node, the top 100,000 sequences derived from RNA-seq experiments (100K DB) were utilized. Next, a percolator with a relaxed 0.05 FDR and strict 0.01 FDR was applied. A spectrum confidence filter was applied before moving on to the next Sequest HT node, discarding any spectra with a confidence rating worse than high. In the second Sequest HT node, the full transcript-derived database (Full DB) from OpenCustomDB was used, minus the sequences contained in the 100K DB. The same parameters were used for a second percolator and spectrum confidence filter. Finally, in the third Sequest HT node, OpenProt was used to interrogate the sequences not found in the two previous databases. Consensus workflow. The five different subcellular fractionation MSF files were subjected to independent consensus workflows. At the feature mapper node, chromatographic alignment was performed with a maximum RT shift of 10 minutes, a 10 ppm mass tolerance, and coarse tuning. Unique and razor peptides were used at the precursor ions quantifier node. Protein groups were considered for peptide uniqueness, and shared quant results were used. Precursor abundance was based on intensity, without any threshold. Total peptide amount was used for normalization mode without scaling mode. All peptides were used for normalization and protein roll-up. Modified peptides were excluded for pairwise ratios. At the PSM grouper node, the site probability threshold was set to 75. The strict and relaxed FDRs were set at 0.01 and 0.05, respectively, at the peptide validator node. Validation was based on the q-value, and automatic target/decoy selection was used for PSM level FDR calculation based on score. At the peptides and protein filter node, the peptide confidence was set to medium with six amino acids per peptide. Additionally, a minimum of one peptide was set. A strict (0.01) and relaxed (0.05) FDR confidence threshold were set at the protein FDR validator. The results were filtered for RefProts, AltProts, and novel Isoforms. For more details check:10.1016/j.xpro.2023.102380",
+    "projectTags": [],
+    "keywords": [
+      "Alternative proteins",
+      "Proteogenomics",
+      "Ovarian cancer",
+      "Crosslinking"
+    ],
+    "doi": "",
+    "submissionType": "PARTIAL",
+    "license": "Creative Commons Public Domain (CC0)",
+    "submissionDate": "2023-09-26",
+    "publicationDate": "2025-05-06",
+    "submitters": [
+      {
+        "title": "Mr",
+        "firstName": "Diego Fernando",
+        "lastName": "Garcia del Rio",
+        "identifier": "2555917",
+        "affiliation": "Laboratoire PRISM - Unité Inserm 1192 -Université de Lille ",
+        "email": "diego.garciadelrio@univ-lille.fr",
+        "country": "France",
+        "orcid": "0000-0002-2282-6052",
+        "name": "Diego Fernando Garcia del Rio",
+        "id": "2555917"
+      }
+    ],
+    "labPIs": [
+      {
+        "title": "Dr",
+        "firstName": "Michel",
+        "lastName": "Salzet",
+        "identifier": "2773144",
+        "affiliation": "PRISM U1192 Université de Lille",
+        "email": "michel.salzet@univ-lille.fr",
+        "country": "",
+        "orcid": "",
+        "name": "Michel Salzet",
+        "id": "2773144"
+      }
+    ],
+    "instruments": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1001911",
+        "name": "Q Exactive"
+      }
+    ],
+    "softwares": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1000650",
+        "name": "Proteome Discoverer"
+      }
+    ],
+    "experimentTypes": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000429",
+        "name": "Shotgun proteomics"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000430",
+        "name": "Chemical cross-linking coupled with mass spectrometry proteomics"
+      }
+    ],
+    "quantificationMethods": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000425",
+        "name": "MS1 intensity based label-free quantification method"
+      }
+    ],
+    "countries": [
+      "France"
+    ],
+    "sampleAttributes": [
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "EFO:0000635",
+          "name": "organism part"
+        },
+        "value": [
+          {
+            "cvLabel": "CL",
+            "accession": "CL:0000066",
+            "name": "epithelial cell"
+          }
+        ]
+      },
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "OBI:0100026",
+          "name": "organism"
+        },
+        "value": [
+          {
+            "cvLabel": "NEWT",
+            "accession": "NEWT:9606",
+            "name": "Homo sapiens (Human)"
+          }
+        ]
+      },
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "EFO:0000408",
+          "name": "disease"
+        },
+        "value": [
+          {
+            "cvLabel": "DOID",
+            "accession": "DOID:2394",
+            "name": "ovarian cancer"
+          }
+        ]
+      }
+    ],
+    "organisms": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "NEWT",
+        "accession": "NEWT:9606",
+        "name": "Homo sapiens (human)"
+      }
+    ],
+    "organismParts": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "CL",
+        "accession": "CL:0000066",
+        "name": "Epithelial cell"
+      }
+    ],
+    "diseases": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "DOID",
+        "accession": "DOID:2394",
+        "name": "Ovarian cancer"
+      }
+    ],
+    "references": [
+      {
+        "referenceLine": "Garcia-Del Rio DF, Derhourhi M, Bonnefond A, Leblanc S, Guilloy N, Roucou X, Eyckerman S, Gevaert K, Salzet M, Cardon T. Deciphering the ghost proteome in ovarian cancer cells by deep proteogenomic characterization. Cell Death Dis. 2024 15(9):712",
+        "pubmedID": 39349928,
+        "doi": "10.1038/s41419-024-07046-1"
+      }
+    ],
+    "identifiedPTMStrings": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00425",
+        "name": "monohydroxylated residue"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00397",
+        "name": "iodoacetamide derivatized residue"
+      }
+    ],
+    "totalFileDownloads": 5089,
+    "botCount": 760,
+    "hubCount": 4295,
+    "organicCount": 34,
+    "otherOmicsLinks": [
+      "bioproject:PRJNA1041444",
+      "geo:GSE248039"
+    ],
+    "files": {
+      "files": [
+        {
+          "fileName": "OpenProtFull_RNAseqSKOV3Full.fasta",
+          "fileSizeBytes": 90110000,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/OpenProtFull_RNAseqSKOV3Full.fasta"
+        },
+        {
+          "fileName": "SV40_multi_3M_XL_3_Cytoplasm_220422_R2.raw",
+          "fileSizeBytes": 2040321644,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SV40_multi_3M_XL_3_Cytoplasm_220422_R2.raw"
+        },
+        {
+          "fileName": "PEO4_multi_3M_XL_1_Cytoplasm_220621_Ctrl.raw",
+          "fileSizeBytes": 1779093682,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/PEO4_multi_3M_XL_1_Cytoplasm_220621_Ctrl.raw"
+        },
+        {
+          "fileName": "SKOV3_multi_3M_XL_1_Chromatin_220621_Ctrl.raw",
+          "fileSizeBytes": 1388072344,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SKOV3_multi_3M_XL_1_Chromatin_220621_Ctrl.raw"
+        },
+        {
+          "fileName": "SV-40_XL_Rep3_100K_full_filtered.mzTab",
+          "fileSizeBytes": 56411582,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SV-40_XL_Rep3_100K_full_filtered.mzTab"
+        },
+        {
+          "fileName": "SV40_multi_3M_XL_3_Nucleus_220422_R2.raw",
+          "fileSizeBytes": 1828650431,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SV40_multi_3M_XL_3_Nucleus_220422_R2.raw"
+        },
+        {
+          "fileName": "SV40_multi_3M_XL_3_Nucleus_220422_ctrl.raw",
+          "fileSizeBytes": 2082581688,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SV40_multi_3M_XL_3_Nucleus_220422_ctrl.raw"
+        },
+        {
+          "fileName": "PEO4_XL_Rep_100K_full_filtered.mzTab",
+          "fileSizeBytes": 48615956,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/PEO4_XL_Rep_100K_full_filtered.mzTab"
+        },
+        {
+          "fileName": "SKOV3_multi_3M_XL_1_Skeleton_220621_R1.raw",
+          "fileSizeBytes": 2067743010,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SKOV3_multi_3M_XL_1_Skeleton_220621_R1.raw"
+        },
+        {
+          "fileName": "SV40_multi_3M_XL_3_Membrane_220422_R3.raw",
+          "fileSizeBytes": 1779210495,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SV40_multi_3M_XL_3_Membrane_220422_R3.raw"
+        },
+        {
+          "fileName": "SKOV3_multi_3M_XL_1_Nucleus_220621_R3.raw",
+          "fileSizeBytes": 1703042270,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SKOV3_multi_3M_XL_1_Nucleus_220621_R3.raw"
+        },
+        {
+          "fileName": "LFQ_3DB_Skeleton.mzTab",
+          "fileSizeBytes": 113373438,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/LFQ_3DB_Skeleton.mzTab"
+        },
+        {
+          "fileName": "PEO4_multi_3M_XL_1_Chromatin_220621_R3.raw",
+          "fileSizeBytes": 1315664843,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/PEO4_multi_3M_XL_1_Chromatin_220621_R3.raw"
+        },
+        {
+          "fileName": "SKOV_multi_3M_XL_1_Membrane_220622_R2.raw",
+          "fileSizeBytes": 1676265799,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SKOV_multi_3M_XL_1_Membrane_220622_R2.raw"
+        },
+        {
+          "fileName": "SV40_multi_3M_XL_3_Cytoplasm_220422_ctrl.raw",
+          "fileSizeBytes": 2200059993,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SV40_multi_3M_XL_3_Cytoplasm_220422_ctrl.raw"
+        },
+        {
+          "fileName": "PEO4_multi_3M_XL_1_Cytoplasm_220621_R1.raw",
+          "fileSizeBytes": 1759080049,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/PEO4_multi_3M_XL_1_Cytoplasm_220621_R1.raw"
+        },
+        {
+          "fileName": "SV40_multi_3M_XL_3_Chromatine_220422_R2.raw",
+          "fileSizeBytes": 1704267892,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SV40_multi_3M_XL_3_Chromatine_220422_R2.raw"
+        },
+        {
+          "fileName": "SKOV3_multi_3M_XL_1_Cytoplasm_220621_Ctrl.raw",
+          "fileSizeBytes": 1388755048,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SKOV3_multi_3M_XL_1_Cytoplasm_220621_Ctrl.raw"
+        },
+        {
+          "fileName": "PEO4_multi_3M_XL_1_Membrane_220622_R2.raw",
+          "fileSizeBytes": 1876881769,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/PEO4_multi_3M_XL_1_Membrane_220622_R2.raw"
+        },
+        {
+          "fileName": "PEO4_multi_3M_XL_1_Cytoplasm_220621_R3.raw",
+          "fileSizeBytes": 1929582825,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/PEO4_multi_3M_XL_1_Cytoplasm_220621_R3.raw"
+        },
+        {
+          "fileName": "SKOV3_XL_Repl_100K_full_filtered.mzTab",
+          "fileSizeBytes": 63169328,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SKOV3_XL_Repl_100K_full_filtered.mzTab"
+        },
+        {
+          "fileName": "SKOV_multi_3M_XL_1_Membrane_220622_R3.raw",
+          "fileSizeBytes": 1494755317,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SKOV_multi_3M_XL_1_Membrane_220622_R3.raw"
+        },
+        {
+          "fileName": "SKOV3_multi_3M_XL_1_Skeleton_220621_R2.raw",
+          "fileSizeBytes": 1977728526,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SKOV3_multi_3M_XL_1_Skeleton_220621_R2.raw"
+        },
+        {
+          "fileName": "SV40_multi_3M_XL_3_Membrane_220422_R1.raw",
+          "fileSizeBytes": 1765685886,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SV40_multi_3M_XL_3_Membrane_220422_R1.raw"
+        },
+        {
+          "fileName": "PEO4_multi_3M_XL_1_Membrane_220622_R1.raw",
+          "fileSizeBytes": 1769417684,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/PEO4_multi_3M_XL_1_Membrane_220622_R1.raw"
+        },
+        {
+          "fileName": "PEO4_multi_3M_XL_1_Membrane_220622_R3.raw",
+          "fileSizeBytes": 1715321926,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/PEO4_multi_3M_XL_1_Membrane_220622_R3.raw"
+        },
+        {
+          "fileName": "SKOV3_multi_3M_XL_1_Skeleton_220621_Ctrl.raw",
+          "fileSizeBytes": 1358330864,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SKOV3_multi_3M_XL_1_Skeleton_220621_Ctrl.raw"
+        },
+        {
+          "fileName": "PEO4_multi_3M_XL_1_Skeleton_220621_R1.raw",
+          "fileSizeBytes": 1618262535,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/PEO4_multi_3M_XL_1_Skeleton_220621_R1.raw"
+        },
+        {
+          "fileName": "PEO4_multi_3M_XL_1_Membrane_220622_Ctrl.raw",
+          "fileSizeBytes": 1362286019,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/PEO4_multi_3M_XL_1_Membrane_220622_Ctrl.raw"
+        },
+        {
+          "fileName": "PEO4_multi_3M_XL_1_Nucleus_220621_R2.raw",
+          "fileSizeBytes": 1622982882,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/PEO4_multi_3M_XL_1_Nucleus_220621_R2.raw"
+        },
+        {
+          "fileName": "SV40_multi_3M_XL_3_Skeleton_220422_R2.raw",
+          "fileSizeBytes": 1913459515,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SV40_multi_3M_XL_3_Skeleton_220422_R2.raw"
+        },
+        {
+          "fileName": "SV40_multi_3M_XL_3_Nucleus_220422_R1.raw",
+          "fileSizeBytes": 1847277064,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SV40_multi_3M_XL_3_Nucleus_220422_R1.raw"
+        },
+        {
+          "fileName": "SKOV3_multi_3M_XL_1_Nucleus_220621_Ctrl.raw",
+          "fileSizeBytes": 1486357148,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SKOV3_multi_3M_XL_1_Nucleus_220621_Ctrl.raw"
+        },
+        {
+          "fileName": "PEO4_multi_3M_XL_1_Nucleus_220621_R3.raw",
+          "fileSizeBytes": 1179015095,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/PEO4_multi_3M_XL_1_Nucleus_220621_R3.raw"
+        },
+        {
+          "fileName": "PEO4_multi_3M_XL_1_Chromatin_220621_Ctrl.raw",
+          "fileSizeBytes": 1354981421,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/PEO4_multi_3M_XL_1_Chromatin_220621_Ctrl.raw"
+        },
+        {
+          "fileName": "SKOV3_multi_3M_XL_1_Skeleton_220621_R3.raw",
+          "fileSizeBytes": 1866895082,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SKOV3_multi_3M_XL_1_Skeleton_220621_R3.raw"
+        },
+        {
+          "fileName": "SV40_multi_3M_XL_3_Chromatine_220422_R1.raw",
+          "fileSizeBytes": 1599101265,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SV40_multi_3M_XL_3_Chromatine_220422_R1.raw"
+        },
+        {
+          "fileName": "SKOV3_multi_3M_XL_1_Nucleus_220621_R1.raw",
+          "fileSizeBytes": 1819762014,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SKOV3_multi_3M_XL_1_Nucleus_220621_R1.raw"
+        },
+        {
+          "fileName": "PEO4_multi_3M_XL_1_Skeleton_220621_R3.raw",
+          "fileSizeBytes": 1543796455,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/PEO4_multi_3M_XL_1_Skeleton_220621_R3.raw"
+        },
+        {
+          "fileName": "PEO4_multi_3M_XL_1_Chromatin_220621_R2.raw",
+          "fileSizeBytes": 1393649597,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/PEO4_multi_3M_XL_1_Chromatin_220621_R2.raw"
+        },
+        {
+          "fileName": "OpenProtFull_RNAseqPEO4Full.fasta",
+          "fileSizeBytes": 88520882,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/OpenProtFull_RNAseqPEO4Full.fasta"
+        },
+        {
+          "fileName": "SV40_multi_3M_XL_3_Nucleus_220422_R3.raw",
+          "fileSizeBytes": 1819050060,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SV40_multi_3M_XL_3_Nucleus_220422_R3.raw"
+        },
+        {
+          "fileName": "SV40_multi_3M_XL_3_Cytoplasm_220422_R1.raw",
+          "fileSizeBytes": 2143789801,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SV40_multi_3M_XL_3_Cytoplasm_220422_R1.raw"
+        },
+        {
+          "fileName": "SV40_multi_3M_XL_3_Membrane_220422_R2.raw",
+          "fileSizeBytes": 1724061737,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SV40_multi_3M_XL_3_Membrane_220422_R2.raw"
+        },
+        {
+          "fileName": "RNAseq_PEO4_Full_100K.fasta",
+          "fileSizeBytes": 82859457,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/RNAseq_PEO4_Full_100K.fasta"
+        },
+        {
+          "fileName": "SKOV3_multi_3M_XL_1_Cytoplasm_220621_R1.raw",
+          "fileSizeBytes": 2059952793,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SKOV3_multi_3M_XL_1_Cytoplasm_220621_R1.raw"
+        },
+        {
+          "fileName": "SKOV3_multi_3M_XL_1_Chromatin_220621_R1.raw",
+          "fileSizeBytes": 1476993493,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SKOV3_multi_3M_XL_1_Chromatin_220621_R1.raw"
+        },
+        {
+          "fileName": "LFQ_Membrane.mzTab",
+          "fileSizeBytes": 101330287,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/LFQ_Membrane.mzTab"
+        },
+        {
+          "fileName": "SKOV3_multi_3M_XL_1_Chromatin_220621_R2.raw",
+          "fileSizeBytes": 1424980602,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SKOV3_multi_3M_XL_1_Chromatin_220621_R2.raw"
+        },
+        {
+          "fileName": "SV40_multi_3M_XL_3_Skeleton_220422_R1.raw",
+          "fileSizeBytes": 2156615269,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SV40_multi_3M_XL_3_Skeleton_220422_R1.raw"
+        },
+        {
+          "fileName": "SV40_multi_3M_XL_3_Skeleton_220422_R3.raw",
+          "fileSizeBytes": 2033904068,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SV40_multi_3M_XL_3_Skeleton_220422_R3.raw"
+        },
+        {
+          "fileName": "PEO4_multi_3M_XL_1_Skeleton_220621_R2.raw",
+          "fileSizeBytes": 1652553544,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/PEO4_multi_3M_XL_1_Skeleton_220621_R2.raw"
+        },
+        {
+          "fileName": "RNAseq_SKOV3_Full_100K.fasta",
+          "fileSizeBytes": 80599756,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/RNAseq_SKOV3_Full_100K.fasta"
+        },
+        {
+          "fileName": "SKOV_multi_3M_XL_1_Membrane_220622_Ctrl.raw",
+          "fileSizeBytes": 1536477487,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SKOV_multi_3M_XL_1_Membrane_220622_Ctrl.raw"
+        },
+        {
+          "fileName": "peo4_combined.fasta",
+          "fileSizeBytes": 30378157,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/peo4_combined.fasta"
+        },
+        {
+          "fileName": "sv40_combined.fasta",
+          "fileSizeBytes": 31307774,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/sv40_combined.fasta"
+        },
+        {
+          "fileName": "skov3_combined.fasta",
+          "fileSizeBytes": 31556440,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/skov3_combined.fasta"
+        },
+        {
+          "fileName": "SKOV3_multi_3M_XL_1_Cytoplasm_220621_R3.raw",
+          "fileSizeBytes": 1978666310,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SKOV3_multi_3M_XL_1_Cytoplasm_220621_R3.raw"
+        },
+        {
+          "fileName": "PEO4_multi_3M_XL_1_Chromatin_220621_R1.raw",
+          "fileSizeBytes": 1395271495,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/PEO4_multi_3M_XL_1_Chromatin_220621_R1.raw"
+        },
+        {
+          "fileName": "SV40_multi_3M_XL_3_Cytoplasm_220422_R3.raw",
+          "fileSizeBytes": 2207802178,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SV40_multi_3M_XL_3_Cytoplasm_220422_R3.raw"
+        },
+        {
+          "fileName": "SKOV3_multi_3M_XL_1_Nucleus_220621_R2.raw",
+          "fileSizeBytes": 1747883904,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SKOV3_multi_3M_XL_1_Nucleus_220621_R2.raw"
+        },
+        {
+          "fileName": "SKOV3_multi_3M_XL_1_Cytoplasm_220621_R2.raw",
+          "fileSizeBytes": 2026880051,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SKOV3_multi_3M_XL_1_Cytoplasm_220621_R2.raw"
+        },
+        {
+          "fileName": "PEO4_multi_3M_XL_1_Skeleton_220621_Ctrl.raw",
+          "fileSizeBytes": 1648312417,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/PEO4_multi_3M_XL_1_Skeleton_220621_Ctrl.raw"
+        },
+        {
+          "fileName": "SV40_multi_3M_XL_3_Skeleton_220422_ctrl.raw",
+          "fileSizeBytes": 1652244631,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SV40_multi_3M_XL_3_Skeleton_220422_ctrl.raw"
+        },
+        {
+          "fileName": "SKOV_multi_3M_XL_1_Membrane_220622_R1.raw",
+          "fileSizeBytes": 1709090371,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SKOV_multi_3M_XL_1_Membrane_220622_R1.raw"
+        },
+        {
+          "fileName": "SV40_multi_3M_XL_3_Chromatine_220422_R3.raw",
+          "fileSizeBytes": 1641285314,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SV40_multi_3M_XL_3_Chromatine_220422_R3.raw"
+        },
+        {
+          "fileName": "LFQ_3DBs_Cytoplasm1.mzTab",
+          "fileSizeBytes": 108800198,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/LFQ_3DBs_Cytoplasm1.mzTab"
+        },
+        {
+          "fileName": "PEO4_multi_3M_XL_1_Nucleus_220621_R1.raw",
+          "fileSizeBytes": 1434608803,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/PEO4_multi_3M_XL_1_Nucleus_220621_R1.raw"
+        },
+        {
+          "fileName": "RNAseq_SV40_Full_100K.fasta",
+          "fileSizeBytes": 83338237,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/RNAseq_SV40_Full_100K.fasta"
+        },
+        {
+          "fileName": "SV40_multi_3M_XL_3_Membrane_220422_ctrl.raw",
+          "fileSizeBytes": 1676553185,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SV40_multi_3M_XL_3_Membrane_220422_ctrl.raw"
+        },
+        {
+          "fileName": "PEO4_multi_3M_XL_1_Cytoplasm_220621_R2.raw",
+          "fileSizeBytes": 1883528932,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/PEO4_multi_3M_XL_1_Cytoplasm_220621_R2.raw"
+        },
+        {
+          "fileName": "SV40_multi_3M_XL_3_Chromatine_220422_ctrl.raw",
+          "fileSizeBytes": 1478236180,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SV40_multi_3M_XL_3_Chromatine_220422_ctrl.raw"
+        },
+        {
+          "fileName": "SKOV3_multi_3M_XL_1_Chromatin_220621_R3.raw",
+          "fileSizeBytes": 1513462057,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/SKOV3_multi_3M_XL_1_Chromatin_220621_R3.raw"
+        },
+        {
+          "fileName": "LFQ_3DB_Chromatin.mzTab",
+          "fileSizeBytes": 71290065,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/LFQ_3DB_Chromatin.mzTab"
+        },
+        {
+          "fileName": "LFQ_3DB_Nucleus.mzTab",
+          "fileSizeBytes": 106758378,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/LFQ_3DB_Nucleus.mzTab"
+        },
+        {
+          "fileName": "PEO4_multi_3M_XL_1_Nucleus_220621_Ctrl.raw",
+          "fileSizeBytes": 1357746256,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/PEO4_multi_3M_XL_1_Nucleus_220621_Ctrl.raw"
+        },
+        {
+          "fileName": "OpenProtFull_RNAseqSV40Full.fasta",
+          "fileSizeBytes": 87366048,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD045689/OpenProtFull_RNAseqSV40Full.fasta"
+        }
+      ],
+      "totalCount": 77
+    }
+  }
+}

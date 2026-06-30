@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "pxd": "PXD009641",
+    "category": "llm",
+    "saved_at": "2026-06-30T14:57:33.145194",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"lmf1_partners_dsp\",\n      \"description\": \"LMF1 purified samples crosslinked with DSP to identify ER binding partners (tetracycline induction context not specified in filenames).\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": \"DSP\",\n      \"biological_condition\": \"DSP crosslinked LMF1 binding partners\",\n      \"files\": [\n        \"ID15073_01_E749_3008_120414.raw\",\n        \"ID15074_01_E749_3008_120414.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"Control gel slices were obtained from samples prepared without pBpa (pBpa experiment) or without tetracycline for induction (DSP).\",\n      \"reasoning\": \"The publication describes two control/condition types: pBpa and DSP. The filenames include two raw files with a distinct run identifier (120414) compared to the other set (030315), suggesting they correspond to the alternative condition. Since the publication explicitly mentions DSP as a condition for control gel slices, these two files are assigned to the DSP condition, but the filename pattern does not explicitly encode pBpa vs DSP, so confidence is medium.\"\n    },\n    {\n      \"cluster_id\": \"cluster_2\",\n      \"cluster_label\": \"lmf1_partners_pbpa\",\n      \"description\": \"LMF1 purified samples crosslinked with pBPA to identify ER binding partners.\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": \"pBPA\",\n      \"biological_condition\": \"pBPA crosslinked LMF1 binding partners\",\n      \"files\": [\n        \"ID16362_01_E749_3008_030315.raw\",\n        \"ID16363_01_E749_3008_030315.raw\",\n        \"ID16364_01_E749_3008_030315.raw\",\n        \"ID16365_01_E749_3008_030315.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"Gel slices containing purified LMF1 with pBPA or DSP-crosslinked binding partners were analyzed.\",\n      \"reasoning\": \"The publication states that samples were prepared with either pBPA or DSP crosslinked binding partners. Four files share the same distinct identifier (030315), consistent with being replicates/technical runs from the same biological condition. Given the remaining two files are assigned to the other crosslinker condition, these four are assigned to pBPA. However, the filenames do not explicitly state pBPA, so confidence remains medium.\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a specific biological XL-MS condition.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"All provided files could be grouped into two condition sets consistent with the publication’s pBPA vs DSP crosslinker description.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 6,\n    \"n_assigned_files\": 6,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 2,\n    \"overall_confidence\": \"medium\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "lmf1_partners_dsp",
+          "description": "LMF1 purified samples crosslinked with DSP to identify ER binding partners (tetracycline induction context not specified in filenames).",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": "DSP",
+          "biological_condition": "DSP crosslinked LMF1 binding partners",
+          "files": [
+            "ID15073_01_E749_3008_120414.raw",
+            "ID15074_01_E749_3008_120414.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "Control gel slices were obtained from samples prepared without pBpa (pBpa experiment) or without tetracycline for induction (DSP).",
+          "reasoning": "The publication describes two control/condition types: pBpa and DSP. The filenames include two raw files with a distinct run identifier (120414) compared to the other set (030315), suggesting they correspond to the alternative condition. Since the publication explicitly mentions DSP as a condition for control gel slices, these two files are assigned to the DSP condition, but the filename pattern does not explicitly encode pBpa vs DSP, so confidence is medium."
+        },
+        {
+          "cluster_id": "cluster_2",
+          "cluster_label": "lmf1_partners_pbpa",
+          "description": "LMF1 purified samples crosslinked with pBPA to identify ER binding partners.",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": "pBPA",
+          "biological_condition": "pBPA crosslinked LMF1 binding partners",
+          "files": [
+            "ID16362_01_E749_3008_030315.raw",
+            "ID16363_01_E749_3008_030315.raw",
+            "ID16364_01_E749_3008_030315.raw",
+            "ID16365_01_E749_3008_030315.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "Gel slices containing purified LMF1 with pBPA or DSP-crosslinked binding partners were analyzed.",
+          "reasoning": "The publication states that samples were prepared with either pBPA or DSP crosslinked binding partners. Four files share the same distinct identifier (030315), consistent with being replicates/technical runs from the same biological condition. Given the remaining two files are assigned to the other crosslinker condition, these four are assigned to pBPA. However, the filenames do not explicitly state pBPA, so confidence remains medium."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a specific biological XL-MS condition.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "All provided files could be grouped into two condition sets consistent with the publication’s pBPA vs DSP crosslinker description."
+        }
+      ],
+      "summary": {
+        "n_input_files": 6,
+        "n_assigned_files": 6,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 2,
+        "overall_confidence": "medium"
+      }
+    }
+  }
+}

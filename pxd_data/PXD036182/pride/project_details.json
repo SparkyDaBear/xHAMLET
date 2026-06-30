@@ -1,0 +1,423 @@
+{
+  "metadata": {
+    "pxd": "PXD036182",
+    "category": "pride",
+    "saved_at": "2026-06-30T15:28:06.533421",
+    "filename": "project_details"
+  },
+  "data": {
+    "accession": "PXD036182",
+    "title": "In vivo proximity labeling identifies the interactome of the endoribonuclease Zucchini in Drosophila ovary.",
+    "additionalAttributes": [],
+    "projectDescription": "PIWI-interacting RNAs (piRNAs) are small RNAs that play a conserved role in genome defense by silencing transposable elements. The piRNA processing pathway is dependent on the sequestration of RNA precursors and protein factors in specific subcellular compartments. Therefore, a highly resolved spatial proteomics approach can help identify the local interactions and thereby elucidate the unknown aspects of piRNA biogenesis. Herein, we performed TurboID proximity labeling to investigate the interactome of Zucchini (Zuc), a key factor of piRNA biogenesis in germline cells and somatic follicle cells of the Drosophila ovary. Quantitative mass spectrometry analysis of biotinylated proteins defined the Zuc-proximal proteome, including the well-known partners of Zuc in piRNA biogenesis. Many of these were enriched in the cellular compartment of mitochondria or the outer mitochondrial membrane (OMM), where Zuc was specifically localized. A unique subset of proteins in the Zuc proximal proteome was characterized in comparison with the Tom20 proximal proteome, despite the overlapping subcellular localization of Zuc and Tom20 on OMM, indicating that the proximal proteomes in this analysis have target protein specificity beyond the subcellular localization dependency. Interestingly, the data indicated that chaperone function-related and endomembrane system/vesicle transport proteins are novel interacting partners of Zuc. The functional relevance of several candidates in piRNA biogenesis was validated by derepression of transposable elements after knockdown. Our results not only present potential Zuc-interacting proteins, but also suggest unrecognized biological processes, providing new insights into the physiological functions and molecular mechanisms of Zuc.",
+    "sampleProcessingProtocol": "Sample preparation for proteomics Ovary tissues were lysed with lysis buffer (2% SDS in 1X TBS, 1X protease inhibitor cocktail) and sonicated (Covaris M220 ultrasonicator). Cold acetone was added to the lysate for protein precipitation overnight at -20°C. The pellet was then washed with 90% cold acetone and 10% TBS. After air-drying, the pellet was solubilized with 8 M urea in 50 mM ammonium bicarbonate (ABC). A total of 3 mg of protein in 500 µl of 8M urea, and 50 mM ABC were used for subsequent trypsin digestion. Proteins were denatured for 1 h at 37°C with shaking at 450 rpm and reduced with 10 mM DTT for 1 h at 37°C with shaking at 450 rpm. Proteins were alkylated with 40 mM iodoacetamide at 37°C for 1 h with shaking at 450 rpm. The samples were diluted eight times with 50 mM ABC. CaCl2 was then added at a final concentration of 1 mM. The protein samples were digested with trypsin (Thermo Scientific, #20233) for 16 h at 37°C at a 1:50 (w/w) trypsin-to-protein ratio. Streptavidin (SA) beads (Invitrogen, #65001) were then added to the samples after several washes with 2 M urea in 1X TBS and incubated for 1 h at RT. The beads were washed twice with 2 M urea in 50 mM ABC, and then with pure water. Biotinylated peptides were eluted with 100 µl of 80% ACN, 0.2% TFA, and 0.1% formic acid at 60°C for five times. The combined elution fractions were dried using a Speed Vac and used for mass spectrometry analysis.",
+    "dataProcessingProtocol": "MS data analysis All MS/MS data were searched using MaxQuant (version 1.6.2.3) with the Andromeda search engine at a 10 ppm precursor ion mass tolerance against the Uniprot Drosophila melanogaster proteome database (42,824 entries, UniProt (http://www.uniprot.org/)). Label-free quantification (LFQ) and matching between runs were performed with the following search parameters: trypic digestion, fixed carbaminomethylation on cysteine, dynamic oxidation of methionine, dynamic protein N-terminal acetylation and dynamic biotin labels of lysine residues. A false discovery rate (FDR) of less than 1% was obtained for uniquely labeled peptides and proteins.  Bioinformatics For data processing and visualization of mass spectrometry data, LFQ intensity values from MaxQuant were analyzed using the R package DEP which provides tools for filtering, variance normalization, imputation of missing values and statistical testing for differentially expressed proteins. For the analysis, we first filtered out proteins that contained missing values in any replicate for each condition. Background correction and normalization were performed using a variance-stabilizing transformation (vsn). Condition-specific missing values were imputed using a small deterministic value (R package Msnbase:MinDET method). The missing values were replaced with a minimal value observed in that sample, which is estimated as being the q-th quantile (default ‘q = 0.01’ was used). Differential enrichment analysis (DEA) was performed by applying protein-wise linear models combined with empirical Bayes statistics between conditions (R package limma). The q-value was generated from raw p-values using R package qvalue for further differential enrichment analysis. Protein-protein interactions (PPIs) were derived from the Search Tool for the Retrieval of Interacting Genes/Proteins (STRING, stringApp v1.7 in Cytoscape v3.9.0-BETA1) database (STRING, confidence score cut-off value:0.4, maximum additional interactors:0). Clustering of the PPI networks was achieved using the Markov cluster algorithm (MCL, granular parameter:4). Gene Ontology (GO) biological process (BP) and cellular component (CC) enrichment analyses were conducted using the ClueGO software (ClueGO v2.5.8 in Cytoscape v3.9.0-BETA1). Overview of total proteins with the data-centered per protein was visualized using a heatmap.",
+    "projectTags": [],
+    "keywords": [
+      "Turboid",
+      "Drosophila",
+      "Proximity labeling",
+      "Lc-ms/ms"
+    ],
+    "doi": "10.6019/PXD036182",
+    "submissionType": "COMPLETE",
+    "license": "Creative Commons Public Domain (CC0)",
+    "submissionDate": "2022-08-21",
+    "publicationDate": "2023-02-08",
+    "submitters": [
+      {
+        "title": "Professor",
+        "firstName": "Jong-Seo",
+        "lastName": "Kim",
+        "identifier": "2182754",
+        "affiliation": "School of Biological Sciences, Seoul National University",
+        "email": "jongseokim@snu.ac.kr",
+        "country": "South Korea",
+        "orcid": "",
+        "name": "Jong-Seo Kim",
+        "id": "2182754"
+      }
+    ],
+    "labPIs": [
+      {
+        "title": "Dr",
+        "firstName": "Jong-Seo",
+        "lastName": "Kim",
+        "identifier": "2443161",
+        "affiliation": "Assistant professor, School of Biological Sciences, Seoul National University.",
+        "email": "jongseokim@snu.ac.kr",
+        "country": "",
+        "orcid": "",
+        "name": "Jong-Seo Kim",
+        "id": "2443161"
+      }
+    ],
+    "instruments": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1003029",
+        "name": "Orbitrap Eclipse"
+      }
+    ],
+    "softwares": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1002337",
+        "name": "Andromeda"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1001583",
+        "name": "MaxQuant"
+      }
+    ],
+    "experimentTypes": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000429",
+        "name": "Shotgun proteomics"
+      }
+    ],
+    "quantificationMethods": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000312",
+        "name": "Label free"
+      }
+    ],
+    "countries": [
+      "South Korea"
+    ],
+    "sampleAttributes": [
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "EFO:0000635",
+          "name": "organism part"
+        },
+        "value": [
+          {
+            "cvLabel": "BTO",
+            "accession": "BTO:0000975",
+            "name": "ovary"
+          },
+          {
+            "cvLabel": "CL",
+            "accession": "CL:0002371",
+            "name": "somatic cell"
+          }
+        ]
+      },
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "OBI:0100026",
+          "name": "organism"
+        },
+        "value": [
+          {
+            "cvLabel": "NEWT",
+            "accession": "NEWT:7227",
+            "name": "Drosophila melanogaster (Fruit fly)"
+          }
+        ]
+      }
+    ],
+    "organisms": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "NEWT",
+        "accession": "NEWT:7227",
+        "name": "Drosophila melanogaster (fruit fly)"
+      }
+    ],
+    "organismParts": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "CL",
+        "accession": "CL:0002371",
+        "name": "Somatic cell"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "BTO",
+        "accession": "BTO:0000975",
+        "name": "Ovary"
+      }
+    ],
+    "diseases": [],
+    "references": [
+      {
+        "referenceLine": "Nguyen TTM, Munkhzul C, Kim J, Kyoung Y, Vianney M, Shin S, Ju S, Pham-Bui HA, Kim J, Kim JS, Lee M. In vivo profiling of the Zucchini proximal proteome in the Drosophila ovary. Development. 2023 150(4):dev201220",
+        "pubmedID": 0,
+        "doi": "10.1242/DEV.201220"
+      }
+    ],
+    "identifiedPTMStrings": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00394",
+        "name": "acetylated residue"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:01885",
+        "name": "biotinylated residue"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00397",
+        "name": "iodoacetamide derivatized residue"
+      }
+    ],
+    "totalFileDownloads": 2236,
+    "botCount": 1035,
+    "hubCount": 1175,
+    "organicCount": 26,
+    "files": {
+      "files": [
+        {
+          "fileName": "Zuc_TurboID_NAQ448_J100_210423_3.raw",
+          "fileSizeBytes": 2429497277,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/Zuc_TurboID_NAQ448_J100_210423_3.raw"
+        },
+        {
+          "fileName": "Zuc_TurboID_NAQ448_J100_211019_3.mzid.gz",
+          "fileSizeBytes": 271053131,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/Zuc_TurboID_NAQ448_J100_211019_3.mzid.gz"
+        },
+        {
+          "fileName": "checksum.txt",
+          "fileSizeBytes": 4983,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/checksum.txt"
+        },
+        {
+          "fileName": "NES_TurboID_NAQ448_J100_211019_1.mzXML",
+          "fileSizeBytes": 348946141,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/NES_TurboID_NAQ448_J100_211019_1.mzXML"
+        },
+        {
+          "fileName": "NES_TurboID_NAQ448_J100_211019_1.mzid.gz",
+          "fileSizeBytes": 317488867,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/NES_TurboID_NAQ448_J100_211019_1.mzid.gz"
+        },
+        {
+          "fileName": "Zuc_TurboID_NAQ448_J100_210423_1.raw",
+          "fileSizeBytes": 2579784796,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/Zuc_TurboID_NAQ448_J100_210423_1.raw"
+        },
+        {
+          "fileName": "NES_TurboID_NAQ448_J100_211019_2.mzXML",
+          "fileSizeBytes": 308139459,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/NES_TurboID_NAQ448_J100_211019_2.mzXML"
+        },
+        {
+          "fileName": "Zuc_TurboID_NAQ448_J100_210423_3.mzXML",
+          "fileSizeBytes": 480999047,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/Zuc_TurboID_NAQ448_J100_210423_3.mzXML"
+        },
+        {
+          "fileName": "NES_TurboID_NAQ448_J100_210423_1.mzid.gz",
+          "fileSizeBytes": 220168267,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/NES_TurboID_NAQ448_J100_210423_1.mzid.gz"
+        },
+        {
+          "fileName": "Tom20_TurboID_NAQ448_J100_210423_3.mzid.gz",
+          "fileSizeBytes": 227202021,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/Tom20_TurboID_NAQ448_J100_210423_3.mzid.gz"
+        },
+        {
+          "fileName": "NES_TurboID_NAQ448_J100_210423_2.mzXML",
+          "fileSizeBytes": 481083720,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/NES_TurboID_NAQ448_J100_210423_2.mzXML"
+        },
+        {
+          "fileName": "NES_TurboID_NAQ448_J100_210423_1.raw",
+          "fileSizeBytes": 2438667134,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/NES_TurboID_NAQ448_J100_210423_1.raw"
+        },
+        {
+          "fileName": "Tom20_TurboID_NAQ448_J100_210423_3.raw",
+          "fileSizeBytes": 2951251393,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/Tom20_TurboID_NAQ448_J100_210423_3.raw"
+        },
+        {
+          "fileName": "NES_TurboID_NAQ448_J100_210423_3.raw",
+          "fileSizeBytes": 2467970672,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/NES_TurboID_NAQ448_J100_210423_3.raw"
+        },
+        {
+          "fileName": "Tom20_TurboID_NAQ448_J100_210423_2.mzid.gz",
+          "fileSizeBytes": 231071044,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/Tom20_TurboID_NAQ448_J100_210423_2.mzid.gz"
+        },
+        {
+          "fileName": "Tom20_TurboID_NAQ448_J100_210423_3.mzXML",
+          "fileSizeBytes": 581038331,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/Tom20_TurboID_NAQ448_J100_210423_3.mzXML"
+        },
+        {
+          "fileName": "Tom20_TurboID_NAQ448_J100_210423_2.mzXML",
+          "fileSizeBytes": 535051191,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/Tom20_TurboID_NAQ448_J100_210423_2.mzXML"
+        },
+        {
+          "fileName": "NES_TurboID_NAQ448_J100_210423_1.mzXML",
+          "fileSizeBytes": 484869345,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/NES_TurboID_NAQ448_J100_210423_1.mzXML"
+        },
+        {
+          "fileName": "Zuc_TurboID_NAQ448_J100_210423_3.mzid.gz",
+          "fileSizeBytes": 216347289,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/Zuc_TurboID_NAQ448_J100_210423_3.mzid.gz"
+        },
+        {
+          "fileName": "Zuc_TurboID_NAQ448_J100_211019_3.raw",
+          "fileSizeBytes": 2091847340,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/Zuc_TurboID_NAQ448_J100_211019_3.raw"
+        },
+        {
+          "fileName": "Zuc_TurboID_NAQ448_J100_211019_2.raw",
+          "fileSizeBytes": 2563385827,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/Zuc_TurboID_NAQ448_J100_211019_2.raw"
+        },
+        {
+          "fileName": "NES_TurboID_NAQ448_J100_211019_3.mzid.gz",
+          "fileSizeBytes": 273452319,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/NES_TurboID_NAQ448_J100_211019_3.mzid.gz"
+        },
+        {
+          "fileName": "NES_TurboID_NAQ448_J100_210423_2.raw",
+          "fileSizeBytes": 2425874986,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/NES_TurboID_NAQ448_J100_210423_2.raw"
+        },
+        {
+          "fileName": "Zuc_TurboID_NAQ448_J100_211019_1.mzid.gz",
+          "fileSizeBytes": 302038024,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/Zuc_TurboID_NAQ448_J100_211019_1.mzid.gz"
+        },
+        {
+          "fileName": "Tom20_TurboID_NAQ448_J100_210423_1.mzid.gz",
+          "fileSizeBytes": 243725447,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/Tom20_TurboID_NAQ448_J100_210423_1.mzid.gz"
+        },
+        {
+          "fileName": "Zuc_TurboID_NAQ448_J100_210423_2.mzid.gz",
+          "fileSizeBytes": 221766140,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/Zuc_TurboID_NAQ448_J100_210423_2.mzid.gz"
+        },
+        {
+          "fileName": "Zuc_TurboID_NAQ448_J100_210423_2.raw",
+          "fileSizeBytes": 2467999014,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/Zuc_TurboID_NAQ448_J100_210423_2.raw"
+        },
+        {
+          "fileName": "NES_TurboID_NAQ448_J100_210423_3.mzid.gz",
+          "fileSizeBytes": 219688567,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/NES_TurboID_NAQ448_J100_210423_3.mzid.gz"
+        },
+        {
+          "fileName": "Zuc_TurboID_NAQ448_J100_210423_2.mzXML",
+          "fileSizeBytes": 489580335,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/Zuc_TurboID_NAQ448_J100_210423_2.mzXML"
+        },
+        {
+          "fileName": "Zuc_TurboID_NAQ448_J100_211019_2.mzid.gz",
+          "fileSizeBytes": 286616962,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/Zuc_TurboID_NAQ448_J100_211019_2.mzid.gz"
+        },
+        {
+          "fileName": "Tom20_TurboID_NAQ448_J100_210423_1.mzXML",
+          "fileSizeBytes": 564925205,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/Tom20_TurboID_NAQ448_J100_210423_1.mzXML"
+        },
+        {
+          "fileName": "NES_TurboID_NAQ448_J100_211019_3.mzXML",
+          "fileSizeBytes": 406819275,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/NES_TurboID_NAQ448_J100_211019_3.mzXML"
+        },
+        {
+          "fileName": "Zuc_TurboID_NAQ448_J100_211019_2.mzXML",
+          "fileSizeBytes": 513413053,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/Zuc_TurboID_NAQ448_J100_211019_2.mzXML"
+        },
+        {
+          "fileName": "Tom20_TurboID_NAQ448_J100_210423_2.raw",
+          "fileSizeBytes": 2709157546,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/Tom20_TurboID_NAQ448_J100_210423_2.raw"
+        },
+        {
+          "fileName": "Zuc_TurboID_NAQ448_J100_211019_1.raw",
+          "fileSizeBytes": 2071737029,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/Zuc_TurboID_NAQ448_J100_211019_1.raw"
+        },
+        {
+          "fileName": "NES_TurboID_NAQ448_J100_211019_1.raw",
+          "fileSizeBytes": 1701594898,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/NES_TurboID_NAQ448_J100_211019_1.raw"
+        },
+        {
+          "fileName": "Zuc_TurboID_NAQ448_J100_210423_1.mzid.gz",
+          "fileSizeBytes": 221968806,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/Zuc_TurboID_NAQ448_J100_210423_1.mzid.gz"
+        },
+        {
+          "fileName": "NES_TurboID_NAQ448_J100_211019_3.raw",
+          "fileSizeBytes": 2003749795,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/NES_TurboID_NAQ448_J100_211019_3.raw"
+        },
+        {
+          "fileName": "NES_TurboID_NAQ448_J100_210423_2.mzid.gz",
+          "fileSizeBytes": 217751070,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/NES_TurboID_NAQ448_J100_210423_2.mzid.gz"
+        },
+        {
+          "fileName": "Zuc_TurboID_NAQ448_J100_211019_3.mzXML",
+          "fileSizeBytes": 424155770,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/Zuc_TurboID_NAQ448_J100_211019_3.mzXML"
+        },
+        {
+          "fileName": "Zuc_TurboID_NAQ448_J100_210423_1.mzXML",
+          "fileSizeBytes": 511698434,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/Zuc_TurboID_NAQ448_J100_210423_1.mzXML"
+        },
+        {
+          "fileName": "Tom20_TurboID_NAQ448_J100_210423_1.raw",
+          "fileSizeBytes": 2852469912,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/Tom20_TurboID_NAQ448_J100_210423_1.raw"
+        },
+        {
+          "fileName": "NES_TurboID_NAQ448_J100_211019_2.mzid.gz",
+          "fileSizeBytes": 326329048,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/NES_TurboID_NAQ448_J100_211019_2.mzid.gz"
+        },
+        {
+          "fileName": "NES_TurboID_NAQ448_J100_210423_3.mzXML",
+          "fileSizeBytes": 487907786,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/NES_TurboID_NAQ448_J100_210423_3.mzXML"
+        },
+        {
+          "fileName": "NES_TurboID_NAQ448_J100_211019_2.raw",
+          "fileSizeBytes": 1489841383,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/NES_TurboID_NAQ448_J100_211019_2.raw"
+        },
+        {
+          "fileName": "Zuc_TurboID_NAQ448_J100_211019_1.mzXML",
+          "fileSizeBytes": 418920073,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/02/PXD036182/Zuc_TurboID_NAQ448_J100_211019_1.mzXML"
+        }
+      ],
+      "totalCount": 46
+    }
+  }
+}

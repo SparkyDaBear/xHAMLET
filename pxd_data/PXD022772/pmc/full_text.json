@@ -1,0 +1,2064 @@
+{
+  "metadata": {
+    "pxd": "PXD022772",
+    "category": "pmc",
+    "saved_at": "2026-06-30T15:13:55.940443",
+    "filename": "full_text"
+  },
+  "data": [
+    {
+      "bioctype": "BioCCollection",
+      "source": "PMC",
+      "date": "20260205",
+      "key": "pmc.key",
+      "version": "1.0",
+      "infons": {},
+      "documents": [
+        {
+          "bioctype": "BioCDocument",
+          "id": "PMC8155564",
+          "infons": {
+            "license": "CC BY"
+          },
+          "passages": [
+            {
+              "bioctype": "BioCPassage",
+              "offset": 0,
+              "infons": {
+                "article-id_doi": "10.1021/acs.jproteome.0c01000",
+                "article-id_pmc": "PMC8155564",
+                "article-id_pmid": "33852321",
+                "fpage": "2560",
+                "issue": "5",
+                "kwd": "tandem mass spectrometry cross-linking bioinformatics search engine MS/MS XL-MS protein-protein-interaction PPI",
+                "license": "Permits the broadest form of re-use including for commercial purposes, provided that author attribution and integrity are maintained (https://creativecommons.org/licenses/by/4.0/).",
+                "lpage": "2569",
+                "name_0": "surname:Pirklbauer;given-names:Georg\nJ.",
+                "name_1": "surname:Stieger;given-names:Christian E.",
+                "name_2": "surname:Matzinger;given-names:Manuel",
+                "name_3": "surname:Winkler;given-names:Stephan",
+                "name_4": "surname:Mechtler;given-names:Karl",
+                "name_5": "surname:Dorfer;given-names:Viktoria",
+                "section_type": "TITLE",
+                "type": "front",
+                "volume": "20",
+                "year": "2021"
+              },
+              "text": "MS Annika: A New Cross-Linking Search Engine",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 45,
+              "infons": {
+                "section_type": "ABSTRACT",
+                "type": "abstract"
+              },
+              "text": "Cross-linking mass spectrometry (XL-MS) has become a powerful technique that enables insights into protein structures and protein interactions. The development of cleavable cross-linkers has further promoted XL-MS through search space reduction, thereby allowing for proteome-wide studies. These new analysis possibilities foster the development of new cross-linkers, which not every search engine can deal with out of the box. In addition, some search engines for XL-MS data also struggle with the validation of identified cross-linked peptides, that is, false discovery rate (FDR) estimation, as FDR calculation is hampered by the fact that not only one but two peptides in a single spectrum have to be correct. We here present our new search engine, MS Annika, which can identify cross-linked peptides in MS2 spectra from a wide variety of cleavable cross-linkers. We show that MS Annika provides realistic estimates of FDRs without the need of arbitrary score cutoffs, being able to provide on average 44% more identifications at a similar or better true FDR than comparable tools. In addition, MS Annika can be used on proteome-wide studies due to fast, parallelized processing and provides a way to visualize the identified cross-links in protein 3D structures.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 1313,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "title_1"
+              },
+              "text": "Introduction",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 1326,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "Cross-linking mass spectrometry (XL-MS) allows for the identification of protein–protein interactions as well as protein structure. Until now, these two problems were tackled by individual methods that are usually expensive or time-consuming, such as NMR and X-ray crystallography. Very recently, computational approaches to estimate protein structures have shown large potential but remain to be thoroughly evaluated. With the emergence of cross-linking technology, these two areas of interest can be investigated with one technique. XL-MS builds atop MS, a field that has reliably produced high-quality scientific results for decades.−",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 1968,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "In XL-MS, linker molecules are used to connect one or more residues of one or more proteins (usually two). There are many different types of linkers, which can be grouped into MS-cleavable and noncleavable linkers. The initially developed linkers were noncleavable linkers, realized as sturdy connections between two residues. Cleavable cross-linkers are an extension of this idea but enable cleavage of specific position in the linker molecule, allowing for increased speeds and confidence in data analysis.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 2477,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "In both cases, the resulting mass spectra contain two peptides that must be identified to determine the parent proteins and subsequently identify the interactions thereof. The identification of single, linear peptides is a field well studied and continuously expanding. There are numerous different concepts for the search for peptides and search engines that implement these ideas.− In this work, we focus on database search engines, but there are also other approaches for the identification of peptides such as de novo search and spectral library search. Standard peptide search algorithms cannot be used for the search for cross-linked peptides out of the box since they are designed to work not with multiple but with only one peptide in each spectrum.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 3237,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "In addition to the search engines not being able to tackle this challenge, another problem emerges: as the name suggests, a search engine traverses a database (or even all possible combinations of amino acids) for the most likely peptide sequence. This search can take a long time, depending on the number and size of proteins of interest. For data of noncleavable cross-linking experiments, this is an even greater issue as the spectrum contains two potential peptides but no clear information about the individual peptides’ masses. Therefore, all potential combinations of two peptides must be considered. By combining each potential peptide with each other potential peptide, a quadratic search space is created. For small database sizes, this problem can be solved using brute force algorithms, but as the database size increases (e.g., for proteome-wide studies), the runtime exceeds sensible time constraints even on high-performance computing clusters.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 4199,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "Cleavable cross-linkers aim to alleviate this so-called n-squared problem. Their ability to break apart in the mass spectrometer can cleverly be used to identify the masses of the two individual peptides. Then, the two peptides can be identified independently and reconstructed into a whole cross-link spectrum match (CSM). With the emergence of cleavable cross-linkers, new methods for measurement were developed. MS2-based approaches generally require less instrument time. MS2–MS3-based methods require more time due to the additional measurements and an MS3-capable mass spectrometer but can lead to improved results.−",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 4826,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "Another question almost always present in proteomics MS relates to the correctness of identifications. Search engines generally identify the peptide that is most likely the correct peptide, but in some cases, the chosen sequence is wrong. The percentage of wrong identifications compared to all identifications is often referred to as the false discovery rate (FDR). To estimate this FDR, an equally sized database of incorrect potential peptides, so-called decoys, is searched simultaneously. By assuming that the number of false positives is not higher than the number of identified decoys, the result can be filtered to a desired estimated FDR. FDRs are usually calculated either by the search software or in an additional step after the search.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 5575,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "Due to recent advances in instrumentation and protocols, the popularity of XL-MS has steadily increased. With that, the need for new and improved algorithms is apparent.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 5745,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "The question of FDR estimation is a crucial point in the development of any search tool, cross-linking or otherwise. As incorrect results are almost guaranteed to appear in the output, it is important to estimate their amount and filter accordingly. For cross-linking experiments, the chance of identifying at least one decoy among the two peptides is much higher than for linear peptides, and several methods to deal with this problem have been proposed. Multiple studies have shown that established tools often fail catastrophically to estimate true FDRs. Arbitrary score cutoffs and aggressive postsearch filtering steps have been suggested to come to grips with these results. However, this often obscures the method used for FDR estimation, prohibits understanding of the underlying score distribution, and removes more true positives than necessary. Therefore, the cross-linking community pushes toward more reliability and transparency in cross-linking experiments and error estimation.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 6739,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "Identifying cross-links is helpful for numerous applications, for example, drawing of protein–protein interaction networks or mapping of cross-links to three-dimensional (3D) structures. Multiple platforms have been developed to visualize such data. One of them is xiView, an online platform that allows user upload and provides visualizations and information about the submitted data. One rather interesting functionality is the possibility of creating protein interaction networks from the data in a fully automated way. This is especially relevant for proteome-wide studies and provides a great overview of the proteins in the sample and their connections. Furthermore, xiView, provided with a protein data bank (PDB) accession number, can display the 3D model of the protein in question. The software also displays the cross-links in the 3D model and can color the links according to their length in space, which is crucial for the verification of cross-links.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 7706,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "In this work, we present a new search engine, MS Annika, for the identification of cross-links from tandem MS data, which is transparent in peptide identification and reliable in FDR calculation. Our algorithm is focused on MS2 spectra, alleviating the need for an additional measurement. MS Annika can deal with a wide variety of cleavable cross-linkers such as DSSO, DSBU, DSAU, DSBSO, and PIR linkers (e.g., BDP-NHP), as well as cleavable zero-length cross-linkers (e.g., CDI). Furthermore, MS Annika offers support for data containing ion mobilities. MS Annika is fully integrated with Thermo Proteome Discoverer (versions 2.3, 2.4, and 2.5). The fast implementation is available free of charge at  and can be used to search data sets up to a proteome-wide scale.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 8474,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_1"
+              },
+              "text": "Methods",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 8482,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Our newly implemented search algorithm makes use of the typical fragmentation patterns of cleavable cross-links in the MS2 spectrum of tandem MS experiments. The alternative to this approach is to use a third MS stage (MS2–MS3 based approaches), which increases the time needed to acquire mass spectra and therefore decreases throughput. Furthermore, this approach requires a mass spectrometer with MS3 capabilities.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 8901,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "It has been shown that using stepped collision energies improves the MS2 fragmentation pattern, which further decreases the requirement for additional measurements. Therefore, we focused our development effort on creating a powerful search engine that requires only MS2 data. Two crucial steps are required for the determination of cross-links from tandem MS data. First, spectra containing cross-links have to be identified. The development of cleavable cross-linkers provides a means for the identification of peptide masses from MS2 spectra. This identification is facilitated in the MS Annika Detector. The second step is to identify the cross-links from the spectra, which is implemented as the MS Annika Search Node. Finally, a validation step is often added to control the number of false positives (MS Annika Validator). An overview of the different components of MS Annika is depicted in Figure 1. A complete workflow to identify cross-linked peptides in tandem mass spectra using MS Annika in Thermo Proteome Discoverer is shown in Supporting Information Figure S1.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 9977,
+              "infons": {
+                "file": "pr0c01000_0002.jpg",
+                "id": "fig1",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "MS Annika search\nengine. The MS Annika Detector identifies potential\nion doublets and passes the spectra to the search node if doublets\nare found. Spectra with identified ion doublets are searched using\nthe MS Annika Search node. The final combination of CSM matches to\ncross-links as well as multilevel FDR control fall into the scope\nof the MS Annika Validator node. The optional xiView Exporter node\ncan be used to export cross-links at different confidence levels,\nwhich can then be uploaded to xiView for evaluation.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 10499,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "MS Annika Detector: Separation of Spectra with and without Cross-Linked Peptides",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 10580,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Before identifying cross-links from spectra, MS Annika investigates whether a spectrum contains cross-linked peptides or not. Cleavable cross-linkers are often symmetric, with two fragmentation sites. These potential cleavage sites are positioned such that the linker breaks at an off-center position. Therefore, one peptide is attached to the heavier and one peptide is connected to the lighter side of the linker. Since multiple identical peptide pairs are contained in the sample and the linker does not always break on the same side, both peptides are ideally present with the lighter and heavier linker part. The two differently modified peptides (light and heavy) are separated by a specific mass difference in the mass spectrum, which depends on the used cross-linker. This unique information can be used to identify spectra containing cross-linked peptides In the ideal case, all four possible peaks (the two doublets) are present. These doublets are complete light-heavy peak pairs for each peptide. However, it is not always guaranteed that all four ions are present in the spectrum. In some cases, only one doublet and one ion of the other doublet are present. This method to identify spectra as cross-link spectra is named evidence mode since it requires ions from both peptides to be present.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 11886,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "To handle the remaining peptide pairs, MS Annika also offers indication mode. If one of the doublets is complete, while the other doublet is missing, MS Annika infers the missing peptide pair using the precursor mass. MS Annika calculates all four possible combinations (light–light, light–heavy, heavy–light, and heavy–heavy) as it is not clear if the peptides carry the light or heavy part of the linker. All pairs that fulfil the requirement of matching the precursor mass are stored for the search step. Visual representations of the different modes are shown in Supporting Information Figures S2 and S3. Spectra not containing any cross-link information can be searched with a standard database search tool. MS Amanda, for example, provides the possibility to search for dead-end links by defining cross-linker specific modifications (see Supporting Information Figure S1). Annotated spectra containing these doublet peaks are exemplarily shown in Supporting Information Figures S9 and S10.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 12890,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "MS Annika can also search spectra in combined mode, which combines indication and evidence modes to cover as many cases as possible. However, looking at more cases inadvertently increases the runtime consumption of the search process.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 13125,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Additional features that are often present in the cross-linking mass spectra are the so-called diagnostic ions. These are ions that represent partial or broken cross-linkers without a peptide residue attached to it. These diagnostic ions can be deliberate (e.g., in the BDP-NHP linker) or a byproduct (cross-link residues that fragmented at the peptide connection instead of the intended fragmentation position, etc.; e.g., in DSSO). Identifying such ions in a spectrum provides strong evidence that the spectrum is indeed a cross-link spectrum. The MS Annika Detector can use these diagnostic ions to identify spectra containing cross-linked peptides.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 13778,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "In certain cases, there is no clear isotope pattern in the MS1 spectrum, and the precursor assigned to an MS2 spectrum is wrong, representing the first isotope (1xC13). It has been shown that this problem occurs even more often with cross-linked peptides due to their higher masses. MS Annika can also handle such cases and provides two ways to search for alternative precursors: one that is based on the ions that are present in the MS1 spectrum and the one that ignores whether the ions are present in the MS1 or not and simply assumes their positions. It is possible to specify the desired mode and the number of offsets that should be considered.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 14429,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "MS Annika Search: Determination of Cross-Links from Spectrum Matches",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 14498,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "After the identification of spectra containing cross-linked peptides, the actual search step is performed. Identification of peptides in the spectrum is based on the MS Amanda search engine, which was extended to allow for searches of cross-link modifications on the individual peptides. In the search step, these modified peptide masses are used to search for each of the two individual peptides in the mass spectrum. MS Annika takes advantage of the fact that MS Amanda provides multiple peptides for each peptide mass. The top N peptides for each of the two peptide masses are used, where N is a user-defined parameter. Then, all combinations between the potential candidates for the first identified peptide mass and the candidates for the second peptide mass are created. This search results in several peptide pairs, with a combined score—the AnnikaScore—for each of the pairs. MS Annika uses the AmandaScore S (ref, eq 7) to evaluate the quality of a match of a peptide with a spectrum. The AmandaScore is a probability-based score and calculates the probability that a match happened by chance using the binomial distribution. This probability is weighted by the explained intensity based on the matched peaks and log transformed for better readability.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 15764,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "The AnnikaScore A for a spectrum s and two potential peptides pep1 and pep2 is calculated as the minimum of the AmandaScore for each of the two peptides",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 15917,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Only peptides that, together with the cross-linker mass, make up the precursor mass with consideration of some user-defined tolerance are used for the result. The two peptides are considered only if the following mass relation is fulfilledwhere massP is the (converted uncharged) precursor mass, mass(XL) is the mass of the cross-linker, and TD is the detection tolerance. TD can be defined in Da or ppm and is then converted accordingly.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 16356,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "We refer to two peptides identified from one spectrum as a CSM. The highest-scoring CSM, that is, the peptide pair with the highest AnnikaScore A, is selected and stored for the subsequent validation step. A step-by-step score calculation available in the pseudo-code can be found in the Supporting Information (Supporting Information S1).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 16696,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "MS Annika Validator: Validation at CSM and Cross-Link Levels",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 16757,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "A CSM represents the two identified peptides found in one spectrum. However, there are cases in which the same peptide pair appears in multiple spectra. Furthermore, one peptide can be a part of a longer peptide. In that case, CSMs of two different peptides can represent the same position in a protein. MS Annika alleviates these ambiguities in the list of CSM results by combining CSMs into cross-links, that is, a cross-link contains one or multiple CSMs that describe the same position in the protein (see also Figure 1). This method ensures that even if one of the peptides in a CSM is a substring of another peptide, these two CSMs are attributed to the same cross-link. When several CSMs merge in a cross-link, the score assigned to the cross-link is the maximum score of all included CSMs.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 17555,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "The final mandatory step in each experiment is the validation step. As with most experiments, using a combination of MS and database searching, a target-decoy approach to estimate the FDR is a natural choice, using a reversed database to generate decoys. A decoy hit is present when at least one of the two cross-linked peptides originates from the decoy database (see also Figure 1). MS Annika estimates the FDR at both levels at the CSM as well as at the cross-link level. For both levels, it is possible to set two thresholds for estimated FDRs. By default, these are set to 1 and 5%, respectively. To distinguish these results, MS Annika will assign a confidence to each CSM and cross-link. High-confidence results correspond to the lower threshold (e.g., 1%), and medium-confidence results correspond to the higher FDR threshold (e.g., 5%). This means filtering for results having an assigned confidence of at least “medium” provides all hits above the 5% FDR threshold. These confidences will be displayed in Proteome Discoverer and can be used to filter data to two different FDR levels without having to rerun the entire analysis, as is often the case with other tools.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 18737,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "In addition, MS Annika provides inter/intralink separated FDR as an additional separation technique. Intralink results are cross-linked peptides that occur on the same protein, whereas intralink results correspond to links between two different proteins. In inter/intralink separation, these two sets are validated separately, that is, a horizontal split is applied to the data set. The FDR is estimated for the two data sets individually. Then, the two data sets are reconcatenated.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 19221,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "MS Annika xiView Exporter: Export-Validated Cross-Links to xiView",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 19287,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Visualization of identified cross-links is often essential for further validation and identification of interesting sites. xiView is a tool offering such a functionality. We therefore developed an MS Annika xiView Exporter node that can optionally be applied. This allows users to write identified cross-links to the hard drive, from where they can be uploaded to xiView.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 19659,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "Evaluation",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 19670,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "To test our novel cross-linking search engine, we applied MS Annika (version 1.2.17302 in PD 2.4) to a wide variety of publicly available data sets from different groups, some of which allow for the estimation of true FDR to compare the tool-estimated FDR, and compared the results to two other solutions, MeroX (version 2.0.1.4) and XlinkX (version 1.0.0.0, for Proteome Discoverer 2.4 and 2.5), the most used cross-link search engines available to our knowledge. The peptide library has also been processed with pLink (version 2.3.9). .raw files were converted to .mgf files for all MeroX runs using Thermo Raw File Parser (v.1.1.11).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 20307,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "FDR Estimation",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 20322,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "To evaluate FDR estimation of MS Annika, we used two different data sets and compared the estimated and calculated FDRs.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 20443,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "The first data set was the peptide library by Beveridge and co-workers, which was developed as a gold standard to determine true FDRs. It contains synthetic peptides separated in multiple groups. Peptides in each group are cross-linked; groups are pooled and then measured on a Q Exactive HF-X mass spectrometer. The resulting mass spectra should contain cross-links between peptides of the same group. Cross-links between peptides of different groups are understood to be incorrect. Therefore, the true FDR can be calculated using cross-links that connect two peptides from different groups (which are therefore incorrect).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 21068,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "The data used in this experiment was measured using the stepped collision energy acquisition mode, which results in one MS2 spectrum containing fragments from both peptides individually, as well as the peptides themselves. Therefore, these data are well-suited to identify cross-links. The peptide library was measured twice, once cross-linked with DSSO and once with DSBU. We compared the estimated FDR to the calculated FDR of results provided by four different tools (MS Annika, MeroX, pLink, and XlinkX). To calculate the true FDR for each of the four tools, the tools were run with comparable settings (search settings are displayed in Supporting Information Table S2). pLink has been developed for noncleavable cross-linkers but can be tuned to also work with cleavable cross-linkers. For pLink, we converted the .raw file to an .mgf file using MSConvert (version 3.0.20079-3280b8471). XlinkX was run in Proteome Discoverer version 2.4 and 2.5, as in PD 2.5, and an updated FDR calculation for XlinkX was introduced. No cutoff score was used for XlinkX.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 22128,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "The results reported for each tool at the desired FDR cutoffs were then postprocessed using an in-house script in R to generate the figures (Supporting Information S2). For MeroX, CSMs had to be manually combined to cross-links, and for all other tools, cross-links at the desired FDR were exported. Using the identified peptide sequences, it is possible to map the group to which the peptide initially belonged back to each individual peptide. This enables the comparison of the groups for each of the two peptides. A cross-link is assumed to be correct if the two groups are the same and flagged as incorrect if they are not. One peptide (VKYVTEGMR) appears in two groups (2 and 10), and cross-links containing this peptide are assumed to be correct if the second peptide is in either one of the two groups.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 22938,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "The second data set used for FDR estimation was published by Ser and colleagues. In this data set, bovine serum albumin (BSA) proteins were cross-linked with DSSO and measured either mixed with a background of HEK293T cells or on their own. By searching these data against a human database containing common contaminants (CRAPome), which includes BSA, it is possible to approximate true false positive rates: cross-links between residues of BSA are considered correct since they were possible in the originally cross-linked sample and cross-links that form with any other protein are considered incorrect. With this experimental setup, it is not possible to validate the BSA–BSA crosslinks, so we assume all BSA–BSA links to be correct.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 23679,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "We focused our analysis on the samples measured as CIDMS2-HCDMS2 acquisition mode, which can be converted for use in MS Annika using the Spectrum Grouper node in Proteome Discoverer. Due to the lack of that functionality, MeroX cannot be applied to these data out of the box, so we used the Spectrum Grouper Node (Proteome Discoverer 2.4) and exported the data as MGF files, which were then supplied to MeroX. We analyzed the data with MeroX, XlinkX for Proteome Discoverer 2.5, and MS Annika for Proteome Discoverer 2.4.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 24201,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "Search Speed",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 24214,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "As discussed briefly above, the search for cross-linked peptides can quickly become computationally expensive due to the quadratic search space expansion. This poses little to no problems in small-scale studies as the increasing power of modern compute systems can solve these problems by enumerating all possible solutions. However, for proteome-wide applications, the quadratic growth of the search space combined with a large sequence database can quickly exceed the limits of simply adding more compute power. Therefore, smart solutions are required within the software to search only a small, relevant part of the solution space.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 24849,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Cleavable cross-linkers provide a crucial piece of the puzzle of determining areas of interest for the search engine. The ion doublets from the heavy and light parts of the linked peptides provide information about the peptides’ masses, thereby narrowing the search space to areas around these masses. MS Annika provides multiple different search modes [evidence mode, indication mode, and combined mode (see MS Annika Detector)], all of which are optimized for fast execution times. This allows our new search engine to process large numbers of spectra in conjunction with extensive databases in comparatively small timeframes.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 25480,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "To test the applicability of MS Annika to proteome-wide data, we searched a data set on Drosophila melanogaster embryos. We analyzed the first of three replicates consisting of just over 800,000 MS2 spectra.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 25688,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "In addition, we performed a runtime and memory analysis where we searched the data set by Ser and colleagues against protein databases of different sizes. We randomly sampled proteins from the Uniprot human database including isoforms combined with common contaminants, comprising approximately 42,000 proteins. The resulting FASTA files contain 1000, 5000, 10,000, 15,000, 20,000, 25,000, 30,000, 35,000, and 40,000 proteins. Searches were performed on a Virtual Machine (oVirt, Windows Server 2016, Intel Core Skylake, 2.9 GHz, 16 Cores, 80 GB RAM).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 26240,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "Analysis of timsTOF Data",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 26265,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Trapped ion mobility mass spectrometry (tims) has recently been shown to improve the results of cross-linking experiments. However, the availability of data analysis tools that are able to tackle such data is limited. Therefore, pre- or postprocessing steps are necessary to work with these data. MS Annika works with ion mobility data out of the box, without requiring any additional preprocessing steps. In fact, the workflow in Proteome Discoverer barely changes when compared to the standard MS Annika workflow (see Supporting Information Figure S8).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 26820,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "We investigated the same peptide library as before, only measured on a timsTOF Pro mass spectrometer (see Data Acquisition). The resulting raw files can be imported into Proteome Discoverer and searched using a slightly adjusted workflow using the Bruker Ion Mobility Reader node, which is distributed with MS Annika and can be installed as an optional component (see Supporting Information Figure S8).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 27223,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "Data Visualization",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 27242,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "To evaluate the export functionality of the MS Annika xiView Exporter, we searched for DSSO cross-links in the data set created by Stieger and co-workers. The cross-links identified by MS Annika were exported using the MS Annika xiView Exporter and mapped to the 3D structure of Escherichia coli ribosomes (PDB identifier 5IT8) in xiView.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 27581,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "Applicability of MS Annika to Various Cross-Linkers",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 27633,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "To test the applicability of MS Annika to different cross-linkers, we searched several data sets using different cross-linkers other than DSSO or DSBU. We applied MS Annika to a DSAU data set (PXD018935), to a BPD-NHP data set (PXD008975), and to a DSBSO data set (PXD016963). An overview of used data sets with corresponding linkers and PRIDE identifiers is also given in Supporting Information Table S1.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28039,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "Data Acquisition",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28056,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "All data used in this publication have been obtained from the PRIDE public repository (identifiers PXD008975, PXD010796, PXD011861, PXD012546, PXD014337, PXD016963, and PXD018935), except data for synthetic peptide library runs on the timsTOF pro. Here, cross-linked peptides (200 ng each, DSSO or DSBU cross-linked) were separated on a Dionex UltiMate 3000 HPLC RSLC nanosystem (Thermo) coupled to a timsTOF Pro (Bruker) mass spectrometer using a Captive Spray Emitter (ZDV, Bruker, ID 10 μm). Samples were loaded using a 5 μL loop onto a trap column (PharmaFluidics, μPAC C18) from where they were transferred to the analytical column (PharmaFluidics, μPAC capLC, 50 cm) heated to 50 °C. Peptides were eluted using a flow rate of 1 μL min–1 with the following gradient over 95 min: 0–2.5 min 1% buffer B, followed by an increasing concentration of buffer B up to 40% until min 62. This is followed by a 3 min gradient reaching 97.5% B and washing for 12 min with 97.5% B, followed by re-equilibration of the column until min 95 at 1% buffer B [buffer B: 80% acetonitrile, 19.92% H2O, and 0.08% trifluoroacetyl (TFA); buffer A: 99.9% H2O and 0.1% TFA]. Data acquisition on timsTOF Pro was performed using otofControl 6.2 based on settings as published by Steigenberger et al. with the following details: PASEF precursors were selected at z = 3–6 with a mobility-dependent stepped collision energy of 21.25 and 28.75 eV at an inverse reduced mobility (1/K0) of 0.73 V s/cm2 and 72.25 and 97.75 eV at 1.63 V s/cm2; collision energies were linearly interpolated between these two 1/K0 values and kept constant above or below these base points. Isolation width was set to 2 m/z at 700 m/z. Data have been deposited at the PRIDE repository with the identifier PXD022772.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 29835,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_1"
+              },
+              "text": "Results",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 29843,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "We here present results obtained with our new search engine MS Annika capable of reliably identifying cross-linked peptides, suitable for a variety of cleavable cross-linkers and qualified to properly estimate the underlying FDR.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 30073,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "MS Annika Provides Realistic Estimates of FDRs",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 30120,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "As mentioned before, the peptide library can be used to compare estimated and calculated FDRs for cross-linking search engines.Figure 2 shows the results for the four different tools at 1 and 5% estimated FDR and compared to the calculated FDR based on the wrongly identified cross-linkers from separate groups (given in dark orange). In all cases, MS Annika outperforms MeroX and XlinkX not only in the number of identified cross-links but also in the correctness of the estimated FDR. Only when using DSBU and 5% FDR, MeroX provides a slightly better FDR estimate (5.64 vs 5.9% of MS Annika). Still, in that special case, MS Annika provides a higher number of correctly identified cross-links (255 vs 251 of MeroX). This implies that the distribution of scores is more easily separable for MS Annika.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 30923,
+              "infons": {
+                "file": "pr0c01000_0003.jpg",
+                "id": "fig2",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Cross-links at one and five percent estimated\nFDRs and calculated\nFDRs for four different tools, namely, MeroX, XlinkX, pLink, and MS\nAnnika. Searches have been performed on the data set provided by Beveridge\nand co-workers, consisting of synthetic\npeptides in multiple groups, where peptides within a group are cross-linked.\nFalse-positive XLs (dark orange) are cross-linked peptides in different\ngroups, enabling the comparison between the estimated FDR (based on\na target-decoy search) and the calculated FDR based on the false-positive\nXLs. Calculated FDRs are generally higher than the estimated FDRs.\nResults shown were obtained using no score cutoff for any of the tools.\nFor XlinkX, a minimum score difference (delta score) of 4 was set.\nScore cutoffs can often remove many true positives and can obfuscate\nthe selection of cross-links. In PD 2.5, a new FDR calculation strategy\nwas introduced for XlinkX.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 31837,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "In PD 2.5, an updated FDR calculation for XlinkX was introduced. Still, there are massive discrepancies between the calculated and estimated FDRs. pLink provides a better FDR estimation at 1% FDR (0% for DSBU and 6.2% for DSSO) but provides a significant lower number of identified correct cross-links than all other tools.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 32161,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "MS Annika performs similar when looking at CSM level FDRs. At 1% estimated CSM level FDR, the calculated FDR for the DSBU data set is 1.45, and for DSSO, it is 2.5 (see Supporting Information Table S3). For the DSSO data set, the overlap of identified cross-links within the same group among all four search engines is relatively high (70 cross-links, Supporting Information Figure S4), whereas for DSBU, MS Annika and MeroX agree on a higher number of identifications (207 cross-links, Supporting Information Figure S5).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 32683,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Figure 3 shows results for the data set published by Ser and colleagues, where cross-linked peptides originating from BSA proteins can be considered as correct, and cross-links with non-BSA proteins are considered to be incorrect. Strikingly, MS Annika is the only tool that provides a true FDR of 1% at an estimated FDR of 1%. For MeroX, 75% of identified cross-links are not connecting BSA residues, while 46 and 39% of all identifications are non-BSA cross-links in the XlinkX results. We confirmed that the score cutoff of 100 for XlinkX proposed by Ser and co-workers corresponds to 1% true FDR (blue bars). Items in gray are BSA cross-links that would be removed by applying the 1% true FDR cutoff. In all of the above cases, a single incorrect cross-link is enough to exceed the 1% FDR cutoff, highlighting the importance of strong separation between true and false positives.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 33567,
+              "infons": {
+                "file": "pr0c01000_0004.jpg",
+                "id": "fig3",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Unique\ncross-link counts for measurements from the CIDMS2-HCDMS2\nacquisition mode of the data set created by Ser et al. All three tools were set to 1% estimated FDR\nwithout additional score cutoffs. While MeroX and XlinkX both provide\nmore results, large fractions of identified cross-links are non-BSA\ncross-links (red). When applying a 1% postsearch score cutoff (removing\nthe lowest-scoring item until 1% or less are incorrect items), only\nthe blue items are retained. MS Annika properly separates true and\nfalse positives and provides only correct identifications.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 34136,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "MS Annika Can Tackle Proteome-Wide Studies",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 34179,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "To ensure MS Annika’s applicability to large data sets, we analyzed a data set comprising more than 800,000 MS2 spectra of D. melanogaster embryos. The parallelized architecture of MS Annika takes advantage of multiple processing cores on a processor and finished the workload in 50 h (16 Cores, 2.9 GHz, 80 GB RAM). Our software is well-suited to cluster-compute environments but works just as well on desktop PCs. MS Annika was able to identify 3983 CSMs, which result in 1902 unique cross-linked residues, each at a respective FDR threshold of 5%.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 34732,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Benchmarking MS Annika against a set of randomly sampled protein databases of different sizes revealed a logarithmic runtime and memory behavior as depicted in Supporting Information Figure S6. This fits our time complexity analysis when investigating the code, which in the worst case corresponds to O(n × m), where n is the number of considered doublet pairs and m is the number of spectra.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 35126,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "MS Annika Can Identify Cross-Linked Peptides from Trapped Ion Mobility",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 35197,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Cross-linking experiments can benefit from the usage of tims. We investigated the peptide library described above on a timsTOF Pro mass spectrometer (see Methods). MS Annika was able to quickly identify 165 unique cross-links at 1% estimated FDR for DSSO cross-linked data, with a true FDR (calculated as described above) of 3% (160 true and five false positives). At a more relaxed 5% estimated FDR, MS Annika identified 16 false and 167 true positives for a true FDR of 8.8%. For DSBU, 185 unique cross-links could be identified at 1% estimated FDR, with a true false positive rate of 3.8% (178 true and 7 false positives). At 5%, 22 false and 183 true positives were identified, with a true false positive rate of 10.7%. Due to the early stages of cross-linking paired with ion mobility mass spectrometry, these results will undoubtedly improve as technology and methods are developed further.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 36094,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "MS Annika Provides an Interface to Easily Export and View Cross-Links as Protein Interaction Networks as Well as 3D Structures",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 36221,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Visualizing identified cross-links is a great way to investigate and validate results, for example, by creating protein interaction networks from the data in a fully automated way (for an example see Supporting Information Figure S7). Figure 4 shows the 3D structure of protein 5IT8 in xiView with DSSO cross-links identified using MS Annika and exported using MS Annika xiView Exporter. Links are colored according to their length in space, and only cross-linkers shorter than 26 Å are displayed. xiView was able to map 180 cross-links to the structure, with 134 of them satisfying the distance constraint. For additional 253 cross-links, at least one peptide was identified on the structure. In total, more than 70% of identified cross-links can be connected to the 3D structure.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 37004,
+              "infons": {
+                "file": "pr0c01000_0005.jpg",
+                "id": "fig4",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Visualization in xiView of DSSO cross-links\nin the data set created\nby Stieger et al. and identified by MS\nAnnika mapped to the 3D structure of E. coli ribosomes (PDB identifier 5IT8), displaying only cross-links shorter than 26 Å.\nOrange cross-links connect two residues of the same protein (intralinks),\nwhile blue cross-links span residues between different proteins (interlinks).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 37389,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "MS Annika Can Deal with a Wide Array of Different Cross-Linkers and Data Sources",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 37470,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "The method of setting up linker molecules in Proteome Discoverer and extended by settings in MS Annika allows for the definition of a wide array of different MS-cleavable cross-linkers. Table 1 gives an overview of all cleavable cross-linkers MS Annika can deal with. We have successfully used MS Annika with DSSO, DSBU, DSAU, DSBSO, and BDP-NHP linkers, and identified CSMs and cross-links at 1 and 5% FDR are given in Supporting Information Table S1. MS Annika should, however, be able to deal with any linker with the same functional principle, for example, sulfoxy-based linkers, urea linkers and PIR linkers. With the expansion of the modification editor in Proteome Discoverer 2.5, it is also possible to define zero-length cleavable cross-linkers (e.g., CDI).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 38237,
+              "infons": {
+                "file": null,
+                "id": "tbl1",
+                "section_type": "TABLE",
+                "type": "table_title_caption"
+              },
+              "text": "Evaluated Applicability\nof MS Annika\nto Data Sets Measured Using Various Cross-Linksa",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 38323,
+              "infons": {
+                "file": null,
+                "id": "tbl1",
+                "section_type": "TABLE",
+                "type": "table_footnote"
+              },
+              "text": "Results for these evaluations can\nbe found in Supporting Information Table\nS1. The application to CDI linkers is only available in MS Annika\nfor Proteome Discoverer 2.5. In addition to the mentioned linkers,\nMS Annika can deal with any sulfoxy-based, urea or PIR linker.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 38594,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "title_1"
+              },
+              "text": "Discussion and Conclusions",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 38621,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "paragraph"
+              },
+              "text": "We have developed a new cross-linking search engine, called MS Annika, that can deal with a wide variety of cleavable cross-linkers. We have tested our search engine to work with DSSO, DSBU, DSAU, BPD-NHP, or DSBSO linkers, but it can in theory deal with any (novel) cleavable linker. The focus of the search engine lies on the reliable and fast identification of CSMs and cross-links of cleavable cross-linkers from MS2 data only. MS Annika uses the MS Amanda search engine to identify each of the two cross-linked peptides in a mass spectrum. The final Annika score is the minimum Amanda score of the two peptides. Taking the minimum score of the two identified peptides rather than, for example, a geometric mean, penalizes CSMs that have one very high-scoring identification and one with a rather low score, which would otherwise add potentially wrong identifications to the result.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 39508,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "paragraph"
+              },
+              "text": "In this work, we have shown that MS Annika can outperform other search engines on the tested data sets, both in the number of identifications as well as in the correctness of results. For data sets where a real FDR can be calculated and compared to the estimated FDR, MS Annika is able to provide a better FDR estimation than other tools, such as XlinkX or MeroX. Interestingly, these estimates are closer to the truth for DSBU data, whereas all tools perform significantly worse when estimating FDR for DSSO data. Estimating FDRs on small data sets, such as the peptide library or the BSA data set used in this manuscript, is of course very fragile as a single false identification can easily hamper the estimation. For cross-linking experiments, this is even worse as always two peptides must be considered. Still, this is also true for the DSBU data where this phenomenon did not emerge. This discrepancy has to be further investigated but just might be dependent on the fine tuning of the used settings or the data set quality.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 40540,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "paragraph"
+              },
+              "text": "In this manuscript, we also show that MS Annika can tackle proteome-wide studies and export results to validate cross-links in protein 3D structures using xiView. In addition, the integrated workflow allows not only for Thermo raw data but also trapped ion mobility data from Bruker instruments using the Ion Mobility Reader node provided by the Institute of Molecular Pathology, Vienna (included with the MS Annika installer).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 40968,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "title_1"
+              },
+              "text": "Availability and Limitations",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 40997,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "paragraph"
+              },
+              "text": "MS Annika is implemented in C# as nodes for Thermo Proteome Discoverer (2.3, 2.4, and 2.5) and available free of charge at . It is currently limited to only work with cleavable cross-linkers. A standalone version is in development that is being implemented in .NET Core and .NET Standard to ensure operating system independent usability and includes a developer documentation. Pseudo-code documenting the functionality of the main features of MS Annika are available in Supporting Information S1. The license information and a detailed user manual including parameter descriptions and a step-by-step instruction with sample files, how to run MS Annika, and how results look like are also available on the homepage. System requirements are similar to requirements of Proteome Discoverer, and we were able to run it without problems on a desktop machine (Win10, Intel Core i5, 4 Cores, 3.20 Ghz, 16 GB RAM). Data sets comprising more than a million spectra will still run on such a system; however, it will definitely take a significant amount of time.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 42048,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "paragraph"
+              },
+              "text": "All data sets used are freely available. Data for the timsTOF measurements of the synthetic peptide library have been deposited on the PRIDE repository (, PXD022772).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 42215,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "title"
+              },
+              "text": "Supporting Information Available",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 42248,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "paragraph"
+              },
+              "text": "MS Annika Workflow in Proteome Discoverer; evidence mode of MS Annika; indication mode of MS Annika; numbers of identified cross-links and CSMs for different data sets presented in this work; settings for different tools mentioned in the main text; CSM level FDRs for MS Annika; overlap of cross-linkers for DSSO-linked peptides; overlap of cross-linkers for DSBU-linked peptide; runtime and memory analysis; protein interaction network created within xiView; modified workflow for timsTOF data using the Bruker Ion Mobility Reader; example CSM of the DSSO data set by Beveridge et al. as depicted in Thermo Proteome Discoverer 2.5; and example CSM of the DSSO data set by Beveridge et al. as depicted in Thermo Proteome Discoverer 2.5 (PDF)",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 42990,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "paragraph"
+              },
+              "text": "Pseudo-code of the main functionality of MS Annika (MSAnnika_pseudo_code.pdf) (PDF)",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43074,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "paragraph"
+              },
+              "text": "In-house R script used to create Figure S2 (MSAnnika_plots_bar_and_venn.R) (TXT)",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43155,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "paragraph"
+              },
+              "text": "The Supporting Information is available free of charge at https://pubs.acs.org/doi/10.1021/acs.jproteome.0c01000.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43269,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "title_1"
+              },
+              "text": "Supplementary Material",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43292,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "paragraph"
+              },
+              "text": "The authors declare no competing financial interest.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43345,
+              "infons": {
+                "section_type": "REF",
+                "type": "title"
+              },
+              "text": "References",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43356,
+              "infons": {
+                "fpage": "1000",
+                "lpage": "1008",
+                "name_0": "surname:O’Reilly;given-names:F. J.",
+                "name_1": "surname:Rappsilber;given-names:J.",
+                "pub-id_doi": "10.1038/s41594-018-0147-0",
+                "pub-id_pmid": "30374081",
+                "section_type": "REF",
+                "source": "Nat. Struct. Mol. Biol.",
+                "type": "ref",
+                "volume": "25",
+                "year": "2018"
+              },
+              "text": "Cross-linking mass spectrometry: methods and applications in structural, molecular and systems biology",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43459,
+              "infons": {
+                "fpage": "20",
+                "lpage": "32",
+                "name_0": "surname:Leitner;given-names:A.",
+                "name_1": "surname:Faini;given-names:M.",
+                "name_2": "surname:Stengel;given-names:F.",
+                "name_3": "surname:Aebersold;given-names:R.",
+                "pub-id_doi": "10.1016/j.tibs.2015.10.008",
+                "pub-id_pmid": "26654279",
+                "section_type": "REF",
+                "source": "Trends Biochem. Sci.",
+                "type": "ref",
+                "volume": "41",
+                "year": "2016"
+              },
+              "text": "Crosslinking and Mass Spectrometry: An Integrated Technology to Understand the Structure and Function of Molecular Machines",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43583,
+              "infons": {
+                "fpage": "4862",
+                "lpage": "4865",
+                "name_0": "surname:AlQuraishi;given-names:M.",
+                "pub-id_doi": "10.1093/bioinformatics/btz422",
+                "pub-id_pmid": "31116374",
+                "section_type": "REF",
+                "source": "Bioinformatics",
+                "type": "ref",
+                "volume": "35",
+                "year": "2019"
+              },
+              "text": "AlphaFold at CASP13",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43603,
+              "infons": {
+                "fpage": "347",
+                "lpage": "355",
+                "name_0": "surname:Aebersold;given-names:R.",
+                "name_1": "surname:Mann;given-names:M.",
+                "pub-id_doi": "10.1038/nature19949",
+                "pub-id_pmid": "27629641",
+                "section_type": "REF",
+                "source": "Nature",
+                "type": "ref",
+                "volume": "537",
+                "year": "2016"
+              },
+              "text": "Mass-spectrometric exploration of proteome structure and function",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43669,
+              "infons": {
+                "fpage": "39",
+                "lpage": "46",
+                "name_0": "surname:Belsom;given-names:A.",
+                "name_1": "surname:Rappsilber;given-names:J.",
+                "pub-id_doi": "10.1016/j.cbpa.2020.07.008",
+                "pub-id_pmid": "32829152",
+                "section_type": "REF",
+                "source": "Curr.\nOpin. Chem. Biol.",
+                "type": "ref",
+                "volume": "60",
+                "year": "2021"
+              },
+              "text": "Anatomy of a crosslinker",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43694,
+              "infons": {
+                "fpage": "5981",
+                "lpage": "5987",
+                "name_0": "surname:Piersimoni;given-names:L.",
+                "name_1": "surname:Sinz;given-names:A.",
+                "pub-id_doi": "10.1007/s00216-020-02700-x",
+                "pub-id_pmid": "32472143",
+                "section_type": "REF",
+                "source": "Anal. Bioanal.\nChem.",
+                "type": "ref",
+                "volume": "412",
+                "year": "2020"
+              },
+              "text": "Cross-linking/mass spectrometry at the crossroads",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43744,
+              "infons": {
+                "fpage": "78",
+                "lpage": "93",
+                "name_0": "surname:Matzinger;given-names:M.",
+                "name_1": "surname:Mechtler;given-names:K.",
+                "pub-id_doi": "10.1021/acs.jproteome.0c00583",
+                "pub-id_pmid": "33151691",
+                "section_type": "REF",
+                "source": "J. Proteome Res.",
+                "type": "ref",
+                "volume": "20",
+                "year": "2021"
+              },
+              "text": "Cleavable Cross-Linkers and Mass Spectrometry for the Ultimate Task of Profiling Protein–Protein Interaction Networks in Vivo",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43872,
+              "infons": {
+                "fpage": "196",
+                "lpage": "206",
+                "name_0": "surname:Steigenberger;given-names:B.",
+                "name_1": "surname:Albanese;given-names:P.",
+                "name_2": "surname:Heck;given-names:A. J. R.",
+                "name_3": "surname:Scheltema;given-names:R. A.",
+                "pub-id_doi": "10.1021/jasms.9b00085",
+                "pub-id_pmid": "32031400",
+                "section_type": "REF",
+                "source": "J. Am. Soc. Mass\nSpectrom.",
+                "type": "ref",
+                "volume": "31",
+                "year": "2020"
+              },
+              "text": "To Cleave or Not To Cleave in XL-MS?",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43909,
+              "infons": {
+                "fpage": "3679",
+                "lpage": "3684",
+                "name_0": "surname:Dorfer;given-names:V.",
+                "pub-id_doi": "10.1021/pr500202e",
+                "pub-id_pmid": "24909410",
+                "section_type": "REF",
+                "source": "J. Proteome Res.",
+                "type": "ref",
+                "volume": "13",
+                "year": "2014"
+              },
+              "text": "MS Amanda, a Universal Identification Algorithm Optimized for High Accuracy Tandem Mass Spectra",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 44005,
+              "infons": {
+                "fpage": "292",
+                "lpage": "306",
+                "name_0": "surname:Verheggen;given-names:K.",
+                "pub-id_doi": "10.1002/mas.21543",
+                "pub-id_pmid": "28902424",
+                "section_type": "REF",
+                "source": "Mass Spectrom. Rev.",
+                "type": "ref",
+                "volume": "39",
+                "year": "2020"
+              },
+              "text": "Anatomy and evolution of database search engines—a central component of mass spectrometry based proteomic workflows",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 44123,
+              "infons": {
+                "fpage": "1794",
+                "lpage": "1805",
+                "name_0": "surname:Cox;given-names:J.",
+                "pub-id_doi": "10.1021/pr101065j",
+                "pub-id_pmid": "21254760",
+                "section_type": "REF",
+                "source": "J. Proteome Res.",
+                "type": "ref",
+                "volume": "10",
+                "year": "2011"
+              },
+              "text": "Andromeda: A Peptide Search Engine Integrated into the MaxQuant Environment",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 44199,
+              "infons": {
+                "fpage": "3551",
+                "lpage": "3567",
+                "name_0": "surname:Perkins;given-names:D.\nN.",
+                "name_1": "surname:Pappin;given-names:D. J. C.",
+                "name_2": "surname:Creasy;given-names:D. M.",
+                "name_3": "surname:Cottrell;given-names:J. S.",
+                "pub-id_doi": "10.1002/(sici)1522-2683(19991201)20:18<3551::aid-elps3551>3.0.co;2-2",
+                "pub-id_pmid": "10612281",
+                "section_type": "REF",
+                "source": "Electrophoresis",
+                "type": "ref",
+                "volume": "20",
+                "year": "1999"
+              },
+              "text": "Probability-based protein identification by searching sequence databases using mass spectrometry data",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 44301,
+              "infons": {
+                "fpage": "976",
+                "lpage": "989",
+                "name_0": "surname:Eng;given-names:J. K.",
+                "name_1": "surname:McCormack;given-names:A. L.",
+                "name_2": "surname:Yates;given-names:J. R.",
+                "pub-id_doi": "10.1016/1044-0305(94)80016-2",
+                "pub-id_pmid": "24226387",
+                "section_type": "REF",
+                "source": "J. Am. Soc. Mass Spectrom.",
+                "type": "ref",
+                "volume": "5",
+                "year": "1994"
+              },
+              "text": "An approach to correlate tandem mass spectral data of peptides with amino acid sequences in a protein database",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 44412,
+              "infons": {
+                "fpage": "83",
+                "lpage": "97",
+                "name_0": "surname:Götze;given-names:M.",
+                "pub-id_doi": "10.1007/s13361-014-1001-1",
+                "pub-id_pmid": "25261217",
+                "section_type": "REF",
+                "source": "J. Am. Soc. Mass Spectrom.",
+                "type": "ref",
+                "volume": "26",
+                "year": "2015"
+              },
+              "text": "Automated Assignment of MS/MS Cleavable Cross-Links in Protein 3D-Structure Analysis",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 44497,
+              "infons": {
+                "fpage": "15473",
+                "name_0": "surname:Liu;given-names:F.",
+                "name_1": "surname:Lössl;given-names:P.",
+                "name_2": "surname:Scheltema;given-names:R.",
+                "name_3": "surname:Viner;given-names:R.",
+                "name_4": "surname:Heck;given-names:A. J. R.",
+                "pub-id_doi": "10.1038/ncomms15473",
+                "pub-id_pmid": "28524877",
+                "section_type": "REF",
+                "source": "Nat. Commun.",
+                "type": "ref",
+                "volume": "8",
+                "year": "2017"
+              },
+              "text": "Optimized fragmentation schemes and data analysis strategies for proteome-wide cross-link identification",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 44602,
+              "infons": {
+                "fpage": "2545",
+                "lpage": "2558",
+                "name_0": "surname:Ser;given-names:Z.",
+                "name_1": "surname:Cifani;given-names:P.",
+                "name_2": "surname:Kentsis;given-names:A.",
+                "pub-id_doi": "10.1021/acs.jproteome.9b00085",
+                "pub-id_pmid": "31083951",
+                "section_type": "REF",
+                "source": "J. Proteome\nRes.",
+                "type": "ref",
+                "volume": "18",
+                "year": "2019"
+              },
+              "text": "Optimized Cross-Linking Mass Spectrometry for in Situ Interaction Proteomics",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 44679,
+              "infons": {
+                "fpage": "1363",
+                "lpage": "1370",
+                "name_0": "surname:Stieger;given-names:C. E.",
+                "name_1": "surname:Doppler;given-names:P.",
+                "name_2": "surname:Mechtler;given-names:K.",
+                "pub-id_doi": "10.1021/acs.jproteome.8b00947",
+                "pub-id_pmid": "30693776",
+                "section_type": "REF",
+                "source": "J. Proteome Res.",
+                "type": "ref",
+                "volume": "18",
+                "year": "2019"
+              },
+              "text": "Optimized Fragmentation Improves the Identification of Peptides Cross-Linked by MS-Cleavable Reagents",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 44781,
+              "infons": {
+                "fpage": "207",
+                "lpage": "214",
+                "name_0": "surname:Elias;given-names:J. E.",
+                "name_1": "surname:Gygi;given-names:S. P.",
+                "pub-id_doi": "10.1038/nmeth1019",
+                "pub-id_pmid": "17327847",
+                "section_type": "REF",
+                "source": "Nat. Methods",
+                "type": "ref",
+                "volume": "4",
+                "year": "2007"
+              },
+              "text": "Target-decoy search strategy for increased confidence in large-scale protein identifications by mass spectrometry",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 44895,
+              "infons": {
+                "fpage": "48",
+                "lpage": "53",
+                "name_0": "surname:Iacobucci;given-names:C.",
+                "name_1": "surname:Götze;given-names:M.",
+                "name_2": "surname:Sinz;given-names:A.",
+                "pub-id_doi": "10.1016/j.copbio.2019.12.009",
+                "pub-id_pmid": "31891863",
+                "section_type": "REF",
+                "source": "Curr. Opin. Biotechnol.",
+                "type": "ref",
+                "volume": "63",
+                "year": "2020"
+              },
+              "text": "Cross-linking/mass spectrometry to get a closer view on protein interaction networks",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 44980,
+              "infons": {
+                "fpage": "742",
+                "name_0": "surname:Beveridge;given-names:R.",
+                "name_1": "surname:Stadlmann;given-names:J.",
+                "name_2": "surname:Penninger;given-names:J. M.",
+                "name_3": "surname:Mechtler;given-names:K.",
+                "pub-id_doi": "10.1038/s41467-020-14608-2",
+                "pub-id_pmid": "32029734",
+                "section_type": "REF",
+                "source": "Nat. Commun.",
+                "type": "ref",
+                "volume": "11",
+                "year": "2020"
+              },
+              "text": "A synthetic peptide library for benchmarking crosslinking-mass spectrometry search engines for proteins and protein complexes",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 45106,
+              "infons": {
+                "fpage": "1259",
+                "lpage": "1268",
+                "name_0": "surname:Leitner;given-names:A.",
+                "pub-id_doi": "10.1016/j.str.2020.09.011",
+                "pub-id_pmid": "33065067",
+                "section_type": "REF",
+                "source": "Structure",
+                "type": "ref",
+                "volume": "28",
+                "year": "2020"
+              },
+              "text": "Toward Increased Reliability, Transparency, and Accessibility in Cross-linking Mass Spectrometry",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 45203,
+              "infons": {
+                "fpage": "3829",
+                "lpage": "3833",
+                "name_0": "surname:Fischer;given-names:L.",
+                "name_1": "surname:Rappsilber;given-names:J.",
+                "pub-id_doi": "10.1021/acs.analchem.6b03745",
+                "pub-id_pmid": "28267312",
+                "section_type": "REF",
+                "source": "Anal. Chem.",
+                "type": "ref",
+                "volume": "89",
+                "year": "2017"
+              },
+              "text": "Quirks of Error Estimation in Cross-Linking/Mass Spectrometry",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 45265,
+              "infons": {
+                "fpage": "93",
+                "name_0": "surname:Mintseris;given-names:J.",
+                "name_1": "surname:Gygi;given-names:S. P.",
+                "pub-id_doi": "10.1073/pnas.1902931116",
+                "pub-id_pmid": "31848235",
+                "section_type": "REF",
+                "source": "Proc. Natl. Acad. Sci. U.S.A.",
+                "type": "ref",
+                "volume": "117",
+                "year": "2019"
+              },
+              "text": "High-density chemical cross-linking for modeling protein interactions",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 45335,
+              "infons": {
+                "name_0": "surname:Lenz;given-names:S.",
+                "section_type": "REF",
+                "type": "ref",
+                "year": "2020"
+              },
+              "text": "Reliable identification of protein-protein interactions by crosslinking mass spectrometry",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 45425,
+              "infons": {
+                "name_0": "surname:Graham;given-names:M.",
+                "name_1": "surname:Combe;given-names:C.",
+                "name_2": "surname:Kolbowski;given-names:L.",
+                "name_3": "surname:Rappsilber;given-names:J.",
+                "section_type": "REF",
+                "type": "ref",
+                "year": "2019"
+              },
+              "text": "xiView: A common platform for the downstream analysis of Crosslinking Mass Spectrometry data",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 45518,
+              "infons": {
+                "fpage": "M110.002170",
+                "name_0": "surname:Kao;given-names:A.",
+                "pub-id_doi": "10.1074/mcp.m110.002212",
+                "section_type": "REF",
+                "source": "Mol. Cell. Proteomics",
+                "type": "ref",
+                "volume": "10",
+                "year": "2011"
+              },
+              "text": "Development of a Novel Cross-linking Strategy for Fast and Accurate Identification of Cross-linked Peptides of Protein Complexes",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 45647,
+              "infons": {
+                "fpage": "6958",
+                "lpage": "6968",
+                "name_0": "surname:Müller;given-names:M. Q.",
+                "name_1": "surname:Dreiocker;given-names:F.",
+                "name_2": "surname:Ihling;given-names:C. H.",
+                "name_3": "surname:Schäfer;given-names:M.",
+                "name_4": "surname:Sinz;given-names:A.",
+                "pub-id_doi": "10.1021/ac101241t",
+                "pub-id_pmid": "20704385",
+                "section_type": "REF",
+                "source": "Anal.\nChem.",
+                "type": "ref",
+                "volume": "82",
+                "year": "2010"
+              },
+              "text": "Cleavable Cross-Linker for Protein Structure Analysis: Reliable Identification of Cross-Linking Products by Tandem MS",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 45765,
+              "infons": {
+                "fpage": "3533",
+                "lpage": "3543",
+                "name_0": "surname:Kaake;given-names:R. M.",
+                "pub-id_doi": "10.1074/mcp.m114.042630",
+                "pub-id_pmid": "25253489",
+                "section_type": "REF",
+                "source": "Mol. Cell. Proteomics",
+                "type": "ref",
+                "volume": "13",
+                "year": "2014"
+              },
+              "text": "A New in Vivo Cross-linking Mass Spectrometry Platform to Define Protein–Protein Interactions in Living Cells",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 45877,
+              "infons": {
+                "fpage": "1451",
+                "lpage": "1467",
+                "name_0": "surname:Chavez;given-names:J. D.",
+                "name_1": "surname:Weisbrod;given-names:C. R.",
+                "name_2": "surname:Zheng;given-names:C.",
+                "name_3": "surname:Eng;given-names:J. K.",
+                "name_4": "surname:Bruce;given-names:J. E.",
+                "pub-id_doi": "10.1074/mcp.m112.024497",
+                "pub-id_pmid": "23354917",
+                "section_type": "REF",
+                "source": "Mol. Cell. Proteomics",
+                "type": "ref",
+                "volume": "12",
+                "year": "2013"
+              },
+              "text": "Protein Interactions, Post-translational Modifications and Topologies in Human Cells",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 45962,
+              "infons": {
+                "fpage": "14551",
+                "lpage": "14555",
+                "name_0": "surname:Hage;given-names:C.",
+                "name_1": "surname:Iacobucci;given-names:C.",
+                "name_2": "surname:Rehkamp;given-names:A.",
+                "name_3": "surname:Arlt;given-names:C.",
+                "name_4": "surname:Sinz;given-names:A.",
+                "pub-id_doi": "10.1002/anie.201708273",
+                "section_type": "REF",
+                "source": "Angew. Chem., Int. Ed.",
+                "type": "ref",
+                "volume": "56",
+                "year": "2017"
+              },
+              "text": "The First Zero-Length Mass Spectrometry-Cleavable Cross-Linker for Protein Structure Analysis",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 46056,
+              "infons": {
+                "fpage": "116184",
+                "name_0": "surname:Steigenberger;given-names:B.",
+                "name_1": "surname:Schiller;given-names:H. B.",
+                "name_2": "surname:Pieters;given-names:R. J.",
+                "name_3": "surname:Scheltema;given-names:R. A.",
+                "pub-id_doi": "10.1016/j.ijms.2019.116184",
+                "section_type": "REF",
+                "source": "Int. J. Mass Spectrom.",
+                "type": "ref",
+                "volume": "444",
+                "year": "2019"
+              },
+              "text": "Finding and using diagnostic ions in collision induced crosslinked peptide fragmentation spectra",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 46153,
+              "infons": {
+                "fpage": "3923",
+                "lpage": "3931",
+                "name_0": "surname:Lenz;given-names:S.",
+                "name_1": "surname:Giese;given-names:S. H.",
+                "name_2": "surname:Fischer;given-names:L.",
+                "name_3": "surname:Rappsilber;given-names:J.",
+                "pub-id_doi": "10.1021/acs.jproteome.8b00600",
+                "pub-id_pmid": "30293428",
+                "section_type": "REF",
+                "source": "J. Proteome Res.",
+                "type": "ref",
+                "volume": "17",
+                "year": "2018"
+              },
+              "text": "J. In-Search Assignment of Monoisotopic Peaks Improves the Identification of Cross-Linked Peptides",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 46252,
+              "infons": {
+                "fpage": "2964",
+                "name_0": "surname:Klykov;given-names:O.",
+                "pub-id_doi": "10.1038/s41596-018-0074-x",
+                "pub-id_pmid": "30446747",
+                "section_type": "REF",
+                "source": "Nat. Protoc.",
+                "type": "ref",
+                "volume": "13",
+                "year": "2018"
+              },
+              "text": "Efficient and robust proteome-wide approaches for cross-linking mass spectrometry",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 46334,
+              "infons": {
+                "fpage": "216",
+                "lpage": "232",
+                "name_0": "surname:Liu;given-names:F.",
+                "name_1": "surname:Lössl;given-names:P.",
+                "name_2": "surname:Rabbitts;given-names:B. M.",
+                "name_3": "surname:Balaban;given-names:R. S.",
+                "name_4": "surname:Heck;given-names:A. J. R.",
+                "pub-id_doi": "10.1074/mcp.ra117.000470",
+                "pub-id_pmid": "29222160",
+                "section_type": "REF",
+                "source": "Mol. Cell. Proteomics",
+                "type": "ref",
+                "volume": "17",
+                "year": "2018"
+              },
+              "text": "The interactome of intact mitochondria by cross-linking mass spectrometry provides evidence for coexisting respiratory supercomplexes",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 46468,
+              "infons": {
+                "fpage": "3404",
+                "name_0": "surname:Chen;given-names:Z.-L.",
+                "pub-id_doi": "10.1038/s41467-019-11337-z",
+                "pub-id_pmid": "31363125",
+                "section_type": "REF",
+                "source": "Nat. Commun.",
+                "type": "ref",
+                "volume": "10",
+                "year": "2019"
+              },
+              "text": "A high-speed search engine pLink 2 with systematic evaluation for proteome-scale identification of cross-linked peptides",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 46589,
+              "infons": {
+                "fpage": "918",
+                "lpage": "920",
+                "name_0": "surname:Chambers;given-names:M. C.",
+                "pub-id_doi": "10.1038/nbt.2377",
+                "pub-id_pmid": "23051804",
+                "section_type": "REF",
+                "source": "Nat. Biotechnol.",
+                "type": "ref",
+                "volume": "30",
+                "year": "2012"
+              },
+              "text": "A cross-platform toolkit for mass spectrometry and proteomics",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 46651,
+              "infons": {
+                "fpage": "730",
+                "lpage": "736",
+                "name_0": "surname:Mellacheruvu;given-names:D.",
+                "pub-id_doi": "10.1038/nmeth.2557",
+                "pub-id_pmid": "23921808",
+                "section_type": "REF",
+                "source": "Nat. Methods",
+                "type": "ref",
+                "volume": "10",
+                "year": "2013"
+              },
+              "text": "The CRAPome: a Contaminant Repository for Affinity Purification Mass Spectrometry Data",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 46738,
+              "infons": {
+                "fpage": "10236",
+                "lpage": "10244",
+                "name_0": "surname:Götze;given-names:M.",
+                "name_1": "surname:Iacobucci;given-names:C.",
+                "name_2": "surname:Ihling;given-names:C. H.",
+                "name_3": "surname:Sinz;given-names:A.",
+                "pub-id_doi": "10.1021/acs.analchem.9b02372",
+                "pub-id_pmid": "31283178",
+                "section_type": "REF",
+                "source": "Anal. Chem.",
+                "type": "ref",
+                "volume": "91",
+                "year": "2019"
+              },
+              "text": "A Simple Cross-Linking/Mass Spectrometry Workflow for Studying System-wide Protein Interactions",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 46834,
+              "infons": {
+                "fpage": "1677",
+                "lpage": "1687",
+                "name_0": "surname:Steigenberger;given-names:B.",
+                "pub-id_doi": "10.1074/mcp.ra120.002094",
+                "pub-id_pmid": "32694122",
+                "section_type": "REF",
+                "source": "Mol. Cell. Proteomics",
+                "type": "ref",
+                "volume": "19",
+                "year": "2020"
+              },
+              "text": "Benefits of Collisional Cross Section Assisted Precursor Selection (caps-PASEF) for Cross-linking Mass Spectrometry",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 46950,
+              "infons": {
+                "fpage": "12618",
+                "name_0": "surname:Tüting;given-names:C.",
+                "name_1": "surname:Iacobucci;given-names:C.",
+                "name_2": "surname:Ihling;given-names:C. H.",
+                "name_3": "surname:Kastritis;given-names:P. L.",
+                "name_4": "surname:Sinz;given-names:A.",
+                "pub-id_doi": "10.1038/s41598-020-69313-3",
+                "pub-id_pmid": "32724211",
+                "section_type": "REF",
+                "source": "Sci. Rep.",
+                "type": "ref",
+                "volume": "10",
+                "year": "2020"
+              },
+              "text": "Structural analysis of 70S ribosomes by cross-linking/mass spectrometry reveals conformational plasticity",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 47056,
+              "infons": {
+                "fpage": "6028",
+                "lpage": "6034",
+                "name_0": "surname:Mohr;given-names:J. P.",
+                "name_1": "surname:Perumalla;given-names:P.",
+                "name_2": "surname:Chavez;given-names:J. D.",
+                "name_3": "surname:Eng;given-names:J. K.",
+                "name_4": "surname:Bruce;given-names:J. E.",
+                "pub-id_doi": "10.1021/acs.analchem.7b04991",
+                "pub-id_pmid": "29676898",
+                "section_type": "REF",
+                "source": "Anal. Chem.",
+                "type": "ref",
+                "volume": "90",
+                "year": "2018"
+              },
+              "text": "Mango: A General Tool for Collision Induced Dissociation-Cleavable Cross-Linked Peptide Identification",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 47159,
+              "infons": {
+                "fpage": "2071",
+                "lpage": "2079",
+                "name_0": "surname:Matzinger;given-names:M.",
+                "name_1": "surname:Kandioller;given-names:W.",
+                "name_2": "surname:Doppler;given-names:P.",
+                "name_3": "surname:Heiss;given-names:E. H.",
+                "name_4": "surname:Mechtler;given-names:K.",
+                "pub-id_doi": "10.1021/acs.jproteome.0c00003",
+                "pub-id_pmid": "32250121",
+                "section_type": "REF",
+                "source": "J. Proteome Res.",
+                "type": "ref",
+                "volume": "19",
+                "year": "2020"
+              },
+              "text": "Fast and Highly Efficient Affinity Enrichment of Azide-A-DSBSO Cross-Linked Peptides",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            }
+          ],
+          "annotations": [],
+          "relations": []
+        }
+      ]
+    }
+  ]
+}

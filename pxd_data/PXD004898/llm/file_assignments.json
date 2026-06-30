@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "pxd": "PXD004898",
+    "category": "llm",
+    "saved_at": "2026-06-30T14:53:58.601776",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"mouse_laminin111_bs3\",\n      \"description\": \"Murine laminin 111 crosslinked with BS3 (including isotopic mixtures) and analyzed by LC-MS/MS.\",\n      \"organism\": \"Mus musculus\",\n      \"taxid\": \"NCBITaxon:10090\",\n      \"crosslinker\": \"BS3\",\n      \"biological_condition\": \"murine laminin 111\",\n      \"files\": [\n        \"dataset3_QEP1_DF_140515_laminin_2-5mMcrosslink_150515_BS3noGel.raw\",\n        \"dataset7_QEP2_DFA_chymot-tryp_BS3_1_040615.raw\",\n        \"dataset9_QEP1_DFA_Laminin_1_0len_200715.raw\",\n        \"dataset1_QEP1_DF_241114_1_band_241114.raw\",\n        \"dataset2_QEP1_DF_241114_7_band_241114.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"Murine laminin 111 was treated with isotopic mixtures (d12/d0) of the cross-linkers bis(sulfosuccinimidyl)suberate (BS3) or suberic acid 1,8-dihydrazide (SDH).\",\n      \"reasoning\": \"Filenames explicitly containing 'BS3' (dataset3, dataset7) are assigned to the BS3 condition. The remaining laminin-related files (dataset9 and the two 'band' files) do not explicitly state the crosslinker in the filename; however, the publication focuses on laminin 111 crosslinked with BS3 or SDH, and these files are most plausibly part of the laminin BS3 set. Because crosslinker is not stated for dataset1/2/9, confidence is medium.\"\n    },\n    {\n      \"cluster_id\": \"cluster_2\",\n      \"cluster_label\": \"mouse_laminin111_sdh\",\n      \"description\": \"Murine laminin 111 crosslinked with SDH (including isotopic mixtures) and analyzed by LC-MS/MS.\",\n      \"organism\": \"Mus musculus\",\n      \"taxid\": \"NCBITaxon:10090\",\n      \"crosslinker\": \"SDH\",\n      \"biological_condition\": \"murine laminin 111\",\n      \"files\": [\n        \"dataset4_QEP2_DF_SDH_noGel040615_laminin_140615.raw\",\n        \"dataset5_QEP2_DF_020415_1_50mM-SDH_060415.raw\",\n        \"dataset6_QEP2_DF_020415_2_10mM-SDH_060415.raw\",\n        \"dataset8_QEP2_DFA_Laminin_GluC_1_250615.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"Murine laminin 111 was treated with isotopic mixtures (d12/d0) of the cross-linkers bis(sulfosuccinimidyl)suberate (BS3) or suberic acid 1,8-dihydrazide (SDH).\",\n      \"reasoning\": \"Filenames explicitly containing 'SDH' (dataset4, dataset5, dataset6) are assigned to the SDH condition. dataset8 is laminin-related and mentions GluC digestion but does not explicitly state SDH/BS3 in the filename; given the publication’s two-crosslinker design and the presence of multiple laminin/enzymatic variants, dataset8 is assigned to the SDH cluster with medium confidence.\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a specific biological XL-MS condition and crosslinker based on available filename/metadata cues.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"All input files could be mapped to either BS3 or SDH based on filename crosslinker tokens or strong laminin 111 context from the publication.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 9,\n    \"n_assigned_files\": 9,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 2,\n    \"overall_confidence\": \"medium\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "mouse_laminin111_bs3",
+          "description": "Murine laminin 111 crosslinked with BS3 (including isotopic mixtures) and analyzed by LC-MS/MS.",
+          "organism": "Mus musculus",
+          "taxid": "NCBITaxon:10090",
+          "crosslinker": "BS3",
+          "biological_condition": "murine laminin 111",
+          "files": [
+            "dataset3_QEP1_DF_140515_laminin_2-5mMcrosslink_150515_BS3noGel.raw",
+            "dataset7_QEP2_DFA_chymot-tryp_BS3_1_040615.raw",
+            "dataset9_QEP1_DFA_Laminin_1_0len_200715.raw",
+            "dataset1_QEP1_DF_241114_1_band_241114.raw",
+            "dataset2_QEP1_DF_241114_7_band_241114.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "Murine laminin 111 was treated with isotopic mixtures (d12/d0) of the cross-linkers bis(sulfosuccinimidyl)suberate (BS3) or suberic acid 1,8-dihydrazide (SDH).",
+          "reasoning": "Filenames explicitly containing 'BS3' (dataset3, dataset7) are assigned to the BS3 condition. The remaining laminin-related files (dataset9 and the two 'band' files) do not explicitly state the crosslinker in the filename; however, the publication focuses on laminin 111 crosslinked with BS3 or SDH, and these files are most plausibly part of the laminin BS3 set. Because crosslinker is not stated for dataset1/2/9, confidence is medium."
+        },
+        {
+          "cluster_id": "cluster_2",
+          "cluster_label": "mouse_laminin111_sdh",
+          "description": "Murine laminin 111 crosslinked with SDH (including isotopic mixtures) and analyzed by LC-MS/MS.",
+          "organism": "Mus musculus",
+          "taxid": "NCBITaxon:10090",
+          "crosslinker": "SDH",
+          "biological_condition": "murine laminin 111",
+          "files": [
+            "dataset4_QEP2_DF_SDH_noGel040615_laminin_140615.raw",
+            "dataset5_QEP2_DF_020415_1_50mM-SDH_060415.raw",
+            "dataset6_QEP2_DF_020415_2_10mM-SDH_060415.raw",
+            "dataset8_QEP2_DFA_Laminin_GluC_1_250615.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "Murine laminin 111 was treated with isotopic mixtures (d12/d0) of the cross-linkers bis(sulfosuccinimidyl)suberate (BS3) or suberic acid 1,8-dihydrazide (SDH).",
+          "reasoning": "Filenames explicitly containing 'SDH' (dataset4, dataset5, dataset6) are assigned to the SDH condition. dataset8 is laminin-related and mentions GluC digestion but does not explicitly state SDH/BS3 in the filename; given the publication’s two-crosslinker design and the presence of multiple laminin/enzymatic variants, dataset8 is assigned to the SDH cluster with medium confidence."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a specific biological XL-MS condition and crosslinker based on available filename/metadata cues.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "All input files could be mapped to either BS3 or SDH based on filename crosslinker tokens or strong laminin 111 context from the publication."
+        }
+      ],
+      "summary": {
+        "n_input_files": 9,
+        "n_assigned_files": 9,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 2,
+        "overall_confidence": "medium"
+      }
+    }
+  }
+}

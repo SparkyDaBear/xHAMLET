@@ -1,0 +1,257 @@
+{
+  "metadata": {
+    "pxd": "PXD046392",
+    "category": "pride",
+    "saved_at": "2026-06-30T15:37:07.872054",
+    "filename": "project_details"
+  },
+  "data": {
+    "accession": "PXD046392",
+    "title": "Modeling flexible protein structure with AlphaFold2 and cross-linking mass spectrometry",
+    "additionalAttributes": [],
+    "projectDescription": "We propose a pipeline that combines AlphaFold2 (AF2) and crosslinking mass spectrometry (XL-MS) to model the structure of proteins with multiple conformations. The pipeline consists of two main steps: ensemble generation using AF2, and conformer selection using XL-MS data. For conformer selection, we developed two scores – the monolink probability score (MP) and the crosslink probability score (XLP), both of which are based on residue depth. We benchmarked MP and XLP on a large dataset of decoy protein structures, and showed that our scores outperform previously developed scores. We then tested our methodology on three proteins having an open and closed conformation in the Protein Data Bank: Complement component 3 (C3), luciferase, and glutamine-binding periplasmic protein (QBP), first generating ensembles using AF2, which were then screened for the open and closed conformations using experimental XL-MS data. In five out of six cases, the most accurate model within the AF2 ensembles – or a conformation within 1 Å of this model – was identified using crosslinks, as assessed through the XLP score. In the remaining case, only the monolinks (assessed through the MP score) successfully identified the open conformation of QBP. This serves as a compelling proof-of-concept for the effectiveness of monolinks. In contrast, the AF2 assessment score (pTM) was only able to identify the most accurate conformation in two out of six cases. Our results highlight the complementarity of AF2 with experimental methods like XL-MS, with the MP and XLP scores providing reliable metrics to assess the quality of the predicted models.",
+    "sampleProcessingProtocol": "QBP was buffer-exchanged into 20 mM HEPES, pH 7.5, at 4°C (repeated for 10 cycles) to remove salt using an Amicon Ultra-0.5 Centrifugal 10 kDa filter unit (Merck), before dilution to 5.00 µM in 20 mM HEPES. For glutamine-bound QBP, 5 mM glutamine was added prior to crosslinking. 50 mM BS3-d0 crosslinker was then added to glutamine-bound QBP, while 50 mM BS3-d4 crosslinker was added to glutamine-free QBP. Samples were then incubated at room temperature for 120 min before quenching with 20 mM ammonium bicarbonate. The glutamine-bound QBP with BS3-d0 and glutamine-free QBP with BS3-d4 were pooled before mass spectrometry analysis. Samples were reduced with 8 mM dithiothreitol (DTT) and incubated at 37°C for 45 min before alkylation using 20 mM iodoacetamide with incubation in darkness for 45 min, followed by a 1:5 dilution with 50 mM ammonium bicarbonate. Trypsin (Promega) was then added at a Trypsin:QBP mass ratio of 1:50 and incubated overnight at 37°C. The digestion was then quenched by addition of trifluoroacetic acid to a final concentration of 0.50%. Samples were ZipTip desalted (Merck) before reconstitution in 1.0% formic acid at a concentration of 1.0 μg/μL.",
+    "dataProcessingProtocol": "Data analysis was performed using Thermo Fisher Scientific Proteome Discoverer 2.5, with the Sequest HT search engine node used to search the RAW files generated from LC-MS/ MS. Default settings were selected unless otherwise stated. RAW files were searched against a bespoke FASTA file containing the QBP sequence and 200 randomly selected protein sequences from Homo sapiens. Modifications included dynamic methionine oxidation (+15.995 Da), static cysteine carbamidomethylation (+57.021 Da), dynamic N-terminal acetylation (+42.0106 Da), dynamic lysine DSS-d0 amidated monolink (+155.095 Da), and dynamic lysine DSS-d4 amidated monolink (+159.120 Da) (note that search for DSS modification is identical to BS3). Monolinks that were specific to the glutamine-free QBP open conformation were obtained by subtracting modification sites that were also found in the closed, glutamine-bound conformation. The remaining monolinks are listed in Table S1, which includes the lysine K:137 that was predicted to be exposed in the open conformation, but occluded in the closed conformation of QBP",
+    "projectTags": [],
+    "keywords": [
+      "Crosslinks",
+      "Monolinks",
+      "Alphafold2",
+      "Idr",
+      "Flexible protein"
+    ],
+    "doi": "10.6019/PXD046392",
+    "submissionType": "COMPLETE",
+    "license": "Creative Commons Public Domain (CC0)",
+    "submissionDate": "2023-10-25",
+    "publicationDate": "2024-05-24",
+    "submitters": [
+      {
+        "title": "Dr",
+        "firstName": "Kish",
+        "lastName": "Adoni",
+        "identifier": "2999925",
+        "affiliation": "University College London",
+        "email": "kish.95@live.com",
+        "country": "United Kingdom",
+        "orcid": "0000-0001-7390-501X",
+        "name": "Kish Adoni",
+        "id": "2999925"
+      }
+    ],
+    "labPIs": [
+      {
+        "title": "Dr",
+        "firstName": "Konstantinos",
+        "lastName": "Thalassinos",
+        "identifier": "2775168",
+        "affiliation": "1. University College London 2. Birkbeck",
+        "email": "k.thalassinos@ucl.ac.uk",
+        "country": "",
+        "orcid": "",
+        "name": "Konstantinos Thalassinos",
+        "id": "2775168"
+      }
+    ],
+    "instruments": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1003029",
+        "name": "Orbitrap Eclipse"
+      }
+    ],
+    "softwares": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1001208",
+        "name": "Sequest"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1000650",
+        "name": "Proteome Discoverer"
+      }
+    ],
+    "experimentTypes": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000430",
+        "name": "Chemical cross-linking coupled with mass spectrometry proteomics"
+      }
+    ],
+    "quantificationMethods": [],
+    "countries": [
+      "United Kingdom"
+    ],
+    "sampleAttributes": [
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "OBI:0100026",
+          "name": "organism"
+        },
+        "value": [
+          {
+            "cvLabel": "NEWT",
+            "accession": "NEWT:562",
+            "name": "Escherichia coli"
+          }
+        ]
+      }
+    ],
+    "organisms": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "NEWT",
+        "accession": "NEWT:562",
+        "name": "Escherichia coli"
+      }
+    ],
+    "organismParts": [],
+    "diseases": [],
+    "references": [
+      {
+        "referenceLine": "Manalastas-Cantos K, Adoni KR, Pfeifer M, Märtens B, Grünewald K, Thalassinos K, Topf M. Modeling Flexible Protein Structure With AlphaFold2 and Crosslinking Mass Spectrometry. Mol Cell Proteomics. 2024 23(3):100724",
+        "pubmedID": 38266916,
+        "doi": "10.1016/j.mcpro.2024.100724"
+      }
+    ],
+    "identifiedPTMStrings": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000398",
+        "name": "No PTMs are included in the dataset"
+      }
+    ],
+    "totalFileDownloads": 1553,
+    "botCount": 725,
+    "hubCount": 772,
+    "organicCount": 56,
+    "files": {
+      "files": [
+        {
+          "fileName": "111023_QBP_BS3_1ug_bio1tec3.raw",
+          "fileSizeBytes": 448674572,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/05/PXD046392/111023_QBP_BS3_1ug_bio1tec3.raw"
+        },
+        {
+          "fileName": "111023_QBP_BS3_1ug_bio2tec2.raw",
+          "fileSizeBytes": 433939947,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/05/PXD046392/111023_QBP_BS3_1ug_bio2tec2.raw"
+        },
+        {
+          "fileName": "parameters_QBP_XL_d4.txt",
+          "fileSizeBytes": 137284,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/05/PXD046392/parameters_QBP_XL_d4.txt"
+        },
+        {
+          "fileName": "GlnH_BS3_monolinks.mzid.gz",
+          "fileSizeBytes": 111525,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/05/PXD046392/GlnH_BS3_monolinks.mzid.gz"
+        },
+        {
+          "fileName": "GlnH_XL_BS3_replicates_d4_apo.mzML",
+          "fileSizeBytes": 256799458,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/05/PXD046392/GlnH_XL_BS3_replicates_d4_apo.mzML"
+        },
+        {
+          "fileName": "QBP_XL_BS3_replicates_d0_withGlutamine.pep.xml",
+          "fileSizeBytes": 1062718,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/05/PXD046392/QBP_XL_BS3_replicates_d0_withGlutamine.pep.xml"
+        },
+        {
+          "fileName": "GlnH_XL_BS3_replicates_d0_withGlutamine.mzML",
+          "fileSizeBytes": 376518108,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/05/PXD046392/GlnH_XL_BS3_replicates_d0_withGlutamine.mzML"
+        },
+        {
+          "fileName": "parameters.txt",
+          "fileSizeBytes": 134554,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/05/PXD046392/parameters.txt"
+        },
+        {
+          "fileName": "111023_QBP_BS3_1ug_bio1tec2.raw",
+          "fileSizeBytes": 439780024,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/05/PXD046392/111023_QBP_BS3_1ug_bio1tec2.raw"
+        },
+        {
+          "fileName": "QBP_XL_BS3_replicates_d0_withGlutamine.mgf",
+          "fileSizeBytes": 4283505,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/05/PXD046392/QBP_XL_BS3_replicates_d0_withGlutamine.mgf"
+        },
+        {
+          "fileName": "QBP_ML_BS3_replicates.mgf",
+          "fileSizeBytes": 4355419,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/05/PXD046392/QBP_ML_BS3_replicates.mgf"
+        },
+        {
+          "fileName": "QBP_XL_BS3_replicates_d0_withGlutamine.mzid.gz",
+          "fileSizeBytes": 122953,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/05/PXD046392/QBP_XL_BS3_replicates_d0_withGlutamine.mzid.gz"
+        },
+        {
+          "fileName": "111023_QBP_BS3_1ug_bio2tec1.raw",
+          "fileSizeBytes": 437663035,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/05/PXD046392/111023_QBP_BS3_1ug_bio2tec1.raw"
+        },
+        {
+          "fileName": "QBP_XL_BS3_replicates_d4_apo.mzid.gz",
+          "fileSizeBytes": 125414,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/05/PXD046392/QBP_XL_BS3_replicates_d4_apo.mzid.gz"
+        },
+        {
+          "fileName": "checksum.txt",
+          "fileSizeBytes": 2739,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/05/PXD046392/checksum.txt"
+        },
+        {
+          "fileName": "parameters_QBP_XL_d0.txt",
+          "fileSizeBytes": 138720,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/05/PXD046392/parameters_QBP_XL_d0.txt"
+        },
+        {
+          "fileName": "GlnH_ML_BS3_replicates.mzML",
+          "fileSizeBytes": 9006810,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/05/PXD046392/GlnH_ML_BS3_replicates.mzML"
+        },
+        {
+          "fileName": "GlnH_P0AEQ3_withotherproteins_bespoke.FASTA",
+          "fileSizeBytes": 64350,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/05/PXD046392/GlnH_P0AEQ3_withotherproteins_bespoke.FASTA"
+        },
+        {
+          "fileName": "MS_experimental_design.xlsx",
+          "fileSizeBytes": 10727,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/05/PXD046392/MS_experimental_design.xlsx"
+        },
+        {
+          "fileName": "QBP_XL_BS3_replicates_d4_apo.pep.xml",
+          "fileSizeBytes": 836589,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/05/PXD046392/QBP_XL_BS3_replicates_d4_apo.pep.xml"
+        },
+        {
+          "fileName": "111023_QBP_BS3_1ug_bio1tec1.raw",
+          "fileSizeBytes": 421214064,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/05/PXD046392/111023_QBP_BS3_1ug_bio1tec1.raw"
+        },
+        {
+          "fileName": "QBP_XL_BS3_replicates_d4_apo.mgf",
+          "fileSizeBytes": 94331895,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/05/PXD046392/QBP_XL_BS3_replicates_d4_apo.mgf"
+        },
+        {
+          "fileName": "QBP_ML_BS3_replicates.pep.xml",
+          "fileSizeBytes": 1063321,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2024/05/PXD046392/QBP_ML_BS3_replicates.pep.xml"
+        }
+      ],
+      "totalCount": 23
+    }
+  }
+}

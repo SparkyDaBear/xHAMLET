@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "pxd": "PXD037492",
+    "category": "llm",
+    "saved_at": "2026-06-30T15:29:08.829061",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"yeast_az667_xlink09\",\n      \"description\": \"Saccharomyces cerevisiae crosslinked with azide-cleavable crosslinker az667; two raw files correspond to the same condition (xlink09).\",\n      \"organism\": \"Saccharomyces cerevisiae\",\n      \"taxid\": \"NCBITaxon:4932\",\n      \"crosslinker\": \"az667\",\n      \"biological_condition\": \"unspecified biological state (same proteome condition across xlink09 replicates)\",\n      \"files\": [\n        \"QEP2_2018_0117_AZ_104_az667_xlink05.raw\",\n        \"QEP2_2018_0117_AZ_105_az667_xlink09.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"QEP2_2018_0117_AZ_104_az667_xlink05.raw; QEP2_2018_0117_AZ_105_az667_xlink09.raw\",\n      \"reasoning\": \"The filenames explicitly contain 'az667', indicating the crosslinker. The organism is taken from the provided 'Previously extracted organism(s)' list (Saccharomyces cerevisiae). The two files share the same QEP2_2018_0117 and AZ block, differing only by xlink05 vs xlink09, which is treated as a technical/run variant rather than a distinct biological condition per instructions.\"\n    },\n    {\n      \"cluster_id\": \"cluster_2\",\n      \"cluster_label\": \"bovine_bs3_xlink09\",\n      \"description\": \"Bos taurus crosslinked with BS3; two raw files correspond to the same condition (xlink09).\",\n      \"organism\": \"Bos taurus\",\n      \"taxid\": \"NCBITaxon:9913\",\n      \"crosslinker\": \"BS3\",\n      \"biological_condition\": \"unspecified biological state (same proteome condition across xlink05/xlink09 replicates)\",\n      \"files\": [\n        \"QEP2_2016_0121_RJ_57_201_xlink05.raw\",\n        \"QEP2_2016_0121_RJ_58_201_xlink09.raw\",\n        \"QEP2_2016_0121_RJ_73_206_xlink05.raw\",\n        \"QEP2_2016_0121_RJ_74_206_xlink09.raw\"\n      ],\n      \"confidence\": \"low\",\n      \"evidence_quote\": \"QEP2_2016_0121_RJ_57_201_xlink05.raw ... QEP2_2016_0121_RJ_74_206_xlink09.raw\",\n      \"reasoning\": \"The filenames do not explicitly state the crosslinker (unlike 'az667' in the 2018 files). However, the provided organism list includes Bos taurus and Saccharomyces cerevisiae, and the 2016 block (QEP2_2016_0121_RJ_*) is the only remaining set that plausibly corresponds to the other organism. Crosslinker assignment to BS3 is therefore inferred and uncertain.\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a specific biological XL-MS condition with known crosslinker from the provided information.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"All input files were assigned to one of the two organism/crosslinker groupings based on filename patterns and the provided organism list; no obvious QC/calibrant/test files were present.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 6,\n    \"n_assigned_files\": 6,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 2,\n    \"overall_confidence\": \"medium\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "yeast_az667_xlink09",
+          "description": "Saccharomyces cerevisiae crosslinked with azide-cleavable crosslinker az667; two raw files correspond to the same condition (xlink09).",
+          "organism": "Saccharomyces cerevisiae",
+          "taxid": "NCBITaxon:4932",
+          "crosslinker": "az667",
+          "biological_condition": "unspecified biological state (same proteome condition across xlink09 replicates)",
+          "files": [
+            "QEP2_2018_0117_AZ_104_az667_xlink05.raw",
+            "QEP2_2018_0117_AZ_105_az667_xlink09.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "QEP2_2018_0117_AZ_104_az667_xlink05.raw; QEP2_2018_0117_AZ_105_az667_xlink09.raw",
+          "reasoning": "The filenames explicitly contain 'az667', indicating the crosslinker. The organism is taken from the provided 'Previously extracted organism(s)' list (Saccharomyces cerevisiae). The two files share the same QEP2_2018_0117 and AZ block, differing only by xlink05 vs xlink09, which is treated as a technical/run variant rather than a distinct biological condition per instructions."
+        },
+        {
+          "cluster_id": "cluster_2",
+          "cluster_label": "bovine_bs3_xlink09",
+          "description": "Bos taurus crosslinked with BS3; two raw files correspond to the same condition (xlink09).",
+          "organism": "Bos taurus",
+          "taxid": "NCBITaxon:9913",
+          "crosslinker": "BS3",
+          "biological_condition": "unspecified biological state (same proteome condition across xlink05/xlink09 replicates)",
+          "files": [
+            "QEP2_2016_0121_RJ_57_201_xlink05.raw",
+            "QEP2_2016_0121_RJ_58_201_xlink09.raw",
+            "QEP2_2016_0121_RJ_73_206_xlink05.raw",
+            "QEP2_2016_0121_RJ_74_206_xlink09.raw"
+          ],
+          "confidence": "low",
+          "evidence_quote": "QEP2_2016_0121_RJ_57_201_xlink05.raw ... QEP2_2016_0121_RJ_74_206_xlink09.raw",
+          "reasoning": "The filenames do not explicitly state the crosslinker (unlike 'az667' in the 2018 files). However, the provided organism list includes Bos taurus and Saccharomyces cerevisiae, and the 2016 block (QEP2_2016_0121_RJ_*) is the only remaining set that plausibly corresponds to the other organism. Crosslinker assignment to BS3 is therefore inferred and uncertain."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a specific biological XL-MS condition with known crosslinker from the provided information.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "All input files were assigned to one of the two organism/crosslinker groupings based on filename patterns and the provided organism list; no obvious QC/calibrant/test files were present."
+        }
+      ],
+      "summary": {
+        "n_input_files": 6,
+        "n_assigned_files": 6,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 2,
+        "overall_confidence": "medium"
+      }
+    }
+  }
+}

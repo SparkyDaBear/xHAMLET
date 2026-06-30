@@ -1,0 +1,1591 @@
+{
+  "metadata": {
+    "pxd": "PXD011704",
+    "category": "pmc",
+    "saved_at": "2026-06-30T15:00:30.674963",
+    "filename": "full_text"
+  },
+  "data": [
+    {
+      "bioctype": "BioCCollection",
+      "source": "PMC",
+      "date": "20260128",
+      "key": "pmc.key",
+      "version": "1.0",
+      "infons": {},
+      "documents": [
+        {
+          "bioctype": "BioCDocument",
+          "id": "PMC6383985",
+          "infons": {
+            "license": "NO-CC CODE"
+          },
+          "passages": [
+            {
+              "bioctype": "BioCPassage",
+              "offset": 0,
+              "infons": {
+                "article-id_doi": "10.1021/acs.analchem.8b02319",
+                "article-id_pmc": "PMC6383985",
+                "article-id_pmid": "30620560",
+                "fpage": "1808",
+                "issue": "3",
+                "license": "This is an open access article published under a Creative Commons Attribution (CC-BY) License, which permits unrestricted use, distribution and reproduction in any medium, provided the author and source are cited.",
+                "lpage": "1814",
+                "name_0": "surname:James;given-names:Juliette\nM. B.",
+                "name_1": "surname:Cryar;given-names:Adam",
+                "name_2": "surname:Thalassinos;given-names:Konstantinos",
+                "section_type": "TITLE",
+                "type": "front",
+                "volume": "91",
+                "year": "2019"
+              },
+              "text": "Optimization Workflow for the Analysis of Cross-Linked Peptides Using a Quadrupole Time-of-Flight Mass Spectrometer",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 116,
+              "infons": {
+                "section_type": "ABSTRACT",
+                "type": "abstract"
+              },
+              "text": "Cross-linking mass spectrometry is an emerging structural biology technique. Almost exclusively, the analyzer of choice for such an experiment has been the Orbitrap. We present an optimized protocol for the use of a Synapt G2-Si for the analysis of cross-linked peptides. We first tested six different energy ramps and analyzed the fragmentation behavior of cross-linked peptides identified by xQuest. By combining the most successful energy ramps, cross-link yield can be increased by up to 40%. When compared to previously published Orbitrap data, the Synapt G2-Si also offers improved fragmentation of the β peptide. In order to improve cross-link quality control we have also developed ValidateXL, a programmatic solution that works with existing cross-linking software to improve cross-link quality control.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 932,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "Cross-linking mass spectrometry (XLMS) can be used to gain structural insights into proteins and complexes that cannot easily be studied by high-resolution structural techniques. Cross-linking is based on the covalent bonding of two amino acids that lie within a certain proximity. This low-resolution fixation of structure provides information on both distance restraints and solvent accessibility. Following digestion of the cross-linked species, a mixture containing both linear and cross-linked peptides is produced. One of the challenges of a cross-linking experiment is that cross-links are low in abundance. As a result, their signal is often suppressed by more intense linear peptide ions during analysis. Earlier studies utilized an LTQ-Orbitrap mass analyzer, with most experimental designs using linear ion trap (LIT) for both collision-induced dissociation (CID) and analysis of fragment ion spectra.− The lower resolution data obtained using the LIT, however, may lead to incorrect assignments of peptide sequence. This in turn causes an increased risk of missed or false positive cross-link assignment. Current developments in the field now recognize that the accuracy of this analyzer is insufficient to correctly annotate fragment ions, with higher energy collision dissociation (HCD) becoming the dominant analysis method.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 2274,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "Recent advancements in time-of-flight (TOF) technology have allowed an increase in achievable resolving power, providing fragment ion scans up to 40 000 fwhm. In addition, TOF resolving power does not depend on acquisition time, offering a near constant resolution across the mass range and faster scan speeds compatible with ultrahigh performance liquid chromatography (UPLC) for both precursor and fragment ion scans. Furthermore, the ability to seamlessly integrate quadrupole time-of-flight analysers (QTOFs) with ion mobility separation (IMS) offers an extra degree of separation by size, shape, and charge, without the requisite need for additional analysis time. This potentially provides an opportunity to increase cross-link yield through exploitation of the larger and more highly charged nature of cross-linked peptides.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 3108,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "Although cross-linked peptides have been studied using a variety of analyzers, including QTOFs,− the majority of cross-linking studies have been performed on Orbitrap mass analyzers. As a consequence, current cross-linking software has been optimized for Orbitrap data. Furthermore, a recent study showed that HCD and ion trap CID required different collision energies for optimal fragmentation of cross-linked peptides. It is therefore also necessary to perform optimization of collision energies for the analysis of cross-linked peptides on a QTOF instrument.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 3672,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "Here, we present an optimized method for the analysis of cross-linked peptides analyzed using a QTOF geometry. We performed triplicate analysis of six different energy ramps in order to determine the optimal energy for cross-link fragmentation. The resulting approach allows QTOF data to be analyzed with existing cross-linking software, xQuest, with minimal adaptations. We analyze the effects of collision energy on the fragmentation efficiency of bovine serum albumin cross-linked with isotopically labeled bis(sulfosuccinimdyl) suberate (BS 3d0d12). We offer a programmatic solution, ValidateXL.py, which works with result files from xQuest to improve cross-link quality control and reduce manual validation. This software is freely available to download at . Finally, in contrast to data collected from Orbitrap analyzers we also demonstrate improved fragmentation of the β peptide in the cross-link.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 4581,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_1"
+              },
+              "text": "Results and Discussion",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 4604,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "In order to determine the most efficient settings for cross-link fragmentation using a QTOF, a comparison of fragmentation energies was carried out using the collision energy ramps described. The ramps were tested in triplicate using cross-linked bovine serum albumin (BSA). Data were then analyzed by xQuest according to the workflow outlined in Figure 1A. Although only minor adaptations were necessary, QTOF data sets were not immediately readable and required further conversion by MSConvert. In addition, a far greater number of cross-link identifications were found, with improved scores, when using the slow de-isotoping algorithm during data processing at both the precursor and fragment ion level (Figure S1, parts A and B, and Table S1).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 5352,
+              "infons": {
+                "file": "ac-2018-023198_0001.jpg",
+                "id": "fig1",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "(A) Data formatting pipeline for use of\nxQuest with Waters QTOF\ndata. (B) Comparison of xQuest scores for all identified unique BSA\ncross-link peptide pairs across six energy ramps: scores above 20\n(purple), scores below 20 (lilac). Numbers above bars indicate a count\nof cross-links scoring above 20. (C) Mean and standard deviation for\nnumber of manually validated unique BSA cross-link peptide pairs in\ntriplicate analysis of all six energy ramps.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 5803,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Cross-links that pass a prescoring filter are all returned to the user by xQuest. A final score threshold of 30 was originally recommended to determine true positive cross-link identifications. More recent analysis revised this score to 16 for trypsin digests where this work also revealed a dependence of score threshold on the enzyme used to digest samples. Following evaluation of the various scoring thresholds we chose a conservative score of 20 in our initial validation (Figures S2–S4). All identified unique BSA cross-linked peptides are shown in Figure 1B. Unique cross-links include those with linkages in the same absolute position but with different peptide lengths and/or modifications such as oxidized methionine.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 6533,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Overall, there is good reproducibility in the cross-links scoring above 20 (Figures S5–S10). The technical replicates of the mid energy ramp contain the greatest degree of overlap with 38 identical cross-link residue pairs appearing in all three repeats. The high-iTRAQ and mid-iTRAQ repeats contain an intersection of 23 and 22 identifications, respectively (Figures S5–S8). The mid energy ramp is the most reproducible and identifies the most high-scoring cross-links: 103, 111, and 131 in the respective triplicate analysis.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 7065,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Cross-links were then manually validated in the raw data by confirming their charge, mass-to-charge ratio (m/z), and the presence of doublet precursors with a 12 Da mass shift, corresponding to the d0 and d12 versions of the cross-linker. Figure 1C shows the mean and standard deviation for the validated cross-links found in the triplicate studies. The wide energy ramp and those including the iTRAQ (isobaric tags for relative and absolute quantitation) method display the highest degree of variability. This is most likely due to the broad range of energies sampled by these ramps. The iTRAQ method and the wide energy ramp expose peptides to low collision energies irrespective of their m/z. The iTRAQ method does so in a temporal manner with 50% of the scan time devoted to these low ranges. The wide energy ramp encompasses the full range of energies tested by all five ramps. As the m/z of the cross-link increases the range of energies it is exposed to also increases. Thus, by reducing the selectivity of the energy range a greater distribution of fragmentation patterns are observed. This most likely leads to greater variability in the number of cross-links identified. In Figure 1C the high-iTRAQ method shows the best performance of all energy ramps. This is due to variability in the performance of the second and third technical replicates (Figure S2) and is most likely the result of the broader range of energies applied in the iTRAQ method. At higher scoring thresholds the mid energy ramp continues to perform the best (Figure S4). The combination of all three triplicates analyzed using the mid energy ramp identified the highest number, some 277 unique cross-links (see the Supporting Information). As defined above, unique cross-links are described by their sequence not solely their position. Hence, this high number of identifications is due to differences in peptide lengths and modifications.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 8984,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "To assess the fragmentation patterns of the cross-links tandem mass spectrometry (MS/MS) spectra were interrogated for the presence of cross-linked and linear fragment ions. Figure 2 shows spectra for one of the three cross-links identified by all of the energy ramps (see also Figure S11 for another such peptide). Ions corresponding to cross-linked fragments are shown in red, and linear ones are in blue. It can be seen that the high energy ramp contains no cross-linked fragment ions. The sequence coverage of the low and wide energy ramps are considerably worse, with the base peak in the wide energy ramp representing the intact cross-linked precursor. As this ramp covers a vast range of energies over the course of the scan, insufficient time is spent at any one energy to achieve efficient fragmentation. The mid energy ramp appears to offer the best fragmentation for this cross-link, providing the highest degree of sequence coverage. It should also be noted that, despite the poor sequence coverage of the cross-link in both the low and wide energy ramps, xQuest scores each favorably at 26 and 30, respectively. This shows that although a score threshold is necessary it is not sufficient to differentiate reliable cross-link identifications.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 10240,
+              "infons": {
+                "file": "ac-2018-023198_0002.jpg",
+                "id": "fig2",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Example spectra for cross-link ID DTHKSEIAHR-FKDLGEEHFK\n(a4, b2). Cross-linked fragment ions are shown in red, and linear\nfragment ions are in blue. xQuest scores are shown in brackets. A\nloss of cross-linked fragment ions is observed in the high energy\nramp.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 10500,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "xQuest distinguishes between the two types of fragment ions and scores the correlation between the observed and theoretical fragment ion spectra separately for each type of ion. The results of these correlations are reported as two subscores: XCorrx for cross-linked fragment ions and XCorrb for linear fragment ions. In order to better visualize the effects of the ramps on each type of fragment ion produced, a kernel density estimation (KDE) was performed on the XCorrx and XCorrb subscores. Kernel density estimation estimates the underlying probability distribution from which a sample is drawn. It requires that each instance within the sample is both independent and identically distributed. Parts A and B of Figure 3 show a comparison of the estimated distribution for both the linear fragment ion correlation score and the cross-linked fragment ion correlation score, for the high, mid, and low energy ramps.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 11418,
+              "infons": {
+                "file": "ac-2018-023198_0003.jpg",
+                "id": "fig3",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "KDE comparison of high (blue), mid (green), and low (red) energy\nramps across (A) XCorrb and (B) XCorrx xQuest subscores.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 11540,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "For the linear fragment ion correlation the low ramp performs poorly while the high ramp performs well, as indicated by the shifts in KDE in Figure 3A. This suggests that at lower energies linear peptides are fragmenting less efficiently. In Figure 3B the opposite phenomenon is observed. For cross-linked fragment ions the low ramp performs better than the high ramp. These results demonstrate an opposing effect between preserving cross-linked fragments and obtaining sufficient sequence coverage for linear peptides. It is, therefore, not surprising that the mid energy ramp provides a higher overall number of cross-link identifications when used in combination with the xQuest analysis software.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 12241,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "To further examine the fragmentation patterns associated with each ramp, we analyzed the data for the presence of BS3/DSS diagnostic ions (Figure 4). These ions have previously been identified in 71% of cross-link spectra analyzed by HCD. In good agreement with previous studies we find that at high energy 52% of cross-link spectra contain the tetrahydropyridine modification (Table 1). The negative XCorrx scores in the high energy are likely due to the fragmentation of the cross-linker amide bond preventing the observation of cross-linked fragment ions.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 12800,
+              "infons": {
+                "file": "ac-2018-023198_0004.jpg",
+                "id": "fig4",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Representation of BS3/DSS diagnostic ions created in ChemDraw\n16.0.\nDiagnostic ions are created by fragmentation of the amide bond in\nthe cross-linker.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 12952,
+              "infons": {
+                "file": "tbl1.xml",
+                "id": "tbl1",
+                "section_type": "TABLE",
+                "type": "table_title_caption"
+              },
+              "text": "Percentage\nof Modified Cross-Linker\nIons Present in Spectra for All Energy Ramps",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 13033,
+              "infons": {
+                "file": "tbl1.xml",
+                "id": "tbl1",
+                "section_type": "TABLE",
+                "type": "table",
+                "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<table frame=\"hsides\" rules=\"groups\" border=\"0\"><colgroup><col align=\"char\" char=\".\"/><col align=\"char\" char=\".\"/><col align=\"char\" char=\".\"/><col align=\"char\" char=\".\"/></colgroup><thead><tr><th style=\"border:none;\" align=\"center\" char=\".\"><italic>m</italic>/<italic>z</italic></th><th style=\"border:none;\" align=\"center\" char=\".\">high ramp %</th><th style=\"border:none;\" align=\"center\" char=\".\">mid ramp %</th><th style=\"border:none;\" align=\"center\" char=\".\">low ramp %</th></tr></thead><tbody><tr><td style=\"border:none;\" align=\"char\" char=\".\">139.1</td><td style=\"border:none;\" align=\"char\" char=\".\">11</td><td style=\"border:none;\" align=\"char\" char=\".\">4</td><td style=\"border:none;\" align=\"char\" char=\".\">0</td></tr><tr><td style=\"border:none;\" align=\"char\" char=\".\">222.1</td><td style=\"border:none;\" align=\"char\" char=\".\">52</td><td style=\"border:none;\" align=\"char\" char=\".\">15</td><td style=\"border:none;\" align=\"char\" char=\".\">3</td></tr></tbody></table>\n"
+              },
+              "text": "m/z\thigh ramp %\tmid ramp %\tlow ramp %\t \t139.1\t11\t4\t0\t \t222.1\t52\t15\t3\t \t",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 13111,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "When cross-links are utilized in structural modeling approaches, cross-link residue pairs, defined solely by their position in the structure, are of paramount importance. To compare in detail the effects of the collision energy ramps on residue pair identifications, cross-links were further validated using in-house software (Figure 5A). The program works with the xQuest xml result files to filter cross-links based on whether the identification meets the more recent published standards for confident cross-link assignment. These include signal/noise, fragmentation of both peptides, and the presence of both cross-linked and linear fragment ions. As expected, these more stringent criteria lower the overall number of identifications (Figure 5B).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 13862,
+              "infons": {
+                "file": "ac-2018-023198_0005.jpg",
+                "id": "fig5",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "(A) Schematic\nrepresentation of ValidateXL.py workflow. (B) Overlap\nof validated cross-links for the three best performing ramps. As limited\noverlap in cross-links is observed between the ramps, identification\nrates can be increased by combining one or more energy ramp.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 14133,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "The identifications exposed by the high ramp were reduced significantly, with a mean cross-link identification rate of 11 (Figure S12). As mentioned, this is most likely due to the loss of cross-linked fragment ions. The mid ramp remains the best performing identifying 37, 37, and 39 cross-links in each of the technical repeats (Table S2). In addition, the intersection of the three best performing ramps shows that there is little overlap between the identifications made by each one (Figure 5B). (The intersection for all energy ramps is shown in Figure S13.)",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 14697,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Incorporating one or more energy ramp leads to a higher number of cross-link identifications. This can be explained by the relationship between fragmentation efficiency and m/z. Cross-links are composed of two peptides each with their own optimal fragmentation energy. By combining different energy ramps, optimal fragmentation of up to 40% more diverse cross-link identities can be achieved (Figure 5B).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 15102,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "It has frequently been reported that fragmentation of both peptides within a cross-link is not symmetric. One peptide, in most cases the larger of the two, will fragment more readily than the other, so a higher sequence coverage is observed. In line with xQuest we define the larger of the two peptides within the cross-link as the α peptide for this analysis. Figure 6 displays the distribution of annotated peaks for both the α (lilac) and β (purple) peptides within the cross-links. Across most of the energy ramps the α peptide fragments more than the β peptide, with the only exception being the low ramp. However, annotation of both peptides is higher than 40%. This is in contrast to previous reports, when using both ion trap CID and HCD with an Orbitrap analyzer, where the β peptide consistently displayed poorer fragmentation. In the case of ion trap CID only 22% of the most intense annotated fragment ions corresponded to the β peptide. Kolbowski et al. attribute this phenomenon to the nature of cross-linked peptides rather than the cross-linker used.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 16193,
+              "infons": {
+                "file": "ac-2018-023198_0006.jpg",
+                "id": "fig6",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Relative frequency of\nannotated α and β fragment peaks\nfrom identified ions. The height refers to the mean for each energy\nramp. Error bars display the standard deviation.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 16372,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "One possible explanation for this difference in β-peptide annotation may involve the way fragmentation energy values by vendor instrument operator software are calculated. Normalized collision energy reported by ThermoScientific is a linear percentage of the available collision energy, which compensates for the mass dependency of optimal collision energy. An ion of a particular m/z value will be exposed to a single energy value. As previously discussed, the Waters Corporation energy ramp exposes a precursor of a particular m/z to a range of energies across the course of a scan. As cross-links are a combination of two peptides, each with different m/z ranges, this may be advantageous; the optimal energy for fragmentation is unlikely to be related solely to the m/z of the entire species.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 17172,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "xQuest does not consider ions generated through fragmentation of both peptides in a cross-link. As the software was written to using data from fragment ions generated by ion trap CID, with a mass range of 200–2000 Da, immonium ions are also not considered. These ions are diagnostic of the presence of specific amino acids in a peptide and are often used in de novo peptide sequencing. During analysis of fragment ion spectra the presence of these ions was found to inhibit rather than enhance the xQuest scoring algorithms. Figure 7 shows the fragment ion spectra of a monolink identified by xQuest. Immonium ions for both lysine, following the loss of ammonia (84 Da) and valine (72 Da), are present and indicated in the figure. The mass shift between these ions is 12 Da; xQuest has erroneously identified the peak at 84 Da as a cross-linked peak. Although xQuest can be modified to include a wider mass range, it cannot annotate the peaks correctly as the algorithms do not expect the presence of immonium ions. As the correlation algorithm does not have a low-mass cutoff this leads to unannotated peaks in the spectra and poorer overall correlation of the theoretical and observed cross-linked fragment ions. Adjustment of the xQuest search parameters to include a wider mass range is therefore not recommended as a necessary modification for searching QTOF data.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 18544,
+              "infons": {
+                "file": "ac-2018-023198_0007.jpg",
+                "id": "fig7",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Misallocation of lysine immonium ion (following\nloss of ammonia)\nas a cross-linked peak by xQuest software. Erroneous cross-linked\npeak determination affects scoring algorithms.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 18722,
+              "infons": {
+                "section_type": "CONCL",
+                "type": "title_1"
+              },
+              "text": "Conclusion",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 18733,
+              "infons": {
+                "section_type": "CONCL",
+                "type": "paragraph"
+              },
+              "text": "QTOF mass spectrometers are ubiquitous in most lines of MS research including metabolomics, proteomics, and small-molecule analysis; however, they have not yet been widely applied to the field of cross-linking mass spectrometry. We have shown that QTOF instruments can indeed be used to analyze cross-linked peptide samples and that data from this instrument configuration can be processed directly with existing cross-linking software applications, with little modification to their parameters. Due to the unique divergent energy ramp that applies a range of energies across each scan we have demonstrated that the Synapt G2-Si offers improved fragmentation of the β peptide when compared with published data collected on an Orbitrap instrument. Our analysis also shows that, by combining two energy ramps that occupy alternate energy ranges, different cross-links can be identified. This presents a unique opportunity to improve cross-link yield by up to 40%.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 19698,
+              "infons": {
+                "section_type": "CONCL",
+                "type": "paragraph"
+              },
+              "text": "Given that adaptation to collision energy is not required for the analysis of different cross-linker chemistries by an Orbitrap, this protocol could be applicable to a broad range of cross-linkers. This includes the widely used MS cleavable cross-linkers.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 19954,
+              "infons": {
+                "section_type": "CONCL",
+                "type": "paragraph"
+              },
+              "text": "In addition, validation of the results is laborious; time requirements increase with cross-link yield. Employment of a simple score threshold serves only as a guide. We offer a programmatic solution which works directly with the xQuest result xml file to gain confidence in the results generated from the search. This enables cross-link identifications to feed directly into structural modeling approaches, as we have previously shown that higher quality cross-link identifications are more beneficial for modeling purposes.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 20479,
+              "infons": {
+                "section_type": "CONCL",
+                "type": "paragraph"
+              },
+              "text": "Finally, the development of an optimized method for the analysis of cross-linked peptides on a QTOF provides the groundwork for exploration of the addition of IMS to a cross-linking experiment. This gas-phase fractionation is conducted online and may lead to a reduction in sample preparation requirements. Furthermore, the extra separation provided by IMS separates low-intensity ions from chemical noise allowing the data-dependent acquisition (DDA) process to select them for MS/MS.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 20965,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_1"
+              },
+              "text": "Experimental Section",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 20986,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "Reagents and Apparatus",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 21009,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "BSA (A7030) and BS3 d0/d12 were purchased from Sigma-Aldrich (St. Louis, MO) and Creative Molecule Inc., respectively. Rapigest and solid-phase extraction (SPE) cartridges (50 mg Sep-Pak C18) were purchased from Waters Corporation (Milford, MA, U.S.A.). The Superdex Peptide PC 3.2/3.0 column was purchased from GE Healthcare (Piscataway, NJ).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 21353,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "Sample Preparation",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 21372,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Amounts of 0.3 mg/mL BSA and 1 mg BS3 d0/d12 were prepared in 20 mM HEPES at pH 7.6. The cross-linker was added to the protein and diluted to a final concentration of 2.5 mM BS3 d0/d12. The sample was then incubated at room temperature for 40 min under mild agitation. Following incubation, the reaction was quenched by adding 1 M ammonium bicarbonate to a final concentration of 50 mM. The samples were then evaporated to dryness in a vacuum concentrator and resuspended in 8 M urea at 1.1 mg/mL concentration.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 21884,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "A solution of 1% RapiGest to a final concentration of 0.1% was added to aid solubilization before digestion. The sample was then incubated with 10 mM dithiothreitol at 37 °C for 30 min to denature the protein and reduce the disulfide bonds. Following incubation, the sample was cooled to room temperature. In order to prevent disulfide bond reformation iodoacetamide was added to a final concentration of 20 mM. As iodoacetamide is unstable when exposed to light the mixture was incubated in the dark, at room temperature for 30 min. The sample was then diluted with 50 mM ammonium bicarbonate to reduce the final concentration of urea to <1 M. Trypsin 50:1 protein to enzyme was added to the sample. The reaction mixture was incubated overnight at 37 °C with mild agitation. Following overnight incubation enzymatic activity was quenched by adding formic acid to a final concentration of 2% (v/v). In preparation for size exclusion chromatography (SEC) fractionation the sample was purified using Sep-Pak SPE cartridges and evaporated to dryness.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 22934,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Following SPE the sample was resuspended in 20 μL of SEC buffer (degassed water/acetonitrile/TFA at 70/30/0.1 v/v/v). An amount of 15 μL of sample was injected onto an equilibrated Superdex Peptide column. Fractions of 100 μL were collected. The samples were then evaporated to dryness and resuspended in 10 μL of liquid chromatography–mass spectrometry (LC–MS) buffer: 95% H2O, 5% acetonitrile, and 0.1% formic acid.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 23360,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "LC–MS/MS Analysis",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 23380,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Samples were introduced using nano ultraperformance liquid chromatograph (10kPsi nanoACQUITY Waters) with buffers (A) MS grade water with 0.1% formic acid and (B) MS grade acetonitrile with 0.1% formic acid. Samples were desalted by a reversed-phase Symmetry C18 trap column (180 μm internal diameter, 20 mm length, 5 μm particle size, Waters Corporation) at a flow rate of 8 μL/min for 3 min in 99% buffer A. Peptides were then separated using a linear gradient (0.3 μL/min, 35 °C; 97–60% buffer A over 90 min) using a BEH130 C18 nanocolumn (75 μm internal diameter, 400 mm length, 1.7 μm particle size, Waters Corporation). The TOF analyzer was externally calibrated from m/z 175.11 to 1285.54 using [Glu1]-fibrinopeptide B at 500 fmol/μL.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 24132,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "Data-Dependent Acquisition",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 24159,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Samples were analyzed using a Waters Synapt G2-Si quadrupole time-of-flight mass spectrometer tuned to a resolution of 20 000 (fwhm). Accurate mass measurements were made using DDA. The top 10 most intense precursors with charge states between +3 and +7 were selected over a mass range of 50–3000 Da with a scan time of 0.15 s and an interscan delay of 0.05 s. MS2 spectra were acquired using collision energy ramps specified in Table 2.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 24601,
+              "infons": {
+                "file": "tbl2.xml",
+                "id": "tbl2",
+                "section_type": "TABLE",
+                "type": "table_title_caption"
+              },
+              "text": "Overview of Collision Energy Ramps\nTested",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 24643,
+              "infons": {
+                "file": "tbl2.xml",
+                "id": "tbl2",
+                "section_type": "TABLE",
+                "type": "table",
+                "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<table frame=\"hsides\" rules=\"groups\" border=\"0\"><colgroup><col align=\"left\"/><col align=\"char\" char=\"−\"/><col align=\"char\" char=\"−\"/><col align=\"char\" char=\".\"/></colgroup><thead><tr><th style=\"border:none;\" align=\"center\">ramp</th><th style=\"border:none;\" align=\"center\" char=\"−\">low mass (start–end) eV</th><th style=\"border:none;\" align=\"center\" char=\"−\">high mass (start–end) eV</th><th style=\"border:none;\" align=\"center\" char=\".\">iTRAQ eV</th></tr></thead><tbody><tr><td style=\"border:none;\" align=\"left\">high</td><td style=\"border:none;\" align=\"char\" char=\"−\">6–9</td><td style=\"border:none;\" align=\"char\" char=\"−\">67–84</td><td style=\"border:none;\" align=\"char\" char=\".\"> </td></tr><tr><td style=\"border:none;\" align=\"left\">high-iTRAQ<xref rid=\"tbl2-fn1\" ref-type=\"table-fn\">a</xref></td><td style=\"border:none;\" align=\"char\" char=\"−\">6–9</td><td style=\"border:none;\" align=\"char\" char=\"−\">67–84</td><td style=\"border:none;\" align=\"char\" char=\".\">15</td></tr><tr><td style=\"border:none;\" align=\"left\">mid</td><td style=\"border:none;\" align=\"char\" char=\"−\">10–20</td><td style=\"border:none;\" align=\"char\" char=\"−\">30–60</td><td style=\"border:none;\" align=\"char\" char=\".\"> </td></tr><tr><td style=\"border:none;\" align=\"left\">mid-iTRAQ<xref rid=\"tbl2-fn1\" ref-type=\"table-fn\">a</xref></td><td style=\"border:none;\" align=\"char\" char=\"−\">10–20</td><td style=\"border:none;\" align=\"char\" char=\"−\">30–60</td><td style=\"border:none;\" align=\"char\" char=\".\">15</td></tr><tr><td style=\"border:none;\" align=\"left\">low</td><td style=\"border:none;\" align=\"char\" char=\"−\">6–9</td><td style=\"border:none;\" align=\"char\" char=\"−\">10–20</td><td style=\"border:none;\" align=\"char\" char=\".\"> </td></tr><tr><td style=\"border:none;\" align=\"left\">wide</td><td style=\"border:none;\" align=\"char\" char=\"−\">6–9</td><td style=\"border:none;\" align=\"char\" char=\"−\">15–84</td><td style=\"border:none;\" align=\"char\" char=\".\"> </td></tr></tbody></table>\n"
+              },
+              "text": "ramp\tlow mass (start–end) eV\thigh mass (start–end) eV\tiTRAQ eV\t \thigh\t6–9\t67–84\t \t \thigh-iTRAQa\t6–9\t67–84\t15\t \tmid\t10–20\t30–60\t \t \tmid-iTRAQa\t10–20\t30–60\t15\t \tlow\t6–9\t10–20\t \t \twide\t6–9\t15–84\t \t \t",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 24877,
+              "infons": {
+                "file": "tbl2.xml",
+                "id": "tbl2",
+                "section_type": "TABLE",
+                "type": "table_footnote"
+              },
+              "text": "For details of iTRAQ method see\ntext.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 24915,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "Cross-Linking Analysis",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 24938,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Raw files were processed in PLGS v3.2.0 (Waters) using slow de-isotoping algorithm for both MS and MS2 data. After PLGS processing, the files are exported in mascot generic format (mgf) and further converted to mzXML format for input to xQuest. Conversion to mzXML was accomplished with MSConvert (v3.0.7414) using 32-bit binary encryption.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 25279,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "xQuest was designed and trained on sample data obtained from an Orbitrap mass analyzer operated with ion trap CID, as such modifications to the search parameters were necessary to accommodate QTOF data. These can be found in Tables S3–S7. Briefly, data obtained from an Orbitrap mass analyzer differs from data obtained in a QTOF as it is not deconvoluted and contains multiple charge state fragment ions. Tolerance for peak matching was adjusted to 5 ppm for precursors and 10 ppm for fragment ions. Additional search parameters included the following: cross-linking was assumed to occur with lysines, tyrosine, serine, threonine, and the protein N′ terminus; two possible missed cleavages; variable modification of methionine oxidation; fixed modification of cysteine carbamidomethylation. The mass spectrometry proteomics data have been deposited to the ProteomeXchange Consortium via the PRIDE partner repository with the data set identifier PXD011704.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 26240,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "ValidateXL",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 26251,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "ValidateXL is available to download at .",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 26292,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "ValidateXL.py is a python script written in Python 3.5. ValidateXL.py analyses the xQuest merged_xquest.xml files which are generated and stored in the xQuest result file after a completed search.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 26489,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "ValidateXL extracts information from the XML files to assess the quality of a cross-link identification based upon the signal/ratio of both the cross-linked and linear fragment ions. It filters cross-links and creates three CSV files: cross-links which are of significantly high quality to be used for modeling, cross-links that require manual validation, and cross-links that should be rejected. ValidateXL requires the XML and fasta files for the protein of interest and will run on multiple xQuest search results. For full description and details on usage can be found in the Supporting Information.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 27092,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "title"
+              },
+              "text": "Supporting Information Available",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 27125,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "paragraph"
+              },
+              "text": "Details of PLGS parameter testing, score distributions and analysis of different scoring thresholds, intersection of technical repeats for all tested energy ramps, additional spectra for cross-links identified, heat map displaying full cross-link overlap across all six ramps, ValidateXL results, mean and standard deviation for all energy ramps following ValidateXL analysis, full modifications made to the xquest.def input file, and ValidateXL.py dependencies and operational guidelines (PDF)",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 27620,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "paragraph"
+              },
+              "text": "Intersection of cross-link identifications from PLGS testing (XLSX)",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 27688,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "paragraph"
+              },
+              "text": "Intersection of cross-links identified by the mid energy ramp (XLSX)",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 27757,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "paragraph"
+              },
+              "text": "The Supporting Information is available free of charge on the ACS Publications website at DOI: 10.1021/acs.analchem.8b02319.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 27882,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "title_1"
+              },
+              "text": "Supplementary Material",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 27905,
+              "infons": {
+                "section_type": "AUTH_CONT",
+                "type": "title"
+              },
+              "text": "Author Contributions",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 27926,
+              "infons": {
+                "section_type": "AUTH_CONT",
+                "type": "paragraph"
+              },
+              "text": "All authors have given approval to the final version of the manuscript.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 27998,
+              "infons": {
+                "section_type": "AUTH_CONT",
+                "type": "paragraph"
+              },
+              "text": "The authors declare no competing financial interest.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28051,
+              "infons": {
+                "section_type": "REF",
+                "type": "title"
+              },
+              "text": "References",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28062,
+              "infons": {
+                "fpage": "530",
+                "lpage": "540",
+                "name_0": "surname:Rappsilber;given-names:J.",
+                "pub-id_doi": "10.1016/j.jsb.2010.10.014",
+                "pub-id_pmid": "21029779",
+                "section_type": "REF",
+                "source": "J. Struct. Biol.",
+                "type": "ref",
+                "volume": "173",
+                "year": "2011"
+              },
+              "text": "",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28063,
+              "infons": {
+                "fpage": "1751",
+                "lpage": "1757",
+                "name_0": "surname:Degiacomi;given-names:M. T.",
+                "name_1": "surname:Schmidt;given-names:C.",
+                "name_2": "surname:Baldwin;given-names:A. J.",
+                "name_3": "surname:Benesch;given-names:J. L. P.",
+                "pub-id_doi": "10.1016/j.str.2017.08.015",
+                "pub-id_pmid": "28966018",
+                "section_type": "REF",
+                "source": "Structure",
+                "type": "ref",
+                "volume": "25",
+                "year": "2017"
+              },
+              "text": "",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28064,
+              "infons": {
+                "fpage": "1225",
+                "lpage": "1237",
+                "name_0": "surname:Sinz;given-names:A.",
+                "pub-id_doi": "10.1002/jms.559",
+                "pub-id_pmid": "14696200",
+                "section_type": "REF",
+                "source": "J.\nMass Spectrom.",
+                "type": "ref",
+                "volume": "38",
+                "year": "2003"
+              },
+              "text": "",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28065,
+              "infons": {
+                "fpage": "315",
+                "lpage": "318",
+                "name_0": "surname:Rinner;given-names:O.",
+                "name_1": "surname:Seebacher;given-names:J.",
+                "name_2": "surname:Walzthoeni;given-names:T.",
+                "name_3": "surname:Mueller;given-names:L.",
+                "name_4": "surname:Beck;given-names:M.",
+                "name_5": "surname:Schmidt;given-names:A.",
+                "name_6": "surname:Mueller;given-names:M.",
+                "name_7": "surname:Aebersold;given-names:R.",
+                "pub-id_doi": "10.1038/nmeth.1192",
+                "pub-id_pmid": "18327264",
+                "section_type": "REF",
+                "source": "Nat. Methods",
+                "type": "ref",
+                "volume": "5",
+                "year": "2008"
+              },
+              "text": "",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28066,
+              "infons": {
+                "fpage": "e1700479",
+                "name_0": "surname:Brodie;given-names:N. I.",
+                "name_1": "surname:Popov;given-names:K. I.",
+                "name_2": "surname:Petrotchenko;given-names:E. V.",
+                "name_3": "surname:Dokholyan;given-names:N. V.",
+                "name_4": "surname:Borchers;given-names:C. H.",
+                "pub-id_doi": "10.1126/sciadv.1700479",
+                "pub-id_pmid": "28695211",
+                "section_type": "REF",
+                "source": "Sci. Adv.",
+                "type": "ref",
+                "volume": "3",
+                "year": "2017"
+              },
+              "text": "",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28067,
+              "infons": {
+                "fpage": "4310",
+                "name_0": "surname:Mühlbacher;given-names:W.",
+                "name_1": "surname:Sainsbury;given-names:S.",
+                "name_2": "surname:Hemann;given-names:M.",
+                "name_3": "surname:Hantsche;given-names:M.",
+                "name_4": "surname:Neyer;given-names:S.",
+                "name_5": "surname:Herzog;given-names:F.",
+                "name_6": "surname:Cramer;given-names:P.",
+                "pub-id_doi": "10.1038/ncomms5310",
+                "pub-id_pmid": "25007739",
+                "section_type": "REF",
+                "source": "Nat. Commun.",
+                "type": "ref",
+                "volume": "5",
+                "year": "2014"
+              },
+              "text": "",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28068,
+              "infons": {
+                "fpage": "7832",
+                "lpage": "7835",
+                "name_0": "surname:Iacobucci;given-names:C.",
+                "name_1": "surname:Sinz;given-names:A.",
+                "pub-id_doi": "10.1021/acs.analchem.7b02316",
+                "pub-id_pmid": "28723100",
+                "section_type": "REF",
+                "source": "Anal.\nChem.",
+                "type": "ref",
+                "volume": "89",
+                "year": "2017"
+              },
+              "text": "",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28069,
+              "infons": {
+                "fpage": "2014",
+                "lpage": "2029",
+                "name_0": "surname:Beck;given-names:S.",
+                "name_1": "surname:Michalski;given-names:A.",
+                "name_10": "surname:Kulak;given-names:N. A.",
+                "name_11": "surname:Cox;given-names:J.",
+                "name_12": "surname:Mann;given-names:M.",
+                "name_2": "surname:Raether;given-names:O.",
+                "name_3": "surname:Lubeck;given-names:M.",
+                "name_4": "surname:Kaspar;given-names:S.",
+                "name_5": "surname:Goedecke;given-names:N.",
+                "name_6": "surname:Baess-Mann;given-names:C.",
+                "name_7": "surname:Hornburg;given-names:D.",
+                "name_8": "surname:Meier;given-names:F.",
+                "name_9": "surname:Paron;given-names:I.",
+                "pub-id_doi": "10.1074/mcp.M114.047407",
+                "pub-id_pmid": "25991688",
+                "section_type": "REF",
+                "source": "Mol. Cell. Proteomics",
+                "type": "ref",
+                "volume": "14",
+                "year": "2015"
+              },
+              "text": "",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28070,
+              "infons": {
+                "fpage": "5288",
+                "lpage": "5296",
+                "name_0": "surname:Zubarev;given-names:R. A.",
+                "name_1": "surname:Makarov;given-names:A.",
+                "pub-id_doi": "10.1021/ac4001223",
+                "pub-id_pmid": "23590404",
+                "section_type": "REF",
+                "source": "Anal. Chem.",
+                "type": "ref",
+                "volume": "85",
+                "year": "2013"
+              },
+              "text": "",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28071,
+              "infons": {
+                "fpage": "3752",
+                "lpage": "3759",
+                "name_0": "surname:Patel;given-names:V. J.",
+                "name_1": "surname:Thalassinos;given-names:K.",
+                "name_2": "surname:Slade;given-names:S. E.",
+                "name_3": "surname:Connolly;given-names:J. B.",
+                "name_4": "surname:Crombie;given-names:A.",
+                "name_5": "surname:Murrell;given-names:J. C.",
+                "name_6": "surname:Scrivens;given-names:J. H.",
+                "pub-id_doi": "10.1021/pr900080y",
+                "pub-id_pmid": "19435289",
+                "section_type": "REF",
+                "source": "J. Proteome Res.",
+                "type": "ref",
+                "volume": "8",
+                "year": "2009"
+              },
+              "text": "",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28072,
+              "infons": {
+                "fpage": "1",
+                "lpage": "12",
+                "name_0": "surname:Pringle;given-names:S. D.",
+                "name_1": "surname:Giles;given-names:K.",
+                "name_2": "surname:Wildgoose;given-names:J. L.",
+                "name_3": "surname:Williams;given-names:J. P.",
+                "name_4": "surname:Slade;given-names:S. E.",
+                "name_5": "surname:Thalassinos;given-names:K.",
+                "name_6": "surname:Bateman;given-names:R. H.",
+                "name_7": "surname:Bowers;given-names:M. T.",
+                "name_8": "surname:Scrivens;given-names:J. H.",
+                "pub-id_doi": "10.1016/j.ijms.2006.07.021",
+                "section_type": "REF",
+                "source": "Int. J. Mass Spectrom.",
+                "type": "ref",
+                "volume": "261",
+                "year": "2007"
+              },
+              "text": "",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28073,
+              "infons": {
+                "fpage": "5311",
+                "lpage": "5318",
+                "name_0": "surname:Kolbowski;given-names:L.",
+                "name_1": "surname:Mendes;given-names:M. L.",
+                "name_2": "surname:Rappsilber;given-names:J.",
+                "pub-id_doi": "10.1021/acs.analchem.6b04935",
+                "pub-id_pmid": "28402676",
+                "section_type": "REF",
+                "source": "Anal. Chem.",
+                "type": "ref",
+                "volume": "89",
+                "year": "2017"
+              },
+              "text": "",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28074,
+              "infons": {
+                "fpage": "901",
+                "lpage": "903",
+                "name_0": "surname:Walzthoeni;given-names:T.",
+                "name_1": "surname:Claassen;given-names:M.",
+                "name_2": "surname:Leitner;given-names:A.",
+                "name_3": "surname:Herzog;given-names:F.",
+                "name_4": "surname:Bohn;given-names:S.",
+                "name_5": "surname:Förster;given-names:F.",
+                "name_6": "surname:Beck;given-names:M.",
+                "name_7": "surname:Aebersold;given-names:R.",
+                "pub-id_doi": "10.1038/nmeth.2103",
+                "pub-id_pmid": "22772729",
+                "section_type": "REF",
+                "source": "Nat. Methods",
+                "type": "ref",
+                "volume": "9",
+                "year": "2012"
+              },
+              "text": "",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28075,
+              "infons": {
+                "fpage": "1094",
+                "name_0": "surname:Giese;given-names:S. H.",
+                "name_1": "surname:Fischer;given-names:L.",
+                "name_2": "surname:Rappsilber;given-names:J.",
+                "pub-id_doi": "10.1074/mcp.M115.049296",
+                "pub-id_pmid": "26719564",
+                "section_type": "REF",
+                "source": "Mol. Cell. Proteomics",
+                "type": "ref",
+                "volume": "15",
+                "year": "2016"
+              },
+              "text": "",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28076,
+              "infons": {
+                "fpage": "120",
+                "lpage": "137",
+                "name_0": "surname:Leitner;given-names:A.",
+                "name_1": "surname:Walzthoeni;given-names:T.",
+                "name_2": "surname:Aebersold;given-names:R.",
+                "pub-id_doi": "10.1038/nprot.2013.168",
+                "pub-id_pmid": "24356771",
+                "section_type": "REF",
+                "source": "Nat. Protoc.",
+                "type": "ref",
+                "volume": "9",
+                "year": "2014"
+              },
+              "text": "",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28077,
+              "infons": {
+                "fpage": "M111.014126",
+                "name_0": "surname:Leitner;given-names:A.",
+                "name_1": "surname:Reischl;given-names:R.",
+                "name_2": "surname:Walzthoeni;given-names:T.",
+                "name_3": "surname:Herzog;given-names:F.",
+                "name_4": "surname:Bohn;given-names:S.",
+                "name_5": "surname:Förster;given-names:F.",
+                "name_6": "surname:Aebersold;given-names:R.",
+                "pub-id_doi": "10.1074/mcp.M111.014126",
+                "section_type": "REF",
+                "source": "Mol. Cell. Proteomics",
+                "type": "ref",
+                "volume": "11",
+                "year": "2012"
+              },
+              "text": "",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28078,
+              "infons": {
+                "fpage": "340",
+                "lpage": "350",
+                "name_0": "surname:Wiese;given-names:S.",
+                "name_1": "surname:Reidegeld;given-names:K. A.",
+                "name_2": "surname:Meyer;given-names:H. E.",
+                "name_3": "surname:Warscheid;given-names:B.",
+                "pub-id_doi": "10.1002/pmic.200600422",
+                "pub-id_pmid": "17177251",
+                "section_type": "REF",
+                "source": "Proteomics",
+                "type": "ref",
+                "volume": "7",
+                "year": "2007"
+              },
+              "text": "",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28079,
+              "infons": {
+                "fpage": "557",
+                "lpage": "566",
+                "name_0": "surname:Iglesias;given-names:A. H.",
+                "name_1": "surname:Santos;given-names:L. F.",
+                "name_2": "surname:Gozzo;given-names:F. C.",
+                "pub-id_doi": "10.1016/j.jasms.2008.11.009",
+                "pub-id_pmid": "19138533",
+                "section_type": "REF",
+                "source": "J. Am. Soc. Mass\nSpectrom.",
+                "type": "ref",
+                "volume": "20",
+                "year": "2009"
+              },
+              "text": "",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28080,
+              "infons": {
+                "fpage": "420",
+                "lpage": "434",
+                "name_0": "surname:Trnka;given-names:M. J.",
+                "name_1": "surname:Baker;given-names:P. R.",
+                "name_2": "surname:Robinson;given-names:P. J.",
+                "name_3": "surname:Burlingame;given-names:A.",
+                "name_4": "surname:Chalkley;given-names:R. J.",
+                "pub-id_doi": "10.1074/mcp.M113.034009",
+                "pub-id_pmid": "24335475",
+                "section_type": "REF",
+                "source": "Mol. Cell. Proteomics",
+                "type": "ref",
+                "volume": "13",
+                "year": "2014"
+              },
+              "text": "",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28081,
+              "infons": {
+                "fpage": "2491",
+                "lpage": "2500",
+                "name_0": "surname:Bullock;given-names:J. M. A.",
+                "name_1": "surname:Schwab;given-names:J.",
+                "name_2": "surname:Thalassinos;given-names:K.",
+                "name_3": "surname:Topf;given-names:M.",
+                "pub-id_doi": "10.1074/mcp.M116.058560",
+                "pub-id_pmid": "27150526",
+                "section_type": "REF",
+                "source": "Mol. Cell. Proteomics",
+                "type": "ref",
+                "volume": "15",
+                "year": "2016"
+              },
+              "text": "",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28082,
+              "infons": {
+                "fpage": "469",
+                "lpage": "476",
+                "name_0": "surname:Neta;given-names:P.",
+                "name_1": "surname:Simon-Manso;given-names:Y.",
+                "name_2": "surname:Yang;given-names:X.",
+                "name_3": "surname:Stein;given-names:S. E.",
+                "pub-id_doi": "10.1016/j.jasms.2008.11.005",
+                "pub-id_pmid": "19056297",
+                "section_type": "REF",
+                "source": "J. Am. Soc. Mass Spectrom.",
+                "type": "ref",
+                "volume": "20",
+                "year": "2009"
+              },
+              "text": "",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28083,
+              "infons": {
+                "section_type": "REF",
+                "source": "Thermo\nScientific Product Support Bulletin",
+                "type": "ref",
+                "volume": "104",
+                "year": "2009"
+              },
+              "text": "Normalized Collision Energy Technology",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28122,
+              "infons": {
+                "fpage": "8239",
+                "lpage": "8247",
+                "name_0": "surname:Giese;given-names:S. H.",
+                "name_1": "surname:Belsom;given-names:A.",
+                "name_2": "surname:Rappsilber;given-names:J.",
+                "pub-id_doi": "10.1021/acs.analchem.6b02082",
+                "pub-id_pmid": "27454319",
+                "section_type": "REF",
+                "source": "Anal. Chem.",
+                "type": "ref",
+                "volume": "88",
+                "year": "2016"
+              },
+              "text": "",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28123,
+              "infons": {
+                "fpage": "6958",
+                "lpage": "6968",
+                "name_0": "surname:Müller;given-names:M. Q.",
+                "name_1": "surname:Dreiocker;given-names:F.",
+                "name_2": "surname:Ihling;given-names:C. H.",
+                "name_3": "surname:Schäfer;given-names:M.",
+                "name_4": "surname:Sinz;given-names:A.",
+                "pub-id_doi": "10.1021/ac101241t",
+                "pub-id_pmid": "20704385",
+                "section_type": "REF",
+                "source": "Anal.\nChem.",
+                "type": "ref",
+                "volume": "82",
+                "year": "2010"
+              },
+              "text": "",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28124,
+              "infons": {
+                "fpage": "14551",
+                "lpage": "14555",
+                "name_0": "surname:Hage;given-names:C.",
+                "name_1": "surname:Iacobucci;given-names:C.",
+                "name_2": "surname:Rehkamp;given-names:A.",
+                "name_3": "surname:Arlt;given-names:C.",
+                "name_4": "surname:Sinz;given-names:A.",
+                "pub-id_doi": "10.1002/anie.201708273",
+                "section_type": "REF",
+                "source": "Angew. Chem., Int.\nEd.",
+                "type": "ref",
+                "volume": "56",
+                "year": "2017"
+              },
+              "text": "",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28125,
+              "infons": {
+                "fpage": "e73411",
+                "name_0": "surname:Kahraman;given-names:A.",
+                "name_1": "surname:Herzog;given-names:F.",
+                "name_2": "surname:Leitner;given-names:A.",
+                "name_3": "surname:Rosenberger;given-names:G.",
+                "name_4": "surname:Aebersold;given-names:R.",
+                "name_5": "surname:Malmstrom;given-names:L.",
+                "pub-id_doi": "10.1371/journal.pone.0073411",
+                "pub-id_pmid": "24069194",
+                "section_type": "REF",
+                "source": "PLoS One",
+                "type": "ref",
+                "volume": "8",
+                "year": "2013"
+              },
+              "text": "",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28126,
+              "infons": {
+                "fpage": "2224",
+                "lpage": "2236",
+                "name_0": "surname:Schmidt;given-names:C.",
+                "name_1": "surname:Robinson;given-names:C. V.",
+                "pub-id_doi": "10.1038/nprot.2014.144",
+                "pub-id_pmid": "25144272",
+                "section_type": "REF",
+                "source": "Nat. Protoc.",
+                "type": "ref",
+                "volume": "9",
+                "year": "2014"
+              },
+              "text": "",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28127,
+              "infons": {
+                "fpage": "D447",
+                "issue": "D1",
+                "lpage": "D456",
+                "name_0": "surname:Vizcaíno;given-names:J. A.",
+                "name_1": "surname:Csordas;given-names:A.",
+                "name_10": "surname:Xu;given-names:Q. W.",
+                "name_11": "surname:Wang;given-names:R.",
+                "name_12": "surname:Hermjakob;given-names:H.",
+                "name_2": "surname:del-Toro;given-names:N.",
+                "name_3": "surname:Dianes;given-names:J. A.",
+                "name_4": "surname:Griss;given-names:J.",
+                "name_5": "surname:Lavidas;given-names:I.",
+                "name_6": "surname:Mayer;given-names:G.",
+                "name_7": "surname:Perez-Riverol;given-names:Y.",
+                "name_8": "surname:Reisinger;given-names:F.",
+                "name_9": "surname:Ternent;given-names:T.",
+                "pub-id_doi": "10.1093/nar/gkv1145",
+                "pub-id_pmid": "26527722",
+                "section_type": "REF",
+                "source": "Nucleic Acids Res.",
+                "type": "ref",
+                "volume": "44",
+                "year": "2016"
+              },
+              "text": "2016 update of the PRIDE database and related tools",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28179,
+              "infons": {
+                "fpage": "222",
+                "lpage": "227",
+                "name_0": "surname:Back;given-names:J. W.",
+                "name_1": "surname:Hartog;given-names:A. F.",
+                "name_2": "surname:Dekker;given-names:H. L.",
+                "name_3": "surname:Muijsers;given-names:A. O.",
+                "name_4": "surname:de Koning;given-names:L. J.",
+                "name_5": "surname:de Jong;given-names:L.",
+                "pub-id_doi": "10.1016/S1044-0305(00)00212-9",
+                "pub-id_pmid": "11212007",
+                "section_type": "REF",
+                "source": "J. Am. Soc. Mass Spectrom.",
+                "type": "ref",
+                "volume": "12",
+                "year": "2001"
+              },
+              "text": "",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28180,
+              "infons": {
+                "fpage": "2416",
+                "lpage": "2425",
+                "name_0": "surname:Trester-Zedlitz;given-names:M.",
+                "name_1": "surname:Kamada;given-names:K.",
+                "name_2": "surname:Burley;given-names:S. K.",
+                "name_3": "surname:Fenyo;given-names:D.",
+                "name_4": "surname:Chait;given-names:B. T.",
+                "name_5": "surname:Muir;given-names:T. W.",
+                "pub-id_doi": "10.1021/ja026917a",
+                "pub-id_pmid": "12603129",
+                "section_type": "REF",
+                "source": "J. Am. Chem. Soc.",
+                "type": "ref",
+                "volume": "125",
+                "year": "2003"
+              },
+              "text": "",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28181,
+              "infons": {
+                "fpage": "149",
+                "lpage": "159",
+                "name_0": "surname:Pearson;given-names:K. M.",
+                "name_1": "surname:Pannell;given-names:L. K.",
+                "name_2": "surname:Fales;given-names:H. M.",
+                "pub-id_doi": "10.1002/rcm.554",
+                "pub-id_pmid": "11803535",
+                "section_type": "REF",
+                "source": "Rapid Commun.\nMass Spectrom.",
+                "type": "ref",
+                "volume": "16",
+                "year": "2002"
+              },
+              "text": "",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            }
+          ],
+          "annotations": [],
+          "relations": []
+        }
+      ]
+    }
+  ]
+}

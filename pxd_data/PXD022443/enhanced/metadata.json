@@ -1,0 +1,989 @@
+{
+  "metadata": {
+    "pxd": "PXD022443",
+    "category": "enhanced",
+    "saved_at": "2026-06-30T15:14:27.736486",
+    "filename": "metadata"
+  },
+  "data": {
+    "pxd": "PXD022443",
+    "processed_at": "2026-06-30T15:13:33.008734",
+    "stages": {
+      "pride": "success",
+      "publication": "failed",
+      "file_clustering": "success",
+      "raw_processing": "skipped_no_download",
+      "spectral_merge": "success",
+      "llm": "success",
+      "sdrf": "success",
+      "sdrf_validation": "success_with_warnings",
+      "xi_configs": "success",
+      "relink": "skipped",
+      "compilation": "success"
+    },
+    "file_assignments": {
+      "161206_HsP_90_1.raw": {
+        "cluster_id": "cluster_1",
+        "cluster_label": "hsp90_apo_dss",
+        "organism": "Homo sapiens",
+        "taxid": "NCBITaxon:9606"
+      },
+      "161206_HsP_90_2.raw": {
+        "cluster_id": "cluster_1",
+        "cluster_label": "hsp90_apo_dss",
+        "organism": "Homo sapiens",
+        "taxid": "NCBITaxon:9606"
+      },
+      "161206_HsP_90_ADP_1.raw": {
+        "cluster_id": "cluster_2",
+        "cluster_label": "hsp90_adp_dss",
+        "organism": "Homo sapiens",
+        "taxid": "NCBITaxon:9606"
+      },
+      "161206_HsP_90_ADP_2.raw": {
+        "cluster_id": "cluster_2",
+        "cluster_label": "hsp90_adp_dss",
+        "organism": "Homo sapiens",
+        "taxid": "NCBITaxon:9606"
+      },
+      "161206_HsP_90_ATPgS_1.raw": {
+        "cluster_id": "cluster_3",
+        "cluster_label": "hsp90_atpgs_dss",
+        "organism": "Homo sapiens",
+        "taxid": "NCBITaxon:9606"
+      },
+      "161206_HsP_90_ATPgS_2.raw": {
+        "cluster_id": "cluster_3",
+        "cluster_label": "hsp90_atpgs_dss",
+        "organism": "Homo sapiens",
+        "taxid": "NCBITaxon:9606"
+      }
+    },
+    "spectral_summary": {
+      "source_files_parsed": 0,
+      "per_file": [],
+      "instrument": "Orbitrap Fusion Lumos"
+    },
+    "sdrf_path": "pxd_data/PXD022443/sdrf/PXD022443.sdrf.tsv",
+    "sdrf_validation_warnings": "WARNING: Term: not available in column 'comment[instrument]', is not found in the given ontology list ms;pride\nERROR: Column 'comment[instrument]' contains 'not available' values but requires actual values\nERROR: Term: not available in column 'comment[dissociation method]', is not found in the given ontology list ms;pride\nERROR: Column 'comment[dissociation method]' contains 'not available' values but requires actual values\nERROR: Value '27 mmol/L' does not match required pattern\nThere were validation errors.",
+    "xi_config_paths": {
+      "crosslinking": "pxd_data/PXD022443/configs/xi_crosslinking.conf",
+      "linear": "pxd_data/PXD022443/configs/xi_linear.conf"
+    },
+    "pride_data": {
+      "accession": "PXD022443",
+      "title": "Characterizing protein conformers by cross-linking mass spectrometry and pattern recognition",
+      "additionalAttributes": [],
+      "projectDescription": "Motivation: Chemical cross-linking coupled to mass spectrometry (XLMS) emerged as a powerful technique for studying protein structures and large-scale protein-protein interactions. Nonetheless, XLMS lacks software tailored toward dealing with multiple conformers; this scenario can lead to high-quality identifications that are mutually exclusive. This limitation hampers the applicability of XLMS in structural experiments of dynamic protein systems, where less abundant conformers of the target protein are expected in sample. Results: We present QUIN-XL, a software that uses unsupervised clustering to group cross-link identifications by their quantitative profile across multiple samples. QUIN-XL highlights regions of the protein or system presenting changes in its conformation when comparing different biological conditions. We demonstrate the usefulness of our software by revisiting the HSP90 protein, comparing three of its different conformers. QUIN-XL’s clusters correlate directly to known protein 3D structures of the conformers and therefore validates our software.",
+      "sampleProcessingProtocol": "The HSP90 protein used for the experiments was the human one, analyzed in a purified solution with the nucleotides being added separately afterwards for the formation of complexes. This way, each of the samples should be enriched for a different conformer. The nucleotides were ADP and ATP-γ-S (referenced in the text as ATP), which is a more stable analog of ATP and does not hydrolyze immediately. The cross-linker used was DSS dissolved in DMF (final concentration of 27mmol/L) in a molar excess of 100 times relative to the protein concentration. The cross-link reactions occurred for 2 hours at 27°C. Reducing of the disulfide bonds was done by adding 20μL of a 10mmol/L solution of DTT (prepared in a 100mmol/L buffer solution of ammonium bicarbonate) and incubating it for 30 minutes at 70°C. Alkylation of thiol groups was done by adding 20μL of a 50mmol/L solution of iodoacetamide (prepared in a 100mmol/L ammonium bicarbonate buffer solution) and incubating it for 30 minutes in the dark at room temperature. The cross-linked proteins were digested using trypsin in a proportion of 1:50 (w/w) enzyme:substrate for 18 hours at 37°C. Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo). Digested samples sample were analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid (ThermoFisher Scientific) mass spectrometer coupled with an Easy nLC 1200 chromatography system. Each sample was analyzed in 40 minutes chromatography, using linear gradients set as follows: 5 to 30% B (v/v)  (with solvent B: acetonitrile + 0.1% formic acid (v/v)) from 0 to 20 minutes, 30 to 90%  B from 20 to 35 minutes, then 90% B from 35 to 40 minutes. Instrument method was set up in DDA mode, HCD fragmentation with stepped collision energy from 30 to 34. Survey scans were acquired at resolution 60,000. Precursor selection was performed by cycle time with maximum injection time of 250 ms, and 8 seconds dynamic exclusion window. Precursor ions with charge 3+ to 8+ were selected for fragmentation. MS2 spectra were acquired with resolution 30,000.",
+      "dataProcessingProtocol": "The search for the cross-links in each condition was made using the software Spectrum Identification Machine for Cross-linked Peptides (SIM-XL) (Lima et al., 2018), with the following parameters: • Cross-linker: DSS • Precursor ppm (MS1): 10 • Fragment ppm (MS2): 20 • Modifications: Carbamidomethylation of cysteine • Enzyme: Trypsin • Enzyme specificity: Fully specific • Number of isotopic possibilities: 4 • Minimum number of amino acids per chain: 4 • Intra-link maximum charge: 4 • Maximum number of missed cleavages: 3",
+      "projectTags": [],
+      "keywords": [
+        "Hsp90",
+        "Cross-link",
+        "Quantification"
+      ],
+      "doi": "",
+      "submissionType": "PARTIAL",
+      "license": "Creative Commons Public Domain (CC0)",
+      "submissionDate": "2020-11-10",
+      "publicationDate": "2025-01-03",
+      "submitters": [
+        {
+          "title": "Miss",
+          "firstName": "Louise",
+          "lastName": "Ulrich Kurt",
+          "identifier": "159240122",
+          "affiliation": "Carlos Chagas Institute - Fiocruz",
+          "email": "lookurt27@gmail.com",
+          "country": "Brazil",
+          "orcid": "0000-0002-9703-7226",
+          "name": "Louise Ulrich Kurt",
+          "id": "159240122"
+        }
+      ],
+      "labPIs": [
+        {
+          "title": "Dr",
+          "firstName": "Paulo Costa",
+          "lastName": "Carvalho",
+          "identifier": "2171972",
+          "affiliation": "Laboratory for Structural and Computational Proteomics, Carlos Chagas Institute, Fiocruz, Paraná, Brazil",
+          "email": "paulo@pcarvalho.com",
+          "country": "",
+          "orcid": "",
+          "name": "Paulo Costa Carvalho",
+          "id": "2171972"
+        }
+      ],
+      "instruments": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MS",
+          "accession": "MS:1002732",
+          "name": "Orbitrap Fusion Lumos"
+        }
+      ],
+      "softwares": [],
+      "experimentTypes": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "PRIDE",
+          "accession": "PRIDE:0000430",
+          "name": "Chemical cross-linking coupled with mass spectrometry proteomics"
+        }
+      ],
+      "quantificationMethods": [],
+      "countries": [
+        "Brazil"
+      ],
+      "sampleAttributes": [
+        {
+          "@type": "Tuple",
+          "key": {
+            "cvLabel": "EFO",
+            "accession": "OBI:0100026",
+            "name": "organism"
+          },
+          "value": [
+            {
+              "cvLabel": "NEWT",
+              "accession": "NEWT:9606",
+              "name": "Homo sapiens (Human)"
+            }
+          ]
+        }
+      ],
+      "organisms": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "NEWT",
+          "accession": "NEWT:9606",
+          "name": "Homo sapiens (human)"
+        }
+      ],
+      "organismParts": [],
+      "diseases": [],
+      "references": [
+        {
+          "pubmedID": 0,
+          "doi": "10.1093/BIOINFORMATICS/BTAB149"
+        }
+      ],
+      "identifiedPTMStrings": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MOD",
+          "accession": "MOD:00397",
+          "name": "iodoacetamide derivatized residue"
+        }
+      ],
+      "totalFileDownloads": 1033,
+      "botCount": 360,
+      "hubCount": 657,
+      "organicCount": 16,
+      "files": {
+        "files": [
+          {
+            "fileName": "hsp90.qnr",
+            "fileSizeBytes": 2504130,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD022443/hsp90.qnr"
+          },
+          {
+            "fileName": "hsp90_atp.xml",
+            "fileSizeBytes": 5632,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD022443/hsp90_atp.xml"
+          },
+          {
+            "fileName": "HSP90_ADP.simxlr",
+            "fileSizeBytes": 9493948,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD022443/HSP90_ADP.simxlr"
+          },
+          {
+            "fileName": "hsp90_adp.xml",
+            "fileSizeBytes": 5632,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD022443/hsp90_adp.xml"
+          },
+          {
+            "fileName": "161206_HsP_90_ATPgS_2.raw",
+            "fileSizeBytes": 573014478,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD022443/161206_HsP_90_ATPgS_2.raw"
+          },
+          {
+            "fileName": "161206_HsP_90_1.raw",
+            "fileSizeBytes": 548021140,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD022443/161206_HsP_90_1.raw"
+          },
+          {
+            "fileName": "HSP90_ATP.simxlr",
+            "fileSizeBytes": 10869028,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD022443/HSP90_ATP.simxlr"
+          },
+          {
+            "fileName": "161206_HsP_90_2.raw",
+            "fileSizeBytes": 568619084,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD022443/161206_HsP_90_2.raw"
+          },
+          {
+            "fileName": "161206_HsP_90_ATPgS_1.raw",
+            "fileSizeBytes": 319153182,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD022443/161206_HsP_90_ATPgS_1.raw"
+          },
+          {
+            "fileName": "161206_HsP_90_ADP_1.raw",
+            "fileSizeBytes": 511162446,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD022443/161206_HsP_90_ADP_1.raw"
+          },
+          {
+            "fileName": "HSP90_Q.simxlr",
+            "fileSizeBytes": 16124063,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD022443/HSP90_Q.simxlr"
+          },
+          {
+            "fileName": "161206_HsP_90_ADP_2.raw",
+            "fileSizeBytes": 477346004,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD022443/161206_HsP_90_ADP_2.raw"
+          },
+          {
+            "fileName": "hsp90.fasta",
+            "fileSizeBytes": 742,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD022443/hsp90.fasta"
+          },
+          {
+            "fileName": "checksum.txt",
+            "fileSizeBytes": 1328,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD022443/checksum.txt"
+          },
+          {
+            "fileName": "hsp90_q.xml",
+            "fileSizeBytes": 5630,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD022443/hsp90_q.xml"
+          }
+        ],
+        "totalCount": 15
+      }
+    },
+    "publication_metadata": null,
+    "llm_responses": {
+      "characteristics[disease]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": [\n      \"ATP-bound conformer-enriched sample\",\n      \"ADP-bound conformer-enriched sample\",\n      \"nucleotide-free (Apo) conformer-enriched sample\"\n    ],\n    \"accession\": \"EFO:0000651\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"This way, each of the samples should be enriched for a different conformer.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": [\n      \"ATP-γ-S (ATP analog) addition\",\n      \"ADP addition\",\n      \"nucleotide-free (Apo) condition\"\n    ],\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S (referenced in the text as ATP)... The cross-linked proteins... Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"ADP\",\n      \"ATP-γ-S\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"nucleotide binding / conformational perturbation\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"The HSP90 protein... analyzed in a purified solution with the nucleotides being added separately afterwards for the formation of complexes.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[phenotype]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": [\n      \"ATP-bound conformer-enriched sample\",\n      \"ADP-bound conformer-enriched sample\",\n      \"nucleotide-free (Apo) conformer-enriched sample\"\n    ],\n    \"accession\": \"EFO:0000651\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"This way, each of the samples should be enriched for a different conformer.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": [\n      \"ATP-γ-S (ATP analog) addition\",\n      \"ADP addition\",\n      \"nucleotide-free (Apo) condition\"\n    ],\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S (referenced in the text as ATP)... The cross-linked proteins... Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"ADP\",\n      \"ATP-γ-S\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"nucleotide binding / conformational perturbation\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"The HSP90 protein... analyzed in a purified solution with the nucleotides being added separately afterwards for the formation of complexes.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": [
+            "ATP-bound conformer-enriched sample",
+            "ADP-bound conformer-enriched sample",
+            "nucleotide-free (Apo) conformer-enriched sample"
+          ],
+          "accession": "EFO:0000651",
+          "confidence": "medium",
+          "evidence_quote": "This way, each of the samples should be enriched for a different conformer.",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[treatment]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": [\n      \"ATP-bound conformer-enriched sample\",\n      \"ADP-bound conformer-enriched sample\",\n      \"nucleotide-free (Apo) conformer-enriched sample\"\n    ],\n    \"accession\": \"EFO:0000651\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"This way, each of the samples should be enriched for a different conformer.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": [\n      \"ATP-γ-S (ATP analog) addition\",\n      \"ADP addition\",\n      \"nucleotide-free (Apo) condition\"\n    ],\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S (referenced in the text as ATP)... The cross-linked proteins... Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"ADP\",\n      \"ATP-γ-S\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"nucleotide binding / conformational perturbation\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"The HSP90 protein... analyzed in a purified solution with the nucleotides being added separately afterwards for the formation of complexes.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": [
+            "ATP-γ-S (ATP analog) addition",
+            "ADP addition",
+            "nucleotide-free (Apo) condition"
+          ],
+          "accession": "EFO:0000727",
+          "confidence": "medium",
+          "evidence_quote": "The nucleotides were ADP and ATP-γ-S (referenced in the text as ATP)... The cross-linked proteins... Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[compound]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": [\n      \"ATP-bound conformer-enriched sample\",\n      \"ADP-bound conformer-enriched sample\",\n      \"nucleotide-free (Apo) conformer-enriched sample\"\n    ],\n    \"accession\": \"EFO:0000651\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"This way, each of the samples should be enriched for a different conformer.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": [\n      \"ATP-γ-S (ATP analog) addition\",\n      \"ADP addition\",\n      \"nucleotide-free (Apo) condition\"\n    ],\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S (referenced in the text as ATP)... The cross-linked proteins... Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"ADP\",\n      \"ATP-γ-S\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"nucleotide binding / conformational perturbation\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"The HSP90 protein... analyzed in a purified solution with the nucleotides being added separately afterwards for the formation of complexes.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": [
+            "ADP",
+            "ATP-γ-S"
+          ],
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "The nucleotides were ADP and ATP-γ-S",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[dose]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": [\n      \"ATP-bound conformer-enriched sample\",\n      \"ADP-bound conformer-enriched sample\",\n      \"nucleotide-free (Apo) conformer-enriched sample\"\n    ],\n    \"accession\": \"EFO:0000651\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"This way, each of the samples should be enriched for a different conformer.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": [\n      \"ATP-γ-S (ATP analog) addition\",\n      \"ADP addition\",\n      \"nucleotide-free (Apo) condition\"\n    ],\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S (referenced in the text as ATP)... The cross-linked proteins... Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"ADP\",\n      \"ATP-γ-S\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"nucleotide binding / conformational perturbation\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"The HSP90 protein... analyzed in a purified solution with the nucleotides being added separately afterwards for the formation of complexes.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[genetic modification]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": [\n      \"ATP-bound conformer-enriched sample\",\n      \"ADP-bound conformer-enriched sample\",\n      \"nucleotide-free (Apo) conformer-enriched sample\"\n    ],\n    \"accession\": \"EFO:0000651\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"This way, each of the samples should be enriched for a different conformer.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": [\n      \"ATP-γ-S (ATP analog) addition\",\n      \"ADP addition\",\n      \"nucleotide-free (Apo) condition\"\n    ],\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S (referenced in the text as ATP)... The cross-linked proteins... Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"ADP\",\n      \"ATP-γ-S\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"nucleotide binding / conformational perturbation\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"The HSP90 protein... analyzed in a purified solution with the nucleotides being added separately afterwards for the formation of complexes.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[perturbation]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": [\n      \"ATP-bound conformer-enriched sample\",\n      \"ADP-bound conformer-enriched sample\",\n      \"nucleotide-free (Apo) conformer-enriched sample\"\n    ],\n    \"accession\": \"EFO:0000651\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"This way, each of the samples should be enriched for a different conformer.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": [\n      \"ATP-γ-S (ATP analog) addition\",\n      \"ADP addition\",\n      \"nucleotide-free (Apo) condition\"\n    ],\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S (referenced in the text as ATP)... The cross-linked proteins... Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"ADP\",\n      \"ATP-γ-S\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"nucleotide binding / conformational perturbation\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"The HSP90 protein... analyzed in a purified solution with the nucleotides being added separately afterwards for the formation of complexes.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "nucleotide binding / conformational perturbation",
+          "accession": "PRIDE:0000700",
+          "confidence": "low",
+          "evidence_quote": "The HSP90 protein... analyzed in a purified solution with the nucleotides being added separately afterwards for the formation of complexes.",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[depletion]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": [\n      \"ATP-bound conformer-enriched sample\",\n      \"ADP-bound conformer-enriched sample\",\n      \"nucleotide-free (Apo) conformer-enriched sample\"\n    ],\n    \"accession\": \"EFO:0000651\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"This way, each of the samples should be enriched for a different conformer.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": [\n      \"ATP-γ-S (ATP analog) addition\",\n      \"ADP addition\",\n      \"nucleotide-free (Apo) condition\"\n    ],\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S (referenced in the text as ATP)... The cross-linked proteins... Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"ADP\",\n      \"ATP-γ-S\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"nucleotide binding / conformational perturbation\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"The HSP90 protein... analyzed in a purified solution with the nucleotides being added separately afterwards for the formation of complexes.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "no depletion",
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "factor value cell line": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"DSS (dissolved in DMF)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linker used was DSS dissolved in DMF (final concentration of 27mmol/L)\",\n    \"evidence_location\": \"Methods\",\n    \"note\": null\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": \"27 mmol/L\",\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linker used was DSS dissolved in DMF (final concentration of 27mmol/L)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": \"ATP-bound, ADP-bound, nucleotide-free (Apo)\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "CLO:0000031",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value compound": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"DSS (dissolved in DMF)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linker used was DSS dissolved in DMF (final concentration of 27mmol/L)\",\n    \"evidence_location\": \"Methods\",\n    \"note\": null\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": \"27 mmol/L\",\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linker used was DSS dissolved in DMF (final concentration of 27mmol/L)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": \"ATP-bound, ADP-bound, nucleotide-free (Apo)\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "DSS (dissolved in DMF)",
+          "accession": "CHEBI:37577",
+          "confidence": "medium",
+          "evidence_quote": "The cross-linker used was DSS dissolved in DMF (final concentration of 27mmol/L)",
+          "evidence_location": "Methods",
+          "note": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value disease": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"DSS (dissolved in DMF)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linker used was DSS dissolved in DMF (final concentration of 27mmol/L)\",\n    \"evidence_location\": \"Methods\",\n    \"note\": null\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": \"27 mmol/L\",\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linker used was DSS dissolved in DMF (final concentration of 27mmol/L)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": \"ATP-bound, ADP-bound, nucleotide-free (Apo)\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "OGMS:0000031",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value dose": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"DSS (dissolved in DMF)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linker used was DSS dissolved in DMF (final concentration of 27mmol/L)\",\n    \"evidence_location\": \"Methods\",\n    \"note\": null\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": \"27 mmol/L\",\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linker used was DSS dissolved in DMF (final concentration of 27mmol/L)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": \"ATP-bound, ADP-bound, nucleotide-free (Apo)\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "27 mmol/L",
+          "accession": "EFO:0000428",
+          "confidence": "medium",
+          "evidence_quote": "The cross-linker used was DSS dissolved in DMF (final concentration of 27mmol/L)",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value organism part": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"DSS (dissolved in DMF)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linker used was DSS dissolved in DMF (final concentration of 27mmol/L)\",\n    \"evidence_location\": \"Methods\",\n    \"note\": null\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": \"27 mmol/L\",\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linker used was DSS dissolved in DMF (final concentration of 27mmol/L)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": \"ATP-bound, ADP-bound, nucleotide-free (Apo)\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000635",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value time": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"DSS (dissolved in DMF)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linker used was DSS dissolved in DMF (final concentration of 27mmol/L)\",\n    \"evidence_location\": \"Methods\",\n    \"note\": null\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": \"27 mmol/L\",\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linker used was DSS dissolved in DMF (final concentration of 27mmol/L)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": \"ATP-bound, ADP-bound, nucleotide-free (Apo)\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000721",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value treatment": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"DSS (dissolved in DMF)\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linker used was DSS dissolved in DMF (final concentration of 27mmol/L)\",\n    \"evidence_location\": \"Methods\",\n    \"note\": null\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": \"27 mmol/L\",\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linker used was DSS dissolved in DMF (final concentration of 27mmol/L)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": \"ATP-bound, ADP-bound, nucleotide-free (Apo)\",\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "ATP-bound, ADP-bound, nucleotide-free (Apo)",
+          "accession": "EFO:0000727",
+          "confidence": "high",
+          "evidence_quote": "Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "comment[instrument]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\",\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid (ThermoFisher Scientific) mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Instrument method was set up in DDA mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HCD fragmentation\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"30 NCE;34 NCE\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HCD fragmentation with stepped collision energy from 30 to 34\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"2 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Each sample was analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "NT=Orbitrap Fusion Lumos;AC=MS:1002732",
+          "accession": "MS:1002732",
+          "confidence": "high",
+          "evidence_quote": "analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid (ThermoFisher Scientific) mass spectrometer",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[proteomics data acquisition method]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\",\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid (ThermoFisher Scientific) mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Instrument method was set up in DDA mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HCD fragmentation\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"30 NCE;34 NCE\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HCD fragmentation with stepped collision energy from 30 to 34\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"2 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Each sample was analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "NT=data-dependent acquisition;AC=PRIDE:0000041",
+          "accession": "PRIDE:0000041",
+          "confidence": "high",
+          "evidence_quote": "Instrument method was set up in DDA mode",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[dissociation method]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\",\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid (ThermoFisher Scientific) mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Instrument method was set up in DDA mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HCD fragmentation\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"30 NCE;34 NCE\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HCD fragmentation with stepped collision energy from 30 to 34\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"2 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Each sample was analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "NT=HCD;AC=MS:1000422",
+          "accession": "MS:1000422",
+          "confidence": "high",
+          "evidence_quote": "HCD fragmentation",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[collision energy]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\",\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid (ThermoFisher Scientific) mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Instrument method was set up in DDA mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HCD fragmentation\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"30 NCE;34 NCE\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HCD fragmentation with stepped collision energy from 30 to 34\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"2 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Each sample was analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "30 NCE;34 NCE",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "HCD fragmentation with stepped collision energy from 30 to 34",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[dia method]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\",\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid (ThermoFisher Scientific) mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Instrument method was set up in DDA mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HCD fragmentation\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"30 NCE;34 NCE\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HCD fragmentation with stepped collision energy from 30 to 34\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"2 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Each sample was analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[fragment mass tolerance]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\",\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid (ThermoFisher Scientific) mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Instrument method was set up in DDA mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HCD fragmentation\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"30 NCE;34 NCE\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HCD fragmentation with stepped collision energy from 30 to 34\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"2 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Each sample was analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[precursor mass tolerance]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\",\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid (ThermoFisher Scientific) mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Instrument method was set up in DDA mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HCD fragmentation\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"30 NCE;34 NCE\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HCD fragmentation with stepped collision energy from 30 to 34\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"2 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Each sample was analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[technical replicate]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\",\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid (ThermoFisher Scientific) mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Instrument method was set up in DDA mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HCD fragmentation\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"30 NCE;34 NCE\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HCD fragmentation with stepped collision energy from 30 to 34\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"2 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Each sample was analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "2 technical replicates per sample",
+          "accession": "MS:1001808",
+          "confidence": "high",
+          "evidence_quote": "Each sample was analyzed in two technical replicates",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[data file]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": \"NT=Orbitrap Fusion Lumos;AC=MS:1002732\",\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid (ThermoFisher Scientific) mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-dependent acquisition;AC=PRIDE:0000041\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Instrument method was set up in DDA mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"NT=HCD;AC=MS:1000422\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HCD fragmentation\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"30 NCE;34 NCE\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"HCD fragmentation with stepped collision energy from 30 to 34\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"2 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Each sample was analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "MS:1003083",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "characteristics[organism]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"HSP90 protein (human)\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled to mass spectrometry (XLMS)\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"nucleotide condition (ATP-bound, ADP-bound, nucleotide-free/Apo) with technical replicates\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo). Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"assay name\": {\n    \"value\": \"per MS run/assay corresponding to each nucleotide condition (ATP-bound, ADP-bound, Apo) and technical replicate (Orbitrap Fusion Lumos Tribrid DDA)\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid ... mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "HSP90 protein (human)",
+          "accession": "NCBITaxon:9606",
+          "confidence": "high",
+          "evidence_quote": "The HSP90 protein used for the experiments was the human one",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[organism part]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"HSP90 protein (human)\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled to mass spectrometry (XLMS)\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"nucleotide condition (ATP-bound, ADP-bound, nucleotide-free/Apo) with technical replicates\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo). Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"assay name\": {\n    \"value\": \"per MS run/assay corresponding to each nucleotide condition (ATP-bound, ADP-bound, Apo) and technical replicate (Orbitrap Fusion Lumos Tribrid DDA)\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid ... mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": "analyzed in a purified solution",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[cell line]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"HSP90 protein (human)\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled to mass spectrometry (XLMS)\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"nucleotide condition (ATP-bound, ADP-bound, nucleotide-free/Apo) with technical replicates\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo). Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"assay name\": {\n    \"value\": \"per MS run/assay corresponding to each nucleotide condition (ATP-bound, ADP-bound, Apo) and technical replicate (Orbitrap Fusion Lumos Tribrid DDA)\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid ... mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[cell type]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"HSP90 protein (human)\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled to mass spectrometry (XLMS)\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"nucleotide condition (ATP-bound, ADP-bound, nucleotide-free/Apo) with technical replicates\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo). Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"assay name\": {\n    \"value\": \"per MS run/assay corresponding to each nucleotide condition (ATP-bound, ADP-bound, Apo) and technical replicate (Orbitrap Fusion Lumos Tribrid DDA)\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid ... mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[material type]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"HSP90 protein (human)\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled to mass spectrometry (XLMS)\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"nucleotide condition (ATP-bound, ADP-bound, nucleotide-free/Apo) with technical replicates\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo). Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"assay name\": {\n    \"value\": \"per MS run/assay corresponding to each nucleotide condition (ATP-bound, ADP-bound, Apo) and technical replicate (Orbitrap Fusion Lumos Tribrid DDA)\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid ... mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "purified proteins",
+          "accession": "PRIDE:0000837",
+          "confidence": "high",
+          "evidence_quote": "analyzed in a purified solution",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[strain or breed]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"HSP90 protein (human)\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled to mass spectrometry (XLMS)\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"nucleotide condition (ATP-bound, ADP-bound, nucleotide-free/Apo) with technical replicates\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo). Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"assay name\": {\n    \"value\": \"per MS run/assay corresponding to each nucleotide condition (ATP-bound, ADP-bound, Apo) and technical replicate (Orbitrap Fusion Lumos Tribrid DDA)\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid ... mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[developmental stage]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"HSP90 protein (human)\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled to mass spectrometry (XLMS)\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"nucleotide condition (ATP-bound, ADP-bound, nucleotide-free/Apo) with technical replicates\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo). Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"assay name\": {\n    \"value\": \"per MS run/assay corresponding to each nucleotide condition (ATP-bound, ADP-bound, Apo) and technical replicate (Orbitrap Fusion Lumos Tribrid DDA)\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid ... mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "technology type": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"HSP90 protein (human)\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled to mass spectrometry (XLMS)\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"nucleotide condition (ATP-bound, ADP-bound, nucleotide-free/Apo) with technical replicates\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo). Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"assay name\": {\n    \"value\": \"per MS run/assay corresponding to each nucleotide condition (ATP-bound, ADP-bound, Apo) and technical replicate (Orbitrap Fusion Lumos Tribrid DDA)\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid ... mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "proteomic profiling by mass spectrometry",
+          "accession": "PRIDE:0000663",
+          "confidence": "high",
+          "evidence_quote": "Chemical cross-linking coupled to mass spectrometry (XLMS)",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "source name": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"HSP90 protein (human)\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled to mass spectrometry (XLMS)\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"nucleotide condition (ATP-bound, ADP-bound, nucleotide-free/Apo) with technical replicates\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo). Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"assay name\": {\n    \"value\": \"per MS run/assay corresponding to each nucleotide condition (ATP-bound, ADP-bound, Apo) and technical replicate (Orbitrap Fusion Lumos Tribrid DDA)\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid ... mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "nucleotide condition (ATP-bound, ADP-bound, nucleotide-free/Apo) with technical replicates",
+          "accession": "PRIDE:0000623",
+          "confidence": "medium",
+          "evidence_quote": "Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo). Digested samples sample were analyzed in two technical replicates",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "assay name": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": \"HSP90 protein (human)\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled to mass spectrometry (XLMS)\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"nucleotide condition (ATP-bound, ADP-bound, nucleotide-free/Apo) with technical replicates\",\n    \"accession\": \"PRIDE:0000623\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo). Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"assay name\": {\n    \"value\": \"per MS run/assay corresponding to each nucleotide condition (ATP-bound, ADP-bound, Apo) and technical replicate (Orbitrap Fusion Lumos Tribrid DDA)\",\n    \"accession\": \"NCIT:C178857\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid ... mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "per MS run/assay corresponding to each nucleotide condition (ATP-bound, ADP-bound, Apo) and technical replicate (Orbitrap Fusion Lumos Tribrid DDA)",
+          "accession": "NCIT:C178857",
+          "confidence": "low",
+          "evidence_quote": "Digested samples sample were analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid ... mass spectrometer",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[sex]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Protein from a purified preparation; no donor sex described.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"3 different conformer conditions (ATP-bound, ADP-bound, nucleotide-free/Apo); each analyzed in two technical replicates\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo). Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Only technical replicates are mentioned; no explicit pooling.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "not applicable",
+          "accession": "PATO:0000047",
+          "confidence": "high",
+          "evidence_quote": "The HSP90 protein used for the experiments was the human one",
+          "evidence_location": "Methods",
+          "instructions_note": "Protein from a purified preparation; no donor sex described."
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[age]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Protein from a purified preparation; no donor sex described.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"3 different conformer conditions (ATP-bound, ADP-bound, nucleotide-free/Apo); each analyzed in two technical replicates\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo). Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Only technical replicates are mentioned; no explicit pooling.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000246",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[ancestry category]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Protein from a purified preparation; no donor sex described.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"3 different conformer conditions (ATP-bound, ADP-bound, nucleotide-free/Apo); each analyzed in two technical replicates\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo). Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Only technical replicates are mentioned; no explicit pooling.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "HANCESTRO",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[biological replicate]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Protein from a purified preparation; no donor sex described.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"3 different conformer conditions (ATP-bound, ADP-bound, nucleotide-free/Apo); each analyzed in two technical replicates\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo). Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Only technical replicates are mentioned; no explicit pooling.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "3 different conformer conditions (ATP-bound, ADP-bound, nucleotide-free/Apo); each analyzed in two technical replicates",
+          "accession": "MS:1001809",
+          "confidence": "medium",
+          "evidence_quote": "Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo). Digested samples sample were analyzed in two technical replicates",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[genotype]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Protein from a purified preparation; no donor sex described.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"3 different conformer conditions (ATP-bound, ADP-bound, nucleotide-free/Apo); each analyzed in two technical replicates\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo). Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Only technical replicates are mentioned; no explicit pooling.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000513",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[pooled sample]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Protein from a purified preparation; no donor sex described.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"3 different conformer conditions (ATP-bound, ADP-bound, nucleotide-free/Apo); each analyzed in two technical replicates\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo). Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Only technical replicates are mentioned; no explicit pooling.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "not pooled",
+          "accession": "NCIT:C165587",
+          "confidence": "medium",
+          "evidence_quote": "Digested samples sample were analyzed in two technical replicates",
+          "evidence_location": "Methods",
+          "instructions_note": "Only technical replicates are mentioned; no explicit pooling."
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[phosphate]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Protein from a purified preparation; no donor sex described.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"3 different conformer conditions (ATP-bound, ADP-bound, nucleotide-free/Apo); each analyzed in two technical replicates\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo). Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Only technical replicates are mentioned; no explicit pooling.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000805",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[temperature]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Protein from a purified preparation; no donor sex described.\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"3 different conformer conditions (ATP-bound, ADP-bound, nucleotide-free/Apo); each analyzed in two technical replicates\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo). Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\",\n    \"instructions_note\": \"Only technical replicates are mentioned; no explicit pooling.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000703",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "comment[cleavage agent details]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-linked proteins were digested using trypsin in a proportion of 1:50 (w/w) enzyme:substrate for 18 hours at 37°C.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"label free\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Alkylation of thiol groups was done by adding 20μL of a 50mmol/L solution of iodoacetamide\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Alkylation of thiol groups was done by adding ... iodoacetamide\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation (single digest per condition; analyzed in two technical replicates)\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": [
+            "NT=Trypsin;AC=MS:1001251"
+          ],
+          "accession": "MS:1001251",
+          "confidence": "high",
+          "evidence_quote": "The cross-linked proteins were digested using trypsin in a proportion of 1:50 (w/w) enzyme:substrate for 18 hours at 37°C.",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[label]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-linked proteins were digested using trypsin in a proportion of 1:50 (w/w) enzyme:substrate for 18 hours at 37°C.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"label free\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Alkylation of thiol groups was done by adding 20μL of a 50mmol/L solution of iodoacetamide\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Alkylation of thiol groups was done by adding ... iodoacetamide\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation (single digest per condition; analyzed in two technical replicates)\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "label free",
+          "accession": "MS:1002038",
+          "confidence": "medium",
+          "evidence_quote": "Digested samples sample were analyzed in two technical replicates",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[alkylation reagent]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-linked proteins were digested using trypsin in a proportion of 1:50 (w/w) enzyme:substrate for 18 hours at 37°C.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"label free\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Alkylation of thiol groups was done by adding 20μL of a 50mmol/L solution of iodoacetamide\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Alkylation of thiol groups was done by adding ... iodoacetamide\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation (single digest per condition; analyzed in two technical replicates)\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "iodoacetamide",
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": "Alkylation of thiol groups was done by adding 20μL of a 50mmol/L solution of iodoacetamide",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[fractionation method]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-linked proteins were digested using trypsin in a proportion of 1:50 (w/w) enzyme:substrate for 18 hours at 37°C.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"label free\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Alkylation of thiol groups was done by adding 20μL of a 50mmol/L solution of iodoacetamide\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Alkylation of thiol groups was done by adding ... iodoacetamide\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation (single digest per condition; analyzed in two technical replicates)\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[modification parameters]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-linked proteins were digested using trypsin in a proportion of 1:50 (w/w) enzyme:substrate for 18 hours at 37°C.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"label free\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Alkylation of thiol groups was done by adding 20μL of a 50mmol/L solution of iodoacetamide\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Alkylation of thiol groups was done by adding ... iodoacetamide\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation (single digest per condition; analyzed in two technical replicates)\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": [
+            "NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed",
+            "NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable"
+          ],
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "Alkylation of thiol groups was done by adding ... iodoacetamide",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[fraction identifier]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-linked proteins were digested using trypsin in a proportion of 1:50 (w/w) enzyme:substrate for 18 hours at 37°C.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"label free\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Alkylation of thiol groups was done by adding 20μL of a 50mmol/L solution of iodoacetamide\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Alkylation of thiol groups was done by adding ... iodoacetamide\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation (single digest per condition; analyzed in two technical replicates)\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"Methods\"\n  }\n}",
+        "parsed": {
+          "value": "no fractionation (single digest per condition; analyzed in two technical replicates)",
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": "Digested samples sample were analyzed in two technical replicates",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "characteristics[crosslinking reaction time]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"2 hours\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-link reactions occurred for 2 hours at 27°C.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"27 °C\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-link reactions occurred for 2 hours at 27°C.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "2 hours",
+          "accession": "PRIDE:0000949",
+          "confidence": "high",
+          "evidence_quote": "The cross-link reactions occurred for 2 hours at 27°C.",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "characteristics[crosslinking temperature]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"2 hours\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-link reactions occurred for 2 hours at 27°C.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"27 °C\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-link reactions occurred for 2 hours at 27°C.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "27 °C",
+          "accession": "PRIDE:0000950",
+          "confidence": "high",
+          "evidence_quote": "The cross-link reactions occurred for 2 hours at 27°C.",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "comment[crosslink enrichment method]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"2 hours\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-link reactions occurred for 2 hours at 27°C.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"27 °C\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-link reactions occurred for 2 hours at 27°C.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "characteristics[enrichment process]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"2 hours\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-link reactions occurred for 2 hours at 27°C.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"27 °C\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-link reactions occurred for 2 hours at 27°C.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "comment[cross-linker]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=DSS;AC=XLMOD:02001;CL=no;TA=K,nterm\",\n    \"NT\": \"DSS\",\n    \"AC\": \"XLMOD:02001\",\n    \"CL\": \"no\",\n    \"TA\": \"K,nterm\",\n    \"accession\": \"XLMOD:02001\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-linker used was DSS dissolved in DMF (final concentration of 27mmol/L)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"27 mmol/L\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"final concentration of 27mmol/L\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": \"100:1\",\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"in a molar excess of 100 times relative to the protein concentration\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking mass spectrometry (XLMS)\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "NT=DSS;AC=XLMOD:02001;CL=no;TA=K,nterm",
+          "NT": "DSS",
+          "AC": "XLMOD:02001",
+          "CL": "no",
+          "TA": "K,nterm",
+          "accession": "XLMOD:02001",
+          "confidence": "high",
+          "evidence_quote": "The cross-linker used was DSS dissolved in DMF (final concentration of 27mmol/L)",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[crosslinker concentration]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=DSS;AC=XLMOD:02001;CL=no;TA=K,nterm\",\n    \"NT\": \"DSS\",\n    \"AC\": \"XLMOD:02001\",\n    \"CL\": \"no\",\n    \"TA\": \"K,nterm\",\n    \"accession\": \"XLMOD:02001\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-linker used was DSS dissolved in DMF (final concentration of 27mmol/L)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"27 mmol/L\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"final concentration of 27mmol/L\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": \"100:1\",\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"in a molar excess of 100 times relative to the protein concentration\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking mass spectrometry (XLMS)\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "27 mmol/L",
+          "accession": "PRIDE:0000951",
+          "confidence": "high",
+          "evidence_quote": "final concentration of 27mmol/L",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[crosslinker to protein ratio]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=DSS;AC=XLMOD:02001;CL=no;TA=K,nterm\",\n    \"NT\": \"DSS\",\n    \"AC\": \"XLMOD:02001\",\n    \"CL\": \"no\",\n    \"TA\": \"K,nterm\",\n    \"accession\": \"XLMOD:02001\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-linker used was DSS dissolved in DMF (final concentration of 27mmol/L)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"27 mmol/L\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"final concentration of 27mmol/L\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": \"100:1\",\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"in a molar excess of 100 times relative to the protein concentration\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking mass spectrometry (XLMS)\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "100:1",
+          "accession": "PRIDE:0000952",
+          "confidence": "high",
+          "evidence_quote": "in a molar excess of 100 times relative to the protein concentration",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[quenching reagent]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=DSS;AC=XLMOD:02001;CL=no;TA=K,nterm\",\n    \"NT\": \"DSS\",\n    \"AC\": \"XLMOD:02001\",\n    \"CL\": \"no\",\n    \"TA\": \"K,nterm\",\n    \"accession\": \"XLMOD:02001\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-linker used was DSS dissolved in DMF (final concentration of 27mmol/L)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"27 mmol/L\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"final concentration of 27mmol/L\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": \"100:1\",\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"in a molar excess of 100 times relative to the protein concentration\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking mass spectrometry (XLMS)\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000953",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "characteristics[crosslink distance]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=DSS;AC=XLMOD:02001;CL=no;TA=K,nterm\",\n    \"NT\": \"DSS\",\n    \"AC\": \"XLMOD:02001\",\n    \"CL\": \"no\",\n    \"TA\": \"K,nterm\",\n    \"accession\": \"XLMOD:02001\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-linker used was DSS dissolved in DMF (final concentration of 27mmol/L)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"27 mmol/L\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"final concentration of 27mmol/L\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": \"100:1\",\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"in a molar excess of 100 times relative to the protein concentration\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking mass spectrometry (XLMS)\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000948",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[chemical cross-linking coupled with ms]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=DSS;AC=XLMOD:02001;CL=no;TA=K,nterm\",\n    \"NT\": \"DSS\",\n    \"AC\": \"XLMOD:02001\",\n    \"CL\": \"no\",\n    \"TA\": \"K,nterm\",\n    \"accession\": \"XLMOD:02001\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-linker used was DSS dissolved in DMF (final concentration of 27mmol/L)\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"27 mmol/L\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"final concentration of 27mmol/L\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": \"100:1\",\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"in a molar excess of 100 times relative to the protein concentration\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"cross-linking mass spectrometry (XLMS)\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "cross-linking mass spectrometry",
+          "accession": "PRIDE:0000430",
+          "confidence": "high",
+          "evidence_quote": "cross-linking mass spectrometry (XLMS)",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      }
+    }
+  }
+}

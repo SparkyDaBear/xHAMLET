@@ -1,0 +1,352 @@
+{
+  "metadata": {
+    "pxd": "PXD036463",
+    "category": "pride",
+    "saved_at": "2026-06-30T15:28:08.537361",
+    "filename": "project_details"
+  },
+  "data": {
+    "accession": "PXD036463",
+    "title": "A comprehensive set of ER PDI family members supports the biogenesis of pro-inflammatory interleukin 12 family cytokines",
+    "additionalAttributes": [],
+    "projectDescription": "Cytokines of the interleukin 12 (IL-12) family are assembled combinatorially from shared alpha and beta subunits. A common theme is that human IL-12 family alpha subunits remain incompletely structured in isolation until they pair with a designate beta subunit. Accordingly, chaperones need to support and control specific assembly processes. Here, we site-specifically introduce photo-crosslinking amino acids into the IL-12 and IL-23 alpha subunits (IL-12alpha and IL-23alpha). This allows to stabilize transient chaperone:client complexes for mass spectrometry and reveals a large set of ER chaperones to interact with IL-12alpha and IL-23alpha. Among those, we focus on protein disulfide isomerase (PDI) family members and reveal IL-12 family subunits to be clients of several ill-characterized PDIs. We find that different PDIs show selectivity for different cysteines in IL-12alpha and IL-23alpha. Despite this, PDI binding generally stabilizes unassembled IL-12alpha and IL-23alpha against degradation. In contrast, alpha:beta assembly appears robust and only multiple simultaneous PDI depletions reduce IL-12 secretion.  Our comprehensive analysis of the IL-12/IL-23 chaperone machinery reveals a hitherto uncharacterized role for several PDIs in this process. This extends our understanding of how cells accomplish the task of specific protein assembly reactions for signaling processes. Furthermore, our findings show that cytokine secretion can be modulated by targeting specific ER chaperones.",
+    "sampleProcessingProtocol": "After enrichment, proteins were reduced and digested on-beads in 25 µl 50 mM Tris-HCl, pH 8.0 containing 5 ng/µl sequencing grade trypsin (Promega), 2 M urea and 1 mM DTT for 30 min at 25°C and with shaking at 600 rpm. Next, 100 µl 50 mM Tris-HCl, pH 8.0 containing 2 M urea and alkylating 5 mM iodoacetamide were added (30 min incubation at 25°C under shaking at 600 rpm). Digestion took place overnight at 37°C with shaking 600 rpm. The following day, digestion was stopped by addition of formic acid (FA, 0.5% v/v final amount). The beads were pelleted and the supernatant was desalted using double layer C18-stage tips (Agilent Technologies, Empore disk-C18, 47 mm) equilibrated with 70 µl methanol and aqueous 0.5% FA v/v (3). Samples were loaded and washed three times with 70 µl aqueous 0.5% v/v FA and eluted three times with 30 µl 80% v/v acetonitrile (ACN), 20% v/v H2O and 0.5% v/v FA. The eluate was lyophilized in vacuo, resuspended in 25 µl aqueous 1% v/v FA, pipetted up and down, vortexed and sonicated for 15 min. Finally, the peptide solution was passed through a PVDF filter (Millipore, 0.22 µm pore size).   Three replicates of photo-crosslink/co-IP samples on mutants and wt IL-12alpha/23alpha as well as controls transfected with empty vectors were analyzed via LC-MS/MS using an UltiMate 3000 nano HPLC system (ThermoFisher) equipped with an Acclaim C18 PepMap100 75 µm ID x 2 cm trap (ThermoFisher) and an Aurora C18 separation column (75 µm ID x 25 cm, 1.6 µm; Ionoptics) coupled to a CaptiveSpray source equipped TimsTOF Pro mass spectrometer (Bruker). Samples were loaded onto the trap column at a ﬂow rate of 5 µl/min with aqueous 0.1% TFA and then transferred onto the separation column at 0.4 µl/min. Buffers for the nano-chromatography pump were aqueous 0.1% FA (buffer A) and 0.1% FA in ACN (buffer B). The gradient length on the TimsTOF Pro was 73 mins, while acetonitrile in 0.1 % FA was step wise increased from 5 to 28% in 60 mins and from 28 to 40% in 13 mins, followed by a washing and equilibration step of the column. The timsTOF Pro was operated in PASEF mode. Mass spectra for MS and MS/MS scans were recorded between 100 and 1700 m/z. Ion mobility resolution was set to 0.85–1.40 V·s/cm over a ramp time of 100 ms. Data-dependent acquisition was performed using 10 PASEF MS/MS scans per cycle with a near 100% duty cycle. A polygon filter was applied in the m/z and ion mobility space to exclude low m/z, singly charged ions from PASEF precursor selection. An active exclusion time of 0.4 min was applied to precursors that reached 20,000 intensity units. Collisional energy was ramped stepwise as a function of ion mobility. (Meier, F.et al, 2018). The acquisition of all MS spectra on the timsTOF instrument was performed with the Compass HyStar software version 6.0 (Bruker).",
+    "dataProcessingProtocol": "MS raw files were analyzed with MaxQuant software (version 2.1.0.0) and the default settings for TimsTOF files were applied except that the TOF MS/MS match tolerance was set to 0.05 Da. Searches were performed with the Andromeda search engine embedded in the MaxQuant environment against the Uniprot human protein database (taxon identiﬁer: 9606; downloaded September 2021, number of entries: 20371). The following parameter settings were used: PSM and protein FDR 1%; enzyme specificity trypsin/P; minimal peptide length: 7; variable modifications: methionine oxidation, N-terminal acetylation; fixed modification: carbamidomethylation. The minimal number of unique peptides for protein identification was set to 2. For label-free protein quantification, the MaxLFQ algorithm was used as part of the MaxQuant environment: (LFQ) minimum ratio count: 2; peptides for quantification: unique. Resulting data were further analyzed using Perseus software version 1.6.15.0 (65). The rows were ﬁltered (only identiﬁed by site, potential contaminant, reverse) and LFQ intensities log2 transformed. Replicates (n=3) were grouped, ﬁltered for at least two valid values in at least one group and missing values were imputed for total matrix using default settings. A both sided, two-sample Student’s t-test was performed and derived p-values were corrected for multiple testing by the method of Benjamini and Hochberg with a signiﬁcance level of p = 0.05. Volcano plots were generated by plotting log2 (fold change) against -log10 (p-value). ER-chaperones were detected searching for GO terms cellular compartment = endoplasmic reticulum (ER), biological process = protein folding (GO numbers: 0006457, 0071712, 0006986, 0030433, 0034975 and 0061077) and molecular function = protein-disulfide isomerase activity with the help of the GO annotation ﬁle for Homo sapiens downloaded from Uniprot August 2022 (66). Additionally, all ER proteins were manually scrutinized for possible PDI family members that have not been annotated as such with the suitable GO terms. This further added ERp18, Sep15 and TMX1 to the list.",
+    "projectTags": [],
+    "keywords": [
+      "Interleukin",
+      "Chaperone",
+      "Protein disulfide isomerase",
+      "Protein folding",
+      "Genetic code expansion"
+    ],
+    "doi": "",
+    "submissionType": "PARTIAL",
+    "license": "Creative Commons Public Domain (CC0)",
+    "submissionDate": "2022-09-02",
+    "publicationDate": "2022-11-28",
+    "submitters": [
+      {
+        "title": "Dr",
+        "firstName": "Nina",
+        "lastName": "Bach",
+        "identifier": "72410100",
+        "affiliation": "TU München",
+        "email": "nina.bach@tum.de",
+        "country": "Germany",
+        "orcid": "",
+        "name": "Nina Bach",
+        "id": "72410100"
+      }
+    ],
+    "labPIs": [
+      {
+        "title": "Dr",
+        "firstName": "Matthias J.",
+        "lastName": "Feige",
+        "identifier": "2449127",
+        "affiliation": "Technical University of Munich Department of Chemistry and Institute for Advanced Study  Lichtenbergstr. 4  85748 Garching Germany",
+        "email": "matthias.feige@tum.de",
+        "country": "",
+        "orcid": "",
+        "name": "Matthias J. Feige",
+        "id": "2449127"
+      }
+    ],
+    "instruments": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1003005",
+        "name": "timsTOF Pro"
+      }
+    ],
+    "softwares": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1002337",
+        "name": "Andromeda"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1001583",
+        "name": "MaxQuant"
+      }
+    ],
+    "experimentTypes": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000429",
+        "name": "Shotgun proteomics"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000433",
+        "name": "Affinity purification coupled with mass spectrometry proteomics"
+      }
+    ],
+    "quantificationMethods": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000425",
+        "name": "MS1 intensity based label-free quantification method"
+      }
+    ],
+    "countries": [
+      "Germany"
+    ],
+    "sampleAttributes": [
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "OBI:0100026",
+          "name": "organism"
+        },
+        "value": [
+          {
+            "cvLabel": "NEWT",
+            "accession": "NEWT:9606",
+            "name": "Homo sapiens (Human)"
+          }
+        ]
+      }
+    ],
+    "organisms": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "NEWT",
+        "accession": "NEWT:9606",
+        "name": "Homo sapiens (human)"
+      }
+    ],
+    "organismParts": [],
+    "diseases": [],
+    "references": [
+      {
+        "referenceLine": "Mideksa YG, Aschenbrenner I, Fux A, Kaylani D, Weiß CAM, Nguyen TA, Bach NC, Lang K, Sieber SA, Feige MJ. A comprehensive set of ER protein disulfide isomerase family members supports the biogenesis of pro-inflammatory interleukin 12 family cytokines. J Biol Chem. 2022:102677",
+        "pubmedID": 36336075,
+        "doi": "10.1016/j.jbc.2022.102677"
+      }
+    ],
+    "identifiedPTMStrings": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00935",
+        "name": "methionine oxidation with neutral loss of 64 Da"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00408",
+        "name": "mono N-acetylated residue"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00397",
+        "name": "iodoacetamide derivatized residue"
+      }
+    ],
+    "totalFileDownloads": 2229,
+    "botCount": 227,
+    "hubCount": 1671,
+    "organicCount": 331,
+    "files": {
+      "files": [
+        {
+          "fileName": "3_3_UV_5951.d.zip",
+          "fileSizeBytes": 2022589165,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/3_3_UV_5951.d.zip"
+        },
+        {
+          "fileName": "1_4_5879.d.zip",
+          "fileSizeBytes": 1474007594,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/1_4_5879.d.zip"
+        },
+        {
+          "fileName": "1_5_5881.d.zip",
+          "fileSizeBytes": 1254091464,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/1_5_5881.d.zip"
+        },
+        {
+          "fileName": "1_3_UV_5891.d.zip",
+          "fileSizeBytes": 2212366317,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/1_3_UV_5891.d.zip"
+        },
+        {
+          "fileName": "3_1_UV_5947.d.zip",
+          "fileSizeBytes": 1435937758,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/3_1_UV_5947.d.zip"
+        },
+        {
+          "fileName": "3_2_UV_5949.d.zip",
+          "fileSizeBytes": 1975198030,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/3_2_UV_5949.d.zip"
+        },
+        {
+          "fileName": "1_2_5875.d.zip",
+          "fileSizeBytes": 1235977722,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/1_2_5875.d.zip"
+        },
+        {
+          "fileName": "1_6_UV_5885.d.zip",
+          "fileSizeBytes": 2109126026,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/1_6_UV_5885.d.zip"
+        },
+        {
+          "fileName": "3_5_5941.d.zip",
+          "fileSizeBytes": 2835574169,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/3_5_5941.d.zip"
+        },
+        {
+          "fileName": "1_1_UV_5887.d.zip",
+          "fileSizeBytes": 1840713542,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/1_1_UV_5887.d.zip"
+        },
+        {
+          "fileName": "2_2_5905.d.zip",
+          "fileSizeBytes": 1124544912,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/2_2_5905.d.zip"
+        },
+        {
+          "fileName": "2_1_5903.d.zip",
+          "fileSizeBytes": 1091528658,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/2_1_5903.d.zip"
+        },
+        {
+          "fileName": "2_2_UV_5919.d.zip",
+          "fileSizeBytes": 3834021115,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/2_2_UV_5919.d.zip"
+        },
+        {
+          "fileName": "2_3_5907.d.zip",
+          "fileSizeBytes": 1104058785,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/2_3_5907.d.zip"
+        },
+        {
+          "fileName": "2_6_5901.d.zip",
+          "fileSizeBytes": 3556412111,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/2_6_5901.d.zip"
+        },
+        {
+          "fileName": "IL-12_IL-23_search.zip",
+          "fileSizeBytes": 9194993,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/IL-12_IL-23_search.zip"
+        },
+        {
+          "fileName": "2_1_UV_5917.d.zip",
+          "fileSizeBytes": 1430333507,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/2_1_UV_5917.d.zip"
+        },
+        {
+          "fileName": "3_1_5933.d.zip",
+          "fileSizeBytes": 1804049678,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/3_1_5933.d.zip"
+        },
+        {
+          "fileName": "1_1_5873.d.zip",
+          "fileSizeBytes": 1297914108,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/1_1_5873.d.zip"
+        },
+        {
+          "fileName": "1_5_UV_5895.d.zip",
+          "fileSizeBytes": 2186933135,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/1_5_UV_5895.d.zip"
+        },
+        {
+          "fileName": "3_2_5935.d.zip",
+          "fileSizeBytes": 1075101121,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/3_2_5935.d.zip"
+        },
+        {
+          "fileName": "3_3_5937.d.zip",
+          "fileSizeBytes": 2148946010,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/3_3_5937.d.zip"
+        },
+        {
+          "fileName": "2_5_5911.d.zip",
+          "fileSizeBytes": 1136109676,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/2_5_5911.d.zip"
+        },
+        {
+          "fileName": "2_5_UV_5925.d.zip",
+          "fileSizeBytes": 2688367213,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/2_5_UV_5925.d.zip"
+        },
+        {
+          "fileName": "2_4_UV_5923.d.zip",
+          "fileSizeBytes": 2063790362,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/2_4_UV_5923.d.zip"
+        },
+        {
+          "fileName": "1_4_UV_5893.d.zip",
+          "fileSizeBytes": 1438319263,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/1_4_UV_5893.d.zip"
+        },
+        {
+          "fileName": "3_6_UV_5945.d.zip",
+          "fileSizeBytes": 4042512778,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/3_6_UV_5945.d.zip"
+        },
+        {
+          "fileName": "3_4_UV_5953.d.zip",
+          "fileSizeBytes": 1984521657,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/3_4_UV_5953.d.zip"
+        },
+        {
+          "fileName": "1_3_5877.d.zip",
+          "fileSizeBytes": 1249917988,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/1_3_5877.d.zip"
+        },
+        {
+          "fileName": "1_2_UV_5889.d.zip",
+          "fileSizeBytes": 1669498584,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/1_2_UV_5889.d.zip"
+        },
+        {
+          "fileName": "2_6_UV_5915.d.zip",
+          "fileSizeBytes": 3666391324,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/2_6_UV_5915.d.zip"
+        },
+        {
+          "fileName": "3_6_5931.d.zip",
+          "fileSizeBytes": 3283700734,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/3_6_5931.d.zip"
+        },
+        {
+          "fileName": "3_5_UV_5955.d.zip",
+          "fileSizeBytes": 1797427490,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/3_5_UV_5955.d.zip"
+        },
+        {
+          "fileName": "2_4_5909.d.zip",
+          "fileSizeBytes": 1542212020,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/2_4_5909.d.zip"
+        },
+        {
+          "fileName": "3_4_5939.d.zip",
+          "fileSizeBytes": 1363356083,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/3_4_5939.d.zip"
+        },
+        {
+          "fileName": "1_6_5871.d.zip",
+          "fileSizeBytes": 1489117374,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/1_6_5871.d.zip"
+        },
+        {
+          "fileName": "2_3_UV_5921.d.zip",
+          "fileSizeBytes": 3556877215,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/11/PXD036463/2_3_UV_5921.d.zip"
+        }
+      ],
+      "totalCount": 37
+    }
+  }
+}

@@ -1,0 +1,1716 @@
+{
+  "metadata": {
+    "pxd": "PXD032297",
+    "category": "pmc",
+    "saved_at": "2026-06-30T15:24:15.936293",
+    "filename": "full_text"
+  },
+  "data": [
+    {
+      "bioctype": "BioCCollection",
+      "source": "PMC",
+      "date": "20260207",
+      "key": "pmc.key",
+      "version": "1.0",
+      "infons": {},
+      "documents": [
+        {
+          "bioctype": "BioCDocument",
+          "id": "PMC9149908",
+          "infons": {
+            "license": "CC BY"
+          },
+          "passages": [
+            {
+              "bioctype": "BioCPassage",
+              "offset": 0,
+              "infons": {
+                "article-id_doi": "10.3390/proteomes10020018",
+                "article-id_pmc": "PMC9149908",
+                "article-id_publisher-id": "proteomes-10-00018",
+                "elocation-id": "18",
+                "issue": "2",
+                "kwd": "proteomics pattern analysis bioinformatics proximity labeling exosomes",
+                "license": "Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license (https://creativecommons.org/licenses/by/4.0/).",
+                "name_0": "surname:Burton;given-names:Jordan B.",
+                "name_1": "surname:Carruthers;given-names:Nicholas J.",
+                "name_2": "surname:Hou;given-names:Zhanjun",
+                "name_3": "surname:Matherly;given-names:Larry H.",
+                "name_4": "surname:Stemmer;given-names:Paul M.",
+                "name_5": "surname:Reinders;given-names:Jörg",
+                "section_type": "TITLE",
+                "type": "front",
+                "volume": "10",
+                "year": "2022"
+              },
+              "text": "Pattern Analysis of Organellar Maps for Interpretation of Proteomic Data",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 73,
+              "infons": {
+                "section_type": "ABSTRACT",
+                "type": "abstract"
+              },
+              "text": "Localization of organelle proteins by isotope tagging (LOPIT) maps are a coordinate-directed representation of proteome data that can aid in biological interpretation. Analysis of organellar association for proteins as displayed using LOPIT is evaluated and interpreted for two types of proteomic data sets. First, test and control group protein abundances and fold change data obtained in a proximity labeling experiment are plotted on a LOPIT map to evaluate the likelihood of true protein interactions. Selection of true positives based on co-localization of proteins in the organellar space is shown to be consistent with carboxylase enrichment which serves as a positive control for biotinylation in streptavidin affinity selected proteome data sets. The mapping in organellar space facilitates discrimination between the test and control groups and aids in identification of proteins of interest. The same representation of proteins in organellar space is used in the analysis of extracellular vesicle proteomes for which protein abundance and fold change data are evaluated. Vesicular protein organellar localization patterns provide information about the subcellular origin of the proteins in the samples which are isolates from the extracellular milieu. The organellar localization patterns are indicative of the provenance of the vesicular proteome origin and allow discrimination between proteomes prepared using different enrichment methods. The patterns in LOPIT displays are easy to understand and compare which aids in the biological interpretation of proteome data.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 1655,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "title_1"
+              },
+              "text": "1. Introduction",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 1671,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "Using pattern recognition to aid in the understanding of protein function is an underutilized approach for biological interpretation of proteomic data. Patterns arise in proteome data sets because the functions of proteins in the samples are related to specific chemical environments and interaction partners present in subcellular locations and organelles where those protein reside. Localization of organelle proteins by isotope tagging (LOPIT) was introduced in 2004 by Dunkley and coworkers to establish the subcellular localization of proteins by using differential centrifugation to fractionate organellar proteomes based on density and then mass spectrometry to identify proteins that localize in organellar fractions. The LOPIT data, annotated with subcellular assignments made via machine learning, were input into a t-distributed stochastic neighbor embedding (t-SNE) algorithm to reduce the dimensionality of the data and to map the subcellular structures, protein complexes, and signaling pathway localizations of isoform-specific proteins with high accuracy. Using the coordinates from the published LOPIT distributions and mapping proteome data from unrelated experiments to the organellar space that has previously been reported facilitates the identification and analysis of patterns that are useful in biological interpretation of proteome data from non-related experiments.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 3063,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "LOPIT data and distribution maps are publicly available through the pRoloc R-package ( (accessed on 5 August 2021)), which contains 35 datasets. The pRoloc R-package is well documented, easy to use, and contains functions for the visualization of LOPIT data. LOPIT maps provide a coordinate-directed way to identify proteins of biological interest. The distribution of proteins in organellar assignment space for proteomic data sets allows insight into the underlying biology that is not provided by other representations of the data. LOPIT map protein distributions are included in the Human Protein Atlas and the subcellular and organellar locations for many proteins are confirmed by immunofluorescent imaging. Proteins identified as highly abundant that do not reside in a clearly assigned organellar space can be searched in the Human Protein Atlas to determine the localization assignment based on immunohistochemical imaging. Addition of quantitative values for proteins in the data sets plotted on a LOPIT map adds a dimension in addition to the localization that highlights the importance of a subset of the proteins that differ in abundance from the reference proteome.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 4243,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "A t-SNE plot of 5020 proteins from u2os cell lysates plotted using t-SNE coordinate assignments to 13 subcellular locations using Localization of Organelle Proteins by Isotope Tagging (LOPIT) is shown in Figure 1 (Thul, Akeson et al. 2017). Several proteins in the t-SNE plot have an undefined origin, occupying the central space between the designated organellar locations. Proteins have an organellar assignment if they were co-isolated experimentally with proteins that define a certain organelle or if they have similar characteristics to organelle protein markers. Proteins have an unknown assignment in the hyperLOPIT data if they are present in multiple fractions during the density gradient centrifugation and do not have similar characteristics to established organelle protein markers.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 5039,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "Pattern recognition has value in interpretation of proximity labeling experiments as demonstrated by the publicly available resource for mapping proteins in a streptavidin affinity selection experiment at  (accessed on 15 August 2021). BioID proximity labeling experiments use a promiscuous BirA biotin ligase expressed as a fusion with a protein of interest in order to enzymatically attach biotin to interacting proteins. Proteins that are biotinylated by the BirA are isolated using streptavidin columns or beads. A major obstacle to interpretation of proximity labeling data is the large number of background proteins detected. For these data sets, a close association of an identified protein with the target protein on the LOPIT map increases the confidence that it is a true positive. Proteins that are assigned to an organellar space far from the bait protein have an increased likelihood of being false positives and, minimally, should be evaluated with the understanding that the connection between the bait protein and the protein that is potentially of interest is unexpected.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 6128,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "Extracellular vesicles are important vehicles of intercellular communication that can potentially be used for disease identification, assessment of response to therapy, and for drug delivery. Identifying low abundance proteins in the vesicle preparations via mass spectrometry has emerged as a powerful tool in biomarker discovery and in epidemiological studies. It remains a challenge to enrich vesicles from plasma, urine, and other biological matrixes. The consistency of the vesicle enrichment and the degree to which the vesicles are enriched have major influence on the interpretation of data subsequently obtained with the preparations. The provenance of the vesicles being examined is critical to identifying the role of the identified proteins in the biology or disease process being studied. However, determining the provenance of isolated vesicles is challenging because exosomes, micro vesicles, and apoptotic bodies carry mixtures of proteins that are not specific to the biogenesis pathway of any one vesicle type. Localization patterns of proteomes from extracellular vesicle preparations on LOPIT maps aids in establishing the provenance of proteomes from isolated vesicles and establishing the effectiveness of vesicle enrichment.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 7376,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "This work emphasizes the utility of LOPIT maps for the identification of patterns in a proximity labeling experiment and for the assessment of extracellular vesicle preparations. The LOPIT maps allow unambiguous distinction between the test and control groups in a proximity labeling experiment. In addition, the identification of proteins of interest in a BioID experiment is refined using LOPIT-based patterns. Finally, the use of LOPIT plots to validate the enrichment of vesicular proteins by mapping the vesicular proteins to the LOPIT coordinates from the t-SNE plot is demonstrated.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 7966,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_1"
+              },
+              "text": "2. Materials and Methods",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 7991,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "2.1. Biotin Affinity Selection",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 8022,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_3"
+              },
+              "text": "2.1.1. Biotin Proximity Labeling Workflow",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 8064,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "The human proton-coupled folate transporter (PCFT, SLC46A1) was stably expressed as a fusion protein with a BioID2-HA in the C-terminus at residue 459 in HeLa cells (PCFT-BioID2). The uncomplexed biotin transferase was used as a control to identify proteins that are biotinylated randomly due to sheer abundance and/or an unnatural affinity to the BioID2 ligase. HeLa PCFT-BioID2 cells expressed the PCFT fusion protein which localized to the plasma membrane and exhibited robust transport typical of PCFT. HeLa PCFT-BioID2 and BioID2 cells were cultured in complete DMEM (biotin-free), with and without 50 µM biotin (Sigma-Aldrich Inc., St. Louis, MO, USA) for the final 16 h in culture, then biotinylated proteins were selected using streptavidin beads.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 8824,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Figure 2 shows the biotin proximity labeling workflow that was adapted. In the proton-coupled folate transporter group (PCFT), the bait protein, PCFT (Q96NT5), was expressed as a fusion with BirA in order to label interaction partners with biotin. In the ground reference group (GR) BirA was expressed independently and was not localized to any subcellular region. Cells were incubated with 50 µM biotin for 16 h, then washed 3 times with 1X phosphate-buffered saline (PBS) (Sigma-Aldrich Inc., St. Louis, MO, USA) and lysed in 1.5 mL of buffer containing 50 mM Tris (Sigma-Aldrich Inc., St. Louis, MO, USA), pH 7.4; 500 mM NaCl (Sigma-Aldrich Inc., St. Louis, MO, USA); 0.4% (w/v) sodium dodecyl sulfate (Sigma-Aldrich Inc., St. Louis, MO, USA), 1 mM dithiothreitol (Sigma-Aldrich Inc., St. Louis, MO, USA), and 1X complete protease inhibitor (Roche Diagnostics Deutschland GmbH, Mannheim, Germany). After collecting the cells, Triton X-100 (Sigma-Aldrich Inc., St. Louis, MO, USA) was added to a 2% (w/v) final concentration. Cells were sonicated twice for 1 min at a 30% duty cycle with an output level of 4 (Sonifer-250; Branson Ultrasonics Corporation, Danbury, CT, USA) and an equal volume of 50 mM Tris, pH 7.4 was added before centrifugation at 16,500× g for 10 min. The supernatant was collected in a 15 mL conical tube and incubated with 200 µL pre-washed streptavidin-coated Dynabeads (Invitrogen, Carlsbad, CA, USA) overnight with rotation at 4 °C.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 10293,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "The Dynabeads were washed to remove background proteins by mixing 100 µL of 1% (w/v) lithium dodecyl sulfate (Sigma-Aldrich Inc., St. Louis, MO, USA), 2X PBS with the 100 µL bed volume of beads at room temperature. Beads were collected using a magnetic stand and the supernatant was collected as Wash 1. The beads were washed a second time to remove background proteins. The second wash was 200 µL 1% (w/v) unbuffered lithium dodecyl sulfate at room temperature. The supernatant from the low ionic strength wash was collected as Wash 2. The beads were washed further with 50 µL of 2X PBS and the supernatant was combined with Wash 2. Biotinylated proteins were eluted from the Dynabeads with 50 μL of water followed by incubating the beads 3 times in 50 µL 1% (w/v) lithium dodecyl sulfate, 25 µM biotin at 65 °C for 5 min before collecting the supernatant as the Eluate.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 11190,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Wash 1, Wash 2, and Elute samples were reduced and alkylated in 1% (w/v) lithium docecyl sulfate buffered with 20 mM TEAB (Sigma-Aldrich Inc., St. Louis, MO, USA), by incubation with 5 mM dithiothreitol (Sigma-Aldrich Inc., St. Louis, MO, USA), for 30 min at 56 °C followed by incubation with 15 mM iodoacetamide (Sigma-Aldrich Inc., St. Louis, MO, USA), for 30 min at room temperature. Samples were acidified by adding 10% of the original volume of 12% phosphoric acid (Sigma-Aldrich Inc., St. Louis, MO, USA), and precipitated by adding 7 volumes of 90% methanol (Sigma-Aldrich Inc., St. Louis, MO, USA), 10% TEAB. Precipitated proteins were collected by centrifugation and washed twice with 0.5 mL 90% methano1, 1% TEAB to remove residual detergent. The precipitate was resuspended in 40 mM HEPES, pH 7.9 before adding 0.1 µg Promega Trypsin and incubating for 1 h at 47 °C then 6 h at 37 °C.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 12090,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_3"
+              },
+              "text": "2.1.2. Liquid Chromatography Mass Spectrometry",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 12137,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Peptides from sample digests were loaded onto an Acclaim PepMap 75 µm × 2 cm C-18 trap (Thermo Fisher Scientific, Waltham, MA, USA and separated using an Acclaim PepMap RSLC 75 µm × 25 cm C-18 column with gradients generated by an Easy-1000 nanoLC (Thermo Fisher Scientific, Waltham, MA, USA coupled to a Fusion Tribrid Mass Spectrometer (Thermo Fisher Scientific, Waltham, MA, USA. Peptides were separated on a 50 min gradient with a flow rate of 250 nL/min. The gradient started at 94% Solvent A (0.1% formic acid) (Thermo Fisher Scientific, Waltham, MA, USA and was ramped to 12% Solvent B (99.9% Acetonitrile (Sigma-Aldrich Inc., St. Louis, MO, USA), 0.1% Formic Acid) (Thermo Fisher Scientific, Waltham, MA, USA for 12 min, then ramped to 20% Solvent B for 12 min, then to 28% Solvent B for 8 min, 40% Solvent B for 5 min, 95% Solvent B for 1 min, and held at 95% Solvent B for 12 min. The mass spectrometer was operated in positive ion mode and data dependent acquisition. Precursor ions were detected at 120 K resolution in the orbitrap with a scan range of 350–1600 m/z, maximum injection time of 100 ms, 1e6 AGC target, and 250% normalized AGC target. Precursor ions were excluded for 15 s after the first acquisition. Precursor ions above a minimum intensity of 3000 and charge states from 2–7 were selected for isolation and fragmentation using CID set at 29, 10 ms activation time, and 0.25 activation Q. Fragment ions were detected in the ion trap with a rapid scan rate and 100 ms maximum injection time. The AGC target was set to 1e5 with a 100% normalized AGC target.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 13729,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_3"
+              },
+              "text": "2.1.3. Database Searching",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 13755,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Data were searched with Proteome Discoverer (v. 2.4) (Thermo Fisher Scientific, Waltham, MA, USA) against a human reference database (UniProt, accessed on 21 December 2018) using Sequest HT. The enzyme was set to trypsin allowing up to 2 missed cleavages. The precursor mass tolerance was set to 20 ppm and the fragment mass tolerance was set to 0.5 Da. Dynamic modifications were oxidation of methionine as well as deamidation of asparagine and glutamine. Carbamidomethylation of cysteine was set as a static modification. The false discovery rate was calculated using the target decoy PSM validator node with concatenated scores. Match between runs was enabled for each sample type and quantitation was made using precursor ion intensities.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 14498,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "2.2. Publicly Available Data",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 14527,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_3"
+              },
+              "text": "2.2.1. LOPIT Data",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 14545,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "The LOPIT maps used in this work were generated using the pRoloc R package after downloading the hyperLOPIT2017 u2os dataset using the pRolocData R package (Bioconductor). As described in those papers, to create the LOPIT organellar protein distribution map a crude membrane preparation from a u2os cell lysate was fractionated by density gradient ultracentrifugation to separate and enrich organelles based on density. After quantitative mass spectrometry proteins were assigned to organelles based on similarities in distribution in the density gradient to well-annotated organelle protein markers. The t-SNE machine learning algorithm was used to reduce the number of dimensions in the LOPIT proteomic data to a 2D map where proteins cluster by similarity from multiple experimental factors. All LOPIT protein coordinates were used as originally determined and without additional refinement.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 15440,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_3"
+              },
+              "text": "2.2.2. Exosome Enrichment by Density Gradient Ultracentrifugation",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 15506,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "The dataset S1 from the supplementary material published by Kowal et al. was selected as a benchmark for a highly enriched exosomal vesicle proteome. Briefly, Kowal et al. prepared extracellular vesicles from human primary monocyte-derived dendritic cells by centrifugation at 10,000× g (10 K) or 100,000× g (100 K). Fraction 3 (F3) and Fraction 5 (F5) from the density gradient contained most of the extracellular vesicles and exosomes as determined by Western blot analysis of exosome marker proteins including the tetraspanins CD9, CD63, and CD81. F3 had an average density of 1.115 g/mL and contained vesicles of 50–150 nm in diameter. F5 had an average density of 1.145 g/mL and contained vesicles over 150 nm in diameter.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 16238,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_3"
+              },
+              "text": "2.2.3. Exosome Enrichment by Size Exclusion Chromatography, Density Gradient Ultracentrifugation, and Ultracentrifugation",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 16360,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Supplementary Tables S1–S6 from Kugeratski et al. were downloaded for use in this analysis. The files contain results from mass spectrometry analysis that was intended to establish a proposed set of core exosome proteins. Proteins are attributed to vesicular origin for preparations from 14 cell lines enriched by size exclusion chromatography and for 3 cell lines after enrichment by ultracentrifugation, size exclusion chromatography, or density gradient ultracentrifugation.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 16840,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "2.3. Data Processing, Visualization, and Availability",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 16894,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "All data were imported into R Studio (version 4.0.5, , accessed on 31 March 2021) for processing and visualization. The R scripts for data processing and visualization have been made publicly available at  (accessed on 31 March 2021). Those R scripts take group protein abundance data then bin them before overlaying the abundance information using the protein specific coordinates for the LOPIT map from Thul et al. The mass spectrometry proteomics data have been deposited to the ProteomeXchange Consortium via the PRIDE partner repository with the dataset identifier PXD032297 and 10.6019/PXD032297.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 17497,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_1"
+              },
+              "text": "3. Results",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 17508,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "3.1. Mapping Proteins from a Proximity Labeling Experiment to the LOPIT Plot",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 17585,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Streptavidin affinity selection of biotinylated proteins following expression of a promiscuous BirA fusion was designed to facilitate discovery of transient and low affinity protein interactions. In practice, the number of proteins identified in these experiments range into the low thousands, a high background that makes interpretation of the data problematic. The experimental design incorporates stringent washes of the sample-loaded streptavidin beads with detergents as the streptavidin-biotin interaction is considered to be very stable. However, biotin binding to streptavidin is reversible and the affinity is highly dependent on the ionic strength and temperature. Biotinylated proteins are expected to have a slow off rate for release from streptavidin under wash conditions with high ionic strength and low temperature. The off rate for the biotinylated proteins increases with increased temperature and in low ionic strength buffer. Efficient recovery of biotinylated proteins is promoted by including free biotin in the elution buffer to prevent protein rebinding.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 18664,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "The degree to which biotinylated proteins are lost in the washes and obtained in the elution steps is monitored by measuring carboxylase enzymes. Carboxylases serve as an endogenous positive control for the affinity selection on streptavidin as they are the normal substrate for biotin transferase enzymes in mammalian cells. Carboxylases are typically detected in the wash solutions demonstrating that the wash is sufficiently stringent to disrupt the biotin streptavidin interaction to some degree. By monitoring the abundance of the carboxylases in both the final wash and the elution fractions, a wash to elute ratio for the abundance of known biotinylated proteins can be calculated and used as a benchmark in evaluating candidate proteins. The four carboxylases quantified as positive control for streptavidin selection are pyruvate carboxylase, mitochondrial (P11498); propionyl-CoA carboxylase alpha chain, mitochondrial (P05165); methylcrotonoyl-CoA carboxylase subunit alpha, mitochondrial (Q96RQ3); and acetyl-CoA carboxylase 1 (Q13085).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 19713,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_3"
+              },
+              "text": "3.1.1. Protein Abundances",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 19739,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Abundance of proteins identified and quantified in the Wash 1 (W-1), Wash 2 (W-2), and Elute (E) fractions of control and PCFT-BirA groups (Figure 1) were binned. Each group and each fraction are mapped to the protein coordinates determined in the t-SNE plot from Thul et al., 2017, presented in Figure 3. Table 1 displays the number of proteins identified in each fraction, the number of proteins contained in the LOPIT dataset for each fraction, the number of proteins identified for each group, and the percentage of identified proteins in each group that is present in the LOPIT data. The full data set is available as Supplementary Table S1.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 20386,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "The PCFT bait protein is expected to localize as an integral plasma membrane protein with a cytosolic C-terminus. Inspection of the protein distribution patterns for the Elute fractions in Figure 3 confirms the presence of folate transporter in the PCFT group and the absence of PCFT in the GR group. The decrease in the number of proteins identified in the Elute fraction compared to the W-2 fraction demonstrates the effectiveness of the wash for removing background proteins. The carboxylases are localized to the mitochondrial coordinates and are highlighted by being colored red in Figure 3 and Figure 4. The carboxylase proteins are detected at a lower abundance in the W-2 fraction than in the Elute fraction, demonstrating that biotinylated proteins are largely retained through the wash process and released primarily under elution conditions. The representation of data in Figure 3 allows us to eliminate, or at least reduce interest in, proteins that are identified but that map to organellar space far away from the PCFT.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 21420,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "The high abundance of proteins that map to the cytosol, mitochondria, and nuclear space in the LOPIT maps for the wash indicate that those regions are likely to contain primarily or exclusively background proteins. It is notable that the distribution patterns of the wash fractions for both the PCFT and GR groups are indistinguishable. The carboxylases, which are mitochondrial proteins, are essentially the only mitochondrial proteins that are retained in the elute samples.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 21897,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_3"
+              },
+              "text": "3.1.2. Mapping BioID Wash to Elute Ratio Data",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 21943,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "The proximity labeling design discussed here uses the ratio of individual protein abundance in the Elute vs. W-2 fractions to identify true interacting proteins. The presence of known biotinylated carboxylase proteins establishes a benchmark ratio for biotinylated proteins. The ratio of the Elute vs. W-2 fraction displayed in Figure 4 was calculated as the Elute fraction protein abundance over the W-2 fraction protein abundance.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 22376,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "As endogenously biotinylated proteins, carboxylases should always be detected in the Elute fraction. In practice, carboxylases are also detected in the wash fractions where their abundance gives an indication of the loss of specific binding, which is loss of signal from true positives. Although we assume that the biotin-streptavidin affinity and off rate are constant and independent of the protein that the biotin is coupled to, this has never been evaluated. The carboxylases have a single biotin modification as the endogenous biotin transferase that catalyzes modification of those proteins is specific for a single site on each carboxylase. The promiscuous BirA, however, can and is likely to biotinylate at random and at multiple sites on proteins in closest proximity to the bait. The presence of multiple biotins on any single protein would dramatically slow the loss of those proteins from the streptavidin during washes as the dissociated biotin would have a chance to rebind. Another caveat to using carboxylases as a positive control is that the context of where the biotin is on the protein could change the affinity of the biotin for streptavidin. The ratio of total carboxylase abundance between fractions establishes a minimum ratio necessary to be considered as specific binding during streptavidin selection. The ratio of carboxylase abundance in Elute to W-2 fractions range from 2.1 to 68.8 for the PCFT group and from 6.7 to 83.9 for the GR group. The number of analytes mapped to the LOPIT plot in Figure 4 for the PCFT group is decreased from 1220 to 238. The resultant set of proteins for the PCFT group are localized in the plasma membrane and undefined organellar space whereas the proteins for the GR group, a non-specific control, localize mainly in the nuclear and undefined space. Comparisons of the wash fractions between the PCFT and GR groups in Figure 3A vs. Figure 3B and Figure 4C show no clear differences between the two groups in the wash fractions. This lack of difference in conjunction with the clear differences in organellar localization of proteins for the Elute fractions as seen when comparing Figure 3C,D or in Figure 4D confirms that the criteria established for proteins of interest in the PCFT Elute group are likely to be true positives for PCFT interacting proteins.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 24698,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "3.2. Mapping Proteins from Extracellular Vesicle Preparations to the LOPIT Plot",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 24778,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Establishing a reliable benchmark for the proteomes of the different extracellular vesicle (EV) types is an ongoing process. The International Society for Extracellular Vesicles (ISEV) publishes recommendations for benchmarking extracellular vesicle preparations in the Minimal Information for Studies of Extracellular Vesicles (MISEV). In addition, a benchmark proteome for EVs with exosomal characteristics was selected due to the high information content in enrichment process used to obtain that EV population and evaluation data for those vesicles. Figure 5 displays the LOPIT distribution of exosomal marker proteins published in the MISEV2018 recommendation, the proteins identified in the high-quality benchmark exosome preparation of vesicles enriched by density gradient centrifugation, proposed core exosome proteins identified by, and all proteins identified in, exosome preparations in Kugeratski et al.. Of the 561 proteins proposed as markers for the evaluation of extracellular vesicle sample preparations in the MISEV2018 (Table 2), 48% have LOPIT coordinates. There were 2979 proteins identified in the benchmark exosome preparation by Kowal et al., of which 68% have LOPIT coordinates. There are 1243 proteins proposed as core exosome proteins by Kugeratski et al. after comparing proteomes for vesicles enriched from 14 cell lines. Of those proteins, 73% have LOPIT coordinates as do 39% of the 6491 full set of identified proteins in the exosome preparations from all cells evaluated. The MISEV2018 recommended proteins shown in Figure 5A establish the organellar space for EV assigned and contaminant proteins in the extracellular vesicle preparations. Proteins recommended for use as extracellular vesicle markers by MISEV2018 are shown in green and map to the plasma membrane, lysosome, ER, and cytosol. Proteins recommended for use as contaminant markers by MISEV2018 are shown in red and map to the mitochondria, 60S ribosome, 40S ribosome, and the nucleus.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 26762,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Proteins in the Kowal et al. and Kugeratski et al. data sets were binned and mapped to the LOPIT plot in Figure 5B–D. The F3-100K (Figure 5B) is a high-quality benchmark exosomal preparation. It contains 49 (44.5%), 29 (52.7%), 73 (37.4%), 10 (24.4%), and 8 (5.0%) of the category 1, 2, 3, 4, and 5 proteins as recommended by MISEV2018, respectively. Table 3 shows that highly abundant proteins in the Fraction 3 100K localize predominantly in the cytosol and plasma membrane which corresponds to the subcellular origin of proteins recommended for use as extracellular vesicle markers by MISEV2018. All proteins recommended in the MISEV2018 categories for the evaluation of extracellular vesicle preparations were included in the core exosome proteins (Figure 5C). Table 3 shows that most proteins identified as belonging in the core exosome proteins category map to unknown, nucleus, cytosol, and mitochondria. A minimal number of proteins in the core exosome proteins mapped to the endoplasmic reticulum, 60S ribosome, plasma membrane, proteasome, and 40S ribosome. The core exosome proteins proposed by Kugeratski et al. do not have the same density of proteins identified in the plasma membrane or the endoplasmic reticulum that are associated with exosome production from the endosomal release pathway. The distribution of all proteins identified in exosome preparations from 14 cell lines in Kugeratski et al. is shown in Figure 5D. The distribution of proteins in the nucleus and mitochondria is much denser in preparations from the 14 cell lines described by Kugeratski et al. as compared to the Fraction 3 100K exosome preparation in the Kowal et al. dataset.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28433,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "The fold change in protein abundances for the different fractions prepared by Kowal et al. were calculated and binned before plotting to LOPIT coordinates in Figure 6. The size of each point corresponds to the binned protein abundance ratio where larger sized points indicate higher fold changes between fractions. Mapping the fold change in protein abundances between fractions allows us to identify proteins that are enriched to a fraction and proteins that are equally distributed in several fractions. Mapping the fold change in protein abundances between the F3 and F5 fractions after a 10K or 100K ultracentrifugation allows us to demonstrate the difference in patterns of protein abundance between the vesicles of 50–150 nm in diameter found in fraction F3-100K and the larger vesicles that predominate in the F3-10K, F5-10K, and F3-100K fractions. Figure 6A shows the low abundance of endoplasmic reticulum, ribosome, proteasome, and mitochondrial proteins in the F3-100K vesicle preparation as compared to the F3-10K vesicle preparation. This is consistent with the MISEV recommendations shown in Figure 5A that those organelles do not contribute many proteins to exosomal-type vesicles. The F3-100K preparation is enriched in endosomal, plasma membrane, and cytosolic components as compared to the F3-10K preparation. The greater abundance of cytosolic proteins in the F3-100 fraction as compared to the MISEV recommendations suggests that the MISEV set of recommended proteins does not capture the full exosomal proteome or that the abundance of those cytosolic proteins in the F3-100 fraction is characteristic of that particular cell type. Figure 6B demonstrates the enrichment of plasma membrane, endoplasmic reticulum, mitochondrial, and cytosolic components in the F5-100K vesicle preparation as compared to the F5-10K vesicle preparation. Figure 6C demonstrates the enrichment of plasma membrane and cytosolic proteins, as well as the decreased abundance of endoplasmic reticulum and mitochondrial components in the F3-100K vesicle preparation compared to the F5-100K vesicle preparation. A similar pattern to Figure 6C is shown in Figure 6D in the comparison between the F3-10K and F5-100K vesicle preparations where the plasma membrane and cytosolic proteins are enriched in the F3-10K preparation while the mitochondrial and endoplasmic reticulum components are enriched in the F5-10K preparation.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 30853,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "The fold change in protein abundance for comparisons between exosome preparations by Kugeratski et al. via ultracentrifugation (UC), size exclusion chromatography (SEC), and density gradient ultracentrifugation (DG) were calculated for 3 cell lines with UC as the reference and binned before plotting to the LOPIT coordinates in Figure 7. The size of each point in Figure 7 corresponds to the binned protein abundance ratio where larger sized points indicate higher fold changes between fractions. Mapping the fold change in protein abundances between preparation methods allows us to visually compare distribution patterns from the different vesicle enrichment methods. The fold change patterns for vesicle preparations from the cell lines 293T, MDAMB231, and PANC1 in Figure 7 demonstrate the differences between SEC and DG using UC as a reference. The difference between SEC and UC is shown in Figure 7 for the cell lines 293T (A), MDAMB231 (C), and PANC1 (E). In all three cell lines, SEC is enriched in all organelles compared to UC. There are 27 and 8 fewer proteins identified in the plasma membrane compartment for the SEC enrichment of MDAMB231 and PANC1 compared to the 293T preparation. The difference between DG and UC is shown in Figure 7 for the cell lines 293T (B), MDAMB231 (C), and PANC1 (F). In all three cell lines, DG is enriched in all organelles compared to UC with the exception of the plasma membrane in the PANC1 enrichment (F). There are 11 and 9 fewer proteins identified in the plasma membrane compartment for the DG enrichment of PANC1 and 293T compared to the MDAMB231 preparation. In the 293T cell line (A and B) there are 103 fewer proteins identified in the unknown compartment, 15 fewer proteins identified in the plasma membrane, 33 fewer proteins identified in the nucleus, and 19 fewer proteins identified in the mitochondria for the SEC enrichment compared to the DG enrichment. In the MDAMB231 cell line (C and D) there is a higher fold change in protein abundance in the plasma membrane and mitochondrial compartments for the SEC enrichment compared to the DG enrichment. In the PANC1 cell line (E and F), there is a higher fold change in abundance of proteins in the plasma membrane and a lower fold change in abundance of proteins in the mitochondrial compartment for the SEC enrichment compared to the DG enrichment.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 33213,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "title_1"
+              },
+              "text": "4. Discussion",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 33227,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "title_2"
+              },
+              "text": "4.1. LOPIT Plots for the Interpretation of Data from a BioID Proximity Labeling Experiment",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 33318,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "paragraph"
+              },
+              "text": "The patterns that emerge when mapping protein abundance or abundance ratios on LOPIT plots allow us to define proteins of interest. Armed with the knowledge that the primary protein of interest was the plasma membrane protein PCFT and that highly abundant proteins in the W-2 fractions of the GR and PCFT groups are predominantly background proteins, clear differences between the control and test groups could be identified. The pattern of protein abundance in the GR group Elute fraction is similar to the pattern of protein abundance in the GR group W-2 fractions which correspond to background proteins in the experiment.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 33944,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "paragraph"
+              },
+              "text": "The patterns that emerge on LOPIT plots of the fold change between the Elute and W-2 fractions allow us to differentiate between background proteins and proteins of interest for each group. Proteins with larger fold changes between the Elute and the W-2 fractions are likely to have true interactions with the bait protein. The W-2 fractions contain background proteins that are likely to be false positives in the Elute fraction. Proteins with a high fold change between the PCFT Elute and W-2 fractions and are localized to the plasma membrane, are likely to be true positive interactors with the folate transporter protein.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 34571,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "paragraph"
+              },
+              "text": "Carboxylases are endogenously biotinylated proteins that we use as a positive control when assessing the efficiency of the streptavidin pulldown. The carboxylases are between 2.1 and 83.9 times more abundant in the Elute than the W-2 fractions. The carboxylase ratio between the Elute and W-2 fractions establishes a cut off to increase confidence that the identifying proteins are true positives and are biotinylated.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 34990,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "paragraph"
+              },
+              "text": "The utility of LOPIT maps for interpretation of data from proximity labeling experiments is based on the coordinates of proteins determined in cells at rest. Interventions that promote intracellular movement of proteins by diffusion or cyclosis are not accounted for. For the PCFT protein, which is localized to the plasma membrane, such processes might be less important that for the GR protein which is not expected to be localized within the cell.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 35441,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "title_2"
+              },
+              "text": "4.2. Pattern Recognition Is Useful for the Interpretation of Data from Extracellular Vesicle Preparations",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 35547,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "paragraph"
+              },
+              "text": "Displaying vesicular protein abundance on the LOPIT plot allows patterns from disparate isolation techniques to be recognized. The vesicular proteins from ultracentrifugation, size exclusion chromatography, and polymer-capillary channel hydrophilic interaction chromatography isolation from blood serum have a similar profile when displayed on a LOPIT plot. Most proteins originating from serum-derived exosomes are localized in the plasma membrane and cytosol along with some proteins that reside in the proteasome and lysosome. Serum-derived exosomes display few proteins from the mitochondria or nucleus and the presence of proteins that reside primarily in those organelles could indicate a low degree of enrichment for the vesicles.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 36285,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "paragraph"
+              },
+              "text": "The patterns of protein abundance shown in Figure 5 allow us to evaluate the degree of vesicle enrichment in the various preparations. Mapping the MISEV2018 recommended proteins on the LOPIT plot indicates that protein markers of extracellular vesicles are primarily located in coordinates from the plasma membrane, lysosome, ER, and cytosol while contaminant proteins are present in the mitochondria, ribosome, and nucleus. The F3-100K data from Kowal et al. serve as a high-quality benchmark for evaluating exosome preparations. The most abundant proteins in the F3-100K data are present in the plasma membrane, endoplasmic reticulum, and cytosol while lower abundance proteins are present in the mitochondria, nucleus, ribosomes, and proteasome. The highly abundant proteins in F3-100K correlate well with the location of marker proteins from the MISEV2018 recommendation and the lower abundance proteins correlate well with the location of the contaminant proteins from the MISEV2018 recommendation.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 37289,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "paragraph"
+              },
+              "text": "The patterns of protein abundance of the proposed core exosome proteins from Kugeratski et al. on the LOPIT plot in Figure 5 are very different from those for the benchmark F3-100K sample from Kowal et al.. Many of the proposed core exosome proteins are located in the cytosol, endoplasmic reticulum, and plasma membrane which is in line with the exosome marker proteins in the MISEV2018 recommendation. However, the high densities of proteins located in the mitochondria, ribosomes, and nucleus that are considered to be contaminant proteins in the MISEV2018 recommendation as well as the absence of those same proteins in the F3-100K map suggest that the data are from poorly enriched vesicle preparations.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 37998,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "paragraph"
+              },
+              "text": "The patterns of fold change in Figure 6 allow us to differentiate between four vesicular preparation fractions from Kowal et al.. The fractions differed in the first ultracentrifugation cycle where vesicles in a cell culture media were pelleted at 10,000× g or 100,000× g. The 10,000× g pellet contained vesicles larger than 200 nm and the 100,000× g pellet contained vesicles between 50 and 150 nm. Vesicle pellets were fractionated by floating in a density gradient where fraction 3 contained exosomes and fraction 5 contained larger vesicles. The fold change plots demonstrate that exosomes have higher protein abundances in the plasma membrane and cytosol with lower protein abundances in the mitochondria and endoplasmic reticulum when compared to larger vesicles.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 38772,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "paragraph"
+              },
+              "text": "The patterns of fold change in Figure 7 do not differentiate very well between the UC, SEC, and DG vesicular preparation methods in Kugeratski et al.. UC is used as the benchmark in the comparison of preparation methods for evaluating these data because UC is the most commonly used method to prepare extracellular vesicles. While there is some increase in signal density in the plasma membrane space for the SEC preparations, in general there is no marked difference for either SEC or DG relative to proteins prepared by UC. The uniformity of the protein distribution across all organellar locations may indicate that soluble protein carryover is present in all three preparation methods and is consistent across each of the cell lines evaluated by Kugeratski et al.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 39540,
+              "infons": {
+                "section_type": "CONCL",
+                "type": "title_1"
+              },
+              "text": "5. Conclusions",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 39555,
+              "infons": {
+                "section_type": "CONCL",
+                "type": "paragraph"
+              },
+              "text": "Interpretations of proteome data can be enhanced by comparing patterns of protein localization on the LOPIT map in proximity labeling experiments. Proteins localized in close proximity to the PCFT protein in the plasma membrane region of the map for the Elute fraction are likely to be true positives. Proteins that are localized in compartments different from the plasma membrane and that are enriched to as great an extent as carboxylase proteins are also of interest. Plotting only proteins that are enriched at least 3-fold in the Eluate as compared to the final wash, a ratio established from the carboxylase recoveries, highlights 238 proteins of interest in the PCFT Elute fraction.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 40245,
+              "infons": {
+                "section_type": "CONCL",
+                "type": "paragraph"
+              },
+              "text": "The LOPIT maps help in assessing the degree to which exosome preparations are enriched in vesicles. The pattern of protein localization from core exosome proteins proposed in the MISEV2018 are similar to the benchmark vesicle preparation in Kowal et al. because most proteins are localized to the plasma membrane and cytosol in both data sets. Contaminant proteins defined by the MISEV2018 are shown in the Kowal et al. preparation and are expected to be present based on the MISEV2018 recommendation. The patterns presented in the LOPIT map from the core exosome proteins proposed in the MISEV2018 and the benchmark vesicle preparation from Kowal et al. differs from the proteins identified in Kugeratski et al. There is an abundance of nuclear proteins in the Kugeratski et al. preparations which are missing in the LOPIT maps from the MISEV2018 and Kowal et al. data. Further validation of nuclear proteins as exosome-associated proteins would be required in order to incorporate nuclear proteins as exosome marker proteins. The use of LOPIT plots to reevaluate data from public repositories is a feature of the analysis presented. The representations of those data in LOPIT plots changes the interpretation of the previously published work.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 41490,
+              "infons": {
+                "section_type": "CONCL",
+                "type": "paragraph"
+              },
+              "text": "LOPIT maps are powerful tools that can be leveraged to aid in the interpretation of proteomics data. They provide a coordinate-directed representation of proteomics data that is freely and easily available to all investigators and, therefore, provides a shared frame of reference. The visual patterns that arise on LOPIT maps are easy to understand and compare. It is not practical, or a good use of resources, for every investigator to generate LOPIT type plots from their own cell culture or tissue samples. The exception to this is any condition, such as a disease state, that causes an abnormal organellar distribution of proteins. In such instances, using coordinates from normal cells would not address questions of disruptions in protein distribution. Future work to increase the depth of coverage from the current 5020 proteins to include more of the 10,000 or so proteins expected to be in any cell and to increase resolution of organellar boundaries in LOPIT maps will increase the utility of the map for the interpretation of proteomic data.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 42543,
+              "infons": {
+                "section_type": "CONCL",
+                "type": "footnote"
+              },
+              "text": "Publisher’s Note: MDPI stays neutral with regard to jurisdictional claims in published maps and institutional affiliations.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 42669,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "title"
+              },
+              "text": "Supplementary Materials",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 42693,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "paragraph"
+              },
+              "text": "The following are available online at , Table S1: Quantitative data for all proteins identified in the proximity labeling experiment. ",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 42828,
+              "infons": {
+                "section_type": "AUTH_CONT",
+                "type": "title"
+              },
+              "text": "Author Contributions",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 42849,
+              "infons": {
+                "section_type": "AUTH_CONT",
+                "type": "paragraph"
+              },
+              "text": "Conceptualization, N.J.C. and P.M.S.; methodology, P.M.S.; validation, J.B.B., N.J.C. and P.M.S.; formal analysis, J.B.B.; resources, P.M.S., L.H.M. and Z.H.; data curation, J.B.B.; writing—original draft preparation, J.B.B.; writing—review and editing, P.M.S., L.H.M. and Z.H.; visualization, J.B.B. and N.J.C.; supervision, P.M.S.; project administration, P.M.S.; funding acquisition, P.M.S., L.H.M. and Z.H. All authors have read and agreed to the published version of the manuscript.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43341,
+              "infons": {
+                "section_type": "AUTH_CONT",
+                "type": "title"
+              },
+              "text": "Institutional Review Board Statement",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43378,
+              "infons": {
+                "section_type": "AUTH_CONT",
+                "type": "paragraph"
+              },
+              "text": "Not applicable.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43394,
+              "infons": {
+                "section_type": "AUTH_CONT",
+                "type": "title"
+              },
+              "text": "Informed Consent Statement",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43421,
+              "infons": {
+                "section_type": "AUTH_CONT",
+                "type": "paragraph"
+              },
+              "text": "Not applicable.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43437,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "title"
+              },
+              "text": "Data Availability Statement",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43465,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "paragraph"
+              },
+              "text": "The mass spectrometry proteomics data have been deposited to the ProteomeXchange Consortium via the PRIDE partner repository with the dataset identifier PXD032297 and 10.6019/PXD032297.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43651,
+              "infons": {
+                "section_type": "COMP_INT",
+                "type": "title"
+              },
+              "text": "Conflicts of Interest",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43673,
+              "infons": {
+                "section_type": "COMP_INT",
+                "type": "paragraph"
+              },
+              "text": "The authors declare no conflict of interest.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43718,
+              "infons": {
+                "section_type": "REF",
+                "type": "title"
+              },
+              "text": "References",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43729,
+              "infons": {
+                "fpage": "19",
+                "lpage": "25",
+                "name_0": "surname:Pankow;given-names:S.",
+                "name_1": "surname:Martínez-Bartolomé;given-names:S.",
+                "name_2": "surname:Bamberger;given-names:C.",
+                "name_3": "surname:Yates;given-names:J.R.",
+                "pub-id_doi": "10.1016/j.cbpa.2018.09.016",
+                "pub-id_pmid": "30308467",
+                "section_type": "REF",
+                "source": "Curr. Opin. Chem. Biol.",
+                "type": "ref",
+                "volume": "48",
+                "year": "2019"
+              },
+              "text": "Understanding molecular mechanisms of disease through spatial proteomics",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43802,
+              "infons": {
+                "fpage": "1128",
+                "lpage": "1134",
+                "name_0": "surname:Dunkley;given-names:T.P.J.",
+                "name_1": "surname:Watson;given-names:R.",
+                "name_2": "surname:Griffin;given-names:J.L.",
+                "name_3": "surname:Dupree;given-names:P.",
+                "name_4": "surname:Lilley;given-names:K.S.",
+                "pub-id_doi": "10.1074/mcp.T400009-MCP200",
+                "pub-id_pmid": "15295017",
+                "section_type": "REF",
+                "source": "Mol. Cell. Proteom.",
+                "type": "ref",
+                "volume": "3",
+                "year": "2004"
+              },
+              "text": "Localization of Organelle Proteins by Isotope Tagging (LOPIT)",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43864,
+              "infons": {
+                "fpage": "2579",
+                "lpage": "2605",
+                "name_0": "surname:Van der Maaten;given-names:L.",
+                "name_1": "surname:Hinton;given-names:G.",
+                "section_type": "REF",
+                "source": "J. Mach. Learn. Res.",
+                "type": "ref",
+                "volume": "9",
+                "year": "2008"
+              },
+              "text": "Visualizing data using t-SNE",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43893,
+              "infons": {
+                "fpage": "eaal3321",
+                "name_0": "surname:Thul;given-names:P.J.",
+                "name_1": "surname:Akesson;given-names:L.",
+                "name_2": "surname:Wiking;given-names:M.",
+                "name_3": "surname:Mahdessian;given-names:D.",
+                "name_4": "surname:Geladaki;given-names:A.",
+                "name_5": "surname:At Blal;given-names:H.",
+                "name_6": "surname:Alm;given-names:T.",
+                "name_7": "surname:Asplund;given-names:A.",
+                "name_8": "surname:Bjork;given-names:L.",
+                "name_9": "surname:Breckels;given-names:L.M.",
+                "pub-id_doi": "10.1126/science.aal3321",
+                "pub-id_pmid": "28495876",
+                "section_type": "REF",
+                "source": "Science",
+                "type": "ref",
+                "volume": "356",
+                "year": "2017"
+              },
+              "text": "A subcellular map of the human proteome",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43933,
+              "infons": {
+                "fpage": "331",
+                "name_0": "surname:Geladaki;given-names:A.",
+                "name_1": "surname:Britovsek;given-names:N.K.",
+                "name_2": "surname:Breckels;given-names:L.M.",
+                "name_3": "surname:Smith;given-names:T.S.",
+                "name_4": "surname:Vennard;given-names:O.L.",
+                "name_5": "surname:Mulvey;given-names:C.M.",
+                "name_6": "surname:Crook;given-names:O.M.",
+                "name_7": "surname:Gatto;given-names:L.",
+                "name_8": "surname:Lilley;given-names:K.S.",
+                "pub-id_doi": "10.1038/s41467-018-08191-w",
+                "pub-id_pmid": "30659192",
+                "section_type": "REF",
+                "source": "Nat. Commun.",
+                "type": "ref",
+                "volume": "10",
+                "year": "2019"
+              },
+              "text": "Combining LOPIT with differential ultracentrifugation for high-resolution spatial proteomics",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 44026,
+              "infons": {
+                "fpage": "1110",
+                "lpage": "1135",
+                "name_0": "surname:Mulvey;given-names:C.M.",
+                "name_1": "surname:Breckels;given-names:L.M.",
+                "name_2": "surname:Geladaki;given-names:A.",
+                "name_3": "surname:Britovesk;given-names:N.K.",
+                "name_4": "surname:Nightingale;given-names:D.J.H.",
+                "name_5": "surname:Chrisoforou;given-names:A.",
+                "name_6": "surname:Elzek;given-names:M.",
+                "name_7": "surname:Deery;given-names:M.J.",
+                "name_8": "surname:Gatto;given-names:L.",
+                "name_9": "surname:Lilley;given-names:K.S.",
+                "pub-id_doi": "10.1038/nprot.2017.026",
+                "pub-id_pmid": "28471460",
+                "section_type": "REF",
+                "source": "Nat. Protoc.",
+                "type": "ref",
+                "volume": "12",
+                "year": "2017"
+              },
+              "text": "Using hyperLOPIT to perform high-resolution mapping of the spatial proteome",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 44102,
+              "infons": {
+                "fpage": "1322",
+                "lpage": "1324",
+                "name_0": "surname:Gatto;given-names:L.",
+                "name_1": "surname:Breckels;given-names:L.M.",
+                "name_2": "surname:Wieczorek;given-names:S.",
+                "name_3": "surname:Burger;given-names:T.",
+                "name_4": "surname:Lilley;given-names:K.S.",
+                "pub-id_doi": "10.1093/bioinformatics/btu013",
+                "pub-id_pmid": "24413670",
+                "section_type": "REF",
+                "source": "Bioinformatics",
+                "type": "ref",
+                "volume": "30",
+                "year": "2014"
+              },
+              "text": "Mass-spectometry-based spatial proteomics data analysis using pRoloc and pRolocdata",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 44186,
+              "infons": {
+                "elocation-id": "e52884",
+                "name_0": "surname:Grimes;given-names:M.L.",
+                "name_1": "surname:Lee;given-names:W.J.",
+                "name_2": "surname:Van Der Maaten;given-names:L.",
+                "name_3": "surname:Shannon;given-names:P.",
+                "pub-id_doi": "10.1371/journal.pone.0052884",
+                "pub-id_pmid": "23300999",
+                "section_type": "REF",
+                "source": "PLoS ONE",
+                "type": "ref",
+                "volume": "8",
+                "year": "2013"
+              },
+              "text": "Wrangling Phosphoproteomic Data to Elucidate Cancer Signaling Pathways",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 44257,
+              "infons": {
+                "fpage": "233",
+                "lpage": "244",
+                "name_0": "surname:Thul;given-names:P.J.",
+                "name_1": "surname:Lindskog;given-names:C.",
+                "pub-id_doi": "10.1002/pro.3307",
+                "pub-id_pmid": "28940711",
+                "section_type": "REF",
+                "source": "Protein Sci.",
+                "type": "ref",
+                "volume": "27",
+                "year": "2018"
+              },
+              "text": "The human protein atlas: A spatial map of the human proteome",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 44318,
+              "infons": {
+                "fpage": "120",
+                "lpage": "124",
+                "name_0": "surname:Go;given-names:C.D.",
+                "name_1": "surname:Kinght;given-names:J.D.R.",
+                "name_2": "surname:Rajasekharan;given-names:A.",
+                "name_3": "surname:Rathod;given-names:B.",
+                "name_4": "surname:Hesketh;given-names:G.G.",
+                "name_5": "surname:Abe;given-names:K.T.",
+                "name_6": "surname:Youn;given-names:J.Y.",
+                "name_7": "surname:Samavarchi-Tehrani;given-names:P.",
+                "name_8": "surname:Zhang;given-names:H.",
+                "name_9": "surname:Zhu;given-names:L.Y.",
+                "pub-id_doi": "10.1038/s41586-021-03592-2",
+                "pub-id_pmid": "34079125",
+                "section_type": "REF",
+                "source": "Nature",
+                "type": "ref",
+                "volume": "595",
+                "year": "2021"
+              },
+              "text": "A proximity-dependent biotinylation map of a human cell",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 44374,
+              "infons": {
+                "fpage": "757",
+                "lpage": "773",
+                "name_0": "surname:Samavarchi-Tehrani;given-names:P.",
+                "name_1": "surname:Samson;given-names:R.",
+                "name_2": "surname:Gingras;given-names:A.C.",
+                "pub-id_doi": "10.1074/mcp.R120.001941",
+                "pub-id_pmid": "32127388",
+                "section_type": "REF",
+                "source": "Mol. Cell. Proteom.",
+                "type": "ref",
+                "volume": "19",
+                "year": "2020"
+              },
+              "text": "Proximity Dependent Biotinylation: Key Enzymes and Adaptation to Proteomics Approaches",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 44461,
+              "infons": {
+                "fpage": "133",
+                "lpage": "143",
+                "name_0": "surname:Qin;given-names:W.",
+                "name_1": "surname:Cho;given-names:K.F.",
+                "name_2": "surname:Cavanagh;given-names:P.E.",
+                "name_3": "surname:Ting;given-names:A.Y.",
+                "pub-id_doi": "10.1038/s41592-020-01010-5",
+                "pub-id_pmid": "33432242",
+                "section_type": "REF",
+                "source": "Nat. Methods",
+                "type": "ref",
+                "volume": "18",
+                "year": "2021"
+              },
+              "text": "Deciphering molecular interactions by proximity labeling",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 44518,
+              "infons": {
+                "fpage": "E968",
+                "lpage": "E977",
+                "name_0": "surname:Kowal;given-names:J.",
+                "name_1": "surname:Arras;given-names:G.",
+                "name_2": "surname:Colombo;given-names:M.",
+                "name_3": "surname:Jouve;given-names:M.",
+                "name_4": "surname:Morath;given-names:J.P.",
+                "name_5": "surname:Primdal-Bengtson;given-names:B.",
+                "name_6": "surname:Dingli;given-names:F.",
+                "name_7": "surname:Loew;given-names:D.",
+                "name_8": "surname:Tkach;given-names:M.",
+                "name_9": "surname:Thery;given-names:C.",
+                "pub-id_doi": "10.1073/pnas.1521230113",
+                "pub-id_pmid": "26858453",
+                "section_type": "REF",
+                "source": "Proc. Natl. Acad. Sci. USA",
+                "type": "ref",
+                "volume": "113",
+                "year": "2016"
+              },
+              "text": "Proteomic comparison defines novel markers to characterize heterogeneous populations of extracellular vesicle subtypes",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 44637,
+              "infons": {
+                "fpage": "631",
+                "lpage": "641",
+                "name_0": "surname:Kugeratski;given-names:F.G.",
+                "name_1": "surname:Hodge;given-names:K.",
+                "name_2": "surname:Lilla;given-names:S.",
+                "name_3": "surname:McAndres;given-names:K.M.",
+                "name_4": "surname:Zhou;given-names:X.",
+                "name_5": "surname:Hwang;given-names:R.F.",
+                "name_6": "surname:Zanivan;given-names:S.",
+                "name_7": "surname:Kalluri;given-names:R.",
+                "pub-id_doi": "10.1038/s41556-021-00693-y",
+                "pub-id_pmid": "34108659",
+                "section_type": "REF",
+                "source": "Nat. Cell Biol.",
+                "type": "ref",
+                "volume": "23",
+                "year": "2021"
+              },
+              "text": "Quantitative proteomics identifies the core proteome of exosomes with syntenin-1 as the highest abundant protein and a putative universal biomarker",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 44785,
+              "infons": {
+                "fpage": "2021",
+                "name_0": "surname:Burton;given-names:J.B.",
+                "name_1": "surname:Carruthers;given-names:N.J.",
+                "name_2": "surname:Stemmer;given-names:P.M.",
+                "pub-id_doi": "10.1002/mas.21738",
+                "section_type": "REF",
+                "source": "Mass Spectrom. Rev.",
+                "type": "ref"
+              },
+              "text": "Enriching extracellular vesicles for mass spectrometry",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 44840,
+              "infons": {
+                "fpage": "1807674",
+                "name_0": "surname:Whittaker;given-names:T.E.",
+                "name_1": "surname:Nagelkerke;given-names:A.",
+                "name_2": "surname:Nele;given-names:V.",
+                "name_3": "surname:Kausher;given-names:U.",
+                "name_4": "surname:Stevens;given-names:M.M.",
+                "pub-id_doi": "10.1080/20013078.2020.1807674",
+                "pub-id_pmid": "32944192",
+                "section_type": "REF",
+                "source": "J. Extracell. Vesicles",
+                "type": "ref",
+                "volume": "9",
+                "year": "2020"
+              },
+              "text": "Experimental artefacts can lead to misattribution of bioactivity from soluble mesenchymal stem cell paracrine factors to extracellular vesicles",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 44984,
+              "infons": {
+                "fpage": "1535750",
+                "name_0": "surname:Théry;given-names:C.",
+                "name_1": "surname:Witwer;given-names:K.W.",
+                "name_2": "surname:Aikawa;given-names:E.",
+                "name_3": "surname:Alcaraz;given-names:M.J.",
+                "name_4": "surname:Anderson;given-names:J.D.",
+                "name_5": "surname:Andriantsitohaina;given-names:R.",
+                "name_6": "surname:Antoniou;given-names:A.",
+                "name_7": "surname:Arab;given-names:T.",
+                "name_8": "surname:Archer;given-names:F.",
+                "name_9": "surname:Atkin-Smith;given-names:G.K.",
+                "pub-id_doi": "10.1080/20013078.2018.1535750",
+                "pub-id_pmid": "30637094",
+                "section_type": "REF",
+                "source": "J. Extracell. Vesicles",
+                "type": "ref",
+                "volume": "7",
+                "year": "2018"
+              },
+              "text": "Minimal information for studies of extracellular vesicles 2018 (MISEV2018): A position statement of the International Society for Extracellular Vesicles and update of the MISEV2014 guidelines",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 45176,
+              "infons": {
+                "fpage": "129",
+                "lpage": "139",
+                "name_0": "surname:Zhao;given-names:R.",
+                "name_1": "surname:Goldman;given-names:I.D.",
+                "pub-id_doi": "10.1007/s10555-007-9047-1",
+                "pub-id_pmid": "17340171",
+                "section_type": "REF",
+                "source": "Cancer Metast. Rev.",
+                "type": "ref",
+                "volume": "26",
+                "year": "2007"
+              },
+              "text": "The molecular identity and characterization of a proton-coupled folate transporter--PCFT; biological ramifications and impact on the activity of pemetrexed",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 45332,
+              "infons": {
+                "fpage": "e22164",
+                "name_0": "surname:Hou;given-names:Z.",
+                "name_1": "surname:Gangjee;given-names:A.",
+                "name_2": "surname:Matherly;given-names:L.H.",
+                "pub-id_doi": "10.1096/fj.202101704R",
+                "pub-id_pmid": "35061292",
+                "section_type": "REF",
+                "source": "Faseb J.",
+                "type": "ref",
+                "volume": "36",
+                "year": "2022"
+              },
+              "text": "The evolving biology of the proton-coupled folate transporter: New insights into regulation, structure, and mechanism",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 45450,
+              "infons": {
+                "fpage": "1188",
+                "lpage": "1196",
+                "name_0": "surname:Kim;given-names:D.I.",
+                "name_1": "surname:Jensen;given-names:S.C.",
+                "name_2": "surname:Nobel;given-names:K.A.",
+                "name_3": "surname:Birendra;given-names:K.C.",
+                "name_4": "surname:Roux;given-names:K.H.",
+                "name_5": "surname:Motamedchaboki;given-names:K.",
+                "name_6": "surname:Roux;given-names:K.J.",
+                "pub-id_doi": "10.1091/mbc.E15-12-0844",
+                "pub-id_pmid": "26912792",
+                "section_type": "REF",
+                "source": "Mol. Biol. Cell",
+                "type": "ref",
+                "volume": "27",
+                "year": "2016"
+              },
+              "text": "An improved smaller biotin ligase for BioID proximity labeling",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 45513,
+              "infons": {
+                "fpage": "501",
+                "lpage": "510",
+                "name_0": "surname:Holmberg;given-names:A.",
+                "name_1": "surname:Eidefors;given-names:A.",
+                "name_2": "surname:Nord;given-names:O.",
+                "name_3": "surname:Lukacs;given-names:M.",
+                "name_4": "surname:Lundeberg;given-names:J.",
+                "name_5": "surname:Uhlen;given-names:M.",
+                "pub-id_doi": "10.1002/elps.200410070",
+                "pub-id_pmid": "15690449",
+                "section_type": "REF",
+                "source": "Electrophoresis",
+                "type": "ref",
+                "volume": "26",
+                "year": "2005"
+              },
+              "text": "The biotin-Streptavidin interaction can be reversibly broken using water at elevated temperatures",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 45611,
+              "infons": {
+                "fpage": "164",
+                "lpage": "168",
+                "name_0": "surname:Tytgat;given-names:H.L.P.",
+                "name_1": "surname:Schoofs;given-names:G.",
+                "name_2": "surname:Driesen;given-names:M.",
+                "name_3": "surname:Proost;given-names:P.",
+                "name_4": "surname:Van Damme;given-names:E.J.M.",
+                "name_5": "surname:Vanderleyden;given-names:J.",
+                "name_6": "surname:Lebeer;given-names:S.",
+                "pub-id_doi": "10.1111/1751-7915.12150",
+                "pub-id_pmid": "25211245",
+                "section_type": "REF",
+                "source": "Microb. Biotechnol.",
+                "type": "ref",
+                "volume": "8",
+                "year": "2015"
+              },
+              "text": "Endogenous biotin-binding proteins: An overlooked factor causing false positives in streptavidin-based protein detection",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 45732,
+              "infons": {
+                "fpage": "469",
+                "lpage": "476",
+                "name_0": "surname:Nakai;given-names:Y.",
+                "name_1": "surname:Inoue;given-names:K.",
+                "name_2": "surname:Abe;given-names:N.",
+                "name_3": "surname:Hatakeyama;given-names:M.",
+                "name_4": "surname:Ohta;given-names:K.",
+                "name_5": "surname:Otagiri;given-names:M.",
+                "name_6": "surname:Hayashi;given-names:Y.",
+                "name_7": "surname:Yuasa;given-names:H.",
+                "pub-id_doi": "10.1124/jpet.107.122606",
+                "pub-id_pmid": "17475902",
+                "section_type": "REF",
+                "source": "J. Pharmacol. Exp. Ther.",
+                "type": "ref",
+                "volume": "322",
+                "year": "2007"
+              },
+              "text": "Functional Characterization of Human Proton-Coupled Folate Transporter/Heme Carrier Protein 1 Heterologously Expressed in Mammalian Cells as a Folate Transporter",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 45894,
+              "infons": {
+                "elocation-id": "1955",
+                "name_0": "surname:Royo;given-names:F.",
+                "name_1": "surname:Thery;given-names:C.",
+                "name_2": "surname:Falcon-Perez;given-names:J.M.",
+                "name_3": "surname:Nieuwland;given-names:R.",
+                "name_4": "surname:Witwer;given-names:K.W.",
+                "pub-id_doi": "10.3390/cells9091955",
+                "pub-id_pmid": "32854228",
+                "section_type": "REF",
+                "source": "Cells",
+                "type": "ref",
+                "volume": "9",
+                "year": "2020"
+              },
+              "text": "Methods for separation and characterization of extracellular vesicles: Results of a worldwide survey performed by the ISEV rigor and standardization subcommittee",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 46056,
+              "infons": {
+                "file": "proteomes-10-00018-g001.jpg",
+                "id": "proteomes-10-00018-f001",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Distribution of LOPIT localized proteins for u2os cells from Thul, Akeson et al., 2017. Assigned coordinates for proteins in the cytosol (light blue), endoplasmic reticulum (ER, dark blue), golgi (light green), lysosome (dark green), mitochondria (pink), nucleus (red), nucleus-chromatin (light orange), peroxisome (dark orange), plasma membrane (light purple), proteasome (dark purple), ribosome 40S (yellow), ribosome 60S (brown), and unknown (grey) are shown. Reproduced with permission from Science.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 46560,
+              "infons": {
+                "file": "proteomes-10-00018-g002.jpg",
+                "id": "proteomes-10-00018-f002",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Biotin proximity labeling workflow.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 46596,
+              "infons": {
+                "file": "proteomes-10-00018-g003.jpg",
+                "id": "proteomes-10-00018-f003",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Binned protein abundances are mapped to the LOPIT coordinates for (A) W-2 GR (1896 proteins), (B) W-2 PCFT (1766 proteins), (C) Elute GR (593 proteins), and (D) Elute PCFT (500 proteins). Size indicates relative protein abundance. PCFT is highlighted in green. Carboxylases were identified in all fractions and are highlighted in red. Regions for plasma membrane (P) and undefined (U) are shown in green ellipses to represent enrichment in the PCFT elute. Regions for nuclear (N), ribosomal (R), and mitochondrial (M) are shown in red ellipses to represent background in the PCFT elute.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 47183,
+              "infons": {
+                "file": "proteomes-10-00018-g004.jpg",
+                "id": "proteomes-10-00018-f004",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Plots displaying the fold change with a 3X cut-off for (A) Elute PCFT vs. W-2 PCFT (238 proteins), (B) Elute GR vs. W-2 GR (264 proteins), (C) W-2 PCFT vs. W-2 GR (350 proteins), and (D) Elute PCFT vs. Elute GR (310 proteins). PCFT is highlighted in green. Carboxylases are highlighted in red. Regions for plasma membrane (P) and undefined (U) are shown in green ellipses to represent enrichment in the PCFT elute. Regions for nuclear (N), ribosomal (R), and mitochondrial (M) are shown in red ellipses to represent background in the PCFT elute.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 47729,
+              "infons": {
+                "file": "proteomes-10-00018-g005.jpg",
+                "id": "proteomes-10-00018-f005",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "(A) Distribution of proteins from the MISEV2018 recommendation. Proteins are colored according to their ISEV interpretation. (B) Distribution of proteins from a benchmark exosome preparation enriched in vesicles by density gradient centrifugation (Kowal et. al., F3-100K). (C) Distribution of core exosome proteins proposed by Kugeratski et al. (D) Distribution of all exosome proteins identified by Kugeratski et al. Blue points indicate that the protein is in the experimental data set. Size indicates protein abundance. The plasma membrane (P), cytosol (C), and endoplasmic reticulum (ER) are circled in green, indicating that these regions contain markers of extracellular vesicles. The nucleus (N), ribosomes (R), and mitochondria (M) are circled in red, indicating that these regions contain markers of contaminant proteins in extracellular vesicle preparations.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 48598,
+              "infons": {
+                "file": "proteomes-10-00018-g006.jpg",
+                "id": "proteomes-10-00018-f006",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Fold changes between fractions for (A) F3-100K vs. F3-10K (951 proteins), (B) F5-100K vs. F5-10K (1052 proteins), (C) F3-100K vs. F5-100K (893 proteins), and (D) F3-10K vs. F5-10K (1120 proteins). The plasma membrane (P), cytosol (C), and endoplasmic reticulum (ER) are circled in green, indicating that these regions contain markers of extracellular vesicles. The nucleus (N), ribosomes (R), and mitochondria (M) are circled in red, indicating that these regions contain markers of contaminant proteins in extracellular vesicle preparations.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 49141,
+              "infons": {
+                "file": "proteomes-10-00018-g007.jpg",
+                "id": "proteomes-10-00018-f007",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Fold changes for (A) SEC vs. UC 293T (1994 proteins), (B) DG vs. UC 293T (2174 proteins), (C) SEC vs. UC MDAMB231 (2088 proteins), (D) DG vs. UC MDAMB231 (2116 proteins), (E) SEC vs. UC PANC1 (2047 proteins), and (F) DG vs. UC PANC1 (2106 proteins). The plasma membrane (P), cytosol (C), and endoplasmic reticulum (ER) are circled in green, indicating that these regions contain markers of extracellular vesicles. The nucleus (N), ribosomes (R), and mitochondria (M) are circled in red, indicating that these regions contain markers of contaminant proteins in extracellular vesicle preparations.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 49737,
+              "infons": {
+                "file": "proteomes-10-00018-t001.xml",
+                "id": "proteomes-10-00018-t001",
+                "section_type": "TABLE",
+                "type": "table_caption"
+              },
+              "text": "The total number of proteins identified for and contained in the LOPIT plot is shown for each fraction and group.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 49851,
+              "infons": {
+                "file": "proteomes-10-00018-t001.xml",
+                "id": "proteomes-10-00018-t001",
+                "section_type": "TABLE",
+                "type": "table",
+                "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<table frame=\"hsides\" rules=\"groups\"><thead><tr><th align=\"center\" valign=\"middle\" style=\"border-top:solid thin;border-bottom:solid thin\" rowspan=\"1\" colspan=\"1\">Fraction</th><th align=\"center\" valign=\"middle\" style=\"border-top:solid thin;border-bottom:solid thin\" rowspan=\"1\" colspan=\"1\">Total Protein IDs</th><th align=\"center\" valign=\"middle\" style=\"border-top:solid thin;border-bottom:solid thin\" rowspan=\"1\" colspan=\"1\">Total LOPIT Proteins</th><th align=\"center\" valign=\"middle\" style=\"border-top:solid thin;border-bottom:solid thin\" rowspan=\"1\" colspan=\"1\">GR Protein IDs</th><th align=\"center\" valign=\"middle\" style=\"border-top:solid thin;border-bottom:solid thin\" rowspan=\"1\" colspan=\"1\">GR LOPIT Proteins (%)</th><th align=\"center\" valign=\"middle\" style=\"border-top:solid thin;border-bottom:solid thin\" rowspan=\"1\" colspan=\"1\">PCFT Protein IDs</th><th align=\"center\" valign=\"middle\" style=\"border-top:solid thin;border-bottom:solid thin\" rowspan=\"1\" colspan=\"1\">PCFT LOPIT Proteins (%)</th></tr></thead><tbody><tr><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">\n<bold>W-1</bold>\n</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">2330</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">1986</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">2297</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">85.42%</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">2284</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">85.42%</td></tr><tr><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">\n<bold>W-2</bold>\n</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">3249</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">2403</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">2375</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">79.83%</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">2222</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">79.48%</td></tr><tr><td align=\"center\" valign=\"middle\" style=\"border-bottom:solid thin\" rowspan=\"1\" colspan=\"1\">\n<bold>Elute</bold>\n</td><td align=\"center\" valign=\"middle\" style=\"border-bottom:solid thin\" rowspan=\"1\" colspan=\"1\">1220</td><td align=\"center\" valign=\"middle\" style=\"border-bottom:solid thin\" rowspan=\"1\" colspan=\"1\">887</td><td align=\"center\" valign=\"middle\" style=\"border-bottom:solid thin\" rowspan=\"1\" colspan=\"1\">781</td><td align=\"center\" valign=\"middle\" style=\"border-bottom:solid thin\" rowspan=\"1\" colspan=\"1\">75.93%</td><td align=\"center\" valign=\"middle\" style=\"border-bottom:solid thin\" rowspan=\"1\" colspan=\"1\">687</td><td align=\"center\" valign=\"middle\" style=\"border-bottom:solid thin\" rowspan=\"1\" colspan=\"1\">72.78%</td></tr></tbody></table>\n"
+              },
+              "text": "Fraction\tTotal Protein IDs\tTotal LOPIT Proteins\tGR Protein IDs\tGR LOPIT Proteins (%)\tPCFT Protein IDs\tPCFT LOPIT Proteins (%)\t \tW-1\t2330\t1986\t2297\t85.42%\t2284\t85.42%\t \tW-2\t3249\t2403\t2375\t79.83%\t2222\t79.48%\t \tElute\t1220\t887\t781\t75.93%\t687\t72.78%\t \t",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 50099,
+              "infons": {
+                "file": "proteomes-10-00018-t002.xml",
+                "id": "proteomes-10-00018-t002",
+                "section_type": "TABLE",
+                "type": "table_caption"
+              },
+              "text": "Proteins recommended for the evaluation of extracellular vesicle sample preparation.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 50184,
+              "infons": {
+                "file": "proteomes-10-00018-t002.xml",
+                "id": "proteomes-10-00018-t002",
+                "section_type": "TABLE",
+                "type": "table",
+                "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<table frame=\"hsides\" rules=\"groups\"><thead><tr><th align=\"center\" valign=\"middle\" style=\"border-top:solid thin;border-bottom:solid thin\" rowspan=\"1\" colspan=\"1\">Category</th><th align=\"center\" valign=\"middle\" style=\"border-top:solid thin;border-bottom:solid thin\" rowspan=\"1\" colspan=\"1\">Proteins</th><th align=\"center\" valign=\"middle\" style=\"border-top:solid thin;border-bottom:solid thin\" rowspan=\"1\" colspan=\"1\">Mapped Proteins</th><th align=\"center\" valign=\"middle\" style=\"border-top:solid thin;border-bottom:solid thin\" rowspan=\"1\" colspan=\"1\">Proteins Included</th><th align=\"center\" valign=\"middle\" style=\"border-top:solid thin;border-bottom:solid thin\" rowspan=\"1\" colspan=\"1\">LOPIT Color</th></tr></thead><tbody><tr><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">1</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">110</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">38</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">Proteins associated to the plasma membrane and/or endosomes</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">Green</td></tr><tr><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">2</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">55</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">35</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">Proteins recovered in the cytosol of extracellular vesicles</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">Green</td></tr><tr><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">3</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">195</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">157</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">Non-extracellular vesicle co-isolated structures</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">Red</td></tr><tr><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">4</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">41</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">14</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">Markers for extracellular vesicle subtypes</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">Orange</td></tr><tr><td align=\"center\" valign=\"middle\" style=\"border-bottom:solid thin\" rowspan=\"1\" colspan=\"1\">5</td><td align=\"center\" valign=\"middle\" style=\"border-bottom:solid thin\" rowspan=\"1\" colspan=\"1\">160</td><td align=\"center\" valign=\"middle\" style=\"border-bottom:solid thin\" rowspan=\"1\" colspan=\"1\">28</td><td align=\"center\" valign=\"middle\" style=\"border-bottom:solid thin\" rowspan=\"1\" colspan=\"1\">Functional component of EVs</td><td align=\"center\" valign=\"middle\" style=\"border-bottom:solid thin\" rowspan=\"1\" colspan=\"1\">Green</td></tr></tbody></table>\n"
+              },
+              "text": "Category\tProteins\tMapped Proteins\tProteins Included\tLOPIT Color\t \t1\t110\t38\tProteins associated to the plasma membrane and/or endosomes\tGreen\t \t2\t55\t35\tProteins recovered in the cytosol of extracellular vesicles\tGreen\t \t3\t195\t157\tNon-extracellular vesicle co-isolated structures\tRed\t \t4\t41\t14\tMarkers for extracellular vesicle subtypes\tOrange\t \t5\t160\t28\tFunctional component of EVs\tGreen\t \t",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 50574,
+              "infons": {
+                "file": "proteomes-10-00018-t003.xml",
+                "id": "proteomes-10-00018-t003",
+                "section_type": "TABLE",
+                "type": "table_caption"
+              },
+              "text": "The number of proteins mapped to each LOPIT assignment is shown for the MISEV, Kowal et al., and Kurgeratski et al. data.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 50696,
+              "infons": {
+                "file": "proteomes-10-00018-t003.xml",
+                "id": "proteomes-10-00018-t003",
+                "section_type": "TABLE",
+                "type": "table",
+                "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<table frame=\"hsides\" rules=\"groups\"><thead><tr><th align=\"center\" valign=\"middle\" style=\"border-top:solid thin;border-bottom:solid thin\" rowspan=\"1\" colspan=\"1\">Assignment</th><th align=\"center\" valign=\"middle\" style=\"border-top:solid thin;border-bottom:solid thin\" rowspan=\"1\" colspan=\"1\">MISEV 2018 Mapped Proteins</th><th align=\"center\" valign=\"middle\" style=\"border-top:solid thin;border-bottom:solid thin\" rowspan=\"1\" colspan=\"1\">Kowal et. al. F3-100K<break/>Mapped Proteins</th><th align=\"center\" valign=\"middle\" style=\"border-top:solid thin;border-bottom:solid thin\" rowspan=\"1\" colspan=\"1\">Kugeratski et al. Core Exosome Mapped Proteins</th><th align=\"center\" valign=\"middle\" style=\"border-top:solid thin;border-bottom:solid thin\" rowspan=\"1\" colspan=\"1\">Kugeratski et al. Cell Exosome Mapped Proteins</th></tr></thead><tbody><tr><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">Cytosol</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">2</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">94</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">82</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">109</td></tr><tr><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">Endoplasmic reticulum</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">6</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">79</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">42</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">108</td></tr><tr><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">Golgi</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">0</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">4</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">2</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">15</td></tr><tr><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">Lysosome</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">2</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">20</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">2</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">27</td></tr><tr><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">Mitochondria</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">45</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">90</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">78</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">240</td></tr><tr><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">Nucleus</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">9</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">68</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">112</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">429</td></tr><tr><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">Nucleus-chromatin</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">8</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">3</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">10</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">35</td></tr><tr><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">Peroxisome</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">0</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">6</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">3</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">9</td></tr><tr><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">Plasma membrane</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">29</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">127</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">34</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">128</td></tr><tr><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">Proteasome</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">0</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">32</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">27</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">29</td></tr><tr><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">Ribosome 40S</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">30</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">29</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">23</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">31</td></tr><tr><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">Ribosome 60S</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">47</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">39</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">39</td><td align=\"center\" valign=\"middle\" rowspan=\"1\" colspan=\"1\">44</td></tr><tr><td align=\"center\" valign=\"middle\" style=\"border-bottom:solid thin\" rowspan=\"1\" colspan=\"1\">Unknown</td><td align=\"center\" valign=\"middle\" style=\"border-bottom:solid thin\" rowspan=\"1\" colspan=\"1\">94</td><td align=\"center\" valign=\"middle\" style=\"border-bottom:solid thin\" rowspan=\"1\" colspan=\"1\">995</td><td align=\"center\" valign=\"middle\" style=\"border-bottom:solid thin\" rowspan=\"1\" colspan=\"1\">454</td><td align=\"center\" valign=\"middle\" style=\"border-bottom:solid thin\" rowspan=\"1\" colspan=\"1\">1349</td></tr></tbody></table>\n"
+              },
+              "text": "Assignment\tMISEV 2018 Mapped Proteins\tKowal et. al. F3-100KMapped Proteins\tKugeratski et al. Core Exosome Mapped Proteins\tKugeratski et al. Cell Exosome Mapped Proteins\t \tCytosol\t2\t94\t82\t109\t \tEndoplasmic reticulum\t6\t79\t42\t108\t \tGolgi\t0\t4\t2\t15\t \tLysosome\t2\t20\t2\t27\t \tMitochondria\t45\t90\t78\t240\t \tNucleus\t9\t68\t112\t429\t \tNucleus-chromatin\t8\t3\t10\t35\t \tPeroxisome\t0\t6\t3\t9\t \tPlasma membrane\t29\t127\t34\t128\t \tProteasome\t0\t32\t27\t29\t \tRibosome 40S\t30\t29\t23\t31\t \tRibosome 60S\t47\t39\t39\t44\t \tUnknown\t94\t995\t454\t1349\t \t",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            }
+          ],
+          "annotations": [],
+          "relations": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "pxd": "PXD036675",
+    "category": "llm",
+    "saved_at": "2026-06-30T15:28:30.504101",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"human_unassigned_condition\",\n      \"description\": \"Human proteome XL-MS dataset with biological condition and crosslinker not specified in provided metadata/filenames.\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": null,\n      \"biological_condition\": \"not specified (publication describes STAU1/TRIM25-related biology but no explicit XL-MS condition or crosslinker provided)\",\n      \"files\": [\n        \"OF_20210921_DES_01.raw\",\n        \"OF_20210921_DES_02.raw\",\n        \"VL_20190502_DES_03.raw\",\n        \"VL_20190502_DES_04.raw\"\n      ],\n      \"confidence\": \"low\",\n      \"evidence_quote\": \"Previously extracted organism(s) and NCBI taxid(s): Homo sapiens (human)\",\n      \"reasoning\": \"All files are labeled as DES runs and no explicit crosslinker name (e.g., BS3/DSS/DSSO/DSBU/formaldehyde) or distinct treatment/timepoint condition is encoded in the filenames. The only reliable shared metadata is the proteome organism (Homo sapiens). Therefore, all raw files are grouped into a single cluster by organism, leaving biological condition and crosslinker unspecified.\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that cannot be confidently interpreted to a biological XL-MS condition from the provided information.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"No files appear to be clearly QC/calibration/blank/test based on filenames; all provided files were assigned to cluster_1.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 4,\n    \"n_assigned_files\": 4,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 1,\n    \"overall_confidence\": \"low\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "human_unassigned_condition",
+          "description": "Human proteome XL-MS dataset with biological condition and crosslinker not specified in provided metadata/filenames.",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": null,
+          "biological_condition": "not specified (publication describes STAU1/TRIM25-related biology but no explicit XL-MS condition or crosslinker provided)",
+          "files": [
+            "OF_20210921_DES_01.raw",
+            "OF_20210921_DES_02.raw",
+            "VL_20190502_DES_03.raw",
+            "VL_20190502_DES_04.raw"
+          ],
+          "confidence": "low",
+          "evidence_quote": "Previously extracted organism(s) and NCBI taxid(s): Homo sapiens (human)",
+          "reasoning": "All files are labeled as DES runs and no explicit crosslinker name (e.g., BS3/DSS/DSSO/DSBU/formaldehyde) or distinct treatment/timepoint condition is encoded in the filenames. The only reliable shared metadata is the proteome organism (Homo sapiens). Therefore, all raw files are grouped into a single cluster by organism, leaving biological condition and crosslinker unspecified."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that cannot be confidently interpreted to a biological XL-MS condition from the provided information.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "No files appear to be clearly QC/calibration/blank/test based on filenames; all provided files were assigned to cluster_1."
+        }
+      ],
+      "summary": {
+        "n_input_files": 4,
+        "n_assigned_files": 4,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 1,
+        "overall_confidence": "low"
+      }
+    }
+  }
+}

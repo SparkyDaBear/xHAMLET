@@ -1,0 +1,1625 @@
+{
+  "metadata": {
+    "pxd": "PXD004018",
+    "category": "pmc",
+    "saved_at": "2026-06-30T14:53:23.710294",
+    "filename": "full_text"
+  },
+  "data": [
+    {
+      "bioctype": "BioCCollection",
+      "source": "PMC",
+      "date": "20260129",
+      "key": "pmc.key",
+      "version": "1.0",
+      "infons": {},
+      "documents": [
+        {
+          "bioctype": "BioCDocument",
+          "id": "PMC5600274",
+          "infons": {
+            "license": "CC BY-NC-ND"
+          },
+          "passages": [
+            {
+              "bioctype": "BioCPassage",
+              "offset": 0,
+              "infons": {
+                "article-id_doi": "10.1002/pmic.201600249",
+                "article-id_manuscript": "NIHMS832610",
+                "article-id_pmc": "PMC5600274",
+                "article-id_pmid": "27714937",
+                "fpage": "2967",
+                "issue": "23",
+                "kwd": "Bioinformatics Malaria Plasmodium Predicting surface-exposed proteins Semi-supervised learning Surface-exposed proteomics",
+                "license": "This is an open access article under the terms of the Creative Commons Attribution-NonCommercial-NoDerivs License, which permits use and distribution in any medium, provided the original work is properly cited, the use is non-commercial and no modifications or adaptations are made.",
+                "lpage": "2976",
+                "name_0": "surname:El-Manzalawy;given-names:Yasser",
+                "name_1": "surname:Munoz;given-names:Elyse E.",
+                "name_2": "surname:Lindner;given-names:Scott E.",
+                "name_3": "surname:Honavar;given-names:Vasant",
+                "section_type": "TITLE",
+                "type": "front",
+                "volume": "16",
+                "year": "2017"
+              },
+              "text": "PlasmoSEP: Predicting surface-exposed proteins on the malaria parasite using semisupervised self-training and expert-annotated data",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 132,
+              "infons": {
+                "section_type": "ABSTRACT",
+                "type": "abstract"
+              },
+              "text": "Accurate and comprehensive identification of surface-exposed proteins (SEPs) in parasites is a key step in developing novel subunit vaccines. However, the reliability of MS-based high-throughput methods for proteome-wide mapping of SEPs continues to be limited due to high rates of false positives (i.e., proteins mistakenly identified as surface exposed) as well as false negatives (i.e., SEPs not detected due to low expression or other technical limitations). We propose a framework called PlasmoSEP for the reliable identification of SEPs using a novel semisupervised learning algorithm that combines SEPs identified by high-throughput experiments and expert annotation of high-throughput data to augment labeled data for training a predictive model. Our experiments using high-throughput data from the Plasmodium falciparum surface-exposed proteome provide several novel high-confidence predictions of SEPs in P. falciparum and also confirm expert annotations for several others. Furthermore, PlasmoSEP predicts that 25 of 37 experimentally identified SEPs in Plasmodium yoelii salivary gland sporozoites are likely to be SEPs. Finally, PlasmoSEP predicts several novel SEPs in P. yoelii and Plasmodium vivax malaria parasites that can be validated for further vaccine studies. Our computational framework can be easily adapted to improve the interpretation of data from high-throughput studies.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 1533,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "title_1"
+              },
+              "text": "1 Introduction",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 1548,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "Malaria remains one of the largest global health burdens today, with an estimated 438 000 deaths and 214 million new infectious occurring annually. This disease is caused by a eukaryotic parasite of the genus Plasmodium that is transmitted by infected Anopheles mosquitoes. Five Plasmodium species infect humans, including P. falciparum and P. vivax, which together cause nearly all of the mortalities and morbidities. In addition, there are several Plasmodium species that infect small animals, and thus serve as excellent models of infection (e.g. P. yoelii and P. berghei in mice, P. cynomolgi in nonhuman primates). These parasites (except P. vivax, which cannot be continuously passaged in the laboratory) have been used to identify weaknesses in the parasite that can be exploited for chemotherapies and vaccine candidates.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 2378,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "title_1_caption"
+              },
+              "text": "Significance of the study",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 2404,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "Profiling the surface exposed proteome of the malaria parasite is of major importance for understanding host-parasite interactions and for identifying novel subunit vaccine candidates. MS-based proteomic techniques have increasingly become the state-of-the-art experimental approach for mapping surface exposed proteins (SEPs) in many target pathogens. However, more efforts are needed to improve the reliability of the interpretation of the results of such experiments. We propose a novel computational approach to effectively postprocess MS results and filter out false positive as well as false-negative results. Specifically, we integrate imperfect results of MS experiments for mapping SEPs in P. falciparum, expert annotation of these data, and semi-supervised machine learning approaches to develop prediction models that could be used to: (i) validate the output of MS experiments; (ii) predict novel SEPs that have been missed by the MS experiments; (iii) predict novel SEPs in different species of Plasmodium (e.g., P. yoelii and P. vivax). This study, which, to the best of our knowledge, is the first study of its kind, opens up opportunities for developing community resources that integrate and improve the reliability of SEPs identified by high-throughput MS-based proteomic experiments.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 3707,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "Current efforts to reduce and eliminate parasite transmission have relied upon controlling the mosquito vector, supplying insecticide-treated bednets, and administering antimalarial drugs that kill the blood stage of the parasite. In contrast to these efforts, the development of an effective vaccine against P. falciparum and P. vivax has encountered several barriers, and to date no licensed vaccine candidate has reached the levels of protection thought to be required to make a substantial impact upon parasite transmission (reviewed in). The most advanced vaccine candidate (called RTS, S) provides limited, short lived protection in Phase III clinical trials in Africa, but has served as an important first milestone. The RTS, S vaccine consists of a single surface protein (circumsporozoite protein, CSP) that is present on the sporozoite form of the parasite, which is transmitted from mosquitoes to humans. As CSP is known to have considerable variation in field isolates (ibid), parasites are likely to evade antibody-based immune responses by simply changing the composition of this protein. Ongoing efforts now aim to improve upon RTS, S by adding additional antigens to create bivalent or multivalent vaccine candidates, and by using alternate delivery approaches (e.g. viral vectors). However, the experimental validation of surface-exposed proteins (SEPs) that will be accessible to antibodies has been limited in scope, and thus the list of vetted antigens available for multivalent vaccines has remained short.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 5235,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "Our previous work has provided an initial, and then more recently a comprehensive, list of proteins on the surface of the transmitted sporozoite form of the parasite, which are accessible to antibody-based immune responses. Taken together, these catalogues of SEPs provide a much needed, experimentally validated list to draw upon to design next generation, multivalent malaria vaccines. These studies have focused primarily upon P. falciparum, which can be grown in the laboratory and is thus amenable to these studies.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 5756,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "In the absence of data describing the SEPs in other human-infectious malaria parasites, it would be advantageous to draw upon our current knowledge of the surface proteome of sporozoites to accurately predict which proteins may be targetable. The supervised machine learning approach is an efficient and cost-effective approach to extract hidden patterns from data (e.g., P. falciparum SEPs) and train predictive models that could be applied to predict novel SEPs in other human-infectious malaria parasites. However, the reliability of the predictions depends mainly on the quality of the training data. Taking into account the technical limitations of MS techniques, our identified P. falciparum SEPs are expected to have a significant number of false positives (labeled cytosolic proteins from dying cells) as well as false negatives (due to limits of detection and sample scarcity), making the applicability of supervised machine learning algorithms to learn from such data a practical challenge. To address this challenge, we propose a novel framework for developing reliable predictive models from noisy high-throughput P. falciparum surface exposed proteomic data. Our approach integrates expert annotation of high-throughput data and semisupervised machine learning algorithms to develop reliable predictive models for predicting SEPs in Plasmodium. Our results using simulated datasets acknowledge the viability of semi-supervised learning (SSL) to develop classifiers from small-size labeled data by exploiting available unlabeled data. Moreover, we demonstrate improvements in performance of SSL by leveraging noisy expert-annotated data. Finally, we have extended our approach to predict SEPs in human-infectious P. vivax, which cannot be continuously cultured in the laboratory. Taken together, here we provide the scientific community with predicted and experimentally validated SEPs for different Plasmodium species, along with an algorithm to help guide experimental validations of these proteins’ potential as malaria subunit vaccine candidates.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 7821,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_1"
+              },
+              "text": "2 Materials and methods",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 7845,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "2.1 Surface-exposed proteomics",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 7876,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "The surface exposed proteome of P. yoelii sporozoites was determined as previously described with few modifications. The detailed procedure is reported in Supporting Information Materials and Methods.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 8077,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "2.2 SSL",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 8085,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "SSL is a class of supervised learning (SL) that makes use of available (often large amounts of) unlabeled data to train a model using a small set of costly labeled data. Many machine-learning researchers reported considerable improvements in classifier performance when unlabeled data is used in conjunction with small-size training data as opposed to building the model using only available labeled training data. In Supporting Information Materials and Methods, we summarize the self-training algorithm, a commonly used semisupervised algorithm that has been successfully used for various SSL tasks in Bioinformatics applications (e.g.,).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 8726,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "2.3 Self-training with potentially labeled data",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 8774,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "In some applications, in addition to the labeled data L and unlabeled data U, we may have access to potentially labeled data P where the labels are based on information (e.g., expert opinion) that may be less reliable than direct experimental evidence. In Supporting Information Materials and Methods, we present a natural extension of the self-training algorithm to SSL that takes advantage of such potentially labeled data when available. Our Java implementation of the proposed self-training algorithm has been made freely available to the broader research community as part of the EpiT tool (available at http://ailab.ist.psu.edu/epit/). This allows our algorithm to be invoked using the WEKA GUI and to take advantage of several amino acid sequence derived features for building classifiers using EpiT.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 9582,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "2.4 Our framework",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 9600,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Figure 1 summarizes our proposed framework for improving the reliability of the results of high-throughput proteomics experiments for identifying SEPs. First, the output of one or more high-throughput proteomics studies for identifying SEPs in P. falciparum is used to generate a set of non-SEPs from the entire P. falciparum proteome (see Section 2.5 for details); Experimentally identified candidate SEPs are annotated by domain expert(s) as known SEPs, likely SEPs, unlikely SEPs, and unknown SEPs. Second, our novel self-training algorithm is applied to labeled, annotated, and unlabeled P. falciparum data to build a classifier for predicting SEPs in P. falciparum, PlasmoSEP. Third, the PlasmoSEP classifier and two additional Bioinformatics tools (SignalP and an in-house model trained to predict protective antigens in parasites) are integrated together into a final prediction model that returns the maximum prediction score from these three predictors. The final model is then used to predict SEPs from among the experimentally identified candidate SEPs. This helps filter out false positives from proteomics experiments, which have been especially problematic in recent studies. Finally, an integrated model is also used to identify novel SEPs from entire P. falciparum proteomes and proteomes of other related malaria species, P. yoelii and P. vivax.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 10963,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "2.5 Classification experiments",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 10994,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "We experimented with the two self-training algorithms using simulated and real-world datasets. Detailed description of the datasets, the extracted features, and the experimental settings are provided in Supporting Information Materials and Methods.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 11243,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "2.6 Other sources of information",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 11276,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "To improve the reliability of our predicted SEPs, we used two additional types of evidence for complementing the predictions supplied by the PlasmoSEP classifier: (i) prediction of signal peptides provided by SignalP Web server (as the presence of a signal peptide in a protein suggests that the protein is secreted or is a membrane protein); and (ii) prediction of protective antigens in parasites provided by our in-house classifier, described in Supporting Information Materials and Methods.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 11771,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_1"
+              },
+              "text": "3 Results and discussion",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 11796,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "3.1 Predictive models trained using semisupervised methods outperform those trained by their supervised counterparts",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 11913,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "First, we compared the performance of SL and self-training (both using two basic SL algorithms, Naïve Bayes (NB) and random forest with 100 trees (RF100)) on the simulated datasets. In this experiment, the training dataset was randomly partitioned into labeled data L = {L+ ∪ L−| s.t. |L+| = |L−|} and unlabeled data U. Figure 2 reports the area under ROC curve (AUC) estimated using the independent test data for NB (top) and RF100 (bottom) trained using only L and self-training classifiers using an NB and RF100 classifiers trained on L and U for different choices of |L+|. Our results show that when the number of labeled data samples is small, the self-training algorithm substantially outperforms its supervised counterpart. For all choices of |L+| considered in this experiment, the classifiers trained using the semisupervised algorithm (SSL_NB and SSL_RF100) consistently outperform those trained using their supervised counterparts (SL_NB and SL_RF100).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 12884,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "3.2 Noisy expert-annotated data improve the performance of models trained using SSL",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 12968,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "The results summarized in Fig. 2 suggest that when |L+| is less than 110 positive samples or, in other words, when the size of the labeled training data is less than 220 samples, the AUC of the SSL model is less than 0.80. To examine whether potentially labeled data (e.g., expert-annotated data) improve the performance of the semisupervised self-training algorithm, Algorithm 2, we designed the following experiment. We set |L+| to 90 and we randomly selected a subset of the remaining training data as potentially labeled such that potentially labeled data include an equal number of positively and negatively labeled samples (e.g., |P+| = |P−|). We also experimented with different numbers of potentially labeled data samples (|P+| = {10, 30, 50, 70, 90}) and different levels of randomly added noise to the labels of the potentially labeled data. Using NB as the base classifier, we found that, for all choices of the number of potentially labeled samples and the fraction that are incorrectly labeled, predictive models trained using our proposed semisupervised self-training algorithm that takes advantage of potentially labeled data outperform those that do not (Fig. 3A). We repeated the experiment using RF100 as the base classifier for the two self-training algorithms (with |L+| set to 30 because for |L+| greater than 30, the AUC of SSL_RF100 is greater than 0.80 and very close to the upper limit for performance obtained using RF100 and the entire training dataset). Figure 3B shows that the proposed SSL algorithm using noisy potentially labeled data consistently outperforms the basic SSL algorithm so long as the fraction of potentially labeled data with incorrect labels does not exceed 30%. Interestingly, in some of the cases, the models trained on noisy potentially labeled data outperform or perform as well as those trained on accurate potentially labeled data. This observation may be explained in part by the theoretical results that suggest that noise in the training data mimics the behavior of regularization which in turn helps reduce overfitting and improve generalization, at least in the supervised setting. This finding suggests that the proposed approach to SSL can take advantage of noisy potentially labeled data.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 15221,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "3.3 PlasmoSEP predicted SEPs in P. falciparum",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 15267,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "We applied our proposed semisupervised self-training algorithm to learn from a P. falciparum surface-exposed proteome dataset, as described in Section 2. Briefly, each protein sequence is represented using its composition transition distribution features (see Supporting Information Materials and Methods) and we applied Algorithm 2 to train a RF classifier with 100 trees (RF100) from labeled, unlabeled, and potentially labeled data. Our choice of a RF100 classifier is based on its superior performance observed on the simulated data and its ability to cope with high-dimensional data. The final learned model was then applied to the total P. falciparum salivary gland sporozoite proteome (2003 proteins) and a score was assigned to predict the probability that the protein is surface exposed. Two additional scores for each protein are obtained using SignalP and our in-house protective antigenicity predictor, respectively. Supporting Information Table 1 reports the three scores for every protein in the P. falciparum salivary gland sporozoite proteome and ranks all proteins using the maximum of the three scores. Supporting Information Table 2 reports the top 190 ranked proteins, those with a maximum score ≥0.7. Interestingly, this set of 190 predicted P. falciparum SEPs covers the 13 known SEPs (Supporting Information Table 3), 11 of 24 proteins annotated by expert curation as likely to be SEPs (Supporting Information Table 4), and only four of 41 proteins tagged as unlikely to be SEPs (Supporting Information Table 5). Finally, of 127 proteins tagged as unknown by expert curation, 23 proteins are predicted to be SEPs (Table 1). The top hit in the prediction for both P. falciparum and P. yoelii (see below), which also scored positively for P. vivax was GAPDH. Interestingly, while GAPDH is commonly regarded as a cytosolic housekeeping protein, it was recently shown experimentally to also be a bona fide surface antigen, and thus likely has moonlighting functions on the cell surface as well. We hold that predicted SEPs in these lists, which may similarly be dismissed due to having a well-known/canonical cytosolic function, should be considered as having a possible surface function.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 17477,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "It should be noted that neither SignalP, a program for predicting secreted proteins, nor our in-house classifier for predicting protective antigens in parasites, on its own, is sufficiently reliable as a predictor of SEPs. However, because any protective antigen is essentially surface exposed or an exported protein and secreted proteins are frequently (but not always) retained on the cell surface, we employ these two predictors to aid in the identification of potential SEPs that are not detected by our PlasmoSEP classifier. Therefore, the final PlasmoSEP score is set to be the maximum of scores predicted by the PlasmoSEP, SignalP, and the antigenicity classifiers. For example, if a query protein is assigned a low prediction score by PlasmoSEP classifier and a high score by SignalP and/or the antigenicity classifier, then we conclude that PlasmoSEP prediction is more likely to be a false negative and we return the high score assigned by SignalP and/or the antigenicity classifier as our final predicted score. On the other hand, if a query protein is assigned a high score by PlasmoSEP classifier but low scores by SignalP and/or the antigenicity classifier, then we conclude that the query protein is likely to be surface exposed that is not secreted or not a putative protective antigen.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 18780,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Finally, we found that our predicted SEPs are consistent with their known biological roles in the parasite. Thus, the predicted SEPs include invasion-related proteins such as rhoptry neck proteins (ASP, RON2, RON3) and sporozoite invasion-associated protein 1 (SIAP1), surface adhesion proteins (CSP, TRAP), members of the gliding motility/inner membrane complex (IMC) apparatus, proteases (ROM4), perforins to aid cell traversal (PLP1), and metabolite transporters (Supporting Information Tables 2 and 3). As shown by previous experimental studies, even proteins that are transiently exposed to the surface during gliding, traversal, or invasion cues are truly surface exposed and are accessible to membrane impermeable labeling reagents and antibodies.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 19535,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "3.4 PlasmoSEP predicted SEPs in P. yoelii salivary gland sporozoites",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 19604,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "In order to demonstrate the utility of the PlasmoSEP predictor across Plasmodium species, we next applied PlasmoSEP to the proteome of the rodent-infectious malaria species P. yoelii. Our previous studies, which first described an approach to identify the surface-exposed proteome of sporozoites, uncovered only a small number of proteins that were surface exposed on P. yoelii. As this small number of proteins is insufficient for robustly testing the algorithm, we have built upon these initial findings and have now used improved labeling and washing conditions to expand the high confidence surface-exposed proteome (Table 2, Supporting Information Table 6). In brief, highly purified sporozoite samples were split just prior to addition of the biotin-conjugated cross-linker, with one half receiving the disulfide-containing labeling reagent (EZ-Link Sulfo-NHS-SS-Biotin) and the other half remaining unlabeled. These matched controls were otherwise treated identically throughout the experiment, including a high stringency washing protocol in urea and SDS. Together, the high stringency washes and improved elution conditions (e.g. reducing the disulfide bond present in the crosslinker) reduced background contamination substantially, with only one and two proteins being captured in the unlabeled control replicates.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 20930,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Several aspects of these data indicate that these proteins are bona fide surface proteins. As anticipated, many well-known SEPs are detected in this experimentally defined list, including CSP, TRAP, SPECT2, SIAP1, GAMA, TRSP, hexose transporter, and many others. Many of these proteins serve as the basis for existing malaria vaccine antigens (CSP, TRAP) or are the chosen targets for chemotherapeutics (hexose transporter). Additionally, proteins involved in the IMC that are used by the invasive forms of the parasite for locomotion (termed gliding motility) were also detected. Several of these proteins were also recently shown to be accessible to antibodies for P. falciparum sporozoites, and should now be considered during selection of antibody-based therapeutics and vaccines. Lastly, the orthologues of 43 of 52 proteins (83%, Supporting Information Table 6) with known P. falciparum orthologues were also detected in our recent P. falciparum surface-exposed proteome, again lending support to the categorization of these proteins as being surface exposed.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 21996,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Comparison of the PlasmoSEP predicted surface-exposed proteome with the experimentally determined surface-exposed proteome demonstrates the practical utility of our approach. Table 2 reports the predicted scores of PlasmoSEP, SignalP, and antigenicity predictors on a set of 37 identified high confidence (defined as having two or more unique peptides and/or published confirmation of surface exposure independent of mass spectrometric methods) SEPs on P. yoelii, ranked by the maximum score of the three predictors. Our approach confirms that 25 proteins are surface exposed with a prediction score ≥ 0.60. Interestingly, a careful examination of the 12 proteins not identified by our approach reveals that six of them are unlikely to be exposed to the surface and three of them are likely to be SEPs. This suggests that our approach is very promising in computationally assessing high-throughput results. Finally, we provide our predicted scores for the entire P. yoelii proteome in Supporting Information Table 7. Our predictions suggested that 159 proteins are expected to be surface exposed with prediction score ≥0.7 and 65 of these proteins have prediction scores ≥0.8.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 23179,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "It should be noted that the extremely small number (13) of known SEPs in our training data makes it very challenging to estimate a reasonable cut-off score (i.e., one that corresponds to a desired sensitivity-specificity tradeoff) for reliably discriminating SEPs from non-SEPs. Estimation of such a cutoff score will have to wait until we accumulate a larger and diverse sample of known SEPs. Until then, our predictions should be viewed as a prioritized list of candidate SEPs for further experiments, which in turn can help improve the classifier, in an iterative fashion. Despite this limitation, we anticipate that these predictions will help to guide future experimental work for identifying novel SEPs in P. yoelii.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 23902,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "3.5 Application of PlasmoSEP to the human-infectious P. vivax malaria parasite",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 23981,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "As P. vivax parasites cannot be continuously cultured in the laboratory, it is extremely difficult to conduct experimental determinations of the surface-exposed proteome of this malaria parasite species, even with access to patient isolates from endemic regions. To overcome this limitation, we have instead turned solely to computational approaches. Buoyed by the success of the predictions of the PlasmoSEP algorithm with P. falciparum and P. yoelii proteomes, we have also applied this prediction software to the P. vivax proteome (Supporting Information Table 8). Several known SEPs (CSP, TRAP, IMC proteins, transporters, and proteins that are secreted during gliding and invasion) score positively using similar thresholds as were applied for P. falciparum and P. yoelii, indicating that the predictor accurately identifies SEPs. Moreover, as this is a proteome wide predictor, surface antigens from other life cycle stages (p25 and p28 are known surface proteins of the ookinete stage) also score positively, as this algorithm does not restrict the prediction only to sporozoites. This indicates that the same properties of these proteins may dictate their surface exposure throughout the life cycle. Lastly, a great number of the highest scoring proteins have not been experimentally or bioinformatically defined for P. vivax, and are currently noted as “hypothetical protein, conserved” in PlasmoDB. In light of this, our predictions that these are SEPs, which may be targetable by antibodies, may help to focus and prioritize future characterizations. Studies of these top candidates to first verify that they are indeed surface exposed, and then to also determine the importance of their biological function in the parasite will help guide efforts to rationally design subunit vaccines.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 25783,
+              "infons": {
+                "section_type": "CONCL",
+                "type": "title_1"
+              },
+              "text": "4 Concluding remarks",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 25804,
+              "infons": {
+                "section_type": "CONCL",
+                "type": "paragraph"
+              },
+              "text": "High-throughput MS-based proteomics has increasingly become the state-of-the-art experimental approach for mapping SEPs in many target pathogens. This is an essential and key step in developing novel subunit vaccines. However, due to technical limitations, the MS approach suffers from false positive as well as false-negative inferred protein identifications. We address this limitation by integrating high-throughput experimental studies, expert-annotated data, machine learning, and in silico bioinformatics tools to substantially improve the reliability of identification of SEPs in the malaria parasite. Our framework makes use of potentially labeled data (proteins tagged by an expert as surface or non-surface exposed) to build classifiers from small amount of labeled data as well as typically much larger amount of unlabeled data. By applying our approach to 205 experimentally determined SEPs of P. falciparum salivary gland sporozoite, we developed the PlasmoSEP classifier for predicting SEPs in P. falciparum from amino acid derived information. We used the PlasmoSEP classifier along with in silico bioinformatics tools for predicting secreted and protective proteins to filter out false positives from the P. falciparum SEPs identified using proteomics experiments, and to predict novel SEPs in P. falciparum proteome. To further assess the viability of PlasmoSEP, we used it to predict novel SEPs in P. yoelii (which were independently validated experimentally) and P. vivax malaria parasite.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 27313,
+              "infons": {
+                "section_type": "CONCL",
+                "type": "paragraph"
+              },
+              "text": "The modularity of the PlasmoSEP framework allows it to be customized in several ways. For example, it can be easily modified to make use of potentially labeled data obtained from annotations supplied by multiple human experts or some in silico tools (e.g., tools for predicting protein subcellular localization). The framework can be used, in principle, to improve the reliability of the output of high-throughput experiments beyond the applications considered in this paper, as long as some labeled data, potentially labeled data, and unlabeled data are available. Work in progress aims to: (i) adapt other sophisticated semisupervised algorithms (e.g.) to learn predictive models from potentially labeled data; (ii) apply our framework to identify SEPs in other interesting pathogens, e.g., B. pertussis; (iii) Develop a community resource for depositing the output of MS proteomics, enable community annotation and integration of data from multiple studies, and support the application of our framework to these data using Web browser based computational workflows.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28382,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "title_1"
+              },
+              "text": "Supplementary Material",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28405,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "footnote"
+              },
+              "text": "The authors have declared no conflict of interest.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28456,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "footnote"
+              },
+              "text": "Additional supporting information may be found in the online version of this article at the publisher’s web-site",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28571,
+              "infons": {
+                "section_type": "ABBR",
+                "type": "title"
+              },
+              "text": "Abbreviations",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28585,
+              "infons": {
+                "section_type": "ABBR",
+                "type": "paragraph"
+              },
+              "text": "AUC",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28589,
+              "infons": {
+                "section_type": "ABBR",
+                "type": "paragraph"
+              },
+              "text": "area under ROC curve",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28610,
+              "infons": {
+                "section_type": "ABBR",
+                "type": "paragraph"
+              },
+              "text": "IMC",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28614,
+              "infons": {
+                "section_type": "ABBR",
+                "type": "paragraph"
+              },
+              "text": "inner membrane complex",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28637,
+              "infons": {
+                "section_type": "ABBR",
+                "type": "paragraph"
+              },
+              "text": "NB",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28640,
+              "infons": {
+                "section_type": "ABBR",
+                "type": "paragraph"
+              },
+              "text": "Naïve Bayes",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28653,
+              "infons": {
+                "section_type": "ABBR",
+                "type": "paragraph"
+              },
+              "text": "RF",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28656,
+              "infons": {
+                "section_type": "ABBR",
+                "type": "paragraph"
+              },
+              "text": "random forest",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28670,
+              "infons": {
+                "section_type": "ABBR",
+                "type": "paragraph"
+              },
+              "text": "SEPs",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28675,
+              "infons": {
+                "section_type": "ABBR",
+                "type": "paragraph"
+              },
+              "text": "surface-exposed proteins",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28700,
+              "infons": {
+                "section_type": "ABBR",
+                "type": "paragraph"
+              },
+              "text": "SL",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28703,
+              "infons": {
+                "section_type": "ABBR",
+                "type": "paragraph"
+              },
+              "text": "supervised learning",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28723,
+              "infons": {
+                "section_type": "ABBR",
+                "type": "paragraph"
+              },
+              "text": "SSL",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28727,
+              "infons": {
+                "section_type": "ABBR",
+                "type": "paragraph"
+              },
+              "text": "semi-supervised learning",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28752,
+              "infons": {
+                "comment": "Available at: http://www.who.int/malaria/publications/world-malaria-report-2015/report/en/",
+                "section_type": "REF",
+                "source": "World malaria report 2014",
+                "type": "ref",
+                "year": "2015"
+              },
+              "text": "",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28753,
+              "infons": {
+                "fpage": "S319",
+                "lpage": "S333",
+                "name_0": "surname:Hoffman;given-names:SL",
+                "name_1": "surname:Vekemans;given-names:J",
+                "name_2": "surname:Richie;given-names:TL",
+                "name_3": "surname:Duffy;given-names:PE",
+                "pub-id_pmid": "26590432",
+                "section_type": "REF",
+                "source": "Am J Prev Med",
+                "type": "ref",
+                "volume": "49",
+                "year": "2015"
+              },
+              "text": "The march toward malaria vaccines",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28787,
+              "infons": {
+                "fpage": "2025",
+                "lpage": "2037",
+                "name_0": "surname:Neafsey;given-names:DE",
+                "name_1": "surname:Juraska;given-names:M",
+                "name_2": "surname:Bedford;given-names:T",
+                "name_3": "surname:Benkeser;given-names:D",
+                "pub-id_pmid": "26488565",
+                "section_type": "REF",
+                "source": "N Engl J Med",
+                "type": "ref",
+                "volume": "373",
+                "year": "2015"
+              },
+              "text": "Genetic diversity and protective efficacy of the RTS, S/AS01 malaria vaccine",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 28864,
+              "infons": {
+                "fpage": "1076",
+                "lpage": "1086",
+                "name_0": "surname:Hodgson;given-names:SH",
+                "name_1": "surname:Ewer;given-names:KJ",
+                "name_2": "surname:Bliss;given-names:CM",
+                "name_3": "surname:Edwards;given-names:NJ",
+                "pub-id_pmid": "25336730",
+                "section_type": "REF",
+                "source": "J Infect Dis",
+                "type": "ref",
+                "volume": "211",
+                "year": "2015"
+              },
+              "text": "Evaluation of the efficacy of ChAd63-MVA vectored vaccines expressing circumsporozoite protein and ME-TRAP against controlled human malaria infection in malaria-naive individuals",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 29043,
+              "infons": {
+                "fpage": "1127",
+                "lpage": "1143",
+                "name_0": "surname:Lindner;given-names:SE",
+                "name_1": "surname:Swearingen;given-names:KE",
+                "name_2": "surname:Harupa;given-names:A",
+                "name_3": "surname:Vaughan;given-names:AM",
+                "pub-id_pmid": "23325771",
+                "section_type": "REF",
+                "source": "Mol Cell Proteomics",
+                "type": "ref",
+                "volume": "12",
+                "year": "2013"
+              },
+              "text": "Total and putative surface proteomics of malaria parasite salivary gland sporozoites",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 29128,
+              "infons": {
+                "fpage": "e1005606",
+                "name_0": "surname:Swearingen;given-names:KE",
+                "name_1": "surname:Lindner;given-names:SE",
+                "name_2": "surname:Shi;given-names:L",
+                "name_3": "surname:Harupa;given-names:A",
+                "pub-id_pmid": "27128092",
+                "section_type": "REF",
+                "source": "PLoS Pathog",
+                "type": "ref",
+                "volume": "12",
+                "year": "2016"
+              },
+              "text": "Interrogating the plasmodium sporozoite surface: identification of surface-exposed proteins and demonstration of glycosylation on CSP and TRAP by mass spectrometry-based proteomics",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 29309,
+              "infons": {
+                "fpage": "3",
+                "lpage": "24",
+                "name_0": "surname:Kotsiantis;given-names:S",
+                "section_type": "REF",
+                "type": "ref",
+                "year": "2007"
+              },
+              "text": "Supervised machine learning: a review of classification techniques",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 29376,
+              "infons": {
+                "fpage": "17",
+                "lpage": "37",
+                "name_0": "surname:Drabovich;given-names:AP",
+                "name_1": "surname:Pavlou;given-names:MP",
+                "name_2": "surname:Batruch;given-names:I",
+                "name_3": "surname:Diamandis;given-names:EP",
+                "name_4": "surname:Haleem;given-names:JI",
+                "name_5": "surname:Timothy;given-names:DV",
+                "section_type": "REF",
+                "source": "Proteomic and Metabolomic Approaches to Biomarker Discovery",
+                "type": "ref",
+                "year": "2013"
+              },
+              "text": "Proteomic and mass spectrometry technologies for biomarker discovery",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 29445,
+              "infons": {
+                "fpage": "1599",
+                "lpage": "1612",
+                "name_0": "surname:Bock;given-names:T",
+                "name_1": "surname:Bausch-Fluck;given-names:D",
+                "name_2": "surname:Hofmann;given-names:A",
+                "name_3": "surname:Wollscheid;given-names:B",
+                "section_type": "REF",
+                "source": "Front Biosci",
+                "type": "ref",
+                "volume": "17",
+                "year": "2012"
+              },
+              "text": "CD proteome and beyond–technologies for targeting the immune cell surfaceome",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 29524,
+              "infons": {
+                "fpage": "1",
+                "lpage": "130",
+                "name_0": "surname:Zhu;given-names:X",
+                "name_1": "surname:Goldberg;given-names:AB",
+                "section_type": "REF",
+                "source": "Synthesis lectures on artificial intelligence and machine learning",
+                "type": "ref",
+                "volume": "3",
+                "year": "2009"
+              },
+              "text": "Introduction to semi-supervised learning",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 29565,
+              "infons": {
+                "name_0": "surname:Chapelle;given-names:O",
+                "name_1": "surname:Schölkopf;given-names:B",
+                "name_2": "surname:Zien;given-names:A",
+                "section_type": "REF",
+                "source": "Semi-Supervised Learning",
+                "type": "ref",
+                "year": "2006"
+              },
+              "text": "",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 29566,
+              "infons": {
+                "fpage": "e132",
+                "lpage": "e140",
+                "name_0": "surname:Fischer;given-names:B",
+                "name_1": "surname:Grossmann;given-names:J",
+                "name_2": "surname:Roth;given-names:V",
+                "name_3": "surname:Gruissem;given-names:W",
+                "pub-id_pmid": "16873463",
+                "section_type": "REF",
+                "source": "Bioinformatics",
+                "type": "ref",
+                "volume": "22",
+                "year": "2006"
+              },
+              "text": "Semisupervised LC/MS alignment for differential proteomics",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 29625,
+              "infons": {
+                "fpage": "6494",
+                "lpage": "6506",
+                "name_0": "surname:Lomsadze;given-names:A",
+                "name_1": "surname:Ter-Hovhannisyan;given-names:V",
+                "name_2": "surname:Chernoff;given-names:YO",
+                "name_3": "surname:Borodovsky;given-names:M",
+                "pub-id_pmid": "16314312",
+                "section_type": "REF",
+                "source": "Nucleic Acids Res",
+                "type": "ref",
+                "volume": "33",
+                "year": "2005"
+              },
+              "text": "Gene identification in novel eukaryotic genomes by self-training algorithm",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 29700,
+              "infons": {
+                "fpage": "535",
+                "lpage": "544",
+                "name_0": "surname:Ou;given-names:HY",
+                "name_1": "surname:Guo;given-names:FB",
+                "name_2": "surname:Zhang;given-names:CT",
+                "pub-id_pmid": "14687930",
+                "section_type": "REF",
+                "source": "Int J Biochem Cell Biol",
+                "type": "ref",
+                "volume": "36",
+                "year": "2004"
+              },
+              "text": "GS-Finder: a program to find bacterial gene start sites with a self-training method",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 29784,
+              "infons": {
+                "fpage": "131",
+                "lpage": "136",
+                "name_0": "surname:Stanescu;given-names:A",
+                "name_1": "surname:Caragea;given-names:D",
+                "section_type": "REF",
+                "type": "ref"
+              },
+              "text": "Semi-supervised self-training approaches for imbalanced splice site datasets",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 29861,
+              "infons": {
+                "fpage": "gkv227",
+                "name_0": "surname:Tang;given-names:S",
+                "name_1": "surname:Lomsadze;given-names:A",
+                "name_2": "surname:Borodovsky;given-names:M",
+                "section_type": "REF",
+                "source": "Nucleic Acid Res",
+                "type": "ref",
+                "year": "2015"
+              },
+              "text": "Identification of protein coding regions in RNA transcripts",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 29921,
+              "infons": {
+                "fpage": "btw219",
+                "name_0": "surname:Xu;given-names:Y-Y",
+                "name_1": "surname:Yang;given-names:F",
+                "name_2": "surname:Shen;given-names:H-B",
+                "section_type": "REF",
+                "source": "Bioinformatics",
+                "type": "ref",
+                "year": "2016"
+              },
+              "text": "Incorporating organelle correlations into semi-supervised learning for protein subcellular localization prediction",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 30036,
+              "infons": {
+                "fpage": "660",
+                "lpage": "662",
+                "name_0": "surname:El-Manzalawy;given-names:Y",
+                "name_1": "surname:Honavar;given-names:V",
+                "section_type": "REF",
+                "type": "ref",
+                "year": "2010"
+              },
+              "text": "A framework for developing epitope prediction tools",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 30088,
+              "infons": {
+                "fpage": "10",
+                "lpage": "18",
+                "name_0": "surname:Hall;given-names:M",
+                "name_1": "surname:Frank;given-names:E",
+                "name_2": "surname:Holmes;given-names:G",
+                "name_3": "surname:Pfahringer;given-names:B",
+                "section_type": "REF",
+                "source": "ACM SIGKDD Explor Newslett",
+                "type": "ref",
+                "volume": "11",
+                "year": "2009"
+              },
+              "text": "The WEKA data mining software: an update",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 30129,
+              "infons": {
+                "fpage": "785",
+                "lpage": "786",
+                "name_0": "surname:Petersen;given-names:TN",
+                "name_1": "surname:Brunak;given-names:S",
+                "name_2": "surname:von Heijne;given-names:G",
+                "name_3": "surname:Nielsen;given-names:H",
+                "pub-id_pmid": "21959131",
+                "section_type": "REF",
+                "source": "Nat Methods",
+                "type": "ref",
+                "volume": "8",
+                "year": "2011"
+              },
+              "text": "SignalP 4.0: discriminating signal peptides from transmembrane regions",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 30200,
+              "infons": {
+                "fpage": "835",
+                "lpage": "851",
+                "name_0": "surname:Blobel;given-names:G",
+                "name_1": "surname:Dobberstein;given-names:B",
+                "pub-id_pmid": "811671",
+                "section_type": "REF",
+                "source": "J Cell Biol",
+                "type": "ref",
+                "volume": "67",
+                "year": "1975"
+              },
+              "text": "Transfer of proteins across membranes. I. Presence of proteolytically processed and unprocessed nascent immunoglobulin light chains on membrane-bound ribosomes of murine myeloma",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 30378,
+              "infons": {
+                "fpage": "351",
+                "lpage": "360",
+                "name_0": "surname:Coleman;given-names:J",
+                "name_1": "surname:Inukai;given-names:M",
+                "name_2": "surname:Inouye;given-names:M",
+                "pub-id_pmid": "3907854",
+                "section_type": "REF",
+                "source": "Cell",
+                "type": "ref",
+                "volume": "43",
+                "year": "1985"
+              },
+              "text": "Dual functions of the signal peptide in protein transfer across the membrane",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 30455,
+              "infons": {
+                "fpage": "1145",
+                "lpage": "1159",
+                "name_0": "surname:Bradley;given-names:AP",
+                "section_type": "REF",
+                "source": "Pattern Recognit",
+                "type": "ref",
+                "volume": "30",
+                "year": "1997"
+              },
+              "text": "The use of the area under the ROC curve in the evaluation of machine learning algorithms",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 30544,
+              "infons": {
+                "fpage": "108",
+                "lpage": "116",
+                "name_0": "surname:Bishop;given-names:CM",
+                "section_type": "REF",
+                "source": "Neural Comput",
+                "type": "ref",
+                "volume": "7",
+                "year": "1995"
+              },
+              "text": "Training with noise is equivalent to Tikhonov regularization",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 30605,
+              "infons": {
+                "fpage": "307",
+                "lpage": "323",
+                "name_0": "surname:Qi;given-names:Y",
+                "name_1": "surname:Zhang;given-names:C",
+                "name_2": "surname:Ma;given-names:Y",
+                "section_type": "REF",
+                "source": "Ensemble Machine Learning",
+                "type": "ref",
+                "year": "2012"
+              },
+              "text": "Random forest for bioinformatics",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 30638,
+              "infons": {
+                "fpage": "2099",
+                "lpage": "2112",
+                "name_0": "surname:Cha;given-names:SJ",
+                "name_1": "surname:Kim;given-names:MS",
+                "name_2": "surname:Pandey;given-names:A",
+                "name_3": "surname:Jacobs-Lorena;given-names:M",
+                "pub-id_pmid": "27551151",
+                "section_type": "REF",
+                "source": "J Exp Med",
+                "type": "ref",
+                "volume": "213",
+                "year": "2016"
+              },
+              "text": "Identification of GAPDH on the surface of Plasmodium sporozoites as a new candidate for targeting malaria liver invasion",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 30759,
+              "infons": {
+                "fpage": "2688",
+                "lpage": "2691",
+                "name_0": "surname:Rappuoli;given-names:R",
+                "pub-id_pmid": "11257410",
+                "section_type": "REF",
+                "source": "Vaccine",
+                "type": "ref",
+                "volume": "19",
+                "year": "2001"
+              },
+              "text": "Reverse vaccinology, a genome-based approach to vaccine development",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 30827,
+              "infons": {
+                "fpage": "115",
+                "lpage": "132",
+                "name_0": "surname:Donati;given-names:C",
+                "name_1": "surname:Rappuoli;given-names:R",
+                "pub-id_pmid": "23527566",
+                "section_type": "REF",
+                "source": "Ann N Y Acad Sci",
+                "type": "ref",
+                "volume": "1285",
+                "year": "2013"
+              },
+              "text": "Reverse vaccinology in the 21st century: improvements over the original design",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 30906,
+              "infons": {
+                "fpage": "e0123598",
+                "name_0": "surname:Ortiz;given-names:D",
+                "name_1": "surname:Guiguemde;given-names:WA",
+                "name_2": "surname:Johnson;given-names:A",
+                "name_3": "surname:Elya;given-names:C",
+                "pub-id_pmid": "25894322",
+                "section_type": "REF",
+                "source": "PLoS One",
+                "type": "ref",
+                "volume": "10",
+                "year": "2015"
+              },
+              "text": "Identification of selective inhibitors of the Plasmodium falciparum hexose transporter PfHT by screening focused libraries of anti-malarial compounds",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 31056,
+              "infons": {
+                "fpage": "4523",
+                "lpage": "4532",
+                "name_0": "surname:Arumugam;given-names:TU",
+                "name_1": "surname:Takeo;given-names:S",
+                "name_2": "surname:Yamasaki;given-names:T",
+                "name_3": "surname:Thonkukiatkul;given-names:A",
+                "pub-id_pmid": "21896773",
+                "section_type": "REF",
+                "source": "Infect Immun",
+                "type": "ref",
+                "volume": "79",
+                "year": "2011"
+              },
+              "text": "Discovery of GAMA, a Plasmodium falciparum merozoite micronemal protein, as a novel blood-stage vaccine candidate antigen",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 31178,
+              "infons": {
+                "fpage": "640",
+                "lpage": "648",
+                "name_0": "surname:Engelmann;given-names:S",
+                "name_1": "surname:Silvie;given-names:O",
+                "name_2": "surname:Matuschewski;given-names:K",
+                "pub-id_pmid": "19181869",
+                "section_type": "REF",
+                "source": "Eukaryot Cell",
+                "type": "ref",
+                "volume": "8",
+                "year": "2009"
+              },
+              "text": "Disruption of Plasmodium sporozoite transmission by depletion of sporozoite invasion-associated protein 1",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 31284,
+              "infons": {
+                "fpage": "768",
+                "lpage": "783",
+                "name_0": "surname:Carey;given-names:AF",
+                "name_1": "surname:Singer;given-names:M",
+                "name_2": "surname:Bargieri;given-names:D",
+                "name_3": "surname:Thiberge;given-names:S",
+                "pub-id_pmid": "24617597",
+                "section_type": "REF",
+                "source": "Cell Microbiol",
+                "type": "ref",
+                "volume": "16",
+                "year": "2014"
+              },
+              "text": "Calcium dynamics of Plasmodium berghei sporozoite motility",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 31343,
+              "infons": {
+                "fpage": "135",
+                "lpage": "142",
+                "name_0": "surname:Heintzelman;given-names:MB",
+                "section_type": "REF",
+                "source": "Seminars in Cell and Developmental Biology",
+                "type": "ref",
+                "year": "2015"
+              },
+              "text": "Gliding motility in apicomplexan parasites",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 31386,
+              "infons": {
+                "fpage": "320",
+                "lpage": "329",
+                "name_0": "surname:Cordwell;given-names:SJ",
+                "pub-id_pmid": "16679049",
+                "section_type": "REF",
+                "source": "Curr Opin Microbiol",
+                "type": "ref",
+                "volume": "9",
+                "year": "2006"
+              },
+              "text": "Technologies for bacterial surface proteomics",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 31432,
+              "infons": {
+                "fpage": "164",
+                "lpage": "176",
+                "name_0": "surname:Olaya-Abril;given-names:A",
+                "name_1": "surname:Jiménez-Munguía;given-names:I",
+                "name_2": "surname:Gómez-Gascón;given-names:L",
+                "name_3": "surname:Rodríguez-Ortega;given-names:MJ",
+                "pub-id_pmid": "23624344",
+                "section_type": "REF",
+                "source": "J Proteomics",
+                "type": "ref",
+                "volume": "97",
+                "year": "2014"
+              },
+              "text": "Surfomics: shaving live organisms for a fast proteomic identification of surface proteins",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 31522,
+              "infons": {
+                "fpage": "81",
+                "lpage": "227",
+                "name_0": "surname:Criminisi;given-names:A",
+                "name_1": "surname:Shotton;given-names:J",
+                "name_2": "surname:Konukoglu;given-names:E",
+                "section_type": "REF",
+                "source": "Foundations and Trends® in Computer Graphics and Vision 7",
+                "type": "ref",
+                "year": "2012"
+              },
+              "text": "Decision forests: a unified framework for classification, regression, density estimation, manifold learning and semi-supervised learning",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 31659,
+              "infons": {
+                "name_0": "surname:Bennett;given-names:K",
+                "name_1": "surname:Demiriz;given-names:A",
+                "name_2": "surname:Kearns;given-names:MS",
+                "name_3": "surname:Solla;given-names:SA",
+                "name_4": "surname:Cohn;given-names:DA",
+                "section_type": "REF",
+                "source": "Advances in Neural Information Processing Systems",
+                "type": "ref",
+                "year": "1999"
+              },
+              "text": "Semi-supervised support vector machines",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 31699,
+              "infons": {
+                "fpage": "2929",
+                "lpage": "2942",
+                "name_0": "surname:Raeven;given-names:RH",
+                "name_1": "surname:van der Maas;given-names:L",
+                "name_2": "surname:Tilstra;given-names:W",
+                "name_3": "surname:Uittenbogaard;given-names:JP",
+                "pub-id_pmid": "25988566",
+                "section_type": "REF",
+                "source": "J Proteome Res",
+                "type": "ref",
+                "volume": "14",
+                "year": "2015"
+              },
+              "text": "Immunoproteomic profiling of Bordetella pertussis outer membrane vesicle vaccine reveals broad and balanced humoral immunogenicity",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 31830,
+              "infons": {
+                "file": "nihms832610f1.jpg",
+                "id": "F1",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Flowchart of PlasmoSEP framework for integrating proteomics studies, expert annotations, bioinformatics tools, and semisupervised learning for accurate identification of SEPs in the malaria parasite (Plasmodium spp.).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 32048,
+              "infons": {
+                "file": "nihms832610f2.jpg",
+                "id": "F2",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "AUC comparisons between supervised learning (SL) and semisupervised learning (SSL), Algorithm 1, using NB (top) and RF100 (bottom) as supervised and base classifiers.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 32215,
+              "infons": {
+                "file": "nihms832610f3.jpg",
+                "id": "F3",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "AUC comparisons between basic SSL and our proposed SSL (SSL_k%) with k% noise in potentially labeled data using NB (top) and RF100 (bottom) as base classifiers.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 32376,
+              "infons": {
+                "file": "T1.xml",
+                "id": "T1",
+                "section_type": "TABLE",
+                "type": "table_caption"
+              },
+              "text": "List of predicted P. falciparum SEPs with maximum score ≥ 0.70 from the set of expert annotated unknown SEPs",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 32487,
+              "infons": {
+                "file": "T1.xml",
+                "id": "T1",
+                "section_type": "TABLE",
+                "type": "table",
+                "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<table frame=\"hsides\" rules=\"groups\"><thead><tr><th valign=\"bottom\" align=\"left\" rowspan=\"1\" colspan=\"1\">ID</th><th valign=\"bottom\" align=\"left\" rowspan=\"1\" colspan=\"1\">Name</th><th valign=\"bottom\" align=\"left\" rowspan=\"1\" colspan=\"1\">PlasmoSEP</th><th valign=\"bottom\" align=\"left\" rowspan=\"1\" colspan=\"1\">SignalP</th><th valign=\"bottom\" align=\"left\" rowspan=\"1\" colspan=\"1\">Antigenicity</th><th valign=\"bottom\" align=\"left\" rowspan=\"1\" colspan=\"1\">Max_score</th></tr></thead><tbody><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PF3D7_1462800</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Glyceraldehyde-3-phosphate dehydrogenase (GAPDH)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">1.00</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.17</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.35</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">1.00</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PF3D7_0818900</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Heat shock protein 70 (HSP70)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">1.00</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.11</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.56</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">1.00</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PF3D7_1444800</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Fructose-bisphosphate aldolase (FBPA)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">1.00</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.10</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.25</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">1.00</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PF3D7_0903700</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Alpha tubulin 1</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">1.00</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.14</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.38</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">1.00</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PF3D7_0922200</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">S-adenosylmethionine synthetase (SAMS)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">1.00</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.11</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.32</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">1.00</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PF3D7_0627500</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">4-Methyl-5(B-hydroxyethyl)-thiazol monophosphate biosynthesis enzyme</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">1.00</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.12</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.60</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">1.00</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PF3D7_1140400</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Conserved Plasmodium protein, unknown function</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">1.00</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.10</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.62</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">1.00</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PF3D7_1133400</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Apical membrane antigen 1 (AMA1)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.00</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.55</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.91</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.91</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PF3D7_1235700</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">ATP synthase subunit beta, mitochondrial</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.90</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.15</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.27</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.90</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PF3D7_0826700</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Receptor for activated c kinase (RACK)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.90</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.10</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.41</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.90</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PF3D7_0620000</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Conserved Plasmodium protein, unknown function</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.00</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.87</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.58</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.87</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PF3D7_1335900</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Sporozoite surface protein 2 (TRAP)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.10</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.85</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.30</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.85</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PF3D7_1028600</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Conserved Plasmodium protein, unknown function</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.00</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.10</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.85</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.85</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PF3D7_0812300</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Conserved Plasmodium protein, unknown function</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.00</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.84</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.39</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.84</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PF3D7_0917900</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Heat shock protein 70 (HSP70-2)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.10</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.84</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.48</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.84</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PF3D7_0513300</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Purine nucleoside phosphorylase (PNP)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.80</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.12</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.56</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.80</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PF3D7_0524000</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Karyopherin beta (KASbeta)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.00</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.10</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.78</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.78</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PF3D7_0708400</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Heat shock protein 90 (HSP90)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.10</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.13</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.75</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.75</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PF3D7_0827900</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Protein disulfide isomerase (PDI8)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.00</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.74</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.35</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.74</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PF3D7_1361800</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Conserved Plasmodium protein, unknown function</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.00</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.11</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.70</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.70</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PF3D7_0922500</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Phosphoglycerate kinase (PGK)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.00</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.10</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.70</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.70</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PF3D7_0320300</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">T-complex protein 1 epsilon subunit, putative</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.00</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.10</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.70</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.70</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PF3D7_1037300</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">ADP/ATP transporter on adenylate translocase</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.70</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.19</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.19</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.70</td></tr></tbody></table>\n"
+              },
+              "text": "ID\tName\tPlasmoSEP\tSignalP\tAntigenicity\tMax_score\t \tPF3D7_1462800\tGlyceraldehyde-3-phosphate dehydrogenase (GAPDH)\t1.00\t0.17\t0.35\t1.00\t \tPF3D7_0818900\tHeat shock protein 70 (HSP70)\t1.00\t0.11\t0.56\t1.00\t \tPF3D7_1444800\tFructose-bisphosphate aldolase (FBPA)\t1.00\t0.10\t0.25\t1.00\t \tPF3D7_0903700\tAlpha tubulin 1\t1.00\t0.14\t0.38\t1.00\t \tPF3D7_0922200\tS-adenosylmethionine synthetase (SAMS)\t1.00\t0.11\t0.32\t1.00\t \tPF3D7_0627500\t4-Methyl-5(B-hydroxyethyl)-thiazol monophosphate biosynthesis enzyme\t1.00\t0.12\t0.60\t1.00\t \tPF3D7_1140400\tConserved Plasmodium protein, unknown function\t1.00\t0.10\t0.62\t1.00\t \tPF3D7_1133400\tApical membrane antigen 1 (AMA1)\t0.00\t0.55\t0.91\t0.91\t \tPF3D7_1235700\tATP synthase subunit beta, mitochondrial\t0.90\t0.15\t0.27\t0.90\t \tPF3D7_0826700\tReceptor for activated c kinase (RACK)\t0.90\t0.10\t0.41\t0.90\t \tPF3D7_0620000\tConserved Plasmodium protein, unknown function\t0.00\t0.87\t0.58\t0.87\t \tPF3D7_1335900\tSporozoite surface protein 2 (TRAP)\t0.10\t0.85\t0.30\t0.85\t \tPF3D7_1028600\tConserved Plasmodium protein, unknown function\t0.00\t0.10\t0.85\t0.85\t \tPF3D7_0812300\tConserved Plasmodium protein, unknown function\t0.00\t0.84\t0.39\t0.84\t \tPF3D7_0917900\tHeat shock protein 70 (HSP70-2)\t0.10\t0.84\t0.48\t0.84\t \tPF3D7_0513300\tPurine nucleoside phosphorylase (PNP)\t0.80\t0.12\t0.56\t0.80\t \tPF3D7_0524000\tKaryopherin beta (KASbeta)\t0.00\t0.10\t0.78\t0.78\t \tPF3D7_0708400\tHeat shock protein 90 (HSP90)\t0.10\t0.13\t0.75\t0.75\t \tPF3D7_0827900\tProtein disulfide isomerase (PDI8)\t0.00\t0.74\t0.35\t0.74\t \tPF3D7_1361800\tConserved Plasmodium protein, unknown function\t0.00\t0.11\t0.70\t0.70\t \tPF3D7_0922500\tPhosphoglycerate kinase (PGK)\t0.00\t0.10\t0.70\t0.70\t \tPF3D7_0320300\tT-complex protein 1 epsilon subunit, putative\t0.00\t0.10\t0.70\t0.70\t \tPF3D7_1037300\tADP/ATP transporter on adenylate translocase\t0.70\t0.19\t0.19\t0.70\t \t",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 34275,
+              "infons": {
+                "file": "T2.xml",
+                "id": "T2",
+                "section_type": "TABLE",
+                "type": "table_caption"
+              },
+              "text": "List of 37 identified SEPs in P. yoelii salivary gland sporozoites using MS experiments and their predicted PlasmoSEP, SignalP, and antigenicity scores",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 34427,
+              "infons": {
+                "file": "T2.xml",
+                "id": "T2",
+                "section_type": "TABLE",
+                "type": "table",
+                "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<table frame=\"hsides\" rules=\"groups\"><thead><tr><th valign=\"bottom\" align=\"left\" rowspan=\"1\" colspan=\"1\">ID</th><th valign=\"bottom\" align=\"left\" rowspan=\"1\" colspan=\"1\">Name</th><th valign=\"bottom\" align=\"left\" rowspan=\"1\" colspan=\"1\">PlasmoSEP</th><th valign=\"bottom\" align=\"left\" rowspan=\"1\" colspan=\"1\">SignalP</th><th valign=\"bottom\" align=\"left\" rowspan=\"1\" colspan=\"1\">Antigenicity</th><th valign=\"bottom\" align=\"left\" rowspan=\"1\" colspan=\"1\">Max</th></tr></thead><tbody><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_1330200</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Glyceraldehyde-3-phosphate dehydrogenase, putative (GAPDH)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">1.00</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.14</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.58</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">1.00</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_0712100</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Heat shock protein, putative (HSP70)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">1.00</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.11</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.62</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">1.00</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_1007600</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Sporozoite invasion-associated protein 1 (SIAP1)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">1.00</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.87</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.40</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">1.00</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_1312400</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Fructose-bisphosphate aldolase 2 (ALDO2)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">1.00</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.10</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.31</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">1.00</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_0420500</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Alpha tubulin 1</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">1.00</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.14</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.45</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">1.00</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_1354800</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Sporozoite surface protein 2, thrombospondin-related anonymous protein (TRAP)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.50</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.83</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.97</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.97</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_1007700</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Perforin-like protein 1, sporozoite micronemal protein essential for cell traversal (SPECT2)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.80</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.64</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.56</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.80</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_1461900</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Actin I</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.80</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.10</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.52</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.80</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_0835500</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Conserved Plasmodium protein, unknown function</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.20</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.67</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.79</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.79</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_0702200</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Secreted ookinete protein, putative, GPI-anchored micronemal antigen, putative (GAMA)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.00</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.76</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.48</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.76</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_1427200</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Conserved Plasmodium protein, unknown function</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.10</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.74</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.54</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.74</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_0210500</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Thrombospondin related sporozoite protein, putative (TRSP)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.30</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.72</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.31</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.72</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_1210100</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Tubulin beta chain, putative</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.70</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.10</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.44</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.70</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_0405400</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Circumsporozoite (CS) protein (CSP)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.70</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.68</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.70</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.70</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_1037800</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Glideosome associated protein with multiple membrane spans 3, putative (GAPM3)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.70</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.12</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.14</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.70</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_0902700.1</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Merozoite adhesive erythrocytic binding protein (MAEBL)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.30</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.69</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.44</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.69</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_0826700</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Phosphoglycerate kinase, putative (PGK)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.00</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.10</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.68</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.68</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_0912300</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Conserved Plasmodium protein, unknown function</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.40</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.12</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.68</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.68</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_0404800</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Inner membrane complex protein 1a (IMC1a)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.20</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.11</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.67</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.67</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_1439800</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Endoplasmin, putative (GRP94)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.10</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.65</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.47</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.65</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_1217500</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Enolase, putative (ENO)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.50</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.11</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.64</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.64</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_1316500</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Gamete egress and sporozoite traversal protein, putative (GEST)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.20</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.63</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.46</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.63</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_1034500</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Rhoptry-associated protein 1, putative (RAP1)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.00</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.62</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.22</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.62</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_0910400</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Carbonic anhydrase, putative</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.20</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.54</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.61</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.61</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_1134900</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Elongation factor 1-alpha, putative</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.60</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.12</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.45</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.60</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_0703100</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Protein disulfide isomerase, putative</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.10</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.59</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.49</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.59</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_0404900</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Membrane skeletal protein, putative</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.10</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.10</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.55</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.55</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_0525300</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Glideosome associated protein with multiple membrane spans 2, putative (GAPM2)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.50</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.10</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.27</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.50</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_1361400</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Myosin A (MyoA)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.20</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.10</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.40</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.40</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_0303100</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Hexose transporter (HT)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.40</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.13</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.24</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.40</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_0712800</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">14-3-3 Protein, putative (14-3-3I)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.10</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.10</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.32</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.32</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_0706500</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Nucleoside transporter, putative (NT2)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.20</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.11</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.32</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.32</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_1424900</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Conserved Plasmodium protein, unknown function</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.10</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.11</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.30</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.30</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_0823700</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Sugar transporter, putative</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.20</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.30</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.19</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.30</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_0514100</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Conserved Plasmodium protein, unknown function</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.00</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.10</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.22</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.22</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_1143100</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">60S ribosomal protein L40/UBI, putative</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.00</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.12</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.09</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.12</td></tr><tr><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">PY17X_1118200</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Histone H3 variant, putative (H3.3)</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.00</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.10</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.03</td><td align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">0.10</td></tr></tbody></table>\n"
+              },
+              "text": "ID\tName\tPlasmoSEP\tSignalP\tAntigenicity\tMax\t \tPY17X_1330200\tGlyceraldehyde-3-phosphate dehydrogenase, putative (GAPDH)\t1.00\t0.14\t0.58\t1.00\t \tPY17X_0712100\tHeat shock protein, putative (HSP70)\t1.00\t0.11\t0.62\t1.00\t \tPY17X_1007600\tSporozoite invasion-associated protein 1 (SIAP1)\t1.00\t0.87\t0.40\t1.00\t \tPY17X_1312400\tFructose-bisphosphate aldolase 2 (ALDO2)\t1.00\t0.10\t0.31\t1.00\t \tPY17X_0420500\tAlpha tubulin 1\t1.00\t0.14\t0.45\t1.00\t \tPY17X_1354800\tSporozoite surface protein 2, thrombospondin-related anonymous protein (TRAP)\t0.50\t0.83\t0.97\t0.97\t \tPY17X_1007700\tPerforin-like protein 1, sporozoite micronemal protein essential for cell traversal (SPECT2)\t0.80\t0.64\t0.56\t0.80\t \tPY17X_1461900\tActin I\t0.80\t0.10\t0.52\t0.80\t \tPY17X_0835500\tConserved Plasmodium protein, unknown function\t0.20\t0.67\t0.79\t0.79\t \tPY17X_0702200\tSecreted ookinete protein, putative, GPI-anchored micronemal antigen, putative (GAMA)\t0.00\t0.76\t0.48\t0.76\t \tPY17X_1427200\tConserved Plasmodium protein, unknown function\t0.10\t0.74\t0.54\t0.74\t \tPY17X_0210500\tThrombospondin related sporozoite protein, putative (TRSP)\t0.30\t0.72\t0.31\t0.72\t \tPY17X_1210100\tTubulin beta chain, putative\t0.70\t0.10\t0.44\t0.70\t \tPY17X_0405400\tCircumsporozoite (CS) protein (CSP)\t0.70\t0.68\t0.70\t0.70\t \tPY17X_1037800\tGlideosome associated protein with multiple membrane spans 3, putative (GAPM3)\t0.70\t0.12\t0.14\t0.70\t \tPY17X_0902700.1\tMerozoite adhesive erythrocytic binding protein (MAEBL)\t0.30\t0.69\t0.44\t0.69\t \tPY17X_0826700\tPhosphoglycerate kinase, putative (PGK)\t0.00\t0.10\t0.68\t0.68\t \tPY17X_0912300\tConserved Plasmodium protein, unknown function\t0.40\t0.12\t0.68\t0.68\t \tPY17X_0404800\tInner membrane complex protein 1a (IMC1a)\t0.20\t0.11\t0.67\t0.67\t \tPY17X_1439800\tEndoplasmin, putative (GRP94)\t0.10\t0.65\t0.47\t0.65\t \tPY17X_1217500\tEnolase, putative (ENO)\t0.50\t0.11\t0.64\t0.64\t \tPY17X_1316500\tGamete egress and sporozoite traversal protein, putative (GEST)\t0.20\t0.63\t0.46\t0.63\t \tPY17X_1034500\tRhoptry-associated protein 1, putative (RAP1)\t0.00\t0.62\t0.22\t0.62\t \tPY17X_0910400\tCarbonic anhydrase, putative\t0.20\t0.54\t0.61\t0.61\t \tPY17X_1134900\tElongation factor 1-alpha, putative\t0.60\t0.12\t0.45\t0.60\t \tPY17X_0703100\tProtein disulfide isomerase, putative\t0.10\t0.59\t0.49\t0.59\t \tPY17X_0404900\tMembrane skeletal protein, putative\t0.10\t0.10\t0.55\t0.55\t \tPY17X_0525300\tGlideosome associated protein with multiple membrane spans 2, putative (GAPM2)\t0.50\t0.10\t0.27\t0.50\t \tPY17X_1361400\tMyosin A (MyoA)\t0.20\t0.10\t0.40\t0.40\t \tPY17X_0303100\tHexose transporter (HT)\t0.40\t0.13\t0.24\t0.40\t \tPY17X_0712800\t14-3-3 Protein, putative (14-3-3I)\t0.10\t0.10\t0.32\t0.32\t \tPY17X_0706500\tNucleoside transporter, putative (NT2)\t0.20\t0.11\t0.32\t0.32\t \tPY17X_1424900\tConserved Plasmodium protein, unknown function\t0.10\t0.11\t0.30\t0.30\t \tPY17X_0823700\tSugar transporter, putative\t0.20\t0.30\t0.19\t0.30\t \tPY17X_0514100\tConserved Plasmodium protein, unknown function\t0.00\t0.10\t0.22\t0.22\t \tPY17X_1143100\t60S ribosomal protein L40/UBI, putative\t0.00\t0.12\t0.09\t0.12\t \tPY17X_1118200\tHistone H3 variant, putative (H3.3)\t0.00\t0.10\t0.03\t0.10\t \t",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 37450,
+              "infons": {
+                "file": "T2.xml",
+                "id": "T2",
+                "section_type": "TABLE",
+                "type": "table_footnote"
+              },
+              "text": "Our approach confirms that the first 25 proteins are SEPs with predicted score ≥0.60.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            }
+          ],
+          "annotations": [],
+          "relations": []
+        }
+      ]
+    }
+  ]
+}

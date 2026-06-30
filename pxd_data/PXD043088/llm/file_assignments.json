@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "pxd": "PXD043088",
+    "category": "llm",
+    "saved_at": "2026-06-30T15:35:13.404595",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"mouse_bmdm_apex2_phagol_yc_yeast\",\n      \"description\": \"APEX2-based proximity labeling of phagosomal contents in mouse BMDMs incubated with yeast (Candida albicans).\",\n      \"organism\": \"Mus musculus\",\n      \"taxid\": \"NCBITaxon:10090\",\n      \"crosslinker\": null,\n      \"biological_condition\": \"phagocytosis/proximity labeling with yeast (Candida albicans)\",\n      \"files\": [\n        \"KL_YA_R1.raw\",\n        \"KL_YA_R2.raw\",\n        \"KL_YA_R3.raw\",\n        \"KL_YE_R1.raw\",\n        \"KL_YE_R2.raw\",\n        \"KL_YE_R3.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"APEX2-based PhagoPL BMDMs ... allow for 30 min of microbe phagocytosis by macrophages.\",\n      \"reasoning\": \"The filename prefixes KL_YA and KL_YE indicate yeast-related conditions (YA/YE) with three replicates each. The publication describes three independent biological replicates per microbe and proximity labeling in BMDMs; however, the exact mapping of YA vs YE to specific yeast types/controls is not provided in the text, so they are grouped as yeast-associated biological conditions under the mouse proteome.\"\n    },\n    {\n      \"cluster_id\": \"cluster_2\",\n      \"cluster_label\": \"mouse_bmdm_apex2_phagol_bacteria\",\n      \"description\": \"APEX2-based proximity labeling of phagosomal contents in mouse BMDMs incubated with bacteria (Escherichia coli).\",\n      \"organism\": \"Mus musculus\",\n      \"taxid\": \"NCBITaxon:10090\",\n      \"crosslinker\": null,\n      \"biological_condition\": \"phagocytosis/proximity labeling with bacteria (Escherichia coli)\",\n      \"files\": [\n        \"KL_L4_R2.raw\",\n        \"KL_L4_R3.raw\",\n        \"KL_L4_R4.raw\",\n        \"KL_V3_R2.raw\",\n        \"KL_V3_R3.raw\",\n        \"KL_V3_R4.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"The following day, cells were washed once with D-PBS. Opti-MEM media ... and AEPX2-expressing microbes were added to the cells ... to allow for 30 min of microbe phagocytosis by macrophages.\",\n      \"reasoning\": \"Filename prefixes KL_L4 and KL_V3 appear to represent bacterial-associated conditions with replicates (R2-R4). The publication indicates multiple microbes are used with APEX2-expressing microbes and three independent biological replicates per microbe; the dataset includes bacterial-related groups but does not explicitly state which prefix corresponds to which bacterium. Given the provided organism list includes Escherichia coli, these bacterial-associated files are grouped under the mouse proteome.\"\n    },\n    {\n      \"cluster_id\": \"cluster_3\",\n      \"cluster_label\": \"mouse_bmdm_apex2_phagol_yeast_minus_apex2\",\n      \"description\": \"APEX2-based proximity labeling experiment variant with yeast condition lacking APEX2 labeling (or a yeast control).\",\n      \"organism\": \"Mus musculus\",\n      \"taxid\": \"NCBITaxon:10090\",\n      \"crosslinker\": null,\n      \"biological_condition\": \"yeast-associated control/variant (SAminus)\",\n      \"files\": [\n        \"KL_SAminus_R1.raw\",\n        \"KL_SAminus_R2.raw\",\n        \"KL_SAminus_R3.raw\"\n      ],\n      \"confidence\": \"low\",\n      \"evidence_quote\": \"EGCG ... and 1 mM H2O2 was quickly added to initiate APEX2 labeling.\",\n      \"reasoning\": \"KL_SAminus suggests an APEX2-minus control, but the publication text provided does not mention an 'APEX2 minus' condition or define SAminus/SAplus. The filenames show three replicates, consistent with the '3 independent biological replicates' statement, so it is treated as a yeast-associated variant/control, but organism and exact biological meaning are inferred from naming only.\"\n    },\n    {\n      \"cluster_id\": \"cluster_4\",\n      \"cluster_label\": \"mouse_bmdm_apex2_phagol_yeast_plus_apex2\",\n      \"description\": \"APEX2-based proximity labeling experiment variant with yeast condition including APEX2 labeling (or a yeast positive labeling control).\",\n      \"organism\": \"Mus musculus\",\n      \"taxid\": \"NCBITaxon:10090\",\n      \"crosslinker\": null,\n      \"biological_condition\": \"yeast-associated control/variant (SAplus)\",\n      \"files\": [\n        \"KL_SAplus_R1.raw\",\n        \"KL_SAplus_R2.raw\",\n        \"KL_SAplus_R3.raw\"\n      ],\n      \"confidence\": \"low\",\n      \"evidence_quote\": \"After 1 min of labeling at room temperature (RT), cells were sequentially washed ... and lysed with 1% SDS lysis buffer.\",\n      \"reasoning\": \"KL_SAplus suggests the complementary APEX2-positive condition to SAminus, but the provided publication excerpt does not define these labels. The three replicates match the experimental replication scheme, so they are grouped as a single yeast-associated variant/control under the mouse proteome with low confidence.\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a biological XL-MS condition.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"All provided raw files appear to correspond to biological conditions based on their KL_* naming and replicate structure; no explicit QC/calibration/blank files are present in the input list.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 17,\n    \"n_assigned_files\": 17,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 4,\n    \"overall_confidence\": \"medium\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "mouse_bmdm_apex2_phagol_yc_yeast",
+          "description": "APEX2-based proximity labeling of phagosomal contents in mouse BMDMs incubated with yeast (Candida albicans).",
+          "organism": "Mus musculus",
+          "taxid": "NCBITaxon:10090",
+          "crosslinker": null,
+          "biological_condition": "phagocytosis/proximity labeling with yeast (Candida albicans)",
+          "files": [
+            "KL_YA_R1.raw",
+            "KL_YA_R2.raw",
+            "KL_YA_R3.raw",
+            "KL_YE_R1.raw",
+            "KL_YE_R2.raw",
+            "KL_YE_R3.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "APEX2-based PhagoPL BMDMs ... allow for 30 min of microbe phagocytosis by macrophages.",
+          "reasoning": "The filename prefixes KL_YA and KL_YE indicate yeast-related conditions (YA/YE) with three replicates each. The publication describes three independent biological replicates per microbe and proximity labeling in BMDMs; however, the exact mapping of YA vs YE to specific yeast types/controls is not provided in the text, so they are grouped as yeast-associated biological conditions under the mouse proteome."
+        },
+        {
+          "cluster_id": "cluster_2",
+          "cluster_label": "mouse_bmdm_apex2_phagol_bacteria",
+          "description": "APEX2-based proximity labeling of phagosomal contents in mouse BMDMs incubated with bacteria (Escherichia coli).",
+          "organism": "Mus musculus",
+          "taxid": "NCBITaxon:10090",
+          "crosslinker": null,
+          "biological_condition": "phagocytosis/proximity labeling with bacteria (Escherichia coli)",
+          "files": [
+            "KL_L4_R2.raw",
+            "KL_L4_R3.raw",
+            "KL_L4_R4.raw",
+            "KL_V3_R2.raw",
+            "KL_V3_R3.raw",
+            "KL_V3_R4.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "The following day, cells were washed once with D-PBS. Opti-MEM media ... and AEPX2-expressing microbes were added to the cells ... to allow for 30 min of microbe phagocytosis by macrophages.",
+          "reasoning": "Filename prefixes KL_L4 and KL_V3 appear to represent bacterial-associated conditions with replicates (R2-R4). The publication indicates multiple microbes are used with APEX2-expressing microbes and three independent biological replicates per microbe; the dataset includes bacterial-related groups but does not explicitly state which prefix corresponds to which bacterium. Given the provided organism list includes Escherichia coli, these bacterial-associated files are grouped under the mouse proteome."
+        },
+        {
+          "cluster_id": "cluster_3",
+          "cluster_label": "mouse_bmdm_apex2_phagol_yeast_minus_apex2",
+          "description": "APEX2-based proximity labeling experiment variant with yeast condition lacking APEX2 labeling (or a yeast control).",
+          "organism": "Mus musculus",
+          "taxid": "NCBITaxon:10090",
+          "crosslinker": null,
+          "biological_condition": "yeast-associated control/variant (SAminus)",
+          "files": [
+            "KL_SAminus_R1.raw",
+            "KL_SAminus_R2.raw",
+            "KL_SAminus_R3.raw"
+          ],
+          "confidence": "low",
+          "evidence_quote": "EGCG ... and 1 mM H2O2 was quickly added to initiate APEX2 labeling.",
+          "reasoning": "KL_SAminus suggests an APEX2-minus control, but the publication text provided does not mention an 'APEX2 minus' condition or define SAminus/SAplus. The filenames show three replicates, consistent with the '3 independent biological replicates' statement, so it is treated as a yeast-associated variant/control, but organism and exact biological meaning are inferred from naming only."
+        },
+        {
+          "cluster_id": "cluster_4",
+          "cluster_label": "mouse_bmdm_apex2_phagol_yeast_plus_apex2",
+          "description": "APEX2-based proximity labeling experiment variant with yeast condition including APEX2 labeling (or a yeast positive labeling control).",
+          "organism": "Mus musculus",
+          "taxid": "NCBITaxon:10090",
+          "crosslinker": null,
+          "biological_condition": "yeast-associated control/variant (SAplus)",
+          "files": [
+            "KL_SAplus_R1.raw",
+            "KL_SAplus_R2.raw",
+            "KL_SAplus_R3.raw"
+          ],
+          "confidence": "low",
+          "evidence_quote": "After 1 min of labeling at room temperature (RT), cells were sequentially washed ... and lysed with 1% SDS lysis buffer.",
+          "reasoning": "KL_SAplus suggests the complementary APEX2-positive condition to SAminus, but the provided publication excerpt does not define these labels. The three replicates match the experimental replication scheme, so they are grouped as a single yeast-associated variant/control under the mouse proteome with low confidence."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a biological XL-MS condition.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "All provided raw files appear to correspond to biological conditions based on their KL_* naming and replicate structure; no explicit QC/calibration/blank files are present in the input list."
+        }
+      ],
+      "summary": {
+        "n_input_files": 17,
+        "n_assigned_files": 17,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 4,
+        "overall_confidence": "medium"
+      }
+    }
+  }
+}

@@ -167,9 +167,10 @@ class RawFileProcessor:
         files_to_assess = self.select_files_for_assessment(raw_files)
 
         logger.info(
-            "Phase 1: %d .raw files to process for %s (~%.1f GB total, %d workers)",
+            "Phase 1: %d .raw files available for %s (~%.1f GB total, %d workers)",
             total, self.pxd, total_size_gb, self.nproc,
         )
+        logger.info("Phase 1: %d .raw files selected for download/assessment", len(files_to_assess))
 
         per_file_results: List[Dict[str, Any]] = [None] * total  # type: ignore[list-item]
         failed_count = 0
@@ -287,6 +288,18 @@ class RawFileProcessor:
 
         result: Dict[str, Any] = {"filename": filename, "status": "failed"}
 
+        should_assess = filename in files_to_assess
+
+        if not should_assess:
+            logger.info(
+                "[%d/%d] %s: not selected for download/assessment (cluster representative not needed)",
+                idx, total, filename,
+            )
+            result["status"] = "skipped_not_selected"
+            if metadata_json.exists():
+                result["metadata_json"] = str(metadata_json)
+            return result
+
         # Resume support: skip if metadata already produced
         if metadata_json.exists():
             logger.info("[%d/%d] %s: metadata already exists — skipping", idx, total, filename)
@@ -311,8 +324,6 @@ class RawFileProcessor:
         result["metadata_json"] = str(metadata_json)
 
         # ③ thermorawfileparser: mzML conversion (-f 2)
-        # Only convert to mzML if this file is selected for assessment
-        should_assess = filename in files_to_assess
         if not self.skip_spectral and should_assess:
             logger.info("[%d/%d] Converting %s to mzML (selected for assessment) ...", idx, total, filename)
             mzml_ok = self._run_thermorawfileparser_mzml(raw_path)

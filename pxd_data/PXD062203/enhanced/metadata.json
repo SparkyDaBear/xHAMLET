@@ -1,0 +1,952 @@
+{
+  "metadata": {
+    "pxd": "PXD062203",
+    "category": "enhanced",
+    "saved_at": "2026-06-30T15:50:40.583009",
+    "filename": "metadata"
+  },
+  "data": {
+    "pxd": "PXD062203",
+    "processed_at": "2026-06-30T15:50:06.612347",
+    "stages": {
+      "pride": "success",
+      "publication": "failed",
+      "file_clustering": "failed",
+      "raw_processing": "skipped_no_download",
+      "spectral_merge": "success",
+      "llm": "success",
+      "sdrf": "success",
+      "sdrf_validation": "success_with_warnings",
+      "xi_configs": "success",
+      "relink": "skipped",
+      "compilation": "success"
+    },
+    "spectral_summary": {
+      "source_files_parsed": 0,
+      "per_file": [],
+      "instrument": "timsTOF SCP"
+    },
+    "sdrf_path": "pxd_data/PXD062203/sdrf/PXD062203.sdrf.tsv",
+    "sdrf_validation_warnings": "Traceback (most recent call last):\n  File \"/home/ians/git_repos/xHAMLET/.venv/bin/parse_sdrf\", line 6, in <module>\n    sys.exit(main())\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/sdrf_pipelines/parse_sdrf.py\", line 770, in main\n    cli()\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/click/core.py\", line 1524, in __call__\n    return self.main(*args, **kwargs)\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/click/core.py\", line 1445, in main\n    rv = self.invoke(ctx)\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/click/core.py\", line 1912, in invoke\n    return _process_result(sub_ctx.command.invoke(sub_ctx))\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/click/core.py\", line 1308, in invoke\n    return ctx.invoke(self.callback, **ctx.params)\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/click/core.py\", line 877, in invoke\n    return callback(*args, **kwargs)\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/click/decorators.py\", line 34, in new_func\n    return f(get_current_context(), *args, **kwargs)\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/sdrf_pipelines/parse_sdrf.py\", line 266, in validate_sdrf\n    sdrf_df = read_sdrf(sdrf_file)\n  File \"/home/ians/git_repos/xHAMLET/.venv/lib/python3.10/site-packages/sdrf_pipelines/sdrf/sdrf.py\", line 325, in read_sdrf\n    raise ValueError(\"No valid data found in the file\")\nValueError: No valid data found in the file",
+    "xi_config_paths": {
+      "crosslinking": "pxd_data/PXD062203/configs/xi_crosslinking.conf",
+      "linear": "pxd_data/PXD062203/configs/xi_linear.conf"
+    },
+    "pride_data": {
+      "accession": "PXD062203",
+      "title": "PLAMseq enables the proteo-genomic characterization of chromatin-associated proteins and protein interactions in a single workflow.",
+      "additionalAttributes": [],
+      "projectDescription": "Chromatin Immunoprecipitation (ChIP) and Co-Immunoprecipitation (CoIP) assays are the most common approaches to characterize the genomic localization and protein interactors, respectively, for a protein of interest. However, these approaches require the use of specific antibodies, which are costly reagents that often face sensitivity and specificity issues. Based on TurboID, we developed PLAMseq (Proximity Labelled Affinity-purified Mass spectrometry plus sequencing), which enables, in the same workflow, to identify the genomic loci and the interacting proteome of a protein of interest. Moreover, PLAMseq can also be applied to specifically map protein interactions across the genome or to specifically detect proteins which are ubiquitin(-like) modified. After a short biotin pulse, DNA-protein crosslinks are induced by formaldehyde and the interactors of a protein of interest, together with their associated DNA sequences, are purified simultaneously and identified by mass spectrometry-based proteomics and Next Generation Sequencing, respectively.\nTo validate PLAMseq, we performed the proteo-genomic characterization of two proteins which genomic loci are very well characterized, namely, RNA polymerase II and CTCF, with excellent robustness and reproducibility. Next, we applied PLAMseq to characterize Histone H1 SUMOylation, a histone post-translational modification which study has remained elusive due to the lack of specific reagents. We found that SETDB1 binds to SUMOylated histone H1.2 and H1.4 and, accordingly, SUMOylated histone H1 colocalizes with H3K9me3 at repetitive regions of the genome. ",
+      "sampleProcessingProtocol": "PLAMseq (Proximity Labelled Chromatin Affinity Purification Mass Spectrometry plus sequencing) \nA bench-top PLAMseq protocol is provided as Supplementary Protocol 1\nBiotin incubation and crosslinking. To perform PLAMseq, 60 million cells were seeded per experimental condition and treated with 50 µM biotin for 10 mins at 37°C. Cells were then washed with PBS, crosslinked with 1% formaldehyde in PBS and incubated for 20 mins at RT. Crosslinking was quenched by addition of 1.25 M glycine for 5 mins. Cell pellets were collected by centrifugation at 900 g for 5 mins, washed with PBS and stored at -80°C until use.\nLysis, sonication and streptavidin pull-down. For cell lysis, each cell pellet was resuspended in 2 ml lysis buffer (50 mM HEPES pH 7.9, 140 mM NaCl, 1mM EDTA pH 8.0, 10% (vol/vol) glycerol, 0.5% (vol/vol) IGEPAL CA-630/NP-40 and 0.25% (vol/vol) Triton X-100) containing protease inhibitors and incubated for 10 mins on ice. Each sample was then split into two 1 ml aliquots and nuclei were collected by centrifugation at 1,700 g for 5 mins at 4°C. The supernatant was discarded, and the nuclei were resuspended in wash buffer (10 mM Tris-HCl pH 8.0, 1mM EDTA pH 8.0, 0.5mM EGTA pH 8.0 and 200 mM NaCl), incubated for 10 mins on ice, and centrifuged again. After rinsing the nuclei twice with shearing buffer (10 mM Tris-HCl pH 7.6, 1mM EDTA pH 8.0 and 0.1% (wt/vol) SDS), the nuclei pellet was resuspended in 1 ml of shearing buffer and transferred to AFA tubes. Chromatin was sheared using a Covaris ultrasonicator (PIP = 140, Duty = 5%, Time = 1020 sec, 6°C). After sonication, samples were centrifuged at 14,000 g for 10 mins at 4°C, and the supernatant was transferred to a new tube for the streptavidin pull-down. 25 µl of streptavidin beads (50% slurry) were added per sample and incubated overnight at 4°C with rotation. After incubation, beads were washed with shearing buffer and subjected to decrosslinking by incubating in decrosslinking buffer (1% SDS and 500mM NaCl in TE buffer 1X) at 65°C overnight shaking at 600 rpm. \nDNA purification and BioID washes. Following decrosslinking, samples were centrifuged at 500 x g and the supernatant (DNA) was diluted by half with TE buffer (10 mM Tris PH 8 and 1 mM EDTA) and incubated with 0.5mg/ml of proteinase K for 1h 30 mins at 37ºC. Samples were then further diluted by half with TE buffer to reduce SDS percentage and purified using a Gel and PCR clean-up kit (Macherey-Nagel).\nBeads from the Streptavidin pull-down were washed sequentially with buffers 1 to 4 for 10 mins each (Buffer 1: 2% SDS; Buffer 2: 0.1% deoxycholate, 1% Triton X-100, 500mM NaCl, 1mM EDTA and 50mM HEPES pH 7.5; Buffer 3: 250 mM LiCl, 0.5% Triton X-100, 0.5% Deoxycholate and 1mM EDTA 10mM TrisCl pH 8.0 and Buffer 4: 50mM Tris HCl pH7.4 and 50mM NaCl). Beads were then washed three times with Ammonium bicarbonate (ABC) 50mM and finally resuspended in 250µl 50 mM ABC. Samples were then subjected to reduction with 1 mM DTT for 30 mins, alkylation with 5 mM chloroacetamide for 20 mins and a further incubation with 5mM DTT for 30 mins. Proteins were then digested overnight at 37°C using 250ng Trypsin, and peptides were separated from the beads using a 0.45µm centrifugal filter unit (Millipore). \nMass spectrometry-based proteomics data was acquired at the Proteomics facility in Instituto de Biomedicina de Sevilla (IBiS). As previously done60, samples were measured using a nanoElute II LC system coupled to a timsTOF SCP mass spectrometer with an electrospray source (Bruker Daltonics). LC separations were performed on C18 HPLC column (Aurora 25 cm and 75 µm ID, IonOpticks) kept at 50°C. Gradient elution was performed with a binary system consisting of (A) 0.1% aqueous formic acid and (B) 0.1% formic acid in Acetonitrile. An increasing linear gradient (v/v) was used (t (min), %B): 0, 2; 40, 17; 60, 25; 66, 37; 67, 95, followed by an equilibration step.\nMass spectrometric analysis was performed in a data independent acquisition parallel accumulation serial fragmentation (dia-PASEF) mode, with 100–1700 m/z mass range, an ion mobility range from 0.64 to 1.45 V s cm−2, capillary voltage set to 1500 V, an accumulation and ramp time at 100 ms and the collision energy as a linear ramp from 20 eV at 1/K0 = 0.6 V s cm−2 to 59 eV at 1/K0 = 1.6 V s cm−2 ",
+      "dataProcessingProtocol": "Mass spectrometry data analysis.\nMass spectrometry raw dia-PASEF data was analyzed using Biognosys Spectronaut (v19.7.250203) using a directDIA+ search with BGS Factory settings. Predicted spectral library was built using a FASTA file corresponding to the reference human proteome (Uniprot 29th August 2022). A pivot report was generated and further processed in the Perseus Computational Platform 61. Proteins not identified in every replicate for at least one condition were removed and missing values were randomly imputed using normally distributed values with 0.3 width and 1.8 down shift considering the total matrix. Subsequently, proteins which quantification had been performed based in only one (1) precursor were also removed. Statistical analysis was performed using two-sided Student’s t tests. Results were exported into in MS Excel 365 for a comprehensive browsing and visualization of the datasets. Volcano plots were constructed for data visualization using the VolcaNoseR web app 62 (https://huygens.science.uva.nl/VolcaNoseR2/).\n",
+      "projectTags": [],
+      "keywords": [
+        ""
+      ],
+      "doi": "",
+      "submissionType": "PARTIAL",
+      "license": "Creative Commons Public Domain (CC0)",
+      "submissionDate": "2025-03-25",
+      "publicationDate": "2025-10-24",
+      "submitters": [
+        {
+          "title": "Dr",
+          "firstName": "Román",
+          "lastName": "González-Prieto",
+          "identifier": "2499923",
+          "affiliation": "Andalusian Center for Regenerative Medicine and Cell Biology, CABIMER, University of Seville",
+          "email": "roman.gonzalez@cabimer.es",
+          "country": "Spain",
+          "orcid": "0000-0001-8997-2321",
+          "name": "Román González-Prieto",
+          "id": "2499923"
+        }
+      ],
+      "labPIs": [
+        {
+          "title": "Dr",
+          "firstName": "Román",
+          "lastName": "González-Prieto",
+          "identifier": "3125142",
+          "affiliation": "CABIMER",
+          "email": "roman.gonzalez@cabimer.es",
+          "country": "",
+          "orcid": "",
+          "name": "Román González-Prieto",
+          "id": "3125142"
+        }
+      ],
+      "instruments": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MS",
+          "accession": "MS:1003231",
+          "name": "timsTOF SCP"
+        }
+      ],
+      "softwares": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MS",
+          "accession": "MS:1001327",
+          "name": "Spectronaut"
+        }
+      ],
+      "experimentTypes": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "PRIDE",
+          "accession": "PRIDE:0000650",
+          "name": "diaPASEF"
+        }
+      ],
+      "quantificationMethods": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "PRIDE",
+          "accession": "EFO:0030054",
+          "name": "label-free quantification"
+        }
+      ],
+      "countries": [
+        "Spain"
+      ],
+      "sampleAttributes": [
+        {
+          "@type": "Tuple",
+          "key": {
+            "cvLabel": "EFO",
+            "accession": "EFO:0000635",
+            "name": "organism part"
+          },
+          "value": [
+            {
+              "cvLabel": "BTO",
+              "accession": "BTO:0000214",
+              "name": "cell culture"
+            }
+          ]
+        },
+        {
+          "@type": "Tuple",
+          "key": {
+            "cvLabel": "EFO",
+            "accession": "OBI:0100026",
+            "name": "organism"
+          },
+          "value": [
+            {
+              "cvLabel": "NEWT",
+              "accession": "NEWT:9606",
+              "name": "Homo sapiens (Human)"
+            }
+          ]
+        }
+      ],
+      "organisms": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "NEWT",
+          "accession": "NEWT:9606",
+          "name": "Homo sapiens (human)"
+        }
+      ],
+      "organismParts": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "BTO",
+          "accession": "BTO:0000214",
+          "name": "Cell culture"
+        }
+      ],
+      "diseases": [],
+      "references": [
+        {
+          "pubmedID": 0,
+          "doi": "10.1126/SCIADV.ADY4151"
+        }
+      ],
+      "identifiedPTMStrings": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "PRIDE",
+          "accession": "PRIDE:0000398",
+          "name": "No PTMs are included in the dataset"
+        }
+      ],
+      "totalFileDownloads": 58,
+      "botCount": 24,
+      "hubCount": 32,
+      "organicCount": 2,
+      "files": {
+        "files": [
+          {
+            "fileName": "TurboID_only_RAW.zip",
+            "fileSizeBytes": 53291477457,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD062203/TurboID_only_RAW.zip"
+          },
+          {
+            "fileName": "POLR2I_CTCF_with_TurboID.sne",
+            "fileSizeBytes": 3344827201,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD062203/POLR2I_CTCF_with_TurboID.sne"
+          },
+          {
+            "fileName": "H1.4_PLAMseq_analysis.sne",
+            "fileSizeBytes": 3198446424,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD062203/H1.4_PLAMseq_analysis.sne"
+          },
+          {
+            "fileName": "H1.2_PLAMseq_raw.zip",
+            "fileSizeBytes": 133235303350,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD062203/H1.2_PLAMseq_raw.zip"
+          },
+          {
+            "fileName": "H1.2_PLAMseq_analysis.sne",
+            "fileSizeBytes": 3698506862,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD062203/H1.2_PLAMseq_analysis.sne"
+          },
+          {
+            "fileName": "H1.0_PLAMseq_raw.zip",
+            "fileSizeBytes": 89327767682,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD062203/H1.0_PLAMseq_raw.zip"
+          },
+          {
+            "fileName": "H1.4_PLAMseq_raw.zip",
+            "fileSizeBytes": 111453927573,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD062203/H1.4_PLAMseq_raw.zip"
+          },
+          {
+            "fileName": "H1.0_PLAMseq_analysis.sne",
+            "fileSizeBytes": 1982192908,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD062203/H1.0_PLAMseq_analysis.sne"
+          },
+          {
+            "fileName": "HUMAN.fasta",
+            "fileSizeBytes": 53076613,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/10/PXD062203/HUMAN.fasta"
+          }
+        ],
+        "totalCount": 9
+      }
+    },
+    "publication_metadata": null,
+    "llm_responses": {
+      "characteristics[disease]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": \"Histone H1 SUMOylation; SUMOylated histone H1 colocalizes with H3K9me3 at repetitive regions of the genome\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"PLAMseq to characterize Histone H1 SUMOylation, a histone post-translational modification\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"Biotin pulse (50 µM biotin for 10 mins at 37°C); formaldehyde crosslinking (1% formaldehyde); decrosslinking (65°C overnight shaking)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"treated with 50 µM biotin for 10 mins at 37°C. Cells were then washed with PBS, crosslinked with 1% formaldehyde in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"biotin\",\n      \"formaldehyde\",\n      \"glycine\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"treated with 50 µM biotin for 10 mins at 37°C... crosslinked with 1% formaldehyde in PBS... quenched by addition of 1.25 M glycine\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": [\n      \"50 µM\",\n      \"1% (formaldehyde)\",\n      \"1.25 M\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"treated with 50 µM biotin for 10 mins at 37°C... crosslinked with 1% formaldehyde in PBS... quenched by addition of 1.25 M glycine\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"Experimental perturbation via proximity labeling and formaldehyde crosslinking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"After a short biotin pulse, DNA-protein crosslinks are induced by formaldehyde\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[phenotype]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": \"Histone H1 SUMOylation; SUMOylated histone H1 colocalizes with H3K9me3 at repetitive regions of the genome\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"PLAMseq to characterize Histone H1 SUMOylation, a histone post-translational modification\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"Biotin pulse (50 µM biotin for 10 mins at 37°C); formaldehyde crosslinking (1% formaldehyde); decrosslinking (65°C overnight shaking)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"treated with 50 µM biotin for 10 mins at 37°C. Cells were then washed with PBS, crosslinked with 1% formaldehyde in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"biotin\",\n      \"formaldehyde\",\n      \"glycine\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"treated with 50 µM biotin for 10 mins at 37°C... crosslinked with 1% formaldehyde in PBS... quenched by addition of 1.25 M glycine\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": [\n      \"50 µM\",\n      \"1% (formaldehyde)\",\n      \"1.25 M\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"treated with 50 µM biotin for 10 mins at 37°C... crosslinked with 1% formaldehyde in PBS... quenched by addition of 1.25 M glycine\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"Experimental perturbation via proximity labeling and formaldehyde crosslinking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"After a short biotin pulse, DNA-protein crosslinks are induced by formaldehyde\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "Histone H1 SUMOylation; SUMOylated histone H1 colocalizes with H3K9me3 at repetitive regions of the genome",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "PLAMseq to characterize Histone H1 SUMOylation, a histone post-translational modification",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[treatment]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": \"Histone H1 SUMOylation; SUMOylated histone H1 colocalizes with H3K9me3 at repetitive regions of the genome\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"PLAMseq to characterize Histone H1 SUMOylation, a histone post-translational modification\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"Biotin pulse (50 µM biotin for 10 mins at 37°C); formaldehyde crosslinking (1% formaldehyde); decrosslinking (65°C overnight shaking)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"treated with 50 µM biotin for 10 mins at 37°C. Cells were then washed with PBS, crosslinked with 1% formaldehyde in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"biotin\",\n      \"formaldehyde\",\n      \"glycine\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"treated with 50 µM biotin for 10 mins at 37°C... crosslinked with 1% formaldehyde in PBS... quenched by addition of 1.25 M glycine\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": [\n      \"50 µM\",\n      \"1% (formaldehyde)\",\n      \"1.25 M\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"treated with 50 µM biotin for 10 mins at 37°C... crosslinked with 1% formaldehyde in PBS... quenched by addition of 1.25 M glycine\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"Experimental perturbation via proximity labeling and formaldehyde crosslinking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"After a short biotin pulse, DNA-protein crosslinks are induced by formaldehyde\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "Biotin pulse (50 µM biotin for 10 mins at 37°C); formaldehyde crosslinking (1% formaldehyde); decrosslinking (65°C overnight shaking)",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "treated with 50 µM biotin for 10 mins at 37°C. Cells were then washed with PBS, crosslinked with 1% formaldehyde in PBS",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[compound]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": \"Histone H1 SUMOylation; SUMOylated histone H1 colocalizes with H3K9me3 at repetitive regions of the genome\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"PLAMseq to characterize Histone H1 SUMOylation, a histone post-translational modification\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"Biotin pulse (50 µM biotin for 10 mins at 37°C); formaldehyde crosslinking (1% formaldehyde); decrosslinking (65°C overnight shaking)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"treated with 50 µM biotin for 10 mins at 37°C. Cells were then washed with PBS, crosslinked with 1% formaldehyde in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"biotin\",\n      \"formaldehyde\",\n      \"glycine\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"treated with 50 µM biotin for 10 mins at 37°C... crosslinked with 1% formaldehyde in PBS... quenched by addition of 1.25 M glycine\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": [\n      \"50 µM\",\n      \"1% (formaldehyde)\",\n      \"1.25 M\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"treated with 50 µM biotin for 10 mins at 37°C... crosslinked with 1% formaldehyde in PBS... quenched by addition of 1.25 M glycine\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"Experimental perturbation via proximity labeling and formaldehyde crosslinking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"After a short biotin pulse, DNA-protein crosslinks are induced by formaldehyde\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": [
+            "biotin",
+            "formaldehyde",
+            "glycine"
+          ],
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "treated with 50 µM biotin for 10 mins at 37°C... crosslinked with 1% formaldehyde in PBS... quenched by addition of 1.25 M glycine",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[dose]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": \"Histone H1 SUMOylation; SUMOylated histone H1 colocalizes with H3K9me3 at repetitive regions of the genome\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"PLAMseq to characterize Histone H1 SUMOylation, a histone post-translational modification\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"Biotin pulse (50 µM biotin for 10 mins at 37°C); formaldehyde crosslinking (1% formaldehyde); decrosslinking (65°C overnight shaking)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"treated with 50 µM biotin for 10 mins at 37°C. Cells were then washed with PBS, crosslinked with 1% formaldehyde in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"biotin\",\n      \"formaldehyde\",\n      \"glycine\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"treated with 50 µM biotin for 10 mins at 37°C... crosslinked with 1% formaldehyde in PBS... quenched by addition of 1.25 M glycine\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": [\n      \"50 µM\",\n      \"1% (formaldehyde)\",\n      \"1.25 M\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"treated with 50 µM biotin for 10 mins at 37°C... crosslinked with 1% formaldehyde in PBS... quenched by addition of 1.25 M glycine\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"Experimental perturbation via proximity labeling and formaldehyde crosslinking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"After a short biotin pulse, DNA-protein crosslinks are induced by formaldehyde\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": [
+            "50 µM",
+            "1% (formaldehyde)",
+            "1.25 M"
+          ],
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "treated with 50 µM biotin for 10 mins at 37°C... crosslinked with 1% formaldehyde in PBS... quenched by addition of 1.25 M glycine",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[genetic modification]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": \"Histone H1 SUMOylation; SUMOylated histone H1 colocalizes with H3K9me3 at repetitive regions of the genome\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"PLAMseq to characterize Histone H1 SUMOylation, a histone post-translational modification\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"Biotin pulse (50 µM biotin for 10 mins at 37°C); formaldehyde crosslinking (1% formaldehyde); decrosslinking (65°C overnight shaking)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"treated with 50 µM biotin for 10 mins at 37°C. Cells were then washed with PBS, crosslinked with 1% formaldehyde in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"biotin\",\n      \"formaldehyde\",\n      \"glycine\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"treated with 50 µM biotin for 10 mins at 37°C... crosslinked with 1% formaldehyde in PBS... quenched by addition of 1.25 M glycine\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": [\n      \"50 µM\",\n      \"1% (formaldehyde)\",\n      \"1.25 M\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"treated with 50 µM biotin for 10 mins at 37°C... crosslinked with 1% formaldehyde in PBS... quenched by addition of 1.25 M glycine\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"Experimental perturbation via proximity labeling and formaldehyde crosslinking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"After a short biotin pulse, DNA-protein crosslinks are induced by formaldehyde\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[perturbation]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": \"Histone H1 SUMOylation; SUMOylated histone H1 colocalizes with H3K9me3 at repetitive regions of the genome\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"PLAMseq to characterize Histone H1 SUMOylation, a histone post-translational modification\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"Biotin pulse (50 µM biotin for 10 mins at 37°C); formaldehyde crosslinking (1% formaldehyde); decrosslinking (65°C overnight shaking)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"treated with 50 µM biotin for 10 mins at 37°C. Cells were then washed with PBS, crosslinked with 1% formaldehyde in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"biotin\",\n      \"formaldehyde\",\n      \"glycine\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"treated with 50 µM biotin for 10 mins at 37°C... crosslinked with 1% formaldehyde in PBS... quenched by addition of 1.25 M glycine\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": [\n      \"50 µM\",\n      \"1% (formaldehyde)\",\n      \"1.25 M\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"treated with 50 µM biotin for 10 mins at 37°C... crosslinked with 1% formaldehyde in PBS... quenched by addition of 1.25 M glycine\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"Experimental perturbation via proximity labeling and formaldehyde crosslinking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"After a short biotin pulse, DNA-protein crosslinks are induced by formaldehyde\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "Experimental perturbation via proximity labeling and formaldehyde crosslinking",
+          "accession": "PRIDE:0000700",
+          "confidence": "medium",
+          "evidence_quote": "After a short biotin pulse, DNA-protein crosslinks are induced by formaldehyde",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[depletion]": {
+        "response": "{\n  \"characteristics[disease]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": \"Histone H1 SUMOylation; SUMOylated histone H1 colocalizes with H3K9me3 at repetitive regions of the genome\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"PLAMseq to characterize Histone H1 SUMOylation, a histone post-translational modification\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": \"Biotin pulse (50 µM biotin for 10 mins at 37°C); formaldehyde crosslinking (1% formaldehyde); decrosslinking (65°C overnight shaking)\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"treated with 50 µM biotin for 10 mins at 37°C. Cells were then washed with PBS, crosslinked with 1% formaldehyde in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"biotin\",\n      \"formaldehyde\",\n      \"glycine\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"treated with 50 µM biotin for 10 mins at 37°C... crosslinked with 1% formaldehyde in PBS... quenched by addition of 1.25 M glycine\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": [\n      \"50 µM\",\n      \"1% (formaldehyde)\",\n      \"1.25 M\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"treated with 50 µM biotin for 10 mins at 37°C... crosslinked with 1% formaldehyde in PBS... quenched by addition of 1.25 M glycine\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"Experimental perturbation via proximity labeling and formaldehyde crosslinking\",\n    \"accession\": \"PRIDE:0000700\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"After a short biotin pulse, DNA-protein crosslinks are induced by formaldehyde\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": \"PRIDE:0000020\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "no depletion",
+          "accession": "PRIDE:0000020",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "disease_treatment"
+      },
+      "factor value cell line": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"biotin\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"treated with 50 µM biotin for 10 mins at 37°C\",\n    \"evidence_location\": \"Methods (Biotin incubation and crosslinking)\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "CLO:0000031",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value compound": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"biotin\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"treated with 50 µM biotin for 10 mins at 37°C\",\n    \"evidence_location\": \"Methods (Biotin incubation and crosslinking)\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "biotin",
+          "accession": "CHEBI:37577",
+          "confidence": "medium",
+          "evidence_quote": "treated with 50 µM biotin for 10 mins at 37°C",
+          "evidence_location": "Methods (Biotin incubation and crosslinking)"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value disease": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"biotin\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"treated with 50 µM biotin for 10 mins at 37°C\",\n    \"evidence_location\": \"Methods (Biotin incubation and crosslinking)\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "OGMS:0000031",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value dose": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"biotin\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"treated with 50 µM biotin for 10 mins at 37°C\",\n    \"evidence_location\": \"Methods (Biotin incubation and crosslinking)\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000428",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value organism part": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"biotin\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"treated with 50 µM biotin for 10 mins at 37°C\",\n    \"evidence_location\": \"Methods (Biotin incubation and crosslinking)\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000635",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value time": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"biotin\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"treated with 50 µM biotin for 10 mins at 37°C\",\n    \"evidence_location\": \"Methods (Biotin incubation and crosslinking)\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000721",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "factor value treatment": {
+        "response": "{\n  \"factor value cell line\": {\n    \"value\": null,\n    \"accession\": \"CLO:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value compound\": {\n    \"value\": \"biotin\",\n    \"accession\": \"CHEBI:37577\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"treated with 50 µM biotin for 10 mins at 37°C\",\n    \"evidence_location\": \"Methods (Biotin incubation and crosslinking)\"\n  },\n  \"factor value disease\": {\n    \"value\": null,\n    \"accession\": \"OGMS:0000031\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value dose\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000428\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value organism part\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000635\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value time\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000721\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"factor value treatment\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000727\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000727",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "factor_values"
+      },
+      "comment[instrument]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=timsTOF SCP;AC=MS:1003005\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"timsTOF SCP mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-independent acquisition;AC=PRIDE:0000449\",\n    \"accession\": \"PRIDE:0000449\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"data independent acquisition parallel accumulation serial fragmentation (dia-PASEF) mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"20 eV at 1/K0 = 0.6 V s cm−2;59 eV at 1/K0 = 1.6 V s cm−2\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"collision energy as a linear ramp from 20 eV at 1/K0 = 0.6 V s cm−2 to 59 eV at 1/K0 = 1.6 V s cm−2\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": \"dia-PASEF\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"dia-PASEF\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": [
+            "NT=timsTOF SCP;AC=MS:1003005"
+          ],
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": "timsTOF SCP mass spectrometer",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[proteomics data acquisition method]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=timsTOF SCP;AC=MS:1003005\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"timsTOF SCP mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-independent acquisition;AC=PRIDE:0000449\",\n    \"accession\": \"PRIDE:0000449\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"data independent acquisition parallel accumulation serial fragmentation (dia-PASEF) mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"20 eV at 1/K0 = 0.6 V s cm−2;59 eV at 1/K0 = 1.6 V s cm−2\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"collision energy as a linear ramp from 20 eV at 1/K0 = 0.6 V s cm−2 to 59 eV at 1/K0 = 1.6 V s cm−2\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": \"dia-PASEF\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"dia-PASEF\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "NT=data-independent acquisition;AC=PRIDE:0000449",
+          "accession": "PRIDE:0000449",
+          "confidence": "high",
+          "evidence_quote": "data independent acquisition parallel accumulation serial fragmentation (dia-PASEF) mode",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[dissociation method]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=timsTOF SCP;AC=MS:1003005\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"timsTOF SCP mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-independent acquisition;AC=PRIDE:0000449\",\n    \"accession\": \"PRIDE:0000449\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"data independent acquisition parallel accumulation serial fragmentation (dia-PASEF) mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"20 eV at 1/K0 = 0.6 V s cm−2;59 eV at 1/K0 = 1.6 V s cm−2\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"collision energy as a linear ramp from 20 eV at 1/K0 = 0.6 V s cm−2 to 59 eV at 1/K0 = 1.6 V s cm−2\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": \"dia-PASEF\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"dia-PASEF\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[collision energy]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=timsTOF SCP;AC=MS:1003005\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"timsTOF SCP mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-independent acquisition;AC=PRIDE:0000449\",\n    \"accession\": \"PRIDE:0000449\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"data independent acquisition parallel accumulation serial fragmentation (dia-PASEF) mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"20 eV at 1/K0 = 0.6 V s cm−2;59 eV at 1/K0 = 1.6 V s cm−2\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"collision energy as a linear ramp from 20 eV at 1/K0 = 0.6 V s cm−2 to 59 eV at 1/K0 = 1.6 V s cm−2\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": \"dia-PASEF\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"dia-PASEF\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "20 eV at 1/K0 = 0.6 V s cm−2;59 eV at 1/K0 = 1.6 V s cm−2",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "collision energy as a linear ramp from 20 eV at 1/K0 = 0.6 V s cm−2 to 59 eV at 1/K0 = 1.6 V s cm−2",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[dia method]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=timsTOF SCP;AC=MS:1003005\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"timsTOF SCP mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-independent acquisition;AC=PRIDE:0000449\",\n    \"accession\": \"PRIDE:0000449\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"data independent acquisition parallel accumulation serial fragmentation (dia-PASEF) mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"20 eV at 1/K0 = 0.6 V s cm−2;59 eV at 1/K0 = 1.6 V s cm−2\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"collision energy as a linear ramp from 20 eV at 1/K0 = 0.6 V s cm−2 to 59 eV at 1/K0 = 1.6 V s cm−2\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": \"dia-PASEF\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"dia-PASEF\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "dia-PASEF",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "dia-PASEF",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[fragment mass tolerance]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=timsTOF SCP;AC=MS:1003005\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"timsTOF SCP mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-independent acquisition;AC=PRIDE:0000449\",\n    \"accession\": \"PRIDE:0000449\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"data independent acquisition parallel accumulation serial fragmentation (dia-PASEF) mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"20 eV at 1/K0 = 0.6 V s cm−2;59 eV at 1/K0 = 1.6 V s cm−2\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"collision energy as a linear ramp from 20 eV at 1/K0 = 0.6 V s cm−2 to 59 eV at 1/K0 = 1.6 V s cm−2\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": \"dia-PASEF\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"dia-PASEF\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[precursor mass tolerance]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=timsTOF SCP;AC=MS:1003005\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"timsTOF SCP mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-independent acquisition;AC=PRIDE:0000449\",\n    \"accession\": \"PRIDE:0000449\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"data independent acquisition parallel accumulation serial fragmentation (dia-PASEF) mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"20 eV at 1/K0 = 0.6 V s cm−2;59 eV at 1/K0 = 1.6 V s cm−2\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"collision energy as a linear ramp from 20 eV at 1/K0 = 0.6 V s cm−2 to 59 eV at 1/K0 = 1.6 V s cm−2\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": \"dia-PASEF\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"dia-PASEF\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[technical replicate]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=timsTOF SCP;AC=MS:1003005\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"timsTOF SCP mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-independent acquisition;AC=PRIDE:0000449\",\n    \"accession\": \"PRIDE:0000449\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"data independent acquisition parallel accumulation serial fragmentation (dia-PASEF) mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"20 eV at 1/K0 = 0.6 V s cm−2;59 eV at 1/K0 = 1.6 V s cm−2\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"collision energy as a linear ramp from 20 eV at 1/K0 = 0.6 V s cm−2 to 59 eV at 1/K0 = 1.6 V s cm−2\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": \"dia-PASEF\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"dia-PASEF\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "no technical replicates stated",
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[data file]": {
+        "response": "{\n  \"comment[instrument]\": {\n    \"value\": [\n      \"NT=timsTOF SCP;AC=MS:1003005\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"timsTOF SCP mass spectrometer\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"NT=data-independent acquisition;AC=PRIDE:0000449\",\n    \"accession\": \"PRIDE:0000449\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"data independent acquisition parallel accumulation serial fragmentation (dia-PASEF) mode\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"20 eV at 1/K0 = 0.6 V s cm−2;59 eV at 1/K0 = 1.6 V s cm−2\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"collision energy as a linear ramp from 20 eV at 1/K0 = 0.6 V s cm−2 to 59 eV at 1/K0 = 1.6 V s cm−2\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[dia method]\": {\n    \"value\": \"dia-PASEF\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"dia-PASEF\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "ms_acquisition"
+      },
+      "characteristics[organism]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"nuclei\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"nuclei were collected by centrifugation at 1,700 g for 5 mins at 4°C\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"For cell lysis, each cell pellet was resuspended in 2 ml lysis buffer ... containing protease inhibitors\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"identified by mass spectrometry-based proteomics\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from file names/sample descriptions (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem(s) (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[organism part]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"nuclei\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"nuclei were collected by centrifugation at 1,700 g for 5 mins at 4°C\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"For cell lysis, each cell pellet was resuspended in 2 ml lysis buffer ... containing protease inhibitors\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"identified by mass spectrometry-based proteomics\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from file names/sample descriptions (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem(s) (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "nuclei",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "nuclei were collected by centrifugation at 1,700 g for 5 mins at 4°C",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[cell line]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"nuclei\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"nuclei were collected by centrifugation at 1,700 g for 5 mins at 4°C\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"For cell lysis, each cell pellet was resuspended in 2 ml lysis buffer ... containing protease inhibitors\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"identified by mass spectrometry-based proteomics\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from file names/sample descriptions (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem(s) (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[cell type]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"nuclei\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"nuclei were collected by centrifugation at 1,700 g for 5 mins at 4°C\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"For cell lysis, each cell pellet was resuspended in 2 ml lysis buffer ... containing protease inhibitors\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"identified by mass spectrometry-based proteomics\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from file names/sample descriptions (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem(s) (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[material type]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"nuclei\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"nuclei were collected by centrifugation at 1,700 g for 5 mins at 4°C\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"For cell lysis, each cell pellet was resuspended in 2 ml lysis buffer ... containing protease inhibitors\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"identified by mass spectrometry-based proteomics\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from file names/sample descriptions (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem(s) (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "whole cell lysate",
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": "For cell lysis, each cell pellet was resuspended in 2 ml lysis buffer ... containing protease inhibitors",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[strain or breed]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"nuclei\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"nuclei were collected by centrifugation at 1,700 g for 5 mins at 4°C\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"For cell lysis, each cell pellet was resuspended in 2 ml lysis buffer ... containing protease inhibitors\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"identified by mass spectrometry-based proteomics\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from file names/sample descriptions (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem(s) (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[developmental stage]": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"nuclei\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"nuclei were collected by centrifugation at 1,700 g for 5 mins at 4°C\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"For cell lysis, each cell pellet was resuspended in 2 ml lysis buffer ... containing protease inhibitors\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"identified by mass spectrometry-based proteomics\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from file names/sample descriptions (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem(s) (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "technology type": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"nuclei\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"nuclei were collected by centrifugation at 1,700 g for 5 mins at 4°C\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"For cell lysis, each cell pellet was resuspended in 2 ml lysis buffer ... containing protease inhibitors\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"identified by mass spectrometry-based proteomics\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from file names/sample descriptions (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem(s) (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "proteomic profiling by mass spectrometry",
+          "accession": "PRIDE:0000663",
+          "confidence": "high",
+          "evidence_quote": "identified by mass spectrometry-based proteomics",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "source name": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"nuclei\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"nuclei were collected by centrifugation at 1,700 g for 5 mins at 4°C\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"For cell lysis, each cell pellet was resuspended in 2 ml lysis buffer ... containing protease inhibitors\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"identified by mass spectrometry-based proteomics\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from file names/sample descriptions (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem(s) (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "Auto-generated from file names/sample descriptions (not provided in the provided text)",
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "assay name": {
+        "response": "{\n  \"characteristics[organism]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[organism part]\": {\n    \"value\": \"nuclei\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"nuclei were collected by centrifugation at 1,700 g for 5 mins at 4°C\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"whole cell lysate\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"For cell lysis, each cell pellet was resuspended in 2 ml lysis buffer ... containing protease inhibitors\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"identified by mass spectrometry-based proteomics\",\n    \"evidence_location\": \"Abstract\"\n  },\n  \"source name\": {\n    \"value\": \"Auto-generated from file names/sample descriptions (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"assay name\": {\n    \"value\": \"Auto-generated from raw file stem(s) (not provided in the provided text)\",\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "Auto-generated from raw file stem(s) (not provided in the provided text)",
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[sex]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not available\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"with excellent robustness and reproducibility.\",\n    \"evidence_location\": \"Abstract\",\n    \"note\": \"The text indicates robustness/reproducibility but does not specify the number of biological replicates or independent experiments.\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"60 million cells were seeded per experimental condition\",\n    \"evidence_location\": \"Methods\",\n    \"note\": \"No explicit pooling of multiple samples is described.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "not available",
+          "accession": "PATO:0000047",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[age]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not available\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"with excellent robustness and reproducibility.\",\n    \"evidence_location\": \"Abstract\",\n    \"note\": \"The text indicates robustness/reproducibility but does not specify the number of biological replicates or independent experiments.\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"60 million cells were seeded per experimental condition\",\n    \"evidence_location\": \"Methods\",\n    \"note\": \"No explicit pooling of multiple samples is described.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000246",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[ancestry category]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not available\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"with excellent robustness and reproducibility.\",\n    \"evidence_location\": \"Abstract\",\n    \"note\": \"The text indicates robustness/reproducibility but does not specify the number of biological replicates or independent experiments.\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"60 million cells were seeded per experimental condition\",\n    \"evidence_location\": \"Methods\",\n    \"note\": \"No explicit pooling of multiple samples is described.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "HANCESTRO",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[biological replicate]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not available\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"with excellent robustness and reproducibility.\",\n    \"evidence_location\": \"Abstract\",\n    \"note\": \"The text indicates robustness/reproducibility but does not specify the number of biological replicates or independent experiments.\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"60 million cells were seeded per experimental condition\",\n    \"evidence_location\": \"Methods\",\n    \"note\": \"No explicit pooling of multiple samples is described.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "MS:1001809",
+          "confidence": "low",
+          "evidence_quote": "with excellent robustness and reproducibility.",
+          "evidence_location": "Abstract",
+          "note": "The text indicates robustness/reproducibility but does not specify the number of biological replicates or independent experiments."
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[genotype]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not available\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"with excellent robustness and reproducibility.\",\n    \"evidence_location\": \"Abstract\",\n    \"note\": \"The text indicates robustness/reproducibility but does not specify the number of biological replicates or independent experiments.\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"60 million cells were seeded per experimental condition\",\n    \"evidence_location\": \"Methods\",\n    \"note\": \"No explicit pooling of multiple samples is described.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000513",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[pooled sample]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not available\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"with excellent robustness and reproducibility.\",\n    \"evidence_location\": \"Abstract\",\n    \"note\": \"The text indicates robustness/reproducibility but does not specify the number of biological replicates or independent experiments.\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"60 million cells were seeded per experimental condition\",\n    \"evidence_location\": \"Methods\",\n    \"note\": \"No explicit pooling of multiple samples is described.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "not pooled",
+          "accession": "NCIT:C165587",
+          "confidence": "low",
+          "evidence_quote": "60 million cells were seeded per experimental condition",
+          "evidence_location": "Methods",
+          "note": "No explicit pooling of multiple samples is described."
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[phosphate]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not available\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"with excellent robustness and reproducibility.\",\n    \"evidence_location\": \"Abstract\",\n    \"note\": \"The text indicates robustness/reproducibility but does not specify the number of biological replicates or independent experiments.\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"60 million cells were seeded per experimental condition\",\n    \"evidence_location\": \"Methods\",\n    \"note\": \"No explicit pooling of multiple samples is described.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000805",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[temperature]": {
+        "response": "{\n  \"characteristics[sex]\": {\n    \"value\": \"not available\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": null,\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"with excellent robustness and reproducibility.\",\n    \"evidence_location\": \"Abstract\",\n    \"note\": \"The text indicates robustness/reproducibility but does not specify the number of biological replicates or independent experiments.\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"60 million cells were seeded per experimental condition\",\n    \"evidence_location\": \"Methods\",\n    \"note\": \"No explicit pooling of multiple samples is described.\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000703",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_attributes"
+      },
+      "comment[cleavage agent details]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Proteins were then digested overnight at 37°C using 250ng Trypsin\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"chloroacetamide\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"alkylation with 5 mM chloroacetamide for 20 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"alkylation with 5 mM chloroacetamide for 20 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": [
+            "NT=Trypsin;AC=MS:1001251"
+          ],
+          "accession": "MS:1001251",
+          "confidence": "high",
+          "evidence_quote": "Proteins were then digested overnight at 37°C using 250ng Trypsin",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[label]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Proteins were then digested overnight at 37°C using 250ng Trypsin\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"chloroacetamide\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"alkylation with 5 mM chloroacetamide for 20 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"alkylation with 5 mM chloroacetamide for 20 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "NT=label free sample;AC=MS:1002038",
+          "accession": "MS:1002038",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[alkylation reagent]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Proteins were then digested overnight at 37°C using 250ng Trypsin\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"chloroacetamide\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"alkylation with 5 mM chloroacetamide for 20 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"alkylation with 5 mM chloroacetamide for 20 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "chloroacetamide",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "alkylation with 5 mM chloroacetamide for 20 mins",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[fractionation method]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Proteins were then digested overnight at 37°C using 250ng Trypsin\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"chloroacetamide\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"alkylation with 5 mM chloroacetamide for 20 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"alkylation with 5 mM chloroacetamide for 20 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[modification parameters]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Proteins were then digested overnight at 37°C using 250ng Trypsin\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"chloroacetamide\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"alkylation with 5 mM chloroacetamide for 20 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"alkylation with 5 mM chloroacetamide for 20 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": [
+            "NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed",
+            "NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable"
+          ],
+          "accession": null,
+          "confidence": "low",
+          "evidence_quote": "alkylation with 5 mM chloroacetamide for 20 mins",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[fraction identifier]": {
+        "response": "{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Proteins were then digested overnight at 37°C using 250ng Trypsin\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"chloroacetamide\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"alkylation with 5 mM chloroacetamide for 20 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"low\",\n    \"evidence_quote\": \"alkylation with 5 mM chloroacetamide for 20 mins\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "no fractionation",
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "sample_preparation"
+      },
+      "characteristics[crosslinking reaction time]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"20 mins\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinked with 1% formaldehyde in PBS and incubated for 20 mins at RT\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"room temperature\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"incubated for 20 mins at RT\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": \"streptavidin pull-down (biotin/streptavidin affinity enrichment)\",\n    \"accession\": \"PRIDE:0000838\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"25 µl of streptavidin beads (50% slurry) were added per sample and incubated overnight at 4°C with rotation.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": \"no enrichment\",\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "20 mins",
+          "accession": "PRIDE:0000949",
+          "confidence": "high",
+          "evidence_quote": "crosslinked with 1% formaldehyde in PBS and incubated for 20 mins at RT",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "characteristics[crosslinking temperature]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"20 mins\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinked with 1% formaldehyde in PBS and incubated for 20 mins at RT\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"room temperature\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"incubated for 20 mins at RT\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": \"streptavidin pull-down (biotin/streptavidin affinity enrichment)\",\n    \"accession\": \"PRIDE:0000838\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"25 µl of streptavidin beads (50% slurry) were added per sample and incubated overnight at 4°C with rotation.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": \"no enrichment\",\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "room temperature",
+          "accession": "PRIDE:0000950",
+          "confidence": "high",
+          "evidence_quote": "incubated for 20 mins at RT",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "comment[crosslink enrichment method]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"20 mins\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinked with 1% formaldehyde in PBS and incubated for 20 mins at RT\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"room temperature\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"incubated for 20 mins at RT\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": \"streptavidin pull-down (biotin/streptavidin affinity enrichment)\",\n    \"accession\": \"PRIDE:0000838\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"25 µl of streptavidin beads (50% slurry) were added per sample and incubated overnight at 4°C with rotation.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": \"no enrichment\",\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "streptavidin pull-down (biotin/streptavidin affinity enrichment)",
+          "accession": "PRIDE:0000838",
+          "confidence": "medium",
+          "evidence_quote": "25 µl of streptavidin beads (50% slurry) were added per sample and incubated overnight at 4°C with rotation.",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "characteristics[enrichment process]": {
+        "response": "{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"20 mins\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinked with 1% formaldehyde in PBS and incubated for 20 mins at RT\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"room temperature\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"incubated for 20 mins at RT\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": \"streptavidin pull-down (biotin/streptavidin affinity enrichment)\",\n    \"accession\": \"PRIDE:0000838\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"25 µl of streptavidin beads (50% slurry) were added per sample and incubated overnight at 4°C with rotation.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": \"no enrichment\",\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"low\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}",
+        "parsed": {
+          "value": "no enrichment",
+          "accession": "EFO:0009090",
+          "confidence": "low",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_conditions"
+      },
+      "comment[cross-linker]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=formaldehyde;AC=null;CL=null;TA=K,nterm\",\n    \"NT\": \"formaldehyde\",\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": \"K,nterm\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinked with 1% formaldehyde in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"1%\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with 1% formaldehyde in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"glycine\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Crosslinking was quenched by addition of 1.25 M glycine for 5 mins.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"identified by mass spectrometry-based proteomics\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "NT=formaldehyde;AC=null;CL=null;TA=K,nterm",
+          "NT": "formaldehyde",
+          "AC": null,
+          "CL": null,
+          "TA": "K,nterm",
+          "confidence": "high",
+          "evidence_quote": "crosslinked with 1% formaldehyde in PBS",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[crosslinker concentration]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=formaldehyde;AC=null;CL=null;TA=K,nterm\",\n    \"NT\": \"formaldehyde\",\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": \"K,nterm\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinked with 1% formaldehyde in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"1%\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with 1% formaldehyde in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"glycine\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Crosslinking was quenched by addition of 1.25 M glycine for 5 mins.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"identified by mass spectrometry-based proteomics\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "1%",
+          "accession": "PRIDE:0000951",
+          "confidence": "medium",
+          "evidence_quote": "crosslinked with 1% formaldehyde in PBS",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[crosslinker to protein ratio]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=formaldehyde;AC=null;CL=null;TA=K,nterm\",\n    \"NT\": \"formaldehyde\",\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": \"K,nterm\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinked with 1% formaldehyde in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"1%\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with 1% formaldehyde in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"glycine\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Crosslinking was quenched by addition of 1.25 M glycine for 5 mins.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"identified by mass spectrometry-based proteomics\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000952",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[quenching reagent]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=formaldehyde;AC=null;CL=null;TA=K,nterm\",\n    \"NT\": \"formaldehyde\",\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": \"K,nterm\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinked with 1% formaldehyde in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"1%\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with 1% formaldehyde in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"glycine\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Crosslinking was quenched by addition of 1.25 M glycine for 5 mins.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"identified by mass spectrometry-based proteomics\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "glycine",
+          "accession": "PRIDE:0000953",
+          "confidence": "high",
+          "evidence_quote": "Crosslinking was quenched by addition of 1.25 M glycine for 5 mins.",
+          "evidence_location": "Methods"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "characteristics[crosslink distance]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=formaldehyde;AC=null;CL=null;TA=K,nterm\",\n    \"NT\": \"formaldehyde\",\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": \"K,nterm\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinked with 1% formaldehyde in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"1%\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with 1% formaldehyde in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"glycine\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Crosslinking was quenched by addition of 1.25 M glycine for 5 mins.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"identified by mass spectrometry-based proteomics\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000948",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[chemical cross-linking coupled with ms]": {
+        "response": "{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=formaldehyde;AC=null;CL=null;TA=K,nterm\",\n    \"NT\": \"formaldehyde\",\n    \"AC\": null,\n    \"CL\": null,\n    \"TA\": \"K,nterm\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"crosslinked with 1% formaldehyde in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"1%\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"crosslinked with 1% formaldehyde in PBS\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"glycine\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Crosslinking was quenched by addition of 1.25 M glycine for 5 mins.\",\n    \"evidence_location\": \"Methods\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"identified by mass spectrometry-based proteomics\",\n    \"evidence_location\": \"Abstract\"\n  }\n}",
+        "parsed": {
+          "value": "cross-linking mass spectrometry",
+          "accession": "PRIDE:0000430",
+          "confidence": "high",
+          "evidence_quote": "identified by mass spectrometry-based proteomics",
+          "evidence_location": "Abstract"
+        },
+        "model": "gpt-5.4-nano-2026-03-17",
+        "prompt_group": "xlms_reagents"
+      }
+    }
+  }
+}

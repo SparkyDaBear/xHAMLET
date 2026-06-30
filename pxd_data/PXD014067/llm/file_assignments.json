@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "pxd": "PXD014067",
+    "category": "llm",
+    "saved_at": "2026-06-30T15:04:10.441857",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"human_tg2_gluten_model_pepq_bs3\",\n      \"description\": \"Model TG2–gluten peptide isopeptide crosslinking reaction using PepQ (α-gliadin-derived) with recombinant human tissue transglutaminase; isopeptide standard/mixture analyzed (crosslinker not explicitly stated in provided text).\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": null,\n      \"biological_condition\": \"TG2–PepQ (gluten peptide) model reaction (TG2:PepQ molar ratio series; isopeptide standard included)\",\n      \"files\": [\n        \"BBM_051_P020_09_HEK_001.raw\",\n        \"BBM_051_P020_09_HEK_002.raw\",\n        \"BBM_051_P020_09_HEK_003.raw\",\n        \"BBM_051_P020_09_HEK_004.raw\",\n        \"BBM_051_P020_09_HEK_005.raw\",\n        \"BBM_051_P020_09_HEK_006.raw\",\n        \"BBM_066_P20_10_HEK19.raw\",\n        \"BBM_066_P20_10_HEK20.raw\",\n        \"BBM_066_P20_10_HEK21.raw\",\n        \"BBM_066_P20_10_HEK22.raw\",\n        \"BBM_066_P20_10_HEK23.raw\",\n        \"BBM_066_P20_10_HEK24.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"Tissue transglutaminase (TG2) ... catalyzes ... covalent Nε-(γ-glutamyl)-lysine isopeptide crosslinks resulting in TG2–gluten peptide complexes.\",\n      \"reasoning\": \"All provided raw files share the same project/sample naming pattern (BBM_*_HEK_*.raw) and the publication describes a single overarching biological experiment: TG2–gluten peptide model reactions (PepQ and additional peptides) and an isopeptide standard analyzed by nLC-MS/MS. No crosslinker reagent name (e.g., BS3/DSS) is stated in the provided text; TG2 catalyzes isopeptide bond formation enzymatically, so crosslinker is left null. The two filename groups (BBM_051_*_HEK_001-006 and BBM_066_*_HEK19-24) are treated as replicates/related runs within the same TG2–gluten model system rather than distinct biological conditions because the prompt instructs not to split by run/fraction numbering and the publication does not provide enough detail to map these specific file subsets to different molar ratios/timepoints.\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a specific biological XL-MS condition or crosslinker based on the provided information.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"No QC/calibration/blank files were provided, and all filenames appear to be biological nLC-MS/MS runs from the same TG2–gluten model study.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 12,\n    \"n_assigned_files\": 12,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 1,\n    \"overall_confidence\": \"medium\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "human_tg2_gluten_model_pepq_bs3",
+          "description": "Model TG2–gluten peptide isopeptide crosslinking reaction using PepQ (α-gliadin-derived) with recombinant human tissue transglutaminase; isopeptide standard/mixture analyzed (crosslinker not explicitly stated in provided text).",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": null,
+          "biological_condition": "TG2–PepQ (gluten peptide) model reaction (TG2:PepQ molar ratio series; isopeptide standard included)",
+          "files": [
+            "BBM_051_P020_09_HEK_001.raw",
+            "BBM_051_P020_09_HEK_002.raw",
+            "BBM_051_P020_09_HEK_003.raw",
+            "BBM_051_P020_09_HEK_004.raw",
+            "BBM_051_P020_09_HEK_005.raw",
+            "BBM_051_P020_09_HEK_006.raw",
+            "BBM_066_P20_10_HEK19.raw",
+            "BBM_066_P20_10_HEK20.raw",
+            "BBM_066_P20_10_HEK21.raw",
+            "BBM_066_P20_10_HEK22.raw",
+            "BBM_066_P20_10_HEK23.raw",
+            "BBM_066_P20_10_HEK24.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "Tissue transglutaminase (TG2) ... catalyzes ... covalent Nε-(γ-glutamyl)-lysine isopeptide crosslinks resulting in TG2–gluten peptide complexes.",
+          "reasoning": "All provided raw files share the same project/sample naming pattern (BBM_*_HEK_*.raw) and the publication describes a single overarching biological experiment: TG2–gluten peptide model reactions (PepQ and additional peptides) and an isopeptide standard analyzed by nLC-MS/MS. No crosslinker reagent name (e.g., BS3/DSS) is stated in the provided text; TG2 catalyzes isopeptide bond formation enzymatically, so crosslinker is left null. The two filename groups (BBM_051_*_HEK_001-006 and BBM_066_*_HEK19-24) are treated as replicates/related runs within the same TG2–gluten model system rather than distinct biological conditions because the prompt instructs not to split by run/fraction numbering and the publication does not provide enough detail to map these specific file subsets to different molar ratios/timepoints."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a specific biological XL-MS condition or crosslinker based on the provided information.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "No QC/calibration/blank files were provided, and all filenames appear to be biological nLC-MS/MS runs from the same TG2–gluten model study."
+        }
+      ],
+      "summary": {
+        "n_input_files": 12,
+        "n_assigned_files": 12,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 1,
+        "overall_confidence": "medium"
+      }
+    }
+  }
+}

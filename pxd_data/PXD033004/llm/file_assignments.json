@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "pxd": "PXD033004",
+    "category": "llm",
+    "saved_at": "2026-06-30T15:24:49.129790",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"human_ubk63pt_ubg76c_etp\",\n      \"description\": \"Human proteome sample containing azide/ETP-enabled ubiquitin conjugation (UbK63PT-UbG76C) analyzed by XL-MS.\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": null,\n      \"biological_condition\": \"UbK63PT-UbG76C ETP/azide-containing ubiquitin conjugation context\",\n      \"files\": [\n        \"F1_20220125_MN_109_CH_UbK63PT-UbG76C.raw\",\n        \"F1_20220228_MN_115_CH_1_UbK48PT-UbG76C.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"Finally, we were able to incorporate ETP-electrophiles into an azide-containing ubiquitin under native conditions\",\n      \"reasoning\": \"Both filenames explicitly encode ubiquitin conjugation constructs (UbK63PT-UbG76C and UbK48PT-UbG76C) and the publication describes ETP incorporation into azide-containing ubiquitin. No explicit crosslinker name (e.g., DSS/BS3/DSSO/DSBU) is present in filenames or provided metadata, so crosslinker cannot be assigned confidently. These are the only files matching the ubiquitin/ETP biological context; other files appear to be different conditions (MN_72 with CH_50/CH_500).\"\n    },\n    {\n      \"cluster_id\": \"cluster_2\",\n      \"cluster_label\": \"human_mn72_ch50_ch500_unknown_xl\",\n      \"description\": \"Human proteome samples with MN_72 and varying CH (50/500) conditions; crosslinker not specified in provided metadata.\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": null,\n      \"biological_condition\": \"MN_72 condition with CH=50 or CH=500\",\n      \"files\": [\n        \"F1_20210813_MN_72_CH_500_I.raw\",\n        \"F1_20210813_MN_72_CH_500_III.raw\",\n        \"F1_20210813_MN_72_CH_500_IV.raw\",\n        \"F1_20210813_MN_72_CH_50_I.raw\",\n        \"F1_20210813_MN_72_CH_50_II.raw\",\n        \"F1_20210813_MN_72_CH_50_III.raw\"\n      ],\n      \"confidence\": \"low\",\n      \"evidence_quote\": \"The general scheme of the reaction energy profile for the Michael-addition to the electrophiles A–F is shown in Figure 1\",\n      \"reasoning\": \"Filenames indicate a single experimental batch/setting (MN_72) with two CH levels (50 and 500) and multiple run variants (I/II/III/IV). However, the provided publication text does not mention MN_72 or CH values, nor does it specify which XL crosslinker was used for these particular raw files. Because the biological meaning of MN_72/CH is not recoverable from the supplied text/metadata, crosslinker and condition details remain ambiguous; they are grouped together only because they share the same MN_72 pattern and appear to be related technical/replicate runs under the same overarching experiment.\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a specific biological XL-MS condition from the provided information.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"All input files were assigned to at least one cluster based on filename patterns and the publication’s described ubiquitin/ETP context; no obvious QC/calibrant/wash/test files were provided.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 8,\n    \"n_assigned_files\": 8,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 2,\n    \"overall_confidence\": \"medium\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "human_ubk63pt_ubg76c_etp",
+          "description": "Human proteome sample containing azide/ETP-enabled ubiquitin conjugation (UbK63PT-UbG76C) analyzed by XL-MS.",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": null,
+          "biological_condition": "UbK63PT-UbG76C ETP/azide-containing ubiquitin conjugation context",
+          "files": [
+            "F1_20220125_MN_109_CH_UbK63PT-UbG76C.raw",
+            "F1_20220228_MN_115_CH_1_UbK48PT-UbG76C.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "Finally, we were able to incorporate ETP-electrophiles into an azide-containing ubiquitin under native conditions",
+          "reasoning": "Both filenames explicitly encode ubiquitin conjugation constructs (UbK63PT-UbG76C and UbK48PT-UbG76C) and the publication describes ETP incorporation into azide-containing ubiquitin. No explicit crosslinker name (e.g., DSS/BS3/DSSO/DSBU) is present in filenames or provided metadata, so crosslinker cannot be assigned confidently. These are the only files matching the ubiquitin/ETP biological context; other files appear to be different conditions (MN_72 with CH_50/CH_500)."
+        },
+        {
+          "cluster_id": "cluster_2",
+          "cluster_label": "human_mn72_ch50_ch500_unknown_xl",
+          "description": "Human proteome samples with MN_72 and varying CH (50/500) conditions; crosslinker not specified in provided metadata.",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": null,
+          "biological_condition": "MN_72 condition with CH=50 or CH=500",
+          "files": [
+            "F1_20210813_MN_72_CH_500_I.raw",
+            "F1_20210813_MN_72_CH_500_III.raw",
+            "F1_20210813_MN_72_CH_500_IV.raw",
+            "F1_20210813_MN_72_CH_50_I.raw",
+            "F1_20210813_MN_72_CH_50_II.raw",
+            "F1_20210813_MN_72_CH_50_III.raw"
+          ],
+          "confidence": "low",
+          "evidence_quote": "The general scheme of the reaction energy profile for the Michael-addition to the electrophiles A–F is shown in Figure 1",
+          "reasoning": "Filenames indicate a single experimental batch/setting (MN_72) with two CH levels (50 and 500) and multiple run variants (I/II/III/IV). However, the provided publication text does not mention MN_72 or CH values, nor does it specify which XL crosslinker was used for these particular raw files. Because the biological meaning of MN_72/CH is not recoverable from the supplied text/metadata, crosslinker and condition details remain ambiguous; they are grouped together only because they share the same MN_72 pattern and appear to be related technical/replicate runs under the same overarching experiment."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a specific biological XL-MS condition from the provided information.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "All input files were assigned to at least one cluster based on filename patterns and the publication’s described ubiquitin/ETP context; no obvious QC/calibrant/wash/test files were provided."
+        }
+      ],
+      "summary": {
+        "n_input_files": 8,
+        "n_assigned_files": 8,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 2,
+        "overall_confidence": "medium"
+      }
+    }
+  }
+}

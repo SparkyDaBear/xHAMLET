@@ -105,6 +105,8 @@ class PXDMetadataEnhancer:
         relink: bool = False,
         relink_profile: str = "docker",
         relink_resume: bool = False,
+        relink_work_dir: Optional[str] = None,
+        relink_queue_size: Optional[int] = None,
     ) -> Dict[str, Any]:
         """
         Main workflow: Process a single PXD end-to-end (10-stage pipeline).
@@ -351,11 +353,41 @@ class PXDMetadataEnhancer:
                 sdrf_path = sdrf_dir / f"{pxd}.sdrf.tsv"
                 try:
                     all_files = (pride_data.get("files", {}) or {}).get("files", [])
-                    assessed_files: List[str] = []
+                    assessed_set = set()
                     if isinstance(raw_result, dict):
                         for entry in raw_result.get("per_file", []) or []:
-                            if entry.get("mzml_converted") is True and entry.get("filename"):
-                                assessed_files.append(entry["filename"])
+                            filename = entry.get("filename")
+                            if not filename:
+                                continue
+
+                            # Fresh runs mark representatives as mzml_converted=True.
+                            if entry.get("mzml_converted") is True:
+                                assessed_set.add(filename)
+                                continue
+
+                            # Resume runs mark already-completed representatives as skipped_existing.
+                            if entry.get("status") == "skipped_existing":
+                                assessed_set.add(filename)
+
+                    assessed_files = sorted(assessed_set)
+
+                    # If Stage 3 was skipped but cached spectral summary exists, treat
+                    # all RAW rows as inheriting available spectral-level metadata.
+                    if not assessed_files and isinstance(spectral_summary, dict):
+                        parsed_count = spectral_summary.get("source_files_parsed", 0) or 0
+                        if parsed_count:
+                            assessed_files = sorted(
+                                {
+                                    f.get("fileName", "")
+                                    for f in all_files
+                                    if str(f.get("fileName", "")).lower().endswith(".raw")
+                                    and f.get("fileName")
+                                }
+                            )
+                            logger.info(
+                                "Stage 6: using cached spectral_summary fallback for %d SDRF rows",
+                                len(assessed_files),
+                            )
 
                     writer = SDRFWriter()
                     writer.write(
@@ -471,6 +503,11 @@ class PXDMetadataEnhancer:
                             f"No local RAW files found in {pxd_dir / 'work'} for ReLink stage"
                         )
 
+                    relink_extra_args: List[str] = []
+                    if relink_work_dir:
+                        relink_extra_args += ["-work-dir", relink_work_dir]
+                    if relink_queue_size is not None:
+                        relink_extra_args += ["-qs", str(relink_queue_size)]
                     relink_result = self.relink_runner.run_for_pxd(
                         pxd=pxd,
                         sdrf_path=sdrf_path,
@@ -480,6 +517,7 @@ class PXDMetadataEnhancer:
                         pxd_dir=pxd_dir,
                         profile=relink_profile,
                         resume=relink_resume,
+                        extra_args=relink_extra_args or None,
                     )
                     result["stages"]["relink"] = "success"
                     result["relink"] = relink_result

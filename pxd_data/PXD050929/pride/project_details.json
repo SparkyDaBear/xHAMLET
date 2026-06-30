@@ -1,0 +1,688 @@
+{
+  "metadata": {
+    "pxd": "PXD050929",
+    "category": "pride",
+    "saved_at": "2026-06-30T15:41:08.168594",
+    "filename": "project_details"
+  },
+  "data": {
+    "accession": "PXD050929",
+    "title": "Identification of XL peptides in Bik1 variants and different conditions",
+    "additionalAttributes": [],
+    "projectDescription": "Identification of crosslinks in Bik1 variants and different conditions (phase separation, soluble, supernatant, pellet).",
+    "sampleProcessingProtocol": "Bik1 FL and Bik1 ΔQQFF samples (50µg, ~1mg/ml) were subjected to a crosslinking reaction with 1 mM isotope labelled di-succimidylsuberate (DSS-d0 and DSS-d12; CreativeMolecules Inc.).  After 30 min of incubation at 37C and 700rpm agitation in thermomixer, samples were quenched with 50mM NH3HCO3 pH =8. Upon quenching, samples were dried, dissolved in 8 M Urea, reduced with 5 mM TCEP, and alkylated with 10 mM iodoacetamide. The proteolysis was performed overnight at 37 ⁰C in 1M urea using trypsin 1:50 E:S, and then quenched with 5% formic acid. Generated peptides were subjected to cleanup (C18 column, TheNest Group) and separated by SEC using an ÄKTA micro chromatography system (GE Healthcare) using a Superdex 200 Increase 3.2/30 column (Cytiva). The SEC fractions (4) were then dried and re-dissolved in 5% acetonitrile and 0.1% formic acid for mass-spectrometry analysis. The detailed protocol of the reaction has been previously described by Leitner et al. [Leitner, Nat Protocol 2014]. LC-MS/MS measurements were performed on an Orbitrap QExactive+ mass spectrometer (Thermo Fisher) coupled to an EASY-nLC-1000 liquid chromatography system (Thermo Fisher). Peptides were separated across a 60 min gradient: from 5% to 25% in 55 min and from 25% to 40% in 5 min (buffer A: 0.1% (v/v) formic acid; buffer B: 0.1% (v/v) formic acid, 95% (v/v) acetonitrile) using a reverse phase column (75 µm ID x 400 mm New Objective, in-house packed with ReproSil Gold 120 C18, 1.9 µm, Dr. Maisch GmbH). The acquisition method (DDA) was performed with one MS1 scan followed by a maximum of 20 scans for the top 20 most intense peptides (TOP20) with MS1 scans (R=70’000 at 400 m/z, max IT= 64ms AGC=1e5), HCD fragmentation (NCE=25 or 28%), isolation windows (1.5 m/z) and MS2 scans (R=35’000 at 400 m/z, maxIT = 110ms, AGC= 5e4ms). A dynamic exclusion of 30 sec was applied, and charge states lower than three and higher than seven were rejected for the isolation.",
+    "dataProcessingProtocol": "For the identification of crosslinking data, mass spectra were converted to mzXML format and searched with xQuest/xProphet [Leitner, Nat Procol 2014] against a database containing the FASTA sequence of Bik1 and its decoy sequence. Crosslinked peptides with ld.Score > 20, delta S > 0.95, and FDR < 0.05 were considered in the analysis.",
+    "projectTags": [],
+    "keywords": [
+      "Dda",
+      "Dss",
+      "Bik1"
+    ],
+    "doi": "",
+    "submissionType": "PARTIAL",
+    "license": "Creative Commons Public Domain (CC0)",
+    "submissionDate": "2024-03-24",
+    "publicationDate": "2025-01-06",
+    "submitters": [
+      {
+        "title": "Dr",
+        "firstName": "Federico",
+        "lastName": "Uliana",
+        "identifier": "3249906",
+        "affiliation": "JGU",
+        "email": "fuliana@uni-mainz.de",
+        "country": "Germany",
+        "orcid": "0000-0002-8185-6438",
+        "name": "Federico Uliana",
+        "id": "3249906"
+      }
+    ],
+    "labPIs": [
+      {
+        "title": "Dr",
+        "firstName": "Federico",
+        "lastName": "Uliana",
+        "identifier": "2865106",
+        "affiliation": "JGU Mainz",
+        "email": "fuliana@uni-mainz.de",
+        "country": "",
+        "orcid": "",
+        "name": "Federico Uliana",
+        "id": "2865106"
+      }
+    ],
+    "instruments": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1001911",
+        "name": "Q Exactive"
+      }
+    ],
+    "softwares": [],
+    "experimentTypes": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000627",
+        "name": "Data-dependent acquisition"
+      }
+    ],
+    "quantificationMethods": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000436",
+        "name": "Spectrum counting"
+      }
+    ],
+    "countries": [
+      "Germany"
+    ],
+    "sampleAttributes": [
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "OBI:0100026",
+          "name": "organism"
+        },
+        "value": [
+          {
+            "cvLabel": "NEWT",
+            "accession": "NEWT:4932",
+            "name": "Saccharomyces cerevisiae (Baker's yeast)"
+          }
+        ]
+      }
+    ],
+    "organisms": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "NEWT",
+        "accession": "NEWT:4932",
+        "name": "Saccharomyces cerevisiae (baker's yeast)"
+      }
+    ],
+    "organismParts": [],
+    "diseases": [],
+    "references": [],
+    "identifiedPTMStrings": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000398",
+        "name": "No PTMs are included in the dataset"
+      }
+    ],
+    "totalFileDownloads": 4096,
+    "botCount": 2285,
+    "hubCount": 1687,
+    "organicCount": 124,
+    "files": {
+      "files": [
+        {
+          "fileName": "data_analysis.R",
+          "fileSizeBytes": 23659,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/data_analysis.R"
+        },
+        {
+          "fileName": "Table_S2.xlsx",
+          "fileSizeBytes": 2120830,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/Table_S2.xlsx"
+        },
+        {
+          "fileName": "XL_table_filter_DSS.csv",
+          "fileSizeBytes": 86817,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/XL_table_filter_DSS.csv"
+        },
+        {
+          "fileName": "xquest_YB_03_30.xml",
+          "fileSizeBytes": 6595667,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xquest_YB_03_30.xml"
+        },
+        {
+          "fileName": "xproph_YB_03_22.def",
+          "fileSizeBytes": 650,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xproph_YB_03_22.def"
+        },
+        {
+          "fileName": "xmm_YB_03_25.def",
+          "fileSizeBytes": 3604,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xmm_YB_03_25.def"
+        },
+        {
+          "fileName": "xquest_YB_03_28.xml",
+          "fileSizeBytes": 6099468,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xquest_YB_03_28.xml"
+        },
+        {
+          "fileName": "xquest_YB_03_27.def",
+          "fileSizeBytes": 7890,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xquest_YB_03_27.def"
+        },
+        {
+          "fileName": "xquest_YB_03_29.xml",
+          "fileSizeBytes": 6538664,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xquest_YB_03_29.xml"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_32.c.mzXML",
+          "fileSizeBytes": 101182962,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_32.c.mzXML"
+        },
+        {
+          "fileName": "xproph_YB_03_29.def",
+          "fileSizeBytes": 650,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xproph_YB_03_29.def"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_37.c.mzXML",
+          "fileSizeBytes": 97886046,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_37.c.mzXML"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_11.c.mzXML",
+          "fileSizeBytes": 105634278,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_11.c.mzXML"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_07.c.mzXML",
+          "fileSizeBytes": 105601085,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_07.c.mzXML"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_46.c.mzXML",
+          "fileSizeBytes": 107128441,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_46.c.mzXML"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_39.c.mzXML",
+          "fileSizeBytes": 71230446,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_39.c.mzXML"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_58.c.mzXML",
+          "fileSizeBytes": 102681521,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_58.c.mzXML"
+        },
+        {
+          "fileName": "xquest_YB_03_28.def",
+          "fileSizeBytes": 7890,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xquest_YB_03_28.def"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_53.c.mzXML",
+          "fileSizeBytes": 109376941,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_53.c.mzXML"
+        },
+        {
+          "fileName": "xquest_YB_03_20.xml",
+          "fileSizeBytes": 6083594,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xquest_YB_03_20.xml"
+        },
+        {
+          "fileName": "xproph_YB_03_28.def",
+          "fileSizeBytes": 650,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xproph_YB_03_28.def"
+        },
+        {
+          "fileName": "xproph_YB_03_21.def",
+          "fileSizeBytes": 650,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xproph_YB_03_21.def"
+        },
+        {
+          "fileName": "xquest_YB_03_21.def",
+          "fileSizeBytes": 7890,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xquest_YB_03_21.def"
+        },
+        {
+          "fileName": "xquest_YB_03_31.def",
+          "fileSizeBytes": 7890,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xquest_YB_03_31.def"
+        },
+        {
+          "fileName": "xmm_YB_03_20.def",
+          "fileSizeBytes": 3604,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xmm_YB_03_20.def"
+        },
+        {
+          "fileName": "xquest_YB_03_23.xml",
+          "fileSizeBytes": 6171632,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xquest_YB_03_23.xml"
+        },
+        {
+          "fileName": "xmm_YB_03_30.def",
+          "fileSizeBytes": 3604,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xmm_YB_03_30.def"
+        },
+        {
+          "fileName": "xproph_YB_03_27.def",
+          "fileSizeBytes": 650,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xproph_YB_03_27.def"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_54.c.mzXML",
+          "fileSizeBytes": 89703718,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_54.c.mzXML"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_28.c.mzXML",
+          "fileSizeBytes": 104384711,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_28.c.mzXML"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_31.c.mzXML",
+          "fileSizeBytes": 109340805,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_31.c.mzXML"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_63.c.mzXML",
+          "fileSizeBytes": 98837894,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_63.c.mzXML"
+        },
+        {
+          "fileName": "xquest_YB_03_22.def",
+          "fileSizeBytes": 7890,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xquest_YB_03_22.def"
+        },
+        {
+          "fileName": "annotation.xlsx",
+          "fileSizeBytes": 10530,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/annotation.xlsx"
+        },
+        {
+          "fileName": "xproph_YB_03_24.def",
+          "fileSizeBytes": 650,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xproph_YB_03_24.def"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_49.c.mzXML",
+          "fileSizeBytes": 77190121,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_49.c.mzXML"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_62.c.mzXML",
+          "fileSizeBytes": 105465011,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_62.c.mzXML"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_22.c.mzXML",
+          "fileSizeBytes": 109991818,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_22.c.mzXML"
+        },
+        {
+          "fileName": "YB_03_19x31.csv",
+          "fileSizeBytes": 2557393,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/YB_03_19x31.csv"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_51.c.mzXML",
+          "fileSizeBytes": 112306557,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_51.c.mzXML"
+        },
+        {
+          "fileName": "xquest_YB_03_27.xml",
+          "fileSizeBytes": 5940794,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xquest_YB_03_27.xml"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_01.c.mzXML",
+          "fileSizeBytes": 112826860,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_01.c.mzXML"
+        },
+        {
+          "fileName": "xquest_YB_03_19.def",
+          "fileSizeBytes": 7918,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xquest_YB_03_19.def"
+        },
+        {
+          "fileName": "xquest_YB_03_22.xml",
+          "fileSizeBytes": 6142289,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xquest_YB_03_22.xml"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_41.c.mzXML",
+          "fileSizeBytes": 106914628,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_41.c.mzXML"
+        },
+        {
+          "fileName": "xquest_YB_03_24.def",
+          "fileSizeBytes": 7890,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xquest_YB_03_24.def"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_24.c.mzXML",
+          "fileSizeBytes": 78100148,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_24.c.mzXML"
+        },
+        {
+          "fileName": "xmm_YB_03_22.def",
+          "fileSizeBytes": 3604,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xmm_YB_03_22.def"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_27.c.mzXML",
+          "fileSizeBytes": 109103266,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_27.c.mzXML"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_47.c.mzXML",
+          "fileSizeBytes": 105286632,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_47.c.mzXML"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_42.c.mzXML",
+          "fileSizeBytes": 101163675,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_42.c.mzXML"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_03.c.mzXML",
+          "fileSizeBytes": 106483973,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_03.c.mzXML"
+        },
+        {
+          "fileName": "xmm_YB_03_28.def",
+          "fileSizeBytes": 3604,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xmm_YB_03_28.def"
+        },
+        {
+          "fileName": "xquest_YB_03_21.xml",
+          "fileSizeBytes": 5667230,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xquest_YB_03_21.xml"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_18.c.mzXML",
+          "fileSizeBytes": 102770125,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_18.c.mzXML"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_16.c.mzXML",
+          "fileSizeBytes": 106090988,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_16.c.mzXML"
+        },
+        {
+          "fileName": "xmm_YB_03_23.def",
+          "fileSizeBytes": 3604,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xmm_YB_03_23.def"
+        },
+        {
+          "fileName": "xproph_YB_03_31.def",
+          "fileSizeBytes": 650,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xproph_YB_03_31.def"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_26.c.mzXML",
+          "fileSizeBytes": 106044100,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_26.c.mzXML"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_59.c.mzXML",
+          "fileSizeBytes": 89274648,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_59.c.mzXML"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_33.c.mzXML",
+          "fileSizeBytes": 105091820,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_33.c.mzXML"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_14.c.mzXML",
+          "fileSizeBytes": 72701416,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_14.c.mzXML"
+        },
+        {
+          "fileName": "xquest_YB_03_25.def",
+          "fileSizeBytes": 7890,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xquest_YB_03_25.def"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_02.c.mzXML",
+          "fileSizeBytes": 111133428,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_02.c.mzXML"
+        },
+        {
+          "fileName": "xquest_YB_03_19.xml",
+          "fileSizeBytes": 5814288,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xquest_YB_03_19.xml"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_48.c.mzXML",
+          "fileSizeBytes": 107003507,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_48.c.mzXML"
+        },
+        {
+          "fileName": "xproph_YB_03_25.def",
+          "fileSizeBytes": 650,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xproph_YB_03_25.def"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_36.c.mzXML",
+          "fileSizeBytes": 105930800,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_36.c.mzXML"
+        },
+        {
+          "fileName": "xmm_YB_03_27.def",
+          "fileSizeBytes": 3604,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xmm_YB_03_27.def"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_64.c.mzXML",
+          "fileSizeBytes": 87798556,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_64.c.mzXML"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_23.c.mzXML",
+          "fileSizeBytes": 103927981,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_23.c.mzXML"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_06.c.mzXML",
+          "fileSizeBytes": 107063221,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_06.c.mzXML"
+        },
+        {
+          "fileName": "xquest_YB_03_31.xml",
+          "fileSizeBytes": 6279874,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xquest_YB_03_31.xml"
+        },
+        {
+          "fileName": "xquest_YB_03_25.xml",
+          "fileSizeBytes": 6056735,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xquest_YB_03_25.xml"
+        },
+        {
+          "fileName": "Supplementary_table_X2.xlsx",
+          "fileSizeBytes": 1351843,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/Supplementary_table_X2.xlsx"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_04.c.mzXML",
+          "fileSizeBytes": 83932633,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_04.c.mzXML"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_19.c.mzXML",
+          "fileSizeBytes": 77732899,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_19.c.mzXML"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_09.c.mzXML",
+          "fileSizeBytes": 79228243,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_09.c.mzXML"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_61.c.mzXML",
+          "fileSizeBytes": 107337566,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_61.c.mzXML"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_56.c.mzXML",
+          "fileSizeBytes": 111853877,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_56.c.mzXML"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_44.c.mzXML",
+          "fileSizeBytes": 77553721,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_44.c.mzXML"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_21.c.mzXML",
+          "fileSizeBytes": 111058758,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_21.c.mzXML"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_13.c.mzXML",
+          "fileSizeBytes": 95701246,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_13.c.mzXML"
+        },
+        {
+          "fileName": "xmm_YB_03_24.def",
+          "fileSizeBytes": 3604,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xmm_YB_03_24.def"
+        },
+        {
+          "fileName": "xproph_YB_03_19.def",
+          "fileSizeBytes": 650,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xproph_YB_03_19.def"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_08.c.mzXML",
+          "fileSizeBytes": 103599225,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_08.c.mzXML"
+        },
+        {
+          "fileName": "xquest_YB_03_29.def",
+          "fileSizeBytes": 7890,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xquest_YB_03_29.def"
+        },
+        {
+          "fileName": "DB_proteins.fasta",
+          "fileSizeBytes": 594,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/DB_proteins.fasta"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_17.c.mzXML",
+          "fileSizeBytes": 104372391,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_17.c.mzXML"
+        },
+        {
+          "fileName": "xmm_YB_03_21.def",
+          "fileSizeBytes": 3604,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xmm_YB_03_21.def"
+        },
+        {
+          "fileName": "XL_table_filtered_large_all_conditions.xlsx",
+          "fileSizeBytes": 23780,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/XL_table_filtered_large_all_conditions.xlsx"
+        },
+        {
+          "fileName": "xmm_YB_03_26.def",
+          "fileSizeBytes": 3604,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xmm_YB_03_26.def"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_34.c.mzXML",
+          "fileSizeBytes": 77749870,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_34.c.mzXML"
+        },
+        {
+          "fileName": "xmm_YB_03_31.def",
+          "fileSizeBytes": 3604,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xmm_YB_03_31.def"
+        },
+        {
+          "fileName": "xquest_YB_03_30.def",
+          "fileSizeBytes": 7890,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xquest_YB_03_30.def"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_57.c.mzXML",
+          "fileSizeBytes": 107330587,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_57.c.mzXML"
+        },
+        {
+          "fileName": "xmm_YB_03_29.def",
+          "fileSizeBytes": 3604,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xmm_YB_03_29.def"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_43.c.mzXML",
+          "fileSizeBytes": 109084241,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_43.c.mzXML"
+        },
+        {
+          "fileName": "xproph_YB_03_26.def",
+          "fileSizeBytes": 650,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xproph_YB_03_26.def"
+        },
+        {
+          "fileName": "xquest_YB_03_26.def",
+          "fileSizeBytes": 7890,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xquest_YB_03_26.def"
+        },
+        {
+          "fileName": "xquest_YB_03_20.def",
+          "fileSizeBytes": 7890,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xquest_YB_03_20.def"
+        },
+        {
+          "fileName": "xproph_YB_03_30.def",
+          "fileSizeBytes": 650,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xproph_YB_03_30.def"
+        },
+        {
+          "fileName": "xproph_YB_03_20.def",
+          "fileSizeBytes": 650,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xproph_YB_03_20.def"
+        },
+        {
+          "fileName": "xquest_YB_03_24.xml",
+          "fileSizeBytes": 5874400,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xquest_YB_03_24.xml"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_29.c.mzXML",
+          "fileSizeBytes": 80976464,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_29.c.mzXML"
+        },
+        {
+          "fileName": "xmm_YB_03_19.def",
+          "fileSizeBytes": 3604,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xmm_YB_03_19.def"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_12.c.mzXML",
+          "fileSizeBytes": 102599811,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_12.c.mzXML"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_38.c.mzXML",
+          "fileSizeBytes": 98366732,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_38.c.mzXML"
+        },
+        {
+          "fileName": "xquest_YB_03_26.xml",
+          "fileSizeBytes": 6055949,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xquest_YB_03_26.xml"
+        },
+        {
+          "fileName": "xproph_YB_03_23.def",
+          "fileSizeBytes": 650,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xproph_YB_03_23.def"
+        },
+        {
+          "fileName": "221111_QE1_ulianaf_YB_03_52.c.mzXML",
+          "fileSizeBytes": 109015539,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/221111_QE1_ulianaf_YB_03_52.c.mzXML"
+        },
+        {
+          "fileName": "xquest_YB_03_23.def",
+          "fileSizeBytes": 7890,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD050929/xquest_YB_03_23.def"
+        }
+      ],
+      "totalCount": 112
+    }
+  }
+}

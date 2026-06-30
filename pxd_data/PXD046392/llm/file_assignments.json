@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "pxd": "PXD046392",
+    "category": "llm",
+    "saved_at": "2026-06-30T15:37:13.684718",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"ecoli_qbp_bs3\",\n      \"description\": \"Escherichia coli QBP sample crosslinked with BS3; multiple biological replicates (bio1, bio2) and technical replicates grouped together.\",\n      \"organism\": \"Escherichia coli\",\n      \"taxid\": \"NCBITaxon:562\",\n      \"crosslinker\": \"BS3\",\n      \"biological_condition\": \"QBP sample (condition unspecified in provided metadata)\",\n      \"files\": [\n        \"111023_QBP_BS3_1ug_bio1tec1.raw\",\n        \"111023_QBP_BS3_1ug_bio1tec2.raw\",\n        \"111023_QBP_BS3_1ug_bio1tec3.raw\",\n        \"111023_QBP_BS3_1ug_bio2tec1.raw\",\n        \"111023_QBP_BS3_1ug_bio2tec2.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"Raw filename pattern: \\\"111023_QBP_BS3_1ug_bio1tec1.raw\\\" (and bio1/bio2 variants) indicates BS3 crosslinker and QBP sample.\",\n      \"reasoning\": \"All files share the same date prefix (111023), sample label \\\"QBP\\\", crosslinker \\\"BS3\\\", and amount \\\"1ug\\\"; only bio replicate and technical replicate differ, which should not split clusters. Publication methods describe BS3/DSS XL-MS scoring but do not specify QBP; thus the biological condition beyond 'QBP sample' is inferred from filenames.\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a biological XL-MS condition.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"No QC/calibration/blank/test files were provided, and all input filenames match the same BS3/QBP pattern.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 5,\n    \"n_assigned_files\": 5,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 1,\n    \"overall_confidence\": \"medium\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "ecoli_qbp_bs3",
+          "description": "Escherichia coli QBP sample crosslinked with BS3; multiple biological replicates (bio1, bio2) and technical replicates grouped together.",
+          "organism": "Escherichia coli",
+          "taxid": "NCBITaxon:562",
+          "crosslinker": "BS3",
+          "biological_condition": "QBP sample (condition unspecified in provided metadata)",
+          "files": [
+            "111023_QBP_BS3_1ug_bio1tec1.raw",
+            "111023_QBP_BS3_1ug_bio1tec2.raw",
+            "111023_QBP_BS3_1ug_bio1tec3.raw",
+            "111023_QBP_BS3_1ug_bio2tec1.raw",
+            "111023_QBP_BS3_1ug_bio2tec2.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "Raw filename pattern: \"111023_QBP_BS3_1ug_bio1tec1.raw\" (and bio1/bio2 variants) indicates BS3 crosslinker and QBP sample.",
+          "reasoning": "All files share the same date prefix (111023), sample label \"QBP\", crosslinker \"BS3\", and amount \"1ug\"; only bio replicate and technical replicate differ, which should not split clusters. Publication methods describe BS3/DSS XL-MS scoring but do not specify QBP; thus the biological condition beyond 'QBP sample' is inferred from filenames."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a biological XL-MS condition.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "No QC/calibration/blank/test files were provided, and all input filenames match the same BS3/QBP pattern."
+        }
+      ],
+      "summary": {
+        "n_input_files": 5,
+        "n_assigned_files": 5,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 1,
+        "overall_confidence": "medium"
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+# PXD Metadata Enhancer Configuration
+# Edit this file for your local/default settings.
+
+pride:
+  base_url: "https://www.ebi.ac.uk/pride/ws/archive/v3"
+  timeout: 30
+
+pmc:
+  # Email is recommended for PMC/NCBI requests
+  email: null
+  # NCBI API key is optional but helps with rate limits
+  api_key: null
+
+llm:
+  model: "gpt-5.4-nano-2026-03-17"
+  temperature: 0.0
+  max_retries: 0
+
+storage:
+  base_dir: "./pxd_data"
+  cache_pride: true
+  cache_pmc: true
+  cache_llm: true
+
+prompts:
+  dir: "./prompts"
+  # Stage 5 prompt files to use by default.
+  # file_clustering is called explicitly in Stage 2.5, so it is omitted here.
+  enabled:
+    - disease_treatment
+    - factor_values
+    - ms_acquisition
+    - organism_sample
+    - sample_attributes
+    - sample_preparation
+    - xlms_conditions
+    - xlms_reagents
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

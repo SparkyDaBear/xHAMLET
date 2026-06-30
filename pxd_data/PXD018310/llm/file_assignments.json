@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "pxd": "PXD018310",
+    "category": "llm",
+    "saved_at": "2026-06-30T15:09:25.216861",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"s_cerevisiae_bs3_proteasome\",\n      \"description\": \"Saccharomyces cerevisiae proteasome samples cross-linked with BS3 (20S core particle and 19S regulatory particle).\",\n      \"organism\": \"Saccharomyces cerevisiae\",\n      \"taxid\": \"NCBITaxon:4932\",\n      \"crosslinker\": \"BS3\",\n      \"biological_condition\": \"proteasome core (20S) and regulatory (19S) particles\",\n      \"files\": [\n        \"CPBS3-1.raw\",\n        \"CPBS3-2.raw\"\n      ],\n      \"confidence\": \"high\",\n      \"evidence_quote\": \"The first containing the core particle and the second containing the regulatory particle were cross-linked with BS3.\",\n      \"reasoning\": \"Filenames explicitly contain 'BS3' (CPBS3-1/CPBS3-2). The publication states two proteasome particle samples (20S core and 19S regulatory) were cross-linked with BS3, matching these BS3-labeled biological runs.\"\n    },\n    {\n      \"cluster_id\": \"cluster_2\",\n      \"cluster_label\": \"s_cerevisiae_dest_regulatory_polyubiquitin\",\n      \"description\": \"Saccharomyces cerevisiae proteasome regulatory particle mixed with polyubiquitin, cross-linked with DEST.\",\n      \"organism\": \"Saccharomyces cerevisiae\",\n      \"taxid\": \"NCBITaxon:4932\",\n      \"crosslinker\": \"DEST\",\n      \"biological_condition\": \"regulatory particle + polyubiquitin (1:1 weight ratio) mixture\",\n      \"files\": [\n        \"RPBS3.raw\"\n      ],\n      \"confidence\": \"low\",\n      \"evidence_quote\": \"The third involving the regulatory particle and polyubiquitin was cross-linked with DEST.\",\n      \"reasoning\": \"The publication clearly defines a DEST condition for regulatory particle + polyubiquitin. However, the filename 'RPBS3.raw' contains 'BS3' rather than 'DEST', so the mapping of this file to the DEST condition is ambiguous. Kept as low-confidence because it is the only remaining non-CPBS3 file and likely corresponds to the third sample set.\"\n    },\n    {\n      \"cluster_id\": \"cluster_3\",\n      \"cluster_label\": \"s_cerevisiae_dest_regulatory_polyubiquitin_dest\",\n      \"description\": \"Saccharomyces cerevisiae regulatory particle + polyubiquitin cross-linked with DEST (strong cation exchange fractionated DEST digest).\",\n      \"organism\": \"Saccharomyces cerevisiae\",\n      \"taxid\": \"NCBITaxon:4932\",\n      \"crosslinker\": \"DEST\",\n      \"biological_condition\": \"regulatory particle + polyubiquitin (DEST) with strong cation exchange fractionation\",\n      \"files\": [\n        \"RPUbDEST_F4.raw\",\n        \"RPUbDEST_F5.raw\",\n        \"RPUbDEST_F6.raw\",\n        \"RPUbDEST_F7.raw\"\n      ],\n      \"confidence\": \"high\",\n      \"evidence_quote\": \"The third involving the regulatory particle and polyubiquitin was cross-linked with DEST.\",\n      \"reasoning\": \"Filenames explicitly include 'RPUbDEST' and fraction numbers (F4-F7). Fractions are not used to split clusters per instructions, and the DEST crosslinker and regulatory+polyubiquitin mixture are directly encoded in the filename.\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a distinct biological XL-MS condition.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"No QC/calibration/test files were provided; all inputs were assigned to at least one cluster.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 7,\n    \"n_assigned_files\": 7,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 3,\n    \"overall_confidence\": \"medium\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "s_cerevisiae_bs3_proteasome",
+          "description": "Saccharomyces cerevisiae proteasome samples cross-linked with BS3 (20S core particle and 19S regulatory particle).",
+          "organism": "Saccharomyces cerevisiae",
+          "taxid": "NCBITaxon:4932",
+          "crosslinker": "BS3",
+          "biological_condition": "proteasome core (20S) and regulatory (19S) particles",
+          "files": [
+            "CPBS3-1.raw",
+            "CPBS3-2.raw"
+          ],
+          "confidence": "high",
+          "evidence_quote": "The first containing the core particle and the second containing the regulatory particle were cross-linked with BS3.",
+          "reasoning": "Filenames explicitly contain 'BS3' (CPBS3-1/CPBS3-2). The publication states two proteasome particle samples (20S core and 19S regulatory) were cross-linked with BS3, matching these BS3-labeled biological runs."
+        },
+        {
+          "cluster_id": "cluster_2",
+          "cluster_label": "s_cerevisiae_dest_regulatory_polyubiquitin",
+          "description": "Saccharomyces cerevisiae proteasome regulatory particle mixed with polyubiquitin, cross-linked with DEST.",
+          "organism": "Saccharomyces cerevisiae",
+          "taxid": "NCBITaxon:4932",
+          "crosslinker": "DEST",
+          "biological_condition": "regulatory particle + polyubiquitin (1:1 weight ratio) mixture",
+          "files": [
+            "RPBS3.raw"
+          ],
+          "confidence": "low",
+          "evidence_quote": "The third involving the regulatory particle and polyubiquitin was cross-linked with DEST.",
+          "reasoning": "The publication clearly defines a DEST condition for regulatory particle + polyubiquitin. However, the filename 'RPBS3.raw' contains 'BS3' rather than 'DEST', so the mapping of this file to the DEST condition is ambiguous. Kept as low-confidence because it is the only remaining non-CPBS3 file and likely corresponds to the third sample set."
+        },
+        {
+          "cluster_id": "cluster_3",
+          "cluster_label": "s_cerevisiae_dest_regulatory_polyubiquitin_dest",
+          "description": "Saccharomyces cerevisiae regulatory particle + polyubiquitin cross-linked with DEST (strong cation exchange fractionated DEST digest).",
+          "organism": "Saccharomyces cerevisiae",
+          "taxid": "NCBITaxon:4932",
+          "crosslinker": "DEST",
+          "biological_condition": "regulatory particle + polyubiquitin (DEST) with strong cation exchange fractionation",
+          "files": [
+            "RPUbDEST_F4.raw",
+            "RPUbDEST_F5.raw",
+            "RPUbDEST_F6.raw",
+            "RPUbDEST_F7.raw"
+          ],
+          "confidence": "high",
+          "evidence_quote": "The third involving the regulatory particle and polyubiquitin was cross-linked with DEST.",
+          "reasoning": "Filenames explicitly include 'RPUbDEST' and fraction numbers (F4-F7). Fractions are not used to split clusters per instructions, and the DEST crosslinker and regulatory+polyubiquitin mixture are directly encoded in the filename."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a distinct biological XL-MS condition.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "No QC/calibration/test files were provided; all inputs were assigned to at least one cluster."
+        }
+      ],
+      "summary": {
+        "n_input_files": 7,
+        "n_assigned_files": 7,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 3,
+        "overall_confidence": "medium"
+      }
+    }
+  }
+}

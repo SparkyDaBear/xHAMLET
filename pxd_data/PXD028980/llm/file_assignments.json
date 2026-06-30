@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "pxd": "PXD028980",
+    "category": "llm",
+    "saved_at": "2026-06-30T15:20:49.754389",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"aha1_depletion_vs_control\",\n      \"description\": \"Aha1-depleted condition (shAha) versus control (shctrl) in human cells; APEX proximity labeling workflow (no chemical crosslinker specified in provided text).\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": null,\n      \"biological_condition\": \"genetic depletion of Aha1 (shAha) compared to control (shctrl)\",\n      \"files\": [\n        \"shAha1-1.raw\",\n        \"shAha1-2.raw\",\n        \"shAha1-3.raw\",\n        \"shAha2-1.raw\",\n        \"shAha2-2.raw\",\n        \"shAha2-3.raw\",\n        \"shctrl-1.raw\",\n        \"shctrl-2.raw\",\n        \"shctrl-3.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"Proximity labeling was conducted as described previously. In brief, approximately 20 million cells were incubated in complete medium containing 500 µM of biotin phenol for 30 min followed by incubation with 1.0 mM H2O2 for 1 min.\",\n      \"reasoning\": \"All provided filenames are shRNA-style conditions (shAha1, shAha2, shctrl) and there is no explicit XL chemical crosslinker (e.g., BS3/DSS) mentioned in the provided publication text; the workflow described is APEX proximity labeling (biotin phenol + H2O2). Given the task requirement to cluster by biological condition, organism, and crosslinker, and the absence of a specified crosslinker, the smallest biologically meaningful grouping that can be supported from filenames and text is to combine all shAha variants and shctrl into one human-cell proximity-labeling dataset cluster. Organism is supported by the publication title/metadata context (Homo sapiens listed).\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a distinct biological XL-MS condition based on the provided information.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"No QC/calibration/blank files were provided, and all filenames match shRNA biological samples.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 9,\n    \"n_assigned_files\": 9,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 1,\n    \"overall_confidence\": \"medium\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "aha1_depletion_vs_control",
+          "description": "Aha1-depleted condition (shAha) versus control (shctrl) in human cells; APEX proximity labeling workflow (no chemical crosslinker specified in provided text).",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": null,
+          "biological_condition": "genetic depletion of Aha1 (shAha) compared to control (shctrl)",
+          "files": [
+            "shAha1-1.raw",
+            "shAha1-2.raw",
+            "shAha1-3.raw",
+            "shAha2-1.raw",
+            "shAha2-2.raw",
+            "shAha2-3.raw",
+            "shctrl-1.raw",
+            "shctrl-2.raw",
+            "shctrl-3.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "Proximity labeling was conducted as described previously. In brief, approximately 20 million cells were incubated in complete medium containing 500 µM of biotin phenol for 30 min followed by incubation with 1.0 mM H2O2 for 1 min.",
+          "reasoning": "All provided filenames are shRNA-style conditions (shAha1, shAha2, shctrl) and there is no explicit XL chemical crosslinker (e.g., BS3/DSS) mentioned in the provided publication text; the workflow described is APEX proximity labeling (biotin phenol + H2O2). Given the task requirement to cluster by biological condition, organism, and crosslinker, and the absence of a specified crosslinker, the smallest biologically meaningful grouping that can be supported from filenames and text is to combine all shAha variants and shctrl into one human-cell proximity-labeling dataset cluster. Organism is supported by the publication title/metadata context (Homo sapiens listed)."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a distinct biological XL-MS condition based on the provided information.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "No QC/calibration/blank files were provided, and all filenames match shRNA biological samples."
+        }
+      ],
+      "summary": {
+        "n_input_files": 9,
+        "n_assigned_files": 9,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 1,
+        "overall_confidence": "medium"
+      }
+    }
+  }
+}

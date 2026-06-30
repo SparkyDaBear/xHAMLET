@@ -1,0 +1,298 @@
+{
+  "metadata": {
+    "pxd": "PXD006541",
+    "category": "pride",
+    "saved_at": "2026-06-30T14:55:02.869905",
+    "filename": "project_details"
+  },
+  "data": {
+    "accession": "PXD006541",
+    "title": "LC-MSMS of cell secretome for MAP1LC3B interactors",
+    "additionalAttributes": [],
+    "projectDescription": "Growing evidence implicates autophagy in cell secretion.  Identifying the repertoire of proteins involved with autophagy dependent secretions is key for understanding the underlying mechanism.  We use a proximity-dependent biotinylation proteomics strategy to label protein that engage the autophagy regulator MAP1LC3B (LC3/ATG8) in cells; the labeled proteins are then secreted, captured with neutravidin, tryptically digested, and identified by LC-MS/MS.  Cells stably expressing BirA* alone serves as control for non-specific cytosolic labeling.  SILAC is employed to quantify the degree of LC3B interaction over the background.",
+    "sampleProcessingProtocol": "HEK293T cells stably expressing either biotin ligase (BirA*) fused to MAP1LC3B or BirA* alone is cultured in heavy SILAC media or light SILAC media, separately.  Biotin-labeling was performed via BioID procedures and conditioned media was collected 24 hours after biotin addition, precipitated with trichloroacetic acid and incubated for 1 h.  Precipitated protein was separated by ultracentrifugation twice (200,000g for 18h and 1h), solubilized and denatured in 8 M guanidine hydrochloride, 0.1 M Tris-HCl pH 8.0 for 1 h.   Re-solubilized protein BirA* alone and BirA*-LC3B, with different SILAC labels, were pooled separately, their concentrations quantified by BCA protein quantification tool.  Equivalent amounts of each pool (i.e. 5 mg BirA* SILAC light + 5 mg BirA*-LC3B SILAC heavy, or vice-versa for swapped channel SILAC sample) were combined and diluted to 2.5 mM Guanidine, 50 mM Tris pH 8.0.  Biotin labeled proteins were captured neutravidin sepharose, overnight at 4 C.  The beads were washed extensively and the proteins were mildly denatured in 1M guanidine hydrochloride, 1 mM calcium chloride and 0.1 M Tris buffer pH 8.0.  Disulfide bonds were reduced with 4 TCEP, and the free thiols were alkylated with 10 mM iodoacetamide.   Captured proteins were digested on-bead by adding 10 ug trypsin in 10 uL 50mM acetic acid at 37 C for 18 - 22 hours.  The eluate was acidified with TCA, then desalted by C18 cartridge.  ~1 ug of SILAC labeled peptides was submitted for LC-MSMS.  A 195 min reversed phase (2.4% - 32% acetonitrile, 0.1% formic acid) buffer gradient was run on each sample on a 15 cm Acclaim PepMap 100 C18 analytical column, using a Dionex Ultimate 3000 RSLCnano pump, in-line with a hybrid quadrupole-Orbitrap Q-Exactive Plus mass spectrometer.  A data dependent acquisition method with a MS1 resolution of 70,000, top12 or top15 method was set-up with HCD fragmentation at a normalized collision energy of 27.  Dynamic exclusion was activated for 20s after initial parent ion selection.",
+    "dataProcessingProtocol": "5 replicates of data were searched and quantified together via Maxquant (v1.5.1.2).  Search parameters for peptide search tolerance was 4.5 ppm, for centroided MS2 tolerance was 7.5 ppm, and allowed for 2 missed tryptic cleavages.  Constant modification of carbamidomethylation of cysteines and variable modifications of N-terminal acetylation, methionine oxidation, and Ser/Thr/Tyr phosphorylation were allowed.  Peptide spectrum match FDR and protein FDR was set at 1%.  Match between runs was enabled to increase peptide identifications, and protein level SILAC ratio quantification was performed by Maxquant.   Statistical analysis (one-sample T-test) was applied on the Maxquant calculated protein ratios for three replicates in the bioinformatics analysis package, Perseus (v1.5.6).  Significance threshold was set at a p-value of 0.05.",
+    "projectTags": [
+      "Biological"
+    ],
+    "keywords": [
+      "Lc-msms",
+      "Autophagy",
+      "Silac",
+      "Map1lc3b",
+      "Human",
+      "Bioid",
+      "Secretome"
+    ],
+    "doi": "",
+    "submissionType": "PARTIAL",
+    "license": "EBI terms of use",
+    "submissionDate": "2017-05-18",
+    "publicationDate": "2022-03-01",
+    "submitters": [
+      {
+        "title": "Dr",
+        "firstName": "Hector",
+        "lastName": "Huang",
+        "identifier": "72860120",
+        "affiliation": "UCSF",
+        "email": "hector.huang@gmail.com",
+        "country": "United States",
+        "orcid": "0000-0003-0908-9008",
+        "name": "Hector Huang",
+        "id": "72860120"
+      }
+    ],
+    "labPIs": [
+      {
+        "title": "Dr",
+        "firstName": "Arun Paul",
+        "lastName": "Wiita",
+        "identifier": "71610100",
+        "affiliation": "Wiita Lab, Department of Laboratory Medicine, University of California San Francisco, USA",
+        "email": "arun.wiita@ucsf.edu",
+        "country": "",
+        "orcid": "",
+        "name": "Arun Paul Wiita",
+        "id": "71610100"
+      }
+    ],
+    "instruments": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1002634",
+        "name": "Q Exactive Plus",
+        "value": ""
+      }
+    ],
+    "softwares": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1001583",
+        "name": "MaxQuant"
+      }
+    ],
+    "experimentTypes": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000429",
+        "name": "Shotgun proteomics"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000433",
+        "name": "Affinity purification coupled with mass spectrometry proteomics"
+      }
+    ],
+    "quantificationMethods": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000315",
+        "name": "SILAC"
+      }
+    ],
+    "countries": [
+      "United States"
+    ],
+    "sampleAttributes": [
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "EFO:0000635",
+          "name": "organism part"
+        },
+        "value": [
+          {
+            "cvLabel": "BTO",
+            "accession": "BTO:0000214",
+            "name": "cell culture",
+            "value": ""
+          },
+          {
+            "cvLabel": "CL",
+            "accession": "CL:0000057",
+            "name": "fibroblast",
+            "value": ""
+          },
+          {
+            "cvLabel": "CL",
+            "accession": "CL:0000066",
+            "name": "epithelial cell",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "OBI:0100026",
+          "name": "organism"
+        },
+        "value": [
+          {
+            "cvLabel": "NEWT",
+            "accession": "NEWT:9606",
+            "name": "Homo sapiens (Human)",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "EFO:0000408",
+          "name": "disease"
+        },
+        "value": [
+          {
+            "cvLabel": "DOID",
+            "accession": "DOID:0000018",
+            "name": "disease free",
+            "value": ""
+          }
+        ]
+      }
+    ],
+    "organisms": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "NEWT",
+        "accession": "NEWT:9606",
+        "name": "Homo sapiens (human)",
+        "value": ""
+      }
+    ],
+    "organismParts": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "CL",
+        "accession": "CL:0000066",
+        "name": "Epithelial cell",
+        "value": ""
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "BTO",
+        "accession": "BTO:0000214",
+        "name": "Cell culture",
+        "value": ""
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "CL",
+        "accession": "CL:0000057",
+        "name": "Fibroblast",
+        "value": ""
+      }
+    ],
+    "diseases": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "DOID",
+        "accession": "DOID:0000018",
+        "name": "Disease free",
+        "value": ""
+      }
+    ],
+    "references": [
+      {
+        "referenceLine": "Leidal AM, Huang HH, Marsh T, Solvik T, Zhang D, Ye J, Kai F, Goldsmith J, Liu JY, Huang YH, Monkkonen T, Vlahakis A, Huang EJ, Goodarzi H, Yu L, Wiita AP, Debnath J. The LC3-conjugation machinery specifies the loading of RNA-binding proteins into extracellular vesicles. Nat Cell Biol. 2020 22(2):187-199",
+        "pubmedID": 31932738,
+        "doi": "10.1038/s41556-019-0450-y"
+      }
+    ],
+    "identifiedPTMStrings": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00425",
+        "name": "monohydroxylated residue",
+        "value": ""
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00696",
+        "name": "phosphorylated residue",
+        "value": ""
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00394",
+        "name": "acetylated residue",
+        "value": ""
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00582",
+        "name": "6x(13)C",
+        "value": ""
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00587",
+        "name": "6x(13)C",
+        "value": ""
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00397",
+        "name": "iodoacetamide derivatized residue",
+        "value": ""
+      }
+    ],
+    "totalFileDownloads": 808,
+    "otherOmicsLinks": [
+      "geo:GSE137618",
+      "pride.project:PXD015479",
+      "px:PXD015479"
+    ],
+    "files": {
+      "files": [
+        {
+          "fileName": "Q20151206-09.raw",
+          "fileSizeBytes": 1184670723,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD006541/Q20151206-09.raw"
+        },
+        {
+          "fileName": "txt.zip",
+          "fileSizeBytes": 52355372,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD006541/txt.zip"
+        },
+        {
+          "fileName": "Q20160130-11.raw",
+          "fileSizeBytes": 1882238382,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD006541/Q20160130-11.raw"
+        },
+        {
+          "fileName": "Q20161115-13.raw",
+          "fileSizeBytes": 1062877544,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD006541/Q20161115-13.raw"
+        },
+        {
+          "fileName": "Q20161115-12.raw",
+          "fileSizeBytes": 1852093512,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD006541/Q20161115-12.raw"
+        },
+        {
+          "fileName": "Q20170307-03.raw",
+          "fileSizeBytes": 1569148748,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2022/03/PXD006541/Q20170307-03.raw"
+        }
+      ],
+      "totalCount": 6
+    }
+  }
+}

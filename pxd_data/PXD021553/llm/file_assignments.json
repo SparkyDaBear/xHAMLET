@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "pxd": "PXD021553",
+    "category": "llm",
+    "saved_at": "2026-06-30T15:12:37.918791",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"neisseria_meningitidis_in_vivo_nnp9\",\n      \"description\": \"In vivo cross-linking of Neisseria meningitidis cells using NNP9 (NNP9 labeling with PCAB enrichment).\",\n      \"organism\": \"Neisseria meningitidis\",\n      \"taxid\": \"NCBITaxon:455\",\n      \"crosslinker\": \"NNP9\",\n      \"biological_condition\": \"living bacterial cells cross-linked in vivo (time points: 2 h and 4 h; ferric citrate-supplemented growth)\",\n      \"files\": [\n        \"Nm_2h.raw\",\n        \"Nm_4h.raw\",\n        \"XL_Nm-01.raw\",\n        \"XL_Nm-02.raw\",\n        \"XL_Nm-03.raw\"\n      ],\n      \"confidence\": \"high\",\n      \"evidence_quote\": \"Neisseria meningitidis (Nm8013) were grown overnight on GBC plate supplemented with ferric citrate.\",\n      \"reasoning\": \"All filenames containing 'Nm' correspond to Neisseria meningitidis biological samples. The publication describes an in vivo workflow using NNP9 for cross-linking and PCAB enrichment, and no other organism or crosslinker is indicated for these files. The presence of both 'Nm_2h'/'Nm_4h' and 'XL_Nm-01..03' suggests the same experimental setup across time points/replicates, so they are grouped into one biological condition rather than split by time.\"\n    },\n    {\n      \"cluster_id\": \"cluster_2\",\n      \"cluster_label\": \"bsa_standard_nnp9\",\n      \"description\": \"Cross-linked BSA standard analyzed with the same in vivo-style workflow (NNP9 labeling with PCAB enrichment).\",\n      \"organism\": \"Bos taurus\",\n      \"taxid\": \"NCBITaxon:9913\",\n      \"crosslinker\": \"NNP9\",\n      \"biological_condition\": \"purified BSA standard cross-linked and enriched\",\n      \"files\": [\n        \"XL_BSA-01.raw\",\n        \"XL_BSA-02.raw\",\n        \"XL_BSA-03.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"Our approach shows an impressive efficiency on Neisseria meningitidis, leading to the identification of about 1,800 cross-links in a single LC-MS/MS run using a benchtop high-resolution Orbitrap mass spectrometer.\",\n      \"reasoning\": \"Filenames explicitly indicate a BSA standard ('XL_BSA-01..03'), implying a purified protein standard rather than bacterial cells. The publication text does not explicitly mention BSA or a different crosslinker for standards; therefore, NNP9 is inferred as the crosslinker used in the workflow. Organism is set to Bos taurus based on BSA.\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a biological XL-MS condition.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"No QC/calibration/blank files were provided; all input filenames match either Neisseria meningitidis ('Nm') or BSA ('BSA').\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 8,\n    \"n_assigned_files\": 8,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 2,\n    \"overall_confidence\": \"high\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "neisseria_meningitidis_in_vivo_nnp9",
+          "description": "In vivo cross-linking of Neisseria meningitidis cells using NNP9 (NNP9 labeling with PCAB enrichment).",
+          "organism": "Neisseria meningitidis",
+          "taxid": "NCBITaxon:455",
+          "crosslinker": "NNP9",
+          "biological_condition": "living bacterial cells cross-linked in vivo (time points: 2 h and 4 h; ferric citrate-supplemented growth)",
+          "files": [
+            "Nm_2h.raw",
+            "Nm_4h.raw",
+            "XL_Nm-01.raw",
+            "XL_Nm-02.raw",
+            "XL_Nm-03.raw"
+          ],
+          "confidence": "high",
+          "evidence_quote": "Neisseria meningitidis (Nm8013) were grown overnight on GBC plate supplemented with ferric citrate.",
+          "reasoning": "All filenames containing 'Nm' correspond to Neisseria meningitidis biological samples. The publication describes an in vivo workflow using NNP9 for cross-linking and PCAB enrichment, and no other organism or crosslinker is indicated for these files. The presence of both 'Nm_2h'/'Nm_4h' and 'XL_Nm-01..03' suggests the same experimental setup across time points/replicates, so they are grouped into one biological condition rather than split by time."
+        },
+        {
+          "cluster_id": "cluster_2",
+          "cluster_label": "bsa_standard_nnp9",
+          "description": "Cross-linked BSA standard analyzed with the same in vivo-style workflow (NNP9 labeling with PCAB enrichment).",
+          "organism": "Bos taurus",
+          "taxid": "NCBITaxon:9913",
+          "crosslinker": "NNP9",
+          "biological_condition": "purified BSA standard cross-linked and enriched",
+          "files": [
+            "XL_BSA-01.raw",
+            "XL_BSA-02.raw",
+            "XL_BSA-03.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "Our approach shows an impressive efficiency on Neisseria meningitidis, leading to the identification of about 1,800 cross-links in a single LC-MS/MS run using a benchtop high-resolution Orbitrap mass spectrometer.",
+          "reasoning": "Filenames explicitly indicate a BSA standard ('XL_BSA-01..03'), implying a purified protein standard rather than bacterial cells. The publication text does not explicitly mention BSA or a different crosslinker for standards; therefore, NNP9 is inferred as the crosslinker used in the workflow. Organism is set to Bos taurus based on BSA."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a biological XL-MS condition.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "No QC/calibration/blank files were provided; all input filenames match either Neisseria meningitidis ('Nm') or BSA ('BSA')."
+        }
+      ],
+      "summary": {
+        "n_input_files": 8,
+        "n_assigned_files": 8,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 2,
+        "overall_confidence": "high"
+      }
+    }
+  }
+}

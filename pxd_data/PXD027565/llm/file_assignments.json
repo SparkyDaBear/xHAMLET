@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "pxd": "PXD027565",
+    "category": "llm",
+    "saved_at": "2026-06-30T15:19:30.697548",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"k562_25hd_treated_vs_control_formaldehyde\",\n      \"description\": \"K562 chromatin-associated proteome after 2,5-hexanediol treatment vs control, crosslinked with formaldehyde; label-free MS.\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": \"formaldehyde\",\n      \"biological_condition\": \"2,5-hexanediol (25HD) treated vs control (chromatin-associated proteins)\",\n      \"files\": [\n        \"K562_25HD_treated_rep1_Experiment3.raw\",\n        \"K562_25HD_treated_rep2_Experiment3.raw\",\n        \"K562_25HD_treated_rep3_Experiment3.raw\",\n        \"K562_control_rep1_Experiment3.raw\",\n        \"K562_control_rep2_Experiment3.raw\",\n        \"K562_control_rep3_Experiment3.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"K562 cell line treated with 2,5-HD and proteins were captured via cross-linking.\",\n      \"reasoning\": \"All files are K562 (human) and share the same Experiment3 run context with biological replicates for two states indicated by the filename prefix: '25HD_treated' and 'control'. The publication explicitly states formaldehyde crosslinking ('cells were incubated with 1% formaldehyde in PBS to crosslink protein–DNA in the cells'), but the filenames do not specify the crosslinker. Because the task requires clustering by biological condition, organism, and crosslinker, and the crosslinker is shared across the experiment, these files are grouped together as one experiment-level condition set (treated and control) with formaldehyde as the crosslinker.\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a biological XL-MS condition.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"No QC/calibration/blank files were provided; all input filenames match K562 treated/control biological replicates.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 6,\n    \"n_assigned_files\": 6,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 1,\n    \"overall_confidence\": \"medium\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "k562_25hd_treated_vs_control_formaldehyde",
+          "description": "K562 chromatin-associated proteome after 2,5-hexanediol treatment vs control, crosslinked with formaldehyde; label-free MS.",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": "formaldehyde",
+          "biological_condition": "2,5-hexanediol (25HD) treated vs control (chromatin-associated proteins)",
+          "files": [
+            "K562_25HD_treated_rep1_Experiment3.raw",
+            "K562_25HD_treated_rep2_Experiment3.raw",
+            "K562_25HD_treated_rep3_Experiment3.raw",
+            "K562_control_rep1_Experiment3.raw",
+            "K562_control_rep2_Experiment3.raw",
+            "K562_control_rep3_Experiment3.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "K562 cell line treated with 2,5-HD and proteins were captured via cross-linking.",
+          "reasoning": "All files are K562 (human) and share the same Experiment3 run context with biological replicates for two states indicated by the filename prefix: '25HD_treated' and 'control'. The publication explicitly states formaldehyde crosslinking ('cells were incubated with 1% formaldehyde in PBS to crosslink protein–DNA in the cells'), but the filenames do not specify the crosslinker. Because the task requires clustering by biological condition, organism, and crosslinker, and the crosslinker is shared across the experiment, these files are grouped together as one experiment-level condition set (treated and control) with formaldehyde as the crosslinker."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a biological XL-MS condition.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "No QC/calibration/blank files were provided; all input filenames match K562 treated/control biological replicates."
+        }
+      ],
+      "summary": {
+        "n_input_files": 6,
+        "n_assigned_files": 6,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 1,
+        "overall_confidence": "medium"
+      }
+    }
+  }
+}

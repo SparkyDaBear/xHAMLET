@@ -1,0 +1,771 @@
+{
+  "metadata": {
+    "pxd": "PXD063825",
+    "category": "pride",
+    "saved_at": "2026-06-30T15:50:54.076084",
+    "filename": "project_details"
+  },
+  "data": {
+    "accession": "PXD063825",
+    "title": "Trioxane-based MS-cleavable Cross-linking Mass Spectrometry for Profiling Multimeric Interactions of Cellular Networks",
+    "additionalAttributes": [],
+    "projectDescription": "Here, we present a novel trioxane-based MS-cleavable homotrifunctional cross-linker TSTO, which can target three proximal lysine residues simultaneously. Owing to its unique structure and MS-cleavability, TSTO enables fast and unambiguous identification of cross-linked peptides using LC-MSn analysis. Importantly, we have demonstrated that the TSTO-based XL-MS platform is effective for mapping PPIs of protein complexes and cellular networks.",
+    "sampleProcessingProtocol": "Synthetic peptide Ac-SR8 was cross-linked at a concentration of 1 mM with 1 mM TSTO in anhydrous DMSO or pH 7.4 phosphate buffered saline. The reaction was carried out at RT with gentle vortexing, with aliquots of the original reaction volume being removed and quenched with ammonium bicarbonate at 5, 15, 30, and 60 min. After dilution by 1:500, the resulting cross-linked peptide mixtures were directly injected for MS analyses.  BSA was cross-linked at 20 mM with 1 mM TSTO in pH 7.4 phosphate buffered saline. The reaction was carried out for 1 hr at RT, followed by quenching with ammonium bicarbonate. The protein was then reduced with tris(2-carboxyethyl)phosphine (TCEP) for 30 min at RT and alkylated with iodoacetamide in the dark at RT for 30 min. Cross-linked proteins were then digested in 8M urea buffer using LysC for 4 hrs at 37 °C, followed by trypsin digestion at 37 °C overnight after diluting urea concentration to < 1.5 M. The resulting peptide mixtures were extracted and desalted using C18 tips (Agilent) prior to MS analyses.  Freshly excised mouse hearts were sliced into 1-2mm cubes and washed in cold PBS to remove blood. The cubed cardiac tissue was incubated in 3 mL of 1 mM TSTO in PBS for 1 hr at RT with rotation. The cross-linking reaction was then quenched using 20 mM ammonium bicarbonate for an additional 15min rotation at RT. The tubes were then gently centrifuged and the tissues were washed using cold PBS twice. The tissues were then flash frozen and manually cryopulverized before lysis using a BioRuptor in denaturing buffer (8 M urea, 50 mM Tris-HCl pH 7.5). 5 cycles consisting of 30 sec sonication followed by 30 sec rest were used to lyse the cryopulverized tissue. Lysate was clarified by centrifugation at 21,000g for 15 min in 4 °C and the resulting supernatant was transferred to EMD Millipore 30,000 NMWL Microcon centrifugal tubes for FASP digestion. Following digestion with LysC and trypsin, the resulting cross-linked peptide mixtures were then spun through the filter and desalted using Waters C18 Sep-Pak cartridges.  Peptide separation by SEC was performed similarly as described. Briefly, dried peptides were reconstituted in SEC mobile phase (0.1% formic acid and 30% ACN) and separated on a Superdex Peptide PC 3.2/30 column (300 x 3.2 mm) at a flow rate of 50 µL/min, monitored at 215, 254 and 280 nm UV absorbance. Two-minute fractions were collected, and only fractions 24 and 26 containing the most cross-linked peptides were collected. For high-pH separation, HpHt tips were prepared as described, and SEC-separated fractions were vacuum dried and resuspended in ammonium water (pH 10). After loading onto the tip, the peptides were eluted using increasing percentage of ACN in ammonia water (6%, 9%, 12%, 15%, 18%, 21%, 25%, 30%, 35%, and 50%). The 25%, 30%, 35% and 50% fractions were then combined with 6%, 9%, 12% and 21% fractions, respectively. The final SEC-HpHt fractions were vacuum dried and stored at -80 oC before MS analysis.  LC-MSn analysis of cross-linked peptides was performed using an UltiMate 3000 UPLC (Thermo Fisher Scientific) liquid chromatograph coupled on-line to an Orbitrap Fusion Lumos mass spectrometer (Thermo Fisher Scientific). Peptides were separated by reverse-phase on a 50cm x 75μm I.D. Acclaim® PepMap RSLC column using gradients of 4% to 25% acetonitrile at a flow rate of 300 nL/min (solvent A: 100% H2O, 0.1% formic acid; solvent B: 100% acetonitrile, 0.1% formic acid) prior to MSn analysis. For each MSn acquisition, duty cycles consisted of one full Fourier transform scan mass spectrum (375–1500 m/z, resolution of 60,000 at m/z 400) followed by data-dependent MS2 and MS3 acquired at top speed in the Orbitrap and linear ion trap, respectively. Ions detected in MS1 with 4+ or greater charge were selected and subjected to CID fragmentation (NCE 23%) in MS2 and resulting ions were detected in the Orbitrap (resolution 30,000). Ions observed in MS2 spectra with charge 2+ or greater were selected and fragmented in MS3 using CID (NCE 35%) and detected in the linear ion trap in ‘Rapid’ mode. Ions selected for MS3 were either based on abundance (top 4 or 5 most intense ions in MS2) or targeted based on doublets with mass difference pairs (Δ=18.02 Da) corresponding to cross-linker remnant moiety water loss. For 26S proteasome cross-links, each acquisition was 200 min and ion selection for MS3 was based on top intensity. For SEC-separated F24 fractions, the entire HpHt fraction was injected; for F26 fractions half of the HpHt fraction was injected for each LC-MSn analysis. Each acquisition was 120 or 150 min, and both top intensity and mass difference-targeted methods were used for selecting ions for MS3 analysis.",
+    "dataProcessingProtocol": "Spectrometric data were extracted from .raw files using PAVA. Extracted MS3 spectra were subjected to protein database searching via Batch-Tag within a developmental version of Protein Prospector (v. 6.3.5, University of California, San Francisco) against a randomly concatenated SwissProt database consisting of 20,418 human proteins and their corresponding decoys. Mass tolerances for parent ions and fragment ions were set as ± 15 ppm and 0.6 Da, respectively. Trypsin was set as the enzyme with three maximum missed cleavages allowed. Cysteine carbamidomethylation was selected as a constant modification, while protein N-terminal acetylation, methionine oxidation, and N-terminal conversion of glutamine to pyroglutamic acid were selected as variable modifications. Two additional defined variable modifications on uncleaved lysines and free protein N-termini were selected: AR (C5H6O2, 98.04 Da) and AR* (C5H4O, 80.03 Da), corresponding to remnant moieties for cleaved TSTO. MSn data (monoisotopic masses and charges of parent ions and corresponding fragment ions and MS3 database search results were integrated via in-house software xl-Tools to automatically generate, summarize and validate identified cross-linked peptide pairs. Experimental FDR calculated using a target-decoy approach was determined to be 0.01% (3/28,949) at the CSM level.4% at the cross-link level. Using a minimum peptide length of 5 residues for individual cross-linked peptides, separation of inter/intra FDR calculation resulted in experimental FDRs of 0.2% and 0.0%, respectively.",
+    "projectTags": [],
+    "keywords": [
+      "Tsto",
+      "Xl-ms",
+      "Lc-msn"
+    ],
+    "doi": "",
+    "submissionType": "PARTIAL",
+    "license": "Creative Commons Public Domain (CC0)",
+    "submissionDate": "2025-05-10",
+    "publicationDate": "2025-05-30",
+    "submitters": [
+      {
+        "title": "Dr",
+        "firstName": "Clinton",
+        "lastName": "Yu",
+        "identifier": "127790101",
+        "affiliation": "University of California, Irvine",
+        "email": "clinton.yu@uci.edu",
+        "country": "United States",
+        "orcid": "",
+        "name": "Clinton Yu",
+        "id": "127790101"
+      }
+    ],
+    "labPIs": [
+      {
+        "title": "Dr",
+        "firstName": "Dr. Lan",
+        "lastName": "Huang",
+        "identifier": "3147141",
+        "affiliation": "Department of Physiology & Biophysics, University of California, Irvine, Irvine, CA 92697, USA",
+        "email": "lanhuang@uci.edu",
+        "country": "",
+        "orcid": "",
+        "name": "Dr. Lan Huang",
+        "id": "3147141"
+      }
+    ],
+    "instruments": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1002732",
+        "name": "Orbitrap Fusion Lumos"
+      }
+    ],
+    "softwares": [],
+    "experimentTypes": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000430",
+        "name": "Chemical cross-linking coupled with mass spectrometry proteomics"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000428",
+        "name": "Bottom-up proteomics"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000627",
+        "name": "Data-dependent acquisition"
+      }
+    ],
+    "quantificationMethods": [],
+    "countries": [
+      "United States"
+    ],
+    "sampleAttributes": [
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "EFO:0000635",
+          "name": "organism part"
+        },
+        "value": [
+          {
+            "cvLabel": "BTO",
+            "accession": "BTO:0000562",
+            "name": "heart"
+          }
+        ]
+      },
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "OBI:0100026",
+          "name": "organism"
+        },
+        "value": [
+          {
+            "cvLabel": "NEWT",
+            "accession": "NEWT:10090",
+            "name": "Mus musculus (Mouse)"
+          }
+        ]
+      }
+    ],
+    "organisms": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "NEWT",
+        "accession": "NEWT:10090",
+        "name": "Mus musculus (mouse)"
+      }
+    ],
+    "organismParts": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "BTO",
+        "accession": "BTO:0000562",
+        "name": "Heart"
+      }
+    ],
+    "diseases": [],
+    "references": [],
+    "identifiedPTMStrings": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00425",
+        "name": "monohydroxylated residue"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MOD",
+        "accession": "MOD:00397",
+        "name": "iodoacetamide derivatized residue"
+      }
+    ],
+    "totalFileDownloads": 2917,
+    "botCount": 1290,
+    "hubCount": 1579,
+    "organicCount": 48,
+    "files": {
+      "files": [
+        {
+          "fileName": "H3_F2_HpHt4.txt",
+          "fileSizeBytes": 419959,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H3_F2_HpHt4.txt"
+        },
+        {
+          "fileName": "H2_F2_HpHt6.txt",
+          "fileSizeBytes": 558359,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H2_F2_HpHt6.txt"
+        },
+        {
+          "fileName": "H2_F2_HpHt2.txt",
+          "fileSizeBytes": 1016513,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H2_F2_HpHt2.txt"
+        },
+        {
+          "fileName": "H1_F2_HpHt1.txt",
+          "fileSizeBytes": 308559,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H1_F2_HpHt1.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250217_01_H3_F2_HpHt1.raw",
+          "fileSizeBytes": 1214311640,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250217_01_H3_F2_HpHt1.raw"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250215_04_ITMSms3cid.txt",
+          "fileSizeBytes": 50077296,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250215_04_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250215_09_ITMSms3cid.txt",
+          "fileSizeBytes": 52318503,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250215_09_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20241219_09_AcSR8_TSTO15.raw",
+          "fileSizeBytes": 436882884,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20241219_09_AcSR8_TSTO15.raw"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250216_11_ITMSms3cid.txt",
+          "fileSizeBytes": 41556092,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250216_11_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "H3_F3_HpHt1.txt",
+          "fileSizeBytes": 348903,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H3_F3_HpHt1.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250217_13_H3_F3_HpHt6.raw",
+          "fileSizeBytes": 1383602984,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250217_13_H3_F3_HpHt6.raw"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250215_10_ITMSms3cid.txt",
+          "fileSizeBytes": 44344934,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250215_10_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20241219_08_AcSR8_TSTO5.raw",
+          "fileSizeBytes": 437919939,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20241219_08_AcSR8_TSTO5.raw"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250215_08_ITMSms3cid.txt",
+          "fileSizeBytes": 51918979,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250215_08_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "H1_F3_HpHt2.txt",
+          "fileSizeBytes": 727823,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H1_F3_HpHt2.txt"
+        },
+        {
+          "fileName": "H1_F3_HpHt1.txt",
+          "fileSizeBytes": 514698,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H1_F3_HpHt1.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250217_03_H3_F2_HpHt3.raw",
+          "fileSizeBytes": 1170969532,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250217_03_H3_F2_HpHt3.raw"
+        },
+        {
+          "fileName": "H3_F3_HpHt5.txt",
+          "fileSizeBytes": 359629,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H3_F3_HpHt5.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250216_06_H2_F2_HpHt6.raw",
+          "fileSizeBytes": 1218525350,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250216_06_H2_F2_HpHt6.raw"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20241219_01_AcSR8.raw",
+          "fileSizeBytes": 458019454,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20241219_01_AcSR8.raw"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250217_01_ITMSms3cid.txt",
+          "fileSizeBytes": 66480131,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250217_01_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250216_04_ITMSms3cid.txt",
+          "fileSizeBytes": 61441215,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250216_04_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250216_08_ITMSms3cid.txt",
+          "fileSizeBytes": 47618125,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250216_08_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "H1_F2_HpHt4.txt",
+          "fileSizeBytes": 514901,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H1_F2_HpHt4.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250217_10_ITMSms3cid.txt",
+          "fileSizeBytes": 39088973,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250217_10_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250216_03_ITMSms3cid.txt",
+          "fileSizeBytes": 66475569,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250216_03_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "H1_F3_HpHt3.txt",
+          "fileSizeBytes": 458670,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H1_F3_HpHt3.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250216_12_H2_F3_HpHt5.raw",
+          "fileSizeBytes": 1379655436,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250216_12_H2_F3_HpHt5.raw"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250215_06_ITMSms3cid.txt",
+          "fileSizeBytes": 45140953,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250215_06_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250216_13_ITMSms3cid.txt",
+          "fileSizeBytes": 42894471,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250216_13_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250215_02_ITMSms3cid.txt",
+          "fileSizeBytes": 58717955,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250215_02_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "H1_F3_HpHt5.txt",
+          "fileSizeBytes": 573197,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H1_F3_HpHt5.txt"
+        },
+        {
+          "fileName": "H3_F2_HpHt3.txt",
+          "fileSizeBytes": 640375,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H3_F2_HpHt3.txt"
+        },
+        {
+          "fileName": "H1_F2_HpHt5.txt",
+          "fileSizeBytes": 446818,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H1_F2_HpHt5.txt"
+        },
+        {
+          "fileName": "H1_F3_HpHt6.txt",
+          "fileSizeBytes": 237178,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H1_F3_HpHt6.txt"
+        },
+        {
+          "fileName": "H2_F2_HpHt3.txt",
+          "fileSizeBytes": 1050414,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H2_F2_HpHt3.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250217_06_H3_F2_HpHt6.raw",
+          "fileSizeBytes": 1230488869,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250217_06_H3_F2_HpHt6.raw"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250217_06_ITMSms3cid.txt",
+          "fileSizeBytes": 59569976,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250217_06_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "H2_F3_HpHt4.txt",
+          "fileSizeBytes": 572014,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H2_F3_HpHt4.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250217_09_ITMSms3cid.txt",
+          "fileSizeBytes": 44369266,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250217_09_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "H3_F2_HpHt6.txt",
+          "fileSizeBytes": 334311,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H3_F2_HpHt6.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250216_01_H2_F2_HpHt1.raw",
+          "fileSizeBytes": 1151493634,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250216_01_H2_F2_HpHt1.raw"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250217_11_H3_F3_HpHt4.raw",
+          "fileSizeBytes": 1495983207,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250217_11_H3_F3_HpHt4.raw"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20241219_11_AcSR8_TSTO60.raw",
+          "fileSizeBytes": 454678689,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20241219_11_AcSR8_TSTO60.raw"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250215_12_ITMSms3cid.txt",
+          "fileSizeBytes": 46489671,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250215_12_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250116_06_BSA_F3.raw",
+          "fileSizeBytes": 1078648618,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250116_06_BSA_F3.raw"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250217_05_H3_F2_HpHt5.raw",
+          "fileSizeBytes": 1313532305,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250217_05_H3_F2_HpHt5.raw"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250116_05_BSA_F2.raw",
+          "fileSizeBytes": 1393295615,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250116_05_BSA_F2.raw"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250217_08_ITMSms3cid.txt",
+          "fileSizeBytes": 47684966,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250217_08_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "H2_F2_HpHt1.txt",
+          "fileSizeBytes": 583165,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H2_F2_HpHt1.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250216_05_ITMSms3cid.txt",
+          "fileSizeBytes": 61836731,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250216_05_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250215_09_H1_F3_HpHt2.raw",
+          "fileSizeBytes": 1416113399,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250215_09_H1_F3_HpHt2.raw"
+        },
+        {
+          "fileName": "H2_F2_HpHt5.txt",
+          "fileSizeBytes": 713829,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H2_F2_HpHt5.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250216_06_ITMSms3cid.txt",
+          "fileSizeBytes": 60213291,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250216_06_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250216_02_H2_F2_HpHt2.raw",
+          "fileSizeBytes": 1151966022,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250216_02_H2_F2_HpHt2.raw"
+        },
+        {
+          "fileName": "H3_F3_HpHt6.txt",
+          "fileSizeBytes": 130858,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H3_F3_HpHt6.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250217_13_ITMSms3cid.txt",
+          "fileSizeBytes": 40922439,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250217_13_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250216_12_ITMSms3cid.txt",
+          "fileSizeBytes": 43013047,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250216_12_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "H3_F3_HpHt3.txt",
+          "fileSizeBytes": 285178,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H3_F3_HpHt3.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250215_01_H1_F2_HpHt1.raw",
+          "fileSizeBytes": 1573466277,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250215_01_H1_F2_HpHt1.raw"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250215_05_H1_F2_HpHt5.raw",
+          "fileSizeBytes": 1418669570,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250215_05_H1_F2_HpHt5.raw"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250215_02_H1_F2_HpHt2.raw",
+          "fileSizeBytes": 1327859343,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250215_02_H1_F2_HpHt2.raw"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250217_09_H3_F3_HpHt2.raw",
+          "fileSizeBytes": 1306997549,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250217_09_H3_F3_HpHt2.raw"
+        },
+        {
+          "fileName": "H2_F3_HpHt6.txt",
+          "fileSizeBytes": 247390,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H2_F3_HpHt6.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250217_03_ITMSms3cid.txt",
+          "fileSizeBytes": 64075043,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250217_03_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250215_11_ITMSms3cid.txt",
+          "fileSizeBytes": 44675970,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250215_11_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250215_03_H1_F2_HpHt3.raw",
+          "fileSizeBytes": 1327990673,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250215_03_H1_F2_HpHt3.raw"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250217_12_H3_F3_HpHt5.raw",
+          "fileSizeBytes": 1390191637,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250217_12_H3_F3_HpHt5.raw"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250215_06_H1_F2_HpHt6.raw",
+          "fileSizeBytes": 1371365325,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250215_06_H1_F2_HpHt6.raw"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250216_04_H2_F2_HpHt4.raw",
+          "fileSizeBytes": 1223131487,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250216_04_H2_F2_HpHt4.raw"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250217_11_ITMSms3cid.txt",
+          "fileSizeBytes": 40768469,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250217_11_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250215_10_H1_F3_HpHt3.raw",
+          "fileSizeBytes": 1463452014,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250215_10_H1_F3_HpHt3.raw"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250216_11_H2_F3_HpHt4.raw",
+          "fileSizeBytes": 1460668546,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250216_11_H2_F3_HpHt4.raw"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250215_13_H1_F3_HpHt6.raw",
+          "fileSizeBytes": 1316986911,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250215_13_H1_F3_HpHt6.raw"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250216_01_ITMSms3cid.txt",
+          "fileSizeBytes": 68430628,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250216_01_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "H2_F3_HpHt1.txt",
+          "fileSizeBytes": 558719,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H2_F3_HpHt1.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20241219_10_AcSR8_TSTO30.raw",
+          "fileSizeBytes": 435178541,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20241219_10_AcSR8_TSTO30.raw"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250216_09_H2_F3_HpHt2.raw",
+          "fileSizeBytes": 1316000731,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250216_09_H2_F3_HpHt2.raw"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250215_05_ITMSms3cid.txt",
+          "fileSizeBytes": 47473690,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250215_05_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "BSA_F3.txt",
+          "fileSizeBytes": 2700486,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/BSA_F3.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250215_12_H1_F3_HpHt5.raw",
+          "fileSizeBytes": 1400811537,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250215_12_H1_F3_HpHt5.raw"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250217_02_H3_F2_HpHt2.raw",
+          "fileSizeBytes": 1162851157,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250217_02_H3_F2_HpHt2.raw"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250215_11_H1_F3_HpHt4.raw",
+          "fileSizeBytes": 1525903316,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250215_11_H1_F3_HpHt4.raw"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250215_13_ITMSms3cid.txt",
+          "fileSizeBytes": 46489187,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250215_13_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250217_12_ITMSms3cid.txt",
+          "fileSizeBytes": 41371236,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250217_12_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250216_05_H2_F2_HpHt5.raw",
+          "fileSizeBytes": 1242855795,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250216_05_H2_F2_HpHt5.raw"
+        },
+        {
+          "fileName": "checksum.txt",
+          "fileSizeBytes": 15746,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/checksum.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250216_02_ITMSms3cid.txt",
+          "fileSizeBytes": 71481842,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250216_02_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "H2_F3_HpHt2.txt",
+          "fileSizeBytes": 683146,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H2_F3_HpHt2.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250217_08_H3_F3_HpHt1.raw",
+          "fileSizeBytes": 1337379885,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250217_08_H3_F3_HpHt1.raw"
+        },
+        {
+          "fileName": "H2_F2_HpHt4.txt",
+          "fileSizeBytes": 698123,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H2_F2_HpHt4.txt"
+        },
+        {
+          "fileName": "H1_F2_HpHt6.txt",
+          "fileSizeBytes": 298281,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H1_F2_HpHt6.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250216_03_H2_F2_HpHt3.raw",
+          "fileSizeBytes": 1190200739,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250216_03_H2_F2_HpHt3.raw"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250215_03_ITMSms3cid.txt",
+          "fileSizeBytes": 55106052,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250215_03_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250216_09_ITMSms3cid.txt",
+          "fileSizeBytes": 43438216,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250216_09_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250116_06_ITMSms3cid.txt",
+          "fileSizeBytes": 45111801,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250116_06_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250217_10_H3_F3_HpHt3.raw",
+          "fileSizeBytes": 1449884800,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250217_10_H3_F3_HpHt3.raw"
+        },
+        {
+          "fileName": "H1_F3_HpHt4.txt",
+          "fileSizeBytes": 535603,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H1_F3_HpHt4.txt"
+        },
+        {
+          "fileName": "BSA_F2.txt",
+          "fileSizeBytes": 1223835,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/BSA_F2.txt"
+        },
+        {
+          "fileName": "H3_F2_HpHt5.txt",
+          "fileSizeBytes": 495947,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H3_F2_HpHt5.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250216_10_ITMSms3cid.txt",
+          "fileSizeBytes": 39881436,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250216_10_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250216_08_H2_F3_HpHt1.raw",
+          "fileSizeBytes": 1315348227,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250216_08_H2_F3_HpHt1.raw"
+        },
+        {
+          "fileName": "H2_F3_HpHt5.txt",
+          "fileSizeBytes": 631229,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H2_F3_HpHt5.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250217_02_ITMSms3cid.txt",
+          "fileSizeBytes": 69708255,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250217_02_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "H3_F3_HpHt2.txt",
+          "fileSizeBytes": 464622,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H3_F3_HpHt2.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250215_04_H1_F2_HpHt4.raw",
+          "fileSizeBytes": 1403553524,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250215_04_H1_F2_HpHt4.raw"
+        },
+        {
+          "fileName": "Compiled_BSA.xlsx",
+          "fileSizeBytes": 261825,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/Compiled_BSA.xlsx"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250217_05_ITMSms3cid.txt",
+          "fileSizeBytes": 61363620,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250217_05_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250116_05_ITMSms3cid.txt",
+          "fileSizeBytes": 24082863,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250116_05_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250216_13_H2_F3_HpHt6.raw",
+          "fileSizeBytes": 1331379682,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250216_13_H2_F3_HpHt6.raw"
+        },
+        {
+          "fileName": "H1_F2_HpHt3.txt",
+          "fileSizeBytes": 864432,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H1_F2_HpHt3.txt"
+        },
+        {
+          "fileName": "H3_F3_HpHt4.txt",
+          "fileSizeBytes": 362415,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H3_F3_HpHt4.txt"
+        },
+        {
+          "fileName": "H1_F2_HpHt2.txt",
+          "fileSizeBytes": 715564,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H1_F2_HpHt2.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250215_01_ITMSms3cid.txt",
+          "fileSizeBytes": 47735535,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250215_01_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250216_10_H2_F3_HpHt3.raw",
+          "fileSizeBytes": 1459589086,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250216_10_H2_F3_HpHt3.raw"
+        },
+        {
+          "fileName": "H2_F3_HpHt3.txt",
+          "fileSizeBytes": 528959,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H2_F3_HpHt3.txt"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250217_04_ITMSms3cid.txt",
+          "fileSizeBytes": 63800445,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250217_04_ITMSms3cid.txt"
+        },
+        {
+          "fileName": "H3_F2_HpHt2.txt",
+          "fileSizeBytes": 689363,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H3_F2_HpHt2.txt"
+        },
+        {
+          "fileName": "H3_F2_HpHt1.txt",
+          "fileSizeBytes": 302272,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/H3_F2_HpHt1.txt"
+        },
+        {
+          "fileName": "Compiled_heart-tissue.xlsx",
+          "fileSizeBytes": 2448390,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/Compiled_heart-tissue.xlsx"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250217_04_H3_F2_HpHt4.raw",
+          "fileSizeBytes": 1210805202,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250217_04_H3_F2_HpHt4.raw"
+        },
+        {
+          "fileName": "OrbitrapLUMOS_20250215_08_H1_F3_HpHt1.raw",
+          "fileSizeBytes": 1455141676,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/05/PXD063825/OrbitrapLUMOS_20250215_08_H1_F3_HpHt1.raw"
+        }
+      ],
+      "totalCount": 122
+    }
+  }
+}

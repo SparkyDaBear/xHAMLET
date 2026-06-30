@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "pxd": "PXD013063",
+    "category": "llm",
+    "saved_at": "2026-06-30T15:03:17.604298",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"human_control_lysxl\",\n      \"description\": \"Human proteome cross-linked under lysate (LysXL) control condition.\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": null,\n      \"biological_condition\": \"control; lysate cross-linking (LysXL)\",\n      \"files\": [\n        \"112017_LysXL_control_F10_KCF.raw\",\n        \"112017_LysXL_control_F11_14_KCF.raw\",\n        \"112017_LysXL_control_F6_7_KCF.raw\",\n        \"112017_LysXL_control_F8_KCF.raw\",\n        \"112017_LysXL_control_F9_KCF.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"112017_LysXL_control_F*.raw\",\n      \"reasoning\": \"All filenames share the same condition prefix '112017_LysXL_control' indicating lysate cross-linking in a control state; they differ only by fraction pooling (F10, F11_14, F6_7, etc.), which should not drive separate clusters.\"\n    },\n    {\n      \"cluster_id\": \"cluster_2\",\n      \"cluster_label\": \"human_control_vivoxl\",\n      \"description\": \"Human proteome cross-linked under in vivo (vivoXL) control condition.\",\n      \"organism\": \"Homo sapiens\",\n      \"taxid\": \"NCBITaxon:9606\",\n      \"crosslinker\": null,\n      \"biological_condition\": \"control; in vivo cross-linking (vivoXL)\",\n      \"files\": [\n        \"112017_vivoXL_control_F10_KCF.raw\",\n        \"112017_vivoXL_control_F11_14_KCF.raw\",\n        \"112017_vivoXL_control_F6_7_KCF.raw\",\n        \"112017_vivoXL_control_F8_KCF.raw\",\n        \"112017_vivoXL_control_F9_KCF.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"112017_vivoXL_control_F*.raw\",\n      \"reasoning\": \"All filenames share the same condition prefix '112017_vivoXL_control' indicating intact/in vivo cross-linking in a control state; differences are only by fraction pooling (F10, F11_14, etc.). Publication text describes intact cell (in vivo) versus lysate cross-linking as distinct sample types, supporting separate clusters.\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a biological XL-MS condition.\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"No QC/calibration/blank files were provided, and all input filenames match either LysXL_control or vivoXL_control patterns.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 10,\n    \"n_assigned_files\": 10,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 2,\n    \"overall_confidence\": \"medium\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "human_control_lysxl",
+          "description": "Human proteome cross-linked under lysate (LysXL) control condition.",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": null,
+          "biological_condition": "control; lysate cross-linking (LysXL)",
+          "files": [
+            "112017_LysXL_control_F10_KCF.raw",
+            "112017_LysXL_control_F11_14_KCF.raw",
+            "112017_LysXL_control_F6_7_KCF.raw",
+            "112017_LysXL_control_F8_KCF.raw",
+            "112017_LysXL_control_F9_KCF.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "112017_LysXL_control_F*.raw",
+          "reasoning": "All filenames share the same condition prefix '112017_LysXL_control' indicating lysate cross-linking in a control state; they differ only by fraction pooling (F10, F11_14, F6_7, etc.), which should not drive separate clusters."
+        },
+        {
+          "cluster_id": "cluster_2",
+          "cluster_label": "human_control_vivoxl",
+          "description": "Human proteome cross-linked under in vivo (vivoXL) control condition.",
+          "organism": "Homo sapiens",
+          "taxid": "NCBITaxon:9606",
+          "crosslinker": null,
+          "biological_condition": "control; in vivo cross-linking (vivoXL)",
+          "files": [
+            "112017_vivoXL_control_F10_KCF.raw",
+            "112017_vivoXL_control_F11_14_KCF.raw",
+            "112017_vivoXL_control_F6_7_KCF.raw",
+            "112017_vivoXL_control_F8_KCF.raw",
+            "112017_vivoXL_control_F9_KCF.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "112017_vivoXL_control_F*.raw",
+          "reasoning": "All filenames share the same condition prefix '112017_vivoXL_control' indicating intact/in vivo cross-linking in a control state; differences are only by fraction pooling (F10, F11_14, etc.). Publication text describes intact cell (in vivo) versus lysate cross-linking as distinct sample types, supporting separate clusters."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a biological XL-MS condition.",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "No QC/calibration/blank files were provided, and all input filenames match either LysXL_control or vivoXL_control patterns."
+        }
+      ],
+      "summary": {
+        "n_input_files": 10,
+        "n_assigned_files": 10,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 2,
+        "overall_confidence": "medium"
+      }
+    }
+  }
+}

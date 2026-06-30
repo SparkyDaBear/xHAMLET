@@ -1,0 +1,95 @@
+{
+  "metadata": {
+    "pxd": "PXD014499",
+    "category": "llm",
+    "saved_at": "2026-06-30T15:04:41.137000",
+    "filename": "file_assignments"
+  },
+  "data": {
+    "response": "{\n  \"clusters\": [\n    {\n      \"cluster_id\": \"cluster_1\",\n      \"cluster_label\": \"mouse_heart_apex_isoproterenol\",\n      \"description\": \"Mouse cardiac proximity-labeled proteome (APEX2) under isoproterenol stimulation.\",\n      \"organism\": \"Mus musculus\",\n      \"taxid\": \"NCBITaxon:10090\",\n      \"crosslinker\": null,\n      \"biological_condition\": \"isoproterenol-stimulated heart (APEX2 proximity labeling)\",\n      \"files\": [\n        \"SM_11plx_APEXhearts_Mar2019_Fr1_L07822.raw\",\n        \"SM_11plx_APEXhearts_Mar2019_Fr2_L07823.raw\",\n        \"SM_11plx_APEXhearts_Mar2019_Fr3_L07824.raw\",\n        \"SM_11plx_APEXhearts_Mar2019_Fr4_L07825.raw\",\n        \"SM_11plx_APEXhearts_Mar2019_Fr5_L07826.raw\",\n        \"SM_11plx_APEXhearts_Mar2019_Fr6_L07827.raw\"\n      ],\n      \"confidence\": \"medium\",\n      \"evidence_quote\": \"During the final 5 minutes, 1 μM Isoproterenol (Sigma 1351005) or vehicle was added to the perfusate.\",\n      \"reasoning\": \"All six files share the same condition prefix 'SM_11plx_APEXhearts_Mar2019' and differ only by fraction/run suffixes, which should be grouped. The publication describes APEX proximity labeling in perfused hearts with either isoproterenol or vehicle; filenames do not explicitly encode vehicle vs isoproterenol, so assignment to isoproterenol is inferred at medium confidence.\"\n    },\n    {\n      \"cluster_id\": \"cluster_2\",\n      \"cluster_label\": \"mouse_heart_apex_vehicle\",\n      \"description\": \"Mouse cardiac proximity-labeled proteome (APEX2) under vehicle control.\",\n      \"organism\": \"Mus musculus\",\n      \"taxid\": \"NCBITaxon:10090\",\n      \"crosslinker\": null,\n      \"biological_condition\": \"vehicle-treated heart (APEX2 proximity labeling)\",\n      \"files\": [\n        \"SM_10plx_Feb2019_Fr1_L07711.raw\",\n        \"SM_10plx_Feb2019_Fr2_L07712.raw\",\n        \"SM_10plx_Feb2019_Fr3_L07713.raw\",\n        \"SM_10plx_Feb2019_Fr4_L07714.raw\",\n        \"SM_10plx_Feb2019_Fr5_L07715.raw\",\n        \"SM_10plx_Feb2019_Fr6_L07716.raw\"\n      ],\n      \"confidence\": \"low\",\n      \"evidence_quote\": \"During the final 5 minutes, 1 μM Isoproterenol (Sigma 1351005) or vehicle was added to the perfusate.\",\n      \"reasoning\": \"These six files share 'SM_10plx' and 'Feb2019' and are grouped as one biological condition. However, the filenames do not explicitly indicate whether this set corresponds to isoproterenol or vehicle, and the publication only states that both were used. Therefore, vehicle assignment is a weak inference based on having two distinct APEX-heart sets (SM_10plx vs SM_11plx).\"\n    },\n    {\n      \"cluster_id\": \"cluster_3\",\n      \"cluster_label\": \"mouse_heart_nonapex_plx\",\n      \"description\": \"Mouse cardiac proximity-labeled proteome (non-APEX hearts) or another proximity labeling variant not clearly specified in filenames.\",\n      \"organism\": \"Mus musculus\",\n      \"taxid\": \"NCBITaxon:10090\",\n      \"crosslinker\": null,\n      \"biological_condition\": \"proximity labeling condition not explicitly specified\",\n      \"files\": [\n        \"SM_10plx_Fr1_L07196.raw\",\n        \"SM_10plx_Fr2_L07197.raw\",\n        \"SM_10plx_Fr3_L07198.raw\",\n        \"SM_10plx_Fr4_L07199.raw\",\n        \"SM_10plx_Fr5_L07200.raw\",\n        \"SM_10plx_Fr6_L07201.raw\"\n      ],\n      \"confidence\": \"low\",\n      \"evidence_quote\": \"Proximity labeling biotinylation: Proximity labeling was performed as described with minor modifications.\",\n      \"reasoning\": \"These six files share 'SM_10plx' but lack the 'APEXhearts' tag present in the other heart set, suggesting a different proximity labeling configuration or sample type. The publication text provided does not map these exact filename variants to a specific biological state, so this cluster is kept separate with low confidence.\"\n    },\n    {\n      \"cluster_id\": \"cluster_0\",\n      \"cluster_label\": \"unassigned\",\n      \"description\": \"Files that could not be confidently assigned to a biological XL-MS condition (or crosslinker not specified).\",\n      \"organism\": null,\n      \"taxid\": null,\n      \"crosslinker\": null,\n      \"biological_condition\": null,\n      \"files\": [],\n      \"confidence\": \"low\",\n      \"evidence_quote\": null,\n      \"reasoning\": \"No QC/calibrant/blank files were provided in the input list; all files appear to be biological runs.\"\n    }\n  ],\n  \"summary\": {\n    \"n_input_files\": 18,\n    \"n_assigned_files\": 18,\n    \"n_unassigned_files\": 0,\n    \"n_biological_clusters\": 3,\n    \"overall_confidence\": \"low\"\n  }\n}",
+    "parsed": {
+      "clusters": [
+        {
+          "cluster_id": "cluster_1",
+          "cluster_label": "mouse_heart_apex_isoproterenol",
+          "description": "Mouse cardiac proximity-labeled proteome (APEX2) under isoproterenol stimulation.",
+          "organism": "Mus musculus",
+          "taxid": "NCBITaxon:10090",
+          "crosslinker": null,
+          "biological_condition": "isoproterenol-stimulated heart (APEX2 proximity labeling)",
+          "files": [
+            "SM_11plx_APEXhearts_Mar2019_Fr1_L07822.raw",
+            "SM_11plx_APEXhearts_Mar2019_Fr2_L07823.raw",
+            "SM_11plx_APEXhearts_Mar2019_Fr3_L07824.raw",
+            "SM_11plx_APEXhearts_Mar2019_Fr4_L07825.raw",
+            "SM_11plx_APEXhearts_Mar2019_Fr5_L07826.raw",
+            "SM_11plx_APEXhearts_Mar2019_Fr6_L07827.raw"
+          ],
+          "confidence": "medium",
+          "evidence_quote": "During the final 5 minutes, 1 μM Isoproterenol (Sigma 1351005) or vehicle was added to the perfusate.",
+          "reasoning": "All six files share the same condition prefix 'SM_11plx_APEXhearts_Mar2019' and differ only by fraction/run suffixes, which should be grouped. The publication describes APEX proximity labeling in perfused hearts with either isoproterenol or vehicle; filenames do not explicitly encode vehicle vs isoproterenol, so assignment to isoproterenol is inferred at medium confidence."
+        },
+        {
+          "cluster_id": "cluster_2",
+          "cluster_label": "mouse_heart_apex_vehicle",
+          "description": "Mouse cardiac proximity-labeled proteome (APEX2) under vehicle control.",
+          "organism": "Mus musculus",
+          "taxid": "NCBITaxon:10090",
+          "crosslinker": null,
+          "biological_condition": "vehicle-treated heart (APEX2 proximity labeling)",
+          "files": [
+            "SM_10plx_Feb2019_Fr1_L07711.raw",
+            "SM_10plx_Feb2019_Fr2_L07712.raw",
+            "SM_10plx_Feb2019_Fr3_L07713.raw",
+            "SM_10plx_Feb2019_Fr4_L07714.raw",
+            "SM_10plx_Feb2019_Fr5_L07715.raw",
+            "SM_10plx_Feb2019_Fr6_L07716.raw"
+          ],
+          "confidence": "low",
+          "evidence_quote": "During the final 5 minutes, 1 μM Isoproterenol (Sigma 1351005) or vehicle was added to the perfusate.",
+          "reasoning": "These six files share 'SM_10plx' and 'Feb2019' and are grouped as one biological condition. However, the filenames do not explicitly indicate whether this set corresponds to isoproterenol or vehicle, and the publication only states that both were used. Therefore, vehicle assignment is a weak inference based on having two distinct APEX-heart sets (SM_10plx vs SM_11plx)."
+        },
+        {
+          "cluster_id": "cluster_3",
+          "cluster_label": "mouse_heart_nonapex_plx",
+          "description": "Mouse cardiac proximity-labeled proteome (non-APEX hearts) or another proximity labeling variant not clearly specified in filenames.",
+          "organism": "Mus musculus",
+          "taxid": "NCBITaxon:10090",
+          "crosslinker": null,
+          "biological_condition": "proximity labeling condition not explicitly specified",
+          "files": [
+            "SM_10plx_Fr1_L07196.raw",
+            "SM_10plx_Fr2_L07197.raw",
+            "SM_10plx_Fr3_L07198.raw",
+            "SM_10plx_Fr4_L07199.raw",
+            "SM_10plx_Fr5_L07200.raw",
+            "SM_10plx_Fr6_L07201.raw"
+          ],
+          "confidence": "low",
+          "evidence_quote": "Proximity labeling biotinylation: Proximity labeling was performed as described with minor modifications.",
+          "reasoning": "These six files share 'SM_10plx' but lack the 'APEXhearts' tag present in the other heart set, suggesting a different proximity labeling configuration or sample type. The publication text provided does not map these exact filename variants to a specific biological state, so this cluster is kept separate with low confidence."
+        },
+        {
+          "cluster_id": "cluster_0",
+          "cluster_label": "unassigned",
+          "description": "Files that could not be confidently assigned to a biological XL-MS condition (or crosslinker not specified).",
+          "organism": null,
+          "taxid": null,
+          "crosslinker": null,
+          "biological_condition": null,
+          "files": [],
+          "confidence": "low",
+          "evidence_quote": null,
+          "reasoning": "No QC/calibrant/blank files were provided in the input list; all files appear to be biological runs."
+        }
+      ],
+      "summary": {
+        "n_input_files": 18,
+        "n_assigned_files": 18,
+        "n_unassigned_files": 0,
+        "n_biological_clusters": 3,
+        "overall_confidence": "low"
+      }
+    }
+  }
+}

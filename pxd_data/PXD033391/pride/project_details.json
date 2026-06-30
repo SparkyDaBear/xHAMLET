@@ -1,0 +1,308 @@
+{
+  "metadata": {
+    "pxd": "PXD033391",
+    "category": "pride",
+    "saved_at": "2026-06-30T15:25:30.722072",
+    "filename": "project_details"
+  },
+  "data": {
+    "accession": "PXD033391",
+    "title": "Determining kinome changes in response to Cytomegalovirus US28 expression and identifying US28 interacting proteins",
+    "additionalAttributes": [],
+    "projectDescription": "Cytomegalovirus (CMV) reactivation of latent infection following immune dysregulation remains a serious risk for patients, often causing significant morbidity and mortality. Herein, we demonstrate the CMV-encoded GPCR, US28, in coordination with cellular Ephrin receptor A2 (EphA2), attenuates MAPK signaling, thereby limiting viral replication in latently-infected primary monocytes.  To define the underlying mechanism by which US28 modulates MAPK signaling during latency, we used two unbiased approaches to: 1) profile kinome changes in response to US28 expression, and 2) define US28 interacting partners that could influence its function(s). First, we evaluated changes in the cellular kinome in response to US28 expression in THP-1 monocytic cells compared to control cells using multiplexed kinase inhibitor beads coupled with mass spectrometry (MIB-MS) to quantitatively measure kinase expression and abundance. Next, we leveraged proximity labeling technology, whereby we inserted the biotin ligase gene, birA, conjugated to a C-terminal hemagglutinin (HA) epitope tag in-frame with the US28 ORF to generate TB40/E-mCherry-US28-bioID-HA. We then infected fibroblasts with US28-bioID-HA, added biotin 18 h prior to harvesting the cells at 48 h post-infection (hpi), and analyzed the biotin-conjugated proteins following streptavidin capture by affinity purification-mass spectrometry (AP-MS).",
+    "sampleProcessingProtocol": "Sample prep: For kinome analysis: THP-1-pSLIK-hygro and THP-1-pSLIK-US28-3xF were cultured in X-VIVO15 media (Lonza) at 5 x105 cells/ml and treated with DOX (1.0 µg/ml). At 2 hours (h) and 6 h post DOX treatment, 3 x 10^7 cells were harvested, washed three times in 1X phosphate buffered saline (PBS), and frozen at -80°C. Protein samples were subjected to MIBS enrichment, as previously described (Arend et al., 2017). Tryptic peptides were stored at -80C until further analysis. For AP-MS analysis: NuFF-1 cells (1 × 10^7 cells/condition) were TB40/EmCherry-, TB40/EmCherry-US28-BirA-HA, or mock-infected at a multiplicity of 1.0 TCID50/cell. Infected and uninfected, control cells were treated with or without biotin (50 µM final concentration) 18 h prior to harvest. Cells were harvested at 48 hpi, washed 3 times with 1X PBS, and then resuspended in ice cold 1.0 ml of RIPA lysis buffer (50 mM Tris pH=7.4, 150 mM NaCl, 1% NP-40, 0.25% Na deoxycholate, 1.0 mM EDTA, 2 M Urea). Cells were allowed to swell on ice for 15 min and sonicated (3 pulses, 30% output). Cellular debris was removed by centrifugation, and biotinylated proteins were isolated from the clarified lysate by binding to Dynabeads MyOne Streptavidin T1 (ThermoFisher) for 3 h at 4°C. Using a DynaMag-2 Magnet (ThermoFisher), beads were washed three times in RIPA lysis buffer, then three times with 50 mM ammonium bicarbonate, pH 8.0. Cells were resuspended in a final volume of 100 µl 50 mM ammonium bicarbonate, pH 8.0 for MS/MS analysis. 50 µl aliquots of clarified lysate and 2 µl aliquots of resuspended beads were reserved for immunoblot analysis.  Protein samples were subjected to on-bead trypsin digestion, as previously described (Rank et al., 2021). After the last wash step, 50 µl of 50 mM ammonium bicarbonate, pH 8.0 containing 1 µg trypsin (Promega) was added to beads overnight at 37ºC with shaking. The next day, 500 ng of trypsin was added, then incubated for an additional 3 h at 37ºC with shaking. The clarified supernatants were transferred, and the beads were washed twice with 50 µl LC/MS grade water. The washes were then combined with the original supernatant, then acidified to   2% formic acid. Peptides were desalted with peptide desalting spin columns (Thermo Scientific) and dried via vacuum centrifugation. Peptide samples were stored at -80˚C until further analysis. LC/MS/MS Analysis: Peptide samples from both the MIB-MS and AP-MS sample sets were analyzed by LC-MS/MS using an Easy nLC 1200 coupled to a QExactive HF mass spectrometer (Thermo Scientific). Samples were injected onto an Easy Spray PepMap C18 column (75 μm id × 25 cm, 2 μm particle size; Thermo Scientific) and separated over a 120 min method. The gradient for separation consisted of 5 - 40% mobile phase B at a 250 nl/min flow rate, where mobile phase A was 0.1% formic acid in water and mobile phase B consisted of 0.1% formic acid in 80% acetonitrile. The QExactive HF was operated in data-dependent mode, where the 15 most intense precursors were selected for subsequent fragmentation.",
+    "dataProcessingProtocol": "Raw data were processed using the MaxQuant software suite (version 1.6.12.0) for identification and label-free quantitation. Data were searched against a Uniprot reviewed Human database (containing 20,350 sequences downloaded February 2020; Proteome ID: UP000005640) and a Uniprot CMV TB40/E database  (containing 164 sequences downloaded April 2016; Proteome ID: UP000143167) using the integrated Andromeda search engine. A maximum of two missed tryptic cleavages were allowed. The variable modification specified was oxidation of methionine and N-terminal acetylation. Label-free quantitation (LFQ) was enabled. Results were filtered to 1% false discovery rate (FDR) at the unique peptide level and grouped into proteins within MaxQuant   (Cox et al., 2014). Match between runs was enabled.  For kinome analysis, carbamidomethylation of cysteine was set as a fixed modification, and all other parameters were the same as above. Kinases were parsed and global normalization was applied. Argonaut (Brademan et al., 2020) was used for further processing. Only proteins with >1 unique+razor peptide were used for LFQ analysis. Proteins with >50% missing values were removed and missing values were replaced from normal distribution. Log2 fold change ratios (2 hpi_control and 6 hpi_control) were calculated using the averaged log2 LFQ intensities and proteins.   For AP-MS analysis, results were searched against the Crapome database (Mellacheruvu et al., 2013) and proteins with Crapome frequency > 30% were removed. Perseus (Tyanova et al., 2016) was used for further processing. Only proteins with >1 unique+razor peptide were used for LFQ analysis. Proteins with >50% missing values were removed and missing values were replaced from normal distribution. Log2 fold change ratios (48 hpi_all controls) were calculated using the averaged log2 LFQ intensities",
+    "projectTags": [],
+    "keywords": [
+      "Viral infection",
+      "Affinity purification-mass spectrometry",
+      "Kinome"
+    ],
+    "doi": "",
+    "submissionType": "PARTIAL",
+    "license": "Creative Commons Public Domain (CC0)",
+    "submissionDate": "2022-04-23",
+    "publicationDate": "2023-03-11",
+    "submitters": [
+      {
+        "title": "Dr",
+        "firstName": "Laura",
+        "lastName": "Herring",
+        "identifier": "58490111",
+        "affiliation": "UNC-Chapel Hill",
+        "email": "laura_herring@med.unc.edu",
+        "country": "United States",
+        "orcid": "",
+        "name": "Laura Herring",
+        "id": "58490111"
+      }
+    ],
+    "labPIs": [
+      {
+        "title": "Dr",
+        "firstName": "Christine",
+        "lastName": "O'Connor",
+        "identifier": "2383175",
+        "affiliation": "Genomic Medicine, Infection Biology, Lerner Research Institute, Cleveland Clinic",
+        "email": "oconnoc6@ccf.org",
+        "country": "",
+        "orcid": "",
+        "name": "Christine O'Connor",
+        "id": "2383175"
+      }
+    ],
+    "instruments": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1002523",
+        "name": "Q Exactive HF"
+      }
+    ],
+    "softwares": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1002337",
+        "name": "Andromeda"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "MS",
+        "accession": "MS:1001583",
+        "name": "MaxQuant"
+      }
+    ],
+    "experimentTypes": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000429",
+        "name": "Shotgun proteomics"
+      },
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000433",
+        "name": "Affinity purification coupled with mass spectrometry proteomics"
+      }
+    ],
+    "quantificationMethods": [],
+    "countries": [
+      "United States"
+    ],
+    "sampleAttributes": [
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "EFO:0000635",
+          "name": "organism part"
+        },
+        "value": [
+          {
+            "cvLabel": "BTO",
+            "accession": "BTO:0000214",
+            "name": "cell culture"
+          }
+        ]
+      },
+      {
+        "@type": "Tuple",
+        "key": {
+          "cvLabel": "EFO",
+          "accession": "OBI:0100026",
+          "name": "organism"
+        },
+        "value": [
+          {
+            "cvLabel": "NEWT",
+            "accession": "NEWT:9606",
+            "name": "Homo sapiens (Human)"
+          }
+        ]
+      }
+    ],
+    "organisms": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "NEWT",
+        "accession": "NEWT:9606",
+        "name": "Homo sapiens (human)"
+      }
+    ],
+    "organismParts": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "BTO",
+        "accession": "BTO:0000214",
+        "name": "Cell culture"
+      }
+    ],
+    "diseases": [],
+    "references": [
+      {
+        "referenceLine": "Wass AB, Krishna BA, Herring LE, Gilbert TSK, Nukui M, Groves IJ, Dooley AL, Kulp KH, Matthews SM, Rotroff DM, Graves LM, O'Connor CM. Cytomegalovirus US28 regulates cellular EphA2 to maintain viral latency. Sci Adv. 2022 8(43):eadd1168",
+        "pubmedID": 36288299,
+        "doi": "10.1126/sciadv.add1168"
+      }
+    ],
+    "identifiedPTMStrings": [
+      {
+        "@type": "CvParam",
+        "cvLabel": "PRIDE",
+        "accession": "PRIDE:0000398",
+        "name": "No PTMs are included in the dataset"
+      }
+    ],
+    "totalFileDownloads": 917,
+    "botCount": 205,
+    "hubCount": 696,
+    "organicCount": 16,
+    "files": {
+      "files": [
+        {
+          "fileName": "20210709_Biopharma_PC475-O_Connor_1-R1.raw",
+          "fileSizeBytes": 1399274761,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/03/PXD033391/20210709_Biopharma_PC475-O_Connor_1-R1.raw"
+        },
+        {
+          "fileName": "20210820_PHCOQEHF_PC546-OConnor_2-R2.raw",
+          "fileSizeBytes": 687143746,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/03/PXD033391/20210820_PHCOQEHF_PC546-OConnor_2-R2.raw"
+        },
+        {
+          "fileName": "20210820_PHCOQEHF_PC546-OConnor_5-R2.raw",
+          "fileSizeBytes": 673456422,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/03/PXD033391/20210820_PHCOQEHF_PC546-OConnor_5-R2.raw"
+        },
+        {
+          "fileName": "20210709_Biopharma_PC475-O_Connor_8-R1.raw",
+          "fileSizeBytes": 1526276985,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/03/PXD033391/20210709_Biopharma_PC475-O_Connor_8-R1.raw"
+        },
+        {
+          "fileName": "20210820_PHCOQEHF_PC546-OConnor_2-R1.raw",
+          "fileSizeBytes": 659458534,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/03/PXD033391/20210820_PHCOQEHF_PC546-OConnor_2-R1.raw"
+        },
+        {
+          "fileName": "MIBS_MQ-Output.zip",
+          "fileSizeBytes": 716178478,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/03/PXD033391/MIBS_MQ-Output.zip"
+        },
+        {
+          "fileName": "20210709_Biopharma_PC475-O_Connor_1-R2.raw",
+          "fileSizeBytes": 1322484786,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/03/PXD033391/20210709_Biopharma_PC475-O_Connor_1-R2.raw"
+        },
+        {
+          "fileName": "20210709_Biopharma_PC475-O_Connor_7-R1.raw",
+          "fileSizeBytes": 1384187900,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/03/PXD033391/20210709_Biopharma_PC475-O_Connor_7-R1.raw"
+        },
+        {
+          "fileName": "20210820_PHCOQEHF_PC546-OConnor_8-R1.raw",
+          "fileSizeBytes": 692415141,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/03/PXD033391/20210820_PHCOQEHF_PC546-OConnor_8-R1.raw"
+        },
+        {
+          "fileName": "20210712_Biopharma_PC475-O_Connor_8-R2.raw",
+          "fileSizeBytes": 1646901510,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/03/PXD033391/20210712_Biopharma_PC475-O_Connor_8-R2.raw"
+        },
+        {
+          "fileName": "20210709_Biopharma_PC475-O_Connor_5-R1.raw",
+          "fileSizeBytes": 1429674277,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/03/PXD033391/20210709_Biopharma_PC475-O_Connor_5-R1.raw"
+        },
+        {
+          "fileName": "20210709_Biopharma_PC475-O_Connor_6-R1.raw",
+          "fileSizeBytes": 1384347472,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/03/PXD033391/20210709_Biopharma_PC475-O_Connor_6-R1.raw"
+        },
+        {
+          "fileName": "20210709_Biopharma_PC475-O_Connor_2-R1.raw",
+          "fileSizeBytes": 1445514770,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/03/PXD033391/20210709_Biopharma_PC475-O_Connor_2-R1.raw"
+        },
+        {
+          "fileName": "20210712_Biopharma_PC475-O_Connor_6-R2.raw",
+          "fileSizeBytes": 1192893953,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/03/PXD033391/20210712_Biopharma_PC475-O_Connor_6-R2.raw"
+        },
+        {
+          "fileName": "20210820_PHCOQEHF_PC546-OConnor_1-R1.raw",
+          "fileSizeBytes": 755118305,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/03/PXD033391/20210820_PHCOQEHF_PC546-OConnor_1-R1.raw"
+        },
+        {
+          "fileName": "20210712_Biopharma_PC475-O_Connor_7-R2.raw",
+          "fileSizeBytes": 1488463394,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/03/PXD033391/20210712_Biopharma_PC475-O_Connor_7-R2.raw"
+        },
+        {
+          "fileName": "20210709_Biopharma_PC475-O_Connor_4-R2.raw",
+          "fileSizeBytes": 1349562614,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/03/PXD033391/20210709_Biopharma_PC475-O_Connor_4-R2.raw"
+        },
+        {
+          "fileName": "20210709_Biopharma_PC475-O_Connor_2-R2.raw",
+          "fileSizeBytes": 1467264750,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/03/PXD033391/20210709_Biopharma_PC475-O_Connor_2-R2.raw"
+        },
+        {
+          "fileName": "20210820_PHCOQEHF_PC546-OConnor_8-R2.raw",
+          "fileSizeBytes": 707699953,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/03/PXD033391/20210820_PHCOQEHF_PC546-OConnor_8-R2.raw"
+        },
+        {
+          "fileName": "APMS_MQ-Output.zip",
+          "fileSizeBytes": 138296680,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/03/PXD033391/APMS_MQ-Output.zip"
+        },
+        {
+          "fileName": "20210709_Biopharma_PC475-O_Connor_3-R2.raw",
+          "fileSizeBytes": 1375311091,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/03/PXD033391/20210709_Biopharma_PC475-O_Connor_3-R2.raw"
+        },
+        {
+          "fileName": "20210820_PHCOQEHF_PC546-OConnor_5-R1.raw",
+          "fileSizeBytes": 661073060,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/03/PXD033391/20210820_PHCOQEHF_PC546-OConnor_5-R1.raw"
+        },
+        {
+          "fileName": "20210820_PHCOQEHF_PC546-OConnor_1-R2.raw",
+          "fileSizeBytes": 761558130,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/03/PXD033391/20210820_PHCOQEHF_PC546-OConnor_1-R2.raw"
+        },
+        {
+          "fileName": "20210820_PHCOQEHF_PC546-OConnor_4-R2.raw",
+          "fileSizeBytes": 562595985,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/03/PXD033391/20210820_PHCOQEHF_PC546-OConnor_4-R2.raw"
+        },
+        {
+          "fileName": "20210712_Biopharma_PC475-O_Connor_5-R2.raw",
+          "fileSizeBytes": 1616083970,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/03/PXD033391/20210712_Biopharma_PC475-O_Connor_5-R2.raw"
+        },
+        {
+          "fileName": "20210709_Biopharma_PC475-O_Connor_4-R1.raw",
+          "fileSizeBytes": 1245980905,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/03/PXD033391/20210709_Biopharma_PC475-O_Connor_4-R1.raw"
+        },
+        {
+          "fileName": "20210709_Biopharma_PC475-O_Connor_3-R1.raw",
+          "fileSizeBytes": 1447106325,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/03/PXD033391/20210709_Biopharma_PC475-O_Connor_3-R1.raw"
+        },
+        {
+          "fileName": "20210820_PHCOQEHF_PC546-OConnor_4-R1.raw",
+          "fileSizeBytes": 550188649,
+          "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/03/PXD033391/20210820_PHCOQEHF_PC546-OConnor_4-R1.raw"
+        }
+      ],
+      "totalCount": 28
+    }
+  }
+}
