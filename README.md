@@ -27,7 +27,17 @@ Detailed architecture: [documents/ARCHITECTURE.md](documents/ARCHITECTURE.md)
 
 ## Quick Start
 
-### 1) Environment setup
+### 1) Environment setup (Conda recommended)
+
+```bash
+conda create -n xhamlet python=3.11 -y
+conda activate xhamlet
+bash src/setup.sh
+```
+
+`src/setup.sh` installs all Python dependencies into the currently active conda environment and initializes `configs/config.yaml` from `config.yaml.sample` if it does not exist.
+
+Alternative (venv):
 
 ```bash
 python -m venv .venv
@@ -42,14 +52,14 @@ export OPENAI_API_KEY="your-openai-key"
 export NCBI_API_KEY="your-ncbi-key"   # optional
 ```
 
-### 2) Create a config file in configs/
+### 2) Verify config file in configs/
 
 ```bash
 mkdir -p configs
 cp config.yaml.sample configs/config.yaml
 ```
 
-Edit `configs/config.yaml` for model, paths, and defaults.
+If you used `bash src/setup.sh`, this file is already created. Edit `configs/config.yaml` for model, paths, and defaults.
 
 ### 3) Run one PXD
 
