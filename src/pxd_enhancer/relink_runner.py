@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import csv
 import logging
+import os
 import shutil
 import subprocess
 import time
@@ -431,6 +432,12 @@ class ReLinkRunner:
         / "nextflow_singularity_docker_pull.config"
     )
 
+    _LOCAL_RESOURCE_CONFIG = (
+        Path(__file__).parent.parent.parent
+        / "assets"
+        / "relink_local_resources.config"
+    )
+
     def _clean_nextflow_state(self) -> None:
         """Remove stale Nextflow session files from the ReLink submodule directory.
 
@@ -478,8 +485,20 @@ class ReLinkRunner:
             "run",
             ".",
             "-profile",
-            profile,
+            "conda,local" if profile.lower() == "conda" else profile,
         ]
+
+        if profile.lower() == "conda":
+            resource_config = self._LOCAL_RESOURCE_CONFIG
+            if resource_config.exists():
+                cmd += ["-c", str(resource_config)]
+                logger.debug("Injecting local ReLink resource config: %s", resource_config)
+            else:
+                logger.warning(
+                    "Local ReLink resource config not found at %s; "
+                    "using submodule defaults.",
+                    resource_config,
+                )
 
         # When using Singularity, inject a custom config that forces Nextflow to
         # pull containers via docker:// rather than oras://.  The oras:// images
@@ -520,12 +539,21 @@ class ReLinkRunner:
             cmd.extend(list(extra_args))
 
         logger.info("Running ReLink: %s", " ".join(cmd))
+        env = os.environ.copy()
+        virtualenv = env.pop("VIRTUAL_ENV", None)
+        if virtualenv:
+            virtualenv_bin = str(Path(virtualenv) / "bin")
+            env["PATH"] = os.pathsep.join(
+                entry for entry in env.get("PATH", "").split(os.pathsep)
+                if entry != virtualenv_bin
+            )
         proc = subprocess.run(
             cmd,
             cwd=str(self.relink_dir),
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,  # merge stderr into stdout
             text=True,
+            env=env,
         )
 
         if proc.returncode != 0:

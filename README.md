@@ -105,6 +105,18 @@ Run ReLink:
 python src/main.py --pxd PXD042173 --config configs/config.yaml --relink --relink-profile singularity
 ```
 
+### ReLink Resource Defaults
+
+xHAMLET injects a 32-CPU and 64-GB xiSEARCH cap for native Conda ReLink runs.
+These limits are based on successful one-RAW PXD042173 validation runs and
+avoid the excessive JVM garbage-collection pressure observed with larger
+resource requests.
+
+When a recognized quenching reagent is present in extracted metadata, Xi
+crosslink configs retain its crosslinker-specific mono-quench variable
+modifications in addition to oxidation. The config generator omits these
+modifications only when no recognized quencher is available.
+
 ## Stage Selection Controls
 
 | Flag | Effect |
