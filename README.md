@@ -30,12 +30,17 @@ Detailed architecture: [documents/ARCHITECTURE.md](documents/ARCHITECTURE.md)
 ### 1) Environment setup (Conda recommended)
 
 ```bash
+# Installs Miniconda in ~/miniconda3 automatically when conda is unavailable.
+bash src/setup.sh
+
+# Create and activate the environment, then rerun setup to install dependencies.
+source ~/miniconda3/etc/profile.d/conda.sh
 conda create -n xhamlet python=3.11 -y
 conda activate xhamlet
 bash src/setup.sh
 ```
 
-`src/setup.sh` installs all Python dependencies into the currently active conda environment and initializes `configs/config.yaml` from `config.yaml.sample` if it does not exist.
+`src/setup.sh` installs Miniconda in `~/miniconda3` when `conda` is unavailable. With an active conda environment, it installs all Python dependencies and initializes `configs/config.yaml` from `config.yaml.sample` if it does not exist. Set `MINICONDA_PREFIX` to use another installation directory.
 
 Alternative (venv):
 

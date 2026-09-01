@@ -9,11 +9,37 @@ echo "xHAMLET Setup"
 echo "========================"
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+MINICONDA_PREFIX="${MINICONDA_PREFIX:-$HOME/miniconda3}"
 
 if ! command -v conda >/dev/null 2>&1; then
-    echo "ERROR: conda is not available in PATH." >&2
-    echo "Install Miniconda/Anaconda and try again." >&2
-    exit 1
+    if [[ -x "$MINICONDA_PREFIX/bin/conda" ]]; then
+        export PATH="$MINICONDA_PREFIX/bin:$PATH"
+    else
+        case "$(uname -m)" in
+            x86_64) miniconda_arch="x86_64" ;;
+            aarch64|arm64) miniconda_arch="aarch64" ;;
+            *)
+                echo "ERROR: unsupported architecture for Miniconda: $(uname -m)" >&2
+                exit 1
+                ;;
+        esac
+
+        installer_path="$(mktemp "${TMPDIR:-/tmp}/miniconda.XXXXXX.sh")"
+        installer_url="https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-${miniconda_arch}.sh"
+        trap 'rm -f "$installer_path"' EXIT
+
+        echo "Conda is not available; installing Miniconda in $MINICONDA_PREFIX..."
+        if command -v curl >/dev/null 2>&1; then
+            curl --fail --location --output "$installer_path" "$installer_url"
+        elif command -v wget >/dev/null 2>&1; then
+            wget --output-document="$installer_path" "$installer_url"
+        else
+            echo "ERROR: curl or wget is required to download Miniconda." >&2
+            exit 1
+        fi
+        bash "$installer_path" -b -p "$MINICONDA_PREFIX"
+        export PATH="$MINICONDA_PREFIX/bin:$PATH"
+    fi
 fi
 
 CONDA_BASE="$(conda info --base)"
