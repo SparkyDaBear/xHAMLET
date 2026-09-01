@@ -65,6 +65,52 @@ if [[ ! -f "$PROJECT_ROOT/requirements.txt" ]]; then
     exit 1
 fi
 
+missing_conda_packages=()
+if ! command -v aria2c >/dev/null 2>&1; then
+    missing_conda_packages+=("aria2")
+fi
+if ! command -v thermorawfileparser >/dev/null 2>&1; then
+    missing_conda_packages+=("thermorawfileparser")
+fi
+if ! command -v java >/dev/null 2>&1; then
+    missing_conda_packages+=("openjdk=17")
+fi
+if ! command -v nextflow >/dev/null 2>&1; then
+    missing_conda_packages+=("nextflow")
+fi
+
+if (( ${#missing_conda_packages[@]} > 0 )); then
+    echo ""
+    echo "Installing required command-line tools: ${missing_conda_packages[*]}"
+    # Conda activation hooks can reference unset backup variables.
+    set +u
+    if ! conda install --yes -c conda-forge -c bioconda "${missing_conda_packages[@]}"; then
+        set -u
+        exit 1
+    fi
+    set -u
+fi
+
+if [[ ! -f "$PROJECT_ROOT/tools/relink/main.nf" ]]; then
+    if ! command -v git >/dev/null 2>&1; then
+        echo "ERROR: git is required to initialize the ReLink submodule." >&2
+        exit 1
+    fi
+    echo ""
+    echo "Initializing ReLink submodule..."
+    git -C "$PROJECT_ROOT" submodule update --init --recursive tools/relink
+fi
+
+if command -v singularity >/dev/null 2>&1; then
+    echo "ReLink container runtime: Singularity"
+elif command -v apptainer >/dev/null 2>&1; then
+    echo "ReLink container runtime: Apptainer"
+elif command -v docker >/dev/null 2>&1; then
+    echo "ReLink container runtime: Docker (use --relink-profile docker)"
+else
+    echo "WARNING: ReLink requires Docker, Singularity, or Apptainer when using --relink." >&2
+fi
+
 echo ""
 echo "Installing Python dependencies..."
 python -m pip install --upgrade pip

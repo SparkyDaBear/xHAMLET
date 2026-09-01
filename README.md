@@ -40,7 +40,7 @@ conda activate xhamlet
 bash src/setup.sh
 ```
 
-`src/setup.sh` installs Miniconda in `~/miniconda3` when `conda` is unavailable. With an active conda environment, it installs all Python dependencies and initializes `configs/config.yaml` from `config.yaml.sample` if it does not exist. Set `MINICONDA_PREFIX` to use another installation directory.
+`src/setup.sh` installs Miniconda in `~/miniconda3` when `conda` is unavailable. With an active conda environment, it installs the `aria2c` downloader, ThermoRawFileParser, Java, Nextflow, all Python dependencies, and initializes the ReLink submodule and `configs/config.yaml` from `config.yaml.sample` if they do not exist. Set `MINICONDA_PREFIX` to use another installation directory.
 
 Alternative (venv):
 
@@ -107,8 +107,10 @@ python src/main.py --pxd PXD042173 --config configs/config.yaml --sdrf-only
 Run ReLink:
 
 ```bash
-python src/main.py --pxd PXD042173 --config configs/config.yaml --relink --relink-profile singularity
+python src/main.py --pxd PXD042173 --config configs/config.yaml --relink --relink-profile docker
 ```
+
+Use a profile matching the installed container runtime: `docker`, `singularity`, or `apptainer`.
 
 ### ReLink Resource Defaults
 
