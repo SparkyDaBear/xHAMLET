@@ -549,6 +549,16 @@ FRAGMENTTREE:FU
                     lines.append(
                         f"crosslinker:{xi_class}:Name:{name};MASS:{mass};LINKEDAMINOACIDS:{linked}"
                     )
+            elif xi_class == "AsymetricSingleAminoAcidRestrictedCrossLinker":
+                name = xl.get("short_name", xl.get("name"))
+                mass = xl.get("mass", 0)
+                first_linked = xl.get("first_linked_aminoacids", "")
+                second_linked = xl.get("second_linked_aminoacids", "")
+                lines.append(
+                    f"crosslinker:{xi_class}:Name:{name};MASS:{mass};"
+                    f"FIRSTLINKEDAMINOACIDS:{first_linked};"
+                    f"SECONDLINKEDAMINOACIDS:{second_linked}"
+                )
             elif xi_class == "NonCovalentBound":
                 name = xl.get("short_name", xl.get("name"))
                 lines.append(f"crosslinker:NonCovalentBound:Name:{name}")
@@ -559,7 +569,8 @@ FRAGMENTTREE:FU
         self,
         pxd: str,
         llm_responses: dict,
-        pride_data: Optional[dict] = None
+        pride_data: Optional[dict] = None,
+        crosslinker_name: Optional[str] = None,
     ) -> Tuple[str, str]:
         """
         Generate Xi config files for crosslinking and linear analyses
@@ -568,6 +579,8 @@ FRAGMENTTREE:FU
             pxd: PXD accession
             llm_responses: Dictionary of LLM responses from metadata enrichment
             pride_data: Optional PRIDE metadata dict
+            crosslinker_name: Optional known crosslinker name to use instead of
+                the dataset-level LLM response.
             
         Returns:
             Tuple of (crosslinking_config, linear_config) as strings
@@ -575,12 +588,16 @@ FRAGMENTTREE:FU
         logger.info(f"Generating Xi configs for {pxd}")
         
         # Extract crosslinker info from LLM
-        crosslinker_response = llm_responses.get("comment[cross-linker]")
-        if not crosslinker_response:
-            logger.warning(f"No comment[cross-linker] response found for {pxd}")
-            crosslinker_info = None
+        # A cluster-specific chemistry overrides the dataset-level LLM result.
+        if crosslinker_name:
+            crosslinker_info = {"name": crosslinker_name}
         else:
-            crosslinker_info = self._parse_crosslinker_from_llm(crosslinker_response)
+            crosslinker_response = llm_responses.get("comment[cross-linker]")
+            if not crosslinker_response:
+                logger.warning(f"No comment[cross-linker] response found for {pxd}")
+                crosslinker_info = None
+            else:
+                crosslinker_info = self._parse_crosslinker_from_llm(crosslinker_response)
         
         # Extract quencher info from LLM
         quencher_response = llm_responses.get("comment[quenching reagent]")
@@ -654,7 +671,8 @@ FRAGMENTTREE:FU
         pxd: str,
         config_xl: str,
         config_linear: str,
-        output_dir: str
+        output_dir: str,
+        name_suffix: Optional[str] = None,
     ) -> Tuple[Path, Path]:
         """
         Save config files to disk
@@ -664,6 +682,7 @@ FRAGMENTTREE:FU
             config_xl: Crosslinking config content
             config_linear: Linear config content
             output_dir: Base output directory (e.g., ./pxd_data)
+            name_suffix: Optional chemistry-specific filename suffix.
             
         Returns:
             Tuple of (crosslinking_path, linear_path)
@@ -672,13 +691,14 @@ FRAGMENTTREE:FU
         pxd_config_dir.mkdir(parents=True, exist_ok=True)
         
         # Save crosslinking config
-        xl_path = pxd_config_dir / "xi_crosslinking.conf"
+        suffix = f"_{name_suffix}" if name_suffix else ""
+        xl_path = pxd_config_dir / f"xi_crosslinking{suffix}.conf"
         with open(xl_path, "w") as f:
             f.write(config_xl)
         logger.info(f"Saved: {xl_path}")
         
         # Save linear config
-        linear_path = pxd_config_dir / "xi_linear.conf"
+        linear_path = pxd_config_dir / f"xi_linear{suffix}.conf"
         with open(linear_path, "w") as f:
             f.write(config_linear)
         logger.info(f"Saved: {linear_path}")

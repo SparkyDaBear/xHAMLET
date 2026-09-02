@@ -16,10 +16,18 @@ output_format: NT=<name>;AC=<XLMOD or ChEBI accession>;CL=<yes/no>;TA=<residue t
     AC = XLMOD or ChEBI accession if identifiable (else null)
     CL = yes if MS-cleavable (DSSO, DSBU, DSBSO, DHSO, BMSO, SDASO, SSD, CBDPS, iQlnk, etc.), no if non-cleavable (BS3, DSS, EDC, PhoX, SDA, PIR, etc.), null if not stated
     TA = comma-separated reactive residues (e.g. K,nterm or K,S,T,Y or D,E or C)
-instructions: Extract from Methods section. If multiple crosslinkers, return a list.
-  ALWAYS populate NT with the reagent name as written in the text, even if the XLMOD
-  accession is unknown — set AC=null in that case. Only return value=null if no
-  crosslinker is mentioned anywhere in the provided text.
+instructions: Extract explicitly named chemical crosslinkers from the Methods section,
+  prioritizing sentences that describe the crosslinking reaction. Never use a generic
+  phrase such as "cross-linking reagent" as evidence when the same sentence names the
+  reagent (for example, extract DSSO from "DSSO cross-linking reagent").
+  ALWAYS populate NT with each reagent name as written in the text, even if the XLMOD
+  accession is unknown — set AC=null in that case. Return value=null only after verifying
+  that no chemical crosslinker is named anywhere in the provided text.
+  If multiple named crosslinkers belong to separate experimental systems and the supplied
+  text does not identify which system belongs to this dataset, return a list containing
+  every named reagent; do not choose one arbitrarily and do not return null.
+  Before responding, verify that a non-null evidence_quote explicitly contains the NT
+  value (or its unambiguous expanded chemical name).
   Common cleavable: DSSO (K,S,T,Y; AC=XLMOD:02126), DSBU (K,S,T,Y; AC=XLMOD:02120),
     DSBSO (K,nterm; AC=null), Azide-A-DSBSO (K,nterm; AC=XLMOD:02222), Alkyne-A-DSBSO (K,nterm; AC=XLMOD:02223),
     DSAU (K,nterm; AC=XLMOD:09317), DSPU (K,nterm), DSSBU (K,nterm),
@@ -95,8 +103,8 @@ For each key, return a dict with:
 Example for comment[cross-linker]:
 {
   "comment[cross-linker]": {
-    "value": "NT=DSSO;AC=XLMOD:02056;CL=yes;TA=K,S,T,Y",
-    "NT": "DSSO", "AC": "XLMOD:02056", "CL": "yes", "TA": "K,S,T,Y",
+    "value": "NT=DSSO;AC=XLMOD:02126;CL=yes;TA=K,S,T,Y",
+    "NT": "DSSO", "AC": "XLMOD:02126", "CL": "yes", "TA": "K,S,T,Y",
     "confidence": "high", "evidence_quote": "crosslinked with 1 mM DSSO",
     "evidence_location": "Methods"
   }
