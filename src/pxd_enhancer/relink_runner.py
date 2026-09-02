@@ -9,8 +9,10 @@ via Nextflow.
 from __future__ import annotations
 
 import csv
+import json
 import logging
 import os
+import re
 import shutil
 import subprocess
 import time
@@ -43,6 +45,9 @@ class ReLinkRunner:
         xi_linear_config: Path,
         xi_crosslink_config: Path,
         pxd_dir: Path,
+        project_files: Optional[Sequence[Dict[str, Any]]] = None,
+        xi_config_generator: Optional[Any] = None,
+        llm_responses: Optional[Dict[str, Any]] = None,
         profile: str = "docker",
         resume: bool = False,
         extra_args: Optional[Sequence[str]] = None,
@@ -95,52 +100,84 @@ class ReLinkRunner:
         relink_dir.mkdir(parents=True, exist_ok=True)
         fasta_dir = relink_dir / "fasta"
 
-        all_results = {}
-        for taxid in sorted(taxids):
-            logger.info("Running ReLink for taxid %s", taxid)
-            fasta_path = self.fetch_fasta_for_taxid(taxid, fasta_dir)
+        crosslinker_groups = self._crosslinker_groups(raw_paths, pxd_dir)
+        if crosslinker_groups is None:
+            crosslinker_groups = {
+                (taxid, None): list(raw_paths)
+                for taxid in sorted(taxids)
+            }
 
-            # Create taxid-specific subdirectory
+        all_results = {}
+        for (taxid, crosslinker_name), group_raw_paths in sorted(crosslinker_groups.items()):
+            run_label = f"taxid {taxid} ({crosslinker_name})" if crosslinker_name else f"taxid {taxid}"
+            logger.info("Running ReLink for %s", run_label)
+            fasta_path = self.fetch_project_fasta(project_files, fasta_dir)
+            if fasta_path is None:
+                fasta_path = self.fetch_fasta_for_taxid(taxid, fasta_dir)
+
             taxid_dir = relink_dir / f"taxid_{taxid}"
-            taxid_dir.mkdir(parents=True, exist_ok=True)
+            name_suffix = self._safe_run_name(crosslinker_name) if crosslinker_name else None
+            run_dir = taxid_dir / name_suffix if name_suffix else taxid_dir
+            run_dir.mkdir(parents=True, exist_ok=True)
+
+            group_linear_config = xi_linear_config
+            group_crosslink_config = xi_crosslink_config
+            if crosslinker_name:
+                if xi_config_generator is None or llm_responses is None:
+                    raise ValueError(
+                        "Cluster-specific ReLink requires Xi config generation inputs"
+                    )
+                config_xl, config_linear = xi_config_generator.generate_configs(
+                    pxd,
+                    llm_responses,
+                    crosslinker_name=crosslinker_name,
+                )
+                group_crosslink_config, group_linear_config = xi_config_generator.save_configs(
+                    pxd,
+                    config_xl,
+                    config_linear,
+                    str(pxd_dir.parent),
+                    name_suffix=name_suffix,
+                )
 
             # ReLink now expects an SDRF input plus a global FASTA argument.
-            # For resumed local runs, restrict the SDRF to rows that map to
-            # locally available RAW files.
-            sdrf_for_taxid = taxid_dir / f"{pxd}.sdrf.tsv"
+            # Restrict the SDRF to files assigned to this chemistry.
+            sdrf_for_taxid = run_dir / f"{pxd}.sdrf.tsv"
             self.write_filtered_sdrf(
                 source_sdrf=sdrf_path,
                 output_sdrf=sdrf_for_taxid,
-                raw_paths=raw_paths,
+                raw_paths=group_raw_paths,
             )
 
-            outdir = taxid_dir / "results"
+            outdir = run_dir / "results"
             run_result = self.run_nextflow(
                 input_sdrf=sdrf_for_taxid,
                 fasta_path=fasta_path,
-                raw_root_dir=Path(raw_paths[0]).resolve().parent,
-                xi_linear_config=xi_linear_config,
-                xi_crosslink_config=xi_crosslink_config,
+                raw_root_dir=Path(group_raw_paths[0]).resolve().parent,
+                xi_linear_config=group_linear_config,
+                xi_crosslink_config=group_crosslink_config,
                 outdir=outdir,
                 profile=profile,
                 resume=resume,
                 extra_args=extra_args,
             )
 
+            result_key = f"{taxid}:{crosslinker_name or 'dataset'}"
             if run_result.get("returncode") != 0:
                 logger.error(
-                    "ReLink run failed for %s taxid %s (rc=%s)",
+                    "ReLink run failed for %s %s (rc=%s)",
                     pxd,
-                    taxid,
+                    run_label,
                     run_result.get("returncode"),
                 )
-                all_results[taxid] = {
+                all_results[result_key] = {
                     "status": "failed",
                     "error": run_result,
                 }
             else:
-                all_results[taxid] = {
+                all_results[result_key] = {
                     "status": "success",
+                    "crosslinker": crosslinker_name,
                     "fasta_path": str(fasta_path),
                     "sdrf": str(sdrf_for_taxid),
                     "outdir": str(outdir),
@@ -158,10 +195,59 @@ class ReLinkRunner:
             "status": "success",
             "taxids_detected": sorted(taxids),
             "taxid_results": all_results,
-            "note": "Multiple taxids detected; ReLink run separately for each organism"
-            if len(taxids) > 1
+            "note": "ReLink runs are separated by organism and resolved crosslinker chemistry"
+            if len(crosslinker_groups) > 1
             else None,
         }
+
+    @staticmethod
+    def _safe_run_name(value: str) -> str:
+        """Return a filesystem-safe identifier for a chemistry-specific run."""
+        return re.sub(r"[^a-z0-9]+", "_", value.lower()).strip("_")
+
+    def _crosslinker_groups(
+        self,
+        raw_paths: Sequence[Path],
+        pxd_dir: Path,
+    ) -> Optional[Dict[tuple[str, str], List[Path]]]:
+        """Group local RAW files by taxid and cached file-cluster crosslinker."""
+        assignments_path = pxd_dir / "llm" / "file_assignment_map.json"
+        clusters_path = pxd_dir / "llm" / "file_assignments.json"
+        if not assignments_path.exists() or not clusters_path.exists():
+            return None
+
+        try:
+            with open(assignments_path, encoding="utf-8") as fh:
+                assignments = json.load(fh).get("data", {})
+            with open(clusters_path, encoding="utf-8") as fh:
+                clusters_field = json.load(fh).get("data", {})
+            clusters_data = clusters_field.get("parsed", clusters_field)
+            clusters = clusters_data.get("clusters", []) if isinstance(clusters_data, dict) else []
+            cluster_by_id = {
+                cluster.get("cluster_id"): cluster
+                for cluster in clusters
+                if isinstance(cluster, dict) and cluster.get("cluster_id")
+            }
+        except (OSError, json.JSONDecodeError, AttributeError) as exc:
+            logger.warning("Could not load ReLink chemistry groups: %s", exc)
+            return None
+
+        groups: Dict[tuple[str, str], List[Path]] = {}
+        for raw_path in raw_paths:
+            assignment = assignments.get(raw_path.name, {})
+            cluster = cluster_by_id.get(assignment.get("cluster_id"), {})
+            crosslinker_name = cluster.get("crosslinker")
+            raw_taxid = assignment.get("taxid") or cluster.get("taxid")
+            taxid = str(raw_taxid or "").replace("NCBITaxon:", "").strip()
+            if not crosslinker_name or not taxid.isdigit():
+                logger.warning(
+                    "No resolved cluster crosslinker for %s; using dataset-level ReLink config",
+                    raw_path.name,
+                )
+                return None
+            groups.setdefault((taxid, str(crosslinker_name)), []).append(raw_path)
+
+        return groups or None
 
     def extract_taxids_from_sdrf(self, sdrf_path: Path) -> Set[str]:
         """Extract NCBITaxon IDs from all organism columns in SDRF."""
@@ -298,6 +384,72 @@ class ReLinkRunner:
             logger.warning("Could not read taxids from %s: %s", assignment_map_path, exc)
 
         return taxids
+
+    def fetch_project_fasta(
+        self,
+        project_files: Optional[Sequence[Dict[str, Any]]],
+        output_dir: Path,
+    ) -> Optional[Path]:
+        """Download and cache the single FASTA supplied with a PRIDE project."""
+        candidates = [
+            file_info
+            for file_info in project_files or []
+            if isinstance(file_info, dict)
+            and Path(str(file_info.get("fileName", ""))).suffix.lower()
+            in {".fa", ".fas", ".fasta"}
+        ]
+        if not candidates:
+            return None
+        if len(candidates) > 1:
+            names = ", ".join(str(file_info.get("fileName", "")) for file_info in candidates)
+            raise ValueError(
+                "Multiple FASTA files were supplied by PRIDE; cannot select one safely: "
+                f"{names}"
+            )
+
+        file_info = candidates[0]
+        filename = Path(str(file_info["fileName"])).name
+        source_url = str(file_info.get("ftpUrl") or "")
+        if not source_url:
+            raise RuntimeError(f"PRIDE FASTA '{filename}' does not provide a download URL")
+
+        output_dir.mkdir(parents=True, exist_ok=True)
+        fasta_path = output_dir / filename
+        if fasta_path.exists() and fasta_path.stat().st_size > 0:
+            logger.info("Using cached PRIDE-supplied FASTA: %s", fasta_path)
+            return fasta_path
+
+        download_url = source_url.replace("ftp://", "https://", 1)
+        tmp_path = fasta_path.with_suffix(fasta_path.suffix + ".tmp")
+        logger.info("Downloading PRIDE-supplied FASTA: %s", filename)
+        try:
+            response = requests.get(
+                download_url,
+                timeout=self.requests_timeout,
+                stream=True,
+            )
+            response.raise_for_status()
+            first_chunk_checked = False
+            with open(tmp_path, "wb") as fh:
+                for chunk in response.iter_content(chunk_size=1 << 20):
+                    if not chunk:
+                        continue
+                    if not first_chunk_checked:
+                        if not chunk.lstrip().startswith(b">"):
+                            raise RuntimeError(
+                                f"PRIDE download for '{filename}' is not a FASTA file"
+                            )
+                        first_chunk_checked = True
+                    fh.write(chunk)
+            if not first_chunk_checked:
+                raise RuntimeError(f"PRIDE FASTA '{filename}' is empty")
+            tmp_path.rename(fasta_path)
+        except Exception:
+            tmp_path.unlink(missing_ok=True)
+            raise
+
+        logger.info("Using PRIDE-supplied FASTA: %s", fasta_path)
+        return fasta_path
 
     def fetch_fasta_for_taxid(self, taxid: str, output_dir: Path) -> Path:
         """Download a UniProt FASTA stream for a taxonomy ID with retry logic."""
@@ -438,22 +590,34 @@ class ReLinkRunner:
         / "relink_local_resources.config"
     )
 
-    def _clean_nextflow_state(self) -> None:
+    _JS2_M3_MEDIUM_RESOURCE_CONFIG = (
+        Path(__file__).parent.parent.parent
+        / "assets"
+        / "relink_js2_m3_medium.config"
+    )
+
+    _JS2_M3_XL_RESOURCE_CONFIG = (
+        Path(__file__).parent.parent.parent
+        / "assets"
+        / "relink_js2_m3_xl.config"
+    )
+
+    def _clean_nextflow_state(self, preserve_cache: bool = False) -> None:
         """Remove stale Nextflow session files from the ReLink submodule directory.
 
         Nextflow writes .nextflow/, .nextflow.log*, and .nextflow.pid into the
-        directory where `nextflow run .` is executed (tools/relink/).  These
-        accumulate across runs and can cause -resume to pick up stale cached
-        task hashes from previous PXD runs or different pipeline versions.
-        The actual task cache lives in the external NXF_WORK directory and is
-        not affected by this cleanup.
+        directory where `nextflow run .` is executed (tools/relink/).
+        `.nextflow` holds cache metadata needed by `-resume`, so it is retained
+        when resuming and otherwise cleared to avoid accidental cross-run reuse.
         """
         import shutil
 
         nf_dir = self.relink_dir / ".nextflow"
-        if nf_dir.exists():
+        if nf_dir.exists() and not preserve_cache:
             shutil.rmtree(nf_dir)
             logger.info("Cleaned stale Nextflow session state: %s", nf_dir)
+        elif nf_dir.exists():
+            logger.info("Preserving Nextflow session state for -resume: %s", nf_dir)
 
         for log_file in self.relink_dir.glob(".nextflow.log*"):
             log_file.unlink()
@@ -474,21 +638,24 @@ class ReLinkRunner:
         """Run local ReLink checkout via nextflow run ."""
         outdir.mkdir(parents=True, exist_ok=True)
 
-        # Clean up stale Nextflow session state from previous runs inside the
-        # submodule directory.  These accumulate across runs and can cause
-        # -resume to pick up wrong cached task hashes or leave zombie sessions.
-        # The actual task cache lives in the external work-dir and is preserved.
-        self._clean_nextflow_state()
+        # Cache metadata is required to reuse completed tasks with `-resume`.
+        self._clean_nextflow_state(preserve_cache=resume)
 
+        profile_key = profile.lower()
+        js2_resource_configs = {
+            "js2-m3-medium": self._JS2_M3_MEDIUM_RESOURCE_CONFIG,
+            "js2-m3-xl": self._JS2_M3_XL_RESOURCE_CONFIG,
+        }
+        nextflow_profile = "docker" if profile_key in js2_resource_configs else profile
         cmd: List[str] = [
             "nextflow",
             "run",
             ".",
             "-profile",
-            "conda,local" if profile.lower() == "conda" else profile,
+            "conda,local" if profile_key == "conda" else nextflow_profile,
         ]
 
-        if profile.lower() == "conda":
+        if profile_key == "conda":
             resource_config = self._LOCAL_RESOURCE_CONFIG
             if resource_config.exists():
                 cmd += ["-c", str(resource_config)]
@@ -500,11 +667,23 @@ class ReLinkRunner:
                     resource_config,
                 )
 
+        if profile_key in js2_resource_configs:
+            resource_config = js2_resource_configs[profile_key]
+            if resource_config.exists():
+                cmd += ["-c", str(resource_config)]
+                logger.debug("Injecting JS2 ReLink resource config: %s", resource_config)
+            else:
+                logger.warning(
+                    "JS2 ReLink resource config not found at %s; "
+                    "using submodule defaults.",
+                    resource_config,
+                )
+
         # When using Singularity, inject a custom config that forces Nextflow to
         # pull containers via docker:// rather than oras://.  The oras:// images
         # at ghcr.io/bigbio/relink-sif are plain Docker manifests and cannot be
         # fetched by Singularity's OCI/ORAS client.
-        if "singularity" in profile.lower():
+        if "singularity" in profile_key:
             sif_config = self._SINGULARITY_DOCKER_PULL_CONFIG
             if sif_config.exists():
                 cmd += ["-c", str(sif_config)]

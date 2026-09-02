@@ -493,9 +493,21 @@ class PXDMetadataEnhancer:
                         f.get("fileName", "") for f in all_files
                         if str(f.get("fileName", "")).lower().endswith(".raw")
                     ]
+                    empty_raw_names = [
+                        raw_name for raw_name in raw_names
+                        if (pxd_dir / "work" / raw_name).exists()
+                        and (pxd_dir / "work" / raw_name).stat().st_size == 0
+                    ]
+                    if empty_raw_names:
+                        logger.warning(
+                            "Excluding %d empty local RAW file(s) from ReLink: %s",
+                            len(empty_raw_names),
+                            ", ".join(empty_raw_names),
+                        )
                     raw_paths = [
                         pxd_dir / "work" / raw_name for raw_name in raw_names
-                        if (pxd_dir / "work" / raw_name).exists()
+                        if (pxd_dir / "work" / raw_name).is_file()
+                        and (pxd_dir / "work" / raw_name).stat().st_size > 0
                     ]
 
                     if not raw_paths:
@@ -515,6 +527,9 @@ class PXDMetadataEnhancer:
                         xi_linear_config=xi_linear_conf,
                         xi_crosslink_config=xi_crosslink_conf,
                         pxd_dir=pxd_dir,
+                        project_files=all_files,
+                        xi_config_generator=self.xi_config_gen,
+                        llm_responses=llm_responses,
                         profile=relink_profile,
                         resume=relink_resume,
                         extra_args=relink_extra_args or None,
