@@ -26,58 +26,54 @@ class PMCClient:
         self.email = email
         self.api_key = api_key
         self.timeout = timeout
-        self.idconv_url = "https://www.ncbi.nlm.nih.gov/pmc/utils/idconv/v1.0/"
         self.bioc_base = "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi"
         self.supp_base = "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/supplmat.cgi"
     
     def pmid_to_pmcid(self, pmid: str) -> Optional[str]:
         """
-        Convert PubMed ID to PubMed Central ID
-        
-        Args:
-            pmid: PubMed ID
-            
-        Returns:
-            PMCID (e.g., "PMC1234567") or None if not found
+        Convert PubMed ID to PubMed Central ID using NCBI E-Utilities.
         """
-        params = {"ids": str(pmid), "format": "json"}
+        url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi"
+
+        params = {
+            "dbfrom": "pubmed",
+            "db": "pmc",
+            "id": str(pmid),
+            "retmode": "json"
+        }
+
         if self.email:
             params["email"] = self.email
         if self.api_key:
             params["api_key"] = self.api_key
-        logger.info(f"Converting PMID {pmid} to PMCID using NCBI ID Converter: {params}")
 
         try:
-            logger.info(f"Converting PMID {pmid} to PMCID")
-            response = requests.get(self.idconv_url, params=params, timeout=self.timeout)
+            logger.info(f"Converting PMID {pmid} to PMCID using NCBI E-Utilities")
+            response = requests.get(url, params=params, timeout=self.timeout)
             response.raise_for_status()
             data = response.json()
-            # print(data)
-            
-            records = data.get("records", [])
-            if not records:
+
+            linksets = data.get("linksets", [])
+            if not linksets:
                 logger.warning(f"No PMCID found for PMID {pmid}")
                 return None
-            
-            # Check if the first record has an error status (e.g., paper not in PMC)
-            first_record = records[0]
-            if first_record.get("status") == "error":
-                errmsg = first_record.get("errmsg", "Unknown error")
-                logger.warning(f"PMID {pmid} conversion failed: {errmsg}")
-                return None
-            
-            pmcid = first_record.get("pmcid")
-            if not pmcid:
-                logger.warning(f"No PMCID in response for PMID {pmid}")
-                return None
-                
-            logger.info(f"PMID {pmid} -> PMCID {pmcid}")
-            return pmcid
-        except requests.RequestException as e:
+
+            for linksetdb in linksets[0].get("linksetdbs", []):
+                if linksetdb.get("linkname") == "pubmed_pmc":
+                    links = linksetdb.get("links", [])
+                    if links:
+                        pmcid = f"PMC{links[0]}"
+                        logger.info(f"PMID {pmid} -> PMCID {pmcid}")
+                        return pmcid
+
+            logger.warning(f"No direct PMC article found for PMID {pmid}")
+            return None
+
+        except (requests.RequestException, ValueError, KeyError, IndexError) as e:
             logger.error(f"Failed to convert PMID {pmid} to PMCID: {e}")
             return None
 
-    
+
     def fetch_full_text(self, pmcid: str) -> Optional[Dict[str, Any]]:
         """
         Fetch full text in BioC JSON format
