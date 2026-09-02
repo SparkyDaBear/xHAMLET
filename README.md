@@ -40,7 +40,7 @@ conda activate xhamlet
 bash src/setup.sh
 ```
 
-`src/setup.sh` installs Miniconda in `~/miniconda3` when `conda` is unavailable. With an active conda environment, it installs the `aria2c` downloader, ThermoRawFileParser, Java, Nextflow, all Python dependencies, and initializes the ReLink submodule and `configs/config.yaml` from `config.yaml.sample` if they do not exist. Set `MINICONDA_PREFIX` to use another installation directory.
+`src/setup.sh` installs Miniconda in `~/miniconda3` when `conda` is unavailable. With an active conda environment, it installs the `aria2c` downloader, ThermoRawFileParser, Java, a ReLink-compatible Nextflow 25.04 release, all Python dependencies, synchronizes the pinned ReLink submodule, and initializes `configs/config.yaml` from `config.yaml.sample` if it does not exist. Set `MINICONDA_PREFIX` to use another installation directory.
 
 Alternative (venv):
 
@@ -107,10 +107,10 @@ python src/main.py --pxd PXD042173 --config configs/config.yaml --sdrf-only
 Run ReLink:
 
 ```bash
-python src/main.py --pxd PXD042173 --config configs/config.yaml --relink --relink-profile docker
+python src/main.py --pxd PXD042173 --config configs/config.yaml --relink --relink-profile js2-m3-xl --relink-resume
 ```
 
-Use a profile matching the installed container runtime: `docker`, `singularity`, or `apptainer`.
+Use a profile matching the installed container runtime: `docker`, `singularity`, or `apptainer`. The `js2-m3-medium` and `js2-m3-xl` profiles run ReLink through Docker with JS2 resource limits.
 
 ### ReLink Resource Defaults
 
@@ -119,10 +119,32 @@ These limits are based on successful one-RAW PXD042173 validation runs and
 avoid the excessive JVM garbage-collection pressure observed with larger
 resource requests.
 
+The `js2-m3-medium` profile caps xiSEARCH, mass recalibration, and xiFDR at
+8 CPUs and 24 GB, matching the resources exposed by the xHAMLET JS2 m3.medium
+instance.
+
+The `js2-m3-xl` profile gives xiSEARCH a 96-GB Docker memory limit and an
+80-GB Java heap at up to 32 CPUs, retaining container headroom for JVM native
+memory. Mass recalibration is capped at 96 GB and xiFDR at 64 GB.
+Use `--relink-resume` to reuse completed ReLink tasks from the last matching
+workflow invocation.
+
 When a recognized quenching reagent is present in extracted metadata, Xi
 crosslink configs retain its crosslinker-specific mono-quench variable
-modifications in addition to oxidation. The config generator omits these
-modifications only when no recognized quencher is available.
+modification on lysine in addition to oxidation. Restricting mono-quench
+sites to lysine prevents unsupported low-specificity site assignments and
+controls the modified peptide search space. The config generator omits these
+modifications when no recognized quencher is available.
+
+When PRIDE supplies exactly one `.fa`, `.fas`, or `.fasta` file for a project,
+xHAMLET downloads and caches that sequence database for ReLink. Projects with
+no supplied FASTA use the reviewed UniProt proteome for the detected taxid.
+
+When file clustering resolves different crosslinkers for a project, xHAMLET
+runs ReLink separately for each organism-and-crosslinker group. Each group
+uses a filtered SDRF, chemistry-specific Xi config, and separate results
+directory; files with unresolved cluster chemistry retain the dataset-level
+ReLink configuration.
 
 ## Stage Selection Controls
 
