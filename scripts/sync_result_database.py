@@ -410,6 +410,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--force", action="store_true", help="Replace the current catalog entry even if unchanged")
     parser.add_argument("--dry-run", action="store_true", help="Report planned imports without connecting to PostgreSQL")
     parser.add_argument(
+        "--snapshot-only",
+        action="store_true",
+        help="Write the static snapshot from the existing database without scanning or synchronizing PXD outputs",
+    )
+    parser.add_argument(
         "--static-snap",
         "--static_snap",
         nargs="?",
@@ -436,6 +441,8 @@ def parse_args() -> argparse.Namespace:
         args.database_url = os.getenv("XHAMLET_DATABASE_URL")
         if args.database_url is None:
             args.database_path = DEFAULT_LOCAL_DATABASE
+    if args.snapshot_only and args.static_snap is None:
+        args.static_snap = DEFAULT_STATIC_SNAPSHOT
     return args
 
 
@@ -1064,15 +1071,15 @@ def database_catalog(
             )
             spectral_row = cursor.fetchone()
             cursor.execute(
-                                f"""
+                f"""
                 SELECT field_key, value_json, accession_json, confidence
                 FROM llm_response response
                 JOIN llm_output output USING (llm_output_id)
-                                WHERE output.pipeline_run_id = %s
-                                    AND field_key IN ({', '.join('%s' for _ in STATIC_METADATA_FIELDS)})
+                WHERE output.pipeline_run_id = %s
+                    AND field_key IN ({', '.join('%s' for _ in STATIC_METADATA_FIELDS)})
                 ORDER BY field_key
                 """,
-                                (pipeline_run_id, *STATIC_METADATA_FIELDS),
+                (pipeline_run_id, *STATIC_METADATA_FIELDS),
             )
             metadata_fields = [
                 {"key": key, "value": json_value(value), "accession": json_value(term), "confidence": confidence}
@@ -1095,6 +1102,18 @@ def database_catalog(
                 }
                 for path, category, size, modified_at in cursor.fetchall()
             ]
+            cursor.execute(
+                """
+                SELECT relative_path, content_text
+                FROM output_artifact
+                WHERE pipeline_run_id = %s
+                    AND relative_path LIKE 'sdrf/%%.sdrf.tsv'
+                ORDER BY relative_path
+                LIMIT 1
+                """,
+                (pipeline_run_id,),
+            )
+            sdrf_row = cursor.fetchone()
             cursor.execute(
                 """
                 SELECT filename, assignment_json
@@ -1187,6 +1206,10 @@ def database_catalog(
                 "raw_files": raw_files,
                 "metadata_fields": metadata_fields,
                 "spectral_summary": json_value(spectral_row[0]) if spectral_row else {},
+                "sdrf": {
+                    "path": sdrf_row[0],
+                    "text": sdrf_row[1],
+                } if sdrf_row and sdrf_row[1] else None,
                 "relink_runs": runs,
                 "artifacts": artifacts,
             }
@@ -1215,16 +1238,20 @@ def write_static_snapshot(
 
 def main() -> int:
     args = parse_args()
-    config_path = Path(args.config).expanduser().resolve()
-    config = read_config(config_path)
-    configured_base = config.get("storage", {}).get("base_dir", "./pxd_data")
-    base_dir = Path(args.data_dir or configured_base).expanduser().resolve()
-    if not base_dir.is_dir():
-        raise FileNotFoundError(f"storage.base_dir does not exist: {base_dir}")
-    pxds = select_pxds(base_dir, args.pxd, args.exclude_pxd)
-    plans = [(pxd_dir, catalog_files(pxd_dir)) for pxd_dir in pxds]
+    plans: list[tuple[Path, list[Path]]] = []
+    if not args.snapshot_only:
+        config_path = Path(args.config).expanduser().resolve()
+        config = read_config(config_path)
+        configured_base = config.get("storage", {}).get("base_dir", "./pxd_data")
+        base_dir = Path(args.data_dir or configured_base).expanduser().resolve()
+        if not base_dir.is_dir():
+            raise FileNotFoundError(f"storage.base_dir does not exist: {base_dir}")
+        pxds = select_pxds(base_dir, args.pxd, args.exclude_pxd)
+        plans = [(pxd_dir, catalog_files(pxd_dir)) for pxd_dir in pxds]
 
     if args.dry_run:
+        if args.snapshot_only:
+            raise SystemExit("--dry-run cannot be combined with --snapshot-only")
         print(f"Data directory: {base_dir}")
         for pxd_dir, files in plans:
             print(f"{pxd_dir.name}: {len(files)} catalogable artifacts")
@@ -1256,7 +1283,7 @@ def main() -> int:
         if args.static_snap:
             selected_accessions = (
                 [pxd_dir.name.upper() for pxd_dir, _ in plans]
-                if args.pxd or args.exclude_pxd
+                if not args.snapshot_only and (args.pxd or args.exclude_pxd)
                 else None
             )
             write_static_snapshot(connection, args.static_snap, args.artifact_base_url, selected_accessions)

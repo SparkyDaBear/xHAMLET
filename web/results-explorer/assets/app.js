@@ -20,6 +20,59 @@ const formatBytes = (value) => value < 1024 ? `${value} B` : value < 1024 ** 2 ?
 const formatValue = (value) => Array.isArray(value) ? value.join("; ") : value ?? "-";
 const empty = (text) => `<p class="empty-copy">${escapeHtml(text)}</p>`;
 
+function parseTsv(text) {
+  const rows = [];
+  let cell = "";
+  let row = [];
+  let quoted = false;
+  for (let index = 0; index < text.length; index += 1) {
+    const character = text[index];
+    if (character === '"') {
+      if (quoted && text[index + 1] === '"') {
+        cell += '"';
+        index += 1;
+      } else quoted = !quoted;
+    } else if (!quoted && character === "\t") {
+      row.push(cell);
+      cell = "";
+    } else if (!quoted && (character === "\n" || character === "\r")) {
+      if (character === "\r" && text[index + 1] === "\n") index += 1;
+      row.push(cell);
+      if (row.some((value) => value !== "")) rows.push(row);
+      row = [];
+      cell = "";
+    } else cell += character;
+  }
+  row.push(cell);
+  if (row.some((value) => value !== "")) rows.push(row);
+  return rows;
+}
+
+function renderFilterableTable(tableId, columns, rows, className) {
+  const header = columns.map((column) => `<th scope="col">${escapeHtml(column)}</th>`).join("");
+  const filters = columns.map((column, index) => `<th><label class="table-filter-label"><span class="sr-only">Filter ${escapeHtml(column)}</span><input class="table-filter" type="search" data-column="${index}" placeholder="Filter" autocomplete="off"></label></th>`).join("");
+  const body = rows.map((row) => `<tr>${row.map((value) => `<td>${escapeHtml(formatValue(value))}</td>`).join("")}</tr>`).join("");
+  return `<div class="table-wrap interactive-table-wrap"><table id="${escapeHtml(tableId)}" class="${className} interactive-table"><thead><tr>${header}</tr><tr class="table-filter-row">${filters}</tr></thead><tbody>${body}</tbody></table><p class="table-count" data-table-count="${escapeHtml(tableId)}"></p></div>`;
+}
+
+function wireFilterableTables() {
+  elements.panel.querySelectorAll(".interactive-table").forEach((table) => {
+    const count = elements.panel.querySelector(`[data-table-count="${table.id}"]`);
+    const applyFilters = () => {
+      const filters = [...table.querySelectorAll(".table-filter")].map((input) => input.value.trim().toLowerCase());
+      let visible = 0;
+      [...table.tBodies[0].rows].forEach((row) => {
+        const matches = filters.every((filter, index) => !filter || row.cells[index].textContent.toLowerCase().includes(filter));
+        row.hidden = !matches;
+        if (matches) visible += 1;
+      });
+      count.textContent = `${formatNumber(visible)} of ${formatNumber(table.tBodies[0].rows.length)} rows`;
+    };
+    table.querySelectorAll(".table-filter").forEach((input) => input.addEventListener("input", applyFilters));
+    applyFilters();
+  });
+}
+
 function statusClass(status) {
   const value = String(status || "").toLowerCase();
   if (value.includes("warning") || value.includes("failed")) return "warning";
@@ -66,6 +119,7 @@ function renderProject() {
     tab.setAttribute("aria-selected", active);
   });
   elements.panel.innerHTML = renderTab(project);
+  wireFilterableTables();
   window.lucide?.createIcons();
 }
 
@@ -94,8 +148,11 @@ function renderOverview(project) {
 }
 
 function renderMetadata(project) {
-  const rows = project.metadata_fields.map((field) => `<tr><td>${escapeHtml(field.key)}</td><td>${escapeHtml(formatValue(field.value))}</td><td>${escapeHtml(formatValue(field.accession))}</td><td>${escapeHtml(field.confidence || "-")}</td></tr>`).join("");
-  return rows ? `<div class="table-wrap"><table class="metadata-table"><thead><tr><th>Field</th><th>Value</th><th>Accession</th><th>Confidence</th></tr></thead><tbody>${rows}</tbody></table></div>` : empty("No selected LLM metadata fields were captured.");
+  if (!project.sdrf?.text) return empty("No SDRF TSV content was included in this catalog.");
+  const [columns, ...rows] = parseTsv(project.sdrf.text);
+  if (!columns?.length) return empty("The stored SDRF TSV is empty.");
+  const normalizedRows = rows.map((row) => columns.map((_, index) => row[index] || ""));
+  return `<div class="panel-heading"><h2 class="section-title">${escapeHtml(project.sdrf.path)}</h2><p>Full xHAMLET SDRF metadata for this project.</p></div>${renderFilterableTable(`sdrf-${project.accession}`, columns, normalizedRows, "metadata-table")}`;
 }
 
 function renderSearches(project) {
@@ -114,15 +171,15 @@ function renderCrosslinks(project) {
   const runs = project.relink_runs.filter((run) => run.crosslinks?.length);
   if (!runs.length) return empty("No compact cross-link records were included in this catalog.");
   return runs.map((run) => {
-    const rows = run.crosslinks.map((crosslink) => `<tr>
-      <td>${escapeHtml(crosslink.source_file || "[unresolved RAW]")}</td>
-      <td>${escapeHtml(crosslink.alpha_sequence || "-")}<br>${escapeHtml(crosslink.beta_sequence || "-")}</td>
-      <td>${escapeHtml(formatValue(crosslink.alpha_proteins))}<br>${escapeHtml(formatValue(crosslink.beta_proteins))}</td>
-      <td>${escapeHtml(formatValue(crosslink.alpha_positions))}<br>${escapeHtml(formatValue(crosslink.beta_positions))}</td>
-      <td>${formatNumber(crosslink.observations)}</td><td>${crosslink.best_xi_score ?? "-"}</td>
-    </tr>`).join("");
+    const columns = ["Source RAW", "Alpha peptide", "Beta peptide", "Alpha proteins", "Beta proteins", "Alpha positions", "Beta positions", "PSMs", "Best xi score"];
+    const rows = run.crosslinks.map((crosslink) => [
+      crosslink.source_file || "[unresolved RAW]", crosslink.alpha_sequence || "-", crosslink.beta_sequence || "-",
+      formatValue(crosslink.alpha_proteins), formatValue(crosslink.beta_proteins),
+      formatValue(crosslink.alpha_positions), formatValue(crosslink.beta_positions),
+      formatNumber(crosslink.observations), crosslink.best_xi_score ?? "-",
+    ]);
     return `<article class="run"><div class="run-heading"><h2>Taxid ${escapeHtml(run.taxid || "unknown")}</h2><span class="run-path">${escapeHtml(run.path)}</span></div>
-      <div class="table-wrap"><table class="search-table"><thead><tr><th>Source RAW</th><th>Peptides</th><th>Proteins</th><th>Positions</th><th>PSMs</th><th>Best xi score</th></tr></thead><tbody>${rows}</tbody></table></div>
+      ${renderFilterableTable(`crosslinks-${project.accession}-${run.path.replaceAll(/[^a-z0-9]+/gi, "-")}`, columns, rows, "search-table")}
     </article>`;
   }).join("");
 }
