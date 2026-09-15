@@ -1,7 +1,7 @@
 # xHAMLET Result Database Schema
 
-**Status:** Proposed design
-**Database system:** PostgreSQL 16 or newer
+**Status:** Phase 1 catalog implementation plus proposed normalized mzIdentML design
+**Database system:** SQLite by default; PostgreSQL 16 or newer optional
 **Inputs:** `llm/responses.json` and ReLink `results.mzid`
 
 ## 1. Scope
@@ -26,19 +26,47 @@ It does **not** store:
 - other pipeline caches and temporary files.
 
 A source RAW filename is retained only as a short text identifier. The `.raw` binary is
-never uploaded to or managed by PostgreSQL.
+never uploaded to or managed by SQLite or PostgreSQL.
 
 The original JSON and mzIdentML files may be retained separately for backup or audit, but
 external artifact storage is outside this database schema.
 
+## Implementation Status
+
+`scripts/sync_result_database.py` creates the Phase 1 catalog and updates it from the
+configured `storage.base_dir`. It writes a local `xhamlet-results.sqlite3` database by
+default; `--database-url` selects PostgreSQL. It provides default all-PXD discovery,
+PXD/mask selection, exclusions, source-signature incremental updates, and `--force`
+replacement.
+The implementation stores project/run provenance; complete LLM JSON and parsed response
+fields; all non-binary artifact checksums and metadata; compact textual SDRF, TSV, CSV,
+and Xi config outputs; source RAW identifiers plus their file-clustering assignments;
+ReLink run context; document-level mzIdentML validation counts and header provenance;
+and compact passing cross-link records grouped to their source RAW files.
+
+The detailed normalized mzIdentML tables below remain the Phase 2 target. Until that
+streaming loader is implemented, individual PSMs, peptides, protein evidence, and every
+CV/user parameter remain in the external `results.mzid` artifact rather than separate
+database rows. See [RESULT_CATALOG_AND_EXPLORER.md](RESULT_CATALOG_AND_EXPLORER.md) for
+the command-line workflow and static explorer deployment model.
+
 ## 2. What Kind of Database Is This?
 
-The database will use **PostgreSQL 16 or newer**. PostgreSQL is a relational database
-management system. It stores information in related tables and is queried using SQL
-(Structured Query Language). SQL is the language used to ask questions of the data;
-PostgreSQL is the software that stores and manages it.
+The default database is **SQLite**, an embedded relational database stored in one local
+file. It is appropriate for a local catalog and needs no server process. The same command
+can instead use **PostgreSQL 16 or newer** for a shared multi-user deployment. Both store
+information in related tables and are queried using SQL (Structured Query Language).
 
-PostgreSQL is appropriate here because it:
+SQLite is appropriate for a local catalog because it:
+
+- is included with Python and stored in one portable `.sqlite3` file;
+- supports transactions, foreign keys, indexes, and the catalog's JSON documents as text;
+- avoids database credentials and external infrastructure; and
+- is sufficient for a single-writer local sync and static snapshot generation.
+
+PostgreSQL remains appropriate when the catalog needs concurrent writers, a shared
+service, JSONB SQL operators, or the Phase 2 large-scale normalized mzIdentML warehouse.
+It provides:
 
 - reliably maintains relationships between projects, files, searches, and results;
 - supports transactions, which prevent partially imported results from appearing as
@@ -337,6 +365,24 @@ Records which RAW filename identifiers belong to a search. It does not store fil
 | `cluster_id` | `TEXT` | Nullable LLM cluster identifier |
 
 Primary key: `(search_run_id, source_file_id)`.
+
+### `crosslink_match`
+
+The implemented Phase 1 catalog includes this compact result table for the static
+explorer. It is not a replacement for the fully normalized Phase 2 PSM schema.
+
+| Column | Type | Meaning |
+|---|---|---|
+| `crosslink_match_id` | `BIGINT GENERATED ALWAYS AS IDENTITY` | Primary key |
+| `mzid_document_id` | `BIGINT` | FK to the containing mzIdentML document |
+| `source_file` | `TEXT` | Resolved original RAW filename when available |
+| `spectrum_native_id`, `scan_number` | `TEXT`, `BIGINT` | Source-spectrum identifiers |
+| `crosslink_group_key` | `TEXT` | xiFDR cross-link group within the spectrum |
+| `alpha_sequence`, `beta_sequence` | `TEXT` | Paired passing peptide sequences |
+| `alpha_proteins`, `beta_proteins` | `JSONB` | Mapped non-decoy protein accessions |
+| `alpha_positions`, `beta_positions` | `JSONB` | Protein coordinate mappings |
+| `charge_state`, `xi_score` | `INTEGER`, `DOUBLE PRECISION` | Search result measurements |
+| `pass_threshold` | `BOOLEAN` | mzIdentML threshold result |
 
 ## 7. mzIdentML Source Document Tables
 

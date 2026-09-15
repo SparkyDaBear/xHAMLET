@@ -240,6 +240,22 @@ Per accession under `pxd_data/<PXD>/`:
 - `enhanced/metadata.json`
 - `relink/taxid_<taxid>/results/` (if ReLink enabled)
 
+## Result Catalog
+
+Create or update the local SQLite result catalog and generate the static
+results-explorer snapshot:
+
+```bash
+python scripts/sync_result_database.py \
+	--config configs/config.yaml \
+	--static-snap
+```
+
+This writes `xhamlet-results.sqlite3` locally and generates
+`web/results-explorer/data/catalog.json`. See
+[documents/RESULT_CATALOG_AND_EXPLORER.md](documents/RESULT_CATALOG_AND_EXPLORER.md)
+for PostgreSQL and publishing options.
+
 ## Troubleshooting
 
 ### Missing assessment/study_metadata.json
@@ -271,6 +287,7 @@ Common causes:
 
 - Architecture: [documents/ARCHITECTURE.md](documents/ARCHITECTURE.md)
 - Build notes: [documents/BUILD_SUMMARY.md](documents/BUILD_SUMMARY.md)
+- Result catalog and static explorer: [documents/RESULT_CATALOG_AND_EXPLORER.md](documents/RESULT_CATALOG_AND_EXPLORER.md)
 
 ## References
 

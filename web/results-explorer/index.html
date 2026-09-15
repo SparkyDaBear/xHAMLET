@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Explore xHAMLET XL-MS result catalogs.">
+    <title>xHAMLET Results</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,500;9..144,650&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="wordmark" href="./" aria-label="xHAMLET results home">xHAMLET<span>results</span></a>
+      <div class="catalog-stamp" id="catalog-stamp">Loading catalog</div>
+    </header>
+    <main class="shell">
+      <aside class="project-rail" aria-label="Projects">
+        <label class="search-field" for="project-search">
+          <i data-lucide="search" aria-hidden="true"></i>
+          <input id="project-search" type="search" placeholder="Filter PXDs" autocomplete="off">
+        </label>
+        <div class="project-count" id="project-count"></div>
+        <nav id="project-list" class="project-list" aria-label="PXD projects"></nav>
+      </aside>
+      <section class="workspace" aria-live="polite">
+        <div id="empty-state" class="empty-state" hidden>
+          <p class="eyebrow">No project selected</p>
+          <h1>Choose a PXD to inspect its results.</h1>
+        </div>
+        <div id="project-view" hidden>
+          <section class="project-heading">
+            <p class="eyebrow" id="project-accession"></p>
+            <h1 id="project-title"></h1>
+            <p id="project-description" class="project-description"></p>
+          </section>
+          <section class="metrics" id="metrics"></section>
+          <div class="tabs" role="tablist" aria-label="Project views">
+            <button class="tab is-active" id="tab-overview" role="tab" aria-selected="true" data-tab="overview">Overview</button>
+            <button class="tab" id="tab-metadata" role="tab" aria-selected="false" data-tab="metadata">Metadata</button>
+            <button class="tab" id="tab-searches" role="tab" aria-selected="false" data-tab="searches">Searches</button>
+            <button class="tab" id="tab-crosslinks" role="tab" aria-selected="false" data-tab="crosslinks">Cross-links</button>
+            <button class="tab" id="tab-files" role="tab" aria-selected="false" data-tab="files">Files</button>
+          </div>
+          <section id="tab-panel" class="tab-panel" role="tabpanel"></section>
+        </div>
+      </section>
+    </main>
+    <template id="metric-template">
+      <article class="metric"><span class="metric-label"></span><strong class="metric-value"></strong></article>
+    </template>
+    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+    <script src="assets/app.js"></script>
+  </body>
+</html>

@@ -150,6 +150,7 @@ def main() -> int:
     valid_sdrf = invalid_sdrf = missing_sdrf = 0
     linear_config_present = 0
     crosslink_config_present = 0
+    valid_crosslinker_lines_pxds = 0
     variable_mod_gt1_pxds = 0
 
     print(
@@ -211,6 +212,8 @@ def main() -> int:
                 linear_config_present += 1
             if xi_checks["crosslink_present"] == "YES":
                 crosslink_config_present += 1
+            if xi_checks["crosslinker_status"] == "OK":
+                valid_crosslinker_lines_pxds += 1
 
             linear_var = int(xi_checks["linear_variable"]) if xi_checks["linear_variable"].isdigit() else 0
             crosslink_var = int(xi_checks["crosslink_variable"]) if xi_checks["crosslink_variable"].isdigit() else 0
@@ -235,6 +238,7 @@ def main() -> int:
     print(f"SDRF missing:          {missing_sdrf}")
     print(f"PXDs with xi_linear.conf present:        {linear_config_present}")
     print(f"PXDs with xi_crosslinking.conf present:  {crosslink_config_present}")
+    print(f"PXDs with valid has_crosslinker lines:   {valid_crosslinker_lines_pxds}")
     print(f"PXDs with variable modifications > 1:    {variable_mod_gt1_pxds}")
 
     return 0
