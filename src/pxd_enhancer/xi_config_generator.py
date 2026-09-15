@@ -620,9 +620,15 @@ FRAGMENTTREE:FU
                 crosslinker_names.append(xl_def.get("short_name", xl_def["name"]))
                 logger.info(f"  Found crosslinker: {xl_name}")
             else:
-                logger.warning(f"  Unknown crosslinker: {xl_name} - using default (Linear)")
+                raise ValueError(
+                    f"Unsupported crosslinker '{xl_name}'. "
+                    "Refusing to fall back to DSSO."
+                )
         else:
-            logger.info(f"  No valid crosslinker name found - using default (Linear)")
+            raise ValueError(
+                "No valid crosslinker name was identified. "
+                "Refusing to fall back to DSSO."
+            )
         
         # Extract digestion info
         digestion_response = llm_responses.get("comment[cleavage agent details]", {})
@@ -638,10 +644,10 @@ FRAGMENTTREE:FU
                 quencher_name
             )
         else:
-            # Fallback: use a generic crosslinker section for DSSO
-            dsso_def = self.get_crosslinker("DSSO")
-            crosslinker_section_xl = self._build_crosslinker_section([dsso_def] if dsso_def else [])
-            var_mods_xl = self._get_variable_modifications_for_crosslinker("DSSO", quencher_name)
+            raise ValueError(
+                "No supported crosslinker definition available. "
+                "Refusing to fall back to DSSO."
+            )
         
         # For linear config: never use crosslinkers
         crosslinker_section_linear = "#################\n## Cross Linker + associated modifications\ncrosslinker:LinearCrosslinker:NAME:linear"
