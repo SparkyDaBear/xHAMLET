@@ -1181,6 +1181,9 @@ def database_catalog(
                     }
                     for source_file, alpha_sequence, beta_sequence, alpha_proteins, beta_proteins,
                     alpha_positions, beta_positions, observations, best_score in cursor.fetchall()
+                    # The public snapshot omits target-decoy or otherwise unresolved pairs.
+                    # The original compact rows remain available in the SQL catalog for QC.
+                    if json_value(alpha_proteins) and json_value(beta_proteins)
                 ]
                 runs.append(
                     {

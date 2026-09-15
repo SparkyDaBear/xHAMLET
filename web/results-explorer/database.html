@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="xHAMLET result catalog database guide and SQL query recipes.">
+    <title>xHAMLET Database Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,500;9..144,650&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="wordmark" href="./" aria-label="xHAMLET results home">xHAMLET<span>results</span></a>
+      <nav class="topbar-nav" aria-label="Results explorer navigation"><a href="./">Results explorer</a></nav>
+      <div class="catalog-stamp">Database guide</div>
+    </header>
+    <main class="guide-shell">
+      <aside class="guide-rail" aria-label="Database guide sections">
+        <a href="#purpose">Purpose</a>
+        <a href="#connect">Connect</a>
+        <a href="#model">Data model</a>
+        <a href="#tables">Implemented tables</a>
+        <a href="#queries">SQL recipes</a>
+        <a href="#quality">Quality rules</a>
+        <a href="#roadmap">Roadmap</a>
+      </aside>
+      <article class="guide-content">
+        <section class="guide-intro" id="purpose">
+          <p class="eyebrow">xHAMLET result catalog</p>
+          <h1>Database guide</h1>
+          <p>This guide describes the SQL catalog created by <code>scripts/sync_result_database.py</code>. The public results explorer reads a static JSON snapshot; it does not expose the database or accept SQL from a browser.</p>
+          <p>The default catalog is a local SQLite file. PostgreSQL is supported when a shared, multi-user database is needed. RAW, mzML, and FASTA binary contents remain outside either database.</p>
+        </section>
+
+        <section id="connect">
+          <h2>Connect and Refresh</h2>
+          <div class="guide-grid">
+            <div>
+              <h3>Local SQLite</h3>
+              <p>The default command writes <code>xhamlet-results.sqlite3</code> in the current directory.</p>
+              <pre><code>python scripts/sync_result_database.py \
+  --config configs/config.yaml \
+  --static-snap
+
+sqlite3 xhamlet-results.sqlite3</code></pre>
+            </div>
+            <div>
+              <h3>Shared PostgreSQL</h3>
+              <p>Supply a PostgreSQL URL for a shared catalog. Keep credentials out of the static site.</p>
+              <pre><code>python scripts/sync_result_database.py \
+  --config configs/config.yaml \
+  --database-url 'postgresql://USER:PASSWORD@HOST:5432/xhamlet' \
+  --static-snap</code></pre>
+            </div>
+          </div>
+          <p>To regenerate only the public JSON snapshot from an already-populated database, without scanning pipeline outputs, run <code>python scripts/sync_result_database.py --snapshot-only --static-snap</code>.</p>
+        </section>
+
+        <section id="model">
+          <h2>Data Model</h2>
+          <p>Each PXD has a current pipeline run. A run owns its source RAW roster, captured output artifacts, LLM extraction, ReLink search runs, mzIdentML document summaries, and compact cross-link observations.</p>
+          <pre class="relationship"><code>project
+  +-- pipeline_run
+       +-- llm_output -- llm_response
+       +-- output_artifact
+       +-- source_file
+       +-- search_run
+            +-- mzid_document
+                 +-- crosslink_match</code></pre>
+          <p><code>source_file</code> identifies an original RAW filename and its file-clustering assignment. <code>crosslink_match</code> is a compact, passing paired-peptide observation tied to an mzIdentML document, source spectrum, and resolved RAW file where possible.</p>
+        </section>
+
+        <section id="tables">
+          <h2>Implemented Tables</h2>
+          <div class="table-wrap guide-table-wrap">
+            <table class="guide-table">
+              <thead><tr><th>Table</th><th>Purpose</th><th>Important columns</th></tr></thead>
+              <tbody>
+                <tr><td><code>catalog_schema_version</code></td><td>Catalog schema version history.</td><td><code>version</code>, <code>applied_at</code></td></tr>
+                <tr><td><code>project</code></td><td>One PRIDE project per PXD accession.</td><td><code>project_id</code>, <code>accession</code>, <code>title</code>, <code>xhamlet_commit</code></td></tr>
+                <tr><td><code>pipeline_run</code></td><td>Current imported state for a PXD. Re-import replaces its dependent catalog data transactionally.</td><td><code>project_id</code>, <code>source_signature</code>, <code>processed_at</code>, <code>accepted</code>, <code>stage_status</code>, <code>enhanced_metadata</code></td></tr>
+                <tr><td><code>llm_output</code></td><td>Complete accepted <code>responses.json</code> source document.</td><td><code>pipeline_run_id</code>, <code>saved_at</code>, <code>source_json</code>, <code>source_sha256</code></td></tr>
+                <tr><td><code>llm_response</code></td><td>One searchable LLM response per metadata key.</td><td><code>field_key</code>, <code>prompt_group</code>, <code>model</code>, <code>value_json</code>, <code>accession_json</code>, <code>confidence</code></td></tr>
+                <tr><td><code>output_artifact</code></td><td>Non-binary pipeline output provenance and retained small textual/JSON content.</td><td><code>relative_path</code>, <code>artifact_type</code>, <code>byte_size</code>, <code>modified_at</code>, <code>sha256</code>, <code>content_json</code>, <code>content_text</code></td></tr>
+                <tr><td><code>source_file</code></td><td>Original RAW filenames and their clustering metadata; no RAW binary is stored.</td><td><code>pipeline_run_id</code>, <code>filename</code>, <code>assignment_json</code></td></tr>
+                <tr><td><code>search_run</code></td><td>One ReLink taxid/crosslinker result group.</td><td><code>pipeline_run_id</code>, <code>run_path</code>, <code>taxid</code>, <code>crosslinker_config</code>, <code>fasta_path</code>, <code>status</code></td></tr>
+                <tr><td><code>mzid_document</code></td><td>One imported ReLink <code>results.mzid</code> plus document-level counts and provenance.</td><td><code>search_run_id</code>, <code>relative_path</code>, <code>source_sha256</code>, <code>version</code>, <code>spectrum_result_count</code>, <code>passing_item_count</code>, <code>is_complete</code></td></tr>
+                <tr><td><code>crosslink_match</code></td><td>Compact paired passing cross-link observation. Protein arrays contain target mappings only.</td><td><code>source_file</code>, <code>spectrum_native_id</code>, <code>scan_number</code>, <code>alpha_sequence</code>, <code>beta_sequence</code>, protein/position arrays, <code>xi_score</code>, <code>pass_threshold</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>SQLite stores structured fields as JSON text. PostgreSQL stores the same fields as <code>JSONB</code>, which supports additional JSON indexes and operators.</p>
+        </section>
+
+        <section id="queries">
+          <h2>SQL Recipes</h2>
+          <p>Replace named parameters with your client syntax. The SQLite CLI supports <code>.parameter set :pxd PXD042173</code>; most Python and PostgreSQL clients bind parameters directly.</p>
+
+          <h3>All catalog records for one PXD</h3>
+          <pre><code>SELECT p.accession, p.title, run.processed_at, run.accepted,
+       run.stage_status
+FROM project AS p
+JOIN pipeline_run AS run USING (project_id)
+WHERE p.accession = :pxd;</code></pre>
+
+          <h3>RAW files and clustering assignments for one PXD</h3>
+          <pre><code>SELECT source.filename, source.assignment_json
+FROM project AS p
+JOIN pipeline_run AS run USING (project_id)
+JOIN source_file AS source USING (pipeline_run_id)
+WHERE p.accession = :pxd
+ORDER BY source.filename;</code></pre>
+
+          <h3>All target-mapped cross-links for one PXD</h3>
+          <pre><code>SELECT p.accession, search.taxid, match.source_file, match.scan_number,
+       match.alpha_sequence, match.beta_sequence,
+       match.alpha_proteins, match.beta_proteins, match.xi_score
+FROM project AS p
+JOIN pipeline_run AS run USING (project_id)
+JOIN search_run AS search USING (pipeline_run_id)
+JOIN mzid_document AS document USING (search_run_id)
+JOIN crosslink_match AS match USING (mzid_document_id)
+WHERE p.accession = :pxd
+  AND match.pass_threshold
+  AND json_array_length(match.alpha_proteins) &gt; 0
+  AND json_array_length(match.beta_proteins) &gt; 0
+ORDER BY match.xi_score DESC;</code></pre>
+          <p>For PostgreSQL, use <code>jsonb_array_length</code> instead of <code>json_array_length</code>.</p>
+
+          <h3>All records related to a protein accession</h3>
+          <p>SQLite:</p>
+          <pre><code>SELECT p.accession, search.taxid, match.source_file, match.scan_number,
+       match.alpha_sequence, match.beta_sequence, match.xi_score
+FROM project AS p
+JOIN pipeline_run AS run USING (project_id)
+JOIN search_run AS search USING (pipeline_run_id)
+JOIN mzid_document AS document USING (search_run_id)
+JOIN crosslink_match AS match USING (mzid_document_id)
+WHERE match.pass_threshold
+  AND (
+    EXISTS (SELECT 1 FROM json_each(match.alpha_proteins)
+            WHERE value = :protein_accession)
+    OR EXISTS (SELECT 1 FROM json_each(match.beta_proteins)
+               WHERE value = :protein_accession)
+  )
+ORDER BY p.accession, match.xi_score DESC;</code></pre>
+          <p>PostgreSQL replaces the JSON predicates with <code>match.alpha_proteins ? :protein_accession OR match.beta_proteins ? :protein_accession</code>.</p>
+
+          <h3>Find compact rows requiring mapping QC</h3>
+          <pre><code>SELECT p.accession, match.source_file, match.scan_number,
+       match.alpha_sequence, match.beta_sequence,
+       match.alpha_proteins, match.beta_proteins, match.xi_score
+FROM project AS p
+JOIN pipeline_run AS run USING (project_id)
+JOIN search_run AS search USING (pipeline_run_id)
+JOIN mzid_document AS document USING (search_run_id)
+JOIN crosslink_match AS match USING (mzid_document_id)
+WHERE match.pass_threshold
+  AND (json_array_length(match.alpha_proteins) = 0
+       OR json_array_length(match.beta_proteins) = 0)
+ORDER BY p.accession, match.xi_score DESC;</code></pre>
+
+          <h3>Search LLM-extracted metadata</h3>
+          <pre><code>SELECT p.accession, response.field_key, response.value_json,
+       response.accession_json, response.confidence
+FROM project AS p
+JOIN pipeline_run AS run USING (project_id)
+JOIN llm_output AS output USING (pipeline_run_id)
+JOIN llm_response AS response USING (llm_output_id)
+WHERE response.field_key = 'comment[cross-linker]'
+ORDER BY p.accession;</code></pre>
+        </section>
+
+        <section id="quality">
+          <h2>Quality and Scope</h2>
+          <p>The catalog only exports projects whose pipeline run is marked <code>accepted</code>. The static snapshot additionally omits a compact cross-link when either peptide has no target protein mapping. This suppresses target-decoy or unresolved pairings from the public table while retaining the original compact rows in the SQL database for QC.</p>
+          <p>Large artifacts are not embedded in the local database. Their relative path, type, byte size, modified time, and SHA-256 remain cataloged; the configurable local inline-content limit determines whether text/JSON content is retained.</p>
+        </section>
+
+        <section id="roadmap">
+          <h2>Normalized mzIdentML Roadmap</h2>
+          <p>The current catalog intentionally stores compact cross-link observations rather than every mzIdentML entity. The detailed schema proposal adds normalized <code>spectra_data</code>, <code>search_database</code>, <code>db_sequence</code>, <code>peptide</code>, <code>peptide_modification</code>, <code>peptide_evidence</code>, <code>spectrum_result</code>, <code>spectrum_item</code>, <code>item_evidence</code>, CV/user parameter, and protein-inference tables.</p>
+          <p>Those Phase 2 tables are design documentation, not currently populated by the synchronizer. Use <code>crosslink_match</code> for today's result exploration and retain the original mzIdentML artifacts for full source-level analysis.</p>
+          <p>For the complete design rationale and the planned normalized schema, see <a class="file-link" href="https://github.com/SparkyDaBear/xHAMLET/blob/main/documents/DATABASE_SCHEMA.md" target="_blank" rel="noreferrer">DATABASE_SCHEMA.md in the repository</a>.</p>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>
