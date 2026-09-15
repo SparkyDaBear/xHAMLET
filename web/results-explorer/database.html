@@ -74,22 +74,113 @@ sqlite3 xhamlet-results.sqlite3</code></pre>
 
         <section id="tables">
           <h2>Implemented Tables</h2>
-          <div class="table-wrap guide-table-wrap">
-            <table class="guide-table">
-              <thead><tr><th>Table</th><th>Purpose</th><th>Important columns</th></tr></thead>
-              <tbody>
-                <tr><td><code>catalog_schema_version</code></td><td>Catalog schema version history.</td><td><code>version</code>, <code>applied_at</code></td></tr>
-                <tr><td><code>project</code></td><td>One PRIDE project per PXD accession.</td><td><code>project_id</code>, <code>accession</code>, <code>title</code>, <code>xhamlet_commit</code></td></tr>
-                <tr><td><code>pipeline_run</code></td><td>Current imported state for a PXD. Re-import replaces its dependent catalog data transactionally.</td><td><code>project_id</code>, <code>source_signature</code>, <code>processed_at</code>, <code>accepted</code>, <code>stage_status</code>, <code>enhanced_metadata</code></td></tr>
-                <tr><td><code>llm_output</code></td><td>Complete accepted <code>responses.json</code> source document.</td><td><code>pipeline_run_id</code>, <code>saved_at</code>, <code>source_json</code>, <code>source_sha256</code></td></tr>
-                <tr><td><code>llm_response</code></td><td>One searchable LLM response per metadata key.</td><td><code>field_key</code>, <code>prompt_group</code>, <code>model</code>, <code>value_json</code>, <code>accession_json</code>, <code>confidence</code></td></tr>
-                <tr><td><code>output_artifact</code></td><td>Non-binary pipeline output provenance and retained small textual/JSON content.</td><td><code>relative_path</code>, <code>artifact_type</code>, <code>byte_size</code>, <code>modified_at</code>, <code>sha256</code>, <code>content_json</code>, <code>content_text</code></td></tr>
-                <tr><td><code>source_file</code></td><td>Original RAW filenames and their clustering metadata; no RAW binary is stored.</td><td><code>pipeline_run_id</code>, <code>filename</code>, <code>assignment_json</code></td></tr>
-                <tr><td><code>search_run</code></td><td>One ReLink taxid/crosslinker result group.</td><td><code>pipeline_run_id</code>, <code>run_path</code>, <code>taxid</code>, <code>crosslinker_config</code>, <code>fasta_path</code>, <code>status</code></td></tr>
-                <tr><td><code>mzid_document</code></td><td>One imported ReLink <code>results.mzid</code> plus document-level counts and provenance.</td><td><code>search_run_id</code>, <code>relative_path</code>, <code>source_sha256</code>, <code>version</code>, <code>spectrum_result_count</code>, <code>passing_item_count</code>, <code>is_complete</code></td></tr>
-                <tr><td><code>crosslink_match</code></td><td>Compact paired passing cross-link observation. Protein arrays contain target mappings only.</td><td><code>source_file</code>, <code>spectrum_native_id</code>, <code>scan_number</code>, <code>alpha_sequence</code>, <code>beta_sequence</code>, protein/position arrays, <code>xi_score</code>, <code>pass_threshold</code></td></tr>
-              </tbody>
-            </table>
+          <p>Open a table to see every column in the current catalog schema. Type names describe the PostgreSQL definition; SQLite uses compatible storage classes and stores structured fields as JSON text.</p>
+          <div class="schema-list">
+            <details class="schema-table">
+              <summary><code>catalog_schema_version</code><span>Schema migration history</span></summary>
+              <div class="table-wrap guide-table-wrap"><table class="guide-table"><thead><tr><th>Column</th><th>Type</th><th>Meaning</th></tr></thead><tbody>
+                <tr><td><code>version</code></td><td>INTEGER</td><td>Applied catalog schema version; primary key.</td></tr>
+                <tr><td><code>applied_at</code></td><td>TIMESTAMPTZ</td><td>Timestamp when the version was applied.</td></tr>
+              </tbody></table></div>
+            </details>
+            <details class="schema-table">
+              <summary><code>project</code><span>One PRIDE project per PXD accession</span></summary>
+              <div class="table-wrap guide-table-wrap"><table class="guide-table"><thead><tr><th>Column</th><th>Type</th><th>Meaning</th></tr></thead><tbody>
+                <tr><td><code>project_id</code></td><td>BIGINT</td><td>Internal primary key.</td></tr>
+                <tr><td><code>accession</code></td><td>TEXT</td><td>Unique PXD accession.</td></tr>
+                <tr><td><code>title</code></td><td>TEXT</td><td>PRIDE project title when available.</td></tr>
+                <tr><td><code>xhamlet_commit</code></td><td>TEXT</td><td>xHAMLET Git revision that produced the catalog entry.</td></tr>
+                <tr><td><code>created_at</code>, <code>updated_at</code></td><td>TIMESTAMPTZ</td><td>Catalog creation and latest update times.</td></tr>
+              </tbody></table></div>
+            </details>
+            <details class="schema-table">
+              <summary><code>pipeline_run</code><span>Imported and accepted state for a PXD</span></summary>
+              <div class="table-wrap guide-table-wrap"><table class="guide-table"><thead><tr><th>Column</th><th>Type</th><th>Meaning</th></tr></thead><tbody>
+                <tr><td><code>pipeline_run_id</code></td><td>BIGINT</td><td>Internal primary key.</td></tr>
+                <tr><td><code>project_id</code></td><td>BIGINT</td><td>Parent <code>project</code> key.</td></tr>
+                <tr><td><code>source_signature</code></td><td>CHAR(64)</td><td>SHA-256-style signature used for incremental imports.</td></tr>
+                <tr><td><code>source_root</code></td><td>TEXT</td><td>Imported PXD directory location.</td></tr>
+                <tr><td><code>processed_at</code>, <code>imported_at</code></td><td>TIMESTAMPTZ</td><td>Pipeline processing and catalog import times.</td></tr>
+                <tr><td><code>accepted</code></td><td>BOOLEAN</td><td>Whether this run is eligible for catalog export.</td></tr>
+                <tr><td><code>stage_status</code>, <code>enhanced_metadata</code></td><td>JSONB</td><td>Pipeline statuses and saved enhanced metadata.</td></tr>
+              </tbody></table></div>
+            </details>
+            <details class="schema-table">
+              <summary><code>llm_output</code><span>Complete accepted responses.json document</span></summary>
+              <div class="table-wrap guide-table-wrap"><table class="guide-table"><thead><tr><th>Column</th><th>Type</th><th>Meaning</th></tr></thead><tbody>
+                <tr><td><code>llm_output_id</code></td><td>BIGINT</td><td>Internal primary key.</td></tr>
+                <tr><td><code>pipeline_run_id</code></td><td>BIGINT</td><td>Unique parent pipeline run.</td></tr>
+                <tr><td><code>saved_at</code></td><td>TIMESTAMPTZ</td><td>Timestamp recorded by the LLM output.</td></tr>
+                <tr><td><code>source_json</code></td><td>JSONB</td><td>Complete original responses document.</td></tr>
+                <tr><td><code>source_sha256</code></td><td>CHAR(64)</td><td>Checksum of the source document.</td></tr>
+              </tbody></table></div>
+            </details>
+            <details class="schema-table">
+              <summary><code>llm_response</code><span>One searchable extraction per metadata key</span></summary>
+              <div class="table-wrap guide-table-wrap"><table class="guide-table"><thead><tr><th>Column</th><th>Type</th><th>Meaning</th></tr></thead><tbody>
+                <tr><td><code>llm_response_id</code></td><td>BIGINT</td><td>Internal primary key.</td></tr>
+                <tr><td><code>llm_output_id</code></td><td>BIGINT</td><td>Parent LLM source document.</td></tr>
+                <tr><td><code>field_key</code>, <code>prompt_group</code></td><td>TEXT</td><td>Original result key and prompt family.</td></tr>
+                <tr><td><code>model</code>, <code>raw_response_text</code></td><td>TEXT</td><td>Model identifier and original response text.</td></tr>
+                <tr><td><code>parsed_json</code>, <code>value_json</code>, <code>accession_json</code></td><td>JSONB</td><td>Parsed response, extracted value, and ontology accession.</td></tr>
+                <tr><td><code>confidence</code>, <code>evidence_quote</code>, <code>evidence_location</code></td><td>TEXT</td><td>Extraction confidence and supporting evidence.</td></tr>
+              </tbody></table></div>
+            </details>
+            <details class="schema-table">
+              <summary><code>output_artifact</code><span>Pipeline-output provenance and retained text</span></summary>
+              <div class="table-wrap guide-table-wrap"><table class="guide-table"><thead><tr><th>Column</th><th>Type</th><th>Meaning</th></tr></thead><tbody>
+                <tr><td><code>artifact_id</code></td><td>BIGINT</td><td>Internal primary key.</td></tr>
+                <tr><td><code>pipeline_run_id</code></td><td>BIGINT</td><td>Parent pipeline run.</td></tr>
+                <tr><td><code>relative_path</code>, <code>artifact_type</code></td><td>TEXT</td><td>Path within the PXD output and its category.</td></tr>
+                <tr><td><code>byte_size</code>, <code>modified_at</code>, <code>sha256</code></td><td>BIGINT, TIMESTAMPTZ, CHAR(64)</td><td>Artifact size, modification time, and checksum.</td></tr>
+                <tr><td><code>content_json</code>, <code>content_text</code></td><td>JSONB, TEXT</td><td>Retained small JSON or textual artifact content.</td></tr>
+              </tbody></table></div>
+            </details>
+            <details class="schema-table">
+              <summary><code>source_file</code><span>Original RAW identifiers and assignments</span></summary>
+              <div class="table-wrap guide-table-wrap"><table class="guide-table"><thead><tr><th>Column</th><th>Type</th><th>Meaning</th></tr></thead><tbody>
+                <tr><td><code>source_file_id</code></td><td>BIGINT</td><td>Internal primary key.</td></tr>
+                <tr><td><code>pipeline_run_id</code></td><td>BIGINT</td><td>Parent pipeline run.</td></tr>
+                <tr><td><code>filename</code></td><td>TEXT</td><td>Original RAW filename only; no binary content is stored.</td></tr>
+                <tr><td><code>assignment_json</code></td><td>JSONB</td><td>File-clustering assignment and associated metadata.</td></tr>
+              </tbody></table></div>
+            </details>
+            <details class="schema-table">
+              <summary><code>search_run</code><span>One ReLink taxid and crosslinker group</span></summary>
+              <div class="table-wrap guide-table-wrap"><table class="guide-table"><thead><tr><th>Column</th><th>Type</th><th>Meaning</th></tr></thead><tbody>
+                <tr><td><code>search_run_id</code></td><td>BIGINT</td><td>Internal primary key.</td></tr>
+                <tr><td><code>pipeline_run_id</code></td><td>BIGINT</td><td>Parent pipeline run.</td></tr>
+                <tr><td><code>run_path</code></td><td>TEXT</td><td>ReLink output path, unique within a pipeline run.</td></tr>
+                <tr><td><code>taxid</code></td><td>TEXT</td><td>NCBI taxonomy identifier.</td></tr>
+                <tr><td><code>crosslinker_config</code></td><td>JSONB</td><td>Crosslinker configuration used by the run.</td></tr>
+                <tr><td><code>fasta_path</code>, <code>status</code></td><td>TEXT</td><td>Resolved FASTA path and ReLink result status.</td></tr>
+                <tr><td><code>metadata_json</code></td><td>JSONB</td><td>Additional search provenance.</td></tr>
+              </tbody></table></div>
+            </details>
+            <details class="schema-table">
+              <summary><code>mzid_document</code><span>Imported ReLink results.mzid summaries</span></summary>
+              <div class="table-wrap guide-table-wrap"><table class="guide-table"><thead><tr><th>Column</th><th>Type</th><th>Meaning</th></tr></thead><tbody>
+                <tr><td><code>mzid_document_id</code></td><td>BIGINT</td><td>Internal primary key.</td></tr>
+                <tr><td><code>search_run_id</code></td><td>BIGINT</td><td>Parent ReLink search run.</td></tr>
+                <tr><td><code>relative_path</code>, <code>source_sha256</code></td><td>TEXT, CHAR(64)</td><td>mzIdentML path and source checksum.</td></tr>
+                <tr><td><code>xml_id</code>, <code>version</code>, <code>namespace_uri</code>, <code>creation_time</code></td><td>TEXT, TIMESTAMPTZ</td><td>Root XML provenance.</td></tr>
+                <tr><td><code>document_metadata</code></td><td>JSONB</td><td>Parsed header and software metadata.</td></tr>
+                <tr><td><code>spectrum_result_count</code>, <code>spectrum_item_count</code>, <code>passing_item_count</code></td><td>BIGINT</td><td>Document validation counts.</td></tr>
+                <tr><td><code>is_complete</code></td><td>BOOLEAN</td><td>Whether XML parsing reached the closing document element.</td></tr>
+              </tbody></table></div>
+            </details>
+            <details class="schema-table">
+              <summary><code>crosslink_match</code><span>Compact passing paired-peptide observations</span></summary>
+              <div class="table-wrap guide-table-wrap"><table class="guide-table"><thead><tr><th>Column</th><th>Type</th><th>Meaning</th></tr></thead><tbody>
+                <tr><td><code>crosslink_match_id</code>, <code>mzid_document_id</code></td><td>BIGINT</td><td>Internal primary key and parent mzIdentML document.</td></tr>
+                <tr><td><code>source_file</code>, <code>spectrum_native_id</code>, <code>scan_number</code></td><td>TEXT, BIGINT</td><td>Resolved RAW name and source-spectrum identifiers.</td></tr>
+                <tr><td><code>crosslink_group_key</code></td><td>TEXT</td><td>xiFDR cross-link group within the source spectrum.</td></tr>
+                <tr><td><code>alpha_sequence</code>, <code>beta_sequence</code></td><td>TEXT</td><td>Paired peptide sequences.</td></tr>
+                <tr><td><code>alpha_proteins</code>, <code>beta_proteins</code></td><td>JSONB</td><td>Non-decoy protein accession mappings.</td></tr>
+                <tr><td><code>alpha_positions</code>, <code>beta_positions</code></td><td>JSONB</td><td>Protein coordinate mappings aligned to the peptide sides.</td></tr>
+                <tr><td><code>charge_state</code>, <code>xi_score</code>, <code>pass_threshold</code></td><td>INTEGER, DOUBLE PRECISION, BOOLEAN</td><td>Search measurements and threshold result.</td></tr>
+              </tbody></table></div>
+            </details>
           </div>
           <p>SQLite stores structured fields as JSON text. PostgreSQL stores the same fields as <code>JSONB</code>, which supports additional JSON indexes and operators.</p>
         </section>

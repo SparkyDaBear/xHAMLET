@@ -133,6 +133,15 @@ dt { color: var(--muted); font-size: 11px; } dd { margin: 0; overflow-wrap: anyw
 .guide-table th, .guide-table td { padding: 12px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
 .guide-table th { color: var(--muted); font-size: 10px; font-weight: 400; text-transform: uppercase; }
 .guide-table td { overflow-wrap: anywhere; }
+.schema-list { display: grid; gap: 8px; }
+.schema-table { min-width: 0; border: 1px solid var(--line); background: var(--paper); }
+.schema-table summary { position: relative; display: flex; align-items: baseline; justify-content: space-between; gap: 20px; padding: 13px 15px 13px 38px; cursor: pointer; list-style: none; }
+.schema-table summary::-webkit-details-marker { display: none; }
+.schema-table summary::before { position: absolute; top: 12px; left: 15px; color: var(--moss); content: "+"; }
+.schema-table summary span { color: var(--muted); font-size: 11px; text-align: right; }
+.schema-table[open] summary { border-bottom: 1px solid var(--line); color: var(--moss); }
+.schema-table[open] summary::before { content: "-"; }
+.schema-table .guide-table-wrap { min-width: 0; max-width: 100%; max-height: min(50vh, 460px); border: 0; }
 
 @media (max-width: 760px) {
   .topbar { height: 56px; padding: 0 16px; }
@@ -159,4 +168,6 @@ dt { color: var(--muted); font-size: 11px; } dd { margin: 0; overflow-wrap: anyw
   .guide-content h2 { font-size: 27px; }
   .guide-grid { grid-template-columns: 1fr; gap: 10px; }
   .guide-table-wrap { max-height: 62vh; }
+  .schema-table summary { align-items: flex-start; flex-direction: column; gap: 3px; }
+  .schema-table summary span { text-align: left; }
 }
