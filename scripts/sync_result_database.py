@@ -649,6 +649,12 @@ def parse_mzid(path: Path) -> dict[str, Any]:
                         )
                     match["charge_state"] = int(sides["alpha"].get("chargeState", "0")) or None
                     match["xi_score"] = item_score(sides["alpha"])
+
+                    # Exclude target-decoy, decoy-target, and decoy-decoy groups
+                    # from biological crosslink reporting.
+                    if not match["alpha_proteins"] or not match["beta_proteins"]:
+                        continue
+
                     pending_matches.append(match)
                 element.clear()
                 continue
