@@ -576,6 +576,7 @@ def parse_mzid(path: Path) -> dict[str, Any]:
     proteins: dict[str, str] = {}
     peptides: dict[str, str] = {}
     evidence: dict[str, list[dict[str, str]]] = {}
+    evidence_by_id: dict[str, dict[str, str]] = {}
     spectra_data: dict[str, str] = {}
     pending_matches: list[dict[str, Any]] = []
     try:
@@ -602,14 +603,14 @@ def parse_mzid(path: Path) -> dict[str, Any]:
                 peptides[element.get("id", "")] = element.findtext("{*}PeptideSequence", default="")
             elif tag == "PeptideEvidence":
                 peptide_id = element.get("peptide_ref", "")
-                evidence.setdefault(peptide_id, []).append(
-                    {
-                        "protein_id": element.get("dBSequence_ref", ""),
-                        "start": element.get("start", ""),
-                        "end": element.get("end", ""),
-                        "is_decoy": element.get("isDecoy", "false"),
-                    }
-                )
+                mapping = {
+                    "protein_id": element.get("dBSequence_ref", ""),
+                    "start": element.get("start", ""),
+                    "end": element.get("end", ""),
+                    "is_decoy": element.get("isDecoy", "false"),
+                }
+                evidence.setdefault(peptide_id, []).append(mapping)
+                evidence_by_id[element.get("id", "")] = mapping
             elif tag == "SpectraData":
                 spectra_data[element.get("id", "")] = element.get("location", "")
             elif tag == "SpectrumIdentificationResult":
@@ -650,9 +651,23 @@ def parse_mzid(path: Path) -> dict[str, Any]:
                     match["charge_state"] = int(sides["alpha"].get("chargeState", "0")) or None
                     match["xi_score"] = item_score(sides["alpha"])
 
-                    # Exclude target-decoy, decoy-target, and decoy-decoy groups
-                    # from biological crosslink reporting.
-                    if not match["alpha_proteins"] or not match["beta_proteins"]:
+                    # xiFDR retains target-decoy and decoy-decoy matches for
+                    # FDR estimation/QC. Exclude those control matches from the
+                    # biological crosslink catalog using the exact peptide
+                    # evidence referenced by each spectrum-identification item.
+                    has_decoy_evidence = False
+                    for side in ("alpha", "beta"):
+                        for evidence_ref in sides[side].findall("{*}PeptideEvidenceRef"):
+                            mapping = evidence_by_id.get(
+                                evidence_ref.get("peptideEvidence_ref", "")
+                            )
+                            if mapping and mapping["is_decoy"].lower() == "true":
+                                has_decoy_evidence = True
+                                break
+                        if has_decoy_evidence:
+                            break
+
+                    if has_decoy_evidence:
                         continue
 
                     pending_matches.append(match)
