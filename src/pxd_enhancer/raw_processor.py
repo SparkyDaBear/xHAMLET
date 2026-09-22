@@ -19,6 +19,7 @@ import json
 import logging
 import subprocess
 import threading
+import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Any, Dict, List, Optional
@@ -494,7 +495,7 @@ class RawFileProcessor:
             return None
 
         cmd = [
-            "python3",
+            sys.executable,
             str(self.assessor_script),
             "--inpath", str(self.work_dir.resolve()),
             "--outpath", str(self.assessment_dir.resolve()),

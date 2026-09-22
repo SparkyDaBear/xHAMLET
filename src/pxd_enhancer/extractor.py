@@ -515,6 +515,17 @@ class PXDMetadataEnhancer:
                             f"No local RAW files found in {pxd_dir / 'work'} for ReLink stage"
                         )
 
+                    assessor_mzml_paths = list((pxd_dir / "work").glob("*.mzML"))
+                    if assessor_mzml_paths:
+                        assessor_mzml_bytes = sum(path.stat().st_size for path in assessor_mzml_paths)
+                        logger.info(
+                            "Removing %d temporary assessor mzML file(s) before ReLink (%.1f GiB)",
+                            len(assessor_mzml_paths),
+                            assessor_mzml_bytes / 1024 ** 3,
+                        )
+                        for mzml_path in assessor_mzml_paths:
+                            mzml_path.unlink()
+
                     relink_extra_args: List[str] = []
                     if relink_work_dir:
                         relink_extra_args += ["-work-dir", relink_work_dir]

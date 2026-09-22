@@ -2,23 +2,23 @@
   "metadata": {
     "pxd": "PXD053010",
     "category": "enhanced",
-    "saved_at": "2026-06-30T15:44:31.521840",
+    "saved_at": "2026-09-14T16:08:56.829917",
     "filename": "metadata"
   },
   "data": {
     "pxd": "PXD053010",
-    "processed_at": "2026-06-30T15:43:29.878455",
+    "processed_at": "2026-09-14T16:01:06.872431",
     "stages": {
       "pride": "success",
       "publication": "success",
       "file_clustering": "success",
       "raw_processing": "skipped_no_download",
-      "spectral_merge": "success",
+      "spectral_merge": "success_cached",
       "llm": "success",
       "sdrf": "success",
       "sdrf_validation": "success_with_warnings",
       "xi_configs": "success",
-      "relink": "skipped",
+      "relink": "success",
       "compilation": "success"
     },
     "file_assignments": {
@@ -147,6 +147,50 @@
     "xi_config_paths": {
       "crosslinking": "pxd_data/PXD053010/configs/xi_crosslinking.conf",
       "linear": "pxd_data/PXD053010/configs/xi_linear.conf"
+    },
+    "relink": {
+      "status": "success",
+      "taxids_detected": [
+        "9606"
+      ],
+      "taxid_results": {
+        "9606:EDC": {
+          "status": "success",
+          "crosslinker": "EDC",
+          "fasta_path": "pxd_data/PXD053010/relink/fasta/NF90_NF45.fasta",
+          "sdrf": "pxd_data/PXD053010/relink/taxid_9606/edc/PXD053010.sdrf.tsv",
+          "outdir": "pxd_data/PXD053010/relink/taxid_9606/edc/results",
+          "nextflow": {
+            "returncode": 0,
+            "command": [
+              "nextflow",
+              "run",
+              ".",
+              "-profile",
+              "singularity",
+              "-c",
+              "/home/ians/git_repos/xHAMLET/assets/nextflow_singularity_docker_pull.config",
+              "--search_engine",
+              "xisearch",
+              "--input",
+              "/home/ians/git_repos/xHAMLET/pxd_data/PXD053010/relink/taxid_9606/edc/PXD053010.sdrf.tsv",
+              "--fasta",
+              "/home/ians/git_repos/xHAMLET/pxd_data/PXD053010/relink/fasta/NF90_NF45.fasta",
+              "--root_folder",
+              "/home/ians/git_repos/xHAMLET/pxd_data/PXD053010/work",
+              "--xi_linear_config",
+              "/home/ians/git_repos/xHAMLET/pxd_data/PXD053010/configs/xi_linear_edc.conf",
+              "--xi_crosslink_config",
+              "/home/ians/git_repos/xHAMLET/pxd_data/PXD053010/configs/xi_crosslinking_edc.conf",
+              "--outdir",
+              "/home/ians/git_repos/xHAMLET/pxd_data/PXD053010/relink/taxid_9606/edc/results"
+            ],
+            "stdout_tail": "of 1 ✔\nPulling Singularity image docker://quay.io/biocontainers/pmultiqc:0.0.39--pyhdfd78af_0 [cache /home/ians/git_repos/xHAMLET/tools/relink/work/singularity/quay.io-biocontainers-pmultiqc-0.0.39--pyhdfd78af_0.img]\n-Pipeline completed successfully-\nWARN: Singularity cache directory has not been defined -- Remote image will be stored in the path: /home/ians/git_repos/xHAMLET/tools/relink/work/singularity -- Use the environment variable NXF_SINGULARITY_CACHEDIR to specify a different location\n\nexecutor >  local (8)\n[13/4f1e75] process > PIPELINE_INITIALISATION:SDRF_PARSING (sdrf_parsing)                                       [100%] 1 of 1 ✔\n[a9/7ad6d5] process > BIGBIO_RELINK:RELINK:THERMORAWFILEPARSER (null)                                           [100%] 2 of 2 ✔\n[fc/a88726] process > BIGBIO_RELINK:RELINK:XISEARCH_LINEAR (PXD053010_Zou_Rappsilber_AC_NF90-NF45_EDC_UQ_B3)    [100%] 1 of 1 ✔\n[4b/cd41f2] process > BIGBIO_RELINK:RELINK:MASS_RECALIBRATION (PXD053010_Zou_Rappsilber_AC_NF90-NF45_EDC_UQ_B3) [100%] 1 of 1 ✔\n[31/60b392] process > BIGBIO_RELINK:RELINK:XISEARCH_CROSSLINK (PXD053010_Zou_Rappsilber_AC_NF90-NF45_EDC_UQ_B3) [100%] 1 of 1 ✔\n[f2/519985] process > BIGBIO_RELINK:RELINK:XIFDR (fdr_correction)                                               [100%] 1 of 1 ✔\n[8d/99d4e3] process > BIGBIO_RELINK:RELINK:PMULTIQC (relink)                                                    [100%] 1 of 1 ✔\nPulling Singularity image docker://quay.io/biocontainers/pmultiqc:0.0.39--pyhdfd78af_0 [cache /home/ians/git_repos/xHAMLET/tools/relink/work/singularity/quay.io-biocontainers-pmultiqc-0.0.39--pyhdfd78af_0.img]\n-Pipeline completed successfully-\nWARN: Singularity cache directory has not been defined -- Remote image will be stored in the path: /home/ians/git_repos/xHAMLET/tools/relink/work/singularity -- Use the environment variable NXF_SINGULARITY_CACHEDIR to specify a different location\nCompleted at: 14-Sep-2026 16:08:56\nDuration    : 7m 16s\nCPU hours   : 2.8\nSucceeded   : 8\n\n\n",
+            "stderr_tail": ""
+          }
+        }
+      },
+      "note": null
     },
     "pride_data": {
       "accession": "PXD053010",

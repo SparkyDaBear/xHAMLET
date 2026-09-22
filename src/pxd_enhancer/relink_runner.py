@@ -9,6 +9,7 @@ via Nextflow.
 from __future__ import annotations
 
 import csv
+import hashlib
 import json
 import logging
 import os
@@ -28,6 +29,10 @@ class ReLinkRunner:
     """Run the ReLink Nextflow pipeline for a single PXD."""
 
     UNIPROT_FASTA_URL = "https://rest.uniprot.org/uniprotkb/stream"
+
+    @staticmethod
+    def _paths_share_device(first: Path, second: Path) -> bool:
+        return first.stat().st_dev == second.stat().st_dev
 
     def __init__(
         self,
@@ -150,6 +155,9 @@ class ReLinkRunner:
             )
 
             outdir = run_dir / "results"
+            run_identity = f"{pxd}:{taxid}:{crosslinker_name or 'dataset'}"
+            run_digest = hashlib.sha256(run_identity.encode()).hexdigest()[:10]
+            run_name = f"xhamlet_{pxd.lower()}_{taxid}_{run_digest}_{time.time_ns()}"
             run_result = self.run_nextflow(
                 input_sdrf=sdrf_for_taxid,
                 fasta_path=fasta_path,
@@ -159,6 +167,7 @@ class ReLinkRunner:
                 outdir=outdir,
                 profile=profile,
                 resume=resume,
+                run_name=run_name,
                 extra_args=extra_args,
             )
 
@@ -633,6 +642,7 @@ class ReLinkRunner:
         outdir: Path,
         profile: str,
         resume: bool,
+        run_name: str,
         extra_args: Optional[Iterable[str]] = None,
     ) -> Dict[str, Any]:
         """Run local ReLink checkout via nextflow run ."""
@@ -651,6 +661,8 @@ class ReLinkRunner:
             "nextflow",
             "run",
             ".",
+            "-name",
+            run_name,
             "-profile",
             "conda,local" if profile_key == "conda" else nextflow_profile,
         ]
@@ -717,6 +729,16 @@ class ReLinkRunner:
         if extra_args:
             cmd.extend(list(extra_args))
 
+        work_dir = None
+        if "-work-dir" in cmd:
+            work_dir = Path(cmd[cmd.index("-work-dir") + 1])
+        if work_dir and not self._paths_share_device(work_dir, outdir):
+            cmd += ["--publish_dir_mode", "copy"]
+            logger.info(
+                "ReLink work and output directories use different filesystems; "
+                "publishing final files with copy mode"
+            )
+
         logger.info("Running ReLink: %s", " ".join(cmd))
         env = os.environ.copy()
         virtualenv = env.pop("VIRTUAL_ENV", None)
@@ -738,11 +760,36 @@ class ReLinkRunner:
         if proc.returncode != 0:
             logger.error("Nextflow stdout/stderr:\n%s", (proc.stdout or "")[-4000:])
 
+        cleanup_cmd = ["nextflow", "clean", run_name, "-f"]
+        cleanup_proc = subprocess.run(
+            cleanup_cmd,
+            cwd=str(self.relink_dir),
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True,
+            env=env,
+        )
+        cleanup_result = {
+            "returncode": cleanup_proc.returncode,
+            "stdout_tail": (cleanup_proc.stdout or "")[-2000:],
+        }
+        if cleanup_proc.returncode == 0:
+            logger.info("Cleaned Nextflow work for completed run %s", run_name)
+        else:
+            logger.warning(
+                "Could not clean completed Nextflow run %s (rc=%d): %s",
+                run_name,
+                cleanup_proc.returncode,
+                (cleanup_proc.stdout or "")[-1000:],
+            )
+
         return {
             "returncode": proc.returncode,
+            "run_name": run_name,
             "command": cmd,
             "stdout_tail": (proc.stdout or "")[-2000:],
             "stderr_tail": "",
+            "cleanup": cleanup_result,
         }
 
     def write_filtered_sdrf(

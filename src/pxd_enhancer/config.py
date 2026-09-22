@@ -55,6 +55,9 @@ class Config:
             "skip_sdrf": False,           # Skip SDRF generation stage
             "template": "crosslinking"    # SDRF template type for parse_sdrf validation
         },
+        "relink": {
+            "work_dir": None
+        },
         "logging": {
             "level": "INFO",
             "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

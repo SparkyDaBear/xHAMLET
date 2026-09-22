@@ -6,6 +6,7 @@ Orchestrates downloading and enriching PRIDE project metadata with LLM-extracted
 
 import argparse
 import logging
+import os
 import sys
 from typing import List, Optional
 from pathlib import Path
@@ -306,6 +307,8 @@ def main():
 
     # Load configuration
     config = Config(args.config)
+    if args.relink_work_dir is None:
+        args.relink_work_dir = config.get("relink.work_dir")
 
     # Override with CLI args
     if args.data_dir is not None:
@@ -378,6 +381,22 @@ def main():
             configured_prompts,
         )
         configured_prompts = None
+
+    if args.relink and args.relink_work_dir:
+        relink_work_path = Path(args.relink_work_dir).expanduser().resolve()
+        try:
+            relink_work_path.mkdir(parents=True, exist_ok=True)
+        except OSError as exc:
+            logger.error(
+                "Cannot create ReLink work directory '%s': %s",
+                relink_work_path,
+                exc,
+            )
+            sys.exit(1)
+        if not os.access(relink_work_path, os.W_OK | os.X_OK):
+            logger.error("ReLink work directory is not writable: %s", relink_work_path)
+            sys.exit(1)
+        args.relink_work_dir = str(relink_work_path)
 
     # Print batch plan
     logger.info("-" * 80)
@@ -454,8 +473,13 @@ def main():
                     relink_work_dir=args.relink_work_dir,
                     relink_queue_size=args.relink_queue_size,
                 )
+            stages = result.get("stages", {})
+            if args.relink and stages.get("relink") == "failed":
+                failed.append(pxd)
+                logger.error("✗ %s — ReLink stage failed; stages: %s", pxd, stages)
+                continue
             succeeded.append(pxd)
-            logger.info("✓ %s — stages: %s", pxd, result.get("stages", {}))
+            logger.info("✓ %s — stages: %s", pxd, stages)
 
         except Exception as e:
             failed.append(pxd)
@@ -471,6 +495,8 @@ def main():
         logger.warning("Failed PXDs: %s", ", ".join(failed))
     logger.info("Data saved to: %s", config.get("storage.base_dir"))
     logger.info("=" * 80)
+    if failed:
+        sys.exit(1)
 
 
 if __name__ == "__main__":
