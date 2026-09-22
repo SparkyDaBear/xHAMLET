@@ -191,7 +191,8 @@ class RawFileProcessor:
                     if _abort[0]:
                         return idx, {"filename": filename, "status": "aborted"}
 
-            if not ftp_url:
+            local_raw = self.work_dir / filename
+            if not ftp_url and not local_raw.exists():
                 logger.warning("[%d/%d] No FTP URL for %s — skipping", idx, total, filename)
                 return idx, {"filename": filename, "status": "skipped_no_url"}
 
@@ -308,11 +309,18 @@ class RawFileProcessor:
             result["metadata_json"] = str(metadata_json)
             return result
 
-        # ① Download with aria2c
-        logger.info("[%d/%d] Downloading %s ...", idx, total, filename)
-        if not self._download_file(ftp_url, filename):
-            logger.error("[%d/%d] Download failed for %s", idx, total, filename)
-            return result
+        # ① Download with aria2c unless the RAW is already present locally
+        # (for example, because it was extracted from a PRIDE ZIP archive).
+        if raw_path.exists() and raw_path.stat().st_size > 0:
+            logger.info(
+                "[%d/%d] Using existing local RAW file %s",
+                idx, total, filename,
+            )
+        else:
+            logger.info("[%d/%d] Downloading %s ...", idx, total, filename)
+            if not self._download_file(ftp_url, filename):
+                logger.error("[%d/%d] Download failed for %s", idx, total, filename)
+                return result
 
         # ② thermorawfileparser: metadata JSON only (-f 4)
         logger.info("[%d/%d] Extracting instrument metadata from %s ...", idx, total, filename)

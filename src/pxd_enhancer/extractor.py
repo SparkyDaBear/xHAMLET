@@ -3,6 +3,8 @@ Main PXDMetadataEnhancer orchestrator class
 """
 
 import logging
+import os
+import shlex
 import subprocess
 from pathlib import Path
 from typing import Dict, List, Optional, Any
@@ -178,6 +180,104 @@ class PXDMetadataEnhancer:
             if not pride_data:
                 logger.error("Failed to fetch PRIDE data. Aborting.")
                 raise Exception("PRIDE data fetch failed")
+
+            # Some PRIDE projects package Thermo RAW files inside .zip archives.
+            # Preserve the normal pipeline when direct .raw files are available;
+            # otherwise download/extract ZIP archives and expose the extracted
+            # RAW files to all downstream stages.
+            files_meta = pride_data.get("files", {}) or {}
+            file_list = files_meta.get("files", []) if isinstance(files_meta, dict) else []
+
+            has_raw = any(
+                str(f.get("fileName", "")).lower().endswith(".raw")
+                for f in file_list
+                if isinstance(f, dict)
+            )
+
+            if not has_raw:
+                zip_files = [
+                    f for f in file_list
+                    if isinstance(f, dict)
+                    and str(f.get("fileName", "")).lower().endswith(".zip")
+                ]
+
+                if zip_files:
+                    work_dir = Path(pxd_dir) / "work"
+                    work_dir.mkdir(parents=True, exist_ok=True)
+
+                    logger.info(
+                        "No direct .raw files found; found %d ZIP archive(s). "
+                        "Downloading and extracting RAW files...",
+                        len(zip_files),
+                    )
+
+                    extracted_raws = []
+
+                    for archive_info in zip_files:
+                        archive_name = archive_info.get("fileName", "")
+                        archive_url = archive_info.get("ftpUrl", "")
+                        archive_path = work_dir / archive_name
+
+                        if not archive_path.exists():
+                            cmd = (
+                                f"aria2c --max-connection-per-server=16 --split=16 "
+                                f"--min-split-size=1M --allow-overwrite=true "
+                                f"--auto-file-renaming=false "
+                                f"--dir={shlex.quote(str(work_dir))} "
+                                f"--out={shlex.quote(archive_name)} "
+                                f"{shlex.quote(archive_url)}"
+                            )
+                            logger.info("Downloading archive %s", archive_name)
+                            output = os.popen(cmd + " 2>&1").read()
+                            if not archive_path.exists():
+                                logger.error(
+                                    "Archive download failed for %s: %s",
+                                    archive_name,
+                                    output[-500:],
+                                )
+                                continue
+
+                        logger.info("Extracting files from %s", archive_name)
+                        extract_dir = work_dir / f".{Path(archive_name).stem}_extract"
+                        extract_dir.mkdir(parents=True, exist_ok=True)
+
+                        cmd = (
+                            f"unzip -o {shlex.quote(str(archive_path))} "
+                            f"-d {shlex.quote(str(extract_dir))}"
+                        )
+                        output = os.popen(cmd + " 2>&1").read()
+                        logger.debug("unzip output for %s: %s", archive_name, output)
+
+                        for extracted_path in extract_dir.rglob("*"):
+                            if extracted_path.is_file() and extracted_path.suffix.lower() == ".raw":
+                                destination = work_dir / extracted_path.name
+                                extracted_path.replace(destination)
+
+                    # Discover extracted RAWs and make them visible to clustering,
+                    # SDRF generation, RAW processing, and ReLink.
+                    for raw_path in sorted(
+                        p for p in work_dir.iterdir()
+                        if p.is_file() and p.suffix.lower() == ".raw"
+                    ):
+                        extracted_raws.append(
+                            {
+                                "fileName": raw_path.name,
+                                "ftpUrl": "",
+                                "fileSizeBytes": raw_path.stat().st_size,
+                                "extractedFromArchive": True,
+                            }
+                        )
+
+                    if extracted_raws:
+                        file_list.extend(extracted_raws)
+                        logger.info(
+                            "Extracted %d RAW file(s) from ZIP archive(s)",
+                            len(extracted_raws),
+                        )
+                    else:
+                        logger.warning(
+                            "ZIP archive(s) were found but no .raw files were extracted"
+                        )
 
             ###########################################################
             # Stage 2: Get publication info + fetch text
