@@ -105,8 +105,55 @@ class ReLinkRunner:
         relink_dir.mkdir(parents=True, exist_ok=True)
         fasta_dir = relink_dir / "fasta"
 
-        crosslinker_groups = self._crosslinker_groups(raw_paths, pxd_dir)
-        if crosslinker_groups is None:
+        # Identify all crosslinker chemistries present in the dataset.
+        # Do NOT attempt to assign individual RAW files to a chemistry.
+        # As with multi-organism datasets, run every identified chemistry
+        # against the complete RAW-file set.
+        crosslinker_names = self._crosslinker_names(pxd_dir, llm_responses)
+
+        if crosslinker_names:
+            supported_crosslinkers: List[str] = []
+            unsupported_crosslinkers: List[str] = []
+
+            for crosslinker_name in crosslinker_names:
+                if (
+                    xi_config_generator is not None
+                    and xi_config_generator.get_crosslinker(crosslinker_name)
+                ):
+                    supported_crosslinkers.append(crosslinker_name)
+                else:
+                    unsupported_crosslinkers.append(crosslinker_name)
+
+            if unsupported_crosslinkers:
+                logger.warning(
+                    "%s: Skipping unsupported crosslinker chemistries: %s",
+                    pxd,
+                    ", ".join(unsupported_crosslinkers),
+                )
+
+            if not supported_crosslinkers:
+                raise ValueError(
+                    "No supported crosslinkers remain after filtering identified "
+                    f"chemistries: {crosslinker_names}"
+                )
+
+            logger.info(
+                "%s: Running ReLink for supported crosslinker chemistries: %s",
+                pxd,
+                ", ".join(supported_crosslinkers),
+            )
+
+            crosslinker_groups = {
+                (taxid, crosslinker_name): list(raw_paths)
+                for taxid in sorted(taxids)
+                for crosslinker_name in supported_crosslinkers
+            }
+        else:
+            logger.info(
+                "%s: No cluster-level crosslinker chemistries found; "
+                "using dataset-level Xi configuration",
+                pxd,
+            )
             crosslinker_groups = {
                 (taxid, None): list(raw_paths)
                 for taxid in sorted(taxids)
@@ -204,7 +251,7 @@ class ReLinkRunner:
             "status": "success",
             "taxids_detected": sorted(taxids),
             "taxid_results": all_results,
-            "note": "ReLink runs are separated by organism and resolved crosslinker chemistry"
+            "note": "ReLink runs are separated by organism and/or crosslinker chemistry"
             if len(crosslinker_groups) > 1
             else None,
         }
@@ -214,49 +261,74 @@ class ReLinkRunner:
         """Return a filesystem-safe identifier for a chemistry-specific run."""
         return re.sub(r"[^a-z0-9]+", "_", value.lower()).strip("_")
 
-    def _crosslinker_groups(
+    def _crosslinker_names(
         self,
-        raw_paths: Sequence[Path],
         pxd_dir: Path,
-    ) -> Optional[Dict[tuple[str, str], List[Path]]]:
-        """Group local RAW files by taxid and cached file-cluster crosslinker."""
-        assignments_path = pxd_dir / "llm" / "file_assignment_map.json"
+        llm_responses: Optional[Dict[str, Any]] = None,
+    ) -> List[str]:
+        """Return unique crosslinkers identified for the dataset.
+
+        Chemistry names may come from file clustering or from the dataset-level
+        LLM metadata response. Individual RAW files are deliberately not mapped
+        to a chemistry. ReLink runs the complete RAW set once for every
+        identified crosslinker.
+        """
+        names: List[str] = []
+        seen: Set[str] = set()
+
+        def add_name(value: Any) -> None:
+            if value is None:
+                return
+
+            # LLM NT fields may contain multiple crosslinkers.
+            if isinstance(value, (list, tuple, set)):
+                for item in value:
+                    add_name(item)
+                return
+
+            name = str(value).strip()
+            if not name or name.lower() in {"null", "none"}:
+                return
+
+            key = name.lower()
+            if key not in seen:
+                seen.add(key)
+                names.append(name)
+
+        # Source 1: file-clustering output.
         clusters_path = pxd_dir / "llm" / "file_assignments.json"
-        if not assignments_path.exists() or not clusters_path.exists():
-            return None
+        if clusters_path.exists():
+            try:
+                with open(clusters_path, encoding="utf-8") as fh:
+                    clusters_field = json.load(fh).get("data", {})
 
-        try:
-            with open(assignments_path, encoding="utf-8") as fh:
-                assignments = json.load(fh).get("data", {})
-            with open(clusters_path, encoding="utf-8") as fh:
-                clusters_field = json.load(fh).get("data", {})
-            clusters_data = clusters_field.get("parsed", clusters_field)
-            clusters = clusters_data.get("clusters", []) if isinstance(clusters_data, dict) else []
-            cluster_by_id = {
-                cluster.get("cluster_id"): cluster
-                for cluster in clusters
-                if isinstance(cluster, dict) and cluster.get("cluster_id")
-            }
-        except (OSError, json.JSONDecodeError, AttributeError) as exc:
-            logger.warning("Could not load ReLink chemistry groups: %s", exc)
-            return None
-
-        groups: Dict[tuple[str, str], List[Path]] = {}
-        for raw_path in raw_paths:
-            assignment = assignments.get(raw_path.name, {})
-            cluster = cluster_by_id.get(assignment.get("cluster_id"), {})
-            crosslinker_name = cluster.get("crosslinker")
-            raw_taxid = assignment.get("taxid") or cluster.get("taxid")
-            taxid = str(raw_taxid or "").replace("NCBITaxon:", "").strip()
-            if not crosslinker_name or not taxid.isdigit():
-                logger.warning(
-                    "No resolved cluster crosslinker for %s; using dataset-level ReLink config",
-                    raw_path.name,
+                clusters_data = clusters_field.get("parsed", clusters_field)
+                clusters = (
+                    clusters_data.get("clusters", [])
+                    if isinstance(clusters_data, dict)
+                    else []
                 )
-                return None
-            groups.setdefault((taxid, str(crosslinker_name)), []).append(raw_path)
 
-        return groups or None
+                for cluster in clusters:
+                    if isinstance(cluster, dict):
+                        add_name(cluster.get("crosslinker"))
+
+            except (OSError, json.JSONDecodeError, AttributeError) as exc:
+                logger.warning(
+                    "Could not load cluster crosslinker identities: %s",
+                    exc,
+                )
+
+        # Source 2: dataset-level LLM metadata.
+        if isinstance(llm_responses, dict):
+            response = llm_responses.get("comment[cross-linker]") or {}
+            parsed = response.get("parsed", {}) if isinstance(response, dict) else {}
+
+            if isinstance(parsed, dict):
+                add_name(parsed.get("NT"))
+
+        return names
+
 
     def extract_taxids_from_sdrf(self, sdrf_path: Path) -> Set[str]:
         """Extract NCBITaxon IDs from all organism columns in SDRF."""
