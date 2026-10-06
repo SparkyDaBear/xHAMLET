@@ -553,9 +553,50 @@ class PXDMetadataEnhancer:
             else:
                 logger.info("[Stage 8/10] Generating Xi configuration files...")
                 try:
-                    config_xl, config_linear = self.xi_config_gen.generate_configs(
-                        pxd, llm_responses, pride_data
+                    # Prefer the set of crosslinkers identified by file clustering.
+                    # We only need one supported chemistry here to create bootstrap
+                    # Xi configs. During ReLink, every identified chemistry will get
+                    # its own Xi config and will be run against ALL RAW files.
+                    cluster_crosslinkers = self.relink_runner._crosslinker_names(
+                        pxd_dir,
+                        llm_responses,
                     )
+
+                    supported_crosslinkers = []
+                    for crosslinker_name in cluster_crosslinkers:
+                        xl_def = self.xi_config_gen.get_crosslinker(crosslinker_name)
+                        if xl_def:
+                            resolved_name = xl_def.get(
+                                "short_name",
+                                xl_def.get("name", crosslinker_name),
+                            )
+                            if resolved_name not in supported_crosslinkers:
+                                supported_crosslinkers.append(resolved_name)
+                        else:
+                            logger.warning(
+                                "Unsupported cluster crosslinker '%s'",
+                                crosslinker_name,
+                            )
+
+                    if supported_crosslinkers:
+                        bootstrap_crosslinker = supported_crosslinkers[0]
+                        logger.info(
+                            "Stage 8: identified supported crosslinkers %s; "
+                            "using %s for bootstrap Xi configs. "
+                            "ReLink will run each chemistry separately.",
+                            supported_crosslinkers,
+                            bootstrap_crosslinker,
+                        )
+                        config_xl, config_linear = self.xi_config_gen.generate_configs(
+                            pxd,
+                            llm_responses,
+                            pride_data,
+                            crosslinker_name=bootstrap_crosslinker,
+                        )
+                    else:
+                        config_xl, config_linear = self.xi_config_gen.generate_configs(
+                            pxd, llm_responses, pride_data
+                        )
                     xl_path, linear_path = self.xi_config_gen.save_configs(
                         pxd, config_xl, config_linear, self.store.base_dir
                     )
@@ -565,6 +606,29 @@ class PXDMetadataEnhancer:
                         "linear": str(linear_path),
                     }
                     logger.info("✓ Xi configs: %s | %s", xl_path, linear_path)
+                except ValueError as exc:
+                    msg = str(exc)
+
+                    if "No valid crosslinker name was identified" in msg:
+                        logger.warning("Xi configs skipped: %s", msg)
+                        result["stages"]["xi_configs"] = "skipped_no_crosslinker"
+                        result["xi_config_error"] = msg
+
+                    elif "Unsupported crosslinker" in msg:
+                        logger.warning("Xi configs skipped: %s", msg)
+                        result["stages"]["xi_configs"] = "skipped_unsupported_crosslinker"
+                        result["xi_config_error"] = msg
+
+                    elif "No supported crosslinker definition available" in msg:
+                        logger.warning("Xi configs skipped: %s", msg)
+                        result["stages"]["xi_configs"] = "skipped_no_supported_crosslinker"
+                        result["xi_config_error"] = msg
+
+                    else:
+                        logger.error("Failed to generate Xi configs: %s", exc, exc_info=True)
+                        result["stages"]["xi_configs"] = "failed"
+                        result["xi_config_error"] = msg
+
                 except Exception as exc:
                     logger.error("Failed to generate Xi configs: %s", exc, exc_info=True)
                     result["stages"]["xi_configs"] = "failed"
