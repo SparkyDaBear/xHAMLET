@@ -551,14 +551,42 @@ FRAGMENTTREE:FU
                     )
             elif xi_class == "AsymetricSingleAminoAcidRestrictedCrossLinker":
                 name = xl.get("short_name", xl.get("name"))
-                mass = xl.get("mass", 0)
-                first_linked = xl.get("first_linked_aminoacids", "")
-                second_linked = xl.get("second_linked_aminoacids", "")
-                lines.append(
-                    f"crosslinker:{xi_class}:Name:{name};MASS:{mass};"
-                    f"FIRSTLINKEDAMINOACIDS:{first_linked};"
-                    f"SECONDLINKEDAMINOACIDS:{second_linked}"
-                )
+                variants = xl.get("search_variants")
+                default_stubs = xl.get("stubs")
+
+                if variants:
+                    for i, variant in enumerate(variants, start=1):
+                        variant_name = variant.get("name", f"{name}_v{i}")
+                        mass = variant.get("mass", 0)
+                        first_linked = variant.get("first_linked_aminoacids", "")
+                        second_linked = variant.get("second_linked_aminoacids", "")
+                        stubs = variant.get("stubs", default_stubs)
+
+                        line = (
+                            f"crosslinker:{xi_class}:Name:{variant_name};MASS:{mass};"
+                            f"FIRSTLINKEDAMINOACIDS:{first_linked};"
+                            f"SECONDLINKEDAMINOACIDS:{second_linked}"
+                        )
+                        if stubs:
+                            line += f";STUBS:{stubs}"
+
+                        lines.append(line)
+
+                else:
+                    mass = xl.get("mass", 0)
+                    first_linked = xl.get("first_linked_aminoacids", "")
+                    second_linked = xl.get("second_linked_aminoacids", "")
+                    stubs = default_stubs
+
+                    line = (
+                        f"crosslinker:{xi_class}:Name:{name};MASS:{mass};"
+                        f"FIRSTLINKEDAMINOACIDS:{first_linked};"
+                        f"SECONDLINKEDAMINOACIDS:{second_linked}"
+                    )
+                    if stubs:
+                        line += f";STUBS:{stubs}"
+
+                    lines.append(line)
             elif xi_class == "NonCovalentBound":
                 name = xl.get("short_name", xl.get("name"))
                 lines.append(f"crosslinker:NonCovalentBound:Name:{name}")
