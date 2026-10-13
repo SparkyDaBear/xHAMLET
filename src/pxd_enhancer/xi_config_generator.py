@@ -240,12 +240,20 @@ FRAGMENTTREE:FU
     def _parse_crosslinker_from_llm(self, llm_response: dict) -> Optional[dict]:
         """
         Parse crosslinker info from LLM response (comment_cross_linker)
-        
+
+        Handles the schema variants seen across different pipeline runs: a
+        single top-level NT string, parallel NT/AC/CL/TA lists, or (since the
+        prompt was updated to extract every distinct reagent named in a
+        multi-crosslinker study) a "value" list of fully-structured per-reagent
+        dicts each with their own NT/AC/CL/TA keys.
+
         Args:
             llm_response: Dictionary from llm_responses["comment_cross_linker"]
-            
+
         Returns:
-            Dict with 'name', 'targets', 'cleavable' keys or None
+            Dict with 'names' (list of all identified crosslinker names, in
+            order), 'name' (the first one, for backward compatibility),
+            'targets', 'cleavable' keys, or None if no name could be parsed.
         """
         if not llm_response:
             return None
@@ -258,18 +266,40 @@ FRAGMENTTREE:FU
             if serialized:
                 return self._parse_serialized_crosslinker(serialized)
             return None
-        
-        # Extract and validate crosslinker name
-        xl_name = parsed.get("NT")
-        if not xl_name or xl_name == "null":
+
+        value = parsed.get("value")
+        nt_top = parsed.get("NT")
+        mentions: list[dict] = []
+        if isinstance(value, list) and value and isinstance(value[0], dict) and "NT" in value[0]:
+            for item in value:
+                if isinstance(item, dict) and item.get("NT") and item["NT"] != "null":
+                    mentions.append({"name": item["NT"], "targets": item.get("TA"), "cleavable": item.get("CL") == "yes"})
+        elif isinstance(nt_top, list):
+            ta = parsed.get("TA")
+            ta_list = ta if isinstance(ta, list) else [ta] * len(nt_top)
+            cl = parsed.get("CL")
+            cl_list = cl if isinstance(cl, list) else [cl] * len(nt_top)
+            for i, name in enumerate(nt_top):
+                if name and name != "null":
+                    mentions.append({
+                        "name": name,
+                        "targets": ta_list[i] if i < len(ta_list) else None,
+                        "cleavable": (cl_list[i] if i < len(cl_list) else None) == "yes",
+                    })
+        elif nt_top and nt_top != "null":
+            mentions.append({"name": nt_top, "targets": parsed.get("TA"), "cleavable": parsed.get("CL") == "yes"})
+
+        if not mentions:
             logger.warning("No valid crosslinker name in LLM response")
             return None
-        
+
         return {
-            "name": xl_name,
-            "targets": parsed.get("TA"),
-            "cleavable": parsed.get("CL") == "yes",
-            "raw": parsed
+            "names": [m["name"] for m in mentions],
+            "mentions": mentions,
+            "name": mentions[0]["name"],
+            "targets": mentions[0]["targets"],
+            "cleavable": mentions[0]["cleavable"],
+            "raw": parsed,
         }
     
     def _parse_serialized_crosslinker(self, serialized: str) -> dict:
@@ -602,7 +632,7 @@ FRAGMENTTREE:FU
         # Extract crosslinker info from LLM
         # A cluster-specific chemistry overrides the dataset-level LLM result.
         if crosslinker_name:
-            crosslinker_info = {"name": crosslinker_name}
+            crosslinker_info = {"name": crosslinker_name, "names": [crosslinker_name]}
         else:
             crosslinker_response = llm_responses.get("comment[cross-linker]")
             if not crosslinker_response:
@@ -622,18 +652,30 @@ FRAGMENTTREE:FU
         # Resolve crosslinker definitions
         crosslinkers_for_search = []
         crosslinker_names = []
-        
-        if crosslinker_info and crosslinker_info.get("name"):
-            xl_name = crosslinker_info["name"]
-            xl_def = self.get_crosslinker(xl_name)
-            
-            if xl_def:
-                crosslinkers_for_search.append(xl_def)
-                crosslinker_names.append(xl_def.get("short_name", xl_def["name"]))
-                logger.info(f"  Found crosslinker: {xl_name}")
-            else:
+        unresolved_names = []
+
+        if crosslinker_info and crosslinker_info.get("names"):
+            for xl_name in crosslinker_info["names"]:
+                xl_def = self.get_crosslinker(xl_name)
+                if xl_def and xl_def.get("xi_class") == "NeedsVerification":
+                    # Recognized by name, but a human hasn't yet confirmed its mass/chemistry
+                    # (see scripts/normalize_crosslinker_database.py). Skip it here - the same
+                    # way an unrecognized name is skipped - rather than failing the whole
+                    # dataset's config over one unverified reagent among several.
+                    unresolved_names.append(f"{xl_name} (needs chemist verification)")
+                elif xl_def:
+                    crosslinkers_for_search.append(xl_def)
+                    crosslinker_names.append(xl_def.get("short_name", xl_def["name"]))
+                    logger.info(f"  Found crosslinker: {xl_name}")
+                else:
+                    unresolved_names.append(xl_name)
+
+            if unresolved_names:
+                logger.warning(f"  Unsupported crosslinker name(s), skipped: {unresolved_names}")
+
+            if not crosslinkers_for_search:
                 raise ValueError(
-                    f"Unsupported crosslinker '{xl_name}'. "
+                    f"Unsupported crosslinker(s) {crosslinker_info['names']}. "
                     "Refusing to fall back to DSSO."
                 )
         else:
