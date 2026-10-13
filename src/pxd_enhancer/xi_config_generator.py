@@ -606,7 +606,29 @@ FRAGMENTTREE:FU
                 )
         
         return "\n".join(lines)
-    
+
+    def get_dataset_crosslinker_names(self, llm_responses: dict) -> List[str]:
+        """
+        Return every distinct crosslinker name the dataset-level LLM extraction
+        identified for this PXD (comment[cross-linker]), in order, without
+        resolving them against the database yet.
+
+        Used by callers (see extractor.py Stage 8) to decide whether a dataset
+        needs one config (single reagent) or several independent configs - one
+        per reagent, each searched independently, since XiSearch should never
+        mix two different crosslinker chemistries into a single search.
+        """
+        crosslinker_response = llm_responses.get("comment[cross-linker]")
+        if not crosslinker_response:
+            return []
+        info = self._parse_crosslinker_from_llm(crosslinker_response)
+        return info["names"] if info else []
+
+    @staticmethod
+    def safe_run_name(value: str) -> str:
+        """Return a filesystem-safe identifier for a chemistry-specific config filename."""
+        return re.sub(r"[^a-z0-9]+", "_", value.lower()).strip("_")
+
     def generate_configs(
         self,
         pxd: str,
@@ -649,33 +671,30 @@ FRAGMENTTREE:FU
         else:
             logger.info(f"  No quencher found in LLM response")
         
-        # Resolve crosslinker definitions
+        # Resolve crosslinker definition (single crosslinker per config - when a dataset
+        # names several distinct reagents, generate_configs is called once per name with
+        # an explicit crosslinker_name override; see extractor.py Stage 8, which produces
+        # one independent config pair per reagent rather than combining masses into one
+        # search, since each crosslinker chemistry needs its own independent XiSearch run).
         crosslinkers_for_search = []
         crosslinker_names = []
-        unresolved_names = []
 
         if crosslinker_info and crosslinker_info.get("names"):
-            for xl_name in crosslinker_info["names"]:
-                xl_def = self.get_crosslinker(xl_name)
-                if xl_def and xl_def.get("xi_class") == "NeedsVerification":
-                    # Recognized by name, but a human hasn't yet confirmed its mass/chemistry
-                    # (see scripts/normalize_crosslinker_database.py). Skip it here - the same
-                    # way an unrecognized name is skipped - rather than failing the whole
-                    # dataset's config over one unverified reagent among several.
-                    unresolved_names.append(f"{xl_name} (needs chemist verification)")
-                elif xl_def:
-                    crosslinkers_for_search.append(xl_def)
-                    crosslinker_names.append(xl_def.get("short_name", xl_def["name"]))
-                    logger.info(f"  Found crosslinker: {xl_name}")
-                else:
-                    unresolved_names.append(xl_name)
-
-            if unresolved_names:
-                logger.warning(f"  Unsupported crosslinker name(s), skipped: {unresolved_names}")
-
-            if not crosslinkers_for_search:
+            xl_name = crosslinker_info["names"][0]
+            xl_def = self.get_crosslinker(xl_name)
+            if xl_def and xl_def.get("xi_class") == "NeedsVerification":
                 raise ValueError(
-                    f"Unsupported crosslinker(s) {crosslinker_info['names']}. "
+                    f"Crosslinker '{xl_name}' is recognized by name but lacks verified XiSearch "
+                    "chemistry (mass/linked_aminoacids/xi_class) in assets/crosslinker_definitions.json "
+                    "- needs human verification before a config can be generated for this dataset."
+                )
+            elif xl_def:
+                crosslinkers_for_search.append(xl_def)
+                crosslinker_names.append(xl_def.get("short_name", xl_def["name"]))
+                logger.info(f"  Found crosslinker: {xl_name}")
+            else:
+                raise ValueError(
+                    f"Unsupported crosslinker '{xl_name}'. "
                     "Refusing to fall back to DSSO."
                 )
         else:

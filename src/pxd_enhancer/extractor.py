@@ -577,18 +577,68 @@ class PXDMetadataEnhancer:
                             "  Using file-clustering-resolved crosslinker: %s",
                             crosslinker_override,
                         )
-                    config_xl, config_linear = self.xi_config_gen.generate_configs(
-                        pxd, llm_responses, pride_data, crosslinker_name=crosslinker_override
+
+                    # When clustering hasn't already resolved a single unambiguous
+                    # reagent, and the dataset-level LLM identified more than one
+                    # distinct crosslinker (a publication using several chemistries),
+                    # generate one independent config pair per reagent instead of one
+                    # combined config - ReLink should run a separate search per
+                    # crosslinker, never mix two chemistries into a single search.
+                    dataset_names = (
+                        [] if crosslinker_override
+                        else self.xi_config_gen.get_dataset_crosslinker_names(llm_responses)
                     )
-                    xl_path, linear_path = self.xi_config_gen.save_configs(
-                        pxd, config_xl, config_linear, self.store.base_dir
-                    )
+
+                    xi_config_paths = {}
+                    errors = []
+                    if crosslinker_override or len(dataset_names) <= 1:
+                        config_xl, config_linear = self.xi_config_gen.generate_configs(
+                            pxd, llm_responses, pride_data, crosslinker_name=crosslinker_override
+                        )
+                        xl_path, linear_path = self.xi_config_gen.save_configs(
+                            pxd, config_xl, config_linear, self.store.base_dir
+                        )
+                        xi_config_paths["default"] = {"crosslinking": str(xl_path), "linear": str(linear_path)}
+                        logger.info("✓ Xi configs: %s | %s", xl_path, linear_path)
+                    else:
+                        logger.info(
+                            "  %d distinct crosslinkers named - generating independent configs: %s",
+                            len(dataset_names), dataset_names,
+                        )
+                        for xl_name in dataset_names:
+                            safe_name = self.xi_config_gen.safe_run_name(xl_name)
+                            try:
+                                config_xl, config_linear = self.xi_config_gen.generate_configs(
+                                    pxd, llm_responses, pride_data, crosslinker_name=xl_name
+                                )
+                                xl_path, linear_path = self.xi_config_gen.save_configs(
+                                    pxd, config_xl, config_linear, self.store.base_dir, name_suffix=safe_name
+                                )
+                                xi_config_paths[xl_name] = {"crosslinking": str(xl_path), "linear": str(linear_path)}
+                                logger.info("✓ Xi configs for %s: %s | %s", xl_name, xl_path, linear_path)
+                            except Exception as exc:
+                                logger.warning("  Skipping config for crosslinker '%s': %s", xl_name, exc)
+                                errors.append(f"{xl_name}: {exc}")
+
+                    if not xi_config_paths:
+                        raise ValueError(
+                            f"None of the identified crosslinkers produced a usable config: {errors}"
+                        )
+
                     result["stages"]["xi_configs"] = "success"
-                    result["xi_config_paths"] = {
-                        "crosslinking": str(xl_path),
-                        "linear": str(linear_path),
-                    }
-                    logger.info("✓ Xi configs: %s | %s", xl_path, linear_path)
+                    # Flat keys for backward compatibility with Stage 9 (ReLink), which only
+                    # ever runs one search at a time: point at the first/default pair. The full
+                    # per-crosslinker breakdown (all independently-generated configs) is also
+                    # kept below for future multi-crosslinker-aware consumers.
+                    first_pair = next(iter(xi_config_paths.values()))
+                    result["xi_config_paths"] = first_pair
+                    result["xi_config_paths_by_crosslinker"] = xi_config_paths
+                    if len(xi_config_paths) > 1:
+                        logger.info(
+                            "  %d independent crosslinker configs generated; ReLink (if enabled) "
+                            "will currently only use the first: %s",
+                            len(xi_config_paths), next(iter(xi_config_paths)),
+                        )
                 except Exception as exc:
                     logger.error("Failed to generate Xi configs: %s", exc, exc_info=True)
                     result["stages"]["xi_configs"] = "failed"
