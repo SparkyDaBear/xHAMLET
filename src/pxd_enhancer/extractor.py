@@ -904,6 +904,42 @@ class PXDMetadataEnhancer:
                 text_parts.append(f"[{label}]\n{sections[section].strip()}\n")
         
         return "\n".join(text_parts)
+
+    def _build_crosslinker_reference_block(self) -> str:
+        """Render assets/crosslinker_definitions.json as a compact reference list
+        for injection into prompts via the {{CROSSLINKER_DATABASE}} placeholder.
+
+        Always reads the live file (cached per enhancer instance) so additions
+        from the crosslinker database maintenance workflow are picked up
+        automatically, with no hand-maintained copy inside the prompt text to
+        drift out of sync.
+        """
+        if getattr(self, "_crosslinker_reference_block", None) is not None:
+            return self._crosslinker_reference_block
+
+        import json
+
+        defs_path = Path(__file__).parent.parent.parent / "assets" / "crosslinker_definitions.json"
+        try:
+            with open(defs_path, "r", encoding="utf-8") as handle:
+                data = json.load(handle)
+        except Exception as exc:
+            logger.warning("Could not load crosslinker definitions for prompt injection: %s", exc)
+            self._crosslinker_reference_block = "(crosslinker reference list unavailable)"
+            return self._crosslinker_reference_block
+
+        lines = []
+        for xl in data.get("crosslinkers", []):
+            name = xl.get("short_name") or xl.get("name")
+            aliases = sorted(set(xl.get("aliases", [])) - {name})
+            cleavable = {True: "cleavable", False: "non-cleavable"}.get(xl.get("ms_cleavable"), "cleavability unstated")
+            targets = xl.get("linked_aminoacids") or "unstated"
+            accession = xl.get("xlmod_accession") or "null"
+            alias_text = f"; aliases: {', '.join(aliases)}" if aliases else ""
+            lines.append(f"- {name} (AC={accession}; {cleavable}; targets={targets}){alias_text}")
+
+        self._crosslinker_reference_block = "\n".join(lines)
+        return self._crosslinker_reference_block
     
     def _query_llm_with_prompts(self, pxd: str, text: str, prompt_keys: List[str],
                                force_refresh: bool = False) -> Dict[str, Any]:
@@ -939,6 +975,10 @@ class PXDMetadataEnhancer:
             try:
                 logger.info("Querying LLM with prompt group: %s", prompt_key)
                 prompt_text = self.prompts.get_prompt(prompt_key)
+                if "{{CROSSLINKER_DATABASE}}" in prompt_text:
+                    prompt_text = prompt_text.replace(
+                        "{{CROSSLINKER_DATABASE}}", self._build_crosslinker_reference_block()
+                    )
                 raw_response = self.llm.query(prompt_text, text)
 
                 if not raw_response:

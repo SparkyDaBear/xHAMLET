@@ -28,17 +28,32 @@ instructions: Extract explicitly named chemical crosslinkers from the Methods se
   every named reagent; do not choose one arbitrarily and do not return null.
   Before responding, verify that a non-null evidence_quote explicitly contains the NT
   value (or its unambiguous expanded chemical name).
-  Common cleavable: DSSO (K,S,T,Y; AC=XLMOD:02126), DSBU (K,S,T,Y; AC=XLMOD:02120),
-    DSBSO (K,nterm; AC=null), Azide-A-DSBSO (K,nterm; AC=XLMOD:02222), Alkyne-A-DSBSO (K,nterm; AC=XLMOD:02223),
-    DSAU (K,nterm; AC=XLMOD:09317), DSPU (K,nterm), DSSBU (K,nterm),
-    DHSO (carbonyl-reactive D,E; AC=XLMOD:02226), BMSO (cysteine-specific; C),
-    SDASO (K,nterm; photo+MS-cleavable), SDASO-L (K,nterm; photo+MS-cleavable),
-    SSD (K,nterm), CBDPS (K,nterm), iQlnk (K,nterm)
-  PIR-type enrichable (reporter-ion, NOT backbone MS-cleavable): PIR (K,nterm), BDP-NHP (K,nterm)
-  Common non-cleavable: BS3/BS2G (K,nterm; AC=XLMOD:02000/02005), DSS (K,nterm; AC=XLMOD:02001), EDC (D,E,nterm; AC=XLMOD:02010), formaldehyde (K,nterm)
-  IMAC-enrichable (non-cleavable): PhoX (K,nterm; AC=XLMOD:02258), pDSPE (K,nterm; AC=null)
-  Photo-crosslinkers (non-cleavable, UV-activated): diazirine (K or incorporated aa), benzophenone (Bpa, pBpa; C or incorporated aa), SDA/sulfo-SDA (K,nterm; AC=XLMOD:02134/02136), aryl azide
-  NOTE: Do NOT extract proximity labeling enzymes (TurboID, BioID, APEX, biotin-phenol+H2O2) as crosslinkers — these are NOT chemical cross-linking reagents.
+
+  KNOWN CROSSLINKER REFERENCE LIST (check the text against every one of these before
+  concluding a reagent is new; this list is generated live from our curated reagent
+  database, so treat it as authoritative and more current than your own training data):
+  {{CROSSLINKER_DATABASE}}
+
+  Matching rules against the reference list above:
+  - If the text names a reagent that matches one of these entries — by exact name,
+    alias, isotope-labeled variant of one of these (e.g. "BS3-d4", "DSS-d12",
+    "H12/D12 DSS" are variants of BS3/DSS), or unambiguous expanded chemical name —
+    return NT using that entry's name exactly as written above (before any
+    parenthetical AC=/targets= annotation), and set AC to that entry's AC value
+    unless the text itself states a different accession.
+  - If the text names a chemical crosslinking reagent that does NOT match any entry
+    in the reference list, still extract it in full (this is how new reagents not yet
+    in our database get discovered) — do not force it into a non-matching reference
+    entry, and do not omit it. Populate NT/AC/CL/TA with your own best-effort reading
+    of the text as usual (AC=null if truly unknown).
+  - Do NOT extract reducing/alkylating agents (DTT, iodoacetamide), proximity labeling
+    enzymes or their substrates (TurboID, BioID, APEX, biotin-phenol+H2O2), or
+    enzymatic/natural crosslinking (e.g. transglutaminase-catalyzed isopeptide bonds)
+    as chemical crosslinkers — these are NOT chemical cross-linking reagents.
+  - UV-only photo-crosslinking of native residues (no synthetic reagent incorporated)
+    has no chemical crosslinker name to extract; return null in that case. This differs
+    from photo-reactive reagents that ARE incorporated (diazirine, benzophenone, SDA),
+    which should be extracted normally.
 
 term: crosslinker concentration
 sdrf_column: comment[crosslinker concentration]
