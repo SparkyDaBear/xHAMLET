@@ -26,3 +26,17 @@ tools/relink/null/
 *.raw
 *.mzML
 *.img
+
+# Result store and AF3 job working directories: generated/derived data, never
+# committed. The static web/results-explorer/data/catalog.json snapshot (plus
+# the small promoted structure files under data/structures/) is the published
+# view of this data; see documents/RESULT_CATALOG_AND_EXPLORER.md.
+store/
+af3_ppi_jobs/
+
+# Downloaded/extracted ReLink result archives staged in the repo root before
+# being unpacked into store/ (see scripts/promote_af3_predictions.py docs).
+*.tar.gz
+
+# Scratch Slurm job logs
+assets/slurm/logs/
