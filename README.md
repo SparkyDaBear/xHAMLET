@@ -256,6 +256,80 @@ This writes `xhamlet-results.sqlite3` locally and generates
 [documents/RESULT_CATALOG_AND_EXPLORER.md](documents/RESULT_CATALOG_AND_EXPLORER.md)
 for PostgreSQL and publishing options.
 
+## AlphaFold3 PPI Structure Prediction
+
+For crosslink-supported protein-protein interactions found in the result
+catalog, xHAMLET can generate and submit AlphaFold3 (AF3) two-chain complex
+predictions with a single wrapper script,
+[scripts/build_af3_ppi_jobs.py](scripts/build_af3_ppi_jobs.py). This is
+separate from the upstream colleague-provided AF3 `run.sh` helper
+(`/storage/group/RISE/toShare/AF3/run.sh`), which only builds single-chain
+jobs by splitting each FASTA record independently and cannot predict
+complexes.
+
+### 1) Build the result catalog
+
+```bash
+python scripts/sync_result_database.py --data-dir store --database-path xhamlet-results.sqlite3
+```
+
+### 2) Generate AF3 job JSONs + Slurm scripts for validated PPI pairs
+
+```bash
+python scripts/build_af3_ppi_jobs.py \
+	--database-path xhamlet-results.sqlite3 \
+	--data-dir store \
+	--out-dir af3_ppi_jobs \
+	--expand-ambiguous \
+	--account ncems_cr_default
+```
+
+For each unique, crosslink-supported protein pair found in the catalog,
+`scripts/build_af3_ppi_jobs.py`:
+
+1. Resolves both accessions to full-length sequences from the matching PXD's
+   ReLink search FASTA (`<pxd_dir>/relink/fasta/*.fa*`).
+2. Writes a two-chain AF3 job JSON (`<job_name>.json`).
+3. Writes a ready-to-submit Slurm script (`<job_name>.slurm`) that runs the
+   AF3 data-pipeline phase (CPU) followed by GPU inference for that one job,
+   using the containers, weights, and databases installed under
+   `/storage/icds/RISE/sw8/alphafold3/`.
+4. Appends a row to `manifest.tsv` and a `sbatch` line to `submit_all.sh`
+   (made executable) for convenience.
+
+Key flags:
+
+- `--pxd <accession_or_mask...>`: restrict to matching PXDs
+- `--min-supporting N`: minimum distinct supporting crosslinks required (default: 1)
+- `--include-self-links`: also emit homodimer jobs
+- `--expand-ambiguous`: enumerate candidate pairs when a crosslink's alpha/beta
+  side maps to multiple accessions (e.g. homologous constructs/isoforms);
+  such pairs are flagged `ambiguous=True` in the manifest since the true
+  partner is unresolved
+- `--partition`, `--gres`, `--cpus-per-task`, `--mem`, `--time`, `--account`:
+  override the generated Slurm resource requests (defaults: `standard`
+  partition, `gpu:a100:1`, 16 CPUs, 128G, 12:00:00)
+- `--submit`: sbatch every generated job immediately instead of just writing
+  the scripts
+- `--dry-run`: report planned jobs without writing files
+
+Accessions in `alpha_proteins`/`beta_proteins` come directly from the source
+mzIdentML `DBSequence` accession attribute, not from FASTA parsing, so any
+non-standard-looking accession (e.g. missing a UniProt prefix) reflects the
+underlying search database rather than a parsing bug.
+
+### 3) Submit AF3 jobs to Slurm
+
+```bash
+bash af3_ppi_jobs/submit_all.sh
+```
+
+Or submit an individual pair's job directly:
+
+```bash
+sbatch af3_ppi_jobs/<PXD>/<job_name>.slurm
+```
+
 ## Troubleshooting
 
 ### Missing assessment/study_metadata.json
