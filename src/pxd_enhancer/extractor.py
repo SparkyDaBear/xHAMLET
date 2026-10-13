@@ -553,8 +553,27 @@ class PXDMetadataEnhancer:
             else:
                 logger.info("[Stage 8/10] Generating Xi configuration files...")
                 try:
+                    # Prefer an unambiguous crosslinker resolved from file clustering
+                    # (e.g. filename-derived, per-cluster) over the dataset-wide LLM
+                    # answer, which can legitimately return multiple reagents when a
+                    # publication describes more than one crosslinking chemistry.
+                    resolved_crosslinkers = {
+                        fa["crosslinker"]
+                        for fa in (file_assignments or {}).values()
+                        if fa.get("crosslinker")
+                    }
+                    crosslinker_override = (
+                        next(iter(resolved_crosslinkers))
+                        if len(resolved_crosslinkers) == 1
+                        else None
+                    )
+                    if crosslinker_override:
+                        logger.info(
+                            "  Using file-clustering-resolved crosslinker: %s",
+                            crosslinker_override,
+                        )
                     config_xl, config_linear = self.xi_config_gen.generate_configs(
-                        pxd, llm_responses, pride_data
+                        pxd, llm_responses, pride_data, crosslinker_name=crosslinker_override
                     )
                     xl_path, linear_path = self.xi_config_gen.save_configs(
                         pxd, config_xl, config_linear, self.store.base_dir
@@ -1180,6 +1199,7 @@ class PXDMetadataEnhancer:
             cluster_label = cluster.get("cluster_label", "")
             organism = cluster.get("organism", "")
             taxid = cluster.get("taxid", "")
+            crosslinker = cluster.get("crosslinker", "")
             files = cluster.get("files", [])
 
             logger.debug("Cluster %s (%s): %d files", cluster_id, cluster_label, len(files))
@@ -1190,6 +1210,7 @@ class PXDMetadataEnhancer:
                     "cluster_label": cluster_label,
                     "organism": organism,
                     "taxid": taxid,
+                    "crosslinker": crosslinker,
                 }
 
         dataset_org = self._resolve_dataset_organism(pride_data)
@@ -1202,6 +1223,7 @@ class PXDMetadataEnhancer:
                     "cluster_label": "unassigned",
                     "organism": dataset_org,
                     "taxid": "",
+                    "crosslinker": "",
                 }
 
         files_meta = pride_data.get("files", {}) or {}
