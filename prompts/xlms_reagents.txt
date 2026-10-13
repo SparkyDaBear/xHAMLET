@@ -50,6 +50,18 @@ instructions: Extract explicitly named chemical crosslinkers from the Methods se
     enzymes or their substrates (TurboID, BioID, APEX, biotin-phenol+H2O2), or
     enzymatic/natural crosslinking (e.g. transglutaminase-catalyzed isopeptide bonds)
     as chemical crosslinkers — these are NOT chemical cross-linking reagents.
+  - The crosslinker is the specific molecule that physically bridges the two residues
+    and contributes its own mass to the detected crosslinked peptide — NOT any other
+    reagent merely required to carry out the reaction. Coupling/activating reagents
+    (EDC, DMTMM, sulfo-NHS) and quenching reagents (Tris, glycine, ammonium bicarbonate)
+    are consumed or washed away without being incorporated into the crosslink, so do
+    NOT extract them as a separate crosslinker when a distinct bridging reagent is also
+    named in the same reaction. For example, in "a combination of pimelic acid
+    dihydrazide (PDH) and the coupling reagent DMTMM", extract only PDH — DMTMM merely
+    activates PDH's carboxyl groups and is not itself incorporated. The one exception is
+    "zero-length" crosslinking, where EDC or DMTMM is used ALONE (no separate
+    hydrazide/amine-reactive bridging reagent named) to directly couple two residues'
+    side chains with no added mass bridge; in that case EDC/DMTMM IS the crosslinker.
   - UV-only photo-crosslinking of native residues (no synthetic reagent incorporated)
     has no chemical crosslinker name to extract; return null in that case. This differs
     from photo-reactive reagents that ARE incorporated (diazirine, benzophenone, SDA),

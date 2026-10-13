@@ -95,9 +95,20 @@ For EACH text span, decide exactly one of:
     used directly for search-engine scoring and a wrong value is worse than a missing one.
   - "not_a_crosslinker": the span is NOT a chemical crosslinking reagent at all - e.g. a reducing/
     alkylating agent (DTT, iodoacetamide), a proximity-labeling enzyme or its substrate (TurboID,
-    BioID, APEX, biotin-phenol), a coupling/activator reagent that is not itself the crosslinker
-    (e.g. NHS, sulfo-NHS used only to describe chemistry), an enzymatic/natural crosslink (e.g.
-    transglutaminase-catalyzed isopeptide bonds), or vague/unparseable noise.
+    BioID, APEX, biotin-phenol), a coupling/activator or quenching reagent that is not itself the
+    crosslinker (e.g. NHS, sulfo-NHS, Tris, glycine used only to describe chemistry), an enzymatic/
+    natural crosslink (e.g. transglutaminase-catalyzed isopeptide bonds), or vague/unparseable noise.
+
+A crosslinker is specifically the molecule that physically bridges the two residues and contributes
+its own mass to the detected crosslinked peptide - NOT any other reagent merely required to carry out
+the reaction. Some spans combine an activator/coupling reagent (DMTMM, EDC, sulfo-NHS) with the actual
+bridging reagent in one piece of text (e.g. "DMTMM + AHD"). In that case, classify based on the ACTUAL
+bridging reagent only (e.g. "AHD"/adipic acid dihydrazide here), ignoring the activator - do not treat
+the whole combined span as "not_a_crosslinker" just because it mentions an activator, and do not draft
+a new_candidate entry named after the activator+bridge combination. The one exception is "zero-length"
+crosslinking, where EDC or DMTMM is used ALONE (no separate bridging reagent named) to directly couple
+two residues with no added mass bridge; in that case EDC/DMTMM IS the crosslinker (both are likely
+already in the CURRENT DATABASE below, so this should usually resolve via "map_to_existing").
 
 CURRENT DATABASE:
 {database_block}
@@ -442,6 +453,9 @@ def main() -> int:
                     continue
 
                 verdict = result.get("verdict")
+                if verdict not in ("map_to_existing", "new_candidate", "not_a_crosslinker"):
+                    print(f"  WARNING: no usable verdict for {original!r} (got {verdict!r}); leaving unclassified for next run")
+                    continue
                 cache[key] = {
                     "span": original,
                     "verdict": verdict,
