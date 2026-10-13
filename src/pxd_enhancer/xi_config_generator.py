@@ -562,6 +562,18 @@ FRAGMENTTREE:FU
             elif xi_class == "NonCovalentBound":
                 name = xl.get("short_name", xl.get("name"))
                 lines.append(f"crosslinker:NonCovalentBound:Name:{name}")
+            else:
+                # Entry is recognized by name/alias but lacks verified XiSearch chemistry
+                # (e.g. a new_candidate drafted by scripts/normalize_crosslinker_database.py
+                # that a human hasn't yet confirmed mass/linked_aminoacids for). Fail loudly
+                # here rather than silently treating the dataset as linear (unmatched xi_class
+                # falls through to no branch) or emitting a bogus "MASS:None" config line.
+                name = xl.get("short_name", xl.get("name"))
+                raise ValueError(
+                    f"Crosslinker '{name}' is recognized by name but lacks verified XiSearch "
+                    "chemistry (mass/linked_aminoacids/xi_class) in assets/crosslinker_definitions.json "
+                    "- needs human verification before a config can be generated for this dataset."
+                )
         
         return "\n".join(lines)
     
