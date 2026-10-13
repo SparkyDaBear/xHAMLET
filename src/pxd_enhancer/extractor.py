@@ -426,12 +426,14 @@ class PXDMetadataEnhancer:
             ###########################################################
             # Stage 5: LLM extraction
             logger.info("[Stage 5/10] Querying LLM with configured prompts...")
+            pride_sections = self._extract_text_sections_from_pride(pride_data)
             if publication_data:
-                logger.info("Using publication text for LLM analysis")
-                text_sections = self.pmc.extract_text_sections(publication_data)
+                logger.info("Using publication text + PRIDE metadata for LLM analysis")
+                pmc_sections = self.pmc.extract_text_sections(publication_data)
             else:
-                logger.info("Using PRIDE metadata for LLM analysis")
-                text_sections = self._extract_text_sections_from_pride(pride_data)
+                logger.info("Using PRIDE metadata for LLM analysis (no publication text available)")
+                pmc_sections = {}
+            text_sections = self._merge_text_sections(pmc_sections, pride_sections)
 
             combined_text = self._combine_text_sections(text_sections)
             logger.debug("Combined text prepared, length: %d chars", len(combined_text))
@@ -857,17 +859,49 @@ class PXDMetadataEnhancer:
         """Extract DOI and PubMed IDs from PRIDE data"""
         doi, pubmed_ids = self.pride.extract_publication_info(pride_data)
         return doi, pubmed_ids
-    
+
+    def _merge_text_sections(self, pmc_sections: Dict[str, str], pride_sections: Dict[str, str]) -> Dict[str, str]:
+        """Combine publication full-text sections with PRIDE project metadata.
+
+        PRIDE keys are kept distinct (``pride_`` prefix) rather than merged
+        in-place, so PRIDE-only fields such as the data processing protocol
+        or keywords - which sometimes state the crosslinker or search-software
+        configuration directly - are never silently dropped just because
+        publication full text is also available.
+        """
+        merged = dict(pmc_sections)
+        for key, value in pride_sections.items():
+            merged[f"pride_{key}"] = value
+        return merged
+
+    PRIDE_SECTION_LABELS = {
+        "pride_title": "PRIDE TITLE",
+        "pride_abstract": "PRIDE PROJECT DESCRIPTION",
+        "pride_methods": "PRIDE SAMPLE PROCESSING PROTOCOL",
+        "pride_data_processing": "PRIDE DATA PROCESSING PROTOCOL",
+        "pride_keywords": "PRIDE KEYWORDS",
+        "pride_organisms": "PRIDE ORGANISMS",
+        "pride_experiment_types": "PRIDE EXPERIMENT TYPES",
+        "pride_quantification_methods": "PRIDE QUANTIFICATION METHODS",
+    }
+
     def _combine_text_sections(self, sections: Dict[str, str]) -> str:
         """Combine extracted text sections into single document"""
         text_parts = []
         
-        # Order sections logically
-        section_order = ["title", "abstract", "introduction", "methods", "results", "discussion", "conclusion"]
-        
+        # Order sections logically: publication full-text sections first
+        # (when available), then PRIDE project-metadata sections - always
+        # included rather than silently dropped on fallback or on key
+        # collision with publication text. See _merge_text_sections.
+        section_order = [
+            "title", "abstract", "introduction", "methods", "results", "discussion", "conclusion",
+            *self.PRIDE_SECTION_LABELS,
+        ]
+
         for section in section_order:
             if section in sections and sections[section]:
-                text_parts.append(f"[{section.upper()}]\n{sections[section].strip()}\n")
+                label = self.PRIDE_SECTION_LABELS.get(section, section.upper())
+                text_parts.append(f"[{label}]\n{sections[section].strip()}\n")
         
         return "\n".join(text_parts)
     
@@ -996,10 +1030,9 @@ class PXDMetadataEnhancer:
         organisms_with_taxids = self._extract_organisms_with_taxids(pride_data)
 
         # Prepare publication text
-        if publication_data:
-            text_sections = self.pmc.extract_text_sections(publication_data)
-        else:
-            text_sections = self._extract_text_sections_from_pride(pride_data)
+        pride_sections = self._extract_text_sections_from_pride(pride_data)
+        pmc_sections = self.pmc.extract_text_sections(publication_data) if publication_data else {}
+        text_sections = self._merge_text_sections(pmc_sections, pride_sections)
 
         pub_text = self._combine_text_sections(text_sections)
 
