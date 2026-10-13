@@ -56,8 +56,7 @@ python src/main.py \\
   --pxd-file "{chunk_tsv}" \\
   --config "{config_path}" \\
   --data-dir "{data_dir}" \\
-  --force-refresh \\
-  --no-download \\
+  {force_refresh_flag}--no-download \\
   --log-file "{out_dir}/{chunk_name}.log"
 
 echo "Done: {chunk_name}"
@@ -78,6 +77,14 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--time", default="12:00:00", help="Slurm --time per chunk job (default: %(default)s)")
     parser.add_argument("--submit", action="store_true", help="Immediately sbatch every generated chunk instead of just writing scripts")
     parser.add_argument("--dry-run", action="store_true", help="Report planned chunks without writing files")
+    parser.add_argument(
+        "--no-force-refresh",
+        action="store_true",
+        help="Omit --force-refresh so each stage reuses its own cached output (PRIDE/PMC/LLM/clustering) "
+             "when present and only regenerates SDRF + Xi configs (Stages 6 and 8, which always rebuild "
+             "regardless of caching). Much cheaper than a full reanalysis: use this to pick up a Xi-config-"
+             "generation code fix across already-processed PXDs without re-querying the LLM.",
+    )
     return parser.parse_args()
 
 
@@ -136,6 +143,7 @@ def main() -> int:
             data_dir=args.data_dir,
             out_dir=args.out_dir.resolve(),
             pxd_count=len(chunk),
+            force_refresh_flag="" if args.no_force_refresh else "--force-refresh \\\n  ",
         )
         chunk_slurm.write_text(script)
         chunk_slurm.chmod(0o755)
