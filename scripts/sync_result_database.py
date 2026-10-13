@@ -23,6 +23,7 @@ import hashlib
 import json
 import os
 import re
+import shutil
 import sqlite3
 import subprocess
 import sys
@@ -182,6 +183,27 @@ CREATE TABLE IF NOT EXISTS crosslink_match (
 
 CREATE INDEX IF NOT EXISTS crosslink_match_document_source_idx ON crosslink_match(mzid_document_id, source_file);
 CREATE INDEX IF NOT EXISTS crosslink_match_passing_idx ON crosslink_match(mzid_document_id, pass_threshold);
+
+CREATE TABLE IF NOT EXISTS af3_prediction (
+    af3_prediction_id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    pipeline_run_id BIGINT NOT NULL REFERENCES pipeline_run(pipeline_run_id) ON DELETE CASCADE,
+    job_name TEXT NOT NULL,
+    protein_a TEXT NOT NULL,
+    protein_b TEXT NOT NULL,
+    supporting_crosslinks INTEGER,
+    max_xi_score DOUBLE PRECISION,
+    ambiguous BOOLEAN NOT NULL DEFAULT FALSE,
+    ptm DOUBLE PRECISION,
+    iptm DOUBLE PRECISION,
+    ranking_score DOUBLE PRECISION,
+    has_clash BOOLEAN,
+    fraction_disordered DOUBLE PRECISION,
+    structure_relative_path TEXT NOT NULL,
+    summary_confidences JSONB,
+    UNIQUE (pipeline_run_id, job_name)
+);
+
+CREATE INDEX IF NOT EXISTS af3_prediction_pipeline_run_idx ON af3_prediction(pipeline_run_id);
 """
 
 
@@ -313,6 +335,27 @@ CREATE INDEX IF NOT EXISTS search_run_project_taxid_idx ON search_run(pipeline_r
 CREATE INDEX IF NOT EXISTS mzid_search_run_idx ON mzid_document(search_run_id);
 CREATE INDEX IF NOT EXISTS crosslink_match_document_source_idx ON crosslink_match(mzid_document_id, source_file);
 CREATE INDEX IF NOT EXISTS crosslink_match_passing_idx ON crosslink_match(mzid_document_id, pass_threshold);
+
+CREATE TABLE IF NOT EXISTS af3_prediction (
+    af3_prediction_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    pipeline_run_id INTEGER NOT NULL REFERENCES pipeline_run(pipeline_run_id) ON DELETE CASCADE,
+    job_name TEXT NOT NULL,
+    protein_a TEXT NOT NULL,
+    protein_b TEXT NOT NULL,
+    supporting_crosslinks INTEGER,
+    max_xi_score REAL,
+    ambiguous INTEGER NOT NULL DEFAULT 0,
+    ptm REAL,
+    iptm REAL,
+    ranking_score REAL,
+    has_clash INTEGER,
+    fraction_disordered REAL,
+    structure_relative_path TEXT NOT NULL,
+    summary_confidences TEXT,
+    UNIQUE (pipeline_run_id, job_name)
+);
+
+CREATE INDEX IF NOT EXISTS af3_prediction_pipeline_run_idx ON af3_prediction(pipeline_run_id);
 """
 
 
@@ -491,7 +534,7 @@ def artifact_type(relative_path: Path) -> str:
     parts = relative_path.parts
     if not parts:
         return "other"
-    if parts[0] in {"pride", "pmc", "llm", "enhanced", "assessment", "sdrf", "configs", "relink"}:
+    if parts[0] in {"pride", "pmc", "llm", "enhanced", "assessment", "sdrf", "configs", "relink", "af3_predictions"}:
         return parts[0]
     return "other"
 
@@ -736,6 +779,62 @@ def collect_search_runs(pxd_dir: Path) -> list[dict[str, Any]]:
         )["mzids"].append(mzid_path)
     return [runs[path] for path in sorted(runs)]
 
+
+def collect_af3_predictions(pxd_dir: Path) -> list[dict[str, Any]]:
+    """Discover promoted AlphaFold3 predictions under <pxd_dir>/af3_predictions/<job_name>/.
+
+    See scripts/promote_af3_predictions.py, which curates this small subset
+    (pair.json, model.cif, summary_confidences.json, ranking_scores.csv) from a
+    completed af3_ppi_jobs/ run, deliberately excluding the large MSA/template
+    data.json archives that aren't needed for display.
+    """
+    predictions_dir = pxd_dir / "af3_predictions"
+    if not predictions_dir.is_dir():
+        return []
+    predictions = []
+    for job_dir in sorted(path for path in predictions_dir.iterdir() if path.is_dir()):
+        pair_path = job_dir / "pair.json"
+        model_path = job_dir / "model.cif"
+        if not (pair_path.is_file() and model_path.is_file()):
+            continue
+        pair, _ = unwrap_payload(pair_path)
+        summary_path = job_dir / "summary_confidences.json"
+        summary, _ = unwrap_payload(summary_path) if summary_path.is_file() else ({}, {})
+        predictions.append(
+            {
+                "job_name": pair.get("job_name", job_dir.name),
+                "protein_a": pair.get("protein_a"),
+                "protein_b": pair.get("protein_b"),
+                "supporting_crosslinks": pair.get("supporting_crosslinks"),
+                "max_xi_score": pair.get("max_xi_score"),
+                "ambiguous": bool(pair.get("ambiguous", False)),
+                "ptm": summary.get("ptm"),
+                "iptm": summary.get("iptm"),
+                "ranking_score": summary.get("ranking_score"),
+                "has_clash": summary.get("has_clash"),
+                "fraction_disordered": summary.get("fraction_disordered"),
+                "structure_relative_path": model_path.relative_to(pxd_dir).as_posix(),
+                "summary_confidences": summary,
+            }
+        )
+    return predictions
+
+
+def match_predicted_complex(
+    alpha_proteins: list[str] | None,
+    beta_proteins: list[str] | None,
+    predictions_by_pair: dict[frozenset[str], str],
+) -> str | None:
+    """Match a crosslink's (possibly ambiguous, multi-candidate) protein lists to a
+    predicted complex's resolved (protein_a, protein_b) pair, order-independent."""
+    for alpha in alpha_proteins or []:
+        for beta in beta_proteins or []:
+            job_name = predictions_by_pair.get(frozenset({str(alpha).upper(), str(beta).upper()}))
+            if job_name:
+                return job_name
+    return None
+
+
 def project_raw_names(pxd_dir: Path) -> list[str]:
     """Return known RAW filenames for resolving ReLink mzML spectrum paths."""
     names: set[str] = set()
@@ -786,6 +885,13 @@ def json_value(value: Any) -> Any:
 
 def timestamp_text(value: Any) -> str | None:
     return value.isoformat() if isinstance(value, datetime) else value
+
+
+def scalar_text(value: Any) -> str | None:
+    """Coerce non-scalar LLM evidence fields (occasionally lists) to storable text."""
+    if value is None or isinstance(value, str):
+        return value
+    return json.dumps(value)
 
 
 def open_database(args: argparse.Namespace) -> Any:
@@ -877,6 +983,7 @@ class DatabaseSynchronizer:
                 self._insert_source_files(cursor, pipeline_run_id, pxd_dir)
                 self._insert_llm(cursor, pipeline_run_id, llm, llm_meta, llm_path)
                 self._insert_search_runs(cursor, pipeline_run_id, pxd_dir)
+                self._insert_af3_predictions(cursor, pipeline_run_id, pxd_dir)
         return "accepted" if accepted else "cataloged-incomplete"
 
     def _insert_artifacts(self, cursor: Any, pipeline_run_id: int, pxd_dir: Path, files: list[Path]) -> None:
@@ -963,8 +1070,8 @@ class DatabaseSynchronizer:
                     json.dumps(parsed.get("value")),
                     json.dumps(parsed.get("accession")),
                     parsed.get("confidence"),
-                    parsed.get("evidence_quote"),
-                    parsed.get("evidence_location"),
+                    scalar_text(parsed.get("evidence_quote")),
+                    scalar_text(parsed.get("evidence_location")),
                 ),
             )
 
@@ -1040,6 +1147,34 @@ class DatabaseSynchronizer:
                     json.dumps(match.get("beta_positions", [])),
                     match.get("charge_state"),
                     match.get("xi_score"),
+                ),
+            )
+
+    def _insert_af3_predictions(self, cursor: Any, pipeline_run_id: int, pxd_dir: Path) -> None:
+        for prediction in collect_af3_predictions(pxd_dir):
+            cursor.execute(
+                """
+                INSERT INTO af3_prediction
+                (pipeline_run_id, job_name, protein_a, protein_b, supporting_crosslinks, max_xi_score,
+                 ambiguous, ptm, iptm, ranking_score, has_clash, fraction_disordered,
+                 structure_relative_path, summary_confidences)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s::jsonb)
+                """,
+                (
+                    pipeline_run_id,
+                    prediction["job_name"],
+                    prediction["protein_a"],
+                    prediction["protein_b"],
+                    prediction["supporting_crosslinks"],
+                    prediction["max_xi_score"],
+                    prediction["ambiguous"],
+                    prediction["ptm"],
+                    prediction["iptm"],
+                    prediction["ranking_score"],
+                    prediction["has_clash"],
+                    prediction["fraction_disordered"],
+                    prediction["structure_relative_path"],
+                    json.dumps(prediction["summary_confidences"]),
                 ),
             )
 
@@ -1148,6 +1283,37 @@ def database_catalog(
             ]
             cursor.execute(
                 """
+                SELECT job_name, protein_a, protein_b, supporting_crosslinks, max_xi_score, ambiguous,
+                       ptm, iptm, ranking_score, has_clash, fraction_disordered, structure_relative_path
+                FROM af3_prediction WHERE pipeline_run_id = %s ORDER BY job_name
+                """,
+                (pipeline_run_id,),
+            )
+            predicted_complexes = [
+                {
+                    "job_name": job_name,
+                    "protein_a": protein_a,
+                    "protein_b": protein_b,
+                    "supporting_crosslinks": supporting_crosslinks,
+                    "max_xi_score": max_xi_score,
+                    "ambiguous": bool(ambiguous),
+                    "ptm": ptm,
+                    "iptm": iptm,
+                    "ranking_score": ranking_score,
+                    "has_clash": bool(has_clash) if has_clash is not None else None,
+                    "fraction_disordered": fraction_disordered,
+                    "structure_path": f"data/structures/{accession}/{job_name}.cif",
+                }
+                for job_name, protein_a, protein_b, supporting_crosslinks, max_xi_score, ambiguous,
+                    ptm, iptm, ranking_score, has_clash, fraction_disordered, _structure_relative_path
+                in cursor.fetchall()
+            ]
+            predictions_by_pair = {
+                frozenset({str(prediction["protein_a"]).upper(), str(prediction["protein_b"]).upper()}): prediction["job_name"]
+                for prediction in predicted_complexes
+            }
+            cursor.execute(
+                """
                 SELECT search_run_id, run_path, taxid, fasta_path, crosslinker_config
                 FROM search_run WHERE pipeline_run_id = %s ORDER BY run_path
                 """,
@@ -1199,6 +1365,9 @@ def database_catalog(
                         "beta_positions": json_value(beta_positions),
                         "observations": observations,
                         "best_xi_score": best_score,
+                        "predicted_complex": match_predicted_complex(
+                            json_value(alpha_proteins), json_value(beta_proteins), predictions_by_pair
+                        ),
                     }
                     for source_file, alpha_sequence, beta_sequence, alpha_proteins, beta_proteins,
                     alpha_positions, beta_positions, observations, best_score in cursor.fetchall()
@@ -1235,6 +1404,7 @@ def database_catalog(
                     "text": sdrf_row[1],
                 } if sdrf_row and sdrf_row[1] else None,
                 "relink_runs": runs,
+                "predicted_complexes": predicted_complexes,
                 "artifacts": artifacts,
             }
         )
@@ -1247,15 +1417,40 @@ def database_catalog(
     }
 
 
+def copy_predicted_structures(catalog: dict[str, Any], data_dir: Path, structures_dir: Path) -> None:
+    """Copy each referenced model.cif into <structures_dir>/<PXD>/<job_name>.cif.
+
+    These are served as plain static files by GitHub Pages and fetched lazily by
+    the results-explorer's structure viewer, keeping catalog.json itself lean.
+    """
+    copied = 0
+    for project in catalog["projects"]:
+        accession = project["accession"]
+        for prediction in project.get("predicted_complexes", []):
+            source = data_dir / accession / "af3_predictions" / prediction["job_name"] / "model.cif"
+            if not source.is_file():
+                print(f"WARNING: predicted structure missing on disk, skipping: {source}")
+                continue
+            dest_dir = structures_dir / accession
+            dest_dir.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(source, dest_dir / f"{prediction['job_name']}.cif")
+            copied += 1
+    if copied:
+        print(f"Copied {copied} predicted structure(s) into {structures_dir}")
+
+
 def write_static_snapshot(
     connection: Any,
     output: Path,
     artifact_base_url: str,
     accessions: list[str] | None,
+    data_dir: Path | None = None,
 ) -> None:
     output = output.expanduser().resolve()
     output.parent.mkdir(parents=True, exist_ok=True)
     catalog = database_catalog(connection, artifact_base_url, accessions)
+    if data_dir is not None:
+        copy_predicted_structures(catalog, data_dir, output.parent / "structures")
     output.write_text(json.dumps(catalog, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"Static snapshot: {output} ({catalog['project_count']} PXD(s))")
 
@@ -1263,11 +1458,19 @@ def write_static_snapshot(
 def main() -> int:
     args = parse_args()
     plans: list[tuple[Path, list[Path]]] = []
-    if not args.snapshot_only:
+    base_dir: Path | None = None
+    try:
         config_path = Path(args.config).expanduser().resolve()
         config = read_config(config_path)
         configured_base = config.get("storage", {}).get("base_dir", "./pxd_data")
         base_dir = Path(args.data_dir or configured_base).expanduser().resolve()
+    except FileNotFoundError:
+        if not args.snapshot_only:
+            raise
+        # --snapshot-only can run without configs/config.yaml; predicted-structure
+        # copying is simply skipped in that case (see write_static_snapshot).
+        base_dir = Path(args.data_dir).expanduser().resolve() if args.data_dir else None
+    if not args.snapshot_only:
         if not base_dir.is_dir():
             raise FileNotFoundError(f"storage.base_dir does not exist: {base_dir}")
         pxds = select_pxds(base_dir, args.pxd, args.exclude_pxd)
@@ -1310,7 +1513,7 @@ def main() -> int:
                 if not args.snapshot_only and (args.pxd or args.exclude_pxd)
                 else None
             )
-            write_static_snapshot(connection, args.static_snap, args.artifact_base_url, selected_accessions)
+            write_static_snapshot(connection, args.static_snap, args.artifact_base_url, selected_accessions, base_dir)
     print(f"Completed: {imported} imported, {skipped} unchanged, {len(plans)} selected")
     return 0
 

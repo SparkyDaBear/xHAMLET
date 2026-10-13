@@ -12,6 +12,11 @@ const elements = {
   description: document.querySelector("#project-description"),
   metrics: document.querySelector("#metrics"),
   panel: document.querySelector("#tab-panel"),
+  structureModal: document.querySelector("#structure-modal"),
+  structureModalTitle: document.querySelector("#structure-modal-title"),
+  structureModalScores: document.querySelector("#structure-modal-scores"),
+  structureModalStatus: document.querySelector("#structure-modal-status"),
+  structureViewer: document.querySelector("#structure-viewer"),
 };
 
 const escapeHtml = (value) => String(value ?? "").replace(/[&<>"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[character]);
@@ -48,10 +53,10 @@ function parseTsv(text) {
   return rows;
 }
 
-function renderFilterableTable(tableId, columns, rows, className) {
+function renderFilterableTable(tableId, columns, rows, className, cellRenderers) {
   const header = columns.map((column) => `<th scope="col">${escapeHtml(column)}</th>`).join("");
   const filters = columns.map((column, index) => `<th><label class="table-filter-label"><span class="sr-only">Filter ${escapeHtml(column)}</span><input class="table-filter" type="search" data-column="${index}" placeholder="Filter" autocomplete="off"></label></th>`).join("");
-  const body = rows.map((row) => `<tr>${row.map((value) => `<td>${escapeHtml(formatValue(value))}</td>`).join("")}</tr>`).join("");
+  const body = rows.map((row) => `<tr>${row.map((value, index) => `<td>${cellRenderers?.[index] ? cellRenderers[index](value, row) : escapeHtml(formatValue(value))}</td>`).join("")}</tr>`).join("");
   return `<div class="table-wrap interactive-table-wrap"><table id="${escapeHtml(tableId)}" class="${className} interactive-table"><thead><tr>${header}</tr><tr class="table-filter-row">${filters}</tr></thead><tbody>${body}</tbody></table><p class="table-count" data-table-count="${escapeHtml(tableId)}"></p></div>`;
 }
 
@@ -120,6 +125,7 @@ function renderProject() {
   });
   elements.panel.innerHTML = renderTab(project);
   wireFilterableTables();
+  wireStructureButtons(project);
   window.lucide?.createIcons();
 }
 
@@ -170,16 +176,26 @@ function renderSearches(project) {
 function renderCrosslinks(project) {
   const runs = project.relink_runs.filter((run) => run.crosslinks?.length);
   if (!runs.length) return empty("No compact cross-link records were included in this catalog.");
+  const predictionsByJob = new Map((project.predicted_complexes || []).map((prediction) => [prediction.job_name, prediction]));
   return runs.map((run) => {
-    const columns = ["Source RAW", "Alpha peptide", "Beta peptide", "Alpha proteins", "Beta proteins", "Alpha positions", "Beta positions", "PSMs", "Best xi score"];
+    const columns = ["Source RAW", "Alpha peptide", "Beta peptide", "Alpha proteins", "Beta proteins", "Alpha positions", "Beta positions", "PSMs", "Best xi score", "Structure"];
     const rows = run.crosslinks.map((crosslink) => [
       crosslink.source_file || "[unresolved RAW]", crosslink.alpha_sequence || "-", crosslink.beta_sequence || "-",
       formatValue(crosslink.alpha_proteins), formatValue(crosslink.beta_proteins),
       formatValue(crosslink.alpha_positions), formatValue(crosslink.beta_positions),
       formatNumber(crosslink.observations), crosslink.best_xi_score ?? "-",
+      crosslink.predicted_complex || "",
     ]);
+    const cellRenderers = {
+      [columns.length - 1]: (jobName) => {
+        if (!jobName || !predictionsByJob.has(jobName)) return `<span class="structure-unavailable">-</span>`;
+        return `<button type="button" class="structure-button" data-job-name="${escapeHtml(jobName)}">
+          <i data-lucide="box" aria-hidden="true"></i> View structure
+        </button>`;
+      },
+    };
     return `<article class="run"><div class="run-heading"><h2>Taxid ${escapeHtml(run.taxid || "unknown")}</h2><span class="run-path">${escapeHtml(run.path)}</span></div>
-      ${renderFilterableTable(`crosslinks-${project.accession}-${run.path.replaceAll(/[^a-z0-9]+/gi, "-")}`, columns, rows, "search-table")}
+      ${renderFilterableTable(`crosslinks-${project.accession}-${run.path.replaceAll(/[^a-z0-9]+/gi, "-")}`, columns, rows, "search-table", cellRenderers)}
     </article>`;
   }).join("");
 }
@@ -188,6 +204,94 @@ function renderFiles(project) {
   const rows = project.artifacts.map((artifact) => `<tr><td>${escapeHtml(artifact.category)}</td><td>${artifact.url ? `<a class="file-link" href="${escapeHtml(artifact.url)}" target="_blank" rel="noreferrer">${escapeHtml(artifact.path)} <i data-lucide="external-link" aria-hidden="true"></i></a>` : escapeHtml(artifact.path)}</td><td>${formatBytes(artifact.size)}</td><td>${escapeHtml(artifact.modified_at)}</td></tr>`).join("");
   return `<div class="table-wrap"><table class="file-table"><thead><tr><th>Type</th><th>Artifact</th><th>Size</th><th>Modified</th></tr></thead><tbody>${rows || `<tr><td colspan="4">No artifacts were indexed.</td></tr>`}</tbody></table></div>`;
 }
+
+function wireStructureButtons(project) {
+  elements.panel.querySelectorAll(".structure-button").forEach((button) => {
+    button.addEventListener("click", () => openStructureViewer(project, button.dataset.jobName));
+  });
+}
+
+const molstarState = { assetsPromise: null, viewer: null };
+
+const MOLSTAR_VERSION = "5.13.1";
+
+function loadMolstarAssets() {
+  if (molstarState.assetsPromise) return molstarState.assetsPromise;
+  molstarState.assetsPromise = new Promise((resolve, reject) => {
+    if (window.molstar) {
+      resolve(window.molstar);
+      return;
+    }
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = `https://cdn.jsdelivr.net/npm/molstar@${MOLSTAR_VERSION}/build/viewer/molstar.css`;
+    document.head.appendChild(link);
+    const script = document.createElement("script");
+    script.src = `https://cdn.jsdelivr.net/npm/molstar@${MOLSTAR_VERSION}/build/viewer/molstar.js`;
+    script.onload = () => (window.molstar ? resolve(window.molstar) : reject(new Error("Mol* failed to initialize.")));
+    script.onerror = () => reject(new Error("Failed to load the Mol* structure viewer library from the CDN."));
+    document.body.appendChild(script);
+  });
+  return molstarState.assetsPromise;
+}
+
+async function getFreshMolstarViewer() {
+  const molstar = await loadMolstarAssets();
+  molstarState.viewer?.dispose();
+  elements.structureViewer.innerHTML = "";
+  molstarState.viewer = await molstar.Viewer.create(elements.structureViewer, {
+    layoutIsExpanded: false,
+    layoutShowControls: false,
+    layoutShowSequence: true,
+    layoutShowLog: false,
+    layoutShowLeftPanel: false,
+    viewportShowExpand: true,
+    viewportShowSelectionMode: false,
+    viewportShowAnimation: false,
+  });
+  return molstarState.viewer;
+}
+
+function scoreChip(label, value) {
+  const text = typeof value === "number" ? value.toFixed(2) : "-";
+  return `<span class="score-chip"><strong>${escapeHtml(label)}</strong> ${escapeHtml(text)}</span>`;
+}
+
+async function openStructureViewer(project, jobName) {
+  const prediction = (project.predicted_complexes || []).find((item) => item.job_name === jobName);
+  if (!prediction) return;
+  elements.structureModal.hidden = false;
+  elements.structureModalTitle.textContent = `${prediction.protein_a} \u00d7 ${prediction.protein_b}`;
+  elements.structureModalScores.innerHTML = [
+    scoreChip("pTM", prediction.ptm),
+    scoreChip("ipTM", prediction.iptm),
+    scoreChip("Ranking score", prediction.ranking_score),
+    `<span class="score-chip"><strong>Clashes</strong> ${prediction.has_clash ? "yes" : "no"}</span>`,
+  ].join("");
+  elements.structureModalStatus.textContent = "Loading structure\u2026";
+  try {
+    const viewer = await getFreshMolstarViewer();
+    await viewer.loadStructureFromUrl(prediction.structure_path, "mmcif", false, {
+      representationParams: { theme: { globalName: "plddt-confidence" } },
+      label: jobName,
+    });
+    elements.structureModalStatus.textContent = "";
+  } catch (error) {
+    elements.structureModalStatus.textContent = `Could not load structure: ${error.message}`;
+  }
+}
+
+function closeStructureViewer() {
+  elements.structureModal.hidden = true;
+  molstarState.viewer?.dispose();
+  molstarState.viewer = null;
+  elements.structureViewer.innerHTML = "";
+}
+
+document.querySelectorAll("[data-close-structure-modal]").forEach((element) => element.addEventListener("click", closeStructureViewer));
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && !elements.structureModal.hidden) closeStructureViewer();
+});
 
 document.querySelectorAll(".tab").forEach((tab) => tab.addEventListener("click", () => { state.tab = tab.dataset.tab; renderProject(); }));
 elements.search.addEventListener("input", (event) => { state.filter = event.target.value.trim().toLowerCase(); renderProjects(); });
