@@ -61,6 +61,9 @@ ISOTOPE_SUFFIX_RE = re.compile(
 )
 TRAILING_PAREN_ABBREV_RE = re.compile(r"\(([A-Za-z0-9\-]+)\)\s*$")
 LEADING_PAREN_ABBREV_RE = re.compile(r"^([A-Za-z0-9\-]+)\s*\(")
+# All-caps alphanumeric tokens (2-6 chars) look like crosslinker abbreviations
+# (BS3, DSS, DSP, SDA...). Used to sanity-check accession-based matches below.
+ABBREV_TOKEN_RE = re.compile(r"\b[A-Z][A-Z0-9]{1,5}\b")
 
 BATCH_SIZE = 25
 
@@ -71,7 +74,14 @@ You will be given:
 1. The CURRENT DATABASE (reagents already catalogued, with their aliases and XLMOD/ChEBI accessions).
 2. A list of TEXT SPANS extracted from publication/metadata text by an earlier LLM pass, each of which
    named what the extracting model believed was a chemical crosslinking reagent, but which did not
-   match anything in the current database via exact name/alias lookup.
+   match anything in the current database via exact name/alias lookup. Some spans include a
+   "(context: ...)" excerpt - the actual sentence it was extracted from. ALWAYS prefer that context
+   over your own prior knowledge of the abbreviation: short acronyms are frequently ambiguous outside
+   XL-MS (e.g. "PDH" is Pyruvate Dehydrogenase in general biochemistry, but in a crosslinking paper's
+   context "pimelic acid dihydrazide (PDH)" it is a carboxyl-reactive crosslinking reagent; "ADH"
+   similarly means Alcohol Dehydrogenase generally but "adipic acid dihydrazide" in this domain).
+   When context is present and clearly describes crosslinking chemistry, trust it over the
+   abbreviation's more common meaning elsewhere.
 
 For EACH text span, decide exactly one of:
   - "map_to_existing": the span is a synonym, alternate punctuation, or isotope-labeled variant of an
@@ -192,6 +202,30 @@ class CrosslinkerDatabase:
             return None
         return self.by_accession.get(str(accession).strip().upper())
 
+    def match_by_accession_safe(self, accession: str | None, original_span: str) -> dict[str, Any] | None:
+        """Like match_by_accession, but guards against (occasionally hallucinated)
+        accessions from the original extraction: if the span itself spells out an
+        explicit all-caps abbreviation that names a DIFFERENT catalogued entry
+        (e.g. "dithiobis (succinimidyl propionate);DSP" literally contains "DSP"),
+        trust that literal text over the recorded accession. Only returns the
+        accession match when there is no such conflict; returns the conflicting
+        entry instead when exactly one distinct conflict is found; returns None
+        (defer to the LLM tier) when the conflict is ambiguous."""
+        candidate = self.match_by_accession(accession)
+        if candidate is None:
+            return None
+        candidate_keys = set(self._name_keys(candidate))
+        conflicts = {
+            id(self.by_name[token.lower()]): self.by_name[token.lower()]
+            for token in ABBREV_TOKEN_RE.findall(original_span)
+            if token.lower() in self.by_name and token.lower() not in candidate_keys
+        }
+        if not conflicts:
+            return candidate
+        if len(conflicts) == 1:
+            return next(iter(conflicts.values()))
+        return None
+
     def add_alias(self, entry: dict[str, Any], alias: str) -> bool:
         """Add alias if not already present; returns True if the entry changed."""
         aliases = entry.setdefault("aliases", [])
@@ -215,9 +249,14 @@ class CrosslinkerDatabase:
         return "\n".join(lines)
 
 
-def extract_reagent_mentions(entry: Any) -> list[tuple[str, str | None]]:
-    """Return [(NT, AC), ...] from a comment[cross-linker] LLM response entry,
-    handling the schema variants seen across different pipeline runs."""
+def extract_reagent_mentions(entry: Any) -> list[tuple[str, str | None, str | None]]:
+    """Return [(NT, AC, evidence_quote), ...] from a comment[cross-linker] LLM response entry,
+    handling the schema variants seen across different pipeline runs. Also
+    returns a short evidence_quote per mention when available, since short
+    abbreviations (PDH, ADH, SDH...) are often ambiguous without the
+    surrounding sentence (e.g. "PDH" alone reads as Pyruvate Dehydrogenase to
+    an LLM; "pimelic acid dihydrazide (PDH) and the coupling reagent DMTMM"
+    makes the crosslinker usage unambiguous)."""
     if not isinstance(entry, dict):
         return []
     parsed = entry.get("parsed")
@@ -225,22 +264,29 @@ def extract_reagent_mentions(entry: Any) -> list[tuple[str, str | None]]:
         return []
     value = parsed.get("value")
     nt_top = parsed.get("NT")
-    mentions: list[tuple[str, str | None]] = []
+    quote_top = parsed.get("evidence_quote")
+    mentions: list[tuple[str, str | None, str | None]] = []
     if isinstance(value, list) and value and isinstance(value[0], dict) and "NT" in value[0]:
-        for item in value:
+        quote_list = quote_top if isinstance(quote_top, list) else [quote_top] * len(value)
+        for i, item in enumerate(value):
             if isinstance(item, dict) and item.get("NT"):
-                mentions.append((item.get("NT"), item.get("AC")))
+                mentions.append((item.get("NT"), item.get("AC"), quote_list[i] if i < len(quote_list) else None))
     elif isinstance(nt_top, list):
         ac = parsed.get("AC")
         ac_list = ac if isinstance(ac, list) else [ac] * len(nt_top)
+        quote_list = quote_top if isinstance(quote_top, list) else [quote_top] * len(nt_top)
         for i, name in enumerate(nt_top):
             if name:
-                mentions.append((name, ac_list[i] if i < len(ac_list) else None))
+                mentions.append((
+                    name,
+                    ac_list[i] if i < len(ac_list) else None,
+                    quote_list[i] if i < len(quote_list) else None,
+                ))
     elif nt_top:
-        mentions.append((nt_top, parsed.get("AC")))
+        mentions.append((nt_top, parsed.get("AC"), quote_top if isinstance(quote_top, str) else None))
     return [
-        (str(name).strip(), (str(acc).strip() if acc else None))
-        for name, acc in mentions
+        (str(name).strip(), (str(acc).strip() if acc else None), (str(quote).strip() if quote else None))
+        for name, acc, quote in mentions
         if name and str(name).strip().lower() not in ("null", "none", "")
     ]
 
@@ -260,20 +306,31 @@ def scan_store(data_dir: Path) -> dict[str, dict[str, Any]]:
             continue
         data = payload.get("data", payload) if isinstance(payload, dict) else {}
         entry = data.get("comment[cross-linker]") if isinstance(data, dict) else None
-        for name, accession in extract_reagent_mentions(entry):
+        for name, accession, evidence_quote in extract_reagent_mentions(entry):
             key = normalize_key(name)
             info = spans.setdefault(
-                key, {"original": name, "accessions": set(), "pxds": set(), "count": 0}
+                key, {"original": name, "accessions": set(), "pxds": set(), "count": 0, "evidence_quote": None}
             )
             if accession:
                 info["accessions"].add(accession)
+            if evidence_quote and not info["evidence_quote"]:
+                info["evidence_quote"] = evidence_quote[:300]
             info["pxds"].add(pxd_dir.name)
             info["count"] += 1
     return spans
 
 
-def classify_batch(llm: Any, database: CrosslinkerDatabase, spans: list[str]) -> list[dict[str, Any]]:
-    spans_block = "\n".join(f'{i + 1}. "{span}"' for i, span in enumerate(spans))
+def classify_batch(
+    llm: Any, database: CrosslinkerDatabase, spans: list[tuple[str, str | None]]
+) -> list[dict[str, Any]]:
+    """spans: [(span_text, evidence_quote_or_None), ...]"""
+    lines = []
+    for i, (span, quote) in enumerate(spans):
+        if quote:
+            lines.append(f'{i + 1}. "{span}" (context: "{quote}")')
+        else:
+            lines.append(f'{i + 1}. "{span}"')
+    spans_block = "\n".join(lines)
     prompt = CLASSIFICATION_PROMPT_TEMPLATE.format(
         database_block=database.render_reference_block(), spans_block=spans_block
     )
@@ -298,6 +355,7 @@ def main() -> int:
     parser.add_argument("--batch-size", type=int, default=BATCH_SIZE, help="Distinct spans per LLM call (default: %(default)s)")
     parser.add_argument("--force", action="store_true", help="Re-classify spans even if already present in the decision cache")
     parser.add_argument("--dry-run", action="store_true", help="Report what would change without writing any files")
+    parser.add_argument("--skip-llm", action="store_true", help="Apply only the free deterministic tier (name/alias/accession/isotope-strip) and write its results; skip the batched LLM classification pass entirely")
     args = parser.parse_args()
 
     database = CrosslinkerDatabase(args.crosslinker_db)
@@ -318,7 +376,7 @@ def main() -> int:
         match = database.match_by_name(original)
         if match is None:
             for accession in info["accessions"]:
-                match = database.match_by_accession(accession)
+                match = database.match_by_accession_safe(accession, original)
                 if match:
                     break
 
@@ -338,6 +396,16 @@ def main() -> int:
     print(f"Deterministic matches (name/alias/accession/isotope-strip): {counts['matched_deterministic']}")
     print(f"Already classified in cache (skipped): {sum(v for k, v in counts.items() if k.startswith('cached_'))}")
     print(f"Distinct spans needing LLM classification: {len(still_unmatched)}")
+    print(f"New aliases added to database: {aliases_added}")
+
+    if args.skip_llm:
+        print(f"\n--skip-llm: applying only the deterministic tier; {len(still_unmatched)} spans left unclassified for a future run.")
+        if args.dry_run:
+            print("--dry-run: no files were written.")
+            return 0
+        database.save()
+        print(f"\nUpdated {args.crosslinker_db}")
+        return 0
 
     if still_unmatched and args.dry_run:
         print("\n--dry-run: skipping LLM classification (no API calls made) and file writes.")
@@ -361,7 +429,7 @@ def main() -> int:
 
         for batch_start in range(0, len(still_unmatched), args.batch_size):
             batch_keys = still_unmatched[batch_start : batch_start + args.batch_size]
-            batch_spans = [spans[key]["original"] for key in batch_keys]
+            batch_spans = [(spans[key]["original"], spans[key].get("evidence_quote")) for key in batch_keys]
             print(f"Classifying spans {batch_start + 1}-{batch_start + len(batch_keys)} of {len(still_unmatched)}...")
             results = classify_batch(llm, database, batch_spans)
             results_by_span = {normalize_key(r.get("span", "")): r for r in results if isinstance(r, dict)}
