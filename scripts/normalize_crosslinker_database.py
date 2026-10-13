@@ -294,6 +294,7 @@ def main() -> int:
     parser.add_argument("--cache", type=Path, default=DEFAULT_CACHE_PATH, help="Persistent per-span decision cache (makes re-runs incremental)")
     parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG_PATH, help="xHAMLET config.yaml (for default LLM model)")
     parser.add_argument("--model", default=None, help="Override the LLM model to use")
+    parser.add_argument("--llm-base-url", default=None, metavar="URL", help="Override the LLM API base URL (auto-detects OpenRouter vs OpenAI from environment when unset)")
     parser.add_argument("--batch-size", type=int, default=BATCH_SIZE, help="Distinct spans per LLM call (default: %(default)s)")
     parser.add_argument("--force", action="store_true", help="Re-classify spans even if already present in the decision cache")
     parser.add_argument("--dry-run", action="store_true", help="Report what would change without writing any files")
@@ -347,17 +348,16 @@ def main() -> int:
         return 0
 
     if still_unmatched:
-        if args.model:
-            model = args.model
-        else:
-            import yaml
+        import yaml
 
-            config = yaml.safe_load(args.config.read_text()) if args.config.is_file() else {}
-            model = (config.get("llm", {}) or {}).get("model", "gpt-4o-mini-2024-07-18")
+        config = yaml.safe_load(args.config.read_text()) if args.config.is_file() else {}
+        llm_config = config.get("llm", {}) or {}
+        model = args.model or llm_config.get("model", "gpt-4o-mini-2024-07-18")
+        base_url = args.llm_base_url if args.llm_base_url is not None else llm_config.get("base_url")
 
         from pxd_enhancer.llm_client import LLMClient
 
-        llm = LLMClient(model=model, temperature=0.0)
+        llm = LLMClient(model=model, temperature=0.0, base_url=base_url)
 
         for batch_start in range(0, len(still_unmatched), args.batch_size):
             batch_keys = still_unmatched[batch_start : batch_start + args.batch_size]

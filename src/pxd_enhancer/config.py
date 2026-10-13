@@ -30,7 +30,8 @@ class Config:
         "llm": {
             "model": "gpt-4-turbo",
             "temperature": 0.3,
-            "max_retries": 3
+            "max_retries": 3,
+            "base_url": None
         },
         "storage": {
             "base_dir": "./pxd_data",

@@ -49,6 +49,7 @@ class PXDMetadataEnhancer:
                  base_dir: str = "./pxd_data",
                  prompts_dir: str = "./prompts",
                  llm_model: str = "gpt-4o-mini-2024-07-18",
+                 llm_base_url: Optional[str] = None,
                  pride_base_url: str = "https://www.ebi.ac.uk/pride/ws/archive/v3",
                  email: Optional[str] = None,
                  ncbi_api_key: Optional[str] = None):
@@ -59,6 +60,8 @@ class PXDMetadataEnhancer:
             base_dir: Base directory for storing cached data
             prompts_dir: Directory containing LLM prompt templates
             llm_model: LLM model to use (e.g., 'gpt-4o-mini-2024-07-18', 'gpt-4')
+            llm_base_url: API base URL for the LLM client. None auto-detects:
+                OpenRouter when OPENROUTER_API_KEY is set, else OpenAI directly.
             pride_base_url: PRIDE REST API base URL
             email: Email for PMC/NCBI API requests
             ncbi_api_key: API key for NCBI requests
@@ -76,7 +79,7 @@ class PXDMetadataEnhancer:
             self.ncbi = None
         
         self.store = DataStore(base_dir=base_dir)
-        self.llm = LLMClient(model=llm_model)
+        self.llm = LLMClient(model=llm_model, base_url=llm_base_url)
         self.prompts = PromptTemplates(prompts_dir=prompts_dir)
         self.xi_config_gen = XiConfigGenerator()
         self.relink_runner = ReLinkRunner(relink_dir="./tools/relink")

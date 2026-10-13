@@ -95,6 +95,13 @@ Examples:
         default=None,
         help="LLM model to use (overrides config llm.model)"
     )
+
+    parser.add_argument(
+        "--llm-base-url",
+        default=None,
+        metavar="URL",
+        help="LLM API base URL (overrides config llm.base_url). Auto-detects OpenRouter vs OpenAI from environment when unset."
+    )
     
     parser.add_argument(
         "--force-refresh",
@@ -317,6 +324,8 @@ def main():
         config.config["prompts"]["dir"] = args.prompts_dir
     if args.model is not None:
         config.config["llm"]["model"] = args.model
+    if args.llm_base_url is not None:
+        config.config["llm"]["base_url"] = args.llm_base_url
 
     # Handle special commands
     if args.create_prompts:
@@ -437,6 +446,7 @@ def main():
             base_dir=config.get("storage.base_dir"),
             prompts_dir=config.get("prompts.dir"),
             llm_model=config.get("llm.model"),
+            llm_base_url=config.get("llm.base_url"),
         )
         logger.info("Initialization successful!")
     except Exception as e:

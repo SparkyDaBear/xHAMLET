@@ -1,5 +1,5 @@
 """
-LLM Client for querying OpenAI with various prompts
+LLM Client for querying OpenAI-compatible chat completion APIs (OpenRouter or OpenAI)
 """
 
 import os
@@ -10,28 +10,64 @@ from datetime import datetime
 
 logger = logging.getLogger(__name__)
 
+OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
+
 
 class LLMClient:
     """Client for LLM interactions with caching support"""
     
     def __init__(self, api_key: Optional[str] = None, model: str = "gpt-4o-mini-2024-07-18", 
-                 temperature: float = 0.3, timeout: int = 300):
+                 temperature: float = 0.3, timeout: int = 300, base_url: Optional[str] = None):
         """
         Initialize LLM client
-        
+
+        Routes through OpenRouter (https://openrouter.ai) by default when
+        OPENROUTER_API_KEY is set, since it is a single OpenAI-compatible gateway
+        to many model providers. Falls back to calling OpenAI directly using
+        OPENAI_API_KEY for backward compatibility when OpenRouter isn't configured.
+
         Args:
-            api_key: OpenAI API key (defaults to OPENAI_API_KEY env var)
-            model: Model to use (default: gpt-4-turbo)
+            api_key: Explicit API key; overrides environment auto-detection below.
+            model: Model to use. When routed through OpenRouter this must be an
+                   OpenRouter model slug (e.g. "openai/gpt-4o-mini"), not a bare
+                   OpenAI model name.
             temperature: Temperature for model (default: 0.3, lower = more deterministic)
             timeout: Request timeout in seconds
+            base_url: Explicit API base URL; overrides environment auto-detection below.
+
+        Resolution order (when api_key/base_url are not explicitly passed):
+            1. OPENROUTER_API_KEY set -> base_url=OpenRouter, api_key=OPENROUTER_API_KEY
+            2. OPENAI_API_KEY set     -> base_url=OpenAI's own default, api_key=OPENAI_API_KEY
+            3. neither set            -> raises ValueError
         """
-        self.api_key = api_key or os.environ.get("OPENAI_API_KEY")
-        if not self.api_key:
-            raise ValueError("API key not found. Set OPENAI_API_KEY environment variable.")
-        
-        self.client = OpenAI(api_key=self.api_key, timeout=timeout)
+        if api_key is not None:
+            self.api_key = api_key
+            self.base_url = base_url
+        elif os.environ.get("OPENROUTER_API_KEY"):
+            self.api_key = os.environ["OPENROUTER_API_KEY"]
+            self.base_url = base_url if base_url is not None else OPENROUTER_BASE_URL
+        elif os.environ.get("OPENAI_API_KEY"):
+            self.api_key = os.environ["OPENAI_API_KEY"]
+            self.base_url = base_url
+        else:
+            raise ValueError(
+                "API key not found. Set OPENROUTER_API_KEY (preferred) or OPENAI_API_KEY."
+            )
+
+        client_kwargs: Dict[str, Any] = {"api_key": self.api_key, "timeout": timeout}
+        if self.base_url:
+            client_kwargs["base_url"] = self.base_url
+            # Optional per OpenRouter's docs (https://openrouter.ai/docs) - used only
+            # for their request attribution/leaderboards, not required for auth.
+            client_kwargs["default_headers"] = {
+                "HTTP-Referer": "https://github.com/NCEMS/XLMS-PPI-working-group",
+                "X-Title": "xHAMLET",
+            }
+        self.client = OpenAI(**client_kwargs)
         self.model = model
         self.temperature = temperature
+        provider = "OpenRouter" if self.base_url else "OpenAI (default endpoint)"
+        logger.info(f"LLMClient initialized with model={model} via {provider}")
         logger.info(f"LLMClient initialized with model: {model}")
     
     def query(self, prompt: str, text: str, system_role: str = "assistant") -> Optional[str]:
