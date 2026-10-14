@@ -12,6 +12,17 @@ import re
 
 logger = logging.getLogger(__name__)
 
+# Sentinel placeholder strings an LLM response's NT field may contain that do NOT
+# represent a real crosslinker mention (missing/unknown data) - must be filtered
+# before matching, since e.g. "null" is a literal alias risk against any database
+# entry (such as the "Linear" no-crosslinker sentinel) that happens to contain it.
+# Kept consistent with scripts/normalize_crosslinker_database.py's identical filter.
+_NON_MENTION_VALUES = {"null", "none", ""}
+
+
+def _is_real_mention_name(name: object) -> bool:
+    return bool(name) and isinstance(name, str) and name.strip().lower() not in _NON_MENTION_VALUES
+
 
 class XiConfigGenerator:
     """Generate Xi configuration files from PXD metadata"""
@@ -272,7 +283,7 @@ FRAGMENTTREE:FU
         mentions: list[dict] = []
         if isinstance(value, list) and value and isinstance(value[0], dict) and "NT" in value[0]:
             for item in value:
-                if isinstance(item, dict) and item.get("NT") and item["NT"] != "null":
+                if isinstance(item, dict) and _is_real_mention_name(item.get("NT")):
                     mentions.append({"name": item["NT"], "targets": item.get("TA"), "cleavable": item.get("CL") == "yes"})
         elif isinstance(nt_top, list):
             ta = parsed.get("TA")
@@ -280,13 +291,13 @@ FRAGMENTTREE:FU
             cl = parsed.get("CL")
             cl_list = cl if isinstance(cl, list) else [cl] * len(nt_top)
             for i, name in enumerate(nt_top):
-                if name and name != "null":
+                if _is_real_mention_name(name):
                     mentions.append({
                         "name": name,
                         "targets": ta_list[i] if i < len(ta_list) else None,
                         "cleavable": (cl_list[i] if i < len(cl_list) else None) == "yes",
                     })
-        elif nt_top and nt_top != "null":
+        elif _is_real_mention_name(nt_top):
             mentions.append({"name": nt_top, "targets": parsed.get("TA"), "cleavable": parsed.get("CL") == "yes"})
 
         if not mentions:
