@@ -7,42 +7,12 @@
       "xlmod_accession": null,
       "ms_cleavable": null,
       "linked_aminoacids": null,
-      "notes": null,
+      "notes": "RESEARCH (2026-10-13): Confirmed real reagent via direct paper text (store/PXD012109 evidence_quote): 'Leiker bAL2 was used to cross-link the E. coli MG1655 whole-cell lysates... cross-linked with 0.33 mg [d0]-bAL2... bAL2-linked peptides are bright yellow before cleavage of the biotin tag... enrichment on streptavidin beads.' bAL2 is a specific named variant of the 'Leiker' trifunctional, lysine-reactive, biotin-tagged, chemically cleavable crosslinker platform (Tan et al., 'Trifunctional cross-linker for mapping protein-protein interaction networks and comparing protein conformational states', eLife 2016;5:e12509). Two NHS-ester groups (lysine-reactive) + isotope-labelable spacer + cleavable site + biotin tag. Could not independently verify the exact monoisotopic bridge mass from publicly accessible text (not in abstract/review summaries) - needs the eLife 2016 paper's supplementary structural diagrams/mass calculations (should be open access).",
       "_source_span": "bAL2",
       "_reasoning": "Appears to be a reagent name, though context is missing, it is presented in a list of candidates for classification.",
       "_confidence": "low",
       "_seen_in_pxds": [
         "PXD012109"
-      ]
-    },
-    {
-      "name": "BpaRS",
-      "full_name": null,
-      "aliases": [],
-      "xlmod_accession": null,
-      "ms_cleavable": null,
-      "linked_aminoacids": null,
-      "notes": "Likely a Bpa-related photo-crosslinker",
-      "_source_span": "BpaRS",
-      "_reasoning": "Likely refers to a p-benzoyl-phenylalanine (Bpa) derivative or system, but is a distinct term.",
-      "_confidence": "low",
-      "_seen_in_pxds": [
-        "PXD020418"
-      ]
-    },
-    {
-      "name": "DAU",
-      "full_name": null,
-      "aliases": [],
-      "xlmod_accession": null,
-      "ms_cleavable": null,
-      "linked_aminoacids": null,
-      "notes": null,
-      "_source_span": "DAU",
-      "_reasoning": "Listed in a sequence of crosslinking reagents, though the context is sparse.",
-      "_confidence": "low",
-      "_seen_in_pxds": [
-        "PXD021648"
       ]
     },
     {
@@ -52,7 +22,7 @@
       "xlmod_accession": null,
       "ms_cleavable": null,
       "linked_aminoacids": null,
-      "notes": null,
+      "notes": "RESEARCH (2026-10-13): Confirmed real reagent - Huang et al., 'A novel mass spectrometry-cleavable, phosphate-based enrichable and multi-targeting protein cross-linker', Chem. Sci. 2019, 10, 6443-6447 (DOI: 10.1039/C9SC00893D). pBVS = phospho-bis-vinylsulfone: MS-cleavable via retro-Michael addition, phosphate group for IMAC enrichment, targets cysteine/lysine/histidine (vinyl sulfone chemistry, not NHS-ester - broader residue specificity than most entries in this DB). Found a secondhand-cited formula (C8H8O7PNaS2, 333.9494 Da) that includes a sodium adduct/salt form I don't trust as the correct neutral bridge mass without primary-source confirmation - the Chem. Sci. paper is open access (RSC) but blocked by an SSO redirect loop in automated fetch. Needs direct human access to confirm the exact bridge mass from the paper's SI.",
       "_source_span": "pBVS",
       "_reasoning": "Listed in a context of crosslinking reagents.",
       "_confidence": "low",
@@ -67,7 +37,7 @@
       "xlmod_accession": null,
       "ms_cleavable": null,
       "linked_aminoacids": null,
-      "notes": "Likely a diazirine-based crosslinker given the context.",
+      "notes": "Likely a diazirine-based crosslinker given the context. | RESEARCH (2026-10-13): Confirmed real reagent via direct paper text (store/PXD054249): 'Design and Evaluation of a Trifunctional DBCO Probe DDZ3... DDZ3 contains three essential functional groups: a DBCO unit to undergo SPAAC, a diazirine unit to covalently capture LA-interacting proteins, and a terminal alkyne for another CuAAC reaction to enrich the captured proteins... synthesis of DDZ3 is shown in Scheme 1. 5-Hexynol was first oxidized to its corresponding aldehyde...' This is a genuine trifunctional photo-crosslinking probe (same paper also describes earlier-iteration probes LBL1-PCF and 'trifunctional DBCO', both also pending separately) - the diazirine group covalently captures a nearby interacting protein upon UV photoactivation. Exact bridge mass requires following the full multi-step synthesis in the paper's Scheme 1 - too complex/risky to derive from text search alone; needs the paper's SI with the final structure's exact formula.",
       "_source_span": "DDZ3",
       "_reasoning": "Mentioned in the context of diazirine photo-crosslinkers.",
       "_confidence": "medium",
@@ -84,7 +54,7 @@
       "xlmod_accession": null,
       "ms_cleavable": null,
       "linked_aminoacids": "C,U",
-      "notes": "Context explicitly describes it as a protein-RNA cross-linker for cysteine-uracil crosslinks, which is distinct from its common use as a reducing agent.",
+      "notes": "Context explicitly describes it as a protein-RNA cross-linker for cysteine-uracil crosslinks, which is distinct from its common use as a reducing agent. | RESEARCH (2026-10-13): Verified crosslink mass via primary literature - Zaman et al., 'Dithiothreitol (DTT) acts as a specific, UV-inducible cross-linker in elucidation of protein-RNA interactions', Mol Cell Proteomics 2015 (mcp.M115.052795): DTT covalently bridges a CYSTEINE residue to a URACIL base in RNA under UV irradiation, with a mass increment of 151.9966 Da. Cross-checked mechanistically: free DTT (C4H10O2S2) monoisotopic mass 154.0122 Da minus 2H (2.01565 Da, consistent with each of DTT's two free thiols losing one H when forming a new covalent bond) = 151.9966 Da - matches to 4 decimal places. SCHEMA QUESTION FOR HUMAN: this is a protein-RNA crosslinker (residue <-> nucleobase), not protein-protein/protein-residue like every other entry in this database. Our current xi_class system (SymetricSingleAminoAcidRestrictedCrossLinker / AsymetricSingleAminoAcidRestrictedCrossLinker) and XiConfigGenerator only model amino-acid <-> amino-acid bridges - there is no existing support for an amino-acid <-> nucleotide target. Needs a human decision on whether/how to model this before merging.",
       "_source_span": "DTT",
       "_reasoning": "While usually a reducing agent, the context explicitly defines it as a cross-linker in this specific experiment.",
       "_confidence": "high",
@@ -139,46 +109,13 @@
       ]
     },
     {
-      "name": "BP5",
-      "full_name": null,
-      "aliases": [],
-      "xlmod_accession": null,
-      "ms_cleavable": null,
-      "linked_aminoacids": "Y",
-      "notes": "Biotin-phenol analog that preferentially labels tyrosine.",
-      "_source_span": "BP5",
-      "_reasoning": "Context describes it as a synthesized biotin-phenol analog used for labeling/crosslinking tyrosine.",
-      "_confidence": "medium",
-      "_seen_in_pxds": [
-        "PXD020709"
-      ]
-    },
-    {
-      "name": "TriCEPS",
-      "full_name": null,
-      "aliases": [
-        "Flow-TriCEPS",
-        "ligand-receptor capture-TriCEPS"
-      ],
-      "xlmod_accession": null,
-      "ms_cleavable": null,
-      "linked_aminoacids": null,
-      "notes": "Commercial crosslinking reagents for capture and MS.",
-      "_source_span": "TriCEPS",
-      "_reasoning": "Context identifies TriCEPS as a reagent used for crosslinking and capture.",
-      "_confidence": "high",
-      "_seen_in_pxds": [
-        "PXD026861"
-      ]
-    },
-    {
       "name": "DBrASO",
       "full_name": "Dibromoacetamide sulfOxide",
       "aliases": [],
       "xlmod_accession": null,
       "ms_cleavable": true,
       "linked_aminoacids": "C",
-      "notes": "MS-cleavable haloacetamide-based cross-linker.",
+      "notes": "MS-cleavable haloacetamide-based cross-linker. | RESEARCH (2026-10-13): Confirmed real reagent - Jiao et al., 'Exploring an Alternative Cysteine-Reactive Chemistry to Enable Proteome-Wide PPI Analysis by Cross-Linking Mass Spectrometry', Anal. Chem. 2023, 95, 4, 2532-2539 (DOI: 10.1021/acs.analchem.2c04986). DBrASO = sulfoxide-containing, MS-cleavable, cysteine-reactive haloacetamide crosslinker - complements lysine-centric crosslinkers for interactome-wide PPI mapping. An open-access eScholarship PDF exists (UC repository) but returned 403 on automated fetch. Needs direct human access to the paper's SI for the exact synthesized structure's monoisotopic mass.",
       "_source_span": "DBrASO",
       "_reasoning": "Explicitly described as a synthesized MS-cleavable cross-linker.",
       "_confidence": "high",
@@ -193,7 +130,7 @@
       "xlmod_accession": null,
       "ms_cleavable": null,
       "linked_aminoacids": "C",
-      "notes": "Bridges monomers at Cys 111.",
+      "notes": "Bridges monomers at Cys 111. | RESEARCH: not yet independently verified. Context (store/PXD047030): 'A pre-lead compound, S-XL6, was selected based upon its cross-linking rate and drug-like properties. Co-crystallographic structure clearly establish the binding of S-XL6 at Cys 111 bridging the monomers' - this reads like a small-molecule drug-discovery compound that covalently bridges two copies of the SAME protein (homodimer) at a specific Cys111-Cys111 interface, rather than a general-purpose XL-MS reagent for arbitrary residue pairs. Needs identification of the source paper/protein target and the compound's exact structure before merging.",
       "_source_span": "S-XL6",
       "_reasoning": "The context explicitly states it is a compound selected for its cross-linking rate that bridges monomers at Cys 111.",
       "_confidence": "high",
@@ -208,7 +145,7 @@
       "xlmod_accession": null,
       "ms_cleavable": null,
       "linked_aminoacids": null,
-      "notes": "Bifunctional amino acid used for photoaffinity labeling.",
+      "notes": "Bifunctional amino acid used for photoaffinity labeling. | RESEARCH (2026-10-13): Confirmed via PubChem CID 166451167 (direct authoritative lookup): 2-amino-5-(1H-diazirin-3-yl)non-3-ynoic acid, molecular formula C10H15N3O2, monoisotopic mass 209.116427 Da - a methionine analog bearing a photoreactive diazirine group plus an alkyne click handle, genetically incorporated via amber codon suppression (engineered methionyl-tRNA synthetase). SCHEMA QUESTION FOR HUMAN: like DiazK/AzidoPhe/BrEtY/MTS-diazirine (all already in this DB as NeedsVerification), this is a genetically-ENCODED incorporated amino acid, not a classic bifunctional reagent that reacts with two existing side chains via condensation. It doesn't fit this DB's 'bridge mass = parent molecule minus 2xH2O (or similar)' convention used for PDH/ADH/BS3/etc., since the UAA directly REPLACES a standard residue during translation rather than being added as an external bridge. Needs a human decision on how to correctly model this whole reagent class (UAA mass as a variable modification relative to the replaced residue? As its own residue entirely?) before any of these 5 incorporated-amino-acid entries can be merged - recommend resolving as a batch.",
       "_source_span": "photo-ANA",
       "_reasoning": "The context describes it as a bifunctional amino acid used for labeling in selected cells via an engineered tRNA synthetase.",
       "_confidence": "high",
@@ -223,27 +160,12 @@
       "xlmod_accession": null,
       "ms_cleavable": null,
       "linked_aminoacids": "K,W",
-      "notes": "Methyllysine mimic that crosslinks to tryptophan under UV irradiation.",
+      "notes": "Methyllysine mimic that crosslinks to tryptophan under UV irradiation. | RESEARCH (2026-10-13): Confirmed real reagent via direct paper text (store/PXD051693): 'we report dimethylsulfonium as a methyllysine mimic that binds to specific readers and can subsequently crosslink to a conserved tryptophan inside the binding pocket through single electron transfer under UV irradiation.' Like photo-ANA above, this appears to be an incorporated/synthesized methyllysine-mimicking residue (not an external bifunctional reagent) - likely shares the same incorporated-amino-acid schema question. Additionally 'dimethylsulfonium' is a generic functional-group name (the reactive sulfonium cation itself), not a specific registered reagent name - may need renaming to something paper-specific to avoid future alias collisions, similar to the earlier 'crosslinker 2'/'Reagent 1' generic-label issue. Did not find a specific exact mass in available text.",
       "_source_span": "dimethylsulfonium",
       "_reasoning": "The text explicitly states it can 'subsequently crosslink to a conserved tryptophan' after binding to a lysine reader.",
       "_confidence": "high",
       "_seen_in_pxds": [
         "PXD051693"
-      ]
-    },
-    {
-      "name": "CCW16",
-      "full_name": null,
-      "aliases": [],
-      "xlmod_accession": null,
-      "ms_cleavable": null,
-      "linked_aminoacids": "C",
-      "notes": "Contains a chloro-N-acetamide group targeting cysteine.",
-      "_source_span": "CCW16",
-      "_reasoning": "Described as having a reactive electrophile targeting cysteine, typically used in the context of crosslinking or labeling.",
-      "_confidence": "medium",
-      "_seen_in_pxds": [
-        "PXD056954"
       ]
     }
   ]
