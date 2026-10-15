@@ -838,10 +838,6 @@ def match_predicted_complex(
 def project_raw_names(pxd_dir: Path) -> list[str]:
     """Return known RAW filenames for resolving ReLink mzML spectrum paths."""
     names: set[str] = set()
-    enhanced, _ = unwrap_payload(pxd_dir / "enhanced" / "metadata.json")
-    assignments = enhanced.get("file_assignments", {})
-    if isinstance(assignments, dict):
-        names.update(name for name in assignments if name.lower().endswith(".raw"))
     pride, _ = unwrap_payload(pxd_dir / "pride" / "project_details.json")
     files = pride.get("files", {}).get("files", []) if isinstance(pride.get("files"), dict) else []
     if isinstance(files, list):
@@ -854,17 +850,14 @@ def project_raw_names(pxd_dir: Path) -> list[str]:
 
 
 def project_file_assignments(pxd_dir: Path) -> dict[str, dict[str, Any]]:
-    """Collect every known RAW filename and its LLM clustering assignment."""
-    enhanced, _ = unwrap_payload(pxd_dir / "enhanced" / "metadata.json")
-    raw_assignments = enhanced.get("file_assignments", {})
-    assignments = {
-        filename: assignment
-        for filename, assignment in raw_assignments.items()
-        if filename.lower().endswith(".raw") and isinstance(assignment, dict)
-    } if isinstance(raw_assignments, dict) else {}
-    for filename in project_raw_names(pxd_dir):
-        assignments.setdefault(filename, {})
-    return assignments
+    """Collect every known RAW filename for this project.
+
+    Historically this also carried each file's LLM clustering assignment
+    (organism/crosslinker per file), but file clustering was retired as
+    legacy logic - every RAW file is now assessed/analyzed independently,
+    so this simply returns an empty assignment dict per filename.
+    """
+    return {filename: {} for filename in project_raw_names(pxd_dir)}
 
 
 def resolve_raw_filename(source_spectrum: str, raw_names: list[str]) -> str | None:

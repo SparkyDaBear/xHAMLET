@@ -67,25 +67,21 @@ class ReLinkRunner:
         if shutil.which("nextflow") is None:
             raise RuntimeError("nextflow is not installed or not on PATH")
 
-        # Extract organisms from multiple sources and combine results
-        # This ensures we don't miss any organisms if one source is incomplete
-        taxids: Set[str] = set()
-        
-        # Primary source: LLM clustering response (most recent analysis)
-        taxids.update(self._taxids_from_pride_metadata(pxd_dir))
-        
-        # Secondary source: SDRF (if available with NCBITaxon accessions)
-        taxids.update(self.extract_taxids_from_sdrf(sdrf_path))
-        
-        # Tertiary source: file_assignment_map (clustering stage output)
-        # Include this to catch organisms that LLM clustering may have missed
-        assignment_map = pxd_dir / "llm" / "file_assignment_map.json"
-        taxids.update(self._taxids_from_assignment_map(assignment_map))
-        
+        # Extract organisms from SDRF (dataset-level organism/taxid resolution,
+        # see SDRFWriter._resolve_organisms_list / _assign_organisms_per_file).
+        taxids: Set[str] = set(self.extract_taxids_from_sdrf(sdrf_path))
+
         if not taxids:
-            raise ValueError(
-                f"No organisms found in PRIDE metadata, SDRF, or file_assignment_map for {pxd}"
+            # Default to human (file clustering, which previously supplied an
+            # additional taxid source here, was removed as legacy logic) -
+            # unless a FASTA is explicitly supplied by the PRIDE project, in
+            # which case fetch_project_fasta() below is used directly
+            # regardless of taxid.
+            logger.warning(
+                "%s: No organisms found in SDRF - defaulting to human (NCBITaxon:9606)",
+                pxd,
             )
+            taxids = {"9606"}
 
         if len(taxids) > 1:
             logger.info(
@@ -105,8 +101,50 @@ class ReLinkRunner:
         relink_dir.mkdir(parents=True, exist_ok=True)
         fasta_dir = relink_dir / "fasta"
 
-        crosslinker_groups = self._crosslinker_groups(raw_paths, pxd_dir)
-        if crosslinker_groups is None:
+        # Identify all crosslinker chemistries present in the dataset. Do NOT
+        # attempt to assign individual RAW files to a chemistry - as with
+        # multi-organism datasets, run every identified chemistry against the
+        # complete RAW-file set.
+        crosslinker_names = self._crosslinker_names(llm_responses, xi_config_generator)
+
+        if crosslinker_names:
+            supported_crosslinkers: List[str] = []
+            unsupported_crosslinkers: List[str] = []
+            for crosslinker_name in crosslinker_names:
+                if xi_config_generator is not None and xi_config_generator.get_crosslinker(crosslinker_name):
+                    supported_crosslinkers.append(crosslinker_name)
+                else:
+                    unsupported_crosslinkers.append(crosslinker_name)
+
+            if unsupported_crosslinkers:
+                logger.warning(
+                    "%s: Skipping unsupported crosslinker chemistries: %s",
+                    pxd,
+                    ", ".join(unsupported_crosslinkers),
+                )
+
+            if not supported_crosslinkers:
+                raise ValueError(
+                    "No supported crosslinkers remain after filtering identified "
+                    f"chemistries: {crosslinker_names}"
+                )
+
+            logger.info(
+                "%s: Running ReLink for supported crosslinker chemistries: %s",
+                pxd,
+                ", ".join(supported_crosslinkers),
+            )
+            crosslinker_groups = {
+                (taxid, crosslinker_name): list(raw_paths)
+                for taxid in sorted(taxids)
+                for crosslinker_name in supported_crosslinkers
+            }
+        else:
+            logger.info(
+                "%s: No cluster-level or dataset-level crosslinker chemistries found; "
+                "using dataset-level Xi configuration",
+                pxd,
+            )
             crosslinker_groups = {
                 (taxid, None): list(raw_paths)
                 for taxid in sorted(taxids)
@@ -204,7 +242,7 @@ class ReLinkRunner:
             "status": "success",
             "taxids_detected": sorted(taxids),
             "taxid_results": all_results,
-            "note": "ReLink runs are separated by organism and resolved crosslinker chemistry"
+            "note": "ReLink runs are separated by organism and/or crosslinker chemistry"
             if len(crosslinker_groups) > 1
             else None,
         }
@@ -214,49 +252,55 @@ class ReLinkRunner:
         """Return a filesystem-safe identifier for a chemistry-specific run."""
         return re.sub(r"[^a-z0-9]+", "_", value.lower()).strip("_")
 
-    def _crosslinker_groups(
+    def _crosslinker_names(
         self,
-        raw_paths: Sequence[Path],
-        pxd_dir: Path,
-    ) -> Optional[Dict[tuple[str, str], List[Path]]]:
-        """Group local RAW files by taxid and cached file-cluster crosslinker."""
-        assignments_path = pxd_dir / "llm" / "file_assignment_map.json"
-        clusters_path = pxd_dir / "llm" / "file_assignments.json"
-        if not assignments_path.exists() or not clusters_path.exists():
-            return None
+        llm_responses: Optional[Dict[str, Any]] = None,
+        xi_config_generator: Optional[Any] = None,
+    ) -> List[str]:
+        """Return every distinct crosslinker chemistry identified for this dataset.
 
-        try:
-            with open(assignments_path, encoding="utf-8") as fh:
-                assignments = json.load(fh).get("data", {})
-            with open(clusters_path, encoding="utf-8") as fh:
-                clusters_field = json.load(fh).get("data", {})
-            clusters_data = clusters_field.get("parsed", clusters_field)
-            clusters = clusters_data.get("clusters", []) if isinstance(clusters_data, dict) else []
-            cluster_by_id = {
-                cluster.get("cluster_id"): cluster
-                for cluster in clusters
-                if isinstance(cluster, dict) and cluster.get("cluster_id")
-            }
-        except (OSError, json.JSONDecodeError, AttributeError) as exc:
-            logger.warning("Could not load ReLink chemistry groups: %s", exc)
-            return None
+        Chemistry names come from the dataset-level LLM metadata response.
+        Individual RAW files are deliberately NOT mapped to a specific
+        chemistry (file clustering, which previously attempted this, was
+        removed as legacy logic) - ReLink runs the complete RAW-file set once
+        for every identified crosslinker chemistry (see run_for_pxd), since
+        XiSearch should never mix two different crosslinker chemistries into a
+        single search.
+        """
+        names: List[str] = []
+        seen: Set[str] = set()
 
-        groups: Dict[tuple[str, str], List[Path]] = {}
-        for raw_path in raw_paths:
-            assignment = assignments.get(raw_path.name, {})
-            cluster = cluster_by_id.get(assignment.get("cluster_id"), {})
-            crosslinker_name = cluster.get("crosslinker")
-            raw_taxid = assignment.get("taxid") or cluster.get("taxid")
-            taxid = str(raw_taxid or "").replace("NCBITaxon:", "").strip()
-            if not crosslinker_name or not taxid.isdigit():
-                logger.warning(
-                    "No resolved cluster crosslinker for %s; using dataset-level ReLink config",
-                    raw_path.name,
-                )
-                return None
-            groups.setdefault((taxid, str(crosslinker_name)), []).append(raw_path)
+        def add_name(value: Any) -> None:
+            if value is None:
+                return
+            if isinstance(value, (list, tuple, set)):
+                for item in value:
+                    add_name(item)
+                return
+            name = str(value).strip()
+            if not name or name.lower() in {"null", "none"}:
+                return
+            key = name.lower()
+            if key not in seen:
+                seen.add(key)
+                names.append(name)
 
-        return groups or None
+        # Dataset-level LLM metadata. Prefer xi_config_generator's schema-aware
+        # parser (handles every comment[cross-linker] response shape seen
+        # across pipeline runs - single NT string, parallel NT/AC/CL/TA lists,
+        # or a "value" list of fully-structured per-reagent dicts) over a bare
+        # NT-field read, so multi-reagent mentions using the newer response
+        # schema are never silently missed here.
+        if isinstance(llm_responses, dict):
+            if xi_config_generator is not None:
+                add_name(xi_config_generator.get_dataset_crosslinker_names(llm_responses))
+            else:
+                response = llm_responses.get("comment[cross-linker]") or {}
+                parsed = response.get("parsed", {}) if isinstance(response, dict) else {}
+                if isinstance(parsed, dict):
+                    add_name(parsed.get("NT"))
+
+        return names
 
     def extract_taxids_from_sdrf(self, sdrf_path: Path) -> Set[str]:
         """Extract NCBITaxon IDs from all organism columns in SDRF."""
@@ -288,109 +332,6 @@ class ReLinkRunner:
                             taxid = part.split("AC=NCBITaxon:", 1)[1].strip()
                             if taxid.isdigit():
                                 taxids.add(taxid)
-
-        return taxids
-
-    def _taxids_from_pride_metadata(self, pxd_dir: Path) -> Set[str]:
-        """Extract taxids from LLM file clustering response in responses.json.
-        
-        The responses.json contains LLM clustering output with organism info.
-        Parse it to get all unique taxids from the clusters field.
-        """
-        import json
-
-        taxids: Set[str] = set()
-        responses_path = pxd_dir / "llm" / "responses.json"
-        
-        if not responses_path.exists():
-            return taxids
-
-        try:
-            with open(responses_path, encoding="utf-8") as fh:
-                payload = json.load(fh)
-            
-            # responses.json structure: {metadata: {...}, data: {...}}
-            # data["clusters"] contains LLM clustering response with organism/taxid info
-            data = payload.get("data", {})
-            if not isinstance(data, dict):
-                return taxids
-            
-            clusters_field = data.get("clusters", {})
-            
-            # clusters_field is {response: "...", parsed: {...}, ...}
-            # Try "parsed" first, fall back to parsing "response"
-            clusters_list = []
-            
-            if isinstance(clusters_field, dict):
-                # Try parsed field first
-                if "parsed" in clusters_field and isinstance(clusters_field["parsed"], dict):
-                    parsed_data = clusters_field["parsed"]
-                    if "clusters" in parsed_data and isinstance(parsed_data["clusters"], list):
-                        clusters_list = parsed_data["clusters"]
-                
-                # Fall back to parsing response string
-                if not clusters_list and "response" in clusters_field:
-                    try:
-                        response_str = clusters_field["response"]
-                        if isinstance(response_str, str):
-                            # Extract JSON from markdown code block if present
-                            if "```json" in response_str:
-                                json_start = response_str.find("```json") + 7
-                                json_end = response_str.find("```", json_start)
-                                response_str = response_str[json_start:json_end]
-                            
-                            response_data = json.loads(response_str)
-                            if "clusters" in response_data and isinstance(response_data["clusters"], list):
-                                clusters_list = response_data["clusters"]
-                    except (json.JSONDecodeError, ValueError):
-                        pass  # Failed to parse, continue
-            
-            # Extract unique taxids from clusters
-            for cluster in clusters_list:
-                if isinstance(cluster, dict):
-                    taxid = cluster.get("taxid", "")
-                    if taxid:
-                        # Strip "NCBITaxon:" prefix if present
-                        if taxid.startswith("NCBITaxon:"):
-                            taxid = taxid.replace("NCBITaxon:", "")
-                        if taxid.isdigit():
-                            taxids.add(taxid)
-                            organism = cluster.get("organism", "?")
-                            logger.debug("Found cluster taxid %s for organism: %s", taxid, organism)
-            
-            if taxids:
-                logger.info("Extracted %d taxids from LLM clustering response: %s", len(taxids), ", ".join(sorted(taxids)))
-        except Exception as exc:
-            logger.debug("Could not extract taxids from PRIDE metadata: %s", exc)
-
-        return taxids
-
-    def _taxids_from_assignment_map(self, assignment_map_path: Path) -> Set[str]:
-        """Extract numeric taxids from file_assignment_map.json produced by the clustering stage."""
-        import json
-
-        taxids: Set[str] = set()
-        if not assignment_map_path.exists():
-            return taxids
-
-        try:
-            with open(assignment_map_path, encoding="utf-8") as fh:
-                payload = json.load(fh)
-            data = payload.get("data", payload)
-            if not isinstance(data, dict):
-                return taxids
-            for entry in data.values():
-                if not isinstance(entry, dict):
-                    continue
-                raw_taxid = entry.get("taxid", "")
-                if not raw_taxid:
-                    continue
-                # Strip NCBITaxon: prefix if present
-                numeric = str(raw_taxid).replace("NCBITaxon:", "").strip()
-                if numeric.isdigit():
-                    taxids.add(numeric)
-        except Exception as exc:
-            logger.warning("Could not read taxids from %s: %s", assignment_map_path, exc)
 
         return taxids
 

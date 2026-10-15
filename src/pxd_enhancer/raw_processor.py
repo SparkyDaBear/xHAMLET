@@ -56,8 +56,6 @@ class RawFileProcessor:
         limit: Optional[int] = None,
         nproc: int = 1,
         assessor_script: Optional[Path] = None,
-        file_assignments: Optional[Dict[str, Dict[str, str]]] = None,
-        assessor_files_per_cluster: int = 1,
     ) -> None:
         self.pxd = pxd
         self.pxd_dir = Path(pxd_dir)
@@ -69,8 +67,6 @@ class RawFileProcessor:
         self.skip_spectral = skip_spectral
         self.limit = limit
         self.nproc = max(1, nproc)
-        self.file_assignments = file_assignments or {}
-        self.assessor_files_per_cluster = assessor_files_per_cluster
 
         # Resolve assessor script path
         if assessor_script is None:
@@ -88,8 +84,10 @@ class RawFileProcessor:
         """
         Select which raw files should be downloaded and assessed.
 
-        If file_assignments is provided, randomly select assessor_files_per_cluster
-        files from each cluster. Otherwise, return all filenames.
+        Every raw file is assessed (no per-cluster subsampling - file clustering
+        was removed as legacy logic; ReLink now runs the complete raw-file set
+        against every identified organism/crosslinker combination instead of
+        trying to split files by biological condition).
 
         Args:
             raw_files: List of raw file dicts with 'fileName' key
@@ -97,43 +95,7 @@ class RawFileProcessor:
         Returns:
             Set of filenames (str) that should be assessed.
         """
-        import random
-
-        if not self.file_assignments:
-            # No clustering info — assess all files
-            return {f.get("fileName", "") for f in raw_files}
-
-        # Group files by cluster
-        clusters: Dict[str, List[str]] = {}
-        for f in raw_files:
-            filename = f.get("fileName", "")
-            if filename in self.file_assignments:
-                cluster_id = self.file_assignments[filename].get("cluster_id", "unknown")
-                if cluster_id not in clusters:
-                    clusters[cluster_id] = []
-                clusters[cluster_id].append(filename)
-
-        # Select assessor_files_per_cluster from each cluster
-        to_assess = set()
-        for cluster_id, files in clusters.items():
-            num_to_select = min(self.assessor_files_per_cluster, len(files))
-            selected = random.sample(files, num_to_select)
-            to_assess.update(selected)
-            logger.info(
-                "Cluster %s: selecting %d/%d files for assessment",
-                cluster_id, num_to_select, len(files)
-            )
-
-        # Also include any files not in clustering (shouldn't happen, but be safe)
-        all_filenames = {f.get("fileName", "") for f in raw_files}
-        unassigned = all_filenames - set(self.file_assignments.keys())
-        to_assess.update(unassigned)
-
-        logger.info(
-            "Assessment selection: %d/%d files will be assessed",
-            len(to_assess), len(all_filenames)
-        )
-        return to_assess
+        return {f.get("fileName", "") for f in raw_files}
 
     def run(self, file_list: List[Dict[str, Any]]) -> Dict[str, Any]:
         """

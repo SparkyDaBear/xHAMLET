@@ -169,20 +169,6 @@ Examples:
     )
 
     parser.add_argument(
-        "--assessor-files-per-cluster",
-        type=int,
-        default=1,
-        metavar="N",
-        help=(
-            "Number of representative files to download and assess per cluster. "
-            "After file clustering (Stage 2.5), randomly select N files from each "
-            "biological condition cluster for spectral assessment. "
-            "Non-selected files have spectral metadata inherited from cluster representative. "
-            "Default: 1 (one representative per cluster)."
-        ),
-    )
-
-    parser.add_argument(
         "--skip-sdrf",
         action="store_true",
         help="Skip SDRF TSV generation (Stage 6)"
@@ -424,7 +410,6 @@ def main():
     else:
         logger.info("  No download      : %s", args.no_download)
         logger.info("  Skip spectral    : %s", args.skip_spectral)
-        logger.info("  Files/cluster    : %d", args.assessor_files_per_cluster)
         logger.info("  Clean .raw       : %s", args.clean_raw)
         logger.info("  Clean .mzML      : %s", args.clean_mzml)
         logger.info("  File limit       : %s", args.limit or "unlimited")
@@ -474,7 +459,6 @@ def main():
                     limit=args.limit,
                     aria2c_connections=args.aria2c_connections,
                     nproc=nproc,
-                    assessor_files_per_cluster=args.assessor_files_per_cluster,
                     skip_sdrf=args.skip_sdrf,
                     skip_xi=args.skip_xi,
                     relink=args.relink,

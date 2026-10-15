@@ -106,7 +106,6 @@ class PXDMetadataEnhancer:
         nproc: int = 1,
         skip_sdrf: bool = False,
         skip_xi: bool = False,
-        assessor_files_per_cluster: int = 1,
         relink: bool = False,
         relink_profile: str = "docker",
         relink_resume: bool = False,
@@ -114,13 +113,12 @@ class PXDMetadataEnhancer:
         relink_queue_size: Optional[int] = None,
     ) -> Dict[str, Any]:
         """
-        Main workflow: Process a single PXD end-to-end (10-stage pipeline).
+        Main workflow: Process a single PXD end-to-end (staged pipeline).
 
         Stages
         ------
         1  PRIDE fetch          — project metadata + file list
         2  Publication          — PMID → PMCID → PMC full text
-        2.5 File clustering     — LLM groups files by biological condition
         3  Raw file processing  — aria2c download → thermorawfileparser → mzML
         4  Spectral merge       — AssessorRunner builds spectral_summary.json
         5  LLM queries          — 23-prompt extraction on publication / PRIDE text
@@ -143,7 +141,6 @@ class PXDMetadataEnhancer:
             nproc:                      Parallel workers for Phase 1 per-file processing (default: 1).
             skip_sdrf:                  Skip Stage 6 (SDRF generation).
             skip_xi:                    Skip Stage 8 (Xi config generation).
-            assessor_files_per_cluster: How many files per cluster to download+assess (default: 1).
             relink:                     Run ReLink quantification stage (default: False).
             relink_profile:             Nextflow profile for ReLink (default: docker).
             relink_resume:              Use Nextflow -resume when running ReLink.
@@ -324,39 +321,6 @@ class PXDMetadataEnhancer:
                 logger.warning("No publication text found. Will use PRIDE metadata for LLM analysis.")
 
             ###########################################################
-            # Stage 2.5: File clustering by biological condition
-            logger.info("[Stage 2.5/10] Clustering files by biological condition...")
-            file_assignments = self._cluster_files(
-                pxd=pxd,
-                pride_data=pride_data,
-                publication_data=publication_data,
-                force_refresh=force_refresh,
-            )
-            result["stages"]["file_clustering"] = (
-                "success" if file_assignments else "failed"
-            )
-            if file_assignments:
-                result["file_assignments"] = file_assignments
-                # Count files per cluster
-                cluster_counts = {}
-                cluster_labels = {}
-                for fa in file_assignments.values():
-                    cid = fa.get("cluster_id", "unknown")
-                    cluster_counts[cid] = cluster_counts.get(cid, 0) + 1
-                    if cid not in cluster_labels:
-                        cluster_labels[cid] = fa.get("cluster_label", "")
-                logger.info(
-                    "✓ File clustering complete: %d files assigned to %d clusters",
-                    len(file_assignments), len(cluster_counts)
-                )
-                for cid, count in sorted(cluster_counts.items()):
-                    label = cluster_labels.get(cid, "")
-                    if label:
-                        logger.info("  - %s (%s): %d files", cid, label, count)
-                    else:
-                        logger.info("  - %s: %d files", cid, count)
-
-            ###########################################################
             # Stage 3: Raw file processing (download → thermorawfileparser → mzML)
             if no_download:
                 logger.info("[Stage 3/10] Skipped (--no-download)")
@@ -378,8 +342,6 @@ class PXDMetadataEnhancer:
                         skip_spectral=skip_spectral,
                         limit=limit,
                         nproc=nproc,
-                        file_assignments=file_assignments,
-                        assessor_files_per_cluster=assessor_files_per_cluster,
                     )
                     raw_result = processor.run(file_list)
                     result["stages"]["raw_processing"] = (
@@ -502,7 +464,6 @@ class PXDMetadataEnhancer:
                         spectral_summary=spectral_summary,
                         pride_data=pride_data,
                         output_path=sdrf_path,
-                        file_assignments=file_assignments,
                         assessed_files=assessed_files,
                     )
                     result["stages"]["sdrf"] = "success"
@@ -558,42 +519,17 @@ class PXDMetadataEnhancer:
             else:
                 logger.info("[Stage 8/10] Generating Xi configuration files...")
                 try:
-                    # Prefer an unambiguous crosslinker resolved from file clustering
-                    # (e.g. filename-derived, per-cluster) over the dataset-wide LLM
-                    # answer, which can legitimately return multiple reagents when a
-                    # publication describes more than one crosslinking chemistry.
-                    resolved_crosslinkers = {
-                        fa["crosslinker"]
-                        for fa in (file_assignments or {}).values()
-                        if fa.get("crosslinker")
-                    }
-                    crosslinker_override = (
-                        next(iter(resolved_crosslinkers))
-                        if len(resolved_crosslinkers) == 1
-                        else None
-                    )
-                    if crosslinker_override:
-                        logger.info(
-                            "  Using file-clustering-resolved crosslinker: %s",
-                            crosslinker_override,
-                        )
-
-                    # When clustering hasn't already resolved a single unambiguous
-                    # reagent, and the dataset-level LLM identified more than one
-                    # distinct crosslinker (a publication using several chemistries),
-                    # generate one independent config pair per reagent instead of one
-                    # combined config - ReLink should run a separate search per
+                    # Generate one independent config pair per distinct crosslinker named
+                    # at the dataset level - ReLink should run a separate search per
                     # crosslinker, never mix two chemistries into a single search.
-                    dataset_names = (
-                        [] if crosslinker_override
-                        else self.xi_config_gen.get_dataset_crosslinker_names(llm_responses)
-                    )
+                    dataset_names = self.xi_config_gen.get_dataset_crosslinker_names(llm_responses)
 
                     xi_config_paths = {}
                     errors = []
-                    if crosslinker_override or len(dataset_names) <= 1:
+                    if len(dataset_names) <= 1:
+                        crosslinker_name = dataset_names[0] if dataset_names else None
                         config_xl, config_linear = self.xi_config_gen.generate_configs(
-                            pxd, llm_responses, pride_data, crosslinker_name=crosslinker_override
+                            pxd, llm_responses, pride_data, crosslinker_name=crosslinker_name
                         )
                         xl_path, linear_path = self.xi_config_gen.save_configs(
                             pxd, config_xl, config_linear, self.store.base_dir
@@ -626,18 +562,21 @@ class PXDMetadataEnhancer:
                         )
 
                     result["stages"]["xi_configs"] = "success"
-                    # Flat keys for backward compatibility with Stage 9 (ReLink), which only
-                    # ever runs one search at a time: point at the first/default pair. The full
-                    # per-crosslinker breakdown (all independently-generated configs) is also
-                    # kept below for future multi-crosslinker-aware consumers.
+                    # Flat keys for backward compatibility: point at the first/default pair
+                    # (e.g. for callers that just want "a" usable Xi config without caring
+                    # which reagent it is, or to sanity-check output without running ReLink).
+                    # Stage 9 (ReLink), when enabled, independently re-resolves and runs EVERY
+                    # identified crosslinker chemistry against the full RAW-file set itself
+                    # (see ReLinkRunner.run_for_pxd/_crosslinker_names) - it does not rely on
+                    # these flat keys. The full per-crosslinker breakdown generated here is
+                    # also kept below for any other multi-crosslinker-aware consumer.
                     first_pair = next(iter(xi_config_paths.values()))
                     result["xi_config_paths"] = first_pair
                     result["xi_config_paths_by_crosslinker"] = xi_config_paths
                     if len(xi_config_paths) > 1:
                         logger.info(
-                            "  %d independent crosslinker configs generated; ReLink (if enabled) "
-                            "will currently only use the first: %s",
-                            len(xi_config_paths), next(iter(xi_config_paths)),
+                            "  %d independent crosslinker configs generated: %s",
+                            len(xi_config_paths), list(xi_config_paths),
                         )
                 except Exception as exc:
                     logger.error("Failed to generate Xi configs: %s", exc, exc_info=True)
@@ -1066,366 +1005,6 @@ class PXDMetadataEnhancer:
             self.store.save_json(flat_responses, pxd, "llm", "responses")
 
         return flat_responses
-    
-    def _cluster_files(
-        self,
-        pxd: str,
-        pride_data: Dict,
-        publication_data: Optional[Dict],
-        force_refresh: bool = False,
-    ) -> Optional[Dict[str, Dict[str, Any]]]:
-        """
-        Cluster raw files by biological condition using LLM analysis.
-
-        Reads file_clustering.txt prompt, passes it list of .raw files + publication,
-        and returns a dict mapping filename → {cluster_id, cluster_label, organism, taxid}.
-
-        Falls back to single cluster_0 with dataset organism if LLM fails.
-
-        Args:
-            pxd: PRIDE project accession
-            pride_data: PRIDE project metadata (includes file list)
-            publication_data: Publication text (or None if unavailable)
-            force_refresh: Force re-clustering even if cached
-
-        Returns:
-            Dict[filename, {cluster_id, cluster_label, organism, taxid}] or None on failure.
-            Structure of returned dict:
-            {
-              "sample_Glu_Rep1.raw": {
-                "cluster_id": "cluster_1",
-                "cluster_label": "yeast_glucose_BS3",
-                "organism": "Saccharomyces cerevisiae",
-                "taxid": "NCBITaxon:4932"
-              },
-              ...
-            }
-        """
-        # Check cache first
-        if not force_refresh and self.store.file_exists(pxd, "llm", "file_assignments"):
-            logger.info("Loading file clustering from cache")
-            clustering_response = self.store.load_json(pxd, "llm", "file_assignments")
-            return self._parse_file_clustering(clustering_response, pride_data)
-
-        # Get raw filenames from PRIDE
-        files_meta = pride_data.get("files", {}) or {}
-        file_list = files_meta.get("files", []) if isinstance(files_meta, dict) else []
-        raw_files = [f for f in file_list if f.get("fileName", "").lower().endswith(".raw")]
-
-        if not raw_files:
-            logger.warning("No .raw files found in PRIDE data")
-            return None
-
-        raw_filenames = sorted([f.get("fileName", "") for f in raw_files])
-        logger.info("Clustering %d .raw files", len(raw_filenames))
-
-        # Extract organisms with taxids
-        organisms_with_taxids = self._extract_organisms_with_taxids(pride_data)
-
-        # Prepare publication text
-        pride_sections = self._extract_text_sections_from_pride(pride_data)
-        pmc_sections = self.pmc.extract_text_sections(publication_data) if publication_data else {}
-        text_sections = self._merge_text_sections(pmc_sections, pride_sections)
-
-        pub_text = self._combine_text_sections(text_sections)
-
-        # Load and render file_clustering.txt prompt
-        try:
-            prompt = self.prompts.get_prompt("file_clustering")
-            if not prompt:
-                logger.error("file_clustering.txt prompt not found")
-                return None
-        except Exception as e:
-            logger.error("Failed to load file_clustering prompt: %s", e)
-            return None
-
-        # Render placeholders safely (do not use str.format because the template
-        # contains JSON braces that are not escaped).
-        prompt_text = (
-            prompt.replace("{raw_filenames}", "\n".join(raw_filenames))
-            .replace("{publication_text}", pub_text[:10000])
-            .replace("{organisms_with_taxids}", organisms_with_taxids)
-        )
-
-        # Query LLM
-        logger.info("Querying LLM for file clustering...")
-        try:
-            response_text = self.llm.query(
-                "You are an expert proteomics assistant. Return valid JSON only.",
-                prompt_text,
-            )
-            if not response_text:
-                logger.error("LLM returned empty response for file clustering")
-                return self._fallback_single_cluster(pride_data)
-            logger.debug("LLM response (first 500 chars): %s", response_text[:500])
-        except Exception as e:
-            logger.error("LLM query failed for file clustering: %s", e)
-            return self._fallback_single_cluster(pride_data)
-
-        # Cache raw and parsed response for readability.
-        parsed_response = self.llm.parse_json_response(response_text)
-        self.store.save_json(
-            {
-                "response": response_text,
-                "parsed": parsed_response,
-            },
-            pxd,
-            "llm",
-            "file_assignments",
-        )
-
-        # Parse JSON response (prefer already-parsed payload when available)
-        clustering_response = (
-            parsed_response
-            if isinstance(parsed_response, dict)
-            else {"response": response_text, "parsed": parsed_response}
-        )
-        file_assignments = self._parse_file_clustering(clustering_response, pride_data)
-
-        # Save a flat filename -> cluster mapping for easy human inspection.
-        if file_assignments:
-            self.store.save_json(file_assignments, pxd, "llm", "file_assignment_map")
-
-        return file_assignments
-
-    def _parse_file_clustering(
-        self,
-        clustering_response: Any,
-        pride_data: Dict,
-    ) -> Optional[Dict[str, Dict[str, Any]]]:
-        """
-        Parse LLM clustering response JSON and convert to filename -> assignment dict.
-
-        Fallback behavior is intentionally defensive:
-        - If JSON parsing fails, try to salvage complete cluster objects from a
-          truncated response before falling back to a single cluster.
-        - If confidence is low but clusters are present, keep the clusters and warn.
-        """
-        import json as _json
-
-        def _salvage_clusters_from_response(response_text: str) -> Optional[Dict[str, Any]]:
-            """Recover complete cluster objects from a truncated JSON response."""
-            marker = '"clusters"'
-            marker_idx = response_text.find(marker)
-            if marker_idx == -1:
-                return None
-
-            array_start = response_text.find("[", marker_idx)
-            if array_start == -1:
-                return None
-
-            clusters = []
-            i = array_start + 1
-            n = len(response_text)
-
-            while i < n:
-                ch = response_text[i]
-                if ch == "{":
-                    obj_start = i
-                    depth = 0
-                    in_str = False
-                    esc = False
-                    j = i
-                    while j < n:
-                        c = response_text[j]
-                        if in_str:
-                            if esc:
-                                esc = False
-                            elif c == "\\":
-                                esc = True
-                            elif c == '"':
-                                in_str = False
-                        else:
-                            if c == '"':
-                                in_str = True
-                            elif c == "{":
-                                depth += 1
-                            elif c == "}":
-                                depth -= 1
-                                if depth == 0:
-                                    obj_str = response_text[obj_start : j + 1]
-                                    try:
-                                        obj = _json.loads(obj_str)
-                                        if isinstance(obj, dict):
-                                            clusters.append(obj)
-                                    except _json.JSONDecodeError:
-                                        pass
-                                    i = j + 1
-                                    break
-                        j += 1
-                    else:
-                        break
-                elif ch == "]":
-                    break
-                i += 1
-
-            if not clusters:
-                return None
-
-            return {
-                "clusters": clusters,
-                "unassigned_files": [],
-                "confidence": "salvaged",
-                "evidence_quote": "Recovered from truncated LLM JSON response",
-            }
-
-        try:
-            if isinstance(clustering_response, dict):
-                if "parsed" in clustering_response and isinstance(clustering_response["parsed"], dict):
-                    data = clustering_response["parsed"]
-                elif "data" in clustering_response and isinstance(clustering_response["data"], dict):
-                    data = clustering_response["data"]
-                elif "response" in clustering_response and isinstance(clustering_response["response"], str):
-                    data = _json.loads(clustering_response["response"])
-                else:
-                    data = clustering_response
-            else:
-                data = _json.loads(str(clustering_response))
-        except _json.JSONDecodeError as e:
-            logger.error("Failed to parse clustering JSON: %s", e)
-            response_text = ""
-            if isinstance(clustering_response, dict):
-                response_text = str(clustering_response.get("response", ""))
-            else:
-                response_text = str(clustering_response)
-
-            salvaged = _salvage_clusters_from_response(response_text)
-            if salvaged:
-                logger.warning(
-                    "Using salvaged clustering data from truncated response (%d clusters)",
-                    len(salvaged.get("clusters", [])),
-                )
-                data = salvaged
-            else:
-                logger.warning("Falling back to single cluster_0 with dataset organism")
-                return self._fallback_single_cluster(pride_data)
-
-        clusters = data.get("clusters", [])
-        unassigned = data.get("unassigned_files", [])
-        confidence = data.get("confidence", "unknown")
-
-        logger.info(
-            "Clustering results: %d clusters, %d unassigned files, confidence=%s",
-            len(clusters), len(unassigned), confidence,
-        )
-
-        if str(confidence).lower() == "low":
-            if clusters:
-                logger.warning(
-                    "Clustering confidence is low, but clusters are present; proceeding with returned assignments"
-                )
-            else:
-                logger.warning("Clustering confidence is low and no clusters were returned; using fallback")
-                return self._fallback_single_cluster(pride_data)
-
-        file_assignments = {}
-
-        for cluster in clusters:
-            cluster_id = cluster.get("cluster_id", "unknown")
-            cluster_label = cluster.get("cluster_label", "")
-            organism = cluster.get("organism", "")
-            taxid = cluster.get("taxid", "")
-            crosslinker = cluster.get("crosslinker", "")
-            files = cluster.get("files", [])
-
-            logger.debug("Cluster %s (%s): %d files", cluster_id, cluster_label, len(files))
-
-            for filename in files:
-                file_assignments[filename] = {
-                    "cluster_id": cluster_id,
-                    "cluster_label": cluster_label,
-                    "organism": organism,
-                    "taxid": taxid,
-                    "crosslinker": crosslinker,
-                }
-
-        dataset_org = self._resolve_dataset_organism(pride_data)
-
-        if unassigned:
-            logger.info("Assigning %d unassigned files to cluster_0", len(unassigned))
-            for filename in unassigned:
-                file_assignments[filename] = {
-                    "cluster_id": "cluster_0",
-                    "cluster_label": "unassigned",
-                    "organism": dataset_org,
-                    "taxid": "",
-                    "crosslinker": "",
-                }
-
-        files_meta = pride_data.get("files", {}) or {}
-        file_list = files_meta.get("files", []) if isinstance(files_meta, dict) else []
-        raw_filenames = {
-            f.get("fileName", "")
-            for f in file_list
-            if isinstance(f, dict) and f.get("fileName", "").lower().endswith(".raw")
-        }
-
-        missing = sorted(name for name in raw_filenames if name and name not in file_assignments)
-        if missing:
-            logger.warning(
-                "%d RAW files were not assigned by clustering output; assigning to cluster_0",
-                len(missing),
-            )
-            for filename in missing:
-                file_assignments[filename] = {
-                    "cluster_id": "cluster_0",
-                    "cluster_label": "unassigned_or_missing",
-                    "organism": dataset_org,
-                    "taxid": "",
-                }
-
-        return file_assignments if file_assignments else None
-
-    def _fallback_single_cluster(self, pride_data: Dict) -> Dict[str, Dict[str, Any]]:
-        """Fallback: put all files in cluster_0 with dataset organism."""
-        files_meta = pride_data.get("files", {}) or {}
-        file_list = files_meta.get("files", []) if isinstance(files_meta, dict) else []
-        raw_files = [f for f in file_list if f.get("fileName", "").lower().endswith(".raw")]
-
-        dataset_org = self._resolve_dataset_organism(pride_data)
-
-        file_assignments = {}
-        for f in raw_files:
-            filename = f.get("fileName", "")
-            if filename:
-                file_assignments[filename] = {
-                    "cluster_id": "cluster_0",
-                    "cluster_label": "all_files_single_condition",
-                    "organism": dataset_org,
-                    "taxid": "",
-                }
-
-        logger.warning("Using fallback: all %d files in cluster_0", len(file_assignments))
-        return file_assignments if file_assignments else None
-
-    def _resolve_dataset_organism(self, pride_data: Dict) -> str:
-        """Extract primary organism name from PRIDE project metadata."""
-        organisms = pride_data.get("organisms", [])
-        if organisms and isinstance(organisms, list) and len(organisms) > 0:
-            org = organisms[0]
-            if isinstance(org, dict):
-                return org.get("name", "Unknown organism")
-            return str(org)
-        return "Unknown organism"
-
-    def _extract_organisms_with_taxids(self, pride_data: Dict) -> str:
-        """Format organisms with taxids for LLM prompt."""
-        organisms = pride_data.get("organisms", [])
-        if not organisms:
-            return "Unknown organism"
-
-        org_strs = []
-        for org in organisms:
-            if isinstance(org, dict):
-                name = org.get("name", "")
-                taxid = org.get("id", "")  # PRIDE may store taxid as 'id'
-                if name:
-                    if taxid:
-                        org_strs.append(f"{name} (NCBI Taxonomy ID: {taxid})")
-                    else:
-                        org_strs.append(name)
-        
-        return "; ".join(org_strs) if org_strs else "Unknown organism"
     
     def _compile_results(self, pxd: str, pride_data: Dict, publication_data: Optional[Dict],
                         llm_responses: Dict, base_result: Dict) -> Dict[str, Any]:

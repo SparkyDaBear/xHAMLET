@@ -140,11 +140,11 @@ When PRIDE supplies exactly one `.fa`, `.fas`, or `.fasta` file for a project,
 xHAMLET downloads and caches that sequence database for ReLink. Projects with
 no supplied FASTA use the reviewed UniProt proteome for the detected taxid.
 
-When file clustering resolves different crosslinkers for a project, xHAMLET
-runs ReLink separately for each organism-and-crosslinker group. Each group
-uses a filtered SDRF, chemistry-specific Xi config, and separate results
-directory; files with unresolved cluster chemistry retain the dataset-level
-ReLink configuration.
+For multi-organism and/or multi-crosslinker projects, xHAMLET runs ReLink
+separately for each organism-and-crosslinker combination. Each group runs the
+full RAW-file set with a chemistry-specific Xi config and a separate results
+directory, since XiSearch should never mix two different crosslinker
+chemistries (or organism databases) into a single search.
 
 ## Stage Selection Controls
 
@@ -169,7 +169,6 @@ ReLink configuration.
 - `--model <name>`: LLM model override
 - `--limit N`: cap RAW files per PXD
 - `--nproc N|auto`: parallel workers for raw processing
-- `--assessor-files-per-cluster N`: representative files per cluster for spectral assessment
 - `--relink-profile <name>`: Nextflow profile for ReLink
 - `--relink-resume`: pass `-resume` to Nextflow
 - `--relink-work-dir <dir>`: Nextflow work dir override
@@ -209,7 +208,6 @@ Prompt files currently present in [prompts](prompts):
 
 - `disease_treatment.txt`
 - `factor_values.txt`
-- `file_clustering.txt`
 - `ms_acquisition.txt`
 - `organism_sample.txt`
 - `sample_attributes.txt`
@@ -219,10 +217,7 @@ Prompt files currently present in [prompts](prompts):
 
 ### Which prompts are called
 
-- Stage 2.5 file clustering always calls `file_clustering.txt` directly.
 - Stage 5 LLM extraction calls the selected prompt list (from `--prompts`, `prompts.enabled`, or all files).
-
-Note: If Stage 5 includes `file_clustering.txt`, it will be queried there too in addition to Stage 2.5.
 
 ## Output Layout
 

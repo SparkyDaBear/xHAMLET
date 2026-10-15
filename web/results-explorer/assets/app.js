@@ -112,7 +112,7 @@ function renderProject() {
   elements.description.textContent = project.description || "No project description was captured.";
   const documents = project.relink_runs.flatMap((run) => run.mzid_documents);
   const metrics = [
-    ["Raw assignments", project.file_assignment_count],
+    ["Raw files", project.file_assignment_count],
     ["Search runs", project.relink_runs.length],
     ["mzIdentML documents", documents.length],
     ["Passing items", documents.reduce((sum, document) => sum + Number(document.passing_items || 0), 0)],

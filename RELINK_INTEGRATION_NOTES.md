@@ -11,7 +11,7 @@
 |-------|--------|-------|
 | Singularity container pull | ✅ Fixed | `oras://` failed; fixed via `singularity_pull_docker_container=true` in `assets/nextflow_singularity_docker_pull.config` |
 | FASTA download | ✅ Fixed | Now downloads SwissProt-only (`reviewed:true`) — 13 MB vs 107 MB (full TrEMBL) |
-| Multi-organism detection | ✅ Working | Taxids extracted from LLM clustering response, SDRF, and file_assignment_map |
+| Multi-organism detection | ✅ Working | Taxids extracted from SDRF, defaulting to human (9606) if none found; legacy file-clustering-based detection was fully retired |
 | Stale session cleanup | ✅ Fixed | `ReLinkRunner._clean_nextflow_state()` removes `.nextflow/` before each run |
 | Silent retry loop | ✅ Fixed | `XISEARCH_CROSSLINK` and `XISEARCH_LINEAR` set to `maxRetries=0, errorStrategy=finish` |
 | ThermoRawFileParser (mzML) | ✅ Working | Runs correctly with Singularity |

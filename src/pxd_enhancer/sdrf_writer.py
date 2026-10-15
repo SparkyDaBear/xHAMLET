@@ -90,7 +90,6 @@ class SDRFWriter:
         spectral_summary: Optional[Dict[str, Any]],
         pride_data: Optional[Dict[str, Any]],
         output_path: Path,
-        file_assignments: Optional[Dict[str, Dict[str, Any]]] = None,
         assessed_files: Optional[List[str]] = None,
     ) -> Path:
         """
@@ -103,7 +102,6 @@ class SDRFWriter:
             spectral_summary:   Dict from AssessorRunner.build_spectral_summary().
             pride_data:         Dict from PrideClient.
             output_path:        Destination path for the TSV file.
-            file_assignments:   Optional Dict[filename, {cluster_id, organism, taxid}] from file clustering.
             assessed_files:     Optional list of filenames that were actually assessed.
 
         Returns:
@@ -115,7 +113,6 @@ class SDRFWriter:
         llm = llm_responses or {}
         spec = spectral_summary or {}
         pride = pride_data or {}
-        file_assignments = file_assignments or {}
         assessed_files = assessed_files or []
         assessed_set = set(assessed_files)
 
@@ -128,13 +125,10 @@ class SDRFWriter:
             logger.warning("No .raw files in file_list — SDRF will be empty")
 
         # ---- Resolved values (dataset-level, shared across all rows) ----
-        # Organisms: resolve full list, then assign per file
-        # If file_assignments available, use per-file organism from clustering
+        # Organisms: resolve full list, then assign per file (same organism(s) for every file -
+        # file clustering was removed as legacy logic, so there is no per-file organism source).
         all_organisms = SDRFWriter._resolve_organisms_list(llm, pride)
-        if file_assignments:
-            per_file_org = self._assign_organisms_from_clustering(raw_files, file_assignments, all_organisms)
-        else:
-            per_file_org = SDRFWriter._assign_organisms_per_file(raw_files, all_organisms)
+        per_file_org = SDRFWriter._assign_organisms_per_file(raw_files, all_organisms)
         
         max_org_count = max((len(v) for v in per_file_org.values()), default=1)
         if len(all_organisms) > 1:
@@ -170,16 +164,6 @@ class SDRFWriter:
         ]
         if taxonomy_template:
             sdrf_templates.append(taxonomy_template)
-
-        # Map cluster -> assessed representative files for inheritance checks
-        cluster_to_assessed: Dict[str, List[str]] = {}
-        for filename in assessed_set:
-            assignment = file_assignments.get(filename)
-            if not assignment:
-                continue
-            cluster_id = assignment.get("cluster_id")
-            if cluster_id:
-                cluster_to_assessed.setdefault(cluster_id, []).append(filename)
 
         # ---- Build column headers ----
         mod_col_count = max(len(modification_terms), 1)
@@ -248,12 +232,11 @@ class SDRFWriter:
 
             # Spectral field inheritance behavior:
             # - assessed file: use resolved spectral terms
-            # - non-assessed file in a cluster with assessed representative: inherit resolved terms
-            # - otherwise: not available
-            cluster_id = (file_assignments.get(filename) or {}).get("cluster_id")
-            has_representative = filename in assessed_set or (
-                bool(cluster_id) and bool(cluster_to_assessed.get(cluster_id))
-            )
+            # - otherwise: not available (file clustering, which previously let a
+            #   non-assessed file inherit a cluster representative's resolved
+            #   terms, was removed as legacy logic - every raw file is now
+            #   assessed directly, see RawFileProcessor.select_files_for_assessment)
+            has_representative = filename in assessed_set
 
             row_instrument = instrument_term if has_representative else None
             row_collision = collision_energy_term if has_representative else None
@@ -513,43 +496,6 @@ class SDRFWriter:
             if not orgs:
                 assignment[fname] = list(organism_terms)
 
-        return assignment
-
-    def _assign_organisms_from_clustering(
-        self,
-        raw_files: List[Dict[str, Any]],
-        file_assignments: Dict[str, Dict[str, Any]],
-        fallback_organisms: List[str],
-    ) -> Dict[str, List[str]]:
-        """
-        Assign organism term(s) to each raw file using file_assignments from clustering.
-
-        If file_assignments contains organism info, use it. Otherwise, fall back to 
-        the fallback_organisms list (dataset-level).
-
-        Args:
-            raw_files: List of file dicts with 'fileName'
-            file_assignments: Dict[filename, {cluster_id, organism, taxid, ...}]
-            fallback_organisms: List of dataset-level organism terms
-
-        Returns:
-            Dict[filename, List[organism_terms]]
-        """
-        assignment: Dict[str, List[str]] = {}
-        
-        for f in raw_files:
-            fname = f.get("fileName", "")
-            if fname in file_assignments:
-                # Use organism from file_assignments
-                org_name = file_assignments[fname].get("organism", "")
-                if org_name:
-                    assignment[fname] = [org_name]
-                else:
-                    assignment[fname] = fallback_organisms if fallback_organisms else []
-            else:
-                # Fallback to dataset-level organism
-                assignment[fname] = fallback_organisms if fallback_organisms else []
-        
         return assignment
 
     @staticmethod

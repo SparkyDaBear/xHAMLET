@@ -571,7 +571,10 @@
       "aliases": [
         "EDC + NHS",
         "EDC/NHS",
-        "carbodiimide/NHS zero-length coupling system"
+        "carbodiimide/NHS zero-length coupling system",
+        "EDC+NHS",
+        "EDC_NHS",
+        "EDC-NHS"
       ],
       "xisearch_validated": false,
       "notes": "EDC with NHS co-reagent for improved efficiency",
@@ -594,7 +597,10 @@
         "EDC/sulfo-NHS",
         "carbodiimide/sulfo-NHS zero-length coupling system",
         "EDC/sNHS",
-        "EDC+sulfo-NHS"
+        "EDC+sulfo-NHS",
+        "EDC_Sulfo_NHS",
+        "EDC-sulfo-NHS",
+        "EDC Sulfo NHS"
       ],
       "xisearch_validated": false,
       "notes": "EDC with sulfo-NHS co-reagent, water-soluble version",
@@ -2858,33 +2864,79 @@
     },
     {
       "name": "Alkyne-BVSC",
-      "full_name": null,
-      "type": null,
-      "xi_class": "NeedsVerification",
-      "mass": null,
-      "linked_aminoacids": null,
-      "stubs": null,
-      "ms_cleavable": null,
+      "full_name": "Alkyne-bis-vinyl sulfone crosslinker",
+      "type": "homo-bifunctional, MS-cleavable, enrichable",
+      "xi_class": "AsymetricSingleAminoAcidRestrictedCrossLinker",
+      "search_variants": [
+        {
+          "name": "Alkyne-BVSC_KH",
+          "mass": 222.0016,
+          "first_linked_aminoacids": "K,H,nterm",
+          "second_linked_aminoacids": "K,H,nterm"
+        },
+        {
+          "name": "Alkyne-BVSC_C_KH",
+          "mass": 164.980136,
+          "first_linked_aminoacids": "C",
+          "second_linked_aminoacids": "K,H,nterm"
+        },
+        {
+          "name": "Alkyne-BVSC_C_C",
+          "mass": 107.958672,
+          "first_linked_aminoacids": "C",
+          "second_linked_aminoacids": "C"
+        }
+      ],
+      "stubs": "0,0,S,222.0016",
+      "ms_cleavable": true,
       "short_name": "Alkyne-BVSC",
-      "aliases": [],
+      "aliases": [
+        "Alkyne-BVSC",
+        "Alkyne BVSC",
+        "alkyne-bvsc"
+      ],
       "xisearch_validated": false,
-      "notes": "Enrichable homobifunctional vinyl-sulfone-based crosslinker | NEW CANDIDATE from scripts/normalize_crosslinker_database.py (10 PXD(s): PXD065858, PXD065869, PXD065870, PXD065871, PXD065912...). Mass/xi_class NOT YET VERIFIED by a human - xi_class is set to 'NeedsVerification' so XiConfigGenerator raises a clear error instead of silently mis-configuring XiSearch. A chemist must confirm monoisotopic mass, linked_aminoacids, and ms_cleavable before this entry can be used for actual crosslink search.",
-      "xlmod_accession": null
+      "notes": "Published XiSearch parameters for Alkyne-BVSC.",
+      "xlmod_accession": null,
+      "sdrf_comment_cross_linker": "NT=Alkyne-BVSC"
     },
     {
       "name": "VSD",
-      "full_name": null,
-      "type": null,
-      "xi_class": "NeedsVerification",
-      "mass": null,
-      "linked_aminoacids": null,
-      "stubs": null,
-      "ms_cleavable": null,
+      "full_name": "Vinyl-sulfone-diazirine crosslinker",
+      "type": "hetero-bifunctional, photo-crosslinker, MS-cleavable",
+      "xi_class": "AsymetricSingleAminoAcidRestrictedCrossLinker",
+      "search_variants": [
+        {
+          "name": "VSD_KH_any",
+          "mass": 161.050964,
+          "first_linked_aminoacids": "K,H,nterm",
+          "second_linked_aminoacids": "*"
+        },
+        {
+          "name": "VSD_C_any",
+          "mass": 104.0295,
+          "first_linked_aminoacids": "C",
+          "second_linked_aminoacids": "*"
+        },
+        {
+          "name": "VSD_C_C",
+          "mass": 47.008036,
+          "first_linked_aminoacids": "C",
+          "second_linked_aminoacids": "C"
+        }
+      ],
+      "stubs": "0,0,S,161.050964",
+      "ms_cleavable": true,
       "short_name": "VSD",
-      "aliases": [],
+      "aliases": [
+        "VSD",
+        "vinyl-sulfone-diazirine",
+        "vinyl sulfone diazirine"
+      ],
       "xisearch_validated": false,
-      "notes": "Heterobifunctional crosslinker combining vinyl sulfone and diazirine for UV-activation | NEW CANDIDATE from scripts/normalize_crosslinker_database.py (10 PXD(s): PXD065858, PXD065869, PXD065870, PXD065871, PXD065912...). Mass/xi_class NOT YET VERIFIED by a human - xi_class is set to 'NeedsVerification' so XiConfigGenerator raises a clear error instead of silently mis-configuring XiSearch. A chemist must confirm monoisotopic mass, linked_aminoacids, and ms_cleavable before this entry can be used for actual crosslink search.",
-      "xlmod_accession": null
+      "notes": "Published XiSearch parameters for VSD.",
+      "xlmod_accession": null,
+      "sdrf_comment_cross_linker": "NT=VSD"
     },
     {
       "name": "Alkyne-NHS-C3",
