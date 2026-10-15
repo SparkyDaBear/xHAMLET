@@ -2,40 +2,23 @@
   "metadata": {
     "pxd": "PXD055077",
     "category": "enhanced",
-    "saved_at": "2026-10-13T20:29:10.048188",
+    "saved_at": "2026-10-15T09:46:00.325011",
     "filename": "metadata"
   },
   "data": {
     "pxd": "PXD055077",
-    "processed_at": "2026-10-13T20:28:52.543874",
+    "processed_at": "2026-10-15T09:45:45.196004",
     "stages": {
       "pride": "success",
       "publication": "success",
-      "file_clustering": "success",
       "raw_processing": "skipped_no_download",
       "spectral_merge": "success_cached",
       "llm": "success",
       "sdrf": "success",
       "sdrf_validation": "success_with_warnings",
-      "xi_configs": "failed",
+      "xi_configs": "success",
       "relink": "skipped",
       "compilation": "success"
-    },
-    "file_assignments": {
-      "SUMOylation_PhoX_TBDSPP_FAIMS_140823.raw": {
-        "cluster_id": "cluster_1",
-        "cluster_label": "sumo_antibody_tbdspp",
-        "organism": "Oryctolagus cuniculus",
-        "taxid": "NCBITaxon:9913",
-        "crosslinker": "TBDSPP"
-      },
-      "SUMOylation_PhoX_TBDSPP_FT_FAIMS_140823.raw": {
-        "cluster_id": "cluster_1",
-        "cluster_label": "sumo_antibody_tbdspp",
-        "organism": "Oryctolagus cuniculus",
-        "taxid": "NCBITaxon:9913",
-        "crosslinker": "TBDSPP"
-      }
     },
     "spectral_summary": {
       "source_files_parsed": 0,
@@ -44,7 +27,20 @@
     },
     "sdrf_path": "store/PXD055077/sdrf/PXD055077.sdrf.tsv",
     "sdrf_validation_warnings": "WARNING: Term: not available in column 'comment[instrument]', is not found in the given ontology list ms;pride\nERROR: Column 'comment[instrument]' contains 'not available' values but requires actual values\nERROR: Term: not available in column 'comment[dissociation method]', is not found in the given ontology list ms;pride\nERROR: Column 'comment[dissociation method]' contains 'not available' values but requires actual values\nERROR: Value 'NT=[{'value': 'NT=DSS;AC=XLMOD:02001;CL=no;TA=K,nterm', 'NT': 'DSS', 'AC': 'XLMOD:02001', 'CL': 'no', 'TA': 'K,nterm', 'confidence': 'high', 'evidence_quote': 'The peptides/antibodies were then cross-linked with either DSS, DSSO, or TBDSPP (Thermo Fisher Scientific) at a final concentration of 2 mM.', 'evidence_location': 'Methods'}, {'value': 'NT=DSSO;AC=XLMOD:02126;CL=yes;TA=K', 'NT': 'DSSO', 'AC': 'XLMOD:02126', 'CL': 'yes', 'TA': 'K', 'confidence': 'high', 'evidence_quote': 'The peptides/antibodies were then cross-linked with either DSS, DSSO, or TBDSPP (Thermo Fisher Scientific) at a final concentration of 2 mM.', 'evidence_location': 'Methods'}, {'value': 'NT=TBDSPP;AC=null;CL=null;TA=null', 'NT': 'TBDSPP', 'AC': 'null', 'CL': 'null', 'TA': 'null', 'confidence': 'high', 'evidence_quote': 'The peptides/antibodies were then cross-linked with either DSS, DSSO, or TBDSPP (Thermo Fisher Scientific) at a final concentration of 2 mM.', 'evidence_location': 'Methods'}]' does not match required pattern\nWARNING: Term: affinity enrichment in column 'comment[crosslink enrichment method]', is not found in the given ontology list pride;ms\nThere were validation errors.",
-    "xi_config_error": "Crosslinker 'TBDSPP' is recognized by name but lacks verified XiSearch chemistry (mass/linked_aminoacids/xi_class) in assets/crosslinker_definitions.json - needs human verification before a config can be generated for this dataset.",
+    "xi_config_paths": {
+      "crosslinking": "store/PXD055077/configs/xi_crosslinking_dss.conf",
+      "linear": "store/PXD055077/configs/xi_linear_dss.conf"
+    },
+    "xi_config_paths_by_crosslinker": {
+      "DSS": {
+        "crosslinking": "store/PXD055077/configs/xi_crosslinking_dss.conf",
+        "linear": "store/PXD055077/configs/xi_linear_dss.conf"
+      },
+      "DSSO": {
+        "crosslinking": "store/PXD055077/configs/xi_crosslinking_dsso.conf",
+        "linear": "store/PXD055077/configs/xi_linear_dsso.conf"
+      }
+    },
     "pride_data": {
       "accession": "PXD055077",
       "title": "Epitope and paratope mapping of a SUMO-remnant antibody using cross-linking mass spectrometry and molecular docking",
