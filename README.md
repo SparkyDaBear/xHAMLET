@@ -256,6 +256,26 @@ This writes `xhamlet-results.sqlite3` locally and generates
 [documents/RESULT_CATALOG_AND_EXPLORER.md](documents/RESULT_CATALOG_AND_EXPLORER.md)
 for PostgreSQL and publishing options.
 
+## Crosslinker Reagent Coverage
+
+A full reanalysis of all 1,045 PXDs in `assets/crosslinking_datasets_list.tsv`
+found the following crosslinker-extraction/mapping breakdown (see
+[documents/CROSSLINKER_EXTRACTION_FAILURE_ANALYSIS.md](documents/CROSSLINKER_EXTRACTION_FAILURE_ANALYSIS.md)
+for the full per-PXD table and manual spot-check investigation):
+
+| Status | PXDs | Notes |
+|---|---:|---|
+| **Usable now** — mapped to a verified DB entry with a real, mass-bearing Xi config | **474** | Ready for XiSearch/ReLink today; see `assets/crosslinking_datasets_true_subset.csv` below. |
+| Mapped, but config has no mass (xi_class `NonCovalentBound`) | 61 | Reagent resolved (FA/Formaldehyde, Benzoyl, Click, photo-Met, photo-Leu), but the generated config omits the `MASS` field, so XiSearch cannot computationally detect crosslinks for these yet. |
+| Mapped to a DB entry still awaiting human chemistry verification (`NeedsVerification`) | 77 | Needs a chemist to confirm monoisotopic mass/chemistry before use (see `scripts/normalize_crosslinker_database.py`). |
+| No valid crosslinker reagent identified | 433 | Mostly proximity-labeling (TurboID/BioID/APEX), native UV photo-crosslinking, natural/enzymatic crosslinks, or a non-XL-MS study altogether — see the analysis doc for the full breakdown. |
+| **Total** | **1,045** | |
+
+**[assets/crosslinking_datasets_true_subset.csv](assets/crosslinking_datasets_true_subset.csv)**
+is the curated subset of 474 PXDs confirmed to have a fully usable,
+mass-bearing crosslinker configuration — the recommended starting point for
+any downstream ReLink/search work.
+
 ## AlphaFold3 PPI Structure Prediction
 
 For crosslink-supported protein-protein interactions found in the result
@@ -362,6 +382,7 @@ Common causes:
 - Architecture: [documents/ARCHITECTURE.md](documents/ARCHITECTURE.md)
 - Build notes: [documents/BUILD_SUMMARY.md](documents/BUILD_SUMMARY.md)
 - Result catalog and static explorer: [documents/RESULT_CATALOG_AND_EXPLORER.md](documents/RESULT_CATALOG_AND_EXPLORER.md)
+- Crosslinker extraction failure analysis: [documents/CROSSLINKER_EXTRACTION_FAILURE_ANALYSIS.md](documents/CROSSLINKER_EXTRACTION_FAILURE_ANALYSIS.md)
 
 ## References
 
