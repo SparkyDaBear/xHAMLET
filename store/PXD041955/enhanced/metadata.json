@@ -1,0 +1,1236 @@
+{
+  "metadata": {
+    "pxd": "PXD041955",
+    "category": "enhanced",
+    "saved_at": "2026-10-13T20:28:53.681498",
+    "filename": "metadata"
+  },
+  "data": {
+    "pxd": "PXD041955",
+    "processed_at": "2026-10-13T20:28:20.801759",
+    "stages": {
+      "pride": "success",
+      "publication": "failed",
+      "file_clustering": "success",
+      "raw_processing": "skipped_no_download",
+      "spectral_merge": "success_cached",
+      "llm": "success",
+      "sdrf": "success",
+      "sdrf_validation": "success_with_warnings",
+      "xi_configs": "success",
+      "relink": "skipped",
+      "compilation": "success"
+    },
+    "file_assignments": {
+      "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib16_DSSO_pl1_MS3_OTOTIT.raw": {
+        "cluster_id": "cluster_1",
+        "cluster_label": "e_coli_peplib16_dsso",
+        "organism": "Escherichia coli",
+        "taxid": "NCBITaxon:562",
+        "crosslinker": "DSSO"
+      },
+      "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSBSO_pl2_MS3_OTOTIT.raw": {
+        "cluster_id": "cluster_2",
+        "cluster_label": "e_coli_peplib20_dsbso",
+        "organism": "Escherichia coli",
+        "taxid": "NCBITaxon:562",
+        "crosslinker": "DSBSO"
+      },
+      "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSBSO_pl2_MS3_OTOTOT.raw": {
+        "cluster_id": "cluster_2",
+        "cluster_label": "e_coli_peplib20_dsbso",
+        "organism": "Escherichia coli",
+        "taxid": "NCBITaxon:562",
+        "crosslinker": "DSBSO"
+      },
+      "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSSO_pl1_MS3_OTOTOT.raw": {
+        "cluster_id": "cluster_3",
+        "cluster_label": "e_coli_peplib20_dsso",
+        "organism": "Escherichia coli",
+        "taxid": "NCBITaxon:562",
+        "crosslinker": "DSSO"
+      }
+    },
+    "spectral_summary": {
+      "source_files_parsed": 0,
+      "per_file": [],
+      "instrument": "Orbitrap Eclipse"
+    },
+    "sdrf_path": "store/PXD041955/sdrf/PXD041955.sdrf.tsv",
+    "sdrf_validation_warnings": "WARNING: Term: not available in column 'comment[instrument]', is not found in the given ontology list ms;pride\nERROR: Column 'comment[instrument]' contains 'not available' values but requires actual values\nERROR: Term: not available in column 'comment[dissociation method]', is not found in the given ontology list ms;pride\nERROR: Column 'comment[dissociation method]' contains 'not available' values but requires actual values\nERROR: Value 'NT=[{'value': 'NT=DSSO;AC=XLMOD:02126;CL=yes;TA=K', 'NT': 'DSSO', 'AC': 'XLMOD:02126', 'CL': 'yes', 'TA': 'K', 'confidence': 'high', 'evidence_quote': '9.3 mM crosslinker reagent (DSSO/DSBSO) stock solutions were freshly prepared', 'evidence_location': 'PRIDE SAMPLE PROCESSING PROTOCOL'}, {'value': 'NT=DSBSO;AC=null;CL=yes;TA=K', 'NT': 'DSBSO', 'AC': None, 'CL': 'yes', 'TA': 'K', 'confidence': 'high', 'evidence_quote': '9.3 mM crosslinker reagent (DSSO/DSBSO) stock solutions were freshly prepared', 'evidence_location': 'PRIDE SAMPLE PROCESSING PROTOCOL'}]' does not match required pattern\nWARNING: Term: size exclusion chromatography (SEC), affinity enrichment in column 'comment[crosslink enrichment method]', is not found in the given ontology list pride;ms\nThere were validation errors.",
+    "xi_config_paths": {
+      "crosslinking": "store/PXD041955/configs/xi_crosslinking_dsso.conf",
+      "linear": "store/PXD041955/configs/xi_linear_dsso.conf"
+    },
+    "xi_config_paths_by_crosslinker": {
+      "DSSO": {
+        "crosslinking": "store/PXD041955/configs/xi_crosslinking_dsso.conf",
+        "linear": "store/PXD041955/configs/xi_linear_dsso.conf"
+      },
+      "DSBSO": {
+        "crosslinking": "store/PXD041955/configs/xi_crosslinking_dsbso.conf",
+        "linear": "store/PXD041955/configs/xi_linear_dsbso.conf"
+      }
+    },
+    "pride_data": {
+      "accession": "PXD041955",
+      "title": "Extending MS Annika for MS2-MS3-based Cross-linking Workflows",
+      "additionalAttributes": [],
+      "projectDescription": "Over the past few decades cross-linking mass spectrometry (XLMS) has become a powerful tool for identification of protein-protein interactions and for gaining insight into the structures of proteins in living cells, tissues, and organelles. The development of new crosslinkers, enrichment strategies and data acquisition methods led to the establishment of numerous new software tools specifically for the analysis and interpretation of cross-linking data. We previously published one of these tools called MS Annika, a cross-linking search engine which can accurately identify cross-linked peptides in MS2 spectra from a variety of different MS-cleavable crosslinkers. In this publication we present an updated MS Annika and a new search algorithm that additionally supports processing of data from MS2-MS3-based approaches and identification of peptides from MS3 spectra. In the new MS2-MS3 search algorithm, MS3 spectra are matched to their corresponding precursor doublet peak in the MS2 scan to identify the crosslink modification and the monoisotopic peptide mass. This information is then used to adjust the MS3 spectra for search with MS Amanda, our in-house developed peptide search engine, to identify the cross-linked peptides. Peptides that are identified in the MS2 scan and one or more of the associated product MS3 scans are re-scored with a novel scoring function to reflect the increased confidence. Finally, the detected cross-links are validated by estimating the false discovery rate (FDR) using a target-decoy approach. We evaluated the MS3-search-capabilities of MS Annika on five different datasets covering a variety of experimental approaches and compared it to XlinkX and MaXLinker, two other cross-linking search engines that support MS3 crosslink identification. Three of the datasets were benchmark datasets of synthetic peptides that allow calculation of an experimentally validated FDR, and we show that MS Annika detects up to 4 times more true unique crosslinks than MaXLinker and up to 35% more than XlinkX while simultaneously yielding less false positive hits and therefore a more accurate FDR than the other two search engines. Additionally, for the other two datasets we could show that MS Annika finds between 74% to 2.5 times more crosslinks at 1% estimated FDR and reveals protein-protein interactions that are not detected by either XlinkX or MaXLinker.",
+      "sampleProcessingProtocol": "9.3 mM crosslinker reagent (DSSO/DSBSO) stock solutions were freshly prepared in dry dimethyl sulfoxide (DMSO) and 0.5 μL of stock solution was added to 1 μL of each of the synthesised peptide groups in separate vials. Additional stock solution was added 4x every 30 min up to a total of 2.5 μL of crosslinker stock solution. The resulting 3.5 μL reaction mixes were quenched using 31.5 μL 100 mM ammoniumbicarbonate (ABC) buffer for 30 min and pooled to a single tube. 5 ng of trypsin/group was added for digestion overnight at 37 °C. Reduction of the azide protection groups to the respective amines was achieved by incubation to 50 mM (final concentration) tris(2-carboxyethyl)phosphine (TECEP) for 30 min at room temperature. The reduced peptides were finally pooled to a single vial, aliquoted and stored at -70 °C until further usage. The cross-linked and digested peptide pools were then mixed with a 5-100x excess (by mass) of tryptic HEK peptides to mimic complex mixtures. The spiked samples were subsequently enriched either by size exclusion chromatography (SEC) or via affinity enrichment. For SEC approximately 10 μg of the cross-linked peptides + tryptic HEK peptides mix was fractionated on a TSKgel SuperSW2000 column (300 mm x 4.5 mm x 4 μm, Tosoh Bioscience) which was operated at 200 μl/min in 30% acetonitrile (ACN), 0.1% trifluoroacetic acid (TFA). Fractions were collected every minute and ACN was removed under reduced pressure to obtain concentrated samples for LC-MS/MS. DSBSO cross-linked peptides were affinity enriched using dibenzylcyclooctyne (DBCO) immobilised beads as described in another publication by Matzinger and co-workers. Samples were separated using a Dionex UltiMate 3000 HPLC RSLC nano-system coupled to an Orbitrap Eclipse™ Tribrid™ Mass Spectrometer with FAIMS pro interface (all by Thermo Scientific™) that was operated using Thermo Scientific™ Xcalibur™ v4. Samples were loaded onto a trap column (Thermo Fischer Scientific™, PepMap C18, 500 mm x 75 μm ID, 2 μm, 100 Å). Peptides were eluted using a flow rate of 230 nl min-1, with the following gradient: 0 - 10 min 2% buffer B, followed by an increasing concentration of buffer B up to 40% until min 130. This is followed by a 5 min gradient from reaching 95% B, washing for 5 min with 95% B and then re-equilibration of the column in buffer A at 30 °C (buffer B: 80% ACN, 19.92% H2O and 0.08% TFA; buffer A: 99.9% H2O and 0.1% TFA). The Orbitrap Eclipse was operated in data-dependent mode, using a full scan (m/z range 375 - 1500, nominal resolution 120K, Automatic Gain Control (AGC) target value 4E5). MS2 scans were acquired in the orbitrap using CID fragmentation at a collision energy of 25, an isolation width of 1.2 m/z, a resolution of 30K and an AGC target value of 5E4. Precursor ions selected for fragmentation (± 10 ppm) were put on a dynamic exclusion list for 25 s. MS3 scans were triggered by the crosslinker specific mass difference (DSSO: 31.9721 Da, DSBSO: 182.0071 Da) and either acquired in the orbitrap or in the ion trap, depending on the experiment, using CID fragmentation at a collision energy of 35 and an isolation width of 2.0 m/z. For MS3 scans recorded in the orbitrap, the resolution was set to 15K, maximum injection time 22 ms and AGC target value 2E4. For MS3 scans recorded in the ion trap, the ion trap was operated in rapid mode, maximum injection time 150 ms and AGC target value 4E3. Compensation voltage for FAIMS was set to -55V. The MS3 acquisition was designed as described by Wheat and co-workers.",
+      "dataProcessingProtocol": "Samples were analysed with MS Annika (v1.1.3) in Proteome Discoverer 2.5 (Thermo Scientific, v2.5.0.400), XlinkX (v2.5) in Proteome Discoverer 3.0 (Thermo Scientific, v3.0.0.757) and MaXLinker (v1.0.0) and results were compared against each other to assess the performance of each search engine. MS1 Tolerance was set to 5-10 ppm, MS2 Tolerance between 10-20 ppm and MS3 Tolerance to 10 ppm for orbitrap spectra and 0.5 Da for ion trap spectra. A maximum number of 4 missed cleavages was allowed and carbamidomethyl (C, +57.021 Da) was considered as a fixed modification. Oxidation (M, +15.995 Da) was considered as a variable modification. For identification of monolinks DSSO amidated, hydrolysed and tris were considered (K, +175.030 Da; K, +176.014 Da; K, +279.078 Da) in DSSO experiments. In DSBSO experiments monolink modifications of DSBSO amidated, hydrolysed and tris were considered (K, +325.065 Da; K, +326.049 Da; K, +429.113 Da). Results were validated for 1% FDR. For a detailed description of all search settings please refer to the publication.",
+      "projectTags": [],
+      "keywords": [
+        "Search engine",
+        "Ms3",
+        "Cross-linking",
+        "Xlms",
+        "Protein-protein-interaction",
+        "Ppi",
+        "Crosslinker",
+        "Xl-ms",
+        "Bioinformatics",
+        "Crosslinking"
+      ],
+      "doi": "10.6019/PXD041955",
+      "submissionType": "COMPLETE",
+      "license": "Creative Commons Public Domain (CC0)",
+      "submissionDate": "2023-05-03",
+      "publicationDate": "2023-08-13",
+      "submitters": [
+        {
+          "title": "Mr",
+          "firstName": "Micha Johannes",
+          "lastName": "Birklbauer",
+          "identifier": "2743941",
+          "affiliation": "University of Applied Sciences Upper Austria",
+          "email": "micha.birklbauer@fh-hagenberg.at",
+          "country": "Austria",
+          "orcid": "0009-0005-1051-179X",
+          "name": "Micha Johannes Birklbauer",
+          "id": "2743941"
+        }
+      ],
+      "labPIs": [
+        {
+          "title": "Dr",
+          "firstName": "Viktoria",
+          "lastName": "Dorfer",
+          "identifier": "2569122",
+          "affiliation": "University of Applied Sciences Upper Austria, Bioinformatics Research Group, Softwarepark 11, 4232 Hagenberg, Austria",
+          "email": "viktoria.dorfer@fh-hagenberg.at",
+          "country": "",
+          "orcid": "",
+          "name": "Viktoria Dorfer",
+          "id": "2569122"
+        }
+      ],
+      "instruments": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MS",
+          "accession": "MS:1003029",
+          "name": "Orbitrap Eclipse"
+        }
+      ],
+      "softwares": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MS",
+          "accession": "MS:1000650",
+          "name": "Proteome Discoverer"
+        }
+      ],
+      "experimentTypes": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "PRIDE",
+          "accession": "PRIDE:0000430",
+          "name": "Chemical cross-linking coupled with mass spectrometry proteomics"
+        }
+      ],
+      "quantificationMethods": [],
+      "countries": [
+        "Austria"
+      ],
+      "sampleAttributes": [
+        {
+          "@type": "Tuple",
+          "key": {
+            "cvLabel": "EFO",
+            "accession": "OBI:0100026",
+            "name": "organism"
+          },
+          "value": [
+            {
+              "cvLabel": "NEWT",
+              "accession": "NEWT:562",
+              "name": "Escherichia coli"
+            }
+          ]
+        }
+      ],
+      "organisms": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "NEWT",
+          "accession": "NEWT:562",
+          "name": "Escherichia coli"
+        }
+      ],
+      "organismParts": [],
+      "diseases": [],
+      "references": [
+        {
+          "pubmedID": 0,
+          "doi": "10.1021/ACS.JPROTEOME.3C00325"
+        }
+      ],
+      "identifiedPTMStrings": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MOD",
+          "accession": "MOD:00425",
+          "name": "monohydroxylated residue"
+        },
+        {
+          "@type": "CvParam",
+          "cvLabel": "MOD",
+          "accession": "MOD:00397",
+          "name": "iodoacetamide derivatized residue"
+        }
+      ],
+      "totalFileDownloads": 6437,
+      "botCount": 1104,
+      "hubCount": 5249,
+      "organicCount": 84,
+      "otherOmicsLinks": [
+        "px:PXD029252",
+        "px:PXD014337",
+        "px:PXD026191",
+        "px:PXD031114"
+      ],
+      "files": {
+        "files": [
+          {
+            "fileName": "peplib.fasta",
+            "fileSizeBytes": 72575,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/peplib.fasta"
+          },
+          {
+            "fileName": "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib16_DSSO_pl1_MS3_OTOTIT.raw",
+            "fileSizeBytes": 621578793,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/20211219_Eclipse_LC4_G2_Trap_backflash_Peplib16_DSSO_pl1_MS3_OTOTIT.raw"
+          },
+          {
+            "fileName": "re-analysis_PXD029252.fasta",
+            "fileSizeBytes": 72575,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/re-analysis_PXD029252.fasta"
+          },
+          {
+            "fileName": "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSBSO_pl2_MS3_OTOTIT.raw",
+            "fileSizeBytes": 743234698,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSBSO_pl2_MS3_OTOTIT.raw"
+          },
+          {
+            "fileName": "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSBSO_pl2_MS3_OTOTOT.mzid.gz",
+            "fileSizeBytes": 733239,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSBSO_pl2_MS3_OTOTOT.mzid.gz"
+          },
+          {
+            "fileName": "sdrf.tsv",
+            "fileSizeBytes": 1298,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/sdrf.tsv"
+          },
+          {
+            "fileName": "re-analysis_PXD029252_MaXLinker_PD2.5Study.zip",
+            "fileSizeBytes": 1101371389,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/re-analysis_PXD029252_MaXLinker_PD2.5Study.zip"
+          },
+          {
+            "fileName": "re-analysis_PXD014337_IMP-X-FDR_files.zip",
+            "fileSizeBytes": 1031698,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/re-analysis_PXD014337_IMP-X-FDR_files.zip"
+          },
+          {
+            "fileName": "re-analysis_PXD014337_MaXLinker_files.zip",
+            "fileSizeBytes": 478595759,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/re-analysis_PXD014337_MaXLinker_files.zip"
+          },
+          {
+            "fileName": "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSBSO_pl2_MS3_OTOTOT_CSMS_1FDR.xlsx",
+            "fileSizeBytes": 157459,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSBSO_pl2_MS3_OTOTOT_CSMS_1FDR.xlsx"
+          },
+          {
+            "fileName": "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSBSO_pl2_MS3_OTOTOT.pdResult",
+            "fileSizeBytes": 96899072,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSBSO_pl2_MS3_OTOTOT.pdResult"
+          },
+          {
+            "fileName": "re-analysis_PXD014337_XlinkX_PD3.0Study.zip",
+            "fileSizeBytes": 2486820133,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/re-analysis_PXD014337_XlinkX_PD3.0Study.zip"
+          },
+          {
+            "fileName": "peplib_XlinkX_PD3.0Study.zip",
+            "fileSizeBytes": 21196762355,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/peplib_XlinkX_PD3.0Study.zip"
+          },
+          {
+            "fileName": "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSSO_pl1_MS3_OTOTOT.msf",
+            "fileSizeBytes": 344014848,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSSO_pl1_MS3_OTOTOT.msf"
+          },
+          {
+            "fileName": "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSBSO_pl2_MS3_OTOTOT.raw",
+            "fileSizeBytes": 755348562,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSBSO_pl2_MS3_OTOTOT.raw"
+          },
+          {
+            "fileName": "re-analysis_PXD029252_XlinkX_PD3.0Study.zip",
+            "fileSizeBytes": 2656403393,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/re-analysis_PXD029252_XlinkX_PD3.0Study.zip"
+          },
+          {
+            "fileName": "re-analysis_PXD014337.fasta",
+            "fileSizeBytes": 43394,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/re-analysis_PXD014337.fasta"
+          },
+          {
+            "fileName": "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSBSO_pl2_MS3_OTOTOT_Crosslinks_1FDR.xlsx",
+            "fileSizeBytes": 15844,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSBSO_pl2_MS3_OTOTOT_Crosslinks_1FDR.xlsx"
+          },
+          {
+            "fileName": "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSBSO_pl2_MS3_OTOTIT.pdResult",
+            "fileSizeBytes": 108773376,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSBSO_pl2_MS3_OTOTIT.pdResult"
+          },
+          {
+            "fileName": "settings.txt",
+            "fileSizeBytes": 714,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/settings.txt"
+          },
+          {
+            "fileName": "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSSO_pl1_MS3_OTOTOT_Crosslinks_1FDR.xlsx",
+            "fileSizeBytes": 22477,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSSO_pl1_MS3_OTOTOT_Crosslinks_1FDR.xlsx"
+          },
+          {
+            "fileName": "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib16_DSSO_pl1_MS3_OTOTIT.pdResult",
+            "fileSizeBytes": 109699072,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/20211219_Eclipse_LC4_G2_Trap_backflash_Peplib16_DSSO_pl1_MS3_OTOTIT.pdResult"
+          },
+          {
+            "fileName": "re-analysis_PXD014337_MaXLinker_PD2.5Study.zip",
+            "fileSizeBytes": 1529844058,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/re-analysis_PXD014337_MaXLinker_PD2.5Study.zip"
+          },
+          {
+            "fileName": "peplib_MaXLinker_PD2.5Study.zip",
+            "fileSizeBytes": 3519464127,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/peplib_MaXLinker_PD2.5Study.zip"
+          },
+          {
+            "fileName": "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib16_DSSO_pl1_MS3_OTOTIT.mzML",
+            "fileSizeBytes": 1273828337,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/20211219_Eclipse_LC4_G2_Trap_backflash_Peplib16_DSSO_pl1_MS3_OTOTIT.mzML"
+          },
+          {
+            "fileName": "peplib_MSAnnika_PD2.5Study.zip",
+            "fileSizeBytes": 10216728562,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/peplib_MSAnnika_PD2.5Study.zip"
+          },
+          {
+            "fileName": "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSSO_pl1_MS3_OTOTOT_CSMS_1FDR.xlsx",
+            "fileSizeBytes": 94687,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSSO_pl1_MS3_OTOTOT_CSMS_1FDR.xlsx"
+          },
+          {
+            "fileName": "re-analysis_PXD026191_MaXLinker_files.zip",
+            "fileSizeBytes": 2629250423,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/re-analysis_PXD026191_MaXLinker_files.zip"
+          },
+          {
+            "fileName": "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSBSO_pl2_MS3_OTOTIT.mzML",
+            "fileSizeBytes": 1543466536,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSBSO_pl2_MS3_OTOTIT.mzML"
+          },
+          {
+            "fileName": "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSSO_pl1_MS3_OTOTOT.pdResult",
+            "fileSizeBytes": 95584256,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSSO_pl1_MS3_OTOTOT.pdResult"
+          },
+          {
+            "fileName": "re-analysis_PXD026191.fasta",
+            "fileSizeBytes": 276,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/re-analysis_PXD026191.fasta"
+          },
+          {
+            "fileName": "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib16_DSSO_pl1_MS3_OTOTIT.mgf",
+            "fileSizeBytes": 193158943,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/20211219_Eclipse_LC4_G2_Trap_backflash_Peplib16_DSSO_pl1_MS3_OTOTIT.mgf"
+          },
+          {
+            "fileName": "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSBSO_pl2_MS3_OTOTIT.mzid.gz",
+            "fileSizeBytes": 797896,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSBSO_pl2_MS3_OTOTIT.mzid.gz"
+          },
+          {
+            "fileName": "re-analysis_PXD029252_IMP-X-FDR_files.zip",
+            "fileSizeBytes": 1971519,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/re-analysis_PXD029252_IMP-X-FDR_files.zip"
+          },
+          {
+            "fileName": "re-analysis_PXD031114_XlinkX_PD3.0Study.zip",
+            "fileSizeBytes": 302333508,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/re-analysis_PXD031114_XlinkX_PD3.0Study.zip"
+          },
+          {
+            "fileName": "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSSO_pl1_MS3_OTOTOT.mzid.gz",
+            "fileSizeBytes": 741140,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSSO_pl1_MS3_OTOTOT.mzid.gz"
+          },
+          {
+            "fileName": "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSSO_pl1_MS3_OTOTOT.mzML",
+            "fileSizeBytes": 1199561776,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSSO_pl1_MS3_OTOTOT.mzML"
+          },
+          {
+            "fileName": "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSBSO_pl2_MS3_OTOTOT.mgf",
+            "fileSizeBytes": 150446047,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSBSO_pl2_MS3_OTOTOT.mgf"
+          },
+          {
+            "fileName": "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSBSO_pl2_MS3_OTOTIT.mgf",
+            "fileSizeBytes": 217149115,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSBSO_pl2_MS3_OTOTIT.mgf"
+          },
+          {
+            "fileName": "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSBSO_pl2_MS3_OTOTIT_CSMS_1FDR.xlsx",
+            "fileSizeBytes": 167604,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSBSO_pl2_MS3_OTOTIT_CSMS_1FDR.xlsx"
+          },
+          {
+            "fileName": "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib16_DSSO_pl1_MS3_OTOTIT_CSMS_1FDR.xlsx",
+            "fileSizeBytes": 105429,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/20211219_Eclipse_LC4_G2_Trap_backflash_Peplib16_DSSO_pl1_MS3_OTOTIT_CSMS_1FDR.xlsx"
+          },
+          {
+            "fileName": "crap.fasta",
+            "fileSizeBytes": 42092,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/crap.fasta"
+          },
+          {
+            "fileName": "file_description.txt",
+            "fileSizeBytes": 6643,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/file_description.txt"
+          },
+          {
+            "fileName": "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSBSO_pl2_MS3_OTOTOT.mzML",
+            "fileSizeBytes": 1523414308,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSBSO_pl2_MS3_OTOTOT.mzML"
+          },
+          {
+            "fileName": "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSBSO_pl2_MS3_OTOTIT_Crosslinks_1FDR.xlsx",
+            "fileSizeBytes": 16798,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSBSO_pl2_MS3_OTOTIT_Crosslinks_1FDR.xlsx"
+          },
+          {
+            "fileName": "re-analysis_PXD026191_MSAnnika_PD2.5Study.zip",
+            "fileSizeBytes": 1080503948,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/re-analysis_PXD026191_MSAnnika_PD2.5Study.zip"
+          },
+          {
+            "fileName": "re-analysis_PXD029252_MaXLinker_files.zip",
+            "fileSizeBytes": 352533729,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/re-analysis_PXD029252_MaXLinker_files.zip"
+          },
+          {
+            "fileName": "re-analysis_PXD026191_XlinkX_PD3.0Study.zip",
+            "fileSizeBytes": 1330371650,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/re-analysis_PXD026191_XlinkX_PD3.0Study.zip"
+          },
+          {
+            "fileName": "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib16_DSSO_pl1_MS3_OTOTIT.msf",
+            "fileSizeBytes": 404590592,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/20211219_Eclipse_LC4_G2_Trap_backflash_Peplib16_DSSO_pl1_MS3_OTOTIT.msf"
+          },
+          {
+            "fileName": "peplib_MaXLinker_files.zip",
+            "fileSizeBytes": 1092202289,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/peplib_MaXLinker_files.zip"
+          },
+          {
+            "fileName": "re-analysis_PXD029252_MSAnnika_PD2.5Study.zip",
+            "fileSizeBytes": 2824077189,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/re-analysis_PXD029252_MSAnnika_PD2.5Study.zip"
+          },
+          {
+            "fileName": "re-analysis_PXD031114_MaXLinker_PD2.5Study.zip",
+            "fileSizeBytes": 1037240903,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/re-analysis_PXD031114_MaXLinker_PD2.5Study.zip"
+          },
+          {
+            "fileName": "re-analysis_PXD014337_MSAnnika_PD2.5Study.zip",
+            "fileSizeBytes": 2675440900,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/re-analysis_PXD014337_MSAnnika_PD2.5Study.zip"
+          },
+          {
+            "fileName": "re-analysis_PXD026191_MaXLinker_PD2.5Study.zip",
+            "fileSizeBytes": 694994582,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/re-analysis_PXD026191_MaXLinker_PD2.5Study.zip"
+          },
+          {
+            "fileName": "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSBSO_pl2_MS3_OTOTIT.msf",
+            "fileSizeBytes": 490655744,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSBSO_pl2_MS3_OTOTIT.msf"
+          },
+          {
+            "fileName": "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib16_DSSO_pl1_MS3_OTOTIT.mzid.gz",
+            "fileSizeBytes": 817990,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/20211219_Eclipse_LC4_G2_Trap_backflash_Peplib16_DSSO_pl1_MS3_OTOTIT.mzid.gz"
+          },
+          {
+            "fileName": "peplib_IMP-X-FDR_files.zip",
+            "fileSizeBytes": 7175737,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/peplib_IMP-X-FDR_files.zip"
+          },
+          {
+            "fileName": "re-analysis_PXD031114_MSAnnika_PD2.5Study.zip",
+            "fileSizeBytes": 8636886745,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/re-analysis_PXD031114_MSAnnika_PD2.5Study.zip"
+          },
+          {
+            "fileName": "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib16_DSSO_pl1_MS3_OTOTIT_Crosslinks_1FDR.xlsx",
+            "fileSizeBytes": 24545,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/20211219_Eclipse_LC4_G2_Trap_backflash_Peplib16_DSSO_pl1_MS3_OTOTIT_Crosslinks_1FDR.xlsx"
+          },
+          {
+            "fileName": "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSSO_pl1_MS3_OTOTOT.mgf",
+            "fileSizeBytes": 117173382,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSSO_pl1_MS3_OTOTOT.mgf"
+          },
+          {
+            "fileName": "re-analysis_PXD031114_MaXLinker_files.zip",
+            "fileSizeBytes": 1068266626,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/re-analysis_PXD031114_MaXLinker_files.zip"
+          },
+          {
+            "fileName": "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSSO_pl1_MS3_OTOTOT.raw",
+            "fileSizeBytes": 613479879,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSSO_pl1_MS3_OTOTOT.raw"
+          },
+          {
+            "fileName": "20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSBSO_pl2_MS3_OTOTOT.msf",
+            "fileSizeBytes": 426065920,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/20211219_Eclipse_LC4_G2_Trap_backflash_Peplib20_DSBSO_pl2_MS3_OTOTOT.msf"
+          },
+          {
+            "fileName": "re-analysis_PXD031114.fasta",
+            "fileSizeBytes": 6201006,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/re-analysis_PXD031114.fasta"
+          },
+          {
+            "fileName": "PXD041955_community_annotated.sdrf.tsv",
+            "fileSizeBytes": 2418,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2023/08/PXD041955/PXD041955_community_annotated.sdrf.tsv"
+          }
+        ],
+        "totalCount": 65
+      }
+    },
+    "publication_metadata": null,
+    "llm_responses": {
+      "characteristics[disease]": {
+        "response": "```json\n{\n  \"characteristics[disease]\": {\n    \"value\": \"normal\",\n    \"accession\": \"PATO:0000461\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[compound]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "normal",
+          "accession": "PATO:0000461",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[phenotype]": {
+        "response": "```json\n{\n  \"characteristics[disease]\": {\n    \"value\": \"normal\",\n    \"accession\": \"PATO:0000461\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[compound]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": null,
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[treatment]": {
+        "response": "```json\n{\n  \"characteristics[disease]\": {\n    \"value\": \"normal\",\n    \"accession\": \"PATO:0000461\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[compound]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": null,
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[compound]": {
+        "response": "```json\n{\n  \"characteristics[disease]\": {\n    \"value\": \"normal\",\n    \"accession\": \"PATO:0000461\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[compound]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": null,
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[dose]": {
+        "response": "```json\n{\n  \"characteristics[disease]\": {\n    \"value\": \"normal\",\n    \"accession\": \"PATO:0000461\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[compound]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": null,
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[genetic modification]": {
+        "response": "```json\n{\n  \"characteristics[disease]\": {\n    \"value\": \"normal\",\n    \"accession\": \"PATO:0000461\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[compound]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": null,
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[perturbation]": {
+        "response": "```json\n{\n  \"characteristics[disease]\": {\n    \"value\": \"normal\",\n    \"accession\": \"PATO:0000461\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[compound]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": null,
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[depletion]": {
+        "response": "```json\n{\n  \"characteristics[disease]\": {\n    \"value\": \"normal\",\n    \"accession\": \"PATO:0000461\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[compound]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "no depletion",
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "disease_treatment"
+      },
+      "factor value[cell line]": {
+        "response": "```json\n{\n  \"factor value[cell line]\": null,\n  \"factor value[compound]\": null,\n  \"factor value[disease]\": null,\n  \"factor value[dose]\": null,\n  \"factor value[organism part]\": null,\n  \"factor value[time]\": null,\n  \"factor value[treatment]\": null\n}\n```",
+        "parsed": {
+          "value": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "factor_values"
+      },
+      "factor value[compound]": {
+        "response": "```json\n{\n  \"factor value[cell line]\": null,\n  \"factor value[compound]\": null,\n  \"factor value[disease]\": null,\n  \"factor value[dose]\": null,\n  \"factor value[organism part]\": null,\n  \"factor value[time]\": null,\n  \"factor value[treatment]\": null\n}\n```",
+        "parsed": {
+          "value": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "factor_values"
+      },
+      "factor value[disease]": {
+        "response": "```json\n{\n  \"factor value[cell line]\": null,\n  \"factor value[compound]\": null,\n  \"factor value[disease]\": null,\n  \"factor value[dose]\": null,\n  \"factor value[organism part]\": null,\n  \"factor value[time]\": null,\n  \"factor value[treatment]\": null\n}\n```",
+        "parsed": {
+          "value": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "factor_values"
+      },
+      "factor value[dose]": {
+        "response": "```json\n{\n  \"factor value[cell line]\": null,\n  \"factor value[compound]\": null,\n  \"factor value[disease]\": null,\n  \"factor value[dose]\": null,\n  \"factor value[organism part]\": null,\n  \"factor value[time]\": null,\n  \"factor value[treatment]\": null\n}\n```",
+        "parsed": {
+          "value": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "factor_values"
+      },
+      "factor value[organism part]": {
+        "response": "```json\n{\n  \"factor value[cell line]\": null,\n  \"factor value[compound]\": null,\n  \"factor value[disease]\": null,\n  \"factor value[dose]\": null,\n  \"factor value[organism part]\": null,\n  \"factor value[time]\": null,\n  \"factor value[treatment]\": null\n}\n```",
+        "parsed": {
+          "value": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "factor_values"
+      },
+      "factor value[time]": {
+        "response": "```json\n{\n  \"factor value[cell line]\": null,\n  \"factor value[compound]\": null,\n  \"factor value[disease]\": null,\n  \"factor value[dose]\": null,\n  \"factor value[organism part]\": null,\n  \"factor value[time]\": null,\n  \"factor value[treatment]\": null\n}\n```",
+        "parsed": {
+          "value": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "factor_values"
+      },
+      "factor value[treatment]": {
+        "response": "```json\n{\n  \"factor value[cell line]\": null,\n  \"factor value[compound]\": null,\n  \"factor value[disease]\": null,\n  \"factor value[dose]\": null,\n  \"factor value[organism part]\": null,\n  \"factor value[time]\": null,\n  \"factor value[treatment]\": null\n}\n```",
+        "parsed": {
+          "value": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "factor_values"
+      },
+      "comment[instrument]": {
+        "response": "```json\n{\n  \"comment[instrument]\": {\n    \"value\": \"Orbitrap Eclipse\",\n    \"accession\": \"MS:1003349\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to an Orbitrap Eclipse™ Tribrid™ Mass Spectrometer\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"data-dependent acquisition\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The Orbitrap Eclipse was operated in data-dependent mode\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"CID\",\n    \"accession\": \"MS:1002472\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 scans were acquired in the orbitrap using CID fragmentation... MS3 scans were triggered... using CID fragmentation\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"25;35\",\n    \"accession\": \"MS:1000045\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 scans were acquired... at a collision energy of 25... MS3 scans were triggered... using CID fragmentation at a collision energy of 35\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": \"10-20 ppm\",\n    \"accession\": \"PRIDE:0000576\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 Tolerance between 10-20 ppm and MS3 Tolerance to 10 ppm for orbitrap spectra and 0.5 Da for ion trap spectra\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": \"5-10 ppm\",\n    \"accession\": \"PRIDE:0000575\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS1 Tolerance was set to 5-10 ppm\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "Orbitrap Eclipse",
+          "accession": "MS:1003349",
+          "confidence": "high",
+          "evidence_quote": "coupled to an Orbitrap Eclipse™ Tribrid™ Mass Spectrometer",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[proteomics data acquisition method]": {
+        "response": "```json\n{\n  \"comment[instrument]\": {\n    \"value\": \"Orbitrap Eclipse\",\n    \"accession\": \"MS:1003349\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to an Orbitrap Eclipse™ Tribrid™ Mass Spectrometer\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"data-dependent acquisition\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The Orbitrap Eclipse was operated in data-dependent mode\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"CID\",\n    \"accession\": \"MS:1002472\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 scans were acquired in the orbitrap using CID fragmentation... MS3 scans were triggered... using CID fragmentation\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"25;35\",\n    \"accession\": \"MS:1000045\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 scans were acquired... at a collision energy of 25... MS3 scans were triggered... using CID fragmentation at a collision energy of 35\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": \"10-20 ppm\",\n    \"accession\": \"PRIDE:0000576\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 Tolerance between 10-20 ppm and MS3 Tolerance to 10 ppm for orbitrap spectra and 0.5 Da for ion trap spectra\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": \"5-10 ppm\",\n    \"accession\": \"PRIDE:0000575\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS1 Tolerance was set to 5-10 ppm\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "data-dependent acquisition",
+          "accession": "PRIDE:0000041",
+          "confidence": "high",
+          "evidence_quote": "The Orbitrap Eclipse was operated in data-dependent mode",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[dissociation method]": {
+        "response": "```json\n{\n  \"comment[instrument]\": {\n    \"value\": \"Orbitrap Eclipse\",\n    \"accession\": \"MS:1003349\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to an Orbitrap Eclipse™ Tribrid™ Mass Spectrometer\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"data-dependent acquisition\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The Orbitrap Eclipse was operated in data-dependent mode\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"CID\",\n    \"accession\": \"MS:1002472\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 scans were acquired in the orbitrap using CID fragmentation... MS3 scans were triggered... using CID fragmentation\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"25;35\",\n    \"accession\": \"MS:1000045\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 scans were acquired... at a collision energy of 25... MS3 scans were triggered... using CID fragmentation at a collision energy of 35\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": \"10-20 ppm\",\n    \"accession\": \"PRIDE:0000576\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 Tolerance between 10-20 ppm and MS3 Tolerance to 10 ppm for orbitrap spectra and 0.5 Da for ion trap spectra\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": \"5-10 ppm\",\n    \"accession\": \"PRIDE:0000575\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS1 Tolerance was set to 5-10 ppm\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "CID",
+          "accession": "MS:1002472",
+          "confidence": "high",
+          "evidence_quote": "MS2 scans were acquired in the orbitrap using CID fragmentation... MS3 scans were triggered... using CID fragmentation",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[collision energy]": {
+        "response": "```json\n{\n  \"comment[instrument]\": {\n    \"value\": \"Orbitrap Eclipse\",\n    \"accession\": \"MS:1003349\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to an Orbitrap Eclipse™ Tribrid™ Mass Spectrometer\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"data-dependent acquisition\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The Orbitrap Eclipse was operated in data-dependent mode\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"CID\",\n    \"accession\": \"MS:1002472\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 scans were acquired in the orbitrap using CID fragmentation... MS3 scans were triggered... using CID fragmentation\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"25;35\",\n    \"accession\": \"MS:1000045\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 scans were acquired... at a collision energy of 25... MS3 scans were triggered... using CID fragmentation at a collision energy of 35\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": \"10-20 ppm\",\n    \"accession\": \"PRIDE:0000576\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 Tolerance between 10-20 ppm and MS3 Tolerance to 10 ppm for orbitrap spectra and 0.5 Da for ion trap spectra\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": \"5-10 ppm\",\n    \"accession\": \"PRIDE:0000575\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS1 Tolerance was set to 5-10 ppm\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "25;35",
+          "accession": "MS:1000045",
+          "confidence": "high",
+          "evidence_quote": "MS2 scans were acquired... at a collision energy of 25... MS3 scans were triggered... using CID fragmentation at a collision energy of 35",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[dia method]": {
+        "response": "```json\n{\n  \"comment[instrument]\": {\n    \"value\": \"Orbitrap Eclipse\",\n    \"accession\": \"MS:1003349\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to an Orbitrap Eclipse™ Tribrid™ Mass Spectrometer\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"data-dependent acquisition\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The Orbitrap Eclipse was operated in data-dependent mode\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"CID\",\n    \"accession\": \"MS:1002472\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 scans were acquired in the orbitrap using CID fragmentation... MS3 scans were triggered... using CID fragmentation\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"25;35\",\n    \"accession\": \"MS:1000045\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 scans were acquired... at a collision energy of 25... MS3 scans were triggered... using CID fragmentation at a collision energy of 35\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": \"10-20 ppm\",\n    \"accession\": \"PRIDE:0000576\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 Tolerance between 10-20 ppm and MS3 Tolerance to 10 ppm for orbitrap spectra and 0.5 Da for ion trap spectra\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": \"5-10 ppm\",\n    \"accession\": \"PRIDE:0000575\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS1 Tolerance was set to 5-10 ppm\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[fragment mass tolerance]": {
+        "response": "```json\n{\n  \"comment[instrument]\": {\n    \"value\": \"Orbitrap Eclipse\",\n    \"accession\": \"MS:1003349\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to an Orbitrap Eclipse™ Tribrid™ Mass Spectrometer\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"data-dependent acquisition\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The Orbitrap Eclipse was operated in data-dependent mode\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"CID\",\n    \"accession\": \"MS:1002472\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 scans were acquired in the orbitrap using CID fragmentation... MS3 scans were triggered... using CID fragmentation\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"25;35\",\n    \"accession\": \"MS:1000045\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 scans were acquired... at a collision energy of 25... MS3 scans were triggered... using CID fragmentation at a collision energy of 35\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": \"10-20 ppm\",\n    \"accession\": \"PRIDE:0000576\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 Tolerance between 10-20 ppm and MS3 Tolerance to 10 ppm for orbitrap spectra and 0.5 Da for ion trap spectra\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": \"5-10 ppm\",\n    \"accession\": \"PRIDE:0000575\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS1 Tolerance was set to 5-10 ppm\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "10-20 ppm",
+          "accession": "PRIDE:0000576",
+          "confidence": "high",
+          "evidence_quote": "MS2 Tolerance between 10-20 ppm and MS3 Tolerance to 10 ppm for orbitrap spectra and 0.5 Da for ion trap spectra",
+          "evidence_location": "PRIDE DATA PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[precursor mass tolerance]": {
+        "response": "```json\n{\n  \"comment[instrument]\": {\n    \"value\": \"Orbitrap Eclipse\",\n    \"accession\": \"MS:1003349\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to an Orbitrap Eclipse™ Tribrid™ Mass Spectrometer\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"data-dependent acquisition\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The Orbitrap Eclipse was operated in data-dependent mode\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"CID\",\n    \"accession\": \"MS:1002472\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 scans were acquired in the orbitrap using CID fragmentation... MS3 scans were triggered... using CID fragmentation\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"25;35\",\n    \"accession\": \"MS:1000045\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 scans were acquired... at a collision energy of 25... MS3 scans were triggered... using CID fragmentation at a collision energy of 35\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": \"10-20 ppm\",\n    \"accession\": \"PRIDE:0000576\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 Tolerance between 10-20 ppm and MS3 Tolerance to 10 ppm for orbitrap spectra and 0.5 Da for ion trap spectra\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": \"5-10 ppm\",\n    \"accession\": \"PRIDE:0000575\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS1 Tolerance was set to 5-10 ppm\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "5-10 ppm",
+          "accession": "PRIDE:0000575",
+          "confidence": "high",
+          "evidence_quote": "MS1 Tolerance was set to 5-10 ppm",
+          "evidence_location": "PRIDE DATA PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[technical replicate]": {
+        "response": "```json\n{\n  \"comment[instrument]\": {\n    \"value\": \"Orbitrap Eclipse\",\n    \"accession\": \"MS:1003349\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to an Orbitrap Eclipse™ Tribrid™ Mass Spectrometer\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"data-dependent acquisition\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The Orbitrap Eclipse was operated in data-dependent mode\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"CID\",\n    \"accession\": \"MS:1002472\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 scans were acquired in the orbitrap using CID fragmentation... MS3 scans were triggered... using CID fragmentation\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"25;35\",\n    \"accession\": \"MS:1000045\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 scans were acquired... at a collision energy of 25... MS3 scans were triggered... using CID fragmentation at a collision energy of 35\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": \"10-20 ppm\",\n    \"accession\": \"PRIDE:0000576\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 Tolerance between 10-20 ppm and MS3 Tolerance to 10 ppm for orbitrap spectra and 0.5 Da for ion trap spectra\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": \"5-10 ppm\",\n    \"accession\": \"PRIDE:0000575\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS1 Tolerance was set to 5-10 ppm\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "no technical replicates stated",
+          "accession": "MS:1001808",
+          "confidence": "medium",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[data file]": {
+        "response": "```json\n{\n  \"comment[instrument]\": {\n    \"value\": \"Orbitrap Eclipse\",\n    \"accession\": \"MS:1003349\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to an Orbitrap Eclipse™ Tribrid™ Mass Spectrometer\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"data-dependent acquisition\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The Orbitrap Eclipse was operated in data-dependent mode\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"CID\",\n    \"accession\": \"MS:1002472\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 scans were acquired in the orbitrap using CID fragmentation... MS3 scans were triggered... using CID fragmentation\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"25;35\",\n    \"accession\": \"MS:1000045\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 scans were acquired... at a collision energy of 25... MS3 scans were triggered... using CID fragmentation at a collision energy of 35\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": \"10-20 ppm\",\n    \"accession\": \"PRIDE:0000576\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 Tolerance between 10-20 ppm and MS3 Tolerance to 10 ppm for orbitrap spectra and 0.5 Da for ion trap spectra\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": \"5-10 ppm\",\n    \"accession\": \"PRIDE:0000575\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS1 Tolerance was set to 5-10 ppm\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"no technical replicates stated\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[data file]\": {\n    \"value\": null,\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": "MS:1003083",
+          "confidence": "medium",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "ms_acquisition"
+      },
+      "characteristics[organism]": {
+        "response": "```json\n{\n  \"characteristics[organism]\": {\n    \"value\": \"Escherichia coli\",\n    \"accession\": \"NCBITaxon:562\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Escherichia coli\",\n    \"evidence_location\": \"[PRIDE ORGANISMS]\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"HEK293\",\n    \"accession\": \"CLO:0001230\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linked and digested peptide pools were then mixed with a 5-100x excess (by mass) of tryptic HEK peptides to mimic complex mixtures.\",\n    \"evidence_location\": \"[PRIDE SAMPLE PROCESSING PROTOCOL]\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"synthetic\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Three of the datasets were benchmark datasets of synthetic peptides\",\n    \"evidence_location\": \"[PRIDE PROJECT DESCRIPTION]\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"source name\": {\n    \"value\": \"synthetic_peptide_groups_spiked_with_HEK\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linked and digested peptide pools were then mixed with a 5-100x excess (by mass) of tryptic HEK peptides to mimic complex mixtures.\",\n    \"evidence_location\": \"[PRIDE SAMPLE PROCESSING PROTOCOL]\"\n  },\n  \"assay name\": {\n    \"value\": \"raw_file_stem\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "Escherichia coli",
+          "accession": "NCBITaxon:562",
+          "confidence": "high",
+          "evidence_quote": "Escherichia coli",
+          "evidence_location": "[PRIDE ORGANISMS]"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[organism part]": {
+        "response": "```json\n{\n  \"characteristics[organism]\": {\n    \"value\": \"Escherichia coli\",\n    \"accession\": \"NCBITaxon:562\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Escherichia coli\",\n    \"evidence_location\": \"[PRIDE ORGANISMS]\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"HEK293\",\n    \"accession\": \"CLO:0001230\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linked and digested peptide pools were then mixed with a 5-100x excess (by mass) of tryptic HEK peptides to mimic complex mixtures.\",\n    \"evidence_location\": \"[PRIDE SAMPLE PROCESSING PROTOCOL]\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"synthetic\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Three of the datasets were benchmark datasets of synthetic peptides\",\n    \"evidence_location\": \"[PRIDE PROJECT DESCRIPTION]\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"source name\": {\n    \"value\": \"synthetic_peptide_groups_spiked_with_HEK\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linked and digested peptide pools were then mixed with a 5-100x excess (by mass) of tryptic HEK peptides to mimic complex mixtures.\",\n    \"evidence_location\": \"[PRIDE SAMPLE PROCESSING PROTOCOL]\"\n  },\n  \"assay name\": {\n    \"value\": \"raw_file_stem\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[cell line]": {
+        "response": "```json\n{\n  \"characteristics[organism]\": {\n    \"value\": \"Escherichia coli\",\n    \"accession\": \"NCBITaxon:562\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Escherichia coli\",\n    \"evidence_location\": \"[PRIDE ORGANISMS]\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"HEK293\",\n    \"accession\": \"CLO:0001230\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linked and digested peptide pools were then mixed with a 5-100x excess (by mass) of tryptic HEK peptides to mimic complex mixtures.\",\n    \"evidence_location\": \"[PRIDE SAMPLE PROCESSING PROTOCOL]\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"synthetic\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Three of the datasets were benchmark datasets of synthetic peptides\",\n    \"evidence_location\": \"[PRIDE PROJECT DESCRIPTION]\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"source name\": {\n    \"value\": \"synthetic_peptide_groups_spiked_with_HEK\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linked and digested peptide pools were then mixed with a 5-100x excess (by mass) of tryptic HEK peptides to mimic complex mixtures.\",\n    \"evidence_location\": \"[PRIDE SAMPLE PROCESSING PROTOCOL]\"\n  },\n  \"assay name\": {\n    \"value\": \"raw_file_stem\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "HEK293",
+          "accession": "CLO:0001230",
+          "confidence": "medium",
+          "evidence_quote": "The cross-linked and digested peptide pools were then mixed with a 5-100x excess (by mass) of tryptic HEK peptides to mimic complex mixtures.",
+          "evidence_location": "[PRIDE SAMPLE PROCESSING PROTOCOL]"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[cell type]": {
+        "response": "```json\n{\n  \"characteristics[organism]\": {\n    \"value\": \"Escherichia coli\",\n    \"accession\": \"NCBITaxon:562\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Escherichia coli\",\n    \"evidence_location\": \"[PRIDE ORGANISMS]\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"HEK293\",\n    \"accession\": \"CLO:0001230\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linked and digested peptide pools were then mixed with a 5-100x excess (by mass) of tryptic HEK peptides to mimic complex mixtures.\",\n    \"evidence_location\": \"[PRIDE SAMPLE PROCESSING PROTOCOL]\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"synthetic\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Three of the datasets were benchmark datasets of synthetic peptides\",\n    \"evidence_location\": \"[PRIDE PROJECT DESCRIPTION]\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"source name\": {\n    \"value\": \"synthetic_peptide_groups_spiked_with_HEK\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linked and digested peptide pools were then mixed with a 5-100x excess (by mass) of tryptic HEK peptides to mimic complex mixtures.\",\n    \"evidence_location\": \"[PRIDE SAMPLE PROCESSING PROTOCOL]\"\n  },\n  \"assay name\": {\n    \"value\": \"raw_file_stem\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[material type]": {
+        "response": "```json\n{\n  \"characteristics[organism]\": {\n    \"value\": \"Escherichia coli\",\n    \"accession\": \"NCBITaxon:562\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Escherichia coli\",\n    \"evidence_location\": \"[PRIDE ORGANISMS]\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"HEK293\",\n    \"accession\": \"CLO:0001230\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linked and digested peptide pools were then mixed with a 5-100x excess (by mass) of tryptic HEK peptides to mimic complex mixtures.\",\n    \"evidence_location\": \"[PRIDE SAMPLE PROCESSING PROTOCOL]\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"synthetic\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Three of the datasets were benchmark datasets of synthetic peptides\",\n    \"evidence_location\": \"[PRIDE PROJECT DESCRIPTION]\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"source name\": {\n    \"value\": \"synthetic_peptide_groups_spiked_with_HEK\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linked and digested peptide pools were then mixed with a 5-100x excess (by mass) of tryptic HEK peptides to mimic complex mixtures.\",\n    \"evidence_location\": \"[PRIDE SAMPLE PROCESSING PROTOCOL]\"\n  },\n  \"assay name\": {\n    \"value\": \"raw_file_stem\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "synthetic",
+          "accession": "PRIDE:0000837",
+          "confidence": "high",
+          "evidence_quote": "Three of the datasets were benchmark datasets of synthetic peptides",
+          "evidence_location": "[PRIDE PROJECT DESCRIPTION]"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[strain or breed]": {
+        "response": "```json\n{\n  \"characteristics[organism]\": {\n    \"value\": \"Escherichia coli\",\n    \"accession\": \"NCBITaxon:562\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Escherichia coli\",\n    \"evidence_location\": \"[PRIDE ORGANISMS]\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"HEK293\",\n    \"accession\": \"CLO:0001230\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linked and digested peptide pools were then mixed with a 5-100x excess (by mass) of tryptic HEK peptides to mimic complex mixtures.\",\n    \"evidence_location\": \"[PRIDE SAMPLE PROCESSING PROTOCOL]\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"synthetic\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Three of the datasets were benchmark datasets of synthetic peptides\",\n    \"evidence_location\": \"[PRIDE PROJECT DESCRIPTION]\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"source name\": {\n    \"value\": \"synthetic_peptide_groups_spiked_with_HEK\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linked and digested peptide pools were then mixed with a 5-100x excess (by mass) of tryptic HEK peptides to mimic complex mixtures.\",\n    \"evidence_location\": \"[PRIDE SAMPLE PROCESSING PROTOCOL]\"\n  },\n  \"assay name\": {\n    \"value\": \"raw_file_stem\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[developmental stage]": {
+        "response": "```json\n{\n  \"characteristics[organism]\": {\n    \"value\": \"Escherichia coli\",\n    \"accession\": \"NCBITaxon:562\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Escherichia coli\",\n    \"evidence_location\": \"[PRIDE ORGANISMS]\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"HEK293\",\n    \"accession\": \"CLO:0001230\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linked and digested peptide pools were then mixed with a 5-100x excess (by mass) of tryptic HEK peptides to mimic complex mixtures.\",\n    \"evidence_location\": \"[PRIDE SAMPLE PROCESSING PROTOCOL]\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"synthetic\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Three of the datasets were benchmark datasets of synthetic peptides\",\n    \"evidence_location\": \"[PRIDE PROJECT DESCRIPTION]\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"source name\": {\n    \"value\": \"synthetic_peptide_groups_spiked_with_HEK\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linked and digested peptide pools were then mixed with a 5-100x excess (by mass) of tryptic HEK peptides to mimic complex mixtures.\",\n    \"evidence_location\": \"[PRIDE SAMPLE PROCESSING PROTOCOL]\"\n  },\n  \"assay name\": {\n    \"value\": \"raw_file_stem\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "organism_sample"
+      },
+      "technology type": {
+        "response": "```json\n{\n  \"characteristics[organism]\": {\n    \"value\": \"Escherichia coli\",\n    \"accession\": \"NCBITaxon:562\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Escherichia coli\",\n    \"evidence_location\": \"[PRIDE ORGANISMS]\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"HEK293\",\n    \"accession\": \"CLO:0001230\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linked and digested peptide pools were then mixed with a 5-100x excess (by mass) of tryptic HEK peptides to mimic complex mixtures.\",\n    \"evidence_location\": \"[PRIDE SAMPLE PROCESSING PROTOCOL]\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"synthetic\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Three of the datasets were benchmark datasets of synthetic peptides\",\n    \"evidence_location\": \"[PRIDE PROJECT DESCRIPTION]\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"source name\": {\n    \"value\": \"synthetic_peptide_groups_spiked_with_HEK\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linked and digested peptide pools were then mixed with a 5-100x excess (by mass) of tryptic HEK peptides to mimic complex mixtures.\",\n    \"evidence_location\": \"[PRIDE SAMPLE PROCESSING PROTOCOL]\"\n  },\n  \"assay name\": {\n    \"value\": \"raw_file_stem\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "proteomic profiling by mass spectrometry",
+          "accession": "PRIDE:0000663",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "organism_sample"
+      },
+      "source name": {
+        "response": "```json\n{\n  \"characteristics[organism]\": {\n    \"value\": \"Escherichia coli\",\n    \"accession\": \"NCBITaxon:562\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Escherichia coli\",\n    \"evidence_location\": \"[PRIDE ORGANISMS]\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"HEK293\",\n    \"accession\": \"CLO:0001230\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linked and digested peptide pools were then mixed with a 5-100x excess (by mass) of tryptic HEK peptides to mimic complex mixtures.\",\n    \"evidence_location\": \"[PRIDE SAMPLE PROCESSING PROTOCOL]\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"synthetic\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Three of the datasets were benchmark datasets of synthetic peptides\",\n    \"evidence_location\": \"[PRIDE PROJECT DESCRIPTION]\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"source name\": {\n    \"value\": \"synthetic_peptide_groups_spiked_with_HEK\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linked and digested peptide pools were then mixed with a 5-100x excess (by mass) of tryptic HEK peptides to mimic complex mixtures.\",\n    \"evidence_location\": \"[PRIDE SAMPLE PROCESSING PROTOCOL]\"\n  },\n  \"assay name\": {\n    \"value\": \"raw_file_stem\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "synthetic_peptide_groups_spiked_with_HEK",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "The cross-linked and digested peptide pools were then mixed with a 5-100x excess (by mass) of tryptic HEK peptides to mimic complex mixtures.",
+          "evidence_location": "[PRIDE SAMPLE PROCESSING PROTOCOL]"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "organism_sample"
+      },
+      "assay name": {
+        "response": "```json\n{\n  \"characteristics[organism]\": {\n    \"value\": \"Escherichia coli\",\n    \"accession\": \"NCBITaxon:562\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Escherichia coli\",\n    \"evidence_location\": \"[PRIDE ORGANISMS]\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": \"HEK293\",\n    \"accession\": \"CLO:0001230\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linked and digested peptide pools were then mixed with a 5-100x excess (by mass) of tryptic HEK peptides to mimic complex mixtures.\",\n    \"evidence_location\": \"[PRIDE SAMPLE PROCESSING PROTOCOL]\"\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"synthetic\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Three of the datasets were benchmark datasets of synthetic peptides\",\n    \"evidence_location\": \"[PRIDE PROJECT DESCRIPTION]\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"source name\": {\n    \"value\": \"synthetic_peptide_groups_spiked_with_HEK\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The cross-linked and digested peptide pools were then mixed with a 5-100x excess (by mass) of tryptic HEK peptides to mimic complex mixtures.\",\n    \"evidence_location\": \"[PRIDE SAMPLE PROCESSING PROTOCOL]\"\n  },\n  \"assay name\": {\n    \"value\": \"raw_file_stem\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "raw_file_stem",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[sex]": {
+        "response": "```json\n{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"benchmark datasets of synthetic peptides\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"5 different datasets\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"We evaluated the MS3-search-capabilities of MS Annika on five different datasets covering a variety of experimental approaches\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The resulting 3.5 μL reaction mixes were quenched using 31.5 μL 100 mM ammoniumbicarbonate (ABC) buffer for 30 min and pooled to a single tube.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "not applicable",
+          "accession": "PATO:0000047",
+          "confidence": "high",
+          "evidence_quote": "benchmark datasets of synthetic peptides",
+          "evidence_location": "PRIDE PROJECT DESCRIPTION"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[age]": {
+        "response": "```json\n{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"benchmark datasets of synthetic peptides\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"5 different datasets\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"We evaluated the MS3-search-capabilities of MS Annika on five different datasets covering a variety of experimental approaches\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The resulting 3.5 μL reaction mixes were quenched using 31.5 μL 100 mM ammoniumbicarbonate (ABC) buffer for 30 min and pooled to a single tube.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000246",
+          "confidence": null,
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[ancestry category]": {
+        "response": "```json\n{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"benchmark datasets of synthetic peptides\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"5 different datasets\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"We evaluated the MS3-search-capabilities of MS Annika on five different datasets covering a variety of experimental approaches\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The resulting 3.5 μL reaction mixes were quenched using 31.5 μL 100 mM ammoniumbicarbonate (ABC) buffer for 30 min and pooled to a single tube.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": "HANCESTRO",
+          "confidence": null,
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[biological replicate]": {
+        "response": "```json\n{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"benchmark datasets of synthetic peptides\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"5 different datasets\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"We evaluated the MS3-search-capabilities of MS Annika on five different datasets covering a variety of experimental approaches\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The resulting 3.5 μL reaction mixes were quenched using 31.5 μL 100 mM ammoniumbicarbonate (ABC) buffer for 30 min and pooled to a single tube.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "5 different datasets",
+          "accession": "MS:1001809",
+          "confidence": "medium",
+          "evidence_quote": "We evaluated the MS3-search-capabilities of MS Annika on five different datasets covering a variety of experimental approaches",
+          "evidence_location": "PRIDE PROJECT DESCRIPTION"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[genotype]": {
+        "response": "```json\n{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"benchmark datasets of synthetic peptides\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"5 different datasets\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"We evaluated the MS3-search-capabilities of MS Annika on five different datasets covering a variety of experimental approaches\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The resulting 3.5 μL reaction mixes were quenched using 31.5 μL 100 mM ammoniumbicarbonate (ABC) buffer for 30 min and pooled to a single tube.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000513",
+          "confidence": null,
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[pooled sample]": {
+        "response": "```json\n{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"benchmark datasets of synthetic peptides\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"5 different datasets\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"We evaluated the MS3-search-capabilities of MS Annika on five different datasets covering a variety of experimental approaches\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The resulting 3.5 μL reaction mixes were quenched using 31.5 μL 100 mM ammoniumbicarbonate (ABC) buffer for 30 min and pooled to a single tube.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "pooled",
+          "accession": "NCIT:C165587",
+          "confidence": "high",
+          "evidence_quote": "The resulting 3.5 μL reaction mixes were quenched using 31.5 μL 100 mM ammoniumbicarbonate (ABC) buffer for 30 min and pooled to a single tube.",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[phosphate]": {
+        "response": "```json\n{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"benchmark datasets of synthetic peptides\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"5 different datasets\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"We evaluated the MS3-search-capabilities of MS Annika on five different datasets covering a variety of experimental approaches\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The resulting 3.5 μL reaction mixes were quenched using 31.5 μL 100 mM ammoniumbicarbonate (ABC) buffer for 30 min and pooled to a single tube.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000805",
+          "confidence": null,
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[temperature]": {
+        "response": "```json\n{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"benchmark datasets of synthetic peptides\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"5 different datasets\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"We evaluated the MS3-search-capabilities of MS Annika on five different datasets covering a variety of experimental approaches\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The resulting 3.5 μL reaction mixes were quenched using 31.5 μL 100 mM ammoniumbicarbonate (ABC) buffer for 30 min and pooled to a single tube.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000703",
+          "confidence": null,
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_attributes"
+      },
+      "comment[cleavage agent details]": {
+        "response": "```json\n{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"5 ng of trypsin/group was added for digestion overnight at 37 °C.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": \"size exclusion chromatography\",\n    \"accession\": \"PRIDE:0000550\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The spiked samples were subsequently enriched either by size exclusion chromatography (SEC) or via affinity enrichment.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\",\n      \"NT=DSSO amidated;AC=null;TA=K;MT=Variable\",\n      \"NT=DSSO hydrolysed;AC=null;TA=K;MT=Variable\",\n      \"NT=DSSO tris;AC=null;TA=K;MT=Variable\",\n      \"NT=DSBSO amidated;AC=null;TA=K;MT=Variable\",\n      \"NT=DSBSO hydrolysed;AC=null;TA=K;MT=Variable\",\n      \"NT=DSBSO tris;AC=null;TA=K;MT=Variable\"\n    ],\n    \"accession\": \"MS:1001055\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"carbamidomethyl (C, +57.021 Da) was considered as a fixed modification. Oxidation (M, +15.995 Da) was considered as a variable modification. For identification of monolinks DSSO amidated, hydrolysed and tris were considered (K, +175.030 Da; K, +176.014 Da; K, +279.078 Da) in DSSO experiments. In DSBSO experiments monolink modifications of DSBSO amidated, hydrolysed and tris were considered (K, +325.065 Da; K, +326.049 Da; K, +429.113 Da).\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"Fractions were collected every minute via SEC\",\n    \"accession\": \"MS:1000858\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Fractions were collected every minute and ACN was removed under reduced pressure to obtain concentrated samples for LC-MS/MS.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": [
+            "NT=Trypsin;AC=MS:1001251"
+          ],
+          "accession": "MS:1001251",
+          "confidence": "high",
+          "evidence_quote": "5 ng of trypsin/group was added for digestion overnight at 37 °C.",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[label]": {
+        "response": "```json\n{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"5 ng of trypsin/group was added for digestion overnight at 37 °C.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": \"size exclusion chromatography\",\n    \"accession\": \"PRIDE:0000550\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The spiked samples were subsequently enriched either by size exclusion chromatography (SEC) or via affinity enrichment.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\",\n      \"NT=DSSO amidated;AC=null;TA=K;MT=Variable\",\n      \"NT=DSSO hydrolysed;AC=null;TA=K;MT=Variable\",\n      \"NT=DSSO tris;AC=null;TA=K;MT=Variable\",\n      \"NT=DSBSO amidated;AC=null;TA=K;MT=Variable\",\n      \"NT=DSBSO hydrolysed;AC=null;TA=K;MT=Variable\",\n      \"NT=DSBSO tris;AC=null;TA=K;MT=Variable\"\n    ],\n    \"accession\": \"MS:1001055\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"carbamidomethyl (C, +57.021 Da) was considered as a fixed modification. Oxidation (M, +15.995 Da) was considered as a variable modification. For identification of monolinks DSSO amidated, hydrolysed and tris were considered (K, +175.030 Da; K, +176.014 Da; K, +279.078 Da) in DSSO experiments. In DSBSO experiments monolink modifications of DSBSO amidated, hydrolysed and tris were considered (K, +325.065 Da; K, +326.049 Da; K, +429.113 Da).\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"Fractions were collected every minute via SEC\",\n    \"accession\": \"MS:1000858\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Fractions were collected every minute and ACN was removed under reduced pressure to obtain concentrated samples for LC-MS/MS.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": "NT=label free sample;AC=MS:1002038",
+          "accession": "MS:1002038",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[alkylation reagent]": {
+        "response": "```json\n{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"5 ng of trypsin/group was added for digestion overnight at 37 °C.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": \"size exclusion chromatography\",\n    \"accession\": \"PRIDE:0000550\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The spiked samples were subsequently enriched either by size exclusion chromatography (SEC) or via affinity enrichment.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\",\n      \"NT=DSSO amidated;AC=null;TA=K;MT=Variable\",\n      \"NT=DSSO hydrolysed;AC=null;TA=K;MT=Variable\",\n      \"NT=DSSO tris;AC=null;TA=K;MT=Variable\",\n      \"NT=DSBSO amidated;AC=null;TA=K;MT=Variable\",\n      \"NT=DSBSO hydrolysed;AC=null;TA=K;MT=Variable\",\n      \"NT=DSBSO tris;AC=null;TA=K;MT=Variable\"\n    ],\n    \"accession\": \"MS:1001055\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"carbamidomethyl (C, +57.021 Da) was considered as a fixed modification. Oxidation (M, +15.995 Da) was considered as a variable modification. For identification of monolinks DSSO amidated, hydrolysed and tris were considered (K, +175.030 Da; K, +176.014 Da; K, +279.078 Da) in DSSO experiments. In DSBSO experiments monolink modifications of DSBSO amidated, hydrolysed and tris were considered (K, +325.065 Da; K, +326.049 Da; K, +429.113 Da).\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"Fractions were collected every minute via SEC\",\n    \"accession\": \"MS:1000858\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Fractions were collected every minute and ACN was removed under reduced pressure to obtain concentrated samples for LC-MS/MS.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": null,
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[fractionation method]": {
+        "response": "```json\n{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"5 ng of trypsin/group was added for digestion overnight at 37 °C.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": \"size exclusion chromatography\",\n    \"accession\": \"PRIDE:0000550\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The spiked samples were subsequently enriched either by size exclusion chromatography (SEC) or via affinity enrichment.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\",\n      \"NT=DSSO amidated;AC=null;TA=K;MT=Variable\",\n      \"NT=DSSO hydrolysed;AC=null;TA=K;MT=Variable\",\n      \"NT=DSSO tris;AC=null;TA=K;MT=Variable\",\n      \"NT=DSBSO amidated;AC=null;TA=K;MT=Variable\",\n      \"NT=DSBSO hydrolysed;AC=null;TA=K;MT=Variable\",\n      \"NT=DSBSO tris;AC=null;TA=K;MT=Variable\"\n    ],\n    \"accession\": \"MS:1001055\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"carbamidomethyl (C, +57.021 Da) was considered as a fixed modification. Oxidation (M, +15.995 Da) was considered as a variable modification. For identification of monolinks DSSO amidated, hydrolysed and tris were considered (K, +175.030 Da; K, +176.014 Da; K, +279.078 Da) in DSSO experiments. In DSBSO experiments monolink modifications of DSBSO amidated, hydrolysed and tris were considered (K, +325.065 Da; K, +326.049 Da; K, +429.113 Da).\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"Fractions were collected every minute via SEC\",\n    \"accession\": \"MS:1000858\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Fractions were collected every minute and ACN was removed under reduced pressure to obtain concentrated samples for LC-MS/MS.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": "size exclusion chromatography",
+          "accession": "PRIDE:0000550",
+          "confidence": "high",
+          "evidence_quote": "The spiked samples were subsequently enriched either by size exclusion chromatography (SEC) or via affinity enrichment.",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[modification parameters]": {
+        "response": "```json\n{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"5 ng of trypsin/group was added for digestion overnight at 37 °C.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": \"size exclusion chromatography\",\n    \"accession\": \"PRIDE:0000550\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The spiked samples were subsequently enriched either by size exclusion chromatography (SEC) or via affinity enrichment.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\",\n      \"NT=DSSO amidated;AC=null;TA=K;MT=Variable\",\n      \"NT=DSSO hydrolysed;AC=null;TA=K;MT=Variable\",\n      \"NT=DSSO tris;AC=null;TA=K;MT=Variable\",\n      \"NT=DSBSO amidated;AC=null;TA=K;MT=Variable\",\n      \"NT=DSBSO hydrolysed;AC=null;TA=K;MT=Variable\",\n      \"NT=DSBSO tris;AC=null;TA=K;MT=Variable\"\n    ],\n    \"accession\": \"MS:1001055\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"carbamidomethyl (C, +57.021 Da) was considered as a fixed modification. Oxidation (M, +15.995 Da) was considered as a variable modification. For identification of monolinks DSSO amidated, hydrolysed and tris were considered (K, +175.030 Da; K, +176.014 Da; K, +279.078 Da) in DSSO experiments. In DSBSO experiments monolink modifications of DSBSO amidated, hydrolysed and tris were considered (K, +325.065 Da; K, +326.049 Da; K, +429.113 Da).\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"Fractions were collected every minute via SEC\",\n    \"accession\": \"MS:1000858\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Fractions were collected every minute and ACN was removed under reduced pressure to obtain concentrated samples for LC-MS/MS.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": [
+            "NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed",
+            "NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable",
+            "NT=DSSO amidated;AC=null;TA=K;MT=Variable",
+            "NT=DSSO hydrolysed;AC=null;TA=K;MT=Variable",
+            "NT=DSSO tris;AC=null;TA=K;MT=Variable",
+            "NT=DSBSO amidated;AC=null;TA=K;MT=Variable",
+            "NT=DSBSO hydrolysed;AC=null;TA=K;MT=Variable",
+            "NT=DSBSO tris;AC=null;TA=K;MT=Variable"
+          ],
+          "accession": "MS:1001055",
+          "confidence": "high",
+          "evidence_quote": "carbamidomethyl (C, +57.021 Da) was considered as a fixed modification. Oxidation (M, +15.995 Da) was considered as a variable modification. For identification of monolinks DSSO amidated, hydrolysed and tris were considered (K, +175.030 Da; K, +176.014 Da; K, +279.078 Da) in DSSO experiments. In DSBSO experiments monolink modifications of DSBSO amidated, hydrolysed and tris were considered (K, +325.065 Da; K, +326.049 Da; K, +429.113 Da).",
+          "evidence_location": "PRIDE DATA PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[fraction identifier]": {
+        "response": "```json\n{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"5 ng of trypsin/group was added for digestion overnight at 37 °C.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fractionation method]\": {\n    \"value\": \"size exclusion chromatography\",\n    \"accession\": \"PRIDE:0000550\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The spiked samples were subsequently enriched either by size exclusion chromatography (SEC) or via affinity enrichment.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\",\n      \"NT=DSSO amidated;AC=null;TA=K;MT=Variable\",\n      \"NT=DSSO hydrolysed;AC=null;TA=K;MT=Variable\",\n      \"NT=DSSO tris;AC=null;TA=K;MT=Variable\",\n      \"NT=DSBSO amidated;AC=null;TA=K;MT=Variable\",\n      \"NT=DSBSO hydrolysed;AC=null;TA=K;MT=Variable\",\n      \"NT=DSBSO tris;AC=null;TA=K;MT=Variable\"\n    ],\n    \"accession\": \"MS:1001055\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"carbamidomethyl (C, +57.021 Da) was considered as a fixed modification. Oxidation (M, +15.995 Da) was considered as a variable modification. For identification of monolinks DSSO amidated, hydrolysed and tris were considered (K, +175.030 Da; K, +176.014 Da; K, +279.078 Da) in DSSO experiments. In DSBSO experiments monolink modifications of DSBSO amidated, hydrolysed and tris were considered (K, +325.065 Da; K, +326.049 Da; K, +429.113 Da).\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"Fractions were collected every minute via SEC\",\n    \"accession\": \"MS:1000858\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Fractions were collected every minute and ACN was removed under reduced pressure to obtain concentrated samples for LC-MS/MS.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": "Fractions were collected every minute via SEC",
+          "accession": "MS:1000858",
+          "confidence": "medium",
+          "evidence_quote": "Fractions were collected every minute and ACN was removed under reduced pressure to obtain concentrated samples for LC-MS/MS.",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_preparation"
+      },
+      "characteristics[crosslinking reaction time]": {
+        "response": "```json\n{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"2 hours\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Additional stock solution was added 4x every 30 min\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": \"size exclusion chromatography (SEC), affinity enrichment\",\n    \"accession\": \"PRIDE:0000838\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The spiked samples were subsequently enriched either by size exclusion chromatography (SEC) or via affinity enrichment.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": \"enrichment by size exclusion\",\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The spiked samples were subsequently enriched either by size exclusion chromatography (SEC) or via affinity enrichment.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": "2 hours",
+          "accession": "PRIDE:0000949",
+          "confidence": "medium",
+          "evidence_quote": "Additional stock solution was added 4x every 30 min",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "xlms_conditions"
+      },
+      "characteristics[crosslinking temperature]": {
+        "response": "```json\n{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"2 hours\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Additional stock solution was added 4x every 30 min\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": \"size exclusion chromatography (SEC), affinity enrichment\",\n    \"accession\": \"PRIDE:0000838\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The spiked samples were subsequently enriched either by size exclusion chromatography (SEC) or via affinity enrichment.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": \"enrichment by size exclusion\",\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The spiked samples were subsequently enriched either by size exclusion chromatography (SEC) or via affinity enrichment.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000950",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "xlms_conditions"
+      },
+      "comment[crosslink enrichment method]": {
+        "response": "```json\n{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"2 hours\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Additional stock solution was added 4x every 30 min\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": \"size exclusion chromatography (SEC), affinity enrichment\",\n    \"accession\": \"PRIDE:0000838\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The spiked samples were subsequently enriched either by size exclusion chromatography (SEC) or via affinity enrichment.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": \"enrichment by size exclusion\",\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The spiked samples were subsequently enriched either by size exclusion chromatography (SEC) or via affinity enrichment.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": "size exclusion chromatography (SEC), affinity enrichment",
+          "accession": "PRIDE:0000838",
+          "confidence": "high",
+          "evidence_quote": "The spiked samples were subsequently enriched either by size exclusion chromatography (SEC) or via affinity enrichment.",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "xlms_conditions"
+      },
+      "characteristics[enrichment process]": {
+        "response": "```json\n{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"2 hours\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Additional stock solution was added 4x every 30 min\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": \"size exclusion chromatography (SEC), affinity enrichment\",\n    \"accession\": \"PRIDE:0000838\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The spiked samples were subsequently enriched either by size exclusion chromatography (SEC) or via affinity enrichment.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": \"enrichment by size exclusion\",\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The spiked samples were subsequently enriched either by size exclusion chromatography (SEC) or via affinity enrichment.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": "enrichment by size exclusion",
+          "accession": "EFO:0009090",
+          "confidence": "high",
+          "evidence_quote": "The spiked samples were subsequently enriched either by size exclusion chromatography (SEC) or via affinity enrichment.",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "xlms_conditions"
+      },
+      "comment[cross-linker]": {
+        "response": "```json\n{\n  \"comment[cross-linker]\": [\n    {\n      \"value\": \"NT=DSSO;AC=XLMOD:02126;CL=yes;TA=K\",\n      \"NT\": \"DSSO\",\n      \"AC\": \"XLMOD:02126\",\n      \"CL\": \"yes\",\n      \"TA\": \"K\",\n      \"confidence\": \"high\",\n      \"evidence_quote\": \"9.3 mM crosslinker reagent (DSSO/DSBSO) stock solutions were freshly prepared\",\n      \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n    },\n    {\n      \"value\": \"NT=DSBSO;AC=null;CL=yes;TA=K\",\n      \"NT\": \"DSBSO\",\n      \"AC\": null,\n      \"CL\": \"yes\",\n      \"TA\": \"K\",\n      \"confidence\": \"high\",\n      \"evidence_quote\": \"9.3 mM crosslinker reagent (DSSO/DSBSO) stock solutions were freshly prepared\",\n      \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n    }\n  ],\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"9.3 mM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"9.3 mM crosslinker reagent (DSSO/DSBSO) stock solutions were freshly prepared\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslinker to protein ratio]\": null,\n  \"comment[quenching reagent]\": {\n    \"value\": \"ammoniumbicarbonate\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The resulting 3.5 μL reaction mixes were quenched using 31.5 μL 100 mM ammoniumbicarbonate (ABC) buffer\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[crosslink distance]\": null,\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry proteomics\",\n    \"evidence_location\": \"PRIDE EXPERIMENT TYPES\"\n  }\n}\n```",
+        "parsed": {
+          "value": [
+            {
+              "value": "NT=DSSO;AC=XLMOD:02126;CL=yes;TA=K",
+              "NT": "DSSO",
+              "AC": "XLMOD:02126",
+              "CL": "yes",
+              "TA": "K",
+              "confidence": "high",
+              "evidence_quote": "9.3 mM crosslinker reagent (DSSO/DSBSO) stock solutions were freshly prepared",
+              "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+            },
+            {
+              "value": "NT=DSBSO;AC=null;CL=yes;TA=K",
+              "NT": "DSBSO",
+              "AC": null,
+              "CL": "yes",
+              "TA": "K",
+              "confidence": "high",
+              "evidence_quote": "9.3 mM crosslinker reagent (DSSO/DSBSO) stock solutions were freshly prepared",
+              "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+            }
+          ]
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[crosslinker concentration]": {
+        "response": "```json\n{\n  \"comment[cross-linker]\": [\n    {\n      \"value\": \"NT=DSSO;AC=XLMOD:02126;CL=yes;TA=K\",\n      \"NT\": \"DSSO\",\n      \"AC\": \"XLMOD:02126\",\n      \"CL\": \"yes\",\n      \"TA\": \"K\",\n      \"confidence\": \"high\",\n      \"evidence_quote\": \"9.3 mM crosslinker reagent (DSSO/DSBSO) stock solutions were freshly prepared\",\n      \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n    },\n    {\n      \"value\": \"NT=DSBSO;AC=null;CL=yes;TA=K\",\n      \"NT\": \"DSBSO\",\n      \"AC\": null,\n      \"CL\": \"yes\",\n      \"TA\": \"K\",\n      \"confidence\": \"high\",\n      \"evidence_quote\": \"9.3 mM crosslinker reagent (DSSO/DSBSO) stock solutions were freshly prepared\",\n      \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n    }\n  ],\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"9.3 mM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"9.3 mM crosslinker reagent (DSSO/DSBSO) stock solutions were freshly prepared\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslinker to protein ratio]\": null,\n  \"comment[quenching reagent]\": {\n    \"value\": \"ammoniumbicarbonate\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The resulting 3.5 μL reaction mixes were quenched using 31.5 μL 100 mM ammoniumbicarbonate (ABC) buffer\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[crosslink distance]\": null,\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry proteomics\",\n    \"evidence_location\": \"PRIDE EXPERIMENT TYPES\"\n  }\n}\n```",
+        "parsed": {
+          "value": "9.3 mM",
+          "accession": "PRIDE:0000951",
+          "confidence": "high",
+          "evidence_quote": "9.3 mM crosslinker reagent (DSSO/DSBSO) stock solutions were freshly prepared",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[crosslinker to protein ratio]": {
+        "response": "```json\n{\n  \"comment[cross-linker]\": [\n    {\n      \"value\": \"NT=DSSO;AC=XLMOD:02126;CL=yes;TA=K\",\n      \"NT\": \"DSSO\",\n      \"AC\": \"XLMOD:02126\",\n      \"CL\": \"yes\",\n      \"TA\": \"K\",\n      \"confidence\": \"high\",\n      \"evidence_quote\": \"9.3 mM crosslinker reagent (DSSO/DSBSO) stock solutions were freshly prepared\",\n      \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n    },\n    {\n      \"value\": \"NT=DSBSO;AC=null;CL=yes;TA=K\",\n      \"NT\": \"DSBSO\",\n      \"AC\": null,\n      \"CL\": \"yes\",\n      \"TA\": \"K\",\n      \"confidence\": \"high\",\n      \"evidence_quote\": \"9.3 mM crosslinker reagent (DSSO/DSBSO) stock solutions were freshly prepared\",\n      \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n    }\n  ],\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"9.3 mM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"9.3 mM crosslinker reagent (DSSO/DSBSO) stock solutions were freshly prepared\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslinker to protein ratio]\": null,\n  \"comment[quenching reagent]\": {\n    \"value\": \"ammoniumbicarbonate\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The resulting 3.5 μL reaction mixes were quenched using 31.5 μL 100 mM ammoniumbicarbonate (ABC) buffer\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[crosslink distance]\": null,\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry proteomics\",\n    \"evidence_location\": \"PRIDE EXPERIMENT TYPES\"\n  }\n}\n```",
+        "parsed": {
+          "value": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[quenching reagent]": {
+        "response": "```json\n{\n  \"comment[cross-linker]\": [\n    {\n      \"value\": \"NT=DSSO;AC=XLMOD:02126;CL=yes;TA=K\",\n      \"NT\": \"DSSO\",\n      \"AC\": \"XLMOD:02126\",\n      \"CL\": \"yes\",\n      \"TA\": \"K\",\n      \"confidence\": \"high\",\n      \"evidence_quote\": \"9.3 mM crosslinker reagent (DSSO/DSBSO) stock solutions were freshly prepared\",\n      \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n    },\n    {\n      \"value\": \"NT=DSBSO;AC=null;CL=yes;TA=K\",\n      \"NT\": \"DSBSO\",\n      \"AC\": null,\n      \"CL\": \"yes\",\n      \"TA\": \"K\",\n      \"confidence\": \"high\",\n      \"evidence_quote\": \"9.3 mM crosslinker reagent (DSSO/DSBSO) stock solutions were freshly prepared\",\n      \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n    }\n  ],\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"9.3 mM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"9.3 mM crosslinker reagent (DSSO/DSBSO) stock solutions were freshly prepared\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslinker to protein ratio]\": null,\n  \"comment[quenching reagent]\": {\n    \"value\": \"ammoniumbicarbonate\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The resulting 3.5 μL reaction mixes were quenched using 31.5 μL 100 mM ammoniumbicarbonate (ABC) buffer\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[crosslink distance]\": null,\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry proteomics\",\n    \"evidence_location\": \"PRIDE EXPERIMENT TYPES\"\n  }\n}\n```",
+        "parsed": {
+          "value": "ammoniumbicarbonate",
+          "accession": "PRIDE:0000953",
+          "confidence": "high",
+          "evidence_quote": "The resulting 3.5 μL reaction mixes were quenched using 31.5 μL 100 mM ammoniumbicarbonate (ABC) buffer",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "xlms_reagents"
+      },
+      "characteristics[crosslink distance]": {
+        "response": "```json\n{\n  \"comment[cross-linker]\": [\n    {\n      \"value\": \"NT=DSSO;AC=XLMOD:02126;CL=yes;TA=K\",\n      \"NT\": \"DSSO\",\n      \"AC\": \"XLMOD:02126\",\n      \"CL\": \"yes\",\n      \"TA\": \"K\",\n      \"confidence\": \"high\",\n      \"evidence_quote\": \"9.3 mM crosslinker reagent (DSSO/DSBSO) stock solutions were freshly prepared\",\n      \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n    },\n    {\n      \"value\": \"NT=DSBSO;AC=null;CL=yes;TA=K\",\n      \"NT\": \"DSBSO\",\n      \"AC\": null,\n      \"CL\": \"yes\",\n      \"TA\": \"K\",\n      \"confidence\": \"high\",\n      \"evidence_quote\": \"9.3 mM crosslinker reagent (DSSO/DSBSO) stock solutions were freshly prepared\",\n      \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n    }\n  ],\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"9.3 mM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"9.3 mM crosslinker reagent (DSSO/DSBSO) stock solutions were freshly prepared\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslinker to protein ratio]\": null,\n  \"comment[quenching reagent]\": {\n    \"value\": \"ammoniumbicarbonate\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The resulting 3.5 μL reaction mixes were quenched using 31.5 μL 100 mM ammoniumbicarbonate (ABC) buffer\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[crosslink distance]\": null,\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry proteomics\",\n    \"evidence_location\": \"PRIDE EXPERIMENT TYPES\"\n  }\n}\n```",
+        "parsed": {
+          "value": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[chemical cross-linking coupled with ms]": {
+        "response": "```json\n{\n  \"comment[cross-linker]\": [\n    {\n      \"value\": \"NT=DSSO;AC=XLMOD:02126;CL=yes;TA=K\",\n      \"NT\": \"DSSO\",\n      \"AC\": \"XLMOD:02126\",\n      \"CL\": \"yes\",\n      \"TA\": \"K\",\n      \"confidence\": \"high\",\n      \"evidence_quote\": \"9.3 mM crosslinker reagent (DSSO/DSBSO) stock solutions were freshly prepared\",\n      \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n    },\n    {\n      \"value\": \"NT=DSBSO;AC=null;CL=yes;TA=K\",\n      \"NT\": \"DSBSO\",\n      \"AC\": null,\n      \"CL\": \"yes\",\n      \"TA\": \"K\",\n      \"confidence\": \"high\",\n      \"evidence_quote\": \"9.3 mM crosslinker reagent (DSSO/DSBSO) stock solutions were freshly prepared\",\n      \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n    }\n  ],\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"9.3 mM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"9.3 mM crosslinker reagent (DSSO/DSBSO) stock solutions were freshly prepared\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslinker to protein ratio]\": null,\n  \"comment[quenching reagent]\": {\n    \"value\": \"ammoniumbicarbonate\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The resulting 3.5 μL reaction mixes were quenched using 31.5 μL 100 mM ammoniumbicarbonate (ABC) buffer\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[crosslink distance]\": null,\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry proteomics\",\n    \"evidence_location\": \"PRIDE EXPERIMENT TYPES\"\n  }\n}\n```",
+        "parsed": {
+          "value": "cross-linking mass spectrometry",
+          "accession": "PRIDE:0000430",
+          "confidence": "high",
+          "evidence_quote": "Chemical cross-linking coupled with mass spectrometry proteomics",
+          "evidence_location": "PRIDE EXPERIMENT TYPES"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "xlms_reagents"
+      }
+    }
+  }
+}

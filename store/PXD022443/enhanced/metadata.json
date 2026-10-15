@@ -1,0 +1,975 @@
+{
+  "metadata": {
+    "pxd": "PXD022443",
+    "category": "enhanced",
+    "saved_at": "2026-10-13T20:24:59.454715",
+    "filename": "metadata"
+  },
+  "data": {
+    "pxd": "PXD022443",
+    "processed_at": "2026-10-13T20:24:42.476671",
+    "stages": {
+      "pride": "success",
+      "publication": "failed",
+      "file_clustering": "success",
+      "raw_processing": "skipped_no_download",
+      "spectral_merge": "success_cached",
+      "llm": "success",
+      "sdrf": "success",
+      "sdrf_validation": "success_with_warnings",
+      "xi_configs": "success",
+      "relink": "skipped",
+      "compilation": "success"
+    },
+    "file_assignments": {
+      "161206_HsP_90_1.raw": {
+        "cluster_id": "cluster_1",
+        "cluster_label": "hsp90_apo_dss_homo_sapiens",
+        "organism": "Homo sapiens",
+        "taxid": "NCBITaxon:9606",
+        "crosslinker": "DSS"
+      },
+      "161206_HsP_90_2.raw": {
+        "cluster_id": "cluster_1",
+        "cluster_label": "hsp90_apo_dss_homo_sapiens",
+        "organism": "Homo sapiens",
+        "taxid": "NCBITaxon:9606",
+        "crosslinker": "DSS"
+      },
+      "161206_HsP_90_ADP_1.raw": {
+        "cluster_id": "cluster_2",
+        "cluster_label": "hsp90_adp_dss_homo_sapiens",
+        "organism": "Homo sapiens",
+        "taxid": "NCBITaxon:9606",
+        "crosslinker": "DSS"
+      },
+      "161206_HsP_90_ADP_2.raw": {
+        "cluster_id": "cluster_2",
+        "cluster_label": "hsp90_adp_dss_homo_sapiens",
+        "organism": "Homo sapiens",
+        "taxid": "NCBITaxon:9606",
+        "crosslinker": "DSS"
+      },
+      "161206_HsP_90_ATPgS_1.raw": {
+        "cluster_id": "cluster_3",
+        "cluster_label": "hsp90_atpgs_dss_homo_sapiens",
+        "organism": "Homo sapiens",
+        "taxid": "NCBITaxon:9606",
+        "crosslinker": "DSS"
+      },
+      "161206_HsP_90_ATPgS_2.raw": {
+        "cluster_id": "cluster_3",
+        "cluster_label": "hsp90_atpgs_dss_homo_sapiens",
+        "organism": "Homo sapiens",
+        "taxid": "NCBITaxon:9606",
+        "crosslinker": "DSS"
+      }
+    },
+    "spectral_summary": {
+      "source_files_parsed": 0,
+      "per_file": [],
+      "instrument": "Orbitrap Fusion Lumos"
+    },
+    "sdrf_path": "store/PXD022443/sdrf/PXD022443.sdrf.tsv",
+    "sdrf_validation_warnings": "WARNING: Term: not available in column 'comment[instrument]', is not found in the given ontology list ms;pride\nERROR: Column 'comment[instrument]' contains 'not available' values but requires actual values\nERROR: Term: not available in column 'comment[dissociation method]', is not found in the given ontology list ms;pride\nERROR: Column 'comment[dissociation method]' contains 'not available' values but requires actual values\nThere were validation errors.",
+    "xi_config_paths": {
+      "crosslinking": "store/PXD022443/configs/xi_crosslinking.conf",
+      "linear": "store/PXD022443/configs/xi_linear.conf"
+    },
+    "xi_config_paths_by_crosslinker": {
+      "default": {
+        "crosslinking": "store/PXD022443/configs/xi_crosslinking.conf",
+        "linear": "store/PXD022443/configs/xi_linear.conf"
+      }
+    },
+    "pride_data": {
+      "accession": "PXD022443",
+      "title": "Characterizing protein conformers by cross-linking mass spectrometry and pattern recognition",
+      "additionalAttributes": [],
+      "projectDescription": "Motivation: Chemical cross-linking coupled to mass spectrometry (XLMS) emerged as a powerful technique for studying protein structures and large-scale protein-protein interactions. Nonetheless, XLMS lacks software tailored toward dealing with multiple conformers; this scenario can lead to high-quality identifications that are mutually exclusive. This limitation hampers the applicability of XLMS in structural experiments of dynamic protein systems, where less abundant conformers of the target protein are expected in sample. Results: We present QUIN-XL, a software that uses unsupervised clustering to group cross-link identifications by their quantitative profile across multiple samples. QUIN-XL highlights regions of the protein or system presenting changes in its conformation when comparing different biological conditions. We demonstrate the usefulness of our software by revisiting the HSP90 protein, comparing three of its different conformers. QUIN-XL’s clusters correlate directly to known protein 3D structures of the conformers and therefore validates our software.",
+      "sampleProcessingProtocol": "The HSP90 protein used for the experiments was the human one, analyzed in a purified solution with the nucleotides being added separately afterwards for the formation of complexes. This way, each of the samples should be enriched for a different conformer. The nucleotides were ADP and ATP-γ-S (referenced in the text as ATP), which is a more stable analog of ATP and does not hydrolyze immediately. The cross-linker used was DSS dissolved in DMF (final concentration of 27mmol/L) in a molar excess of 100 times relative to the protein concentration. The cross-link reactions occurred for 2 hours at 27°C. Reducing of the disulfide bonds was done by adding 20μL of a 10mmol/L solution of DTT (prepared in a 100mmol/L buffer solution of ammonium bicarbonate) and incubating it for 30 minutes at 70°C. Alkylation of thiol groups was done by adding 20μL of a 50mmol/L solution of iodoacetamide (prepared in a 100mmol/L ammonium bicarbonate buffer solution) and incubating it for 30 minutes in the dark at room temperature. The cross-linked proteins were digested using trypsin in a proportion of 1:50 (w/w) enzyme:substrate for 18 hours at 37°C. Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo). Digested samples sample were analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid (ThermoFisher Scientific) mass spectrometer coupled with an Easy nLC 1200 chromatography system. Each sample was analyzed in 40 minutes chromatography, using linear gradients set as follows: 5 to 30% B (v/v)  (with solvent B: acetonitrile + 0.1% formic acid (v/v)) from 0 to 20 minutes, 30 to 90%  B from 20 to 35 minutes, then 90% B from 35 to 40 minutes. Instrument method was set up in DDA mode, HCD fragmentation with stepped collision energy from 30 to 34. Survey scans were acquired at resolution 60,000. Precursor selection was performed by cycle time with maximum injection time of 250 ms, and 8 seconds dynamic exclusion window. Precursor ions with charge 3+ to 8+ were selected for fragmentation. MS2 spectra were acquired with resolution 30,000.",
+      "dataProcessingProtocol": "The search for the cross-links in each condition was made using the software Spectrum Identification Machine for Cross-linked Peptides (SIM-XL) (Lima et al., 2018), with the following parameters: • Cross-linker: DSS • Precursor ppm (MS1): 10 • Fragment ppm (MS2): 20 • Modifications: Carbamidomethylation of cysteine • Enzyme: Trypsin • Enzyme specificity: Fully specific • Number of isotopic possibilities: 4 • Minimum number of amino acids per chain: 4 • Intra-link maximum charge: 4 • Maximum number of missed cleavages: 3",
+      "projectTags": [],
+      "keywords": [
+        "Hsp90",
+        "Cross-link",
+        "Quantification"
+      ],
+      "doi": "",
+      "submissionType": "PARTIAL",
+      "license": "Creative Commons Public Domain (CC0)",
+      "submissionDate": "2020-11-10",
+      "publicationDate": "2025-01-03",
+      "submitters": [
+        {
+          "title": "Miss",
+          "firstName": "Louise",
+          "lastName": "Ulrich Kurt",
+          "identifier": "159240122",
+          "affiliation": "Carlos Chagas Institute - Fiocruz",
+          "email": "lookurt27@gmail.com",
+          "country": "Brazil",
+          "orcid": "0000-0002-9703-7226",
+          "name": "Louise Ulrich Kurt",
+          "id": "159240122"
+        }
+      ],
+      "labPIs": [
+        {
+          "title": "Dr",
+          "firstName": "Paulo Costa",
+          "lastName": "Carvalho",
+          "identifier": "2171972",
+          "affiliation": "Laboratory for Structural and Computational Proteomics, Carlos Chagas Institute, Fiocruz, Paraná, Brazil",
+          "email": "paulo@pcarvalho.com",
+          "country": "",
+          "orcid": "",
+          "name": "Paulo Costa Carvalho",
+          "id": "2171972"
+        }
+      ],
+      "instruments": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MS",
+          "accession": "MS:1002732",
+          "name": "Orbitrap Fusion Lumos"
+        }
+      ],
+      "softwares": [],
+      "experimentTypes": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "PRIDE",
+          "accession": "PRIDE:0000430",
+          "name": "Chemical cross-linking coupled with mass spectrometry proteomics"
+        }
+      ],
+      "quantificationMethods": [],
+      "countries": [
+        "Brazil"
+      ],
+      "sampleAttributes": [
+        {
+          "@type": "Tuple",
+          "key": {
+            "cvLabel": "EFO",
+            "accession": "OBI:0100026",
+            "name": "organism"
+          },
+          "value": [
+            {
+              "cvLabel": "NEWT",
+              "accession": "NEWT:9606",
+              "name": "Homo sapiens (Human)"
+            }
+          ]
+        }
+      ],
+      "organisms": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "NEWT",
+          "accession": "NEWT:9606",
+          "name": "Homo sapiens (human)"
+        }
+      ],
+      "organismParts": [],
+      "diseases": [],
+      "references": [
+        {
+          "pubmedID": 0,
+          "doi": "10.1093/BIOINFORMATICS/BTAB149"
+        }
+      ],
+      "identifiedPTMStrings": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MOD",
+          "accession": "MOD:00397",
+          "name": "iodoacetamide derivatized residue"
+        }
+      ],
+      "totalFileDownloads": 1033,
+      "botCount": 360,
+      "hubCount": 657,
+      "organicCount": 16,
+      "files": {
+        "files": [
+          {
+            "fileName": "hsp90.qnr",
+            "fileSizeBytes": 2504130,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD022443/hsp90.qnr"
+          },
+          {
+            "fileName": "hsp90_atp.xml",
+            "fileSizeBytes": 5632,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD022443/hsp90_atp.xml"
+          },
+          {
+            "fileName": "HSP90_ADP.simxlr",
+            "fileSizeBytes": 9493948,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD022443/HSP90_ADP.simxlr"
+          },
+          {
+            "fileName": "hsp90_adp.xml",
+            "fileSizeBytes": 5632,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD022443/hsp90_adp.xml"
+          },
+          {
+            "fileName": "161206_HsP_90_ATPgS_2.raw",
+            "fileSizeBytes": 573014478,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD022443/161206_HsP_90_ATPgS_2.raw"
+          },
+          {
+            "fileName": "161206_HsP_90_1.raw",
+            "fileSizeBytes": 548021140,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD022443/161206_HsP_90_1.raw"
+          },
+          {
+            "fileName": "HSP90_ATP.simxlr",
+            "fileSizeBytes": 10869028,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD022443/HSP90_ATP.simxlr"
+          },
+          {
+            "fileName": "161206_HsP_90_2.raw",
+            "fileSizeBytes": 568619084,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD022443/161206_HsP_90_2.raw"
+          },
+          {
+            "fileName": "161206_HsP_90_ATPgS_1.raw",
+            "fileSizeBytes": 319153182,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD022443/161206_HsP_90_ATPgS_1.raw"
+          },
+          {
+            "fileName": "161206_HsP_90_ADP_1.raw",
+            "fileSizeBytes": 511162446,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD022443/161206_HsP_90_ADP_1.raw"
+          },
+          {
+            "fileName": "HSP90_Q.simxlr",
+            "fileSizeBytes": 16124063,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD022443/HSP90_Q.simxlr"
+          },
+          {
+            "fileName": "161206_HsP_90_ADP_2.raw",
+            "fileSizeBytes": 477346004,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD022443/161206_HsP_90_ADP_2.raw"
+          },
+          {
+            "fileName": "hsp90.fasta",
+            "fileSizeBytes": 742,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD022443/hsp90.fasta"
+          },
+          {
+            "fileName": "hsp90_q.xml",
+            "fileSizeBytes": 5630,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD022443/hsp90_q.xml"
+          },
+          {
+            "fileName": "PXD022443_community_annotated.sdrf.tsv",
+            "fileSizeBytes": 6009,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD022443/PXD022443_community_annotated.sdrf.tsv"
+          }
+        ],
+        "totalCount": 15
+      }
+    },
+    "publication_metadata": null,
+    "llm_responses": {
+      "characteristics[disease]": {
+        "response": "```json\n{\n  \"characteristics[disease]\": {\n    \"value\": \"normal\",\n    \"accession\": \"PATO:0000461\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one, analyzed in a purified solution\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": [\n      \"ATP-bound\",\n      \"ADP-bound\",\n      \"nucleotide-free (Apo)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": [\n      \"ATP-γ-S treatment\",\n      \"ADP treatment\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S (referenced in the text as ATP)\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"Adenosine-5'-triphosphate gamma-S\",\n      \"Adenosine-5'-diphosphate\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"nucleotide binding\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"analyzed in a purified solution with the nucleotides being added separately afterwards for the formation of complexes\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": "normal",
+          "accession": "PATO:0000461",
+          "confidence": "high",
+          "evidence_quote": "The HSP90 protein used for the experiments was the human one, analyzed in a purified solution",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[phenotype]": {
+        "response": "```json\n{\n  \"characteristics[disease]\": {\n    \"value\": \"normal\",\n    \"accession\": \"PATO:0000461\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one, analyzed in a purified solution\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": [\n      \"ATP-bound\",\n      \"ADP-bound\",\n      \"nucleotide-free (Apo)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": [\n      \"ATP-γ-S treatment\",\n      \"ADP treatment\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S (referenced in the text as ATP)\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"Adenosine-5'-triphosphate gamma-S\",\n      \"Adenosine-5'-diphosphate\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"nucleotide binding\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"analyzed in a purified solution with the nucleotides being added separately afterwards for the formation of complexes\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": [
+            "ATP-bound",
+            "ADP-bound",
+            "nucleotide-free (Apo)"
+          ],
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": "Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[treatment]": {
+        "response": "```json\n{\n  \"characteristics[disease]\": {\n    \"value\": \"normal\",\n    \"accession\": \"PATO:0000461\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one, analyzed in a purified solution\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": [\n      \"ATP-bound\",\n      \"ADP-bound\",\n      \"nucleotide-free (Apo)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": [\n      \"ATP-γ-S treatment\",\n      \"ADP treatment\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S (referenced in the text as ATP)\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"Adenosine-5'-triphosphate gamma-S\",\n      \"Adenosine-5'-diphosphate\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"nucleotide binding\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"analyzed in a purified solution with the nucleotides being added separately afterwards for the formation of complexes\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": [
+            "ATP-γ-S treatment",
+            "ADP treatment"
+          ],
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": "The nucleotides were ADP and ATP-γ-S (referenced in the text as ATP)",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[compound]": {
+        "response": "```json\n{\n  \"characteristics[disease]\": {\n    \"value\": \"normal\",\n    \"accession\": \"PATO:0000461\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one, analyzed in a purified solution\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": [\n      \"ATP-bound\",\n      \"ADP-bound\",\n      \"nucleotide-free (Apo)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": [\n      \"ATP-γ-S treatment\",\n      \"ADP treatment\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S (referenced in the text as ATP)\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"Adenosine-5'-triphosphate gamma-S\",\n      \"Adenosine-5'-diphosphate\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"nucleotide binding\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"analyzed in a purified solution with the nucleotides being added separately afterwards for the formation of complexes\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": [
+            "Adenosine-5'-triphosphate gamma-S",
+            "Adenosine-5'-diphosphate"
+          ],
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": "The nucleotides were ADP and ATP-γ-S",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[dose]": {
+        "response": "```json\n{\n  \"characteristics[disease]\": {\n    \"value\": \"normal\",\n    \"accession\": \"PATO:0000461\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one, analyzed in a purified solution\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": [\n      \"ATP-bound\",\n      \"ADP-bound\",\n      \"nucleotide-free (Apo)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": [\n      \"ATP-γ-S treatment\",\n      \"ADP treatment\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S (referenced in the text as ATP)\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"Adenosine-5'-triphosphate gamma-S\",\n      \"Adenosine-5'-diphosphate\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"nucleotide binding\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"analyzed in a purified solution with the nucleotides being added separately afterwards for the formation of complexes\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": null,
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[genetic modification]": {
+        "response": "```json\n{\n  \"characteristics[disease]\": {\n    \"value\": \"normal\",\n    \"accession\": \"PATO:0000461\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one, analyzed in a purified solution\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": [\n      \"ATP-bound\",\n      \"ADP-bound\",\n      \"nucleotide-free (Apo)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": [\n      \"ATP-γ-S treatment\",\n      \"ADP treatment\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S (referenced in the text as ATP)\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"Adenosine-5'-triphosphate gamma-S\",\n      \"Adenosine-5'-diphosphate\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"nucleotide binding\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"analyzed in a purified solution with the nucleotides being added separately afterwards for the formation of complexes\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": null,
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[perturbation]": {
+        "response": "```json\n{\n  \"characteristics[disease]\": {\n    \"value\": \"normal\",\n    \"accession\": \"PATO:0000461\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one, analyzed in a purified solution\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": [\n      \"ATP-bound\",\n      \"ADP-bound\",\n      \"nucleotide-free (Apo)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": [\n      \"ATP-γ-S treatment\",\n      \"ADP treatment\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S (referenced in the text as ATP)\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"Adenosine-5'-triphosphate gamma-S\",\n      \"Adenosine-5'-diphosphate\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"nucleotide binding\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"analyzed in a purified solution with the nucleotides being added separately afterwards for the formation of complexes\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": "nucleotide binding",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "analyzed in a purified solution with the nucleotides being added separately afterwards for the formation of complexes",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[depletion]": {
+        "response": "```json\n{\n  \"characteristics[disease]\": {\n    \"value\": \"normal\",\n    \"accession\": \"PATO:0000461\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one, analyzed in a purified solution\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": [\n      \"ATP-bound\",\n      \"ADP-bound\",\n      \"nucleotide-free (Apo)\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[treatment]\": {\n    \"value\": [\n      \"ATP-γ-S treatment\",\n      \"ADP treatment\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S (referenced in the text as ATP)\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[compound]\": {\n    \"value\": [\n      \"Adenosine-5'-triphosphate gamma-S\",\n      \"Adenosine-5'-diphosphate\"\n    ],\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": \"nucleotide binding\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"analyzed in a purified solution with the nucleotides being added separately afterwards for the formation of complexes\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": "no depletion",
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": "analyzed in a purified solution",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "disease_treatment"
+      },
+      "factor value[cell line]": {
+        "response": "```json\n{\n  \"factor value[cell line]\": null,\n  \"factor value[compound]\": {\n    \"value\": \"ADP, ATP-γ-S\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S (referenced in the text as ATP)... Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"factor value[disease]\": null,\n  \"factor value[dose]\": null,\n  \"factor value[organism part]\": null,\n  \"factor value[time]\": null,\n  \"factor value[treatment]\": {\n    \"value\": \"nucleotide binding\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"comparing three of its different conformers... Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION, PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "factor_values"
+      },
+      "factor value[compound]": {
+        "response": "```json\n{\n  \"factor value[cell line]\": null,\n  \"factor value[compound]\": {\n    \"value\": \"ADP, ATP-γ-S\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S (referenced in the text as ATP)... Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"factor value[disease]\": null,\n  \"factor value[dose]\": null,\n  \"factor value[organism part]\": null,\n  \"factor value[time]\": null,\n  \"factor value[treatment]\": {\n    \"value\": \"nucleotide binding\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"comparing three of its different conformers... Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION, PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": "ADP, ATP-γ-S",
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": "The nucleotides were ADP and ATP-γ-S (referenced in the text as ATP)... Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "factor_values"
+      },
+      "factor value[disease]": {
+        "response": "```json\n{\n  \"factor value[cell line]\": null,\n  \"factor value[compound]\": {\n    \"value\": \"ADP, ATP-γ-S\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S (referenced in the text as ATP)... Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"factor value[disease]\": null,\n  \"factor value[dose]\": null,\n  \"factor value[organism part]\": null,\n  \"factor value[time]\": null,\n  \"factor value[treatment]\": {\n    \"value\": \"nucleotide binding\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"comparing three of its different conformers... Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION, PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "factor_values"
+      },
+      "factor value[dose]": {
+        "response": "```json\n{\n  \"factor value[cell line]\": null,\n  \"factor value[compound]\": {\n    \"value\": \"ADP, ATP-γ-S\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S (referenced in the text as ATP)... Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"factor value[disease]\": null,\n  \"factor value[dose]\": null,\n  \"factor value[organism part]\": null,\n  \"factor value[time]\": null,\n  \"factor value[treatment]\": {\n    \"value\": \"nucleotide binding\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"comparing three of its different conformers... Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION, PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "factor_values"
+      },
+      "factor value[organism part]": {
+        "response": "```json\n{\n  \"factor value[cell line]\": null,\n  \"factor value[compound]\": {\n    \"value\": \"ADP, ATP-γ-S\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S (referenced in the text as ATP)... Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"factor value[disease]\": null,\n  \"factor value[dose]\": null,\n  \"factor value[organism part]\": null,\n  \"factor value[time]\": null,\n  \"factor value[treatment]\": {\n    \"value\": \"nucleotide binding\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"comparing three of its different conformers... Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION, PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "factor_values"
+      },
+      "factor value[time]": {
+        "response": "```json\n{\n  \"factor value[cell line]\": null,\n  \"factor value[compound]\": {\n    \"value\": \"ADP, ATP-γ-S\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S (referenced in the text as ATP)... Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"factor value[disease]\": null,\n  \"factor value[dose]\": null,\n  \"factor value[organism part]\": null,\n  \"factor value[time]\": null,\n  \"factor value[treatment]\": {\n    \"value\": \"nucleotide binding\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"comparing three of its different conformers... Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION, PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "factor_values"
+      },
+      "factor value[treatment]": {
+        "response": "```json\n{\n  \"factor value[cell line]\": null,\n  \"factor value[compound]\": {\n    \"value\": \"ADP, ATP-γ-S\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The nucleotides were ADP and ATP-γ-S (referenced in the text as ATP)... Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"factor value[disease]\": null,\n  \"factor value[dose]\": null,\n  \"factor value[organism part]\": null,\n  \"factor value[time]\": null,\n  \"factor value[treatment]\": {\n    \"value\": \"nucleotide binding\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"comparing three of its different conformers... Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION, PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": "nucleotide binding",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "comparing three of its different conformers... Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).",
+          "evidence_location": "PRIDE PROJECT DESCRIPTION, PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "factor_values"
+      },
+      "comment[instrument]": {
+        "response": "```json\n{\n  \"comment[instrument]\": {\n    \"value\": \"Orbitrap Fusion Lumos\",\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid (ThermoFisher Scientific) mass spectrometer\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"data-dependent acquisition\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Instrument method was set up in DDA mode\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"HCD\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HCD fragmentation with stepped collision energy\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"30 NCE;34 NCE\",\n    \"accession\": \"MS:1000045\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"stepped collision energy from 30 to 34\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": \"20 ppm\",\n    \"accession\": \"PRIDE:0000576\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Fragment ppm (MS2): 20\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": \"10 ppm\",\n    \"accession\": \"PRIDE:0000575\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Precursor ppm (MS1): 10\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"2 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[data file]\": {\n    \"value\": \"Not explicitly listed in text; derived from PRIDE file list\",\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "Orbitrap Fusion Lumos",
+          "accession": "MS:1002732",
+          "confidence": "high",
+          "evidence_quote": "analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid (ThermoFisher Scientific) mass spectrometer",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[proteomics data acquisition method]": {
+        "response": "```json\n{\n  \"comment[instrument]\": {\n    \"value\": \"Orbitrap Fusion Lumos\",\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid (ThermoFisher Scientific) mass spectrometer\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"data-dependent acquisition\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Instrument method was set up in DDA mode\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"HCD\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HCD fragmentation with stepped collision energy\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"30 NCE;34 NCE\",\n    \"accession\": \"MS:1000045\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"stepped collision energy from 30 to 34\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": \"20 ppm\",\n    \"accession\": \"PRIDE:0000576\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Fragment ppm (MS2): 20\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": \"10 ppm\",\n    \"accession\": \"PRIDE:0000575\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Precursor ppm (MS1): 10\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"2 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[data file]\": {\n    \"value\": \"Not explicitly listed in text; derived from PRIDE file list\",\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "data-dependent acquisition",
+          "accession": "PRIDE:0000041",
+          "confidence": "high",
+          "evidence_quote": "Instrument method was set up in DDA mode",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[dissociation method]": {
+        "response": "```json\n{\n  \"comment[instrument]\": {\n    \"value\": \"Orbitrap Fusion Lumos\",\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid (ThermoFisher Scientific) mass spectrometer\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"data-dependent acquisition\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Instrument method was set up in DDA mode\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"HCD\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HCD fragmentation with stepped collision energy\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"30 NCE;34 NCE\",\n    \"accession\": \"MS:1000045\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"stepped collision energy from 30 to 34\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": \"20 ppm\",\n    \"accession\": \"PRIDE:0000576\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Fragment ppm (MS2): 20\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": \"10 ppm\",\n    \"accession\": \"PRIDE:0000575\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Precursor ppm (MS1): 10\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"2 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[data file]\": {\n    \"value\": \"Not explicitly listed in text; derived from PRIDE file list\",\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "HCD",
+          "accession": "MS:1000422",
+          "confidence": "high",
+          "evidence_quote": "HCD fragmentation with stepped collision energy",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[collision energy]": {
+        "response": "```json\n{\n  \"comment[instrument]\": {\n    \"value\": \"Orbitrap Fusion Lumos\",\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid (ThermoFisher Scientific) mass spectrometer\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"data-dependent acquisition\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Instrument method was set up in DDA mode\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"HCD\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HCD fragmentation with stepped collision energy\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"30 NCE;34 NCE\",\n    \"accession\": \"MS:1000045\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"stepped collision energy from 30 to 34\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": \"20 ppm\",\n    \"accession\": \"PRIDE:0000576\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Fragment ppm (MS2): 20\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": \"10 ppm\",\n    \"accession\": \"PRIDE:0000575\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Precursor ppm (MS1): 10\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"2 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[data file]\": {\n    \"value\": \"Not explicitly listed in text; derived from PRIDE file list\",\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "30 NCE;34 NCE",
+          "accession": "MS:1000045",
+          "confidence": "medium",
+          "evidence_quote": "stepped collision energy from 30 to 34",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[dia method]": {
+        "response": "```json\n{\n  \"comment[instrument]\": {\n    \"value\": \"Orbitrap Fusion Lumos\",\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid (ThermoFisher Scientific) mass spectrometer\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"data-dependent acquisition\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Instrument method was set up in DDA mode\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"HCD\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HCD fragmentation with stepped collision energy\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"30 NCE;34 NCE\",\n    \"accession\": \"MS:1000045\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"stepped collision energy from 30 to 34\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": \"20 ppm\",\n    \"accession\": \"PRIDE:0000576\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Fragment ppm (MS2): 20\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": \"10 ppm\",\n    \"accession\": \"PRIDE:0000575\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Precursor ppm (MS1): 10\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"2 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[data file]\": {\n    \"value\": \"Not explicitly listed in text; derived from PRIDE file list\",\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[fragment mass tolerance]": {
+        "response": "```json\n{\n  \"comment[instrument]\": {\n    \"value\": \"Orbitrap Fusion Lumos\",\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid (ThermoFisher Scientific) mass spectrometer\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"data-dependent acquisition\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Instrument method was set up in DDA mode\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"HCD\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HCD fragmentation with stepped collision energy\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"30 NCE;34 NCE\",\n    \"accession\": \"MS:1000045\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"stepped collision energy from 30 to 34\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": \"20 ppm\",\n    \"accession\": \"PRIDE:0000576\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Fragment ppm (MS2): 20\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": \"10 ppm\",\n    \"accession\": \"PRIDE:0000575\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Precursor ppm (MS1): 10\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"2 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[data file]\": {\n    \"value\": \"Not explicitly listed in text; derived from PRIDE file list\",\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "20 ppm",
+          "accession": "PRIDE:0000576",
+          "confidence": "high",
+          "evidence_quote": "Fragment ppm (MS2): 20",
+          "evidence_location": "PRIDE DATA PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[precursor mass tolerance]": {
+        "response": "```json\n{\n  \"comment[instrument]\": {\n    \"value\": \"Orbitrap Fusion Lumos\",\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid (ThermoFisher Scientific) mass spectrometer\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"data-dependent acquisition\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Instrument method was set up in DDA mode\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"HCD\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HCD fragmentation with stepped collision energy\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"30 NCE;34 NCE\",\n    \"accession\": \"MS:1000045\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"stepped collision energy from 30 to 34\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": \"20 ppm\",\n    \"accession\": \"PRIDE:0000576\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Fragment ppm (MS2): 20\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": \"10 ppm\",\n    \"accession\": \"PRIDE:0000575\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Precursor ppm (MS1): 10\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"2 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[data file]\": {\n    \"value\": \"Not explicitly listed in text; derived from PRIDE file list\",\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "10 ppm",
+          "accession": "PRIDE:0000575",
+          "confidence": "high",
+          "evidence_quote": "Precursor ppm (MS1): 10",
+          "evidence_location": "PRIDE DATA PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[technical replicate]": {
+        "response": "```json\n{\n  \"comment[instrument]\": {\n    \"value\": \"Orbitrap Fusion Lumos\",\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid (ThermoFisher Scientific) mass spectrometer\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"data-dependent acquisition\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Instrument method was set up in DDA mode\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"HCD\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HCD fragmentation with stepped collision energy\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"30 NCE;34 NCE\",\n    \"accession\": \"MS:1000045\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"stepped collision energy from 30 to 34\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": \"20 ppm\",\n    \"accession\": \"PRIDE:0000576\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Fragment ppm (MS2): 20\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": \"10 ppm\",\n    \"accession\": \"PRIDE:0000575\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Precursor ppm (MS1): 10\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"2 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[data file]\": {\n    \"value\": \"Not explicitly listed in text; derived from PRIDE file list\",\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "2 technical replicates per sample",
+          "accession": "MS:1001808",
+          "confidence": "high",
+          "evidence_quote": "Digested samples sample were analyzed in two technical replicates",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[data file]": {
+        "response": "```json\n{\n  \"comment[instrument]\": {\n    \"value\": \"Orbitrap Fusion Lumos\",\n    \"accession\": \"MS:1002732\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid (ThermoFisher Scientific) mass spectrometer\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"data-dependent acquisition\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Instrument method was set up in DDA mode\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"HCD\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"HCD fragmentation with stepped collision energy\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"30 NCE;34 NCE\",\n    \"accession\": \"MS:1000045\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"stepped collision energy from 30 to 34\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": \"20 ppm\",\n    \"accession\": \"PRIDE:0000576\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Fragment ppm (MS2): 20\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": \"10 ppm\",\n    \"accession\": \"PRIDE:0000575\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Precursor ppm (MS1): 10\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"2 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[data file]\": {\n    \"value\": \"Not explicitly listed in text; derived from PRIDE file list\",\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "Not explicitly listed in text; derived from PRIDE file list",
+          "accession": "MS:1003083",
+          "confidence": "medium",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "ms_acquisition"
+      },
+      "characteristics[organism]": {
+        "response": "```json\n{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry proteomics\",\n    \"evidence_location\": \"PRIDE EXPERIMENT TYPES\"\n  },\n  \"source name\": {\n    \"value\": \"nucleotide_condition\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"assay name\": {\n    \"value\": \"condition_replicate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": "Homo sapiens",
+          "accession": "NCBITaxon:9606",
+          "confidence": "high",
+          "evidence_quote": "The HSP90 protein used for the experiments was the human one",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[organism part]": {
+        "response": "```json\n{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry proteomics\",\n    \"evidence_location\": \"PRIDE EXPERIMENT TYPES\"\n  },\n  \"source name\": {\n    \"value\": \"nucleotide_condition\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"assay name\": {\n    \"value\": \"condition_replicate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[cell line]": {
+        "response": "```json\n{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry proteomics\",\n    \"evidence_location\": \"PRIDE EXPERIMENT TYPES\"\n  },\n  \"source name\": {\n    \"value\": \"nucleotide_condition\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"assay name\": {\n    \"value\": \"condition_replicate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[cell type]": {
+        "response": "```json\n{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry proteomics\",\n    \"evidence_location\": \"PRIDE EXPERIMENT TYPES\"\n  },\n  \"source name\": {\n    \"value\": \"nucleotide_condition\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"assay name\": {\n    \"value\": \"condition_replicate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[material type]": {
+        "response": "```json\n{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry proteomics\",\n    \"evidence_location\": \"PRIDE EXPERIMENT TYPES\"\n  },\n  \"source name\": {\n    \"value\": \"nucleotide_condition\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"assay name\": {\n    \"value\": \"condition_replicate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": "purified proteins",
+          "accession": "PRIDE:0000837",
+          "confidence": "high",
+          "evidence_quote": "analyzed in a purified solution",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[strain or breed]": {
+        "response": "```json\n{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry proteomics\",\n    \"evidence_location\": \"PRIDE EXPERIMENT TYPES\"\n  },\n  \"source name\": {\n    \"value\": \"nucleotide_condition\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"assay name\": {\n    \"value\": \"condition_replicate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[developmental stage]": {
+        "response": "```json\n{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry proteomics\",\n    \"evidence_location\": \"PRIDE EXPERIMENT TYPES\"\n  },\n  \"source name\": {\n    \"value\": \"nucleotide_condition\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"assay name\": {\n    \"value\": \"condition_replicate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "organism_sample"
+      },
+      "technology type": {
+        "response": "```json\n{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry proteomics\",\n    \"evidence_location\": \"PRIDE EXPERIMENT TYPES\"\n  },\n  \"source name\": {\n    \"value\": \"nucleotide_condition\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"assay name\": {\n    \"value\": \"condition_replicate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": "proteomic profiling by mass spectrometry",
+          "accession": "PRIDE:0000663",
+          "confidence": "high",
+          "evidence_quote": "Chemical cross-linking coupled with mass spectrometry proteomics",
+          "evidence_location": "PRIDE EXPERIMENT TYPES"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "organism_sample"
+      },
+      "source name": {
+        "response": "```json\n{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry proteomics\",\n    \"evidence_location\": \"PRIDE EXPERIMENT TYPES\"\n  },\n  \"source name\": {\n    \"value\": \"nucleotide_condition\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"assay name\": {\n    \"value\": \"condition_replicate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": "nucleotide_condition",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "organism_sample"
+      },
+      "assay name": {
+        "response": "```json\n{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"analyzed in a purified solution\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry proteomics\",\n    \"evidence_location\": \"PRIDE EXPERIMENT TYPES\"\n  },\n  \"source name\": {\n    \"value\": \"nucleotide_condition\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Mass spectrometry data for HSP90 was generated in the following conditions: a) ATP-bound, b) ADP-bound, and c) nucleotide-free (Apo).\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"assay name\": {\n    \"value\": \"condition_replicate\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": "condition_replicate",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "Digested samples sample were analyzed in two technical replicates",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[sex]": {
+        "response": "```json\n{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one, analyzed in a purified solution\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"2 technical replicates\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "not applicable",
+          "accession": "PATO:0000047",
+          "confidence": "high",
+          "evidence_quote": "The HSP90 protein used for the experiments was the human one, analyzed in a purified solution",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[age]": {
+        "response": "```json\n{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one, analyzed in a purified solution\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"2 technical replicates\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000246",
+          "confidence": null,
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[ancestry category]": {
+        "response": "```json\n{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one, analyzed in a purified solution\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"2 technical replicates\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": "HANCESTRO",
+          "confidence": null,
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[biological replicate]": {
+        "response": "```json\n{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one, analyzed in a purified solution\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"2 technical replicates\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "2 technical replicates",
+          "accession": "MS:1001809",
+          "confidence": "high",
+          "evidence_quote": "Digested samples sample were analyzed in two technical replicates",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[genotype]": {
+        "response": "```json\n{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one, analyzed in a purified solution\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"2 technical replicates\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000513",
+          "confidence": null,
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[pooled sample]": {
+        "response": "```json\n{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one, analyzed in a purified solution\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"2 technical replicates\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "not pooled",
+          "accession": "NCIT:C165587",
+          "confidence": "medium",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[phosphate]": {
+        "response": "```json\n{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one, analyzed in a purified solution\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"2 technical replicates\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000805",
+          "confidence": null,
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[temperature]": {
+        "response": "```json\n{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The HSP90 protein used for the experiments was the human one, analyzed in a purified solution\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"2 technical replicates\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000703",
+          "confidence": null,
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_attributes"
+      },
+      "comment[cleavage agent details]": {
+        "response": "```json\n{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-linked proteins were digested using trypsin\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": \"PRIDE:0000598\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Alkylation of thiol groups was done by adding 20μL of a 50mmol/L solution of iodoacetamide\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\"\n    ],\n    \"accession\": \"MS:1001055\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Modifications: Carbamidomethylation of cysteine\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": \"MS:1000858\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Each sample was analyzed in 40 minutes chromatography\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": [
+            "NT=Trypsin;AC=MS:1001251"
+          ],
+          "accession": "MS:1001251",
+          "confidence": "high",
+          "evidence_quote": "The cross-linked proteins were digested using trypsin",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[label]": {
+        "response": "```json\n{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-linked proteins were digested using trypsin\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": \"PRIDE:0000598\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Alkylation of thiol groups was done by adding 20μL of a 50mmol/L solution of iodoacetamide\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\"\n    ],\n    \"accession\": \"MS:1001055\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Modifications: Carbamidomethylation of cysteine\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": \"MS:1000858\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Each sample was analyzed in 40 minutes chromatography\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": "NT=label free sample;AC=MS:1002038",
+          "accession": "MS:1002038",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[alkylation reagent]": {
+        "response": "```json\n{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-linked proteins were digested using trypsin\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": \"PRIDE:0000598\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Alkylation of thiol groups was done by adding 20μL of a 50mmol/L solution of iodoacetamide\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\"\n    ],\n    \"accession\": \"MS:1001055\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Modifications: Carbamidomethylation of cysteine\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": \"MS:1000858\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Each sample was analyzed in 40 minutes chromatography\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": "iodoacetamide",
+          "accession": "PRIDE:0000598",
+          "confidence": "high",
+          "evidence_quote": "Alkylation of thiol groups was done by adding 20μL of a 50mmol/L solution of iodoacetamide",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[fractionation method]": {
+        "response": "```json\n{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-linked proteins were digested using trypsin\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": \"PRIDE:0000598\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Alkylation of thiol groups was done by adding 20μL of a 50mmol/L solution of iodoacetamide\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\"\n    ],\n    \"accession\": \"MS:1001055\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Modifications: Carbamidomethylation of cysteine\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": \"MS:1000858\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Each sample was analyzed in 40 minutes chromatography\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[modification parameters]": {
+        "response": "```json\n{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-linked proteins were digested using trypsin\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": \"PRIDE:0000598\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Alkylation of thiol groups was done by adding 20μL of a 50mmol/L solution of iodoacetamide\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\"\n    ],\n    \"accession\": \"MS:1001055\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Modifications: Carbamidomethylation of cysteine\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": \"MS:1000858\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Each sample was analyzed in 40 minutes chromatography\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": [
+            "NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed"
+          ],
+          "accession": "MS:1001055",
+          "confidence": "high",
+          "evidence_quote": "Modifications: Carbamidomethylation of cysteine",
+          "evidence_location": "PRIDE DATA PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[fraction identifier]": {
+        "response": "```json\n{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-linked proteins were digested using trypsin\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[label]\": {\n    \"value\": \"NT=label free sample;AC=MS:1002038\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": \"PRIDE:0000598\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Alkylation of thiol groups was done by adding 20μL of a 50mmol/L solution of iodoacetamide\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\"\n    ],\n    \"accession\": \"MS:1001055\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Modifications: Carbamidomethylation of cysteine\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": \"MS:1000858\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Each sample was analyzed in 40 minutes chromatography\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": "no fractionation",
+          "accession": "MS:1000858",
+          "confidence": "high",
+          "evidence_quote": "Each sample was analyzed in 40 minutes chromatography",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_preparation"
+      },
+      "characteristics[crosslinking reaction time]": {
+        "response": "```json\n{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"2 hours\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-link reactions occurred for 2 hours\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"27 °C\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-link reactions occurred for 2 hours at 27°C.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000838\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": \"no enrichment\",\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid (ThermoFisher Scientific) mass spectrometer coupled with an Easy nLC 1200 chromatography system.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": "2 hours",
+          "accession": "PRIDE:0000949",
+          "confidence": "high",
+          "evidence_quote": "The cross-link reactions occurred for 2 hours",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "xlms_conditions"
+      },
+      "characteristics[crosslinking temperature]": {
+        "response": "```json\n{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"2 hours\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-link reactions occurred for 2 hours\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"27 °C\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-link reactions occurred for 2 hours at 27°C.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000838\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": \"no enrichment\",\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid (ThermoFisher Scientific) mass spectrometer coupled with an Easy nLC 1200 chromatography system.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": "27 °C",
+          "accession": "PRIDE:0000950",
+          "confidence": "high",
+          "evidence_quote": "The cross-link reactions occurred for 2 hours at 27°C.",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "xlms_conditions"
+      },
+      "comment[crosslink enrichment method]": {
+        "response": "```json\n{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"2 hours\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-link reactions occurred for 2 hours\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"27 °C\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-link reactions occurred for 2 hours at 27°C.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000838\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": \"no enrichment\",\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid (ThermoFisher Scientific) mass spectrometer coupled with an Easy nLC 1200 chromatography system.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000838",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "xlms_conditions"
+      },
+      "characteristics[enrichment process]": {
+        "response": "```json\n{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"2 hours\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-link reactions occurred for 2 hours\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"27 °C\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-link reactions occurred for 2 hours at 27°C.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000838\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": \"no enrichment\",\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Digested samples sample were analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid (ThermoFisher Scientific) mass spectrometer coupled with an Easy nLC 1200 chromatography system.\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": "no enrichment",
+          "accession": "EFO:0009090",
+          "confidence": "high",
+          "evidence_quote": "Digested samples sample were analyzed in two technical replicates using an Orbitrap Fusion Lumos Tribrid (ThermoFisher Scientific) mass spectrometer coupled with an Easy nLC 1200 chromatography system.",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "xlms_conditions"
+      },
+      "comment[cross-linker]": {
+        "response": "```json\n{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=DSS;AC=XLMOD:02001;CL=no;TA=K(0),nterm(0)\",\n    \"NT\": \"DSS\",\n    \"AC\": \"XLMOD:02001\",\n    \"CL\": \"no\",\n    \"TA\": \"K(0),nterm(0)\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-linker used was DSS dissolved in DMF\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"27 mM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"final concentration of 27mmol/L\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": \"100:1\",\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"in a molar excess of 100 times relative to the protein concentration\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled to mass spectrometry (XLMS)\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  }\n}\n```",
+        "parsed": {
+          "value": "NT=DSS;AC=XLMOD:02001;CL=no;TA=K(0),nterm(0)",
+          "NT": "DSS",
+          "AC": "XLMOD:02001",
+          "CL": "no",
+          "TA": "K(0),nterm(0)",
+          "confidence": "high",
+          "evidence_quote": "The cross-linker used was DSS dissolved in DMF",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[crosslinker concentration]": {
+        "response": "```json\n{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=DSS;AC=XLMOD:02001;CL=no;TA=K(0),nterm(0)\",\n    \"NT\": \"DSS\",\n    \"AC\": \"XLMOD:02001\",\n    \"CL\": \"no\",\n    \"TA\": \"K(0),nterm(0)\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-linker used was DSS dissolved in DMF\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"27 mM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"final concentration of 27mmol/L\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": \"100:1\",\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"in a molar excess of 100 times relative to the protein concentration\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled to mass spectrometry (XLMS)\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  }\n}\n```",
+        "parsed": {
+          "value": "27 mM",
+          "accession": "PRIDE:0000951",
+          "confidence": "high",
+          "evidence_quote": "final concentration of 27mmol/L",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[crosslinker to protein ratio]": {
+        "response": "```json\n{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=DSS;AC=XLMOD:02001;CL=no;TA=K(0),nterm(0)\",\n    \"NT\": \"DSS\",\n    \"AC\": \"XLMOD:02001\",\n    \"CL\": \"no\",\n    \"TA\": \"K(0),nterm(0)\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-linker used was DSS dissolved in DMF\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"27 mM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"final concentration of 27mmol/L\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": \"100:1\",\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"in a molar excess of 100 times relative to the protein concentration\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled to mass spectrometry (XLMS)\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  }\n}\n```",
+        "parsed": {
+          "value": "100:1",
+          "accession": "PRIDE:0000952",
+          "confidence": "high",
+          "evidence_quote": "in a molar excess of 100 times relative to the protein concentration",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[quenching reagent]": {
+        "response": "```json\n{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=DSS;AC=XLMOD:02001;CL=no;TA=K(0),nterm(0)\",\n    \"NT\": \"DSS\",\n    \"AC\": \"XLMOD:02001\",\n    \"CL\": \"no\",\n    \"TA\": \"K(0),nterm(0)\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-linker used was DSS dissolved in DMF\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"27 mM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"final concentration of 27mmol/L\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": \"100:1\",\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"in a molar excess of 100 times relative to the protein concentration\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled to mass spectrometry (XLMS)\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000953",
+          "confidence": "medium",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "xlms_reagents"
+      },
+      "characteristics[crosslink distance]": {
+        "response": "```json\n{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=DSS;AC=XLMOD:02001;CL=no;TA=K(0),nterm(0)\",\n    \"NT\": \"DSS\",\n    \"AC\": \"XLMOD:02001\",\n    \"CL\": \"no\",\n    \"TA\": \"K(0),nterm(0)\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-linker used was DSS dissolved in DMF\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"27 mM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"final concentration of 27mmol/L\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": \"100:1\",\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"in a molar excess of 100 times relative to the protein concentration\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled to mass spectrometry (XLMS)\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000948",
+          "confidence": "medium",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[chemical cross-linking coupled with ms]": {
+        "response": "```json\n{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=DSS;AC=XLMOD:02001;CL=no;TA=K(0),nterm(0)\",\n    \"NT\": \"DSS\",\n    \"AC\": \"XLMOD:02001\",\n    \"CL\": \"no\",\n    \"TA\": \"K(0),nterm(0)\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The cross-linker used was DSS dissolved in DMF\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"27 mM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"final concentration of 27mmol/L\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": \"100:1\",\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"in a molar excess of 100 times relative to the protein concentration\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled to mass spectrometry (XLMS)\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  }\n}\n```",
+        "parsed": {
+          "value": "cross-linking mass spectrometry",
+          "accession": "PRIDE:0000430",
+          "confidence": "high",
+          "evidence_quote": "Chemical cross-linking coupled to mass spectrometry (XLMS)",
+          "evidence_location": "PRIDE PROJECT DESCRIPTION"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "xlms_reagents"
+      }
+    }
+  }
+}

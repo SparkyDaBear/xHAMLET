@@ -1,0 +1,2931 @@
+{
+  "metadata": {
+    "pxd": "PXD008550",
+    "category": "pmc",
+    "saved_at": "2026-10-13T16:32:14.012577",
+    "filename": "full_text"
+  },
+  "data": [
+    {
+      "bioctype": "BioCCollection",
+      "source": "PMC",
+      "date": "20260202",
+      "key": "pmc.key",
+      "version": "1.0",
+      "infons": {},
+      "documents": [
+        {
+          "bioctype": "BioCDocument",
+          "id": "PMC6753376",
+          "infons": {
+            "license": "CC BY"
+          },
+          "passages": [
+            {
+              "bioctype": "BioCPassage",
+              "offset": 0,
+              "infons": {
+                "alt-title": "Marta L Mendes et al",
+                "article-id_doi": "10.15252/msb.20198994",
+                "article-id_pmc": "PMC6753376",
+                "article-id_pmid": "31556486",
+                "article-id_publisher-id": "MSB198994",
+                "elocation-id": "e8994",
+                "issue": "9",
+                "kwd": "crosslinking mass spectrometry protein–protein interactions proteomics software structural biology Methods & Resources",
+                "license": "This is an open access article under the terms of the http://creativecommons.org/licenses/by/4.0/ License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.",
+                "name_0": "surname:Mendes;given-names:Marta L",
+                "name_1": "surname:Fischer;given-names:Lutz",
+                "name_10": "surname:Graham;given-names:Martin",
+                "name_11": "surname:Eisele;given-names:Markus R",
+                "name_12": "surname:Baumeister;given-names:Wolfgang",
+                "name_13": "surname:Speck;given-names:Christian",
+                "name_14": "surname:Rappsilber;given-names:Juri",
+                "name_2": "surname:Chen;given-names:Zhuo A",
+                "name_3": "surname:Barbon;given-names:Marta",
+                "name_4": "surname:O'Reilly;given-names:Francis J",
+                "name_5": "surname:Giese;given-names:Sven H",
+                "name_6": "surname:Bohlke‐Schneider;given-names:Michael",
+                "name_7": "surname:Belsom;given-names:Adam",
+                "name_8": "surname:Dau;given-names:Therese",
+                "name_9": "surname:Combe;given-names:Colin W",
+                "notes": "\n\n. () : \n\n",
+                "section_type": "TITLE",
+                "source": "Mol Syst Biol",
+                "title": "Subject Categories",
+                "type": "front",
+                "volume": "15",
+                "year": "2019"
+              },
+              "text": "An integrated workflow for crosslinking mass spectrometry",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 58,
+              "infons": {
+                "section_type": "ABSTRACT",
+                "type": "abstract_title_1"
+              },
+              "text": "Abstract",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 67,
+              "infons": {
+                "section_type": "ABSTRACT",
+                "type": "abstract"
+              },
+              "text": "We present a concise workflow to enhance the mass spectrometric detection of crosslinked peptides by introducing sequential digestion and the crosslink identification software xiSEARCH. Sequential digestion enhances peptide detection by selective shortening of long tryptic peptides. We demonstrate our simple 12‐fraction protocol for crosslinked multi‐protein complexes and cell lysates, quantitative analysis, and high‐density crosslinking, without requiring specific crosslinker features. This overall approach reveals dynamic protein–protein interaction sites, which are accessible, have fundamental functional relevance and are therefore ideally suited for the development of small molecule inhibitors.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 783,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "title_1"
+              },
+              "text": "Introduction",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 796,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "Crosslinking mass spectrometry (CLMS) has become a standard tool for the topological analysis of multi‐protein complexes and has begun delivering high‐density information on protein structures, insights into structural changes and the wiring of interaction networks in situ (O'Reilly & Rappsilber, 2018). The technological development currently focuses on enrichment strategies for crosslinked peptides and mass spectrometric data acquisition (Leitner et al, 2013; Kolbowski et al, 2017; Liu et al, 2017), including newly designed crosslinkers (Kao et al, 2011). MS2‐cleavable crosslinkers, in particular, have celebrated recent successes for the analysis of protein complexes (Wang et al, 2017) or complex mixtures (Chavez et al, 2013; Liu & Heck, 2015).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 1565,
+              "infons": {
+                "section_type": "INTRO",
+                "type": "paragraph"
+              },
+              "text": "The focus on bespoke crosslinkers has left general steps of sample preparation, such as protein digestion, with less attention. Tryptic digestion generates crosslinked peptides of considerable size, a quality that has been exploited with their enrichment by SEC (Leitner et al, 2012b), but one that poses as a potential problem regarding their detection. Replacing trypsin with proteases such as GluC, AspN and chymotrypsin does not change peptide size distributions fundamentally (Swaney et al, 2010). We reasoned that sequential digestion could reduce the size of large tryptic peptides and offer access to sequence space that otherwise would remain undetected. We therefore followed trypsin digestion with subsequent digestion by alternative proteases and developed xiSEARCH, a database search engine, allowing the search of multiple datasets resulting from the application of our protocol. This novel approach expands the detectable structure space in proteins, allowing it to capture dynamic regions in protein complexes that are mechanistically important and therefore a priori druggable, however that hitherto have remained undisclosed by cryo‐EM due to their flexible nature.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 2753,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_1"
+              },
+              "text": "Results",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 2761,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "Sequential digestion increases the number of identified crosslinks",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 2829,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "We first tested this workflow on a standard mix of seven Bis[sulfosuccinimidyl] suberate (BS3) crosslinked proteins (catalase, myoglobin, cytochrome C, lysozyme, creatine kinase, HSA and conalbumin). Importantly, their structures are known and hence offer an independent assessment of false identifications. Four digestion conditions, each giving three SEC fractions, resulted in a total of 12 acquisitions, which is the protocol applied to all subsequent analyses presented here (Fig 1A). The results of this protocol for our standard proteins were compared to a parallel digestion using the same four enzymes and using trypsin alone in four replica, maintaining the analytical effort comparable in all three cases (SEC fractionation, 12 injections). Sequential digestion produced the best results when compared to replica analyses and parallel digestion (Figs 1B and C, and EV1, Dataset EV1). Before assessing if this improvement translated into a gain of information in biological applications, we investigated the origin of the added data (Figs EV2 and EV3, Dataset EV4).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 3908,
+              "infons": {
+                "file": "MSB-15-e8994-g002.jpg",
+                "id": "msb198994-fig-0001",
+                "section_type": "FIG",
+                "type": "fig_title_caption"
+              },
+              "text": "Sequential digestion workflow compared to repeated analysis and parallel digestion",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 3991,
+              "infons": {
+                "file": "MSB-15-e8994-g002.jpg",
+                "id": "msb198994-fig-0001",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Sequential digestion workflow. Proteins or protein complexes are crosslinked and digested with trypsin. After splitting the sample into four aliquots, one remains single digested with trypsin (T) while the others are sequentially digested with either AspN (A), chymotrypsin (C) or GluC (G). Samples are enriched by SEC, and the three high‐MW fractions are analysed by LC‐MS, submitted to xiSEARCH and xiFDR analysis.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 4412,
+              "infons": {
+                "file": "MSB-15-e8994-g002.jpg",
+                "id": "msb198994-fig-0001",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Results of the sequential digestion workflow applied to a synthetic 7‐protein mix, compared to using trypsin alone in four replicates and parallel digestion with trypsin, AspN, chymotrypsin and GluC. A trypsin four replicate experiment shows a large overlap of the four datasets with little gain. Parallel digestions with trypsin, AspN, chymotrypsin and GluC demonstrate high complementarity but moderate gains over trypsin. Sequential digestion shows low overlap between the four datasets and the largest gain in unique residue pairs.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 4950,
+              "infons": {
+                "file": "MSB-15-e8994-g002.jpg",
+                "id": "msb198994-fig-0001",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Gains of repeated analysis (trypsin only), parallel digestion and sequential digestion for the same data as shown in panel (B).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 5078,
+              "infons": {
+                "file": "MSB-15-e8994-g002.jpg",
+                "id": "msb198994-fig-0001",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Crosslinked peptides obtained by sequential digestion of a synthetic 7‐protein mix are smaller than their corresponding tryptic peptides. Boxplot ranges represent the 25th (lower hinge) and 75th (upper hinge) percentiles, respectively. Middle line represents the median. For trypsin 4 replicates were analysed and for sequential digestion and parallel digestion 1 sample was analysed.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 5465,
+              "infons": {
+                "file": "MSB-15-e8994-g003.jpg",
+                "id": "msb198994-fig-0001ev",
+                "section_type": "FIG",
+                "type": "fig_title_caption"
+              },
+              "text": "Sequential digestion increases the number of identified unique residue pairs in a seven‐protein mixture",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 5571,
+              "infons": {
+                "file": "MSB-15-e8994-g003.jpg",
+                "id": "msb198994-fig-0001ev",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Links per fraction and gain for sequential digestion and the control experiments composed by an experiment using trypsin alone in four replicates and individual digestions with trypsin, AspN, chymotrypsin and GluC. Trypsin yields the higher number of links per sample followed by sequential digestion and individual digestions. However, sequential digestion yields the largest number of unique residue pairs when combining the data.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 6004,
+              "infons": {
+                "file": "MSB-15-e8994-g005.jpg",
+                "id": "msb198994-fig-0002ev",
+                "section_type": "FIG",
+                "type": "fig_title_caption"
+              },
+              "text": "Properties of crosslinked peptides (i.e. the two linked peptides are considered together) for a seven‐protein mixture and each digestion condition",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 6153,
+              "infons": {
+                "file": "MSB-15-e8994-g005.jpg",
+                "id": "msb198994-fig-0002ev",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Precursor m/z. Sequentially digested peptides are smaller. Boxplot ranges represent the 25th (lower hinge) and 75th (upper hinge) percentiles, respectively. Middle line represents the median. Upper whisker and lower whisker are defined as follows: upper whisker = min(max(x), Q_3 + 1.5 * IQR), lower whisker = max(min(x), Q_1 − 1.5 * IQR) where IQR is the interquartile range (vertical size of the boxes).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 6561,
+              "infons": {
+                "file": "MSB-15-e8994-g005.jpg",
+                "id": "msb198994-fig-0002ev",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Observed charge state. Sequentially digested peptides have lower charge states.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 6641,
+              "infons": {
+                "file": "MSB-15-e8994-g005.jpg",
+                "id": "msb198994-fig-0002ev",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Calculated hydrophobicity",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 6667,
+              "infons": {
+                "file": "MSB-15-e8994-g005.jpg",
+                "id": "msb198994-fig-0002ev",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Observed retention time (RT).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 6697,
+              "infons": {
+                "file": "MSB-15-e8994-g005.jpg",
+                "id": "msb198994-fig-0002ev",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Calculated pI.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 6712,
+              "infons": {
+                "file": "MSB-15-e8994-g005.jpg",
+                "id": "msb198994-fig-0002ev",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Peptide length, of both the observed peptides as part of a crosslink (left) and the number of unique crosslinkable peptides resulting from in silico digestion (right).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 6880,
+              "infons": {
+                "file": "MSB-15-e8994-g005.jpg",
+                "id": "msb198994-fig-0002ev",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Number of missed cleavages. Sequentially digested samples with trypsin + chymotrypsin and trypsin + GluC show more miss‐cleavages than the other fractions.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 7042,
+              "infons": {
+                "file": "MSB-15-e8994-g005.jpg",
+                "id": "msb198994-fig-0002ev",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "\nData information: For statistical testing, a one‐sided Mann–Whitney U‐test with continuity correction was used (Dataset EV4). All tests were carried out with trypsin as reference. The sign above the trypsin data (> or <) shows the direction of the alternative hypothesis. (****P < 0.0001, −: P > 0.05).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 7358,
+              "infons": {
+                "file": "MSB-15-e8994-g007.jpg",
+                "id": "msb198994-fig-0003ev",
+                "section_type": "FIG",
+                "type": "fig_title_caption"
+              },
+              "text": "Cleavage site protection in a BS\n3‐crosslinked 26S proteasome sample",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 7429,
+              "infons": {
+                "file": "MSB-15-e8994-g007.jpg",
+                "id": "msb198994-fig-0003ev",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "We determined the number of available cleavage sites for each secondary enzyme (A: AspN, B: chymotrypsin, C: GluC) in both the trypsin (Tryp) dataset and their respective dataset (Tryp + AspN/Tryp + Chyno/Tryp + GluC). Boxplots show that the bigger the observed peptide is, the lower is its number of remaining cleavage sites, showing that large peptides with a higher number of cleavage sites were digested. In turn, smaller peptides contain a larger density of missed cleavage sites thereby indicating that short length protects peptides from digestion. Boxplot ranges represent the 25th (lower hinge) and 75th (upper hinge) percentiles, respectively. Middle line represents the median.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 8124,
+              "infons": {
+                "file": "MSB-15-e8994-g007.jpg",
+                "id": "msb198994-fig-0003ev",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Histogram of intensity weighted MS features as detected by MaxQuant for each digest. The sequential digests show a slight shift to lower masses, but most observed masses are between 1,000 and 2,000 Da.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 8327,
+              "infons": {
+                "file": "MSB-15-e8994-g007.jpg",
+                "id": "msb198994-fig-0003ev",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Protection of peptide from secondary cleavage measured as the number of missed‐cleaved peptides in sequential digest divided by the number of peptides in the trypsin digest with potential cleavage sites for the second enzyme.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 8555,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Indeed, sequential digestion led to smaller peptides than trypsin alone (Figs 1D and EV2F, and Dataset EV4) and moved the mass distribution of theoretical crosslinkable peptides more into the mass range typically detected by our instrument (Fig EV2F, Dataset EV4). For short peptides, we noticed a protection effect, based on the number of peptides containing missed cleavage sites and on the number of missed cleavage sites relative to peptide length (Figs EV3 and EV2B, and Dataset EV4). This agrees with reports that serine proteases lose efficiency as peptides shorten (Thompson & Blout, 1973; Wenzel & Tschesche, 1981). Although AspN is a metalloprotease, it showed a similar loss of efficiency for short peptides. Notably, we observed a bias towards maintaining tryptic C‐termini. Crosslinked peptides with two tryptic C‐termini are more frequently identified while those with C‐termini generated by the second protease are less frequent than expected, relying on N‐termini as internal reference (Fig EV4). This identification bias is consistent with better fragmentation behaviour of peptides with basic C‐termini (Olsen et al, 2004) and testifies to the importance of trypsin as part of the protocol.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 9779,
+              "infons": {
+                "file": "MSB-15-e8994-g009.jpg",
+                "id": "msb198994-fig-0004ev",
+                "section_type": "FIG",
+                "type": "fig_title_caption"
+              },
+              "text": "Sequentially digested crosslinked peptides show a bias towards having C‐termini that end in K or R",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 9880,
+              "infons": {
+                "file": "MSB-15-e8994-g009.jpg",
+                "id": "msb198994-fig-0004ev",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "In a seven‐protein mixture, we see a bias towards tryptic C‐terminal when compared to tryptic N‐terminal showing that the increase of identification is in large part from the shorten but still tryptic looking peptides that are easier to identify by LC‐MS/MS.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 10147,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "We then tested the sequential digestion approach on samples of increasing complexity ranging from single proteins, UGGT and C3b, to the OCCM DNA replication complex (1.1 MDa), the 26S proteasome (2.5 MDa) and high‐molecular weight fractions of human cytosol. A quantitative experiment was performed to assess the efficiency of sequential digestion combined with the QCLMS workflow (Chen et al, 2016c). Additionally, we tested the approach using two different crosslinkers, the homobifunctional crosslinker BS3 and the heterobifunctional, photoactivatable crosslinker sulfosuccinimidyl 4,4′‐azipentanoate (SDA).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 10767,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "Compatibility with photo‐ and quantitative CLMS",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 10817,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "UGGT was one of the data‐assisted de novo folding targets of CASP12 for which we contributed data in the form of 433 unique residue pairs obtained at a 5% FDR (http://predictioncenter.org/download_area/CASP12/extra_experiments/; Appendix Fig S1A) using SDA as crosslinker and 26 LC‐MS runs (Ogorzalek et al, 2018). Using sequential digestion, we now identified 1,523 unique residue pairs in only 12 runs (Appendix Fig S1B and C, Dataset EV1 and EV2). With 5% long‐distance links (> 20 Å) when mapped onto the structure released by CASP organisers (Appendix Fig S1D), the 300% increase in observed links comes at uncompromised reliability. Consequently, the sequential digestion protocol improves high‐density CLMS by a clear increase in the number of residue pairs while simultaneously reducing the analytical effort needed to detect these.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 11673,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "We next combined quantitative CLMS (QCLMS; Schmidt et al, 2013; Tomko et al, 2015; Chen et al, 2016b) with our workflow (Appendix Fig S2A) to investigate the dimerisation of C3b. Thioester‐mediated dimerisation of C3b is a key process of the human complement response enhancing the efficiency of C5 convertase formation which ultimately leads to clearance of pathogens from human blood (Hong et al, 1991; Rawal & Pangburn, 2001; Pangburn & Rawal, 2002). However, the structure of this dimer is currently unclear. The reactive thioester could result in a random orientation of the two C3b molecules in a dimer. Alternatively, auxiliary factors or self‐organisation properties of C3b could mediate a preferred orientation. We here investigate C3b alone and find it to form dimers in the absence of active thioester and auxiliary proteins. We quantified 293 unique crosslinks, about three times more than with trypsin alone (99) (Appendix Fig S2B–D; Dataset EV1 and EV2) which lends robust support to a bottom‐to‐bottom orientation (Appendix Fig S2E). This suggests non‐covalent interactions between C3b molecules lead to a preferred dimer orientation which implies that a thioester bridged dimer would follow this arrangement. Non‐covalent interactions thus self‐organise C3b into a productive dimer as this arrangement is compatible with the subsequent molecular events of the complement cascade by allowing unhindered binding of factor B at the top of C3b.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 13153,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "A novel and functionally important contact in the OCCM complex",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 13216,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Turning our attention to protein complexes, we investigated the OCCM complex, a helicase loading intermediate formed during the initiation of DNA replication. Recently, a 3.9‐Å structure of Saccharomyces cerevisiae OCCM on DNA was obtained by cryo‐electron microscopy (cryo‐EM), supported by CLMS (Yuan et al, 2017). We identified 682 residues pairs from the same sample analysed before, with large contribution from sequential digestion (Fig 2A and Appendix Fig S3A–C; Dataset EV1 and EV2). Interactions observed now include known Cdt1‐Mcm2 and Mcm6 but also Mcm2‐Orc5 interaction (Mcm2‐850‐Orc5‐369). These led us to delete the C‐terminal 20 aa of Mcm2 (848–868; Fig 2B, lane 5) and analyse its biological relevance in a well‐established in vitro helicase loading assay, which recapitulates the in vivo process (Evrin et al, 2009). The deletion mutant did not affect ORC, Cdc6, Cdt1 and origin DNA‐dependent complex assembly under low salt conditions (Fig 2B, lanes 6 and 7), but severely impaired the formation of the high salt stable double‐hexamer (Fig 2B, lanes 8 and 9), the final product of the helicase loading reaction. This is an exciting result, as it highlights a novel and essential role for Mcm2 C‐terminus in a late step of MCM2‐7 double‐hexamer formation (Barbon et al, in preparation), a process that is only poorly understood. Moreover, the CLMS data show that the Mcm2 C‐terminus is involved in a network of interactions with flexible domains of Orc6, Orc2 and Mcm5, indicating dynamics at the Mcm2‐Mcm5 DNA entry gate (Samel et al, 2014), which could represent an ideal target for the development of inhibitors with potential as anti‐cancer therapy (Gardner et al, 2017), as dynamic interactions have improved druggability characteristics over stable protein interactions (Ulucan et al, 2012; Jubb et al, 2015). Indeed, expressing Mcm2‐7ΔC2 causes dominant lethality (Fig 2C). The ability of CLMS data to complete the cryo‐EM structure of the OCCM complex by providing information on dynamic contacts proved here essential. Note that 15% of our residue pairs falling into the published OCCM structure were long distance (> 30 Å, Appendix Fig S3D). This indicates that CLMS unveils dynamic aspects of protein complex topology also in regions of the structure accessible to cryo‐EM as will become even more evident in our proteasome analysis.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 15645,
+              "infons": {
+                "file": "MSB-15-e8994-g004.jpg",
+                "id": "msb198994-fig-0002",
+                "section_type": "FIG",
+                "type": "fig_title_caption"
+              },
+              "text": "Sequential digestion of the affinity‐purified complexes OCCM (Saccharomyces cerevisiae; Residue pairs observed in tryptic (green) and non‐tryptic (orange) peptides)",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 15814,
+              "infons": {
+                "file": "MSB-15-e8994-g004.jpg",
+                "id": "msb198994-fig-0002",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Unique residue pairs mapped to the OCCM complex (PDB 5UDB) and the key link Mcm2‐Orc5 (Mcm2‐850‐Orc5‐369).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 15929,
+              "infons": {
+                "file": "MSB-15-e8994-g004.jpg",
+                "id": "msb198994-fig-0002",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "The in vitro helicase loading assay demonstrates that an Mcm2 C‐terminal deletion mutant supports complex assembly (lanes 6 and 7) and blocks formation of the final helicase loading product (lanes 8 and 9).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 16139,
+              "infons": {
+                "file": "MSB-15-e8994-g004.jpg",
+                "id": "msb198994-fig-0002",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Overexpression analysis of Mcm2‐7ΔC2 shows that this mutant causes dominant lethality, indicating that the C‐terminus of Mcm2 is essential in cell survival.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 16301,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "Conformational diversity of the 26S proteasome",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 16348,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "We next analysed an affinity‐purified 26S proteasome sample, containing more than 600 proteins (Dataset EV3). The results of our workflow compare favourably with the largest analysis reported on this complex to date (Wang et al, 2017) in terms of numbers (n = 1,644 vs. 447 unique residue pairs in the proteasome at 5% FDR; Fig 3A and B, Appendix Fig S4A and B, Dataset EV1 and EV2) and in terms of agreeing with the structure of the individual subunits (6% vs. 26% long‐distance links (> 30 Å); Fig 3A and B). Links between proteins (n = 602) reveal a large amount of topological variability in the proteasome, with 30% (n = 179) being not covered by current cryo‐EM‐based models and thus extending our awareness of the proteasome structure to more dynamic regions. Long‐distance links (n = 191 between and 85 within proteins) are mainly distributed in the base of the proteasome, where ATP binding and hydrolysis lead to a large conformational variety (Fig 3C, Appendix Fig S4C and D). Indeed, some of these links (n = 78) not matching to one structure of the proteasome mapped well to alternative conformational states stabilised by ATP analogue (Unverdorben et al, 2014; Wehmer et al, 2017). State‐specific crosslinks were found predominant in the AAA‐ATPase‐dependent heterohexameric ring (Fig 3D–G Appendix Fig S4C and D) indicating rearrangement of Rpn5 relative to Rpt4 (Fig 3D). In the s2 state, our data support Rpn1 being translated and rotated to be positioned closer to the AAA‐ATPase (Fig 3E). Crosslinks therefore support in solution the cryo‐EM‐based model of substrate transfer to the mouth of the AAA‐ATPase heterohexameric ring (Unverdorben et al, 2014) and point towards the existence of additional conformational states that remain to be defined to fully understand the complex's function and that may offer as conformer‐specific interactions prime intervention points for small molecule inhibitors.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 18323,
+              "infons": {
+                "file": "MSB-15-e8994-g006.jpg",
+                "id": "msb198994-fig-0003",
+                "section_type": "FIG",
+                "type": "fig_title_caption"
+              },
+              "text": "Sequential digestion of the 26S proteasome from Saccharomyces cerevisiae\n",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 18397,
+              "infons": {
+                "file": "MSB-15-e8994-g006.jpg",
+                "id": "msb198994-fig-0003",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Unique residue pairs obtained by Wang et al for the human 26S proteasome (PDB 5GJR).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 18483,
+              "infons": {
+                "file": "MSB-15-e8994-g006.jpg",
+                "id": "msb198994-fig-0003",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Unique residue pairs obtained by sequential digestion for the S. cerevisiae 26S proteasome (PDB 4CR2). Sequential digestion returned the highest number of residue pairs so far identified by CLMS for the 26S proteasome. Tryptic residue pairs are represented in green and non‐tryptic in orange.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 18779,
+              "infons": {
+                "file": "MSB-15-e8994-g006.jpg",
+                "id": "msb198994-fig-0003",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Long distance (blue) and within distance (pink) between residue pairs were mapped into one of the states of the proteasome (4CR2) showing the accumulation of those into the base of the complex. Residue pairs satisfying other states are represented in yellow. The bar plot shows the distribution of all residue pairs in the complex showing that long‐distance links locate mainly in the base.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 19172,
+              "infons": {
+                "file": "MSB-15-e8994-g006.jpg",
+                "id": "msb198994-fig-0003",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Unique residue pairs were mapped into the three states described by Unverdorben et al showing the rearrangement of Rpn5 relative to Rpt4.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 19311,
+              "infons": {
+                "file": "MSB-15-e8994-g006.jpg",
+                "id": "msb198994-fig-0003",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Our data support Rpn1 being translated and rotated to be positioned closer to the AAA‐ATPase.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 19407,
+              "infons": {
+                "file": "MSB-15-e8994-g006.jpg",
+                "id": "msb198994-fig-0003",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Structural rearrangements of the AAA‐ATPase‐dependent heterohexameric ring throughout four states for the RPT6 and RPT1 mapped to the four states described by Wehmer et al.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 19585,
+              "infons": {
+                "file": "MSB-15-e8994-g006.jpg",
+                "id": "msb198994-fig-0003",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Structural rearrangements of the AAA‐ATPase‐dependent heterohexameric ring throughout four states for the RPT4 and RPT6.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 19710,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "Exploration of the human cytoplasm",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 19745,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "To probe our 12‐fraction protocol in large‐scale CLMS, we analysed seven high‐molecular weight fractions of human cytosol. We identified 3,572 unique residue pairs (5% FDR, 528 proteins, Figs 4A, and EV5A and B, Dataset EV1 and EV2). This is in line with recent studies reporting 1,663 and 3,045 unique residue pairs, respectively, albeit using a cleavable crosslinker and analysing whole cell extracts (Liu et al, 2015, 2017). While the overlap between the published data and ours is low (Fig 4A), this will be influenced by factors such as the different starting material and the different analytical strategies.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 20369,
+              "infons": {
+                "file": "MSB-15-e8994-g008.jpg",
+                "id": "msb198994-fig-0004",
+                "section_type": "FIG",
+                "type": "fig_title_caption"
+              },
+              "text": "Sequential digestion of the 26S proteasome from human cytosol",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 20431,
+              "infons": {
+                "file": "MSB-15-e8994-g008.jpg",
+                "id": "msb198994-fig-0004",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Comparison of sequential digestion for complex mixtures with previous studies. Sequential digestion returns a higher number of residue pairs with low overlap to published datasets, showing the complementarity of the different approaches. Long‐distance links were determined only within proteins and are comparable for all datasets.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 20765,
+              "infons": {
+                "file": "MSB-15-e8994-g008.jpg",
+                "id": "msb198994-fig-0004",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Residue pairs for the TRiC/CCT complex were mapped into the crystal structure and support the rearrangement of the complex reported by Leitner et al (2012a) (PDB 4V94).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 20935,
+              "infons": {
+                "file": "MSB-15-e8994-g008.jpg",
+                "id": "msb198994-fig-0004",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Despite the complexity of the sample, we were able to identify the four states of the 26S proteasome showing the flexibility of the AAA‐ATPase‐dependent heterohexameric ring.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 21114,
+              "infons": {
+                "file": "MSB-15-e8994-g011.jpg",
+                "id": "msb198994-fig-0005ev",
+                "section_type": "FIG",
+                "type": "fig_title_caption"
+              },
+              "text": "\nCLMS of a human cytosol as a complex mixture using sequential digestion and xiSEARCH\n",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 21201,
+              "infons": {
+                "file": "MSB-15-e8994-g011.jpg",
+                "id": "msb198994-fig-0005ev",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Overlap of the residue pairs obtained by the four digestion conditions applied. Sequential digestion complements trypsin digestion increasing the identified unique residue pairs.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 21380,
+              "infons": {
+                "file": "MSB-15-e8994-g011.jpg",
+                "id": "msb198994-fig-0005ev",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Gain of unique residue pairs by using sequential digestion. The bar represents the number of unique residue pairs gained by adding AspN (blue), chymotrypsin (pink) and GluC (orange) to the digestion with trypsin (green).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 21601,
+              "infons": {
+                "file": "MSB-15-e8994-g011.jpg",
+                "id": "msb198994-fig-0005ev",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "The unique residue pairs identified for the MCM2‐7 complex were used to generate a protein–protein interaction network and mapped into the crystal structure.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 21763,
+              "infons": {
+                "file": "MSB-15-e8994-g011.jpg",
+                "id": "msb198994-fig-0005ev",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Protein–protein interaction network for the TRiC/CCT and COPI complexes was generated from the identified unique residue pairs. The unique residue pairs identified for the COPI complex were mapped into the respective crystal structure.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 22001,
+              "infons": {
+                "file": "MSB-15-e8994-g011.jpg",
+                "id": "msb198994-fig-0005ev",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "The unique residue pairs identified for the ribosome were used to generate a protein–protein interaction network and mapped into the crystal structure.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 22155,
+              "infons": {
+                "file": "MSB-15-e8994-g011.jpg",
+                "id": "msb198994-fig-0005ev",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "The unique residue pairs identified for the HSP90‐CDC37‐CDK4 complex were used to generate a protein–protein interaction network and mapped into the crystal structure.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 22329,
+              "infons": {
+                "file": "MSB-15-e8994-g011.jpg",
+                "id": "msb198994-fig-0005ev",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "The unique residue pairs identified for the 26S proteasome were used to generate a protein–protein interaction network and mapped into the crystal structure.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 22489,
+              "infons": {
+                "file": "MSB-15-e8994-g011.jpg",
+                "id": "msb198994-fig-0005ev",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "Tryptic links are displayed in green, and non‐tryptic links are displayed in orange.\n\n",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 22578,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "Our protein–protein interaction network included previously observed complexes such as the Mcm2‐7 complex, the 26S proteasome, the ribosome, the COPI complex, the TRiC‐CCT complex and the HS90B‐CDC37‐Cdk4 complex (Figs 4B and EV5C–G, and Appendix Fig S5). For the 26S proteasome, we were able to distinguish between different states defining flexibility in the AAA‐ATPase ring (Fig 4C; Chen et al, 2016a). This indicates the ability of our protocol to unveil dynamic interactions in mixtures nearing the native environment complexity of proteins.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 23143,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "title_2"
+              },
+              "text": "xiSEARCH, identification of crosslinks from mass spectra",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 23200,
+              "infons": {
+                "section_type": "RESULTS",
+                "type": "paragraph"
+              },
+              "text": "To analyse the mass spectrometric data of these and other studies (Liu et al, 2015, 2017; Wang et al, 2017), we developed our database search software xiSEARCH (Figs 5A and EV6, Appendix Tables S1 and S2, https://rappsilberlab.org/software/). The algorithm of xiSEARCH has been described conceptually before (Giese et al, 2016). It follows an approach that computationally unlinks crosslinked peptides and by doing so circumvents the n2 database problem of crosslinking. Like pLink 2 (Chen et al, 2019), StavroX (Götze et al, 2012) and Kojak (Hoopmann et al, 2015), xiSEARCH allows to search any crosslink and protease specificity; thus, xiSEARCH's performance was assessed against these three alternatives (Fig 5B). StavroX became non‐responsive and was not pursued further. Kojak was paired with PeptideProphet (Keller et al, 2002) and xiSEARCH with xiFDR (Fischer & Rappsilber, 2017) to maximise results and control the error rate. We assess the error on the level of unique residue pairs—as this is the actual information of interest. This is native to XiFDR while for Kojak(+PeptideProphet) and pLink 2 the output was sorted by score on the level of PSMs, only the best scoring PSM per residue pair was kept and a 5% FDR on the, now unique residue pairs calculated. By default, xiSEARCH weights the likelihood of a K vs. S, T or Y being involved in a crosslink higher to reduce the number of unique links without strong support by data. For the purpose of comparison, xiSEARCH was run with this feature enabled (marked xiSEARCH*) and with this feature disabled, as none of the other tools are supporting a similar consideration. xiSEARCH reports 91% more unique links than Kojak + PeptideProphet and 45% more than pLink 2 (Fig 5B, Appendix Fig S6). Note that we and the developers of these tools could not pair Kojak with PeptideProphet for sequential digestion. To check the reliability of residue pairs uniquely reported by xiSEARCH, we assessed them for the structurally rigid proteasome core particle. Less than 3% were found to be long distance and thus very plausibly false, which is in good agreement with the expected FDR of 5%. In summary, xiSEARCH performed very favourably compared to other universal software for CLMS.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 25455,
+              "infons": {
+                "file": "MSB-15-e8994-g010.jpg",
+                "id": "msb198994-fig-0005",
+                "section_type": "FIG",
+                "type": "fig_title_caption"
+              },
+              "text": "xiSEARCH\n",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 25465,
+              "infons": {
+                "file": "MSB-15-e8994-g010.jpg",
+                "id": "msb198994-fig-0005",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "xiSEARCH is an open source search engine that takes a peak list as input. Users can define any type of crosslinker, modification, digestion and fragmentation method. The output is a list of matches in .csv format. We use xiFDR to filter results to the desired confidence level.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 25743,
+              "infons": {
+                "file": "MSB-15-e8994-g010.jpg",
+                "id": "msb198994-fig-0005",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "xiSEARCH + xiFDR(Xi), pLink 2 and Kojak(+PeptideProphet) comparison at 5% residue‐pair FDR. The same trypsin dataset of the 26S proteasome was searched with all three software packages. xiSEARCH was run twice—once giving same likelihood for matching lysine, serine, threonine and tyrosine (xiSEARCH), as is the case for Kojak and pLink 2, and once giving priority to Lysine (Xi*).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 26130,
+              "infons": {
+                "file": "MSB-15-e8994-g012.jpg",
+                "id": "msb198994-fig-0006ev",
+                "section_type": "FIG",
+                "type": "fig_title_caption"
+              },
+              "text": "xiSEARCH follows a three‐step approach",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 26171,
+              "infons": {
+                "file": "MSB-15-e8994-g012.jpg",
+                "id": "msb198994-fig-0006ev",
+                "section_type": "FIG",
+                "type": "fig_caption"
+              },
+              "text": "In the first step, it tries to identify peptides with an unknown modification that explain the spectrum best. High‐resolution data help in this step in two ways. Knowing the charge, and therefore the mass of a fragment, enables to predict whether a fragment is linear or crosslinked (Giese et al, 2016). This is important as only linear fragments are used to select peptide candidates. Second, with the knowledge that a fragment is probably crosslinked, we can invert the crosslinked fragments into their linear counterparts. By doing these two steps, we can de‐convolute a crosslinked spectrum into a spectrum containing almost exclusively linear fragments of two “independent” peptides. Additionally, the spectrum also gets de‐charged and de‐noised (linearised spectrum). To enable a fast identification, we create an in‐memory representation of all primary fragment (e.g. b‐ and y‐ions)‐to‐peptide relationships that can be derived from the search database (fragment tree). This fragment tree is then used to identify and quickly score alpha‐peptide candidates in the linearised spectrum while ignoring the precursor mass. Secondly, the top‐n candidates are then forwarded to the beta‐peptide selection. Here, we take for each a peptide all peptides that fit the mass gap between the alpha‐peptide candidate plus crosslinker and the precursor mass. The whole list of peptide‐pair candidates is then again preliminarily scored. Third and finally, the top‐m candidate pairs are then fully scored and reported.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 27717,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "title_1"
+              },
+              "text": "Discussion",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 27728,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "title_2"
+              },
+              "text": "Sequential digestion novelty",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 27757,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "paragraph"
+              },
+              "text": "The use of proteases other than trypsin to achieve complementary information in protein analysis dates back to at least 1987 (Aebersold et al, 1987). Since then, several works used parallel digestion and fewer used sequential digestion to increase sequence coverage and/or complementarity in simple protein complexes (Mohammed et al, 2008), proteomes (MacCoss et al, 2002; Swaney et al, 2010; Guo et al, 2014), phosphoproteomes (Wang et al, 2008; Gilmore et al, 2012; Giansanti et al, 2015) and other post‐translational modifications (Larsen et al, 2005). In CLMS, parallel digestion was reported first by Pinkse et al (2009) to increase complementarity and target a specific crosslink site. Leitner et al in 2012 presented crosslink data obtained when using in parallel five different proteases on a mix of standard proteins. Unfortunately, it remained unclear if the parallel use of five proteases would have been outperformed by simply five times re‐analysing a tryptic digest. Re‐analysing tryptic digests results in additional crosslinks being detected (Müller et al, 2018) also seen here (analysing a trypsin digest four times increased the observation from 167 to 251 unique residue pairs (URPs), Fig 1B and C). We then analytically prove that parallel digestion outperforms repeated injection of tryptic digests for crosslink detection, albeit moderately (261 vs. 251 URPs, Fig 1C). Importantly, we expand this by showing that sequential digestion is even better (339 URPs, Fig 1C).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 29270,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "paragraph"
+              },
+              "text": "We underpin these observations by proposing a mechanistic model that explains why sequential digestion outperforms parallel and repeated use of proteases. Outperforming repeated use of trypsin is linked to sequentially digested crosslinked peptides being smaller (Fig EV2A, Dataset EV4) which in fact improves detection rates as most observed peptides fall between 1,000 and 2,000 Da (Fig EV3D). The second digestion targets primarily long peptides as can be seen both in the surviving long peptides (poor in secondary cleavage sites) as well as in the observed short peptides (rich in secondary cleavage sites; Fig EV3). Consequently, sequential digestion is effective and does not shorten crosslinked peptides such that they become less observable (below 1,000 Da). Outperforming parallel digestion is linked to the detection bias of proteomics towards peptides with tryptic C‐termini, that has been noted for linear peptides (Giansanti et al, 2016). Cleaving a crosslinked peptide N‐terminal of the crosslink site maintains the tryptic C‐termini while cleaving C‐terminal leads to a non‐tryptic C‐terminus. During digestion, both should be equally likely. However, the former will be more likely to be detected which is reflected in our data (Fig EV1C). As all crosslinked peptides of parallel digestion other than those of trypsin use are lacking tryptic C‐termini, parallel digestion has a marked disadvantage.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 30707,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "title_2"
+              },
+              "text": "Search software comparison",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 30734,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "paragraph"
+              },
+              "text": "In our hands, xiSEARCH performs favourably when compared with other crosslink search software packages. However, a software comparison involving only the developers of one of the software packages will likely always be incomplete. A balanced evaluation of the merits of crosslink search tools would ideally be based on a community‐wide effort with contributions of the developers of the respective software packages.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 31153,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "paragraph"
+              },
+              "text": "Here, we were restricted to software tools that supported sequential digestion and that supported a comparable set of features as used in our data analysis. One such point is that we search BS3 with specificity to lysine, serine, threonine and tyrosine. This already excludes many crosslink software packages, due to their restriction to lysine only. Furthermore, we place linkage sites in the absence of strong distinctive evidence preferentially on lysine. To our knowledge, this is not supported by any other crosslink search software. For the comparison, we removed that preference—likely inflating false results (Appendix Fig S6).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 31792,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "title_2"
+              },
+              "text": "Protocol applicability",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 31815,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "paragraph"
+              },
+              "text": "Most published protocols are tested only for specific samples and application areas. Furthermore, workflows tend to build on one specific combination of crosslinker and database search tool. In contrast, we deliver a protocol with broad applicability, demonstrating its use in protein dynamics, protein complexes topology, conformational changes (qCLMS) and using homo‐ and heterobifunctional crosslinkers. Our integrated workflow utilises standard crosslinkers, without special chemistries to assist analysis. This permits the sequential digestion workflow to be combined with other crosslinkers such as MS‐cleavable crosslinkers. Recent large‐scale studies have successfully used MS‐cleavable crosslinkers (Liu et al, 2015; Hage et al, 2017). Note, however, that our work uses standard crosslinkers at no obvious disadvantage. Importantly, MS‐cleavable crosslinkers have yet to be combined with high‐density crosslinking and are likely incompatible with crosslinking by non‐canonical amino acids (Suchanek et al, 2005) motivating efforts in keeping crosslink chemistry and analysis workflows separate. Our protocol supports this drive and provides a concise, universal protocol to increase data density and ease of use for CLMS in diverse applications. In particular, we were able to identify dynamic protein interaction regions and topologies which are notoriously difficult to detect using conventional structural biology methods due to their flexibility yet are prime therapeutic intervention points, as these important interactions are only short‐lived and therefore druggable.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 33418,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "title_2"
+              },
+              "text": "Complementarity of CLMS to cryo‐electron microscopy",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 33472,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "paragraph"
+              },
+              "text": "Crystallography and cryo‐EM employ averaging approaches to obtain high‐resolution structural information of proteins or protein complexes. Structural heterogeneity is not compatible with crystallography, while novel cryo‐EM data analysis approaches can deal with some conformational heterogeneity. Nevertheless, cryo‐EM also fails to visualise flexible regions.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 33842,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "paragraph"
+              },
+              "text": "Indeed, in the context of the OCCM, cryo‐EM revealed the overall organisation of the 14 subunit complex. However, in an area of high protein flexibility, which encompasses the important Mcm2/Mcm5 DNA entry gate of the MCM2‐7 ring, the EM structure was hampered by low resolution. By CLMS, a new network of interactions was detected at the DNA entry gate, involving Mcm2, Mcm5, Orc2 and Orc6. Moreover, we showed that the Mcm2 interaction with Orc6 is functionally relevant, as a small Mcm2 deletion in the interaction surface strongly affected helicase loading and caused lethality in vivo. As such, CLMS and cryo‐EM can synergise to identify and characterise flexible regions in protein complexes, which have important functionality.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 34584,
+              "infons": {
+                "section_type": "DISCUSS",
+                "type": "paragraph"
+              },
+              "text": "Interestingly, protein–protein interactions identified by cryo‐EM and crystallography are nearly impossible to target by small molecules, since they are very long‐lived and due to their hydrophobicity not accessible for water‐soluble small molecules. On the other hand, CLMS, employing water‐soluble crosslinkers, naturally identifies well‐hydrated dynamic protein–protein interaction surfaces, which are typically less stable or context‐dependent and therefore ideally suited for drug development. In summary, CLMS is uniquely capable of detecting flexible and dynamic protein interactions, which makes the technology highly synergistic with other structural approaches and opens a window of opportunity for drug development of dynamic protein–protein interactions.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 35369,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_1"
+              },
+              "text": "Materials and Methods",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 35391,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "Reagents and Tools table",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 35416,
+              "infons": {
+                "file": "nlm-table-wrap-1.xml",
+                "id": "nlm-table-wrap-1",
+                "section_type": "TABLE",
+                "type": "table",
+                "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<table frame=\"hsides\" rules=\"groups\"><col style=\"border-right:solid 1px #000000\" span=\"1\"/><col style=\"border-right:solid 1px #000000\" span=\"1\"/><col style=\"border-right:solid 1px #000000\" span=\"1\"/><thead valign=\"top\"><tr style=\"border-bottom:solid 1px #000000\"><th align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Reagent/resource</th><th align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Reference or source</th><th align=\"left\" valign=\"top\" rowspan=\"1\" colspan=\"1\">Identifier or catalogue number</th></tr></thead><tbody><tr><td align=\"left\" colspan=\"3\" rowspan=\"1\">\n<bold>Experimental models</bold>\n</td></tr><tr><td align=\"left\" rowspan=\"1\" colspan=\"1\">YYS40 (<italic>S. cerevisiae</italic>)</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">Sakata, E. <italic>et al</italic>\n</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">Prof. Dr. Wolfgang Baumeister, MPI, Martinsried</td></tr><tr><td align=\"left\" rowspan=\"1\" colspan=\"1\">K562 cells (<italic>Homo sapiens</italic>)</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">DSMZ</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">#ACC‐10</td></tr><tr><td align=\"left\" rowspan=\"1\" colspan=\"1\">OCCM complex</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">Evrin, C. <italic>et al</italic>\n</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">Prof. Dr. Chistian Speck, MRC‐LMS or ICS‐ICL, London</td></tr><tr><td align=\"left\" colspan=\"3\" rowspan=\"1\">\n<bold>Proteins</bold>\n</td></tr><tr><td align=\"left\" rowspan=\"1\" colspan=\"1\">Catalase</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">SIGMA</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">C9322</td></tr><tr><td align=\"left\" rowspan=\"1\" colspan=\"1\">Myoglobin</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">SIGMA</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">M1882</td></tr><tr><td align=\"left\" rowspan=\"1\" colspan=\"1\">Cytochrome C</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">SIGMA</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">C2037</td></tr><tr><td align=\"left\" rowspan=\"1\" colspan=\"1\">Lysozyme</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">SIGMA</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">L6876</td></tr><tr><td align=\"left\" rowspan=\"1\" colspan=\"1\">Human serum albumin</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">SIGMA</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">A8763</td></tr><tr><td align=\"left\" rowspan=\"1\" colspan=\"1\">Conalbumin</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">SIGMA</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">C0755</td></tr><tr><td align=\"left\" rowspan=\"1\" colspan=\"1\">Creatine kinase</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">Roche</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">10127566001</td></tr><tr><td align=\"left\" rowspan=\"1\" colspan=\"1\">C3b</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">Complement Technology, Inc.</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">A114</td></tr><tr><td align=\"left\" rowspan=\"1\" colspan=\"1\">UGGT</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">CASP 12</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">Prof. Pietro Roversi</td></tr><tr><td align=\"left\" colspan=\"3\" rowspan=\"1\">\n<bold>Chemical, enzymes and other reagents</bold>\n</td></tr><tr><td align=\"left\" rowspan=\"1\" colspan=\"1\">Bis[sulsosuccinimidyl]suberate</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">Thermo Fisher</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">26173</td></tr><tr><td align=\"left\" rowspan=\"1\" colspan=\"1\">sulfosuccinimidyl 4,4′‐azipentanoate</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">Thermo Fisher</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">21580</td></tr><tr><td align=\"left\" rowspan=\"1\" colspan=\"1\">Trypsin</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">Thermo Fisher</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">90057</td></tr><tr><td align=\"left\" rowspan=\"1\" colspan=\"1\">AspN</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">Promega</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">V1621</td></tr><tr><td align=\"left\" rowspan=\"1\" colspan=\"1\">Chymotrypsin</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">Promega</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">V1061</td></tr><tr><td align=\"left\" rowspan=\"1\" colspan=\"1\">GluC</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">Promega</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">V1651</td></tr><tr><td align=\"left\" rowspan=\"1\" colspan=\"1\">NuPAGE™ Novex 4–12% Bis‐Tris</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">Thermo Fisher</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">NP0335BOX</td></tr><tr><td align=\"left\" rowspan=\"1\" colspan=\"1\">Dithiothreitol</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">Merck</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">1114740005</td></tr><tr><td align=\"left\" rowspan=\"1\" colspan=\"1\">Iodoacetamide</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">SIGMA</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">I1149</td></tr><tr><td align=\"left\" rowspan=\"1\" colspan=\"1\">Ammonium bicarbonate</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">SIGMA</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">A6141</td></tr><tr><td align=\"left\" rowspan=\"1\" colspan=\"1\">TFA</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">SIGMA</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">T6508</td></tr><tr><td align=\"left\" rowspan=\"1\" colspan=\"1\">Formic acid</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">Fluka</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">94318</td></tr><tr><td align=\"left\" rowspan=\"1\" colspan=\"1\">Acetonitrile</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">Riedel‐de Haen</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">34967</td></tr><tr><td align=\"left\" colspan=\"3\" rowspan=\"1\">\n<bold>Equipment</bold>\n</td></tr><tr><td align=\"left\" rowspan=\"1\" colspan=\"1\">Superdex Peptide 3.2/300</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">GE Healthcare</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">GE29‐0362‐31</td></tr><tr><td align=\"left\" rowspan=\"1\" colspan=\"1\">Shimadzu HPLC</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">Shimadzu</td><td align=\"left\" rowspan=\"1\" colspan=\"1\"/></tr><tr><td align=\"left\" rowspan=\"1\" colspan=\"1\">EASY‐Spray™ LC column</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">Thermo Fisher</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">ES803</td></tr><tr><td align=\"left\" rowspan=\"1\" colspan=\"1\">Dionex Ultimate 3000 RSLCnano</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">Thermo Fisher</td><td align=\"left\" rowspan=\"1\" colspan=\"1\"/></tr><tr><td align=\"left\" rowspan=\"1\" colspan=\"1\">Orbitrap Fusion Lumos Tribrid</td><td align=\"left\" rowspan=\"1\" colspan=\"1\">Thermo Fisher</td><td align=\"left\" rowspan=\"1\" colspan=\"1\"/></tr></tbody></table>\n"
+              },
+              "text": "Reagent/resource\tReference or source\tIdentifier or catalogue number\t \tExperimental models\t \tYYS40 (S. cerevisiae)\tSakata, E. et al\tProf. Dr. Wolfgang Baumeister, MPI, Martinsried\t \tK562 cells (Homo sapiens)\tDSMZ\t#ACC‐10\t \tOCCM complex\tEvrin, C. et al\tProf. Dr. Chistian Speck, MRC‐LMS or ICS‐ICL, London\t \tProteins\t \tCatalase\tSIGMA\tC9322\t \tMyoglobin\tSIGMA\tM1882\t \tCytochrome C\tSIGMA\tC2037\t \tLysozyme\tSIGMA\tL6876\t \tHuman serum albumin\tSIGMA\tA8763\t \tConalbumin\tSIGMA\tC0755\t \tCreatine kinase\tRoche\t10127566001\t \tC3b\tComplement Technology, Inc.\tA114\t \tUGGT\tCASP 12\tProf. Pietro Roversi\t \tChemical, enzymes and other reagents\t \tBis[sulsosuccinimidyl]suberate\tThermo Fisher\t26173\t \tsulfosuccinimidyl 4,4′‐azipentanoate\tThermo Fisher\t21580\t \tTrypsin\tThermo Fisher\t90057\t \tAspN\tPromega\tV1621\t \tChymotrypsin\tPromega\tV1061\t \tGluC\tPromega\tV1651\t \tNuPAGE™ Novex 4–12% Bis‐Tris\tThermo Fisher\tNP0335BOX\t \tDithiothreitol\tMerck\t1114740005\t \tIodoacetamide\tSIGMA\tI1149\t \tAmmonium bicarbonate\tSIGMA\tA6141\t \tTFA\tSIGMA\tT6508\t \tFormic acid\tFluka\t94318\t \tAcetonitrile\tRiedel‐de Haen\t34967\t \tEquipment\t \tSuperdex Peptide 3.2/300\tGE Healthcare\tGE29‐0362‐31\t \tShimadzu HPLC\tShimadzu\t\t \tEASY‐Spray™ LC column\tThermo Fisher\tES803\t \tDionex Ultimate 3000 RSLCnano\tThermo Fisher\t\t \tOrbitrap Fusion Lumos Tribrid\tThermo Fisher\t\t \t",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 36744,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_2"
+              },
+              "text": "Methods and Protocols",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 36766,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_3"
+              },
+              "text": "Sample preparation, crosslinking and digestion with trypsin",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 36826,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "The seven standard proteins catalase, myoglobin, cytochrome C, lysozyme, creatine kinase, HSA and conalbumin were resuspended in BS3 crosslinking buffer (20 mM HEPES, 20 mM NaCl, 5 mM MgCl2, pH 7.8) to a final concentration of 1 mg/ml. Crosslinker was added to a 1:1 (w/w) protein to crosslinker ratio and samples incubated for 2 h on ice. Crosslinking reaction was quenched with excess ammonium bicarbonate (ABC) for 1 h at room temperature (RT). The seven crosslinked proteins were loaded on NuPAGE™ 4–12% Bis‐Tris protein gels to isolate the monomeric band of each protein that was then extracted, and in‐gel digested with trypsin (Shevchenko et al, 2006). After peptide extraction from the gel, peptides from each protein were mixed in a 1:1 weight ratio to a final amount of 200 μg divided into four parts and desalted using C18‐StageTips (Rappsilber et al, 2003).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 37716,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "For the OCCM complex, pUC19‐ARS1 beads were used to assemble the OCCM complex as described elsewhere (Evrin et al, 2009). Crosslinking was performed on beads. BS3 was added to 200 μg of the OCCM complex to a 1:8,100 protein to crosslinker molar ratio. The sample was incubated for 2 h on ice, and the crosslinking reaction was quenched with excess ABC for 1 h at RT. The sample was transferred into 8 M urea, reduced with dithiothreitol (DTT), alkylated with iodoacetamide (IAA) and diluted with ABC 50 mM to a final concentration of 2 M urea. Trypsin was added to a protease‐to‐substrate ratio of 1:50, and the sample was incubated ON at 37°C. Reaction was stopped with 10% (v/v) trifluoroacetic acid (TFA), and the samples were divided into four parts and desalted using StageTips.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 38515,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "The 26S proteasome was isolated from S. cerevisiae by affinity purification using the 3× FLAG‐tagged subunit Rpn11 as described elsewhere (Sakata et al, 2011). For the crosslinking, the 26S proteasome buffer was exchanged to BS3 crosslinking buffer using 30 kDa molecular weight cut‐off (MWCO) filters (Millipore). 200 μg of the 26S proteasome was crosslinked with BS3. BS3 was added to a 1:1 (w/w) protein to crosslinker ratio. Samples were incubated for 2 h on ice, and the crosslinking reaction was quenched with excess ABC for 1 h at room temperature (RT). The sample was dried using a vacuum concentrator and resuspended in 6 M urea/2 M thiourea for subsequent in‐solution digestion. Sample was reduced with 2.5 mM DTT for 15 min at 50°C, then alkylated with 5 mM IAA at RT in the dark and diluted with ABC 50 mM to a final concentration of 1 M. Trypsin was added at an enzyme‐to‐substrate mass ratio of 1:50, and the sample was incubated ON at 37°C. Reaction was stopped with 10% (v/v) TFA, and the samples were divided into four parts and desalted using C18‐StageTips.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 39620,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "K562 cells (DSMZ, Cat# ACC‐10, negatively tested for mycoplasma) were grown in T175 flasks at 37°C in humidified 5% (v/v) CO2 incubators in RPMI 1640 media supplemented with 10% (v/v) foetal bovine serum (FBS) + 2 mM glutamine. 3 × 108 cells were harvested by centrifugation (180 × g) and washed three times with ice‐cold PBS. Cells were lysed in lysis buffer (100 mM HEPES pH 7.2, 100 mM KCl, 20 mM NaCl, 3 mM MgCl2, 1 mM EDTA, 10% (v/v) glycerol, 1 mM DTT, 10 μg/ml DNAse1, complete EDTA‐free protease inhibitor cocktail, 1 mM PMSF) using a douncer at 4°C. Lysate was cleared of debris by centrifugation at 100,000 × g for 45 min. Native protein complexes were further concentrated by spin filtration using a 100,000 Da cut‐off Amicon Ultra centrifugal filter unit (approx. 30 min). For protein co‐elution analysis, 100 μl of concentrated lysate (approximately 30 mg/ml) was separated by a Biosep SEC‐S4000 (7.8 × 600) size exclusion column on an Åkta Purifier (HPLC) system running at 0.25 ml/min 100 mM HEPES pH 7.2, 100 mM KCl, 20 mM NaCl, 3 mM MgCl2, 1 mM EDTA and 10% glycerol. 500 μl fractions were collected. Protein fractions were crosslinked at < 1 mg/ml (quantified by Bradford) and with 2:1 w/w ratio of BS3 to protein. Samples were in‐solution digested with trypsin as described above. Samples were divided into four parts and desalted using C18‐StageTips.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 41050,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "C3b monomer and dimer were labelled as described elsewhere (Chen et al, 2016c) and in‐gel digested with trypsin. Samples were divided into four parts and desalted using C18‐StageTips.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 41239,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "UGGT was crosslinked using sulfo‐SDA using eight different proteins to crosslinker ratios [1:0.13, 1:0.19, 1:0.25, 1:0.38, 1:0.5, 1:0.75, 1:1 and 1:1.5 (w/w)]. Crosslinking was carried out in two stages: firstly, sulfo‐SDA, dissolved in SDA crosslinking buffer (25 μl, 20 mM HEPES‐OH, 20 mM NaCl, 5 mM MgCl2, pH 7.8), was added to target protein (25 μg, 1 μg/μl) and left to react in the dark for 50 min at room temperature. The diazirine group was then photo‐activated using UV irradiation, at 365 nm, from a UVP CL‐1000 UV Crosslinker (UVP Inc.). Samples were spread onto the inside of Eppendorf tube lids by pipetting (covering the entire surface of the inner lid), placed on ice at a distance of 5 cm from the tubes and irradiated for 20 min. The reaction mixtures from the eight conditions corresponding to each experiment were combined and quenched with the addition of saturated ABC (13 μl). Sample was dried in a vacuum concentrator, and 200 μg of protein was in‐solution digested with trypsin as described above. Sample was divided into four parts and desalted using C18‐StageTips.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 42362,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "For all models, one part of the sample digested with trypsin was fractionated by SEC and the remaining three parts were sequentially digested with AspN, chymotrypsin and GluC, respectively.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 42552,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_3"
+              },
+              "text": "Parallel digestion",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 42571,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Parallel digestion with AspN, chymotrypsin and GluC of the seven standard proteins was performed as described for trypsin. After isolating the monomeric bands of each one of the seven standard proteins, those were in‐gel digested in parallel with AspN, chymotrypsin and GluC. After peptide extraction from the gel, peptides from each protein digested with the same protease were mixed in a 1:1 weight ratio to a final amount of 200 μg resulting in four samples of the protein standards, one digested with AspN, one digested with chymotrypsin and one digested with AspN. Proteases were added as follows: GluC and chymotrypsin were added to a protease‐to‐substrate (w/w) ratio of 1:50 and incubated overnight (ON) at 37°C and RT, respectively; AspN was added to a protease‐to‐substrate ratio (w/w) of 1:100 and incubated ON at 37°C. After parallel digestion, samples were fractionated by SEC and analysed by LC‐MS/MS.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43503,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_3"
+              },
+              "text": "Sequential digestion",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43524,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "After desalting of tryptic peptides, sequential digestion was performed as follows:",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43608,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Ressuspend tryptic peptides in ABC 50 mM.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43651,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "For sequential digestion with AspN: ",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43688,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Add AspN to a final protease:protein ratio of 1:100 (w/w).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43747,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Incubate ON at 37°C.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43769,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Acidify samples using 10% TFA.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43800,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Reduce sample volume to 50 μl by evaporation using a vacuum concentrator.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43876,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Fractionate by SEC.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43896,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "For sequential digestion with chymotrypsin:  ",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 43942,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Add chymotrypsin to a final protease:protein ratio of 1:50 (w/w).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 44008,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Incubate ON at RT.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 44027,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Acidify samples using 10%TFA.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 44057,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Reduce sample volume to 50 μl by evaporation using a vacuum concentrator.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 44133,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Fractionate by SEC.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 44153,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "For sequential digestion with GluC:  ",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 44191,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Add GluC to a final protease:protein ratio of 1:50 (w/w).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 44249,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Incubate ON at 37°C.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 44271,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Acidify samples using 10%TFA.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 44301,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Reduce sample volume to 50 μl by evaporation using a vacuum concentrator.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 44377,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Fractionate by SEC.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 44397,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_3"
+              },
+              "text": "Fractionation of peptides by size exclusion chromatography",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 44456,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Size exclusion chromatography (SEC) of crosslinked peptides was performed as described elsewhere (Leitner et al, 2013). 50 μg of peptides were fractionated in a Shimadzu HPLC system using a Superdex Peptide 3.2/300 (GE Healthcare) at a flow rate of 50 μl/min using SEC buffer (30% (v/v) ACN, 0.1% (v/v) TFA) as mobile phase. Separation was monitored by UV absorption at 215 and 280 nm. Fractions were collected every 2 min over one column volume. The three high‐MW fractions were dried, resuspended in 0.1% (v/v) TFA and analysed by LC‐MS/MS. All samples in this work, including all the samples used in our proof of principle experiments—replicates, parallel and sequential digestions—of the seven standard proteins, were fractionated by SEC as described in our workflow in Fig 1A.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 45254,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_3"
+              },
+              "text": "In vitro pre‐RC assay",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 45278,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "The in vitro pre‐RC assay was performed as described (Evrin et al, 2009; Fernández‐Cid et al, 2013). Briefly, ORC (40 nM), Cdc6 (80 nM), Cdt1 (40 nM), MCM2‐7 (40 nM) or MCM2‐7 ΔC2 (40 nM) were incubated with 6 nM of DNA containing the ARS1 DNA sequence in 50 μl of pre‐RC buffer (50 mM HEPES pH 7.5, 100 mM potassium glutamate, 10 mM magnesium acetate, 50 μM zinc acetate, 3 mM ATP, 5 mM DTT, 50 μM EDTA, 0.1% Triton‐X100, 5% glycerol). After 20 min at 24°C, the reactions were washed three times with low salt buffer (pre‐RC buffer) or high salt buffer (pre‐RC buffer plus 300 mM NaCl) before digestion with 1 U of DNaseI in pre‐RC buffer plus CaCl2.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 45974,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_3"
+              },
+              "text": "Yeast lethality assay",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 45996,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Yeast strain AS499 (MATa. bar1Δ, leu2‐3,‐112, ura3‐52, his3‐Δ200, trp1‐Δ‐63, ade2‐1 lys2‐801, pep4) was transformed with pESC‐LEU‐MCM2‐MCM7, pESC‐TRP‐MCM6‐MCM4 and pESC‐URA‐HA‐MCM3‐MCM5 (wild type, YC119) or pESC‐LEU‐MCM2 (Δ848–868)‐MCM7 (MCM2‐7ΔC2, YC388). Yeast strains YC119 and YC388 were plated on a dropout synthetic complete (SC) medium and incubated at 30°C for 48 h. Cells were grown in suspension to 107 cells/ml. Three microlitres of a fivefold serial dilution was spotted onto selective plates containing either 2% galactose or glucose. Plates were incubated at 30°C for 3–5 days.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 46647,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_3"
+              },
+              "text": "LC‐MS/MS",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 46658,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Samples were analysed using a Thermo Scientific Dionex Ultimate 3000 RSLCnano system coupled to a Thermo Scientific Orbitrap Fusion Lumos Tribrid mass spectrometer equipped with an EASY‐Spray source. Mobile phase A consisted of 0.1% (v/v) FA in water and mobile phase B consisted of 80% (v/v) ACN and 0.1% (v/v) FA in water. Peptides were loaded into a 50 cm EASY‐Spray column operated at a temperature of 45°C at a flow rate of 300 nl/min and separated at 300 nl/min using the following gradient: 2% mobile phase B (0–11 min); 2–40% mobile phase B (11–150 min); 40–95% mobile phase B (150–161 min); 95% mobile phase B (161–166 min); 95–2% mobile phase B (166–185 min).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 47357,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "MS data were acquired using a “high‐high” acquisition method using the Orbitrap to detect both MS and MS/MS scans. The instrument was operated in a data‐dependent mode with a cycle time of 3 s. MS1 scans were acquired at a resolution of 120,000 using a scan range from 300 to 1,700 m/z and AGC target of 2.5 × 105 with a maximum injection time of 50 ms. The monoisotopic peak determination (MIPS) was activated, and only precursors with charge states between 3 and 8 with an intensity threshold higher than 5.0 × 104 were selected for fragmentation. Selected precursors were fragmented by HCD using a collision energy setting of 30%. MS2 spectra were acquired at a resolution of 15,000 and AGC of 104 with a maximum injection time of 35 ms. Dynamic exclusion was set to 60 s after one count.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 48168,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "title_3"
+              },
+              "text": "Data analysis",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 48182,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Thermo raw data were pre‐processed using MaxQuant (v 1.5.7.4) to extract the peak list files (APL format). Partial processing in MaxQuant was performed until step 5 with the parameters set to default with the exception of the “FTMS top peaks per Da interval” which was set to 100 and no FTMS de‐isotoping was allowed. apl files were uploaded to xiSEARCH for identification of crosslinked peptides (xiSEARCH software is available from https://rappsilberlab.org/downloads/and the code is available from https://github.com/Rappsilber-Laboratory/xiSEARCH). For the crosslinking search, the parameters used were as follows: MS accuracy, 6 ppm; MS/MS accuracy, 20 ppm; enzyme, trypsin, trypsin + AspN, trypsin + chymotrypsin or trypsin + Gluc depending on the sample digestion conditions; missed cleavages allowed, 4. For the BS3 crosslinked samples, carbamidomethylation of cysteines was set as a fixed modification and oxidation of methionine, the hydrolysed crosslinker (BS‐OH: 156.0786 Da) and the amidated crosslinker (BS3‐NH2: 155.0964 Da) were set as variable modifications. Reaction specificity for BS3 (mass modification: 138.0681 Da) was assumed to be with Lysine, Serine, Threonine and Tyrosine or the protein N‐terminus. For SDA crosslinked samples, carbamidomethylation of cysteines, oxidation of methionine and the crosslinker alone (mass modification: 109.0396 Da), hydrolysed (SDA‐OH: 100.0524 Da) or crosslinker loop (SDA‐loop: SDA crosslink within a peptide that is also crosslinked to a separate peptide, 82.0419 Da) were set as variable modifications. Reaction specificity for SDA was assumed to be with lysine, serine, threonine and tyrosine or the protein N‐terminus on one end of the spacer and with all residues on the other end. Apl files were searched against the following databases: for the Standard Protein Mix, a database was built containing the sequences corresponding to the crystal structures of the standard proteins used in the mix (PDB accession: 3j7u, 5d5r, 3nbs, 1dpx, 2crk, 1ao6 and 1ova); for C3b, we used the FASTA corresponding to the UniProt accession P01024; for the UGGT, the UniProt sequence of the protein was used (G0SB58); for the OCCM complex, a database containing all the 14 OCCM subunits was used; and for the 26S proteasome, a linear search of the data was first performed using a complete S. cerevisiae database (UniProt, release‐2016_11) and the proteins that were present at < 1% of the most abundant protein (as judged by iBAQ values) were excluded. Our rationale for excluding the least abundant proteins from crosslink searches was that crosslinks tend to be less easily identified than linear peptides and thus will be detected only in the more abundant proteins. Although likely not contributing detectable crosslinks, less abundant proteins will nevertheless contribute random matches and thus reduce the sensitivity of the search. For the human cytosol, linear searches were performed for each one of the initial SEC fractions using the entire human database (UniProt, release‐2016_02). Proteins that were present at < 1% (SEC fraction 1) or 0.5% (SEC fractions 2–7) of the most abundant protein (as judged by iBAQ values) were excluded. The different threshold was used to result in databases of about equal size. FDR was estimated on a 5% residue level, including only unique PSMs and boosting results, using xiFDR (Fischer & Rappsilber, 2017).",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 51628,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "Cleavage site protection was calculated by dividing the mean of available miss‐cleavages for the second protease in the sequential digestion datasets by the mean of the potential miss‐cleavages in the trypsin dataset.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 51850,
+              "infons": {
+                "section_type": "METHODS",
+                "type": "paragraph"
+              },
+              "text": "For software comparison, the 26S proteasome was searched using xiSEARCH (version 1.6.731), Kojak (version 1.5.5) and pLink 2 (version 2.3.2) using the same parameters as described before with minor alterations: Searches were performed using two missed cleavages, MS accuracy 3 ppm and MS/MS accuracy 20 ppm. For xiSEARCH, we used missing monoisotopic peaks 3. For xiSEARCH, Kojak and pLink 2, we gave the same preference for linkage sites in K, S, T and Y.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 52309,
+              "infons": {
+                "section_type": "AUTH_CONT",
+                "type": "title_1"
+              },
+              "text": "Author contribution",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 52329,
+              "infons": {
+                "section_type": "AUTH_CONT",
+                "type": "paragraph"
+              },
+              "text": "MLM, LF and JR developed the study; MLM, ZAC, FJO'R, AB, MB and MRE performed sample preparation; MLM performed LC‐MS analysis; MLM, ZAC, FJO'R, AB, TD, MB, CS, SG and MB‐S performed data analysis; LF developed xiSEARCH; CWC and MG provided critical support in data analysis; MB, CS, MRE and WB contributed with data interpretation; and MLM, FJO'R, MB‐S, LF and JR wrote the article with critical input from all authors.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 52756,
+              "infons": {
+                "section_type": "COMP_INT",
+                "type": "title_1"
+              },
+              "text": "Conflict of interest",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 52777,
+              "infons": {
+                "section_type": "COMP_INT",
+                "type": "paragraph"
+              },
+              "text": "The authors declare that they have no conflict of interest.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 52837,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "title_1"
+              },
+              "text": "Supporting information",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 52860,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "title_1"
+              },
+              "text": "Data availability",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 52878,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "paragraph"
+              },
+              "text": "The datasets and computer code produced in this study are available in the following databases:",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 52974,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "paragraph"
+              },
+              "text": "Raw‐files and identifications: ProteomeXchange Consortium (http://proteomecentral.proteomexchange.org) via the PRIDE partner repository (Vizcaíno et al, 2014) at: https://www.ebi.ac.uk/pride/archive/projects/PXD008550.",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 53197,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "paragraph"
+              },
+              "text": "The source code of xiSEARCH is available at: https://github.com/Rappsilber-Laboratory/XiSearch ",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 53293,
+              "infons": {
+                "section_type": "SUPPL",
+                "type": "paragraph"
+              },
+              "text": "The source code of xiFDR is available at: https://github.com/Rappsilber-Laboratory/xiFDR ",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 53383,
+              "infons": {
+                "section_type": "REF",
+                "type": "title"
+              },
+              "text": "References",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 53394,
+              "infons": {
+                "fpage": "6970",
+                "lpage": "6974",
+                "pub-id_pmid": "3313383",
+                "section_type": "REF",
+                "source": "Proc Natl Acad Sci USA",
+                "type": "ref",
+                "volume": "84",
+                "year": "1987"
+              },
+              "text": "Internal amino acid sequence analysis of proteins separated by one‐ or two‐dimensional gel electrophoresis after in situ protease digestion on nitrocellulose",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 53557,
+              "infons": {
+                "fpage": "1451",
+                "lpage": "1467",
+                "pub-id_pmid": "23354917",
+                "section_type": "REF",
+                "source": "Mol Cell Proteomics",
+                "type": "ref",
+                "volume": "12",
+                "year": "2013"
+              },
+              "text": "Protein interactions, post‐translational modifications and topologies in human cells",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 53644,
+              "infons": {
+                "fpage": "12991",
+                "lpage": "12996",
+                "pub-id_pmid": "27791164",
+                "section_type": "REF",
+                "source": "Proc Natl Acad Sci USA",
+                "type": "ref",
+                "volume": "113",
+                "year": "2016a"
+              },
+              "text": "Structural basis for dynamic regulation of the human 26S proteasome",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 53712,
+              "infons": {
+                "fpage": "2730",
+                "lpage": "2743",
+                "pub-id_pmid": "27250206",
+                "section_type": "REF",
+                "source": "Mol Cell Proteomics",
+                "type": "ref",
+                "volume": "15",
+                "year": "2016b"
+              },
+              "text": "Structure of complement C3(H2O) revealed by quantitative cross‐linking/mass spectrometry and modeling",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 53816,
+              "infons": {
+                "fpage": "5",
+                "pub-id_pmid": "27976756",
+                "section_type": "REF",
+                "source": "Wellcome Open Res",
+                "type": "ref",
+                "volume": "1",
+                "year": "2016c"
+              },
+              "text": "Quantitative cross‐linking/mass spectrometry reveals subtle protein conformational changes",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 53909,
+              "infons": {
+                "fpage": "3404",
+                "pub-id_pmid": "31363125",
+                "section_type": "REF",
+                "source": "Nat Commun",
+                "type": "ref",
+                "volume": "10",
+                "year": "2019"
+              },
+              "text": "A high‐speed search engine pLink 2 with systematic evaluation for proteome‐scale identification of cross‐linked peptides",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 54036,
+              "infons": {
+                "fpage": "20240",
+                "lpage": "20245",
+                "pub-id_pmid": "19910535",
+                "section_type": "REF",
+                "source": "Proc Natl Acad Sci USA",
+                "type": "ref",
+                "volume": "106",
+                "year": "2009"
+              },
+              "text": "A double‐hexameric MCM2‐7 complex is loaded onto origin DNA during licensing of eukaryotic DNA replication",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 54147,
+              "infons": {
+                "fpage": "577",
+                "lpage": "588",
+                "pub-id_pmid": "23603117",
+                "section_type": "REF",
+                "source": "Mol Cell",
+                "type": "ref",
+                "volume": "50",
+                "year": "2013"
+              },
+              "text": "An ORC/Cdc6/MCM2‐7 complex is formed in a multistep reaction to serve as a platform for MCM double‐hexamer assembly",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 54267,
+              "infons": {
+                "fpage": "3829",
+                "lpage": "3833",
+                "pub-id_pmid": "28267312",
+                "section_type": "REF",
+                "source": "Anal Chem",
+                "type": "ref",
+                "volume": "89",
+                "year": "2017"
+              },
+              "text": "Quirks of error estimation in cross‐linking/mass spectrometry",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 54331,
+              "infons": {
+                "fpage": "981",
+                "lpage": "992",
+                "pub-id_pmid": "28781123",
+                "section_type": "REF",
+                "source": "Cell Chem Biol",
+                "type": "ref",
+                "volume": "24",
+                "year": "2017"
+              },
+              "text": "The high‐affinity interaction between ORC and DNA that is required for replication licensing is inhibited by 2‐Arylquinolin‐4‐Amines",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 54472,
+              "infons": {
+                "fpage": "1834",
+                "lpage": "1843",
+                "pub-id_pmid": "26074081",
+                "section_type": "REF",
+                "source": "Cell Rep",
+                "type": "ref",
+                "volume": "11",
+                "year": "2015"
+              },
+              "text": "An augmented multiple‐protease‐based human phosphopeptide atlas",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 54540,
+              "infons": {
+                "fpage": "993",
+                "pub-id_pmid": "27123950",
+                "section_type": "REF",
+                "source": "Nat Protoc",
+                "type": "ref",
+                "volume": "11",
+                "year": "2016"
+              },
+              "text": "Six alternative proteases for mass spectrometry–based proteomics beyond trypsin",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 54622,
+              "infons": {
+                "fpage": "1094",
+                "lpage": "1104",
+                "pub-id_pmid": "26719564",
+                "section_type": "REF",
+                "source": "Mol Cell Proteomics",
+                "type": "ref",
+                "volume": "15",
+                "year": "2016"
+              },
+              "text": "A study into the collision‐induced dissociation (CID) behavior of cross‐linked peptides",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 54714,
+              "infons": {
+                "fpage": "711",
+                "lpage": "720",
+                "pub-id_pmid": "22002561",
+                "section_type": "REF",
+                "source": "Anal Bioanal Chem",
+                "type": "ref",
+                "volume": "402",
+                "year": "2012"
+              },
+              "text": "Increasing phosphoproteomic coverage through sequential digestion by complementary proteases",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 54807,
+              "infons": {
+                "fpage": "76",
+                "lpage": "87",
+                "pub-id_pmid": "22038510",
+                "section_type": "REF",
+                "source": "J Am Soc Mass Spectrom",
+                "type": "ref",
+                "volume": "23",
+                "year": "2012"
+              },
+              "text": "StavroX–a software for analyzing crosslinked products in protein interaction studies",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 54894,
+              "infons": {
+                "fpage": "1573",
+                "lpage": "1584",
+                "pub-id_pmid": "24696503",
+                "section_type": "REF",
+                "source": "Mol Cell Proteomics",
+                "type": "ref",
+                "volume": "13",
+                "year": "2014"
+              },
+              "text": "Confetti: a multiprotease map of the HeLa proteome for comprehensive proteomics",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 54974,
+              "infons": {
+                "fpage": "2022",
+                "lpage": "2038",
+                "pub-id_pmid": "28653243",
+                "section_type": "REF",
+                "source": "J Am Soc Mass Spectrom",
+                "type": "ref",
+                "volume": "28",
+                "year": "2017"
+              },
+              "text": "Novel concepts of MS‐cleavable cross‐linkers for improved peptide structure analysis",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 55063,
+              "infons": {
+                "fpage": "1868",
+                "lpage": "1873",
+                "pub-id_pmid": "2005382",
+                "section_type": "REF",
+                "source": "J Immunol",
+                "type": "ref",
+                "volume": "146",
+                "year": "1991"
+              },
+              "text": "Reconstitution of C5 convertase of the alternative complement pathway with isolated C3b dimer and factors B and D",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 55177,
+              "infons": {
+                "fpage": "2190",
+                "lpage": "2198",
+                "pub-id_pmid": "25812159",
+                "section_type": "REF",
+                "source": "J Proteome Res",
+                "type": "ref",
+                "volume": "14",
+                "year": "2015"
+              },
+              "text": "Kojak: efficient analysis of chemically cross‐linked protein complexes",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 55250,
+              "infons": {
+                "fpage": "2",
+                "lpage": "9",
+                "pub-id_pmid": "25662442",
+                "section_type": "REF",
+                "source": "Prog Biophys Mol Biol",
+                "type": "ref",
+                "volume": "119",
+                "year": "2015"
+              },
+              "text": "Flexibility and small pockets at protein‐protein interfaces: new insights into druggability",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 55344,
+              "infons": {
+                "fpage": "M110.002212",
+                "section_type": "REF",
+                "source": "Mol Cell Proteomics",
+                "type": "ref",
+                "volume": "10",
+                "year": "2011"
+              },
+              "text": "Development of a novel cross‐linking strategy for fast and accurate identification of cross‐linked peptides of protein complexes",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 55477,
+              "infons": {
+                "fpage": "5383",
+                "lpage": "5392",
+                "pub-id_pmid": "12403597",
+                "section_type": "REF",
+                "source": "Anal Chem",
+                "type": "ref",
+                "volume": "74",
+                "year": "2002"
+              },
+              "text": "Empirical statistical model to estimate the accuracy of peptide identifications made by MS/MS and database search",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 55591,
+              "infons": {
+                "fpage": "5311",
+                "lpage": "5318",
+                "pub-id_pmid": "28402676",
+                "section_type": "REF",
+                "source": "Anal Chem",
+                "type": "ref",
+                "volume": "89",
+                "year": "2017"
+              },
+              "text": "Optimizing the parameters governing the fragmentation of cross‐linked peptides in a Tribrid mass spectrometer",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 55703,
+              "infons": {
+                "fpage": "107",
+                "lpage": "119",
+                "pub-id_pmid": "15561728",
+                "section_type": "REF",
+                "source": "Mol Cell Proteomics",
+                "type": "ref",
+                "volume": "4",
+                "year": "2005"
+              },
+              "text": "Characterization of gel‐separated glycoproteins using two‐step proteolytic digestion combined with sequential microcolumns and mass spectrometry",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 55852,
+              "infons": {
+                "fpage": "814",
+                "lpage": "825",
+                "pub-id_pmid": "22503819",
+                "section_type": "REF",
+                "source": "Structure",
+                "type": "ref",
+                "volume": "20",
+                "year": "2012a"
+              },
+              "text": "The molecular architecture of the eukaryotic chaperonin TRiC/CCT",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 55917,
+              "infons": {
+                "fpage": "M111.014126",
+                "section_type": "REF",
+                "source": "Mol Cell Proteomics",
+                "type": "ref",
+                "volume": "11",
+                "year": "2012b"
+              },
+              "text": "Expanding the chemical cross‐linking toolbox by the use of multiple proteases and enrichment by size exclusion chromatography",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 56045,
+              "infons": {
+                "fpage": "120",
+                "lpage": "137",
+                "pub-id_pmid": "24356771",
+                "section_type": "REF",
+                "source": "Nat Protoc",
+                "type": "ref",
+                "volume": "9",
+                "year": "2013"
+              },
+              "text": "Lysine‐specific chemical cross‐linking of protein complexes and identification of cross‐linking sites using LC‐MS/MS and the xQuest/xProphet software pipeline",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 56212,
+              "infons": {
+                "fpage": "100",
+                "lpage": "108",
+                "pub-id_pmid": "26615471",
+                "section_type": "REF",
+                "source": "Curr Opin Struct Biol",
+                "type": "ref",
+                "volume": "35",
+                "year": "2015"
+              },
+              "text": "Interrogating the architecture of protein assemblies and protein interaction networks by cross‐linking mass spectrometry",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 56335,
+              "infons": {
+                "fpage": "1179",
+                "lpage": "1184",
+                "pub-id_pmid": "26414014",
+                "section_type": "REF",
+                "source": "Nat Methods",
+                "type": "ref",
+                "volume": "12",
+                "year": "2015"
+              },
+              "text": "Proteome‐wide profiling of protein assemblies by cross‐linking mass spectrometry",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 56420,
+              "infons": {
+                "fpage": "15473",
+                "pub-id_pmid": "28524877",
+                "section_type": "REF",
+                "source": "Nat Commun",
+                "type": "ref",
+                "volume": "8",
+                "year": "2017"
+              },
+              "text": "Optimized fragmentation schemes and data analysis strategies for proteome‐wide cross‐link identification",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 56529,
+              "infons": {
+                "fpage": "7900",
+                "lpage": "7905",
+                "pub-id_pmid": "12060738",
+                "section_type": "REF",
+                "source": "Proc Natl Acad Sci USA",
+                "type": "ref",
+                "volume": "99",
+                "year": "2002"
+              },
+              "text": "Shotgun identification of protein modifications from protein complexes and lens tissue",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 56616,
+              "infons": {
+                "fpage": "3584",
+                "lpage": "3592",
+                "pub-id_pmid": "18416563",
+                "section_type": "REF",
+                "source": "Anal Chem",
+                "type": "ref",
+                "volume": "80",
+                "year": "2008"
+              },
+              "text": "Multiplexed proteomics mapping of yeast RNA polymerase II and III allows near‐complete sequence coverage and reveals several novel phosphorylation sites",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 56771,
+              "infons": {
+                "fpage": "405",
+                "lpage": "412",
+                "pub-id_pmid": "29256016",
+                "section_type": "REF",
+                "source": "J Am Soc Mass Spectrom",
+                "type": "ref",
+                "volume": "29",
+                "year": "2018"
+              },
+              "text": "On the reproducibility of label‐free quantitative cross‐linking/mass spectrometry",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 56857,
+              "infons": {
+                "fpage": "202",
+                "issue": "Suppl 1",
+                "lpage": "214",
+                "pub-id_pmid": "29314274",
+                "section_type": "REF",
+                "source": "Proteins",
+                "type": "ref",
+                "volume": "86",
+                "year": "2018"
+              },
+              "text": "Small angle X‐ray scattering and cross‐linking for data assisted protein structure prediction in CASP 12 with prospects for improved accuracy",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 57003,
+              "infons": {
+                "fpage": "608",
+                "lpage": "614",
+                "pub-id_pmid": "15034119",
+                "section_type": "REF",
+                "source": "Mol Cell Proteomics",
+                "type": "ref",
+                "volume": "3",
+                "year": "2004"
+              },
+              "text": "Trypsin cleaves exclusively C‐terminal to arginine and lysine residues",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 57076,
+              "infons": {
+                "fpage": "1000",
+                "lpage": "1008",
+                "pub-id_pmid": "30374081",
+                "section_type": "REF",
+                "source": "Nat Struct Mol Biol",
+                "type": "ref",
+                "volume": "25",
+                "year": "2018"
+              },
+              "text": "Cross‐linking mass spectrometry: methods and applications in structural, molecular and systems biology",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 57181,
+              "infons": {
+                "fpage": "1006",
+                "lpage": "1010",
+                "pub-id_pmid": "12440962",
+                "section_type": "REF",
+                "source": "Biochem Soc Trans",
+                "type": "ref",
+                "volume": "30",
+                "year": "2002"
+              },
+              "text": "Structure and function of complement C5 convertase enzymes",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 57240,
+              "infons": {
+                "fpage": "16354",
+                "lpage": "16368",
+                "pub-id_pmid": "19369251",
+                "section_type": "REF",
+                "source": "J Biol Chem",
+                "type": "ref",
+                "volume": "284",
+                "year": "2009"
+              },
+              "text": "Mode of action of cGMP‐dependent protein kinase‐specific inhibitors probed by photoaffinity cross‐linking mass spectrometry",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 57370,
+              "infons": {
+                "fpage": "663",
+                "lpage": "670",
+                "pub-id_pmid": "12585499",
+                "section_type": "REF",
+                "source": "Anal Chem",
+                "type": "ref",
+                "volume": "75",
+                "year": "2003"
+              },
+              "text": "Stop and go extraction tips for matrix‐assisted laser desorption/ionization, nanoelectrospray, and LC/MS sample pretreatment in proteomics",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 57511,
+              "infons": {
+                "fpage": "415",
+                "lpage": "422",
+                "pub-id_pmid": "11367526",
+                "section_type": "REF",
+                "source": "Int Immunopharmacol",
+                "type": "ref",
+                "volume": "1",
+                "year": "2001"
+              },
+              "text": "Structure/function of C5 convertases of complement",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 57562,
+              "infons": {
+                "fpage": "637",
+                "lpage": "649",
+                "pub-id_pmid": "21658604",
+                "section_type": "REF",
+                "source": "Mol Cell",
+                "type": "ref",
+                "volume": "42",
+                "year": "2011"
+              },
+              "text": "The catalytic activity of Ubp6 enhances maturation of the proteasomal regulatory particle",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 57652,
+              "infons": {
+                "fpage": "1653",
+                "lpage": "1666",
+                "pub-id_pmid": "25085418",
+                "section_type": "REF",
+                "source": "Genes Dev",
+                "type": "ref",
+                "volume": "28",
+                "year": "2014"
+              },
+              "text": "A unique DNA entry gate serves for regulated loading of the eukaryotic replicative helicase MCM2–7 onto DNA",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 57762,
+              "infons": {
+                "fpage": "1985",
+                "pub-id_pmid": "23756419",
+                "section_type": "REF",
+                "source": "Nat Commun",
+                "type": "ref",
+                "volume": "4",
+                "year": "2013"
+              },
+              "text": "Comparative cross‐linking and mass spectrometry of an intact F‐type ATPase suggest a role for phosphorylation",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 57876,
+              "infons": {
+                "fpage": "2856",
+                "lpage": "2860",
+                "pub-id_pmid": "17406544",
+                "section_type": "REF",
+                "source": "Nat Protoc",
+                "type": "ref",
+                "volume": "1",
+                "year": "2006"
+              },
+              "text": "In‐gel digestion for mass spectrometric characterization of proteins and proteomes",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 57961,
+              "infons": {
+                "fpage": "261",
+                "lpage": "267",
+                "pub-id_pmid": "15782218",
+                "section_type": "REF",
+                "source": "Nat Methods",
+                "type": "ref",
+                "volume": "2",
+                "year": "2005"
+              },
+              "text": "Photo‐leucine and photo‐methionine allow identification of protein‐protein interactions in living cells",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 58071,
+              "infons": {
+                "fpage": "1323",
+                "lpage": "1329",
+                "pub-id_pmid": "20113005",
+                "section_type": "REF",
+                "source": "J Proteome Res",
+                "type": "ref",
+                "volume": "9",
+                "year": "2010"
+              },
+              "text": "Value of using multiple proteases for large‐scale mass spectrometry‐based proteomics",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 58160,
+              "infons": {
+                "fpage": "57",
+                "lpage": "65",
+                "pub-id_pmid": "4734226",
+                "section_type": "REF",
+                "source": "Biochemistry",
+                "type": "ref",
+                "volume": "12",
+                "year": "1973"
+              },
+              "text": "Dependence of the kinetic parameters for elastase‐catalyzed amide hydrolysis on the length of peptide substrates",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 58275,
+              "infons": {
+                "fpage": "432",
+                "lpage": "444",
+                "pub-id_pmid": "26451487",
+                "section_type": "REF",
+                "source": "Cell",
+                "type": "ref",
+                "volume": "163",
+                "year": "2015"
+              },
+              "text": "A single α helix drives extensive remodeling of the proteasome lid and completion of regulatory particle assembly",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 58393,
+              "infons": {
+                "fpage": "4599",
+                "lpage": "4606",
+                "pub-id_pmid": "22650258",
+                "section_type": "REF",
+                "source": "Curr Pharm Des",
+                "type": "ref",
+                "volume": "18",
+                "year": "2012"
+              },
+              "text": "Druggability of dynamic protein‐protein interfaces",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 58446,
+              "infons": {
+                "fpage": "5544",
+                "lpage": "5549",
+                "pub-id_pmid": "24706844",
+                "section_type": "REF",
+                "source": "Proc Natl Acad Sci USA",
+                "type": "ref",
+                "volume": "111",
+                "year": "2014"
+              },
+              "text": "Deep classification of a large cryo‐EM dataset defines the conformational landscape of the 26S proteasome",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 58554,
+              "infons": {
+                "fpage": "223",
+                "lpage": "226",
+                "pub-id_pmid": "24727771",
+                "section_type": "REF",
+                "source": "Nat Biotechnol",
+                "type": "ref",
+                "volume": "32",
+                "year": "2014"
+              },
+              "text": "ProteomeXchange provides globally coordinated proteomics data submission and dissemination",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 58645,
+              "infons": {
+                "fpage": "9526",
+                "lpage": "9533",
+                "pub-id_pmid": "19007248",
+                "section_type": "REF",
+                "source": "Anal Chem",
+                "type": "ref",
+                "volume": "80",
+                "year": "2008"
+              },
+              "text": "Evaluation of the low‐specificity protease elastase for large‐scale phosphoproteome analysis",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 58742,
+              "infons": {
+                "fpage": "840",
+                "lpage": "854",
+                "pub-id_pmid": "28292943",
+                "section_type": "REF",
+                "source": "Mol Cell Proteomics",
+                "type": "ref",
+                "volume": "16",
+                "year": "2017"
+              },
+              "text": "Molecular details underlying dynamic structures and regulation of the human 26S proteasome",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 58833,
+              "infons": {
+                "fpage": "1305",
+                "lpage": "1310",
+                "pub-id_pmid": "28115689",
+                "section_type": "REF",
+                "source": "Proc Natl Acad Sci USA",
+                "type": "ref",
+                "volume": "114",
+                "year": "2017"
+              },
+              "text": "Structural insights into the functional cycle of the ATPase module of the 26S proteasome",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 58922,
+              "infons": {
+                "fpage": "829",
+                "lpage": "831",
+                "pub-id_pmid": "6912179",
+                "section_type": "REF",
+                "source": "Hoppe Seylers Z Physiol Chem",
+                "type": "ref",
+                "volume": "362",
+                "year": "1981"
+              },
+              "text": "Cleavage of peptide‐4‐nitroanilide substrates with varying chain length by human leukocyte elastase",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            },
+            {
+              "bioctype": "BioCPassage",
+              "offset": 59026,
+              "infons": {
+                "fpage": "316",
+                "lpage": "324",
+                "pub-id_pmid": "28191893",
+                "section_type": "REF",
+                "source": "Nat Struct Mol Biol",
+                "type": "ref",
+                "volume": "24",
+                "year": "2017"
+              },
+              "text": "Structural basis of Mcm2‐7 replicative helicase loading by ORC‐Cdc6 and Cdt1",
+              "sentences": [],
+              "annotations": [],
+              "relations": []
+            }
+          ],
+          "annotations": [],
+          "relations": []
+        }
+      ]
+    }
+  ]
+}

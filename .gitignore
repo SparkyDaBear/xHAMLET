@@ -31,7 +31,14 @@ tools/relink/null/
 # committed. The static web/results-explorer/data/catalog.json snapshot (plus
 # the small promoted structure files under data/structures/) is the published
 # view of this data; see documents/RESULT_CATALOG_AND_EXPLORER.md.
-store/
+#
+# store/ itself IS tracked (cached PRIDE/PMC/LLM/SDRF/Xi-config metadata, so
+# collaborators can resume a PXD without re-querying the LLM) - but each PXD's
+# relink/ subdirectory (ReLink search/quant outputs: raw spectra, .mzML,
+# multi-GB .peaks.csv/.peaks.tsv/.mzid result files) is excluded: it's fully
+# regeneratable via `--relink` once raw files are (re-)downloaded, and several
+# of its files exceed GitHub's 100MB hard per-file limit.
+store/*/relink/
 af3_ppi_jobs/
 
 # Downloaded/extracted ReLink result archives staged in the repo root before

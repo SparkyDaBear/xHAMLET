@@ -1,0 +1,968 @@
+{
+  "metadata": {
+    "pxd": "PXD003880",
+    "category": "enhanced",
+    "saved_at": "2026-10-13T20:25:21.281003",
+    "filename": "metadata"
+  },
+  "data": {
+    "pxd": "PXD003880",
+    "processed_at": "2026-10-13T20:24:59.149331",
+    "stages": {
+      "pride": "success",
+      "publication": "failed",
+      "file_clustering": "success",
+      "raw_processing": "skipped_no_download",
+      "spectral_merge": "success_cached",
+      "llm": "success",
+      "sdrf": "success",
+      "sdrf_validation": "success_with_warnings",
+      "xi_configs": "success",
+      "relink": "skipped",
+      "compilation": "success"
+    },
+    "file_assignments": {
+      "QEplus009907.raw": {
+        "cluster_id": "cluster_1",
+        "cluster_label": "human_cam_plectin_dss",
+        "organism": "Homo sapiens",
+        "taxid": "NCBITaxon:9606",
+        "crosslinker": "DSS"
+      },
+      "QEplus009908.raw": {
+        "cluster_id": "cluster_1",
+        "cluster_label": "human_cam_plectin_dss",
+        "organism": "Homo sapiens",
+        "taxid": "NCBITaxon:9606",
+        "crosslinker": "DSS"
+      }
+    },
+    "spectral_summary": {
+      "source_files_parsed": 0,
+      "per_file": [],
+      "instrument": "Q Exactive"
+    },
+    "sdrf_path": "store/PXD003880/sdrf/PXD003880.sdrf.tsv",
+    "sdrf_validation_warnings": "WARNING: Term: not available in column 'comment[instrument]', is not found in the given ontology list ms;pride\nERROR: Column 'comment[instrument]' contains 'not available' values but requires actual values\nERROR: Term: not available in column 'comment[dissociation method]', is not found in the given ontology list ms;pride\nERROR: Column 'comment[dissociation method]' contains 'not available' values but requires actual values\nThere were validation errors.",
+    "xi_config_paths": {
+      "crosslinking": "store/PXD003880/configs/xi_crosslinking.conf",
+      "linear": "store/PXD003880/configs/xi_linear.conf"
+    },
+    "xi_config_paths_by_crosslinker": {
+      "default": {
+        "crosslinking": "store/PXD003880/configs/xi_crosslinking.conf",
+        "linear": "store/PXD003880/configs/xi_linear.conf"
+      }
+    },
+    "pride_data": {
+      "accession": "PXD003880",
+      "title": "Xilmass: a new approach towards the identification of cross-linked peptides",
+      "additionalAttributes": [],
+      "projectDescription": "Chemical cross-linking coupled with mass spectrometry plays an important role in unravelling protein interactions, especially weak and transient interactions. Moreover, cross-linking complements several structure determination approaches such as cryo-EM. Although several computational approaches are available for the annotation of spectra obtained from cross-linked peptides, there remains room for improvement. Here, we present Xilmass, a novel algorithm to identify cross-linked peptides that introduces two new concepts: (i) the cross-linked peptides are represented in a novel way in the search database that explicitly encodes cross-linking sites and (ii) the scoring function from the Andromeda algorithm was adapted to score against a theoretical MS spectrum that contains the peaks from all the possible fragment ions of a cross-linked peptide pair. The performance of Xilmass was subsequently evaluated against the recently published Kojak and the popular pLink algorithms on a data set that contains calmodulin-plectin.",
+      "sampleProcessingProtocol": "Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a were kindly provided by Kristina Dijnovic-Carugo and Jae-Geun Song (Vienna, Austria). The proteins were expressed and purified as described by Song et al [1].   For cross-linking experiments, proteins were mixed in an equimolar ratio (10 µM each, in 0.1 M MES pH 6.5, 0.5 M NaCl, 2 mM CaCl2) and 1 µL of disuccinimidyl suberate (DSS) cross-linker (5 mM each of DSS-d0 and DSS-d12; Creative Molecules Inc.) in anhydrous DMF was added per 40 µl of solution to a final concentration of 0.25 mM. The reaction was carried out for 20 min at room temperature under shaking and then quenched by adding 1 M Tris-HCI (pH 7.5). Subsequently, proteins were separated by 4-12% Bis-Tris sodium dodecyl sulfate polyacrylamide gel electrophoresis (SDS-PAGE) followed by staining with colloidal Coomassie Blue. Bands of cross-linked plectin-ABD:CaM complex, plectin-ABD and CaM were destained and subjected to proteolytic in-gel digestion using trypsin as described by Cristodero et al [2].   Peptide mixtures were analyzed by UHPLC-ESI-MS/MS using an UltiMate 3000 RSLCnano HPLC system coupled to a Q Exactive Plus (both Thermo Fisher Scientific) mass spectrometer. Samples were washed and pre-concentrated on a 5 mm × 0.3 mm PepMapTM C18 µ-precolumn (Thermo Fisher Scientific) followed by separation on a 50 cm × 75 µm C18 reversed-phase nano LC column (Acclaim PepMapTM RSLC column; 2 µm particle size; 100 Å pore size; Thermo Fisher Scientific) at a temperature of 40°C using a 30-min linear gradient ranging from 3 to 39% solvent B [86% (v/v) acetonitrile, 2% dimethyl sulfoxide (DMSO), 0.1% formic acid] and a subsequent increase to 95% B within 5 min. MS1 scans were recorded from m/z 375-1,700 at a resolution of 70,000 at m/z 200, an automatic gain control of 3×106 ions and a maximum fill time of 60 ms. MS2 scans for up to 12 of the most intense multiple charged precursor ions above an intensity threshold of 5,800 with a dynamic exclusion time of 45 s were acquired at a resolution of 35,000. For fragmentation, higher-energy collisional dissociation (HCD) was used at an AGC of 1×105 ions, maximum fill time of 120 ms and normalized collision energy of 28. For each sample, a second LC/MS analysis was performed in which only precursor ions of charge state 3+ or higher were selected for MS/MS experiments.  [1] Song, J.-G.; Kostan, J.; Drepper, F.; Knapp, B.; de Almeida Ribeiro, E.; Konarev, P. V.; Grishkovskaya, I.; Wiche, G.; Gregor, M.; Svergun, D. I.; et al. Structural Insights into Ca2+-Calmodulin Regulation of Plectin 1a-Integrin ß4 Interaction in Hemidesmosomes. Structure 2015, 23 (3), 558–570.  [2] Cristodero, M.; Mani, J.; Oeljeklaus, S.; Aeberhard, L.; Hashimi, H.; Ramrath, D. J. F.; Lukeš, J.; Warscheid, B.; Schneider, A. Mitochondrial translation factors of Trypanosoma brucei: Elongation factor-Tu has a unique subdomain that is essential for its function. Mol. Microbiol. 2013, 90 (4), 744–755.",
+      "dataProcessingProtocol": "The raw data were converted with msconvert which is part of ProteoWizard (release 3.0.7692) to mgf for both Xilmass and pLink, and to mzML for Kojak.  A database that contains the two target proteins (calmodulin and plectin) and their reversed sequences was concatenated by DBToolKit.The in silico digestion was performed with trypsin and three missed cleavage sites were allowed. The minimum peptide length was set to four residues for each peptide, with allowed mass ranges of 200-5,000 Da. The cross-linker was set to include both light- and heavy-labeled DSS (DSS d0/d12).The database search settings were carbamidomethylation of cysteine as a fixed modification and oxidation of methionine as a variable modification. No more than two variable modifications were allowed per peptide.   The fragmentation mode was set to HCD, with the precursor and the fragment mass tolerance set at 15 ppm and 0.03 Da respectively for Xilmass, Kojak and pLink. For Xilmass and pLink, four isotopic precursor mass tolerance windows at 10 ppm were subsequently allowed.  The XPSMs identified by Xilmass were validated by the calculation of the built-in FDR specific for cross-linked peptides; Kojak dentifications were validated with Percolator and the validated XPSMs for pLink were obtained straight from pLink.",
+      "projectTags": [
+        "Technical"
+      ],
+      "keywords": [
+        "Calmodulin",
+        "Cross-linking",
+        "The actin-binding domain (abd) of plectin",
+        "Dss",
+        "Human"
+      ],
+      "doi": "",
+      "submissionType": "PARTIAL",
+      "license": "EBI terms of use",
+      "submissionDate": "2016-07-25",
+      "publicationDate": "2016-09-27",
+      "submitters": [
+        {
+          "title": "Miss",
+          "firstName": "Sule",
+          "lastName": "Yilmaz",
+          "identifier": "38620127",
+          "affiliation": "UGent-VIB",
+          "email": "sule.yilmaz@vib-ugent.be",
+          "country": "Belgium",
+          "orcid": "",
+          "name": "Sule Yilmaz",
+          "id": "38620127"
+        }
+      ],
+      "labPIs": [
+        {
+          "title": "Dr",
+          "firstName": "Lennart",
+          "lastName": "Martens",
+          "identifier": "51040100",
+          "affiliation": "Group Leader",
+          "email": "lennart.martens@ugent.be",
+          "country": "",
+          "orcid": "",
+          "name": "Lennart Martens",
+          "id": "51040100"
+        }
+      ],
+      "instruments": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MS",
+          "accession": "MS:1001911",
+          "name": "Q Exactive"
+        }
+      ],
+      "softwares": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MS",
+          "accession": "MS:1001583",
+          "name": "MaxQuant"
+        },
+        {
+          "@type": "CvParam",
+          "cvLabel": "MS",
+          "accession": "MS:1002205",
+          "name": "ProteoWizard msconvert"
+        }
+      ],
+      "experimentTypes": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "PRIDE",
+          "accession": "PRIDE:0000430",
+          "name": "Chemical cross-linking coupled with mass spectrometry proteomics"
+        }
+      ],
+      "quantificationMethods": [],
+      "countries": [
+        "Belgium"
+      ],
+      "sampleAttributes": [
+        {
+          "@type": "Tuple",
+          "key": {
+            "cvLabel": "EFO",
+            "accession": "OBI:0100026",
+            "name": "organism"
+          },
+          "value": [
+            {
+              "cvLabel": "NEWT",
+              "accession": "NEWT:9606",
+              "name": "Homo sapiens (Human)"
+            }
+          ]
+        }
+      ],
+      "organisms": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "NEWT",
+          "accession": "NEWT:9606",
+          "name": "Homo sapiens (human)"
+        }
+      ],
+      "organismParts": [],
+      "diseases": [],
+      "references": [
+        {
+          "referenceLine": "Yılmaz Ş, Drepper F, Hulstaert N, Cernic M, Gevaert K, Economou A, Warscheid B, Martens L, Vandermarliere E. Xilmass: a new approach towards the identification of cross-linked peptides. Anal Chem. 2016 Sep 19",
+          "pubmedID": 27642655
+        }
+      ],
+      "identifiedPTMStrings": [
+        {
+          "@type": "CvParam",
+          "cvLabel": "MOD",
+          "accession": "MOD:00425",
+          "name": "monohydroxylated residue"
+        },
+        {
+          "@type": "CvParam",
+          "cvLabel": "MOD",
+          "accession": "MOD:00397",
+          "name": "iodoacetamide derivatized residue"
+        }
+      ],
+      "totalFileDownloads": 1468,
+      "botCount": 685,
+      "hubCount": 762,
+      "organicCount": 21,
+      "files": {
+        "files": [
+          {
+            "fileName": "QEplus009907_Kojakv136.txt",
+            "fileSizeBytes": 1024925,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2016/09/PXD003880/QEplus009907_Kojakv136.txt"
+          },
+          {
+            "fileName": "QEplus009907_xilmass.txt",
+            "fileSizeBytes": 3899464,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2016/09/PXD003880/QEplus009907_xilmass.txt"
+          },
+          {
+            "fileName": "QEplus009908_Kojakv136.txt",
+            "fileSizeBytes": 1114263,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2016/09/PXD003880/QEplus009908_Kojakv136.txt"
+          },
+          {
+            "fileName": "QEplus009908.raw",
+            "fileSizeBytes": 332613918,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2016/09/PXD003880/QEplus009908.raw"
+          },
+          {
+            "fileName": "QEplus009907.raw",
+            "fileSizeBytes": 262462254,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2016/09/PXD003880/QEplus009907.raw"
+          },
+          {
+            "fileName": "allXPSMs_list.txt",
+            "fileSizeBytes": 7856573,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2016/09/PXD003880/allXPSMs_list.txt"
+          },
+          {
+            "fileName": "validatedXPSMs_list.txt",
+            "fileSizeBytes": 1246220,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2016/09/PXD003880/validatedXPSMs_list.txt"
+          },
+          {
+            "fileName": "QEplus009908.mgf",
+            "fileSizeBytes": 60276374,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2016/09/PXD003880/QEplus009908.mgf"
+          },
+          {
+            "fileName": "QEplus009908_percolator_dfMods_Th003_corrected-Inter.txt",
+            "fileSizeBytes": 583535,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2016/09/PXD003880/QEplus009908_percolator_dfMods_Th003_corrected-Inter.txt"
+          },
+          {
+            "fileName": "QEplus009908_percolator_dfMods_Th003_corrected-Intra.txt",
+            "fileSizeBytes": 232173,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2016/09/PXD003880/QEplus009908_percolator_dfMods_Th003_corrected-Intra.txt"
+          },
+          {
+            "fileName": "generic_Plec_Cmd_corrNterm_targetRDecoy.fasta",
+            "fileSizeBytes": 1040,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2016/09/PXD003880/generic_Plec_Cmd_corrNterm_targetRDecoy.fasta"
+          },
+          {
+            "fileName": "pLink_output_hcd_optQexactive_inter_combine.spectra.xls",
+            "fileSizeBytes": 228819,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2016/09/PXD003880/pLink_output_hcd_optQexactive_inter_combine.spectra.xls"
+          },
+          {
+            "fileName": "QEplus009907_percolator_dfMods_Th003_corrected-Inter.txt",
+            "fileSizeBytes": 369242,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2016/09/PXD003880/QEplus009907_percolator_dfMods_Th003_corrected-Inter.txt"
+          },
+          {
+            "fileName": "generic_Plec_Cmd_corrNterm_targetRDecoy_both.fastacp",
+            "fileSizeBytes": 2382801,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2016/09/PXD003880/generic_Plec_Cmd_corrNterm_targetRDecoy_both.fastacp"
+          },
+          {
+            "fileName": "QEplus009907_percolator_dfMods_Th003_corrected-Intra.txt",
+            "fileSizeBytes": 159514,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2016/09/PXD003880/QEplus009907_percolator_dfMods_Th003_corrected-Intra.txt"
+          },
+          {
+            "fileName": "QEplus009907.mgf",
+            "fileSizeBytes": 63953102,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2016/09/PXD003880/QEplus009907.mgf"
+          },
+          {
+            "fileName": "QEplus009908_xilmass.txt",
+            "fileSizeBytes": 5398468,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2016/09/PXD003880/QEplus009908_xilmass.txt"
+          },
+          {
+            "fileName": "PXD003880_community_annotated.sdrf.tsv",
+            "fileSizeBytes": 2733,
+            "ftpUrl": "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2016/09/PXD003880/PXD003880_community_annotated.sdrf.tsv"
+          }
+        ],
+        "totalCount": 18
+      }
+    },
+    "publication_metadata": null,
+    "llm_responses": {
+      "characteristics[disease]": {
+        "response": "```json\n{\n  \"characteristics[disease]\": {\n    \"value\": \"normal\",\n    \"accession\": \"PATO:0000461\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[compound]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "normal",
+          "accession": "PATO:0000461",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[phenotype]": {
+        "response": "```json\n{\n  \"characteristics[disease]\": {\n    \"value\": \"normal\",\n    \"accession\": \"PATO:0000461\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[compound]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": null,
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[treatment]": {
+        "response": "```json\n{\n  \"characteristics[disease]\": {\n    \"value\": \"normal\",\n    \"accession\": \"PATO:0000461\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[compound]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": null,
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[compound]": {
+        "response": "```json\n{\n  \"characteristics[disease]\": {\n    \"value\": \"normal\",\n    \"accession\": \"PATO:0000461\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[compound]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": null,
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[dose]": {
+        "response": "```json\n{\n  \"characteristics[disease]\": {\n    \"value\": \"normal\",\n    \"accession\": \"PATO:0000461\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[compound]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": null,
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[genetic modification]": {
+        "response": "```json\n{\n  \"characteristics[disease]\": {\n    \"value\": \"normal\",\n    \"accession\": \"PATO:0000461\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[compound]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": null,
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[perturbation]": {
+        "response": "```json\n{\n  \"characteristics[disease]\": {\n    \"value\": \"normal\",\n    \"accession\": \"PATO:0000461\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[compound]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": null,
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "disease_treatment"
+      },
+      "characteristics[depletion]": {
+        "response": "```json\n{\n  \"characteristics[disease]\": {\n    \"value\": \"normal\",\n    \"accession\": \"PATO:0000461\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phenotype]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[treatment]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[compound]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[dose]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genetic modification]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[perturbation]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[depletion]\": {\n    \"value\": \"no depletion\",\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "no depletion",
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "disease_treatment"
+      },
+      "factor value[cell line]": {
+        "response": "```json\n{\n  \"factor value[cell line]\": null,\n  \"factor value[compound]\": null,\n  \"factor value[disease]\": null,\n  \"factor value[dose]\": null,\n  \"factor value[organism part]\": null,\n  \"factor value[time]\": null,\n  \"factor value[treatment]\": null\n}\n```",
+        "parsed": {
+          "value": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "factor_values"
+      },
+      "factor value[compound]": {
+        "response": "```json\n{\n  \"factor value[cell line]\": null,\n  \"factor value[compound]\": null,\n  \"factor value[disease]\": null,\n  \"factor value[dose]\": null,\n  \"factor value[organism part]\": null,\n  \"factor value[time]\": null,\n  \"factor value[treatment]\": null\n}\n```",
+        "parsed": {
+          "value": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "factor_values"
+      },
+      "factor value[disease]": {
+        "response": "```json\n{\n  \"factor value[cell line]\": null,\n  \"factor value[compound]\": null,\n  \"factor value[disease]\": null,\n  \"factor value[dose]\": null,\n  \"factor value[organism part]\": null,\n  \"factor value[time]\": null,\n  \"factor value[treatment]\": null\n}\n```",
+        "parsed": {
+          "value": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "factor_values"
+      },
+      "factor value[dose]": {
+        "response": "```json\n{\n  \"factor value[cell line]\": null,\n  \"factor value[compound]\": null,\n  \"factor value[disease]\": null,\n  \"factor value[dose]\": null,\n  \"factor value[organism part]\": null,\n  \"factor value[time]\": null,\n  \"factor value[treatment]\": null\n}\n```",
+        "parsed": {
+          "value": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "factor_values"
+      },
+      "factor value[organism part]": {
+        "response": "```json\n{\n  \"factor value[cell line]\": null,\n  \"factor value[compound]\": null,\n  \"factor value[disease]\": null,\n  \"factor value[dose]\": null,\n  \"factor value[organism part]\": null,\n  \"factor value[time]\": null,\n  \"factor value[treatment]\": null\n}\n```",
+        "parsed": {
+          "value": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "factor_values"
+      },
+      "factor value[time]": {
+        "response": "```json\n{\n  \"factor value[cell line]\": null,\n  \"factor value[compound]\": null,\n  \"factor value[disease]\": null,\n  \"factor value[dose]\": null,\n  \"factor value[organism part]\": null,\n  \"factor value[time]\": null,\n  \"factor value[treatment]\": null\n}\n```",
+        "parsed": {
+          "value": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "factor_values"
+      },
+      "factor value[treatment]": {
+        "response": "```json\n{\n  \"factor value[cell line]\": null,\n  \"factor value[compound]\": null,\n  \"factor value[disease]\": null,\n  \"factor value[dose]\": null,\n  \"factor value[organism part]\": null,\n  \"factor value[time]\": null,\n  \"factor value[treatment]\": null\n}\n```",
+        "parsed": {
+          "value": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "factor_values"
+      },
+      "comment[instrument]": {
+        "response": "```json\n{\n  \"comment[instrument]\": {\n    \"value\": \"Q Exactive Plus\",\n    \"accession\": \"MS:1002634\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to a Q Exactive Plus (both Thermo Fisher Scientific) mass spectrometer\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"data-dependent acquisition\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 scans for up to 12 of the most intense multiple charged precursor ions above an intensity threshold of 5,800 with a dynamic exclusion time of 45 s were acquired\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"HCD\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"For fragmentation, higher-energy collisional dissociation (HCD) was used\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"28 NCE\",\n    \"accession\": \"MS:1000045\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"normalized collision energy of 28\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": \"0.03 Da\",\n    \"accession\": \"PRIDE:0000576\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"the precursor and the fragment mass tolerance set at 15 ppm and 0.03 Da respectively\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": \"15 ppm\",\n    \"accession\": \"PRIDE:0000575\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"the precursor and the fragment mass tolerance set at 15 ppm and 0.03 Da respectively\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"2 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"For each sample, a second LC/MS analysis was performed in which only precursor ions of charge state 3+ or higher were selected\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[data file]\": {\n    \"value\": \"Not explicitly stated in text; derived from PRIDE file list\",\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "Q Exactive Plus",
+          "accession": "MS:1002634",
+          "confidence": "high",
+          "evidence_quote": "coupled to a Q Exactive Plus (both Thermo Fisher Scientific) mass spectrometer",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[proteomics data acquisition method]": {
+        "response": "```json\n{\n  \"comment[instrument]\": {\n    \"value\": \"Q Exactive Plus\",\n    \"accession\": \"MS:1002634\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to a Q Exactive Plus (both Thermo Fisher Scientific) mass spectrometer\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"data-dependent acquisition\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 scans for up to 12 of the most intense multiple charged precursor ions above an intensity threshold of 5,800 with a dynamic exclusion time of 45 s were acquired\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"HCD\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"For fragmentation, higher-energy collisional dissociation (HCD) was used\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"28 NCE\",\n    \"accession\": \"MS:1000045\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"normalized collision energy of 28\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": \"0.03 Da\",\n    \"accession\": \"PRIDE:0000576\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"the precursor and the fragment mass tolerance set at 15 ppm and 0.03 Da respectively\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": \"15 ppm\",\n    \"accession\": \"PRIDE:0000575\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"the precursor and the fragment mass tolerance set at 15 ppm and 0.03 Da respectively\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"2 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"For each sample, a second LC/MS analysis was performed in which only precursor ions of charge state 3+ or higher were selected\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[data file]\": {\n    \"value\": \"Not explicitly stated in text; derived from PRIDE file list\",\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "data-dependent acquisition",
+          "accession": "PRIDE:0000041",
+          "confidence": "high",
+          "evidence_quote": "MS2 scans for up to 12 of the most intense multiple charged precursor ions above an intensity threshold of 5,800 with a dynamic exclusion time of 45 s were acquired",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[dissociation method]": {
+        "response": "```json\n{\n  \"comment[instrument]\": {\n    \"value\": \"Q Exactive Plus\",\n    \"accession\": \"MS:1002634\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to a Q Exactive Plus (both Thermo Fisher Scientific) mass spectrometer\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"data-dependent acquisition\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 scans for up to 12 of the most intense multiple charged precursor ions above an intensity threshold of 5,800 with a dynamic exclusion time of 45 s were acquired\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"HCD\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"For fragmentation, higher-energy collisional dissociation (HCD) was used\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"28 NCE\",\n    \"accession\": \"MS:1000045\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"normalized collision energy of 28\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": \"0.03 Da\",\n    \"accession\": \"PRIDE:0000576\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"the precursor and the fragment mass tolerance set at 15 ppm and 0.03 Da respectively\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": \"15 ppm\",\n    \"accession\": \"PRIDE:0000575\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"the precursor and the fragment mass tolerance set at 15 ppm and 0.03 Da respectively\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"2 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"For each sample, a second LC/MS analysis was performed in which only precursor ions of charge state 3+ or higher were selected\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[data file]\": {\n    \"value\": \"Not explicitly stated in text; derived from PRIDE file list\",\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "HCD",
+          "accession": "MS:1000422",
+          "confidence": "high",
+          "evidence_quote": "For fragmentation, higher-energy collisional dissociation (HCD) was used",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[collision energy]": {
+        "response": "```json\n{\n  \"comment[instrument]\": {\n    \"value\": \"Q Exactive Plus\",\n    \"accession\": \"MS:1002634\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to a Q Exactive Plus (both Thermo Fisher Scientific) mass spectrometer\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"data-dependent acquisition\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 scans for up to 12 of the most intense multiple charged precursor ions above an intensity threshold of 5,800 with a dynamic exclusion time of 45 s were acquired\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"HCD\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"For fragmentation, higher-energy collisional dissociation (HCD) was used\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"28 NCE\",\n    \"accession\": \"MS:1000045\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"normalized collision energy of 28\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": \"0.03 Da\",\n    \"accession\": \"PRIDE:0000576\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"the precursor and the fragment mass tolerance set at 15 ppm and 0.03 Da respectively\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": \"15 ppm\",\n    \"accession\": \"PRIDE:0000575\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"the precursor and the fragment mass tolerance set at 15 ppm and 0.03 Da respectively\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"2 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"For each sample, a second LC/MS analysis was performed in which only precursor ions of charge state 3+ or higher were selected\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[data file]\": {\n    \"value\": \"Not explicitly stated in text; derived from PRIDE file list\",\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "28 NCE",
+          "accession": "MS:1000045",
+          "confidence": "high",
+          "evidence_quote": "normalized collision energy of 28",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[dia method]": {
+        "response": "```json\n{\n  \"comment[instrument]\": {\n    \"value\": \"Q Exactive Plus\",\n    \"accession\": \"MS:1002634\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to a Q Exactive Plus (both Thermo Fisher Scientific) mass spectrometer\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"data-dependent acquisition\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 scans for up to 12 of the most intense multiple charged precursor ions above an intensity threshold of 5,800 with a dynamic exclusion time of 45 s were acquired\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"HCD\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"For fragmentation, higher-energy collisional dissociation (HCD) was used\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"28 NCE\",\n    \"accession\": \"MS:1000045\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"normalized collision energy of 28\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": \"0.03 Da\",\n    \"accession\": \"PRIDE:0000576\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"the precursor and the fragment mass tolerance set at 15 ppm and 0.03 Da respectively\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": \"15 ppm\",\n    \"accession\": \"PRIDE:0000575\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"the precursor and the fragment mass tolerance set at 15 ppm and 0.03 Da respectively\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"2 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"For each sample, a second LC/MS analysis was performed in which only precursor ions of charge state 3+ or higher were selected\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[data file]\": {\n    \"value\": \"Not explicitly stated in text; derived from PRIDE file list\",\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[fragment mass tolerance]": {
+        "response": "```json\n{\n  \"comment[instrument]\": {\n    \"value\": \"Q Exactive Plus\",\n    \"accession\": \"MS:1002634\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to a Q Exactive Plus (both Thermo Fisher Scientific) mass spectrometer\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"data-dependent acquisition\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 scans for up to 12 of the most intense multiple charged precursor ions above an intensity threshold of 5,800 with a dynamic exclusion time of 45 s were acquired\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"HCD\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"For fragmentation, higher-energy collisional dissociation (HCD) was used\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"28 NCE\",\n    \"accession\": \"MS:1000045\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"normalized collision energy of 28\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": \"0.03 Da\",\n    \"accession\": \"PRIDE:0000576\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"the precursor and the fragment mass tolerance set at 15 ppm and 0.03 Da respectively\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": \"15 ppm\",\n    \"accession\": \"PRIDE:0000575\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"the precursor and the fragment mass tolerance set at 15 ppm and 0.03 Da respectively\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"2 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"For each sample, a second LC/MS analysis was performed in which only precursor ions of charge state 3+ or higher were selected\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[data file]\": {\n    \"value\": \"Not explicitly stated in text; derived from PRIDE file list\",\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "0.03 Da",
+          "accession": "PRIDE:0000576",
+          "confidence": "high",
+          "evidence_quote": "the precursor and the fragment mass tolerance set at 15 ppm and 0.03 Da respectively",
+          "evidence_location": "PRIDE DATA PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[precursor mass tolerance]": {
+        "response": "```json\n{\n  \"comment[instrument]\": {\n    \"value\": \"Q Exactive Plus\",\n    \"accession\": \"MS:1002634\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to a Q Exactive Plus (both Thermo Fisher Scientific) mass spectrometer\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"data-dependent acquisition\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 scans for up to 12 of the most intense multiple charged precursor ions above an intensity threshold of 5,800 with a dynamic exclusion time of 45 s were acquired\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"HCD\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"For fragmentation, higher-energy collisional dissociation (HCD) was used\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"28 NCE\",\n    \"accession\": \"MS:1000045\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"normalized collision energy of 28\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": \"0.03 Da\",\n    \"accession\": \"PRIDE:0000576\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"the precursor and the fragment mass tolerance set at 15 ppm and 0.03 Da respectively\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": \"15 ppm\",\n    \"accession\": \"PRIDE:0000575\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"the precursor and the fragment mass tolerance set at 15 ppm and 0.03 Da respectively\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"2 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"For each sample, a second LC/MS analysis was performed in which only precursor ions of charge state 3+ or higher were selected\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[data file]\": {\n    \"value\": \"Not explicitly stated in text; derived from PRIDE file list\",\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "15 ppm",
+          "accession": "PRIDE:0000575",
+          "confidence": "high",
+          "evidence_quote": "the precursor and the fragment mass tolerance set at 15 ppm and 0.03 Da respectively",
+          "evidence_location": "PRIDE DATA PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[technical replicate]": {
+        "response": "```json\n{\n  \"comment[instrument]\": {\n    \"value\": \"Q Exactive Plus\",\n    \"accession\": \"MS:1002634\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to a Q Exactive Plus (both Thermo Fisher Scientific) mass spectrometer\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"data-dependent acquisition\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 scans for up to 12 of the most intense multiple charged precursor ions above an intensity threshold of 5,800 with a dynamic exclusion time of 45 s were acquired\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"HCD\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"For fragmentation, higher-energy collisional dissociation (HCD) was used\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"28 NCE\",\n    \"accession\": \"MS:1000045\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"normalized collision energy of 28\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": \"0.03 Da\",\n    \"accession\": \"PRIDE:0000576\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"the precursor and the fragment mass tolerance set at 15 ppm and 0.03 Da respectively\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": \"15 ppm\",\n    \"accession\": \"PRIDE:0000575\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"the precursor and the fragment mass tolerance set at 15 ppm and 0.03 Da respectively\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"2 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"For each sample, a second LC/MS analysis was performed in which only precursor ions of charge state 3+ or higher were selected\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[data file]\": {\n    \"value\": \"Not explicitly stated in text; derived from PRIDE file list\",\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "2 technical replicates per sample",
+          "accession": "MS:1001808",
+          "confidence": "medium",
+          "evidence_quote": "For each sample, a second LC/MS analysis was performed in which only precursor ions of charge state 3+ or higher were selected",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "ms_acquisition"
+      },
+      "comment[data file]": {
+        "response": "```json\n{\n  \"comment[instrument]\": {\n    \"value\": \"Q Exactive Plus\",\n    \"accession\": \"MS:1002634\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"coupled to a Q Exactive Plus (both Thermo Fisher Scientific) mass spectrometer\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[proteomics data acquisition method]\": {\n    \"value\": \"data-dependent acquisition\",\n    \"accession\": \"PRIDE:0000041\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"MS2 scans for up to 12 of the most intense multiple charged precursor ions above an intensity threshold of 5,800 with a dynamic exclusion time of 45 s were acquired\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dissociation method]\": {\n    \"value\": \"HCD\",\n    \"accession\": \"MS:1000422\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"For fragmentation, higher-energy collisional dissociation (HCD) was used\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[collision energy]\": {\n    \"value\": \"28 NCE\",\n    \"accession\": \"MS:1000045\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"normalized collision energy of 28\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[dia method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[fragment mass tolerance]\": {\n    \"value\": \"0.03 Da\",\n    \"accession\": \"PRIDE:0000576\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"the precursor and the fragment mass tolerance set at 15 ppm and 0.03 Da respectively\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[precursor mass tolerance]\": {\n    \"value\": \"15 ppm\",\n    \"accession\": \"PRIDE:0000575\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"the precursor and the fragment mass tolerance set at 15 ppm and 0.03 Da respectively\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[technical replicate]\": {\n    \"value\": \"2 technical replicates per sample\",\n    \"accession\": \"MS:1001808\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"For each sample, a second LC/MS analysis was performed in which only precursor ions of charge state 3+ or higher were selected\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[data file]\": {\n    \"value\": \"Not explicitly stated in text; derived from PRIDE file list\",\n    \"accession\": \"MS:1003083\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "Not explicitly stated in text; derived from PRIDE file list",
+          "accession": "MS:1003083",
+          "confidence": "medium",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "ms_acquisition"
+      },
+      "characteristics[organism]": {
+        "response": "```json\n{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The proteins were expressed and purified as described by Song et al [1].\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"source name\": {\n    \"value\": \"calmodulin-plectin\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"evaluated against the recently published Kojak and the popular pLink algorithms on a data set that contains calmodulin-plectin.\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"assay name\": {\n    \"value\": \"raw file stem\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The raw data were converted with msconvert\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": "Homo sapiens",
+          "accession": "NCBITaxon:9606",
+          "confidence": "high",
+          "evidence_quote": "Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[organism part]": {
+        "response": "```json\n{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The proteins were expressed and purified as described by Song et al [1].\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"source name\": {\n    \"value\": \"calmodulin-plectin\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"evaluated against the recently published Kojak and the popular pLink algorithms on a data set that contains calmodulin-plectin.\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"assay name\": {\n    \"value\": \"raw file stem\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The raw data were converted with msconvert\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[cell line]": {
+        "response": "```json\n{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The proteins were expressed and purified as described by Song et al [1].\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"source name\": {\n    \"value\": \"calmodulin-plectin\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"evaluated against the recently published Kojak and the popular pLink algorithms on a data set that contains calmodulin-plectin.\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"assay name\": {\n    \"value\": \"raw file stem\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The raw data were converted with msconvert\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[cell type]": {
+        "response": "```json\n{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The proteins were expressed and purified as described by Song et al [1].\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"source name\": {\n    \"value\": \"calmodulin-plectin\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"evaluated against the recently published Kojak and the popular pLink algorithms on a data set that contains calmodulin-plectin.\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"assay name\": {\n    \"value\": \"raw file stem\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The raw data were converted with msconvert\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[material type]": {
+        "response": "```json\n{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The proteins were expressed and purified as described by Song et al [1].\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"source name\": {\n    \"value\": \"calmodulin-plectin\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"evaluated against the recently published Kojak and the popular pLink algorithms on a data set that contains calmodulin-plectin.\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"assay name\": {\n    \"value\": \"raw file stem\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The raw data were converted with msconvert\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": "purified proteins",
+          "accession": "PRIDE:0000837",
+          "confidence": "high",
+          "evidence_quote": "The proteins were expressed and purified as described by Song et al [1].",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[strain or breed]": {
+        "response": "```json\n{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The proteins were expressed and purified as described by Song et al [1].\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"source name\": {\n    \"value\": \"calmodulin-plectin\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"evaluated against the recently published Kojak and the popular pLink algorithms on a data set that contains calmodulin-plectin.\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"assay name\": {\n    \"value\": \"raw file stem\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The raw data were converted with msconvert\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[developmental stage]": {
+        "response": "```json\n{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The proteins were expressed and purified as described by Song et al [1].\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"source name\": {\n    \"value\": \"calmodulin-plectin\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"evaluated against the recently published Kojak and the popular pLink algorithms on a data set that contains calmodulin-plectin.\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"assay name\": {\n    \"value\": \"raw file stem\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The raw data were converted with msconvert\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "organism_sample"
+      },
+      "technology type": {
+        "response": "```json\n{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The proteins were expressed and purified as described by Song et al [1].\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"source name\": {\n    \"value\": \"calmodulin-plectin\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"evaluated against the recently published Kojak and the popular pLink algorithms on a data set that contains calmodulin-plectin.\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"assay name\": {\n    \"value\": \"raw file stem\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The raw data were converted with msconvert\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": "proteomic profiling by mass spectrometry",
+          "accession": "PRIDE:0000663",
+          "confidence": "high",
+          "evidence_quote": "Chemical cross-linking coupled with mass spectrometry",
+          "evidence_location": "PRIDE PROJECT DESCRIPTION"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "organism_sample"
+      },
+      "source name": {
+        "response": "```json\n{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The proteins were expressed and purified as described by Song et al [1].\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"source name\": {\n    \"value\": \"calmodulin-plectin\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"evaluated against the recently published Kojak and the popular pLink algorithms on a data set that contains calmodulin-plectin.\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"assay name\": {\n    \"value\": \"raw file stem\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The raw data were converted with msconvert\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": "calmodulin-plectin",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "evaluated against the recently published Kojak and the popular pLink algorithms on a data set that contains calmodulin-plectin.",
+          "evidence_location": "PRIDE PROJECT DESCRIPTION"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "organism_sample"
+      },
+      "assay name": {
+        "response": "```json\n{\n  \"characteristics[organism]\": {\n    \"value\": \"Homo sapiens\",\n    \"accession\": \"NCBITaxon:9606\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[organism part]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell line]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[cell type]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[material type]\": {\n    \"value\": \"purified proteins\",\n    \"accession\": \"PRIDE:0000837\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The proteins were expressed and purified as described by Song et al [1].\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[strain or breed]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[developmental stage]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"technology type\": {\n    \"value\": \"proteomic profiling by mass spectrometry\",\n    \"accession\": \"PRIDE:0000663\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"source name\": {\n    \"value\": \"calmodulin-plectin\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"evaluated against the recently published Kojak and the popular pLink algorithms on a data set that contains calmodulin-plectin.\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  },\n  \"assay name\": {\n    \"value\": \"raw file stem\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"The raw data were converted with msconvert\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": "raw file stem",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "The raw data were converted with msconvert",
+          "evidence_location": "PRIDE DATA PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "organism_sample"
+      },
+      "characteristics[sex]": {
+        "response": "```json\n{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a were kindly provided\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"not stated\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "not applicable",
+          "accession": "PATO:0000047",
+          "confidence": "high",
+          "evidence_quote": "Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a were kindly provided",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[age]": {
+        "response": "```json\n{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a were kindly provided\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"not stated\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000246",
+          "confidence": null,
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[ancestry category]": {
+        "response": "```json\n{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a were kindly provided\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"not stated\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": "HANCESTRO",
+          "confidence": null,
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[biological replicate]": {
+        "response": "```json\n{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a were kindly provided\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"not stated\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "not stated",
+          "accession": "MS:1001809",
+          "confidence": "medium",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[genotype]": {
+        "response": "```json\n{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a were kindly provided\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"not stated\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": "EFO:0000513",
+          "confidence": null,
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[pooled sample]": {
+        "response": "```json\n{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a were kindly provided\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"not stated\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "not pooled",
+          "accession": "NCIT:C165587",
+          "confidence": "medium",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[phosphate]": {
+        "response": "```json\n{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a were kindly provided\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"not stated\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000805",
+          "confidence": null,
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_attributes"
+      },
+      "characteristics[temperature]": {
+        "response": "```json\n{\n  \"characteristics[sex]\": {\n    \"value\": \"not applicable\",\n    \"accession\": \"PATO:0000047\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Human calmodulin (CaM) and the actin-binding domain (ABD) of plectin (plectin-ABD) isoform 1a were kindly provided\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[age]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000246\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[ancestry category]\": {\n    \"value\": null,\n    \"accession\": \"HANCESTRO\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[biological replicate]\": {\n    \"value\": \"not stated\",\n    \"accession\": \"MS:1001809\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[genotype]\": {\n    \"value\": null,\n    \"accession\": \"EFO:0000513\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[pooled sample]\": {\n    \"value\": \"not pooled\",\n    \"accession\": \"NCIT:C165587\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[phosphate]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000805\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"characteristics[temperature]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000703\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000703",
+          "confidence": null,
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_attributes"
+      },
+      "comment[cleavage agent details]": {
+        "response": "```json\n{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"subjected to proteolytic in-gel digestion using trypsin\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[label]\": {\n    \"value\": \"label free sample\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": \"PRIDE:0000598\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"carbamidomethylation of cysteine as a fixed modification\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": \"MS:1001055\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The database search settings were carbamidomethylation of cysteine as a fixed modification and oxidation of methionine as a variable modification.\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": \"MS:1000858\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": [
+            "NT=Trypsin;AC=MS:1001251"
+          ],
+          "accession": "MS:1001251",
+          "confidence": "high",
+          "evidence_quote": "subjected to proteolytic in-gel digestion using trypsin",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[label]": {
+        "response": "```json\n{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"subjected to proteolytic in-gel digestion using trypsin\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[label]\": {\n    \"value\": \"label free sample\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": \"PRIDE:0000598\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"carbamidomethylation of cysteine as a fixed modification\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": \"MS:1001055\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The database search settings were carbamidomethylation of cysteine as a fixed modification and oxidation of methionine as a variable modification.\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": \"MS:1000858\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "label free sample",
+          "accession": "MS:1002038",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[alkylation reagent]": {
+        "response": "```json\n{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"subjected to proteolytic in-gel digestion using trypsin\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[label]\": {\n    \"value\": \"label free sample\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": \"PRIDE:0000598\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"carbamidomethylation of cysteine as a fixed modification\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": \"MS:1001055\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The database search settings were carbamidomethylation of cysteine as a fixed modification and oxidation of methionine as a variable modification.\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": \"MS:1000858\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "iodoacetamide",
+          "accession": "PRIDE:0000598",
+          "confidence": "medium",
+          "evidence_quote": "carbamidomethylation of cysteine as a fixed modification",
+          "evidence_location": "PRIDE DATA PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[fractionation method]": {
+        "response": "```json\n{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"subjected to proteolytic in-gel digestion using trypsin\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[label]\": {\n    \"value\": \"label free sample\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": \"PRIDE:0000598\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"carbamidomethylation of cysteine as a fixed modification\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": \"MS:1001055\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The database search settings were carbamidomethylation of cysteine as a fixed modification and oxidation of methionine as a variable modification.\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": \"MS:1000858\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": null,
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[modification parameters]": {
+        "response": "```json\n{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"subjected to proteolytic in-gel digestion using trypsin\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[label]\": {\n    \"value\": \"label free sample\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": \"PRIDE:0000598\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"carbamidomethylation of cysteine as a fixed modification\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": \"MS:1001055\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The database search settings were carbamidomethylation of cysteine as a fixed modification and oxidation of methionine as a variable modification.\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": \"MS:1000858\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": [
+            "NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed",
+            "NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable"
+          ],
+          "accession": "MS:1001055",
+          "confidence": "high",
+          "evidence_quote": "The database search settings were carbamidomethylation of cysteine as a fixed modification and oxidation of methionine as a variable modification.",
+          "evidence_location": "PRIDE DATA PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_preparation"
+      },
+      "comment[fraction identifier]": {
+        "response": "```json\n{\n  \"comment[cleavage agent details]\": {\n    \"value\": [\n      \"NT=Trypsin;AC=MS:1001251\"\n    ],\n    \"accession\": \"MS:1001251\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"subjected to proteolytic in-gel digestion using trypsin\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[label]\": {\n    \"value\": \"label free sample\",\n    \"accession\": \"MS:1002038\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[alkylation reagent]\": {\n    \"value\": \"iodoacetamide\",\n    \"accession\": \"PRIDE:0000598\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"carbamidomethylation of cysteine as a fixed modification\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[fractionation method]\": {\n    \"value\": null,\n    \"accession\": null,\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[modification parameters]\": {\n    \"value\": [\n      \"NT=Carbamidomethyl;AC=UNIMOD:4;TA=C;MT=Fixed\",\n      \"NT=Oxidation;AC=UNIMOD:21;TA=M;MT=Variable\"\n    ],\n    \"accession\": \"MS:1001055\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The database search settings were carbamidomethylation of cysteine as a fixed modification and oxidation of methionine as a variable modification.\",\n    \"evidence_location\": \"PRIDE DATA PROCESSING PROTOCOL\"\n  },\n  \"comment[fraction identifier]\": {\n    \"value\": \"no fractionation\",\n    \"accession\": \"MS:1000858\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  }\n}\n```",
+        "parsed": {
+          "value": "no fractionation",
+          "accession": "MS:1000858",
+          "confidence": "high",
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "sample_preparation"
+      },
+      "characteristics[crosslinking reaction time]": {
+        "response": "```json\n{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"20 min\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The reaction was carried out for 20 min\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"room temperature\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The reaction was carried out for 20 min at room temperature\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": \"SDS-PAGE\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Subsequently, proteins were separated by 4-12% Bis-Tris sodium dodecyl sulfate polyacrylamide gel electrophoresis (SDS-PAGE) followed by staining with colloidal Coomassie Blue. Bands of cross-linked plectin-ABD:CaM complex, plectin-ABD and CaM were destained and subjected to proteolytic in-gel digestion\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": \"no enrichment\",\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Bands of cross-linked plectin-ABD:CaM complex, plectin-ABD and CaM were destained and subjected to proteolytic in-gel digestion\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": "20 min",
+          "accession": "PRIDE:0000949",
+          "confidence": "high",
+          "evidence_quote": "The reaction was carried out for 20 min",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "xlms_conditions"
+      },
+      "characteristics[crosslinking temperature]": {
+        "response": "```json\n{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"20 min\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The reaction was carried out for 20 min\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"room temperature\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The reaction was carried out for 20 min at room temperature\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": \"SDS-PAGE\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Subsequently, proteins were separated by 4-12% Bis-Tris sodium dodecyl sulfate polyacrylamide gel electrophoresis (SDS-PAGE) followed by staining with colloidal Coomassie Blue. Bands of cross-linked plectin-ABD:CaM complex, plectin-ABD and CaM were destained and subjected to proteolytic in-gel digestion\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": \"no enrichment\",\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Bands of cross-linked plectin-ABD:CaM complex, plectin-ABD and CaM were destained and subjected to proteolytic in-gel digestion\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": "room temperature",
+          "accession": "PRIDE:0000950",
+          "confidence": "high",
+          "evidence_quote": "The reaction was carried out for 20 min at room temperature",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "xlms_conditions"
+      },
+      "comment[crosslink enrichment method]": {
+        "response": "```json\n{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"20 min\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The reaction was carried out for 20 min\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"room temperature\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The reaction was carried out for 20 min at room temperature\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": \"SDS-PAGE\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Subsequently, proteins were separated by 4-12% Bis-Tris sodium dodecyl sulfate polyacrylamide gel electrophoresis (SDS-PAGE) followed by staining with colloidal Coomassie Blue. Bands of cross-linked plectin-ABD:CaM complex, plectin-ABD and CaM were destained and subjected to proteolytic in-gel digestion\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": \"no enrichment\",\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Bands of cross-linked plectin-ABD:CaM complex, plectin-ABD and CaM were destained and subjected to proteolytic in-gel digestion\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": "SDS-PAGE",
+          "accession": null,
+          "confidence": "medium",
+          "evidence_quote": "Subsequently, proteins were separated by 4-12% Bis-Tris sodium dodecyl sulfate polyacrylamide gel electrophoresis (SDS-PAGE) followed by staining with colloidal Coomassie Blue. Bands of cross-linked plectin-ABD:CaM complex, plectin-ABD and CaM were destained and subjected to proteolytic in-gel digestion",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "xlms_conditions"
+      },
+      "characteristics[enrichment process]": {
+        "response": "```json\n{\n  \"characteristics[crosslinking reaction time]\": {\n    \"value\": \"20 min\",\n    \"accession\": \"PRIDE:0000949\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The reaction was carried out for 20 min\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[crosslinking temperature]\": {\n    \"value\": \"room temperature\",\n    \"accession\": \"PRIDE:0000950\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"The reaction was carried out for 20 min at room temperature\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslink enrichment method]\": {\n    \"value\": \"SDS-PAGE\",\n    \"accession\": null,\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Subsequently, proteins were separated by 4-12% Bis-Tris sodium dodecyl sulfate polyacrylamide gel electrophoresis (SDS-PAGE) followed by staining with colloidal Coomassie Blue. Bands of cross-linked plectin-ABD:CaM complex, plectin-ABD and CaM were destained and subjected to proteolytic in-gel digestion\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[enrichment process]\": {\n    \"value\": \"no enrichment\",\n    \"accession\": \"EFO:0009090\",\n    \"confidence\": \"medium\",\n    \"evidence_quote\": \"Bands of cross-linked plectin-ABD:CaM complex, plectin-ABD and CaM were destained and subjected to proteolytic in-gel digestion\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  }\n}\n```",
+        "parsed": {
+          "value": "no enrichment",
+          "accession": "EFO:0009090",
+          "confidence": "medium",
+          "evidence_quote": "Bands of cross-linked plectin-ABD:CaM complex, plectin-ABD and CaM were destained and subjected to proteolytic in-gel digestion",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "xlms_conditions"
+      },
+      "comment[cross-linker]": {
+        "response": "```json\n{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=DSS;AC=XLMOD:02001;CL=no;TA=K(0),nterm(0)\",\n    \"NT\": \"DSS\",\n    \"AC\": \"XLMOD:02001\",\n    \"CL\": \"no\",\n    \"TA\": \"K(0),nterm(0)\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"1 µL of disuccinimidyl suberate (DSS) cross-linker (5 mM each of DSS-d0 and DSS-d12; Creative Molecules Inc.)\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"0.25 mM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"added per 40 µl of solution to a final concentration of 0.25 mM\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"Tris-HCI\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"then quenched by adding 1 M Tris-HCI (pH 7.5)\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry plays an important role in unravelling protein interactions\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  }\n}\n```",
+        "parsed": {
+          "value": "NT=DSS;AC=XLMOD:02001;CL=no;TA=K(0),nterm(0)",
+          "NT": "DSS",
+          "AC": "XLMOD:02001",
+          "CL": "no",
+          "TA": "K(0),nterm(0)",
+          "confidence": "high",
+          "evidence_quote": "1 µL of disuccinimidyl suberate (DSS) cross-linker (5 mM each of DSS-d0 and DSS-d12; Creative Molecules Inc.)",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[crosslinker concentration]": {
+        "response": "```json\n{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=DSS;AC=XLMOD:02001;CL=no;TA=K(0),nterm(0)\",\n    \"NT\": \"DSS\",\n    \"AC\": \"XLMOD:02001\",\n    \"CL\": \"no\",\n    \"TA\": \"K(0),nterm(0)\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"1 µL of disuccinimidyl suberate (DSS) cross-linker (5 mM each of DSS-d0 and DSS-d12; Creative Molecules Inc.)\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"0.25 mM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"added per 40 µl of solution to a final concentration of 0.25 mM\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"Tris-HCI\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"then quenched by adding 1 M Tris-HCI (pH 7.5)\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry plays an important role in unravelling protein interactions\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  }\n}\n```",
+        "parsed": {
+          "value": "0.25 mM",
+          "accession": "PRIDE:0000951",
+          "confidence": "high",
+          "evidence_quote": "added per 40 µl of solution to a final concentration of 0.25 mM",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[crosslinker to protein ratio]": {
+        "response": "```json\n{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=DSS;AC=XLMOD:02001;CL=no;TA=K(0),nterm(0)\",\n    \"NT\": \"DSS\",\n    \"AC\": \"XLMOD:02001\",\n    \"CL\": \"no\",\n    \"TA\": \"K(0),nterm(0)\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"1 µL of disuccinimidyl suberate (DSS) cross-linker (5 mM each of DSS-d0 and DSS-d12; Creative Molecules Inc.)\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"0.25 mM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"added per 40 µl of solution to a final concentration of 0.25 mM\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"Tris-HCI\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"then quenched by adding 1 M Tris-HCI (pH 7.5)\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry plays an important role in unravelling protein interactions\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000952",
+          "confidence": null,
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[quenching reagent]": {
+        "response": "```json\n{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=DSS;AC=XLMOD:02001;CL=no;TA=K(0),nterm(0)\",\n    \"NT\": \"DSS\",\n    \"AC\": \"XLMOD:02001\",\n    \"CL\": \"no\",\n    \"TA\": \"K(0),nterm(0)\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"1 µL of disuccinimidyl suberate (DSS) cross-linker (5 mM each of DSS-d0 and DSS-d12; Creative Molecules Inc.)\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"0.25 mM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"added per 40 µl of solution to a final concentration of 0.25 mM\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"Tris-HCI\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"then quenched by adding 1 M Tris-HCI (pH 7.5)\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry plays an important role in unravelling protein interactions\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  }\n}\n```",
+        "parsed": {
+          "value": "Tris-HCI",
+          "accession": "PRIDE:0000953",
+          "confidence": "high",
+          "evidence_quote": "then quenched by adding 1 M Tris-HCI (pH 7.5)",
+          "evidence_location": "PRIDE SAMPLE PROCESSING PROTOCOL"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "xlms_reagents"
+      },
+      "characteristics[crosslink distance]": {
+        "response": "```json\n{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=DSS;AC=XLMOD:02001;CL=no;TA=K(0),nterm(0)\",\n    \"NT\": \"DSS\",\n    \"AC\": \"XLMOD:02001\",\n    \"CL\": \"no\",\n    \"TA\": \"K(0),nterm(0)\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"1 µL of disuccinimidyl suberate (DSS) cross-linker (5 mM each of DSS-d0 and DSS-d12; Creative Molecules Inc.)\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"0.25 mM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"added per 40 µl of solution to a final concentration of 0.25 mM\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"Tris-HCI\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"then quenched by adding 1 M Tris-HCI (pH 7.5)\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry plays an important role in unravelling protein interactions\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  }\n}\n```",
+        "parsed": {
+          "value": null,
+          "accession": "PRIDE:0000948",
+          "confidence": null,
+          "evidence_quote": null,
+          "evidence_location": null
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "xlms_reagents"
+      },
+      "comment[chemical cross-linking coupled with ms]": {
+        "response": "```json\n{\n  \"comment[cross-linker]\": {\n    \"value\": \"NT=DSS;AC=XLMOD:02001;CL=no;TA=K(0),nterm(0)\",\n    \"NT\": \"DSS\",\n    \"AC\": \"XLMOD:02001\",\n    \"CL\": \"no\",\n    \"TA\": \"K(0),nterm(0)\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"1 µL of disuccinimidyl suberate (DSS) cross-linker (5 mM each of DSS-d0 and DSS-d12; Creative Molecules Inc.)\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslinker concentration]\": {\n    \"value\": \"0.25 mM\",\n    \"accession\": \"PRIDE:0000951\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"added per 40 µl of solution to a final concentration of 0.25 mM\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"comment[crosslinker to protein ratio]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000952\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[quenching reagent]\": {\n    \"value\": \"Tris-HCI\",\n    \"accession\": \"PRIDE:0000953\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"then quenched by adding 1 M Tris-HCI (pH 7.5)\",\n    \"evidence_location\": \"PRIDE SAMPLE PROCESSING PROTOCOL\"\n  },\n  \"characteristics[crosslink distance]\": {\n    \"value\": null,\n    \"accession\": \"PRIDE:0000948\",\n    \"confidence\": null,\n    \"evidence_quote\": null,\n    \"evidence_location\": null\n  },\n  \"comment[chemical cross-linking coupled with ms]\": {\n    \"value\": \"cross-linking mass spectrometry\",\n    \"accession\": \"PRIDE:0000430\",\n    \"confidence\": \"high\",\n    \"evidence_quote\": \"Chemical cross-linking coupled with mass spectrometry plays an important role in unravelling protein interactions\",\n    \"evidence_location\": \"PRIDE PROJECT DESCRIPTION\"\n  }\n}\n```",
+        "parsed": {
+          "value": "cross-linking mass spectrometry",
+          "accession": "PRIDE:0000430",
+          "confidence": "high",
+          "evidence_quote": "Chemical cross-linking coupled with mass spectrometry plays an important role in unravelling protein interactions",
+          "evidence_location": "PRIDE PROJECT DESCRIPTION"
+        },
+        "model": "google/gemma-4-31b-it",
+        "prompt_group": "xlms_reagents"
+      }
+    }
+  }
+}
