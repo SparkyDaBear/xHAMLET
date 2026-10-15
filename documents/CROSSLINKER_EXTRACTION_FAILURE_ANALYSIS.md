@@ -444,1060 +444,1071 @@ Crosslinker(s) in DB** column shows:
 - `—` (empty) — no crosslinker reagent was extracted at all, or every
   extracted mention was explicitly classified `not_a_crosslinker`.
 
-**Proximity-Labeling Keyword?** is the same heuristic regex scan used
-throughout this document (`turboid|bioid|apex2?\b|biotin-phenol|biotin-tyramide|
-proximity-labeling|proximity-biotinylation|proximity-dependent` against each
-PXD's PRIDE title+description+protocol+keywords). It is a **heuristic, not a
-strict classifier** — 33 PXDs in this table match the keyword *and* still
-have a legitimately mapped crosslinker (e.g. a paper that compares/mentions
-proximity labeling in passing while the actual experiment uses real chemical
-crosslinking), so "Yes" should be read as "worth a second look", not an
-automatic disqualifier.
+**Proximity-Labeling Term(s) Found** lists the specific matched term(s) (e.g.
+`TurboID`, `BioID`, `APEX2`, `biotin-phenol`) from the same heuristic regex
+scan used throughout this document (`turboid|bioid2?|apex2?\b|biotin-phenol|
+biotin-tyramide|proximity-labeling|proximity-biotinylation|proximity-dependent`
+against each PXD's PRIDE title+description+protocol+keywords), rather than
+just a Yes/No flag. It is a **heuristic, not a strict classifier** — 33 PXDs
+in this table match a term *and* still have a legitimately mapped crosslinker
+(e.g. a paper that compares/mentions proximity labeling in passing while the
+actual experiment uses real chemical crosslinking), so a non-empty value here
+should be read as "worth a second look", not an automatic disqualifier. Empty
+(`—`) means no proximity-labeling term matched.
 
-| PXD | Identified Crosslinker(s) in DB | Proximity-Labeling Keyword? |
-|---|---|---|
-| PXD000244 | Formaldehyde | No |
-| PXD000513 | (unverified) 4-thiouridine | No |
-| PXD000545 | — | No |
-| PXD000685 | — | No |
-| PXD001080 | — | No |
-| PXD001454 | BS3 | No |
-| PXD001538 | BS2G; DSS; EDC | No |
-| PXD001609 | DSP | No |
-| PXD001675 | BS3 | No |
-| PXD001677 | DSS | No |
-| PXD001692 | sulfo-SDA | No |
-| PXD001835 | BS3 | No |
-| PXD002058 | — | No |
-| PXD002142 | BS3 | No |
-| PXD002159 | (unverified) DTBP | No |
-| PXD002169 | DSP; DST | No |
-| PXD002226 | — | No |
-| PXD002293 | — | No |
-| PXD002378 | PIR linker | No |
-| PXD002392 | (unverified) DTT | No |
-| PXD002656 | (unverified) DTT | No |
-| PXD002890 | — | No |
-| PXD002929 | Formaldehyde | No |
-| PXD002987 | BS3 | No |
-| PXD002992 | (unverified) 4-thiouridine | No |
-| PXD003381 | (unverified) DEST | No |
-| PXD003486 | BS3 | No |
-| PXD003496 | DMP | No |
-| PXD003502 | EDC | No |
-| PXD003593 | (unverified) 4-thiouridine | No |
-| PXD003643 | sulfo-SDA | No |
-| PXD003658 | BS3; DSS; Formaldehyde | No |
-| PXD003737 | sulfo-SDA | No |
-| PXD003754 | Formaldehyde | No |
-| PXD003880 | DSS | No |
-| PXD003909 | BS2G | No |
-| PXD003913 | BS2G | No |
-| PXD003917 | — | No |
-| PXD004009 | Aryl azide; Benzoyl | No |
-| PXD004018 | — | No |
-| PXD004105 | DSP | No |
-| PXD004107 | BS3 | No |
-| PXD004236 | BDP-NHP | No |
-| PXD004692 | DSS | No |
-| PXD004736 | Formaldehyde | Yes |
-| PXD004749 | BS3 | No |
-| PXD004898 | BS3 | No |
-| PXD004920 | sulfo-SDA | No |
-| PXD005012 | Benzoyl | No |
-| PXD005201 | — | Yes |
-| PXD005287 | DSS | No |
-| PXD005349 | photo-leucine; photo-methionine | No |
-| PXD005566 | — | No |
-| PXD005601 | — | No |
-| PXD005612 | — | Yes |
-| PXD005657 | DMP | No |
-| PXD005758 | — | Yes |
-| PXD005943 | — | No |
-| PXD005948 | BS3 | No |
-| PXD006079 | Formaldehyde | No |
-| PXD006131 | BS3 | No |
-| PXD006156 | — | Yes |
-| PXD006200 | — | Yes |
-| PXD006245 | Benzoyl | No |
-| PXD006246 | BS3 | No |
-| PXD006287 | (unverified) BAMG | No |
-| PXD006359 | — | Yes |
-| PXD006541 | — | Yes |
-| PXD006707 | BS3; EDC | No |
-| PXD006715 | — | Yes |
-| PXD006816 | DSSO | No |
-| PXD006928 | BS3; sulfo-SMCC | No |
-| PXD006938 | BS3; sulfo-SMCC | No |
-| PXD007043 | DSS | No |
-| PXD007185 | DSS; PDH | No |
-| PXD007250 | BS3 | No |
-| PXD007513 | DSSO | No |
-| PXD007673 | PIR linker | No |
-| PXD007695 | — | Yes |
-| PXD007836 | DSP | No |
-| PXD007862 | Azide-alkyne | Yes |
-| PXD007928 | BS3 | No |
-| PXD008122 | DSS | No |
-| PXD008161 | (unverified) AMDSP | No |
-| PXD008164 | — | No |
-| PXD008337 | EDC | No |
-| PXD008348 | DSBU; DSSO | No |
-| PXD008418 | DSSO | No |
-| PXD008550 | BS3; sulfo-SDA | No |
-| PXD008577 | (unverified) PAL6 | No |
-| PXD008605 | DSS | No |
-| PXD008680 | (unverified) DTBP | No |
-| PXD008914 | — | No |
-| PXD008941 | BDP-NHP | No |
-| PXD008951 | BDP-NHP | No |
-| PXD008975 | BDP-NHP | No |
-| PXD009000 | DSSO | No |
-| PXD009001 | BDP-NHP | No |
-| PXD009106 | ADH; DSS; PDH | No |
-| PXD009159 | — | Yes |
-| PXD009224 | DSSO | No |
-| PXD009260 | EDC | No |
-| PXD009284 | — | Yes |
-| PXD009302 | — | Yes |
-| PXD009474 | — | No |
-| PXD009526 | DSS | No |
-| PXD009641 | Benzoyl; DSP | No |
-| PXD009648 | BS3 | No |
-| PXD009748 | — | Yes |
-| PXD009756 | DSSO; DTSSP | No |
-| PXD009777 | DSSO; DTSSP; Glutaraldehyde | No |
-| PXD009783 | DSP | Yes |
-| PXD009927 | EDC | No |
-| PXD010003 | DSS; PDH; sulfo-SDA | No |
-| PXD010004 | DSS; PDH; sulfo-SDA | No |
-| PXD010046 | Formaldehyde | No |
-| PXD010061 | — | Yes |
-| PXD010070 | DSBU | No |
-| PXD010094 | DSS; PDH; sulfo-SDA | No |
-| PXD010111 | ADH; BS3; DMTMM; DSS; Glutaraldehyde | No |
-| PXD010122 | BS3 | No |
-| PXD010124 | BS3 | No |
-| PXD010222 | BS3 | No |
-| PXD010317 | DSSO | No |
-| PXD010352 | — | Yes |
-| PXD010384 | DSS; PDH; sulfo-SDA | No |
-| PXD010385 | DSS; PDH; sulfo-SDA | No |
-| PXD010410 | DSS; PDH; sulfo-SDA | No |
-| PXD010422 | (unverified) NNP9 | No |
-| PXD010468 | Formaldehyde | No |
-| PXD010470 | Benzoyl | No |
-| PXD010474 | — | Yes |
-| PXD010479 | DSS; PDH; sulfo-SDA | No |
-| PXD010481 | BS3 | No |
-| PXD010483 | DSS; PDH; sulfo-SDA | No |
-| PXD010796 | DSSO | No |
-| PXD010884 | DSS; PDH; sulfo-SDA | No |
-| PXD010892 | Benzoyl | No |
-| PXD010921 | — | Yes |
-| PXD010930 | — | Yes |
-| PXD010931 | — | Yes |
-| PXD010950 | — | Yes |
-| PXD010963 | Formaldehyde | No |
-| PXD010988 | (unverified) thanatin-PAL5 | No |
-| PXD011036 | BS3 | No |
-| PXD011071 | — | No |
-| PXD011077 | DSSO | No |
-| PXD011078 | DSS | No |
-| PXD011121 | BS3; SDA | No |
-| PXD011296 | BS3; EDC + sulfo-NHS | No |
-| PXD011312 | — | Yes |
-| PXD011459 | BS3 | No |
-| PXD011645 | EDC; PhoX; SDA | No |
-| PXD011680 | DSSO | No |
-| PXD011702 | — | Yes |
-| PXD011704 | BS3 | No |
-| PXD011774 | BS3 | No |
-| PXD011775 | BS3 | No |
-| PXD011806 | Formaldehyde | No |
-| PXD011861 | DSSO | No |
-| PXD011931 | PhoX | No |
-| PXD011974 | Formaldehyde | Yes |
-| PXD011995 | DSS | No |
-| PXD012109 | (unverified) bAL2 | No |
-| PXD012157 | — | Yes |
-| PXD012225 | — | No |
-| PXD012350 | (unverified) x-alk-MDP; x-alk-iE-DAP | No |
-| PXD012427 | (unverified) APDC4 | No |
-| PXD012466 | DSSO | No |
-| PXD012494 | — | Yes |
-| PXD012521 | — | No |
-| PXD012546 | DSBU | No |
-| PXD012592 | BS3 | No |
-| PXD012624 | EDC; sulfo-SDA | No |
-| PXD012723 | BS3 | No |
-| PXD012759 | — | No |
-| PXD012788 | Alkyne-A-DSBSO | No |
-| PXD012882 | EDC | No |
-| PXD012939 | sulfo-SDA | No |
-| PXD013032 | — | Yes |
-| PXD013063 | PIR linker | No |
-| PXD013083 | BS3; DSS; DSSO | No |
-| PXD013097 | — | No |
-| PXD013144 | sulfo-SMPB | No |
-| PXD013160 | — | Yes |
-| PXD013183 | — | Yes |
-| PXD013194 | — | Yes |
-| PXD013209 | Formaldehyde | Yes |
-| PXD013215 | — | Yes |
-| PXD013338 | Formaldehyde | No |
-| PXD013339 | Benzoyl | No |
-| PXD013470 | ADH; DMTMM; DSS | No |
-| PXD013476 | BDP-NHP | No |
-| PXD013601 | — | Yes |
-| PXD013704 | DSSO | No |
-| PXD013720 | (unverified) 4-thiouridine; PFA | No |
-| PXD013735 | DSSO | No |
-| PXD013769 | DSSO | No |
-| PXD013907 | DSS | No |
-| PXD013928 | — | No |
-| PXD014055 | PhoX | No |
-| PXD014067 | — | No |
-| PXD014247 | — | Yes |
-| PXD014337 | DSBU; DSS; DSSO | No |
-| PXD014359 | BS3 | No |
-| PXD014426 | — | Yes |
-| PXD014499 | — | Yes |
-| PXD014500 | — | Yes |
-| PXD014520 | BS3 | No |
-| PXD014523 | DSS; PDH | No |
-| PXD014584 | DSSO | No |
-| PXD014642 | DSSO | No |
-| PXD014661 | (unverified) ETD | No |
-| PXD014673 | BMSO; DHSO; DSSO | No |
-| PXD014675 | DSS | No |
-| PXD014738 | BS3 | No |
-| PXD014759 | BS3; DSSO | No |
-| PXD014898 | — | No |
-| PXD014957 | (unverified) 4-thiouridine | No |
-| PXD015037 | photo-methionine | No |
-| PXD015044 | DSAU; DSG; PhoX; SDA | No |
-| PXD015080 | — | No |
-| PXD015160 | DSSO | No |
-| PXD015161 | Formaldehyde | Yes |
-| PXD015162 | Formaldehyde | Yes |
-| PXD015285 | DSBU | No |
-| PXD015366 | (unverified) AzidoPhe | No |
-| PXD015394 | DSS; PDH | No |
-| PXD015435 | Formaldehyde | No |
-| PXD015479 | — | Yes |
-| PXD015507 | — | Yes |
-| PXD015549 | — | No |
-| PXD015658 | DSS | No |
-| PXD015682 | DSS | No |
-| PXD015725 | — | Yes |
-| PXD015751 | PIR linker | No |
-| PXD015779 | — | Yes |
-| PXD015793 | BS3; EDC | No |
-| PXD015863 | (unverified) 4-thiouridine | No |
-| PXD015883 | — | Yes |
-| PXD015890 | — | Yes |
-| PXD015941 | DSBU; DSSO | No |
-| PXD015974 | Benzoyl | No |
-| PXD015985 | DSS | No |
-| PXD015989 | — | No |
-| PXD016196 | BS3 | No |
-| PXD016221 | — | Yes |
-| PXD016224 | Sulfo-LC-SDA | No |
-| PXD016355 | — | No |
-| PXD016554 | DSP; DSS | No |
-| PXD016639 | BS(PEG)5; DSG; DSS | No |
-| PXD016963 | DSBSO | No |
-| PXD016988 | — | Yes |
-| PXD016993 | DSBU | No |
-| PXD017020 | BS3 | No |
-| PXD017066 | PhoX | No |
-| PXD017085 | — | Yes |
-| PXD017128 | DSS | No |
-| PXD017238 | BS3; EDC | No |
-| PXD017241 | — | Yes |
-| PXD017244 | ADH; BS3 | No |
-| PXD017299 | BS2G; DSG | No |
-| PXD017344 | — | Yes |
-| PXD017378 | — | No |
-| PXD017379 | DSBU | No |
-| PXD017531 | DSBU | No |
-| PXD017584 | photo-leucine | No |
-| PXD017620 | BS3; DSS | No |
-| PXD017868 | — | Yes |
-| PXD017873 | BS3 | No |
-| PXD017931 | DSS | No |
-| PXD017933 | — | Yes |
-| PXD017937 | — | Yes |
-| PXD017951 | — | No |
-| PXD017996 | DSS | No |
-| PXD018040 | — | Yes |
-| PXD018106 | BS3 | No |
-| PXD018189 | PhoX | No |
-| PXD018219 | DSSO | No |
-| PXD018232 | DSS | No |
-| PXD018265 | — | Yes |
-| PXD018291 | PhoX; pDSPE | No |
-| PXD018310 | BS3 | No |
-| PXD018383 | — | Yes |
-| PXD018580 | (unverified) alkyne-diazirine minimal photocrosslinker | No |
-| PXD018608 | SDA | No |
-| PXD018687 | Formaldehyde | No |
-| PXD018771 | DSSO | No |
-| PXD018786 | BS3; EDC + sulfo-NHS | No |
-| PXD018935 | DSAU | No |
-| PXD019017 | DSSO | No |
-| PXD019043 | (unverified) BrC6K | No |
-| PXD019048 | DSSO | No |
-| PXD019101 | DSSO | No |
-| PXD019215 | — | No |
-| PXD019251 | DSS | No |
-| PXD019274 | BS3; Benzoyl; sulfo-SDA | No |
-| PXD019338 | DSSO | No |
-| PXD019428 | — | No |
-| PXD019484 | PIR linker | No |
-| PXD019507 | PDH | No |
-| PXD019508 | PDH | No |
-| PXD019530 | DSBU | No |
-| PXD019599 | DSSO | No |
-| PXD019713 | DSSO | No |
-| PXD019724 | PDH | No |
-| PXD019751 | DSS | No |
-| PXD019771 | DMTMM | No |
-| PXD019868 | DSSO | No |
-| PXD019926 | DSSO | No |
-| PXD019944 | DSSO | No |
-| PXD020014 | DSS; DSSO | No |
-| PXD020084 | BS3 | No |
-| PXD020119 | (unverified) NHS-LC-Diazirine | No |
-| PXD020165 | — | Yes |
-| PXD020229 | BS3; EDC + sulfo-NHS | No |
-| PXD020290 | — | No |
-| PXD020302 | — | No |
-| PXD020323 | Azide-alkyne | Yes |
-| PXD020340 | Azide-alkyne | Yes |
-| PXD020370 | — | Yes |
-| PXD020418 | Benzoyl | No |
-| PXD020453 | sulfo-SDA | No |
-| PXD020542 | — | Yes |
-| PXD020602 | DSS | No |
-| PXD020636 | DSS; PDH | No |
-| PXD020704 | DSS; Formaldehyde; Glutaraldehyde | No |
-| PXD020709 | — | Yes |
-| PXD020759 | — | Yes |
-| PXD020817 | BS3 | No |
-| PXD020826 | — | No |
-| PXD020859 | BS3 | No |
-| PXD021115 | DSS | No |
-| PXD021126 | BS2G; BS3 | No |
-| PXD021182 | Benzoyl | No |
-| PXD021375 | — | Yes |
-| PXD021417 | DSS | No |
-| PXD021434 | Formaldehyde | No |
-| PXD021553 | (unverified) NNP9 | No |
-| PXD021622 | — | Yes |
-| PXD021648 | DSBU | No |
-| PXD021691 | — | Yes |
-| PXD021693 | — | Yes |
-| PXD021708 | DSSO | No |
-| PXD021709 | DSSO | Yes |
-| PXD021770 | — | Yes |
-| PXD021809 | — | Yes |
-| PXD021822 | DSP | No |
-| PXD021831 | DSS | No |
-| PXD021870 | (unverified) p-azido-Phe | No |
-| PXD021872 | DSBU | No |
-| PXD021923 | — | Yes |
-| PXD022119 | BS3 | No |
-| PXD022279 | Azide-alkyne | No |
-| PXD022335 | — | Yes |
-| PXD022440 | Formaldehyde | No |
-| PXD022443 | DSS | No |
-| PXD022608 | — | Yes |
-| PXD022675 | DSSO | No |
-| PXD022690 | DSSO; SDASO-L | No |
-| PXD022772 | DSBU; DSSO | No |
-| PXD022785 | — | Yes |
-| PXD022861 | BS3; DSS | No |
-| PXD022903 | — | Yes |
-| PXD022991 | — | No |
-| PXD023022 | BS3 | No |
-| PXD023072 | PhoX | No |
-| PXD023073 | — | Yes |
-| PXD023164 | CDI; DSSO | No |
-| PXD023192 | Benzoyl | No |
-| PXD023221 | BS3 | No |
-| PXD023239 | — | Yes |
-| PXD023277 | — | Yes |
-| PXD023487 | BS3; DSS; Formaldehyde | No |
-| PXD023522 | — | No |
-| PXD023525 | CDI; DSBU | No |
-| PXD023542 | — | No |
-| PXD023577 | PIR linker | No |
-| PXD023651 | — | No |
-| PXD023814 | — | Yes |
-| PXD023817 | DSSO | No |
-| PXD024010 | — | No |
-| PXD024065 | Benzoyl | No |
-| PXD024120 | — | Yes |
-| PXD024131 | DSS | No |
-| PXD024160 | PhoX | No |
-| PXD024168 | — | Yes |
-| PXD024253 | — | No |
-| PXD024254 | Formaldehyde | No |
-| PXD024335 | — | Yes |
-| PXD024361 | — | Yes |
-| PXD024366 | — | Yes |
-| PXD024367 | — | Yes |
-| PXD024399 | — | Yes |
-| PXD024492 | Benzoyl | No |
-| PXD024493 | Benzoyl | No |
-| PXD024822 | DSS; Glutaraldehyde; PDH | No |
-| PXD024946 | BMB; BMOE; BS2G; BS3 | No |
-| PXD025066 | — | No |
-| PXD025099 | BS3 | No |
-| PXD025122 | — | No |
-| PXD025141 | — | Yes |
-| PXD025172 | DSSO | No |
-| PXD025179 | — | Yes |
-| PXD025208 | — | Yes |
-| PXD025220 | BS3 | No |
-| PXD025357 | — | Yes |
-| PXD025391 | DSSO | No |
-| PXD025581 | — | Yes |
-| PXD025662 | DSS | No |
-| PXD025710 | DSS; PDH | No |
-| PXD025796 | (unverified) iqPIR | No |
-| PXD025843 | ADH; BS3 | No |
-| PXD025903 | — | No |
-| PXD025923 | (unverified) iqPIR | No |
-| PXD025980 | Formaldehyde | Yes |
-| PXD026017 | BS3 | No |
-| PXD026037 | (unverified) iqPIR | No |
-| PXD026196 | — | Yes |
-| PXD026229 | — | Yes |
-| PXD026244 | DSS | No |
-| PXD026433 | DSSO | No |
-| PXD026508 | Formaldehyde | No |
-| PXD026603 | DSSO | No |
-| PXD026696 | DSBU | No |
-| PXD026718 | — | Yes |
-| PXD026790 | DMP | No |
-| PXD026793 | — | Yes |
-| PXD026861 | — | No |
-| PXD026926 | — | Yes |
-| PXD026935 | BS3 | No |
-| PXD027068 | — | Yes |
-| PXD027128 | Benzoyl | No |
-| PXD027149 | (unverified) VL1 | No |
-| PXD027159 | BS3; DSBU; DSS; DSSO | No |
-| PXD027161 | BS3; DSBU; DSS; DSSO | No |
-| PXD027188 | BS3; DSBU; DSS; DSSO | No |
-| PXD027189 | — | No |
-| PXD027213 | DMTMM; DSS; PDH | No |
-| PXD027234 | DSAU; DSBU; DSPU | No |
-| PXD027239 | (unverified) X10 | No |
-| PXD027267 | — | Yes |
-| PXD027349 | EDC + sulfo-NHS | No |
-| PXD027394 | (unverified) X10 | No |
-| PXD027413 | DSG | No |
-| PXD027488 | — | Yes |
-| PXD027565 | Formaldehyde | No |
-| PXD027611 | DSSO | No |
-| PXD027757 | (unverified) iqPIR | No |
-| PXD027759 | — | Yes |
-| PXD027891 | DSS | No |
-| PXD027905 | — | Yes |
-| PXD027917 | — | Yes |
-| PXD027953 | PIR linker | No |
-| PXD027954 | (unverified) DiazK | No |
-| PXD027998 | — | Yes |
-| PXD028002 | DSS; EDC; SDA | No |
-| PXD028005 | DSSO | No |
-| PXD028063 | Formaldehyde | Yes |
-| PXD028150 | — | Yes |
-| PXD028313 | PhoX | No |
-| PXD028415 | PhoX | No |
-| PXD028433 | EDC | No |
-| PXD028462 | (unverified) SMPH | Yes |
-| PXD028879 | — | Yes |
-| PXD028980 | — | Yes |
-| PXD029033 | tBu-PhoX | No |
-| PXD029034 | tBu-PhoX | No |
-| PXD029091 | (unverified) AbK; DiZASeC | No |
-| PXD029252 | ADH; CDI; DHSO; DSBSO; DSBU; DSSO | No |
-| PXD029257 | — | Yes |
-| PXD029350 | (unverified) iqPIR | No |
-| PXD029365 | DSBU | No |
-| PXD029505 | — | No |
-| PXD029591 | DSS | No |
-| PXD029675 | BS(PEG)5; BS3; DSBU; DSSO; sulfo-EGS | No |
-| PXD029748 | — | No |
-| PXD029749 | (unverified) DAA | No |
-| PXD029781 | (unverified) pacSph | No |
-| PXD029833 | DSP | Yes |
-| PXD029930 | (unverified) 4-thiouridine | No |
-| PXD029944 | (unverified) X10; X3 | No |
-| PXD029960 | — | Yes |
-| PXD030048 | — | Yes |
-| PXD030063 | DSSO | No |
-| PXD030072 | — | Yes |
-| PXD030209 | DSBU | No |
-| PXD030274 | SDA | No |
-| PXD030299 | BS3 | No |
-| PXD030429 | — | Yes |
-| PXD030495 | — | Yes |
-| PXD030532 | DSSO | No |
-| PXD030543 | Formaldehyde | No |
-| PXD030578 | BS3; DSBU; DSS; DSSO | No |
-| PXD030590 | DSS | No |
-| PXD030619 | — | No |
-| PXD030849 | DSS | No |
-| PXD030864 | — | Yes |
-| PXD030970 | — | Yes |
-| PXD031033 | DSSO | No |
-| PXD031054 | Formaldehyde | No |
-| PXD031096 | BS3 | No |
-| PXD031114 | DSSO | No |
-| PXD031159 | (unverified) BprY | No |
-| PXD031197 | — | Yes |
-| PXD031214 | SDA | No |
-| PXD031215 | DSS | No |
-| PXD031339 | DSBU | No |
-| PXD031345 | DMTMM; DSSO; PhoX | No |
-| PXD031381 | — | No |
-| PXD031411 | DSSO | No |
-| PXD031415 | — | Yes |
-| PXD031421 | DSSO | No |
-| PXD031519 | BS3 | No |
-| PXD031601 | — | Yes |
-| PXD031643 | (unverified) iqPIR | No |
-| PXD031644 | (unverified) iqPIR | No |
-| PXD031827 | BS3; EDC | No |
-| PXD031845 | — | Yes |
-| PXD031911 | DSSO | No |
-| PXD031997 | EDC | No |
-| PXD032132 | DSBSO; DSSO | No |
-| PXD032222 | — | No |
-| PXD032297 | — | Yes |
-| PXD032728 | — | Yes |
-| PXD032821 | BS3; DSBU; DSSO | No |
-| PXD032833 | — | Yes |
-| PXD032906 | — | Yes |
-| PXD032952 | — | Yes |
-| PXD032976 | — | Yes |
-| PXD033004 | — | No |
-| PXD033008 | — | Yes |
-| PXD033026 | — | Yes |
-| PXD033043 | — | Yes |
-| PXD033044 | — | Yes |
-| PXD033062 | — | Yes |
-| PXD033063 | — | Yes |
-| PXD033066 | — | Yes |
-| PXD033067 | — | Yes |
-| PXD033107 | Benzoyl | No |
-| PXD033167 | Sulfo-LC-SDA | No |
-| PXD033175 | DSP | No |
-| PXD033181 | DSSO | No |
-| PXD033205 | DSBU; EDC + sulfo-NHS | No |
-| PXD033244 | — | Yes |
-| PXD033391 | — | Yes |
-| PXD033409 | DSS; PhoX | No |
-| PXD033446 | DSSO | No |
-| PXD033452 | — | Yes |
-| PXD033466 | — | Yes |
-| PXD033593 | — | No |
-| PXD033633 | BS3 | No |
-| PXD033764 | — | Yes |
-| PXD033846 | — | Yes |
-| PXD033959 | — | No |
-| PXD033960 | — | No |
-| PXD034054 | — | No |
-| PXD034115 | — | Yes |
-| PXD034118 | — | Yes |
-| PXD034163 | — | No |
-| PXD034217 | — | Yes |
-| PXD034241 | — | Yes |
-| PXD034393 | BS3 | No |
-| PXD034475 | DSSO | No |
-| PXD034529 | — | No |
-| PXD034627 | — | Yes |
-| PXD034639 | — | Yes |
-| PXD034796 | Formaldehyde; PhoX | No |
-| PXD034874 | — | Yes |
-| PXD034894 | — | No |
-| PXD034965 | — | Yes |
-| PXD035001 | — | Yes |
-| PXD035151 | — | Yes |
-| PXD035153 | — | No |
-| PXD035201 | (unverified) HHS-482 | No |
-| PXD035265 | — | Yes |
-| PXD035404 | DSSO; PhoX | No |
-| PXD035433 | DSS | No |
-| PXD035452 | — | Yes |
-| PXD035589 | DSSO; PhoX | No |
-| PXD035591 | PhoX | No |
-| PXD035622 | (unverified) iqPIR | No |
-| PXD035712 | (unverified) iqPIR | No |
-| PXD035764 | DSSO | No |
-| PXD035801 | — | Yes |
-| PXD035813 | — | Yes |
-| PXD035844 | DHSO; DMTMM; DSSO | No |
-| PXD035916 | — | Yes |
-| PXD035939 | (unverified) Q2linker | No |
-| PXD035980 | DSBU | No |
-| PXD036113 | — | Yes |
-| PXD036182 | — | Yes |
-| PXD036262 | — | Yes |
-| PXD036463 | DSP | No |
-| PXD036630 | — | Yes |
-| PXD036640 | DMTMM; DSSO | No |
-| PXD036649 | (unverified) iqPIR | No |
-| PXD036675 | — | Yes |
-| PXD036744 | — | Yes |
-| PXD036884 | (unverified) DizSEC; DizSPC | No |
-| PXD037030 | BS2G | No |
-| PXD037183 | BS3; DMTMM; DSS | No |
-| PXD037432 | — | Yes |
-| PXD037438 | — | No |
-| PXD037443 | (unverified) DBrASO | No |
-| PXD037492 | BS2G; BS3; DSS; DSSO | No |
-| PXD037493 | BS3 | No |
-| PXD037569 | — | Yes |
-| PXD037652 | tBu-PhoX | No |
-| PXD037678 | — | Yes |
-| PXD037701 | MBS | Yes |
-| PXD037703 | — | Yes |
-| PXD037729 | BS3 | No |
-| PXD037894 | (unverified) HHS-482 | No |
-| PXD038018 | Azide-alkyne | No |
-| PXD038067 | — | Yes |
-| PXD038234 | DSP; DTSSP | No |
-| PXD038286 | — | Yes |
-| PXD038327 | Formaldehyde | Yes |
-| PXD038332 | Formaldehyde | No |
-| PXD038398 | Formaldehyde | No |
-| PXD038487 | — | Yes |
-| PXD038515 | — | Yes |
-| PXD038572 | — | Yes |
-| PXD038583 | Formaldehyde | No |
-| PXD038615 | BS3 | No |
-| PXD038629 | DSSO | No |
-| PXD038640 | DSS | No |
-| PXD038658 | DSS | No |
-| PXD039008 | — | Yes |
-| PXD039010 | — | Yes |
-| PXD039068 | — | Yes |
-| PXD039125 | — | Yes |
-| PXD039289 | DSS | No |
-| PXD039401 | — | Yes |
-| PXD039467 | — | Yes |
-| PXD039473 | — | Yes |
-| PXD039589 | BS3 | No |
-| PXD039606 | Benzoyl; DSSO; photo-methionine | No |
-| PXD039612 | DSG; DSP; DSSO | No |
-| PXD039626 | Azide-alkyne | Yes |
-| PXD039694 | — | Yes |
-| PXD039717 | DSG | No |
-| PXD039754 | ADH; DSG; DSS; PDH | No |
-| PXD039780 | — | No |
-| PXD039864 | — | Yes |
-| PXD039939 | Benzoyl | No |
-| PXD039983 | — | Yes |
-| PXD039985 | — | Yes |
-| PXD039986 | — | Yes |
-| PXD040000 | BS3 | Yes |
-| PXD040144 | DSS | No |
-| PXD040156 | BS3 | No |
-| PXD040262 | — | Yes |
-| PXD040267 | (unverified) Di(N-succinimidyl)-2,2’-[1,4-phenylenebis(methylenethio)]bis-acetate | No |
-| PXD040310 | — | Yes |
-| PXD040337 | Formaldehyde | Yes |
-| PXD040374 | DSS; PDH | No |
-| PXD040392 | (unverified) PFA | Yes |
-| PXD040412 | — | Yes |
-| PXD040452 | — | Yes |
-| PXD040547 | — | Yes |
-| PXD040562 | — | Yes |
-| PXD040690 | — | Yes |
-| PXD040705 | DSBU | No |
-| PXD040736 | BS3 | No |
-| PXD040762 | — | Yes |
-| PXD040864 | (unverified) iqPIR | No |
-| PXD040875 | Benzoyl | No |
-| PXD040902 | DSS; SDA | No |
-| PXD040939 | — | Yes |
-| PXD040984 | Benzoyl; DSSO | No |
-| PXD040991 | — | Yes |
-| PXD041011 | DSS | No |
-| PXD041019 | — | Yes |
-| PXD041135 | BS3 | No |
-| PXD041148 | (unverified) DizSEC; DizSPC | No |
-| PXD041309 | — | Yes |
-| PXD041328 | — | Yes |
-| PXD041378 | DSP | Yes |
-| PXD041438 | DMTMM; DSSO | No |
-| PXD041519 | DSSO | No |
-| PXD041610 | — | Yes |
-| PXD041684 | — | Yes |
-| PXD041831 | DMTMM; DSSO | No |
-| PXD041908 | — | Yes |
-| PXD041943 | — | Yes |
-| PXD041955 | DSBSO; DSSO | No |
-| PXD042123 | — | Yes |
-| PXD042173 | DSSO | No |
-| PXD042282 | DSP | No |
-| PXD042301 | — | Yes |
-| PXD042302 | — | Yes |
-| PXD042343 | Azide-alkyne | No |
-| PXD042395 | (unverified) 4-thiouridine | No |
-| PXD042501 | BS(PEG)5; BS3; DTSSP; EDC | No |
-| PXD042549 | DSBU | No |
-| PXD042584 | BS3 | No |
-| PXD042599 | DSSO | No |
-| PXD042625 | DMTMM; DSSO | No |
-| PXD042657 | — | Yes |
-| PXD042673 | — | Yes |
-| PXD042674 | — | Yes |
-| PXD042687 | — | Yes |
-| PXD042691 | — | Yes |
-| PXD042693 | — | Yes |
-| PXD042694 | — | Yes |
-| PXD042697 | — | Yes |
-| PXD042698 | — | Yes |
-| PXD042700 | — | Yes |
-| PXD042702 | — | Yes |
-| PXD042706 | — | Yes |
-| PXD042830 | — | Yes |
-| PXD043041 | — | Yes |
-| PXD043088 | — | Yes |
-| PXD043093 | Benzoyl | No |
-| PXD043245 | — | Yes |
-| PXD043294 | — | Yes |
-| PXD043347 | DSBU | No |
-| PXD043531 | Azide-A-DSBSO | No |
-| PXD043532 | DSS | No |
-| PXD043595 | — | No |
-| PXD043732 | — | Yes |
-| PXD043789 | — | Yes |
-| PXD043805 | — | Yes |
-| PXD043900 | (unverified) DEB; nitrogen mustard | No |
-| PXD043976 | DSS; PDH | No |
-| PXD044285 | — | No |
-| PXD044289 | — | Yes |
-| PXD044328 | DSBU | No |
-| PXD044405 | DSS; PDH | No |
-| PXD044574 | DSP | No |
-| PXD044625 | (unverified) 4-thiouridine | No |
-| PXD044750 | DSBU | No |
-| PXD044827 | BS3 | No |
-| PXD044921 | — | Yes |
-| PXD044974 | — | Yes |
-| PXD045071 | Formaldehyde | No |
-| PXD045081 | — | Yes |
-| PXD045105 | — | No |
-| PXD045482 | — | Yes |
-| PXD045575 | DHSO; DSSO; sulfo-SDA | No |
-| PXD045689 | DSSO | No |
-| PXD045791 | DSSO | Yes |
-| PXD045792 | (unverified) NNP9 | No |
-| PXD045837 | — | No |
-| PXD045846 | — | Yes |
-| PXD045858 | BS3 | No |
-| PXD045861 | — | Yes |
-| PXD045987 | BS3 | No |
-| PXD046267 | — | No |
-| PXD046382 | DSBSO; DSSO | No |
-| PXD046385 | — | Yes |
-| PXD046392 | BS3 | No |
-| PXD046412 | — | Yes |
-| PXD046413 | — | Yes |
-| PXD046414 | — | Yes |
-| PXD046472 | Formaldehyde | Yes |
-| PXD046634 | DSSO | No |
-| PXD046652 | — | Yes |
-| PXD046754 | — | No |
-| PXD046895 | Benzoyl | No |
-| PXD046966 | DSBSO | No |
-| PXD046990 | DSBU | No |
-| PXD047023 | Formaldehyde | Yes |
-| PXD047030 | (unverified) S-XL6 | No |
-| PXD047173 | DSS | No |
-| PXD047274 | — | No |
-| PXD047277 | — | Yes |
-| PXD047368 | BS3 | No |
-| PXD047378 | — | Yes |
-| PXD047422 | DSSO | No |
-| PXD047455 | — | Yes |
-| PXD047543 | — | Yes |
-| PXD047547 | — | No |
-| PXD047569 | — | Yes |
-| PXD047583 | — | Yes |
-| PXD047725 | — | Yes |
-| PXD047929 | BS3 | No |
-| PXD047979 | — | Yes |
-| PXD048030 | — | Yes |
-| PXD048046 | — | Yes |
-| PXD048097 | — | Yes |
-| PXD048145 | Formaldehyde | No |
-| PXD048174 | — | Yes |
-| PXD048180 | — | Yes |
-| PXD048194 | DSSO | No |
-| PXD048297 | DMP | No |
-| PXD048298 | DMP | No |
-| PXD048452 | SDA | No |
-| PXD048567 | — | No |
-| PXD048614 | — | No |
-| PXD048625 | DSS | No |
-| PXD048632 | (unverified) photo-ANA | No |
-| PXD048897 | — | No |
-| PXD048937 | — | Yes |
-| PXD048965 | Formaldehyde | Yes |
-| PXD049047 | BMOE | No |
-| PXD049054 | — | Yes |
-| PXD049094 | BS3 | No |
-| PXD049182 | — | Yes |
-| PXD049300 | DSS | No |
-| PXD049303 | — | No |
-| PXD049360 | — | Yes |
-| PXD049372 | — | Yes |
-| PXD049375 | — | Yes |
-| PXD049433 | — | Yes |
-| PXD049681 | — | Yes |
-| PXD049684 | — | Yes |
-| PXD049689 | — | Yes |
-| PXD049797 | — | No |
-| PXD049991 | — | Yes |
-| PXD050097 | BS3 | No |
-| PXD050222 | — | Yes |
-| PXD050287 | — | Yes |
-| PXD050493 | Benzoyl | No |
-| PXD050556 | — | Yes |
-| PXD050824 | — | Yes |
-| PXD050833 | — | No |
-| PXD050928 | DSS; PDH | No |
-| PXD050929 | DSS; PDH | No |
-| PXD050930 | DSS; PDH | No |
-| PXD050960 | DSBU | No |
-| PXD051014 | EGS | Yes |
-| PXD051047 | EGS | Yes |
-| PXD051075 | DSS; Formaldehyde; PhoX | No |
-| PXD051143 | — | Yes |
-| PXD051261 | DSG; DSS | No |
-| PXD051322 | BS3; DSBU; DSG; DSS; DSSO | No |
-| PXD051348 | — | Yes |
-| PXD051405 | — | Yes |
-| PXD051493 | DSS | No |
-| PXD051557 | — | Yes |
-| PXD051602 | DSP | No |
-| PXD051661 | sulfo-SDA | No |
-| PXD051693 | (unverified) dimethylsulfonium | No |
-| PXD051742 | DSSO | No |
-| PXD051886 | sulfo-SDA | No |
-| PXD051937 | — | Yes |
-| PXD051971 | DSBU; EDC | No |
-| PXD052022 | Azide-A-DSBSO; DSSO | No |
-| PXD052032 | — | Yes |
-| PXD052174 | — | Yes |
-| PXD052310 | — | Yes |
-| PXD052480 | (unverified) TBDSPP | No |
-| PXD052552 | (unverified) o-NBE | No |
-| PXD052584 | DSSO | No |
-| PXD052623 | — | Yes |
-| PXD052624 | — | Yes |
-| PXD052637 | — | Yes |
-| PXD052687 | (unverified) PFA | Yes |
-| PXD052694 | (unverified) PFA | Yes |
-| PXD052745 | — | Yes |
-| PXD052746 | — | Yes |
-| PXD052801 | (unverified) iqPIR | No |
-| PXD052817 | DSSO | No |
-| PXD052821 | DSSO | No |
-| PXD052825 | — | Yes |
-| PXD052832 | DSSO | No |
-| PXD052867 | SDA | No |
-| PXD052917 | — | Yes |
-| PXD052923 | BS3 | No |
-| PXD052926 | — | Yes |
-| PXD052930 | — | Yes |
-| PXD053010 | EDC | No |
-| PXD053341 | sulfo-SDA | No |
-| PXD053452 | — | Yes |
-| PXD053481 | DSBU; DSSO | No |
-| PXD053489 | — | Yes |
-| PXD053494 | — | No |
-| PXD053500 | BS3 | No |
-| PXD053509 | — | Yes |
-| PXD053578 | — | Yes |
-| PXD053607 | SMCC | No |
-| PXD053621 | — | Yes |
-| PXD053636 | PhoX | No |
-| PXD053760 | — | Yes |
-| PXD053814 | — | No |
-| PXD053832 | — | Yes |
-| PXD053924 | — | Yes |
-| PXD053984 | DSSO; photo-leucine; photo-methionine | No |
-| PXD053999 | DSS; PDH | No |
-| PXD054002 | — | Yes |
-| PXD054003 | — | Yes |
-| PXD054140 | DSSO | No |
-| PXD054141 | DSSO | No |
-| PXD054249 | (unverified) DDZ3; LBL1-PCF | No |
-| PXD054381 | — | Yes |
-| PXD054489 | — | Yes |
-| PXD054551 | (unverified) TSTO | No |
-| PXD054616 | — | Yes |
-| PXD054720 | DSSO | No |
-| PXD054728 | DSSO | No |
-| PXD054757 | DSS | No |
-| PXD054857 | (unverified) PFA | Yes |
-| PXD054875 | — | Yes |
-| PXD054939 | — | Yes |
-| PXD054973 | DSSO | No |
-| PXD055077 | DSS; DSSO | No |
-| PXD055085 | DSS; DSSO | No |
-| PXD055086 | — | Yes |
-| PXD055147 | sulfo-SDA | No |
-| PXD055169 | SBAP; SIA; SIAB | No |
-| PXD055235 | Formaldehyde | Yes |
-| PXD055284 | BS3; DSBU; DSS; DSSBU | No |
-| PXD055305 | Formaldehyde | Yes |
-| PXD055356 | BS3 | No |
-| PXD055488 | DSG | No |
-| PXD055512 | ADH; DSS | No |
-| PXD055649 | — | No |
-| PXD055703 | DSS; PDH | No |
-| PXD055708 | — | Yes |
-| PXD055722 | — | Yes |
-| PXD055749 | — | Yes |
-| PXD055759 | BS3 | No |
-| PXD055775 | — | Yes |
-| PXD055778 | — | Yes |
-| PXD055874 | — | Yes |
-| PXD055877 | — | Yes |
-| PXD055943 | (unverified) iqPIR | No |
-| PXD056299 | — | Yes |
-| PXD056360 | DSSO | No |
-| PXD056652 | sulfo-SDA | No |
-| PXD056787 | — | Yes |
-| PXD056825 | (unverified) Q2linker | No |
-| PXD056910 | DSSO | No |
-| PXD056942 | — | Yes |
-| PXD056954 | — | No |
-| PXD056971 | — | Yes |
-| PXD057009 | — | Yes |
-| PXD057110 | — | Yes |
-| PXD057245 | — | Yes |
-| PXD057404 | Formaldehyde | Yes |
-| PXD057492 | — | Yes |
-| PXD057705 | BS3; DSBU; DSS; DSSO | No |
-| PXD058056 | BS3; DTSSP | No |
-| PXD058168 | BS3 | No |
-| PXD058191 | (unverified) iqPIR | No |
-| PXD058327 | — | Yes |
-| PXD058694 | DSP | No |
-| PXD058706 | — | No |
-| PXD058941 | DSS | No |
-| PXD059010 | — | Yes |
-| PXD059118 | DSS; Formaldehyde; PhoX | No |
-| PXD059125 | — | Yes |
-| PXD059137 | — | Yes |
-| PXD059180 | — | Yes |
-| PXD059211 | (unverified) SuccBB | No |
-| PXD059356 | BS3 | No |
-| PXD059369 | BS3 | No |
-| PXD059495 | DSSO; PhoX | No |
-| PXD059547 | DHSO; DMTMM | No |
-| PXD059552 | — | No |
-| PXD059554 | — | Yes |
-| PXD059558 | — | Yes |
-| PXD059579 | — | Yes |
-| PXD059635 | DSS | No |
-| PXD059716 | — | Yes |
-| PXD059766 | DSSO | No |
-| PXD059888 | DSG; DSS; DSSO | No |
-| PXD059960 | — | No |
-| PXD059974 | DHSO; DSSO | No |
-| PXD060078 | EDC | No |
-| PXD060106 | — | Yes |
-| PXD060111 | — | Yes |
-| PXD060112 | — | Yes |
-| PXD060134 | — | Yes |
-| PXD060138 | Formaldehyde | Yes |
-| PXD060322 | DSPU | No |
-| PXD060469 | DSSO | No |
-| PXD060638 | — | Yes |
-| PXD060724 | DSS; DSSO | No |
-| PXD060781 | — | Yes |
-| PXD060825 | DSSO | Yes |
-| PXD061125 | BS3 | No |
-| PXD061173 | DSBSO | No |
-| PXD061317 | — | No |
-| PXD061540 | — | Yes |
-| PXD061541 | — | Yes |
-| PXD061560 | — | Yes |
-| PXD061563 | — | Yes |
-| PXD061564 | — | Yes |
-| PXD061566 | — | Yes |
-| PXD061667 | sulfo-SDA | No |
-| PXD061687 | — | Yes |
-| PXD061691 | — | Yes |
-| PXD061693 | — | Yes |
-| PXD061712 | — | Yes |
-| PXD061752 | — | Yes |
-| PXD061911 | — | Yes |
-| PXD062002 | DSG | No |
-| PXD062101 | — | Yes |
-| PXD062203 | Formaldehyde | Yes |
-| PXD062293 | — | Yes |
-| PXD062479 | Azide-A-DSBSO | No |
-| PXD062557 | — | Yes |
-| PXD062600 | — | Yes |
-| PXD062688 | — | No |
-| PXD062741 | — | Yes |
-| PXD062870 | — | Yes |
-| PXD062890 | — | Yes |
-| PXD063033 | (unverified) BNBA; HMNB-NHS | No |
-| PXD063145 | — | Yes |
-| PXD063191 | DSP | Yes |
-| PXD063192 | DSP | Yes |
-| PXD063709 | EDC + sulfo-NHS | No |
-| PXD063736 | Benzoyl | No |
-| PXD063786 | DSSO; Formaldehyde | No |
-| PXD063825 | (unverified) TSTO | No |
-| PXD063839 | — | No |
-| PXD063858 | DSS | No |
-| PXD063968 | Formaldehyde | No |
-| PXD064535 | DSSO | No |
-| PXD064557 | — | Yes |
-| PXD064792 | Formaldehyde | No |
-| PXD064795 | DSBU | No |
-| PXD064931 | DSSO | No |
-| PXD064932 | DSSO | No |
-| PXD065410 | — | Yes |
-| PXD065739 | — | Yes |
-| PXD065858 | DSBSO | No |
-| PXD065859 | DSBSO | No |
-| PXD065869 | DSBSO | No |
-| PXD065870 | DSBSO | No |
-| PXD065871 | DSBSO | No |
-| PXD065905 | Azide-A-DSBSO | No |
-| PXD065912 | DSBSO | No |
-| PXD065946 | DSBSO | No |
-| PXD065949 | DSBSO | No |
-| PXD065956 | DSBSO | No |
-| PXD065958 | DSBSO | No |
-| PXD065961 | DSBSO | No |
-| PXD066067 | — | Yes |
-| PXD066251 | — | No |
-| PXD066655 | — | No |
-| PXD066874 | — | Yes |
-| PXD067296 | BS3 | No |
-| PXD067324 | BS3 | No |
-| PXD067352 | — | Yes |
-| PXD067354 | — | Yes |
-| PXD068129 | — | No |
-| PXD069219 | — | Yes |
-| PXD069360 | — | Yes |
-| PXD069512 | Formaldehyde | No |
-| PXD069844 | — | Yes |
+**Notes** carries over the manual classification and reasoning recorded
+during the Batch 1 (10 PXDs) and Batch 2 (59 PXDs) spot-check investigations
+above — 68 distinct PXDs in total have a note here, each prefixed with its
+category (`RNA_PROTEIN_UV_XL`, `NATURAL_OR_ENZYMATIC_XL`, `WRONG_TECHNIQUE`,
+`CORRECT_REJECT_NO_TEXT`, or `REAL_MISS`; see the category definitions and
+per-category counts earlier in this document). The remaining ~977 PXDs have
+not yet been manually reviewed and are left blank here — their `Identified
+Crosslinker(s)` column is the only information available for them so far.
+
+| PXD | Identified Crosslinker(s) in DB | Proximity-Labeling Term(s) Found | Notes |
+|---|---|---|---|
+| PXD000244 | Formaldehyde | — |  |
+| PXD000513 | (unverified) 4-thiouridine | — |  |
+| PXD000545 | — | — | CORRECT_REJECT_NO_TEXT: Generic 'cross-linking chemistry' stated in PRIDE description; sampleProcessingProtocol/dataProcessingProtocol both 'Not available'; no PMC. |
+| PXD000685 | — | — | WRONG_TECHNIQUE: Virotrap (viral-particle-budding protein complex capture) - a different complex-trapping technology entirely, not chemical crosslinking-MS. |
+| PXD001080 | — | — | RNA_PROTEIN_UV_XL: CLIP-style UV crosslinking of native mRNP residues (Entamoeba splicing/mRNP study). |
+| PXD001454 | BS3 | — |  |
+| PXD001538 | BS2G; DSS; EDC | — |  |
+| PXD001609 | DSP | — |  |
+| PXD001675 | BS3 | — |  |
+| PXD001677 | DSS | — |  |
+| PXD001692 | sulfo-SDA | — |  |
+| PXD001835 | BS3 | — |  |
+| PXD002058 | — | — | CORRECT_REJECT_NO_TEXT: 'mild in vivo crosslinking' stated, but no specific reagent named anywhere in the available (no-PMC) text. |
+| PXD002142 | BS3 | — |  |
+| PXD002159 | (unverified) DTBP | — |  |
+| PXD002169 | DSP; DST | — |  |
+| PXD002226 | — | — | RNA_PROTEIN_UV_XL: mRBPome - cells UV-crosslinked at 254nm, oligo(dT) mRNA capture (C. elegans). |
+| PXD002293 | — | — | RNA_PROTEIN_UV_XL: mRBPome - cells UV-crosslinked at 254nm, oligo(dT) mRNA capture (S. cerevisiae). |
+| PXD002378 | PIR linker | — |  |
+| PXD002392 | (unverified) DTT | — |  |
+| PXD002656 | (unverified) DTT | — |  |
+| PXD002890 | — | — | RNA_PROTEIN_UV_XL: mRNA interactome - UV irradiation at 254nm (mouse macrophages). |
+| PXD002929 | Formaldehyde | — |  |
+| PXD002987 | BS3 | — |  |
+| PXD002992 | (unverified) 4-thiouridine | — |  |
+| PXD003381 | (unverified) DEST | — |  |
+| PXD003486 | BS3 | — |  |
+| PXD003496 | DMP | — |  |
+| PXD003502 | EDC | — |  |
+| PXD003593 | (unverified) 4-thiouridine | — |  |
+| PXD003643 | sulfo-SDA | — |  |
+| PXD003658 | BS3; DSS; Formaldehyde | — |  |
+| PXD003737 | sulfo-SDA | — |  |
+| PXD003754 | Formaldehyde | — |  |
+| PXD003880 | DSS | — |  |
+| PXD003909 | BS2G | — |  |
+| PXD003913 | BS2G | — |  |
+| PXD003917 | — | — | CORRECT_REJECT_NO_TEXT: 'chemical cross-linking/mass spectrometry' stated, but no specific reagent named in the available (no-PMC) text. |
+| PXD004009 | Aryl azide; Benzoyl | — |  |
+| PXD004018 | — | — |  |
+| PXD004105 | DSP | — |  |
+| PXD004107 | BS3 | — |  |
+| PXD004236 | BDP-NHP | — |  |
+| PXD004692 | DSS | — |  |
+| PXD004736 | Formaldehyde | biotin-tyramide; proximity labeling |  |
+| PXD004749 | BS3 | — |  |
+| PXD004898 | BS3 | — |  |
+| PXD004920 | sulfo-SDA | — |  |
+| PXD005012 | Benzoyl | — |  |
+| PXD005201 | — | APEX; biotin phenol; biotinphenol; Proximity labeling |  |
+| PXD005287 | DSS | — |  |
+| PXD005349 | photo-leucine; photo-methionine | — |  |
+| PXD005566 | — | — | RNA_PROTEIN_UV_XL: CLIR-MS - complexes irradiated at 254nm (protein-RNA hybrid structural modeling). |
+| PXD005601 | — | — | RNA_PROTEIN_UV_XL: mRNA-binding proteins via UV irradiation + oligo(dT) capture (Leishmania). |
+| PXD005612 | — | Bioid; proximity-dependent |  |
+| PXD005657 | DMP | — |  |
+| PXD005758 | — | Apex; Proximity biotinylation; proximity labeling | APEX-mediated proximity labeling (engineered ascorbic acid peroxidase + biotinylation); not chemical crosslinking. |
+| PXD005943 | — | — | RNA_PROTEIN_UV_XL: mRBPome - UV-crosslinked at 254nm under oxidative stress (S. cerevisiae). |
+| PXD005948 | BS3 | — |  |
+| PXD006079 | Formaldehyde | — |  |
+| PXD006131 | BS3 | — |  |
+| PXD006156 | — | proximity-dependent |  |
+| PXD006200 | — | Bioid; proximity-dependent |  |
+| PXD006245 | Benzoyl | — |  |
+| PXD006246 | BS3 | — |  |
+| PXD006287 | (unverified) BAMG | — |  |
+| PXD006359 | — | biotin tyramide; proximity labeling |  |
+| PXD006541 | — | Bioid; proximity-dependent |  |
+| PXD006707 | BS3; EDC | — |  |
+| PXD006715 | — | Bioid; proximity-dependent |  |
+| PXD006816 | DSSO | — |  |
+| PXD006928 | BS3; sulfo-SMCC | — |  |
+| PXD006938 | BS3; sulfo-SMCC | — |  |
+| PXD007043 | DSS | — |  |
+| PXD007185 | DSS; PDH | — |  |
+| PXD007250 | BS3 | — |  |
+| PXD007513 | DSSO | — |  |
+| PXD007673 | PIR linker | — |  |
+| PXD007695 | — | APEX; APEX2; biotin-phenol; proximity labeling |  |
+| PXD007836 | DSP | — |  |
+| PXD007862 | Azide-alkyne | APEX; Bioid; Proximity dependent; Proximity-dependent |  |
+| PXD007928 | BS3 | — |  |
+| PXD008122 | DSS | — |  |
+| PXD008161 | (unverified) AMDSP | — |  |
+| PXD008164 | — | — |  |
+| PXD008337 | EDC | — |  |
+| PXD008348 | DSBU; DSSO | — |  |
+| PXD008418 | DSSO | — |  |
+| PXD008550 | BS3; sulfo-SDA | — |  |
+| PXD008577 | (unverified) PAL6 | — |  |
+| PXD008605 | DSS | — |  |
+| PXD008680 | (unverified) DTBP | — |  |
+| PXD008914 | — | — | RNA_PROTEIN_UV_XL: RBP repertoire - UV irradiated at 254nm, 0.15 J/cm2 (embryonic stem cells). |
+| PXD008941 | BDP-NHP | — |  |
+| PXD008951 | BDP-NHP | — |  |
+| PXD008975 | BDP-NHP | — |  |
+| PXD009000 | DSSO | — |  |
+| PXD009001 | BDP-NHP | — |  |
+| PXD009106 | ADH; DSS; PDH | — |  |
+| PXD009159 | — | Bioid |  |
+| PXD009224 | DSSO | — |  |
+| PXD009260 | EDC | — |  |
+| PXD009284 | — | Apex; Proximity labeling |  |
+| PXD009302 | — | APEX2; biotin-phenol; Proximity labeling |  |
+| PXD009474 | — | — | CORRECT_REJECT_NO_TEXT: 'crosslinking coIPs' mentioned (crosslinking IP workflow), but no specific reagent named in the available (no-PMC) text. |
+| PXD009526 | DSS | — |  |
+| PXD009641 | Benzoyl; DSP | — |  |
+| PXD009648 | BS3 | — |  |
+| PXD009748 | — | biotin-tyramide; Proximity labeling |  |
+| PXD009756 | DSSO; DTSSP | — |  |
+| PXD009777 | DSSO; DTSSP; Glutaraldehyde | — |  |
+| PXD009783 | DSP | APEX; APEX2; biotin-phenol; Proximity labeling |  |
+| PXD009927 | EDC | — |  |
+| PXD010003 | DSS; PDH; sulfo-SDA | — |  |
+| PXD010004 | DSS; PDH; sulfo-SDA | — |  |
+| PXD010046 | Formaldehyde | — |  |
+| PXD010061 | — | Bioid; Proximity labeling |  |
+| PXD010070 | DSBU | — |  |
+| PXD010094 | DSS; PDH; sulfo-SDA | — |  |
+| PXD010111 | ADH; BS3; DMTMM; DSS; Glutaraldehyde | — |  |
+| PXD010122 | BS3 | — |  |
+| PXD010124 | BS3 | — |  |
+| PXD010222 | BS3 | — |  |
+| PXD010317 | DSSO | — |  |
+| PXD010352 | — | Bioid; proximity-dependent |  |
+| PXD010384 | DSS; PDH; sulfo-SDA | — |  |
+| PXD010385 | DSS; PDH; sulfo-SDA | — |  |
+| PXD010410 | DSS; PDH; sulfo-SDA | — |  |
+| PXD010422 | (unverified) NNP9 | — |  |
+| PXD010468 | Formaldehyde | — |  |
+| PXD010470 | Benzoyl | — |  |
+| PXD010474 | — | Bioid; proximity-dependent |  |
+| PXD010479 | DSS; PDH; sulfo-SDA | — |  |
+| PXD010481 | BS3 | — |  |
+| PXD010483 | DSS; PDH; sulfo-SDA | — |  |
+| PXD010796 | DSSO | — |  |
+| PXD010884 | DSS; PDH; sulfo-SDA | — |  |
+| PXD010892 | Benzoyl | — |  |
+| PXD010921 | — | APEX2; proximity labeling |  |
+| PXD010930 | — | BioID; proximity-dependent |  |
+| PXD010931 | — | Bioid; proximity-dependent |  |
+| PXD010950 | — | APEX2; proximity labeling |  |
+| PXD010963 | Formaldehyde | — |  |
+| PXD010988 | (unverified) thanatin-PAL5 | — |  |
+| PXD011036 | BS3 | — |  |
+| PXD011071 | — | — |  |
+| PXD011077 | DSSO | — |  |
+| PXD011078 | DSS | — |  |
+| PXD011121 | BS3; SDA | — |  |
+| PXD011296 | BS3; EDC + sulfo-NHS | — |  |
+| PXD011312 | — | Proximity labeling |  |
+| PXD011459 | BS3 | — |  |
+| PXD011645 | EDC; PhoX; SDA | — |  |
+| PXD011680 | DSSO | — |  |
+| PXD011702 | — | bioid; proximity labeling |  |
+| PXD011704 | BS3 | — |  |
+| PXD011774 | BS3 | — |  |
+| PXD011775 | BS3 | — |  |
+| PXD011806 | Formaldehyde | — |  |
+| PXD011861 | DSSO | — |  |
+| PXD011931 | PhoX | — |  |
+| PXD011974 | Formaldehyde | BioID; Proximity labeling |  |
+| PXD011995 | DSS | — |  |
+| PXD012109 | (unverified) bAL2 | — |  |
+| PXD012157 | — | Apex; APEX2; Proximity labeling |  |
+| PXD012225 | — | — | NATURAL_OR_ENZYMATIC_XL: FXIIIa (coagulation Factor XIIIa) - transglutaminase ENZYME catalyzing natural fibrin isopeptide crosslinks. |
+| PXD012350 | (unverified) x-alk-MDP; x-alk-iE-DAP | — |  |
+| PXD012427 | (unverified) APDC4 | — |  |
+| PXD012466 | DSSO | — |  |
+| PXD012494 | — | Apex; Proximity-dependent |  |
+| PXD012521 | — | — | WRONG_TECHNIQUE: TAP-MS study of DNA interstrand crosslink (ICL) REPAIR biology - 'crosslink' here means a DNA damage lesion (from mitomycin C), not XL-MS chemistry; the proteomics method itself is tandem affinity purification, no chemical crosslinker used. |
+| PXD012546 | DSBU | — |  |
+| PXD012592 | BS3 | — |  |
+| PXD012624 | EDC; sulfo-SDA | — |  |
+| PXD012723 | BS3 | — |  |
+| PXD012759 | — | — | CORRECT_REJECT_NO_TEXT: 'Crosslinking Proteomics' in title, genuine XL-MS study of TLR2 interactome, but no reagent named in the available (no-PMC) text. |
+| PXD012788 | Alkyne-A-DSBSO | — |  |
+| PXD012882 | EDC | — |  |
+| PXD012939 | sulfo-SDA | — |  |
+| PXD013032 | — | biotin-tyramide; Proximity labeling |  |
+| PXD013063 | PIR linker | — |  |
+| PXD013083 | BS3; DSS; DSSO | — |  |
+| PXD013097 | — | — | WRONG_TECHNIQUE: Chemoproteomic activity-based protein profiling (ABPP) of kinase active sites - a covalent single-site labeling technique, not bifunctional structural crosslinking-MS. |
+| PXD013144 | sulfo-SMPB | — |  |
+| PXD013160 | — | Bioid; proximity-dependent |  |
+| PXD013183 | — | BioID; Proximity-dependent; turboid |  |
+| PXD013194 | — | APEX; APEX2; biotin-phenol; Proximity labeling |  |
+| PXD013209 | Formaldehyde | Bioid; proximity labeling |  |
+| PXD013215 | — | APEX2; biotin-phenol; proximity labeling |  |
+| PXD013338 | Formaldehyde | — |  |
+| PXD013339 | Benzoyl | — |  |
+| PXD013470 | ADH; DMTMM; DSS | — |  |
+| PXD013476 | BDP-NHP | — |  |
+| PXD013601 | — | proximity-dependent |  |
+| PXD013704 | DSSO | — |  |
+| PXD013720 | (unverified) 4-thiouridine; PFA | — |  |
+| PXD013735 | DSSO | — |  |
+| PXD013769 | DSSO | — |  |
+| PXD013907 | DSS | — |  |
+| PXD013928 | — | — | CORRECT_REJECT_NO_TEXT: 'Proteome-wide Cross-linking mass spectrometry' - extremely terse PRIDE text (544 chars combined), no reagent named, no PMC. |
+| PXD014055 | PhoX | — |  |
+| PXD014067 | — | — | NATURAL_OR_ENZYMATIC_XL: Tissue transglutaminase (TG2) ENZYME catalyzing isopeptide crosslinks with gluten peptides. |
+| PXD014247 | — | Proximity Labeling |  |
+| PXD014337 | DSBU; DSS; DSSO | — |  |
+| PXD014359 | BS3 | — |  |
+| PXD014426 | — | Bioid; BioID2; proximity-dependent |  |
+| PXD014499 | — | APEX; Apex2; Biotin-phenol; Biotin-tyramide; Proximity Labeling |  |
+| PXD014500 | — | Apex; Apex2; Biotin-phenol; Biotin-tyramide; Proximity labeling | APEX2/biotin-phenol-H2O2 proximity labeling; the one 'formaldehyde' mention in full text is a 4% PFA microscopy fixation step for imaging, unrelated to the MS workflow. |
+| PXD014520 | BS3 | — |  |
+| PXD014523 | DSS; PDH | — |  |
+| PXD014584 | DSSO | — |  |
+| PXD014642 | DSSO | — |  |
+| PXD014661 | (unverified) ETD | — |  |
+| PXD014673 | BMSO; DHSO; DSSO | — |  |
+| PXD014675 | DSS | — |  |
+| PXD014738 | BS3 | — |  |
+| PXD014759 | BS3; DSSO | — |  |
+| PXD014898 | — | — | RNA_PROTEIN_UV_XL: UV femtosecond laser crosslinking of protein-DNA complexes. |
+| PXD014957 | (unverified) 4-thiouridine | — |  |
+| PXD015037 | photo-methionine | — |  |
+| PXD015044 | DSAU; DSG; PhoX; SDA | — |  |
+| PXD015080 | — | — |  |
+| PXD015160 | DSSO | — |  |
+| PXD015161 | Formaldehyde | Proximity labeling; Turboid |  |
+| PXD015162 | Formaldehyde | Proximity labeling; Turboid |  |
+| PXD015285 | DSBU | — |  |
+| PXD015366 | (unverified) AzidoPhe | — |  |
+| PXD015394 | DSS; PDH | — |  |
+| PXD015435 | Formaldehyde | — |  |
+| PXD015479 | — | BioID; proximity-dependent |  |
+| PXD015507 | — | APEX2; proximity labeling |  |
+| PXD015549 | — | — | NATURAL_OR_ENZYMATIC_XL: R2lox protein's naturally-occurring Mn/Fe-cofactor-driven internal Tyr-Val crosslink (endogenous radical chemistry, not an added reagent). |
+| PXD015658 | DSS | — |  |
+| PXD015682 | DSS | — |  |
+| PXD015725 | — | BioID; Proximity-dependent | BioID proximity-dependent biotinylation study (FOXB2 interactome); no crosslink-related text anywhere in the 22K-char combined PMC+PRIDE text. |
+| PXD015751 | PIR linker | — |  |
+| PXD015779 | — | APEX2; Biotin-Phenol; Proximity labeling |  |
+| PXD015793 | BS3; EDC | — |  |
+| PXD015863 | (unverified) 4-thiouridine | — |  |
+| PXD015883 | — | APEX2; biotin-phenol; Proximity Labeling |  |
+| PXD015890 | — | APEX2; biotin-phenol; Proximity Labeling |  |
+| PXD015941 | DSBU; DSSO | — |  |
+| PXD015974 | Benzoyl | — |  |
+| PXD015985 | DSS | — |  |
+| PXD015989 | — | — | CORRECT_REJECT_NO_TEXT: 'cross-linking MS-based approach' stated for PDE6 structural study; text only generically mentions 'specific crosslinker modifications when appropriate' with no actual name; no PMC. |
+| PXD016196 | BS3 | — |  |
+| PXD016221 | — | Bioid; proximity-dependent |  |
+| PXD016224 | Sulfo-LC-SDA | — |  |
+| PXD016355 | — | — | CORRECT_REJECT_NO_TEXT: Title/description say 'diazirine mediated cross-linking' - diazirine is a reactive FUNCTIONAL GROUP, not a specific named reagent/molecule; no PMC. |
+| PXD016554 | DSP; DSS | — |  |
+| PXD016639 | BS(PEG)5; DSG; DSS | — |  |
+| PXD016963 | DSBSO | — |  |
+| PXD016988 | — | Bioid; proximity-dependent |  |
+| PXD016993 | DSBU | — |  |
+| PXD017020 | BS3 | — |  |
+| PXD017066 | PhoX | — |  |
+| PXD017085 | — | Proximity labeling; Turboid |  |
+| PXD017128 | DSS | — |  |
+| PXD017238 | BS3; EDC | — |  |
+| PXD017241 | — | Bioid; proximity biotinylation; proximity-dependent |  |
+| PXD017244 | ADH; BS3 | — |  |
+| PXD017299 | BS2G; DSG | — |  |
+| PXD017344 | — | Bioid; proximity-dependent |  |
+| PXD017378 | — | — | CORRECT_REJECT_NO_TEXT: 'Comprehensive cross-linking mass spectrometry' (NuRD complex) - description is entirely about affinity-purification tagging workflow, no reagent named; no PMC. |
+| PXD017379 | DSBU | — |  |
+| PXD017531 | DSBU | — |  |
+| PXD017584 | photo-leucine | — |  |
+| PXD017620 | BS3; DSS | — |  |
+| PXD017868 | — | proximity labeling |  |
+| PXD017873 | BS3 | — |  |
+| PXD017931 | DSS | — |  |
+| PXD017933 | — | Bioid; proximity-dependent |  |
+| PXD017937 | — | BioID2; proximity labeling | BioID2 proximity labeling (interactors in rat cortical neurons); no chemical crosslinker. |
+| PXD017951 | — | — | WRONG_TECHNIQUE: DNA interstrand crosslink (ICL) repair biology (PrimPol primase study) - 'crosslink' refers to a DNA damage lesion, not XL-MS chemistry. |
+| PXD017996 | DSS | — |  |
+| PXD018040 | — | proximity-dependent |  |
+| PXD018106 | BS3 | — |  |
+| PXD018189 | PhoX | — |  |
+| PXD018219 | DSSO | — |  |
+| PXD018232 | DSS | — |  |
+| PXD018265 | — | BioID; proximity labeling |  |
+| PXD018291 | PhoX; pDSPE | — |  |
+| PXD018310 | BS3 | — |  |
+| PXD018383 | — | BioID; proximity-dependent |  |
+| PXD018580 | (unverified) alkyne-diazirine minimal photocrosslinker | — |  |
+| PXD018608 | SDA | — |  |
+| PXD018687 | Formaldehyde | — |  |
+| PXD018771 | DSSO | — |  |
+| PXD018786 | BS3; EDC + sulfo-NHS | — |  |
+| PXD018935 | DSAU | — |  |
+| PXD019017 | DSSO | — |  |
+| PXD019043 | (unverified) BrC6K | — |  |
+| PXD019048 | DSSO | — |  |
+| PXD019101 | DSSO | — |  |
+| PXD019215 | — | — |  |
+| PXD019251 | DSS | — |  |
+| PXD019274 | BS3; Benzoyl; sulfo-SDA | — |  |
+| PXD019338 | DSSO | — |  |
+| PXD019428 | — | — |  |
+| PXD019484 | PIR linker | — |  |
+| PXD019507 | PDH | — |  |
+| PXD019508 | PDH | — |  |
+| PXD019530 | DSBU | — |  |
+| PXD019599 | DSSO | — |  |
+| PXD019713 | DSSO | — |  |
+| PXD019724 | PDH | — |  |
+| PXD019751 | DSS | — |  |
+| PXD019771 | DMTMM | — |  |
+| PXD019868 | DSSO | — |  |
+| PXD019926 | DSSO | — |  |
+| PXD019944 | DSSO | — |  |
+| PXD020014 | DSS; DSSO | — |  |
+| PXD020084 | BS3 | — |  |
+| PXD020119 | (unverified) NHS-LC-Diazirine | — |  |
+| PXD020165 | — | BioID2; proximity-dependent |  |
+| PXD020229 | BS3; EDC + sulfo-NHS | — |  |
+| PXD020290 | — | — | RNA_PROTEIN_UV_XL: UV-induced crosslinking of protein-DNA complexes in chromatin. |
+| PXD020302 | — | — | CORRECT_REJECT_NO_TEXT: 'Analysis of cross-link on Tranaldolase' - extremely terse (1024 chars combined), no reagent named, no PMC. |
+| PXD020323 | Azide-alkyne | BIOID; PROXIMITY LABELING |  |
+| PXD020340 | Azide-alkyne | proximity labeling |  |
+| PXD020370 | — | bioid; proximity-dependent |  |
+| PXD020418 | Benzoyl | — |  |
+| PXD020453 | sulfo-SDA | — |  |
+| PXD020542 | — | APEX2; proximity labeling |  |
+| PXD020602 | DSS | — |  |
+| PXD020636 | DSS; PDH | — |  |
+| PXD020704 | DSS; Formaldehyde; Glutaraldehyde | — |  |
+| PXD020709 | — | APEX2; biotin phenol; Proximity labeling |  |
+| PXD020759 | — | Proximity labeling; Turboid |  |
+| PXD020817 | BS3 | — |  |
+| PXD020826 | — | — |  |
+| PXD020859 | BS3 | — |  |
+| PXD021115 | DSS | — |  |
+| PXD021126 | BS2G; BS3 | — |  |
+| PXD021182 | Benzoyl | — |  |
+| PXD021375 | — | APEX; biotin-phenol; proximity labeling |  |
+| PXD021417 | DSS | — |  |
+| PXD021434 | Formaldehyde | — |  |
+| PXD021553 | (unverified) NNP9 | — |  |
+| PXD021622 | — | biotin phenol; Proximity labeling |  |
+| PXD021648 | DSBU | — |  |
+| PXD021691 | — | Proximity labeling |  |
+| PXD021693 | — | Proximity labeling |  |
+| PXD021708 | DSSO | — |  |
+| PXD021709 | DSSO | Bioid; proximity labeling |  |
+| PXD021770 | — | Bioid; Proximity-dependent; Turboid |  |
+| PXD021809 | — | BioID; Proximity-dependent; Turboid |  |
+| PXD021822 | DSP | — |  |
+| PXD021831 | DSS | — |  |
+| PXD021870 | (unverified) p-azido-Phe | — |  |
+| PXD021872 | DSBU | — |  |
+| PXD021923 | — | proximity biotinylation; Proximity labeling; TurboID |  |
+| PXD022119 | BS3 | — |  |
+| PXD022279 | Azide-alkyne | — |  |
+| PXD022335 | — | APEX; APEX2; Proximity labeling |  |
+| PXD022440 | Formaldehyde | — |  |
+| PXD022443 | DSS | — |  |
+| PXD022608 | — | Proximity labeling; Proximity-biotinylation |  |
+| PXD022675 | DSSO | — |  |
+| PXD022690 | DSSO; SDASO-L | — |  |
+| PXD022772 | DSBU; DSSO | — |  |
+| PXD022785 | — | apex; Bioid; proximity-dependent |  |
+| PXD022861 | BS3; DSS | — |  |
+| PXD022903 | — | Bioid; proximity labeling |  |
+| PXD022991 | — | — | NATURAL_OR_ENZYMATIC_XL: Spontaneous (non-enzymatic) age-related Lys-Gln/Glu crosslinking via glutarimide intermediate in aged human lens tissue. |
+| PXD023022 | BS3 | — |  |
+| PXD023072 | PhoX | — |  |
+| PXD023073 | — | Proximity labeling |  |
+| PXD023164 | CDI; DSSO | — |  |
+| PXD023192 | Benzoyl | — |  |
+| PXD023221 | BS3 | — |  |
+| PXD023239 | — | Bioid; Proximity labeling |  |
+| PXD023277 | — | Proximity labeling |  |
+| PXD023487 | BS3; DSS; Formaldehyde | — |  |
+| PXD023522 | — | — | CORRECT_REJECT_NO_TEXT: LinX software / CX-MS data - sampleProcessingProtocol just references 3 external published papers by citation only, reagent not restated in this text; no PMC. |
+| PXD023525 | CDI; DSBU | — |  |
+| PXD023542 | — | — | CORRECT_REJECT_NO_TEXT: 'Targeted in situ cross-linking' (SARS-CoV-2) - description focuses on the AP-MS workflow, no chemical crosslinker reagent named; no PMC. |
+| PXD023577 | PIR linker | — |  |
+| PXD023651 | — | — | NATURAL_OR_ENZYMATIC_XL: Natural internal isopeptide crosslink (A2M autoconjugation via its native thiol ester, triggered by trypsin cleavage of the bait region). |
+| PXD023814 | — | Apex; biotin tyramide; Proximity Labeling; proximity-labeling |  |
+| PXD023817 | DSSO | — |  |
+| PXD024010 | — | — | RNA_PROTEIN_UV_XL: CLIR-MS workflow extension, UV crosslinking via Spectrolinker XL-1500. |
+| PXD024065 | Benzoyl | — |  |
+| PXD024120 | — | Bioid; BioID2; proximity labeling |  |
+| PXD024131 | DSS | — |  |
+| PXD024160 | PhoX | — |  |
+| PXD024168 | — | proximity labeling; Turboid |  |
+| PXD024253 | — | — | CORRECT_REJECT_NO_TEXT: Evidence_quote explicitly states 'a newly synthesized enrichable crosslinker' with no chemical name/abbreviation/accession given at all. |
+| PXD024254 | Formaldehyde | — |  |
+| PXD024335 | — | APEX2; proximity-dependent |  |
+| PXD024361 | — | Proximity labeling |  |
+| PXD024366 | — | Proximity labeling |  |
+| PXD024367 | — | Proximity labeling |  |
+| PXD024399 | — | Bioid; Proximity labeling |  |
+| PXD024492 | Benzoyl | — |  |
+| PXD024493 | Benzoyl | — |  |
+| PXD024822 | DSS; Glutaraldehyde; PDH | — |  |
+| PXD024946 | BMB; BMOE; BS2G; BS3 | — |  |
+| PXD025066 | — | — |  |
+| PXD025099 | BS3 | — |  |
+| PXD025122 | — | — | RNA_PROTEIN_UV_XL: RNase III CLASH (Cross-Linking And Sequencing of Hybrids) - canonically UV-crosslinking-based. |
+| PXD025141 | — | Proximity labeling; Turboid |  |
+| PXD025172 | DSSO | — |  |
+| PXD025179 | — | Bioid; BioID2; proximity-dependent |  |
+| PXD025208 | — | BioID; proximity labeling |  |
+| PXD025220 | BS3 | — |  |
+| PXD025357 | — | BioID; proximity-dependent |  |
+| PXD025391 | DSSO | — |  |
+| PXD025581 | — | BioID2; proximity-dependent |  |
+| PXD025662 | DSS | — |  |
+| PXD025710 | DSS; PDH | — |  |
+| PXD025796 | (unverified) iqPIR | — |  |
+| PXD025843 | ADH; BS3 | — |  |
+| PXD025903 | — | — |  |
+| PXD025923 | (unverified) iqPIR | — |  |
+| PXD025980 | Formaldehyde | BioID2; proximity-dependent |  |
+| PXD026017 | BS3 | — |  |
+| PXD026037 | (unverified) iqPIR | — |  |
+| PXD026196 | — | BioID; proximity labeling; Turboid | BioID/miniTurbo proximity labeling (Alk 'proximitome' in Drosophila brain); no chemical crosslinker. |
+| PXD026229 | — | APEX2; proximity labeling |  |
+| PXD026244 | DSS | — |  |
+| PXD026433 | DSSO | — |  |
+| PXD026508 | Formaldehyde | — |  |
+| PXD026603 | DSSO | — |  |
+| PXD026696 | DSBU | — |  |
+| PXD026718 | — | APEX; proximity labeling |  |
+| PXD026790 | DMP | — |  |
+| PXD026793 | — | Apex; APEX2; biotin-phenol; Proximity labeling |  |
+| PXD026861 | — | — |  |
+| PXD026926 | — | Proximity labeling; Turboid |  |
+| PXD026935 | BS3 | — |  |
+| PXD027068 | — | Proximity labeling; turboid |  |
+| PXD027128 | Benzoyl | — |  |
+| PXD027149 | (unverified) VL1 | — |  |
+| PXD027159 | BS3; DSBU; DSS; DSSO | — |  |
+| PXD027161 | BS3; DSBU; DSS; DSSO | — |  |
+| PXD027188 | BS3; DSBU; DSS; DSSO | — |  |
+| PXD027189 | — | — | RNA_PROTEIN_UV_XL: U1/U2 snRNP protein-RNA crosslinking via 254nm irradiation. |
+| PXD027213 | DMTMM; DSS; PDH | — |  |
+| PXD027234 | DSAU; DSBU; DSPU | — |  |
+| PXD027239 | (unverified) X10 | — |  |
+| PXD027267 | — | Bioid; proximity labeling |  |
+| PXD027349 | EDC + sulfo-NHS | — |  |
+| PXD027394 | (unverified) X10 | — |  |
+| PXD027413 | DSG | — |  |
+| PXD027488 | — | proximity labeling; proximity-dependent; Turboid |  |
+| PXD027565 | Formaldehyde | — |  |
+| PXD027611 | DSSO | — |  |
+| PXD027757 | (unverified) iqPIR | — |  |
+| PXD027759 | — | BioID; Proximity-dependent; TurboID |  |
+| PXD027891 | DSS | — |  |
+| PXD027905 | — | BioID2; Proximity labeling |  |
+| PXD027917 | — | Bioid; proximity-dependent | BioID (birA fusion) proximity interactome mapping (VAC14-FIG4 complex); no chemical crosslinker. |
+| PXD027953 | PIR linker | — |  |
+| PXD027954 | (unverified) DiazK | — |  |
+| PXD027998 | — | Proximity labeling |  |
+| PXD028002 | DSS; EDC; SDA | — |  |
+| PXD028005 | DSSO | — |  |
+| PXD028063 | Formaldehyde | apex; APEX2; Proximity labeling |  |
+| PXD028150 | — | APEX; APEX2; Proximity labeling |  |
+| PXD028313 | PhoX | — |  |
+| PXD028415 | PhoX | — |  |
+| PXD028433 | EDC | — |  |
+| PXD028462 | (unverified) SMPH | BioID2; proximity labeling |  |
+| PXD028879 | — | bioid; proximity biotinylation; proximity labeling; turboid |  |
+| PXD028980 | — | APEX; biotin phenol; Proximity labeling |  |
+| PXD029033 | tBu-PhoX | — |  |
+| PXD029034 | tBu-PhoX | — |  |
+| PXD029091 | (unverified) AbK; DiZASeC | — |  |
+| PXD029252 | ADH; CDI; DHSO; DSBSO; DSBU; DSSO | — |  |
+| PXD029257 | — | proximity-dependent |  |
+| PXD029350 | (unverified) iqPIR | — |  |
+| PXD029365 | DSBU | — |  |
+| PXD029505 | — | — |  |
+| PXD029591 | DSS | — |  |
+| PXD029675 | BS(PEG)5; BS3; DSBU; DSSO; sulfo-EGS | — |  |
+| PXD029748 | — | — | CORRECT_REJECT_NO_TEXT: 'Proteome-wide Cross-linking mass spectrometry' (HEK293) - description/protocol both just restate the title with no reagent name; no PMC. |
+| PXD029749 | (unverified) DAA | — |  |
+| PXD029781 | (unverified) pacSph | — |  |
+| PXD029833 | DSP | proximity labeling |  |
+| PXD029930 | (unverified) 4-thiouridine | — |  |
+| PXD029944 | (unverified) X10; X3 | — |  |
+| PXD029960 | — | Proximity labeling; proximity-labeling; Turboid |  |
+| PXD030048 | — | Proximity labeling; Turboid |  |
+| PXD030063 | DSSO | — |  |
+| PXD030072 | — | APEX2; Proximity labeling |  |
+| PXD030209 | DSBU | — |  |
+| PXD030274 | SDA | — |  |
+| PXD030299 | BS3 | — |  |
+| PXD030429 | — | Proximity-dependent |  |
+| PXD030495 | — | APEX2; proximity labeling |  |
+| PXD030532 | DSSO | — |  |
+| PXD030543 | Formaldehyde | — |  |
+| PXD030578 | BS3; DSBU; DSS; DSSO | — |  |
+| PXD030590 | DSS | — |  |
+| PXD030619 | — | — | REAL_MISS: BS3 explicitly named multiple times in the 52K-char combined PMC+PRIDE text, but the entire xlms_reagents LLM response failed JSON parsing ('Could not parse JSON from LLM response') and was silently dropped with no retry. A separate file-clustering-resolved override DID correctly identify BS3 for the actual Xi config (xi_configs: success), so the real pipeline output is fine - only the comment[cross-linker] SDRF field (and stats built from it) miss it. |
+| PXD030849 | DSS | — |  |
+| PXD030864 | — | APEX; APEX2; Proximity labeling |  |
+| PXD030970 | — | Bioid; proximity-dependent |  |
+| PXD031033 | DSSO | — |  |
+| PXD031054 | Formaldehyde | — |  |
+| PXD031096 | BS3 | — |  |
+| PXD031114 | DSSO | — |  |
+| PXD031159 | (unverified) BprY | — |  |
+| PXD031197 | — | proximity labeling; Turboid | TurboID-based proximity labeling (LONP1-targeting proteins); no chemical crosslinker. |
+| PXD031214 | SDA | — |  |
+| PXD031215 | DSS | — |  |
+| PXD031339 | DSBU | — |  |
+| PXD031345 | DMTMM; DSSO; PhoX | — |  |
+| PXD031381 | — | — | RNA_PROTEIN_UV_XL: CLIR-MS - photo-induced RNA-protein crosslinking, 800 mJ/cm2 UV irradiation. |
+| PXD031411 | DSSO | — |  |
+| PXD031415 | — | Apex; biotin-phenol; proximity labeling |  |
+| PXD031421 | DSSO | — |  |
+| PXD031519 | BS3 | — |  |
+| PXD031601 | — | apex2; Proximity labeling |  |
+| PXD031643 | (unverified) iqPIR | — |  |
+| PXD031644 | (unverified) iqPIR | — |  |
+| PXD031827 | BS3; EDC | — |  |
+| PXD031845 | — | APEX2; Proximity labeling |  |
+| PXD031911 | DSSO | — |  |
+| PXD031997 | EDC | — |  |
+| PXD032132 | DSBSO; DSSO | — |  |
+| PXD032222 | — | — |  |
+| PXD032297 | — | BioID2; proximity labeling |  |
+| PXD032728 | — | Bioid; Proximity labeling |  |
+| PXD032821 | BS3; DSBU; DSSO | — |  |
+| PXD032833 | — | Bioid; Proximity labeling; proximity-labeling |  |
+| PXD032906 | — | Proximity labeling; Turboid |  |
+| PXD032952 | — | proximity labeling; TurboID |  |
+| PXD032976 | — | Bioid; Proximity labeling; proximity-labeling |  |
+| PXD033004 | — | — |  |
+| PXD033008 | — | Bioid; Proximity labeling; proximity-labeling |  |
+| PXD033026 | — | Proximity labeling; TurboID |  |
+| PXD033043 | — | Proximity labeling; TurboID |  |
+| PXD033044 | — | Proximity labeling; TurboID |  |
+| PXD033062 | — | Proximity labeling; TurboID |  |
+| PXD033063 | — | Proximity labeling; TurboID |  |
+| PXD033066 | — | Proximity labeling; TurboID |  |
+| PXD033067 | — | proximity-dependent |  |
+| PXD033107 | Benzoyl | — |  |
+| PXD033167 | Sulfo-LC-SDA | — |  |
+| PXD033175 | DSP | — |  |
+| PXD033181 | DSSO | — |  |
+| PXD033205 | DSBU; EDC + sulfo-NHS | — |  |
+| PXD033244 | — | proximity labeling; TurboID |  |
+| PXD033391 | — | bioID; proximity labeling |  |
+| PXD033409 | DSS; PhoX | — |  |
+| PXD033446 | DSSO | — |  |
+| PXD033452 | — | Bioid; proximity-dependent |  |
+| PXD033466 | — | Proximity labeling |  |
+| PXD033593 | — | — |  |
+| PXD033633 | BS3 | — |  |
+| PXD033764 | — | APEX; APEX2; biotin-phenol; proximity biotinylation; Proximity labeling |  |
+| PXD033846 | — | APEX2; proximity labeling |  |
+| PXD033959 | — | — |  |
+| PXD033960 | — | — |  |
+| PXD034054 | — | — | CORRECT_REJECT_NO_TEXT: 'Crosslinks Analysis of Cryptochrome and Timeless' - protocol describes SDS-PAGE/gel workflow only, no reagent named; no PMC. |
+| PXD034115 | — | APEX; APEX2; Bioid; proximity labeling |  |
+| PXD034118 | — | APEX; biotin-phenol; Proximity labeling; Turboid |  |
+| PXD034163 | — | — |  |
+| PXD034217 | — | Bioid; Proximity labeling; proximity-dependent; Turboid |  |
+| PXD034241 | — | Bioid; Proximity labeling; Turboid |  |
+| PXD034393 | BS3 | — |  |
+| PXD034475 | DSSO | — |  |
+| PXD034529 | — | — | REAL_MISS: 8 organophosphate pesticide names explicitly listed as agents that 'catalyze protein crosslinking' (chlorpyrifos, chlorpyrifos oxon, methamidophos, paraoxon, diazinon, diazoxon, monocrotophos, dichlorvos) - none extracted. Open scope question: unclear whether these are themselves the bridging crosslink or merely catalysts for another natural crosslinking chemistry; needs literature review before any DB action. |
+| PXD034627 | — | BioID; Proximity labeling |  |
+| PXD034639 | — | Apex2; proximity labeling; Proximity-dependent; proximity-labeling; Turboid |  |
+| PXD034796 | Formaldehyde; PhoX | — |  |
+| PXD034874 | — | Bioid; Proximity labeling; proximity-labeling |  |
+| PXD034894 | — | — | RNA_PROTEIN_UV_XL: CLIR-MS reanalysis of PXD005566 (same UV-crosslinking method, broader parameters). |
+| PXD034965 | — | Bioid; Proximity labeling; proximity-labeling |  |
+| PXD035001 | — | APEX; biotin phenol; Proximity labeling |  |
+| PXD035151 | — | Proximity labeling; turboid |  |
+| PXD035153 | — | — |  |
+| PXD035201 | (unverified) HHS-482 | — |  |
+| PXD035265 | — | Proximity labeling |  |
+| PXD035404 | DSSO; PhoX | — |  |
+| PXD035433 | DSS | — |  |
+| PXD035452 | — | apex; biotin phenol; proximity labeling |  |
+| PXD035589 | DSSO; PhoX | — |  |
+| PXD035591 | PhoX | — |  |
+| PXD035622 | (unverified) iqPIR | — |  |
+| PXD035712 | (unverified) iqPIR | — |  |
+| PXD035764 | DSSO | — |  |
+| PXD035801 | — | Apex; APEX2; proximity labeling |  |
+| PXD035813 | — | Proximity labeling |  |
+| PXD035844 | DHSO; DMTMM; DSSO | — |  |
+| PXD035916 | — | Bioid; Bioid2; proximity-dependent; Turboid |  |
+| PXD035939 | (unverified) Q2linker | — |  |
+| PXD035980 | DSBU | — |  |
+| PXD036113 | — | Apex; APEX2; biotin phenol; Proximity labeling |  |
+| PXD036182 | — | Proximity labeling; Turboid |  |
+| PXD036262 | — | APEX; APEX2; biotin phenol; Proximity labeling |  |
+| PXD036463 | DSP | — |  |
+| PXD036630 | — | Proximity labeling |  |
+| PXD036640 | DMTMM; DSSO | — |  |
+| PXD036649 | (unverified) iqPIR | — |  |
+| PXD036675 | — | BioID2; proximity labeling; TurboID |  |
+| PXD036744 | — | proximity dependent; proximity labeling; Turboid |  |
+| PXD036884 | (unverified) DizSEC; DizSPC | — |  |
+| PXD037030 | BS2G | — |  |
+| PXD037183 | BS3; DMTMM; DSS | — |  |
+| PXD037432 | — | proximity labeling; Proximity-dependent; Turboid |  |
+| PXD037438 | — | — | RNA_PROTEIN_UV_XL: SARS-CoV-2 nucleocapsid-RNA UV crosslinking at 254nm (4.8 J/cm2). |
+| PXD037443 | (unverified) DBrASO | — |  |
+| PXD037492 | BS2G; BS3; DSS; DSSO | — |  |
+| PXD037493 | BS3 | — |  |
+| PXD037569 | — | APEX; proximity-dependent |  |
+| PXD037652 | tBu-PhoX | — |  |
+| PXD037678 | — | proximity labeling |  |
+| PXD037701 | MBS | Proximity-dependent |  |
+| PXD037703 | — | proximity labeling; TurboID |  |
+| PXD037729 | BS3 | — |  |
+| PXD037894 | (unverified) HHS-482 | — |  |
+| PXD038018 | Azide-alkyne | — |  |
+| PXD038067 | — | Bioid; Proximity labeling |  |
+| PXD038234 | DSP; DTSSP | — |  |
+| PXD038286 | — | Bioid; proximity-dependent |  |
+| PXD038327 | Formaldehyde | Bioid; proximity labeling |  |
+| PXD038332 | Formaldehyde | — |  |
+| PXD038398 | Formaldehyde | — |  |
+| PXD038487 | — | Bioid; BioID2; proximity-dependent |  |
+| PXD038515 | — | APEX2; BioID; PROXIMITY LABELING; Turboid |  |
+| PXD038572 | — | proximity biotinylation; Proximity labeling |  |
+| PXD038583 | Formaldehyde | — |  |
+| PXD038615 | BS3 | — |  |
+| PXD038629 | DSSO | — |  |
+| PXD038640 | DSS | — |  |
+| PXD038658 | DSS | — |  |
+| PXD039008 | — | proximity labeling |  |
+| PXD039010 | — | proximity labeling |  |
+| PXD039068 | — | APEX2; Proximity labeling |  |
+| PXD039125 | — | proximity labeling; TurboID |  |
+| PXD039289 | DSS | — |  |
+| PXD039401 | — | proximity labeling; Turboid |  |
+| PXD039467 | — | Proximity labeling; TurboID |  |
+| PXD039473 | — | APEX2; biotin tyramide; proximity labeling |  |
+| PXD039589 | BS3 | — |  |
+| PXD039606 | Benzoyl; DSSO; photo-methionine | — |  |
+| PXD039612 | DSG; DSP; DSSO | — |  |
+| PXD039626 | Azide-alkyne | Proximity labeling; Proximity-labeling; TurboID |  |
+| PXD039694 | — | proximity labeling; Turboid |  |
+| PXD039717 | DSG | — |  |
+| PXD039754 | ADH; DSG; DSS; PDH | — |  |
+| PXD039780 | — | — |  |
+| PXD039864 | — | proximity labeling; TurboID |  |
+| PXD039939 | Benzoyl | — |  |
+| PXD039983 | — | Proximity labeling; Turboid |  |
+| PXD039985 | — | Proximity labeling; Turboid |  |
+| PXD039986 | — | Proximity labeling; Turboid |  |
+| PXD040000 | BS3 | APEX2; proximity-dependent |  |
+| PXD040144 | DSS | — |  |
+| PXD040156 | BS3 | — |  |
+| PXD040262 | — | proximity labeling |  |
+| PXD040267 | (unverified) Di(N-succinimidyl)-2,2’-[1,4-phenylenebis(methylenethio)]bis-acetate | — |  |
+| PXD040310 | — | Proximity labeling |  |
+| PXD040337 | Formaldehyde | proximity-dependent; Turboid |  |
+| PXD040374 | DSS; PDH | — |  |
+| PXD040392 | (unverified) PFA | proximity labeling |  |
+| PXD040412 | — | proximity labeling; TurboID |  |
+| PXD040452 | — | Bioid; proximity-dependent; TurboID |  |
+| PXD040547 | — | proximity labeling; TurboID |  |
+| PXD040562 | — | Proximity-dependent |  |
+| PXD040690 | — | Proximity labeling; TurboID |  |
+| PXD040705 | DSBU | — |  |
+| PXD040736 | BS3 | — |  |
+| PXD040762 | — | APEX; APEX2; biotin phenol; Proximity labeling |  |
+| PXD040864 | (unverified) iqPIR | — |  |
+| PXD040875 | Benzoyl | — |  |
+| PXD040902 | DSS; SDA | — |  |
+| PXD040939 | — | proximity labeling; Proximity-dependent; Turboid |  |
+| PXD040984 | Benzoyl; DSSO | — |  |
+| PXD040991 | — | BioID2; proximity-dependent |  |
+| PXD041011 | DSS | — |  |
+| PXD041019 | — | Bioid; proximity-dependent |  |
+| PXD041135 | BS3 | — |  |
+| PXD041148 | (unverified) DizSEC; DizSPC | — |  |
+| PXD041309 | — | proximity labeling |  |
+| PXD041328 | — | proximity labeling |  |
+| PXD041378 | DSP | APEX; APEX2; biotin-tyramide; proximity labeling |  |
+| PXD041438 | DMTMM; DSSO | — |  |
+| PXD041519 | DSSO | — |  |
+| PXD041610 | — | Proximity labeling |  |
+| PXD041684 | — | proximity labeling; turboid |  |
+| PXD041831 | DMTMM; DSSO | — |  |
+| PXD041908 | — | APEX2; proximity labeling |  |
+| PXD041943 | — | proximity labeling |  |
+| PXD041955 | DSBSO; DSSO | — |  |
+| PXD042123 | — | proximity labeling |  |
+| PXD042173 | DSSO | — |  |
+| PXD042282 | DSP | — |  |
+| PXD042301 | — | Bioid; proximity labeling; Proximity-dependent |  |
+| PXD042302 | — | Bioid; proximity labeling; Proximity-dependent |  |
+| PXD042343 | Azide-alkyne | — |  |
+| PXD042395 | (unverified) 4-thiouridine | — |  |
+| PXD042501 | BS(PEG)5; BS3; DTSSP; EDC | — |  |
+| PXD042549 | DSBU | — |  |
+| PXD042584 | BS3 | — |  |
+| PXD042599 | DSSO | — |  |
+| PXD042625 | DMTMM; DSSO | — |  |
+| PXD042657 | — | Proximity biotinylation; proximity labeling |  |
+| PXD042673 | — | Proximity biotinylation; proximity labeling |  |
+| PXD042674 | — | Proximity biotinylation; proximity labeling |  |
+| PXD042687 | — | Proximity biotinylation; proximity labeling |  |
+| PXD042691 | — | Proximity biotinylation; proximity labeling |  |
+| PXD042693 | — | Proximity biotinylation; proximity labeling |  |
+| PXD042694 | — | Proximity biotinylation; proximity labeling |  |
+| PXD042697 | — | Proximity biotinylation; proximity labeling |  |
+| PXD042698 | — | Proximity biotinylation; proximity labeling |  |
+| PXD042700 | — | Proximity biotinylation; proximity labeling |  |
+| PXD042702 | — | Proximity biotinylation; proximity labeling |  |
+| PXD042706 | — | Proximity biotinylation; proximity labeling |  |
+| PXD042830 | — | proximity labeling; TurboID |  |
+| PXD043041 | — | Proximity labeling; turboid |  |
+| PXD043088 | — | APEX2; biotin-phenol; Proximity labeling |  |
+| PXD043093 | Benzoyl | — |  |
+| PXD043245 | — | APEX2; proximity labeling |  |
+| PXD043294 | — | Proximity Labeling |  |
+| PXD043347 | DSBU | — |  |
+| PXD043531 | Azide-A-DSBSO | — |  |
+| PXD043532 | DSS | — |  |
+| PXD043595 | — | — | CORRECT_REJECT_NO_TEXT: 'CX-MS' (Collagen I NTX) - protocol describes digestion methods only (hydroxylamine/CNBr), no crosslinker reagent named; no PMC. |
+| PXD043732 | — | Proximity labeling; Turboid |  |
+| PXD043789 | — | Bioid; proximity labeling |  |
+| PXD043805 | — | proximity biotinylation; Proximity labeling |  |
+| PXD043900 | (unverified) DEB; nitrogen mustard | — |  |
+| PXD043976 | DSS; PDH | — |  |
+| PXD044285 | — | — | WRONG_TECHNIQUE: HDX-MS (Hydrogen-Deuterium Exchange mass spectrometry) - a completely different structural proteomics technique, no chemical crosslinker involved. |
+| PXD044289 | — | BioID; Proximity labeling |  |
+| PXD044328 | DSBU | — |  |
+| PXD044405 | DSS; PDH | — |  |
+| PXD044574 | DSP | — |  |
+| PXD044625 | (unverified) 4-thiouridine | — |  |
+| PXD044750 | DSBU | — |  |
+| PXD044827 | BS3 | — |  |
+| PXD044921 | — | APEX; APEX2; Biotin-phenol; Proximity labeling |  |
+| PXD044974 | — | proximity labeling |  |
+| PXD045071 | Formaldehyde | — |  |
+| PXD045081 | — | proximity labeling; proximity-labeling; TurboID |  |
+| PXD045105 | — | — | WRONG_TECHNIQUE: Virotrap-based screening of TGM1 interactors - complex-trapping technology, not crosslinking-MS (TGM1 itself is also a natural crosslinking enzyme, not a reagent). |
+| PXD045482 | — | Proximity labeling; Turboid |  |
+| PXD045575 | DHSO; DSSO; sulfo-SDA | — |  |
+| PXD045689 | DSSO | — |  |
+| PXD045791 | DSSO | APEX; BioID; Proximity Labeling |  |
+| PXD045792 | (unverified) NNP9 | — |  |
+| PXD045837 | — | — | WRONG_TECHNIQUE: HDX-MS analysis of HACE1 - different structural proteomics technique, no chemical crosslinker. |
+| PXD045846 | — | Bioid; proximity labeling |  |
+| PXD045858 | BS3 | — |  |
+| PXD045861 | — | Proximity labeling |  |
+| PXD045987 | BS3 | — |  |
+| PXD046267 | — | — | RNA_PROTEIN_UV_XL: Protein-RNA UV crosslinking in biomolecular condensates, Spectrolinker 254nm. |
+| PXD046382 | DSBSO; DSSO | — |  |
+| PXD046385 | — | BioID2; Proximity labeling |  |
+| PXD046392 | BS3 | — |  |
+| PXD046412 | — | Bioid; Proximity labeling; Turboid |  |
+| PXD046413 | — | Bioid; Proximity labeling; Turboid |  |
+| PXD046414 | — | Bioid; Proximity labeling; Turboid |  |
+| PXD046472 | Formaldehyde | proximity labeling; Turboid |  |
+| PXD046634 | DSSO | — |  |
+| PXD046652 | — | Proximity labeling |  |
+| PXD046754 | — | — | RNA_PROTEIN_UV_XL: LPS-induced RNA-binding proteome - UV-crosslinked to RNA (mouse macrophages). |
+| PXD046895 | Benzoyl | — |  |
+| PXD046966 | DSBSO | — |  |
+| PXD046990 | DSBU | — |  |
+| PXD047023 | Formaldehyde | Proximity-dependent; Turboid |  |
+| PXD047030 | (unverified) S-XL6 | — |  |
+| PXD047173 | DSS | — |  |
+| PXD047274 | — | — |  |
+| PXD047277 | — | APEX; APEX2; biotin-phenol; proximity labeling |  |
+| PXD047368 | BS3 | — |  |
+| PXD047378 | — | APEX2; biotin-phenol; proximity labeling |  |
+| PXD047422 | DSSO | — |  |
+| PXD047455 | — | Proximity biotinylation; proximity labeling |  |
+| PXD047543 | — | Proximity labeling; Turboid |  |
+| PXD047547 | — | — | NATURAL_OR_ENZYMATIC_XL: Natural/oxidative disulfide bond formation between NLRP1 and TRX1 (not a synthetic crosslinker). |
+| PXD047569 | — | Proximity labeling; Turboid |  |
+| PXD047583 | — | Proximity biotinylation; proximity labeling |  |
+| PXD047725 | — | Proximity labeling; Turboid |  |
+| PXD047929 | BS3 | — |  |
+| PXD047979 | — | APEX2; Bioid; Proximity labeling; Turboid |  |
+| PXD048030 | — | proximity labeling; TurboID |  |
+| PXD048046 | — | Proximity labeling; Turboid |  |
+| PXD048097 | — | Proximity labeling |  |
+| PXD048145 | Formaldehyde | — |  |
+| PXD048174 | — | Proximity labeling; Turboid |  |
+| PXD048180 | — | Bioid; proximity labeling |  |
+| PXD048194 | DSSO | — |  |
+| PXD048297 | DMP | — |  |
+| PXD048298 | DMP | — |  |
+| PXD048452 | SDA | — |  |
+| PXD048567 | — | — | CORRECT_REJECT_NO_TEXT: Evidence_quote: 'covalently immobilized...using cross-linkers' - generic, unnamed reagent(s); no PMC. |
+| PXD048614 | — | — | NATURAL_OR_ENZYMATIC_XL: Natural disulfide bond mapping/rearrangement in J-chain (not a synthetic crosslinker). |
+| PXD048625 | DSS | — |  |
+| PXD048632 | (unverified) photo-ANA | — |  |
+| PXD048897 | — | — | NATURAL_OR_ENZYMATIC_XL: Natural/enzymatic dityrosine bond in RSV fusion glycoprotein. |
+| PXD048937 | — | proximity labeling; turboID |  |
+| PXD048965 | Formaldehyde | proximity labeling; turboID |  |
+| PXD049047 | BMOE | — |  |
+| PXD049054 | — | Bioid; proximity labeling; Turboid |  |
+| PXD049094 | BS3 | — |  |
+| PXD049182 | — | BioID2; Proximity labeling |  |
+| PXD049300 | DSS | — |  |
+| PXD049303 | — | — | RNA_PROTEIN_UV_XL: RNA interactome capture (RIC) - RNA-protein complexes stabilized by UV crosslinking in vivo. |
+| PXD049360 | — | proximity labeling |  |
+| PXD049372 | — | bioid; proximity labeling; turboid |  |
+| PXD049375 | — | Proximity labeling; Turboid |  |
+| PXD049433 | — | Proximity labeling; TurboID |  |
+| PXD049681 | — | Bioid; proximity labeling |  |
+| PXD049684 | — | Bioid; proximity labeling |  |
+| PXD049689 | — | Bioid; proximity labeling |  |
+| PXD049797 | — | — |  |
+| PXD049991 | — | Bioid; proximity labeling |  |
+| PXD050097 | BS3 | — |  |
+| PXD050222 | — | proximity labeling; TurboID |  |
+| PXD050287 | — | proximity labeling; Turboid |  |
+| PXD050493 | Benzoyl | — |  |
+| PXD050556 | — | proximity labeling; TurboID |  |
+| PXD050824 | — | Proximity labeling |  |
+| PXD050833 | — | — | NATURAL_OR_ENZYMATIC_XL: Lysyl oxidase (LOX) ENZYME catalyzing natural collagen crosslinks. |
+| PXD050928 | DSS; PDH | — |  |
+| PXD050929 | DSS; PDH | — |  |
+| PXD050930 | DSS; PDH | — |  |
+| PXD050960 | DSBU | — |  |
+| PXD051014 | EGS | proximity labeling |  |
+| PXD051047 | EGS | proximity labeling |  |
+| PXD051075 | DSS; Formaldehyde; PhoX | — |  |
+| PXD051143 | — | BioID2; proximity labeling |  |
+| PXD051261 | DSG; DSS | — |  |
+| PXD051322 | BS3; DSBU; DSG; DSS; DSSO | — |  |
+| PXD051348 | — | Proximity labeling |  |
+| PXD051405 | — | Proximity labeling |  |
+| PXD051493 | DSS | — |  |
+| PXD051557 | — | APEX2; proximity labeling |  |
+| PXD051602 | DSP | — |  |
+| PXD051661 | sulfo-SDA | — |  |
+| PXD051693 | (unverified) dimethylsulfonium | — |  |
+| PXD051742 | DSSO | — |  |
+| PXD051886 | sulfo-SDA | — |  |
+| PXD051937 | — | APEX2; biotin phenol; proximity labeling |  |
+| PXD051971 | DSBU; EDC | — |  |
+| PXD052022 | Azide-A-DSBSO; DSSO | — |  |
+| PXD052032 | — | Proximity labeling |  |
+| PXD052174 | — | proximity labeling |  |
+| PXD052310 | — | APEX2; biotin phenol; proximity labeling |  |
+| PXD052480 | (unverified) TBDSPP | — |  |
+| PXD052552 | (unverified) o-NBE | — |  |
+| PXD052584 | DSSO | — |  |
+| PXD052623 | — | APEX2; biotin-phenol; proximity labeling |  |
+| PXD052624 | — | APEX2; proximity labeling |  |
+| PXD052637 | — | proximity labeling |  |
+| PXD052687 | (unverified) PFA | Proximity labeling; Turboid |  |
+| PXD052694 | (unverified) PFA | Proximity labeling; turboid |  |
+| PXD052745 | — | proximity labeling; Turboid |  |
+| PXD052746 | — | Biotin Phenol; proximity labeling |  |
+| PXD052801 | (unverified) iqPIR | — |  |
+| PXD052817 | DSSO | — |  |
+| PXD052821 | DSSO | — |  |
+| PXD052825 | — | Proximity Labeling; Turboid |  |
+| PXD052832 | DSSO | — |  |
+| PXD052867 | SDA | — |  |
+| PXD052917 | — | Biotin Phenol; proximity labeling |  |
+| PXD052923 | BS3 | — |  |
+| PXD052926 | — | Proximity labeling |  |
+| PXD052930 | — | APEX2; biotin phenol; Proximity labeling |  |
+| PXD053010 | EDC | — |  |
+| PXD053341 | sulfo-SDA | — |  |
+| PXD053452 | — | BioID; proximity-dependent; TurboID |  |
+| PXD053481 | DSBU; DSSO | — |  |
+| PXD053489 | — | proximity labeling |  |
+| PXD053494 | — | — | RNA_PROTEIN_UV_XL: irCLIP-RNP - UVC crosslinking of RNA-protein complexes. |
+| PXD053500 | BS3 | — |  |
+| PXD053509 | — | APEX2; BioID; PROXIMITY LABELING; Proximity-dependent |  |
+| PXD053578 | — | APEX; APEX2; biotin-phenol; Proximity labeling; proximity-labeling |  |
+| PXD053607 | SMCC | — |  |
+| PXD053621 | — | Proximity labeling |  |
+| PXD053636 | PhoX | — |  |
+| PXD053760 | — | BioID; BioID2; proximity-dependent |  |
+| PXD053814 | — | — | NATURAL_OR_ENZYMATIC_XL: Spontaneous dehydroamino-acid-mediated protein crosslinks in Alzheimer's brain tissue (disease-associated PTM, not a synthetic reagent). |
+| PXD053832 | — | Proximity labeling; TurboID |  |
+| PXD053924 | — | Bioid; proximity labeling |  |
+| PXD053984 | DSSO; photo-leucine; photo-methionine | — |  |
+| PXD053999 | DSS; PDH | — |  |
+| PXD054002 | — | Proximity labeling |  |
+| PXD054003 | — | BioID2; proximity-dependent |  |
+| PXD054140 | DSSO | — |  |
+| PXD054141 | DSSO | — |  |
+| PXD054249 | (unverified) DDZ3; LBL1-PCF | — |  |
+| PXD054381 | — | APEX; biotin phenol; proximity labeling |  |
+| PXD054489 | — | Proximity Labeling; TurboID |  |
+| PXD054551 | (unverified) TSTO | — |  |
+| PXD054616 | — | proximity labeling; turboID | TurboID proximity labeling (biotin ligase fused with PAICS); no chemical crosslinker used. |
+| PXD054720 | DSSO | — |  |
+| PXD054728 | DSSO | — |  |
+| PXD054757 | DSS | — |  |
+| PXD054857 | (unverified) PFA | proximity labeling; TurboID |  |
+| PXD054875 | — | proximity labeling |  |
+| PXD054939 | — | APEX2; proximity labeling |  |
+| PXD054973 | DSSO | — |  |
+| PXD055077 | DSS; DSSO | — |  |
+| PXD055085 | DSS; DSSO | — |  |
+| PXD055086 | — | proximity labeling |  |
+| PXD055147 | sulfo-SDA | — |  |
+| PXD055169 | SBAP; SIA; SIAB | — |  |
+| PXD055235 | Formaldehyde | BioID; BioID2; proximity-dependent |  |
+| PXD055284 | BS3; DSBU; DSS; DSSBU | — |  |
+| PXD055305 | Formaldehyde | proximity labeling |  |
+| PXD055356 | BS3 | — |  |
+| PXD055488 | DSG | — |  |
+| PXD055512 | ADH; DSS | — |  |
+| PXD055649 | — | — |  |
+| PXD055703 | DSS; PDH | — |  |
+| PXD055708 | — | APEX2; Proximity labeling |  |
+| PXD055722 | — | APEX2; Proximity labeling |  |
+| PXD055749 | — | proximity labeling; TurboID |  |
+| PXD055759 | BS3 | — |  |
+| PXD055775 | — | APEX2; proximity labeling |  |
+| PXD055778 | — | Proximity labeling; Proximity-dependent; TurboID |  |
+| PXD055874 | — | proximity-dependent; TurboID |  |
+| PXD055877 | — | proximity-dependent |  |
+| PXD055943 | (unverified) iqPIR | — |  |
+| PXD056299 | — | Proximity labeling; Turboid |  |
+| PXD056360 | DSSO | — |  |
+| PXD056652 | sulfo-SDA | — |  |
+| PXD056787 | — | APEX2; biotin-phenol; Proximity labeling |  |
+| PXD056825 | (unverified) Q2linker | — |  |
+| PXD056910 | DSSO | — |  |
+| PXD056942 | — | Proximity labeling |  |
+| PXD056954 | — | — |  |
+| PXD056971 | — | Bioid; proximity labeling |  |
+| PXD057009 | — | proximity labeling |  |
+| PXD057110 | — | APEX; APEX2; proximity-dependent |  |
+| PXD057245 | — | APEX; biotin phenol; proximity labeling |  |
+| PXD057404 | Formaldehyde | APEX2; Bioid; biotin-phenol; proximity labeling |  |
+| PXD057492 | — | proximity labeling |  |
+| PXD057705 | BS3; DSBU; DSS; DSSO | — |  |
+| PXD058056 | BS3; DTSSP | — |  |
+| PXD058168 | BS3 | — |  |
+| PXD058191 | (unverified) iqPIR | — |  |
+| PXD058327 | — | Proximity labeling; Turboid |  |
+| PXD058694 | DSP | — |  |
+| PXD058706 | — | — |  |
+| PXD058941 | DSS | — |  |
+| PXD059010 | — | proximity labeling; Turboid |  |
+| PXD059118 | DSS; Formaldehyde; PhoX | — |  |
+| PXD059125 | — | proximity Labeling |  |
+| PXD059137 | — | Proximity Labeling; TurboID |  |
+| PXD059180 | — | proximity labeling |  |
+| PXD059211 | (unverified) SuccBB | — |  |
+| PXD059356 | BS3 | — |  |
+| PXD059369 | BS3 | — |  |
+| PXD059495 | DSSO; PhoX | — |  |
+| PXD059547 | DHSO; DMTMM | — |  |
+| PXD059552 | — | — |  |
+| PXD059554 | — | BioID; Proximity labeling; Turboid |  |
+| PXD059558 | — | proximity labeling; Turboid |  |
+| PXD059579 | — | BioID2; Proximity labeling |  |
+| PXD059635 | DSS | — |  |
+| PXD059716 | — | Proximity labeling; TurboID |  |
+| PXD059766 | DSSO | — |  |
+| PXD059888 | DSG; DSS; DSSO | — |  |
+| PXD059960 | — | — |  |
+| PXD059974 | DHSO; DSSO | — |  |
+| PXD060078 | EDC | — |  |
+| PXD060106 | — | APEX; APEX2; Biotin-phenol; proximity labeling |  |
+| PXD060111 | — | proximity labeling |  |
+| PXD060112 | — | proximity labeling |  |
+| PXD060134 | — | Biotin Phenol; proximity labeling |  |
+| PXD060138 | Formaldehyde | Apex; Proximity labeling |  |
+| PXD060322 | DSPU | — |  |
+| PXD060469 | DSSO | — |  |
+| PXD060638 | — | proximity labeling; TurboID |  |
+| PXD060724 | DSS; DSSO | — |  |
+| PXD060781 | — | Proximity labeling; TurboID |  |
+| PXD060825 | DSSO | BioID; proximity labeling |  |
+| PXD061125 | BS3 | — |  |
+| PXD061173 | DSBSO | — |  |
+| PXD061317 | — | — |  |
+| PXD061540 | — | Proximity labeling; Turboid |  |
+| PXD061541 | — | Proximity labeling; Turboid |  |
+| PXD061560 | — | Proximity labeling; Turboid |  |
+| PXD061563 | — | Proximity labeling; Turboid |  |
+| PXD061564 | — | Proximity labeling; Turboid |  |
+| PXD061566 | — | Proximity labeling; Turboid |  |
+| PXD061667 | sulfo-SDA | — |  |
+| PXD061687 | — | APEX2; biotin-phenol; proximity biotinylation; proximity labeling |  |
+| PXD061691 | — | proximity labeling |  |
+| PXD061693 | — | proximity labeling |  |
+| PXD061712 | — | APEX2; proximity biotinylation; proximity labeling |  |
+| PXD061752 | — | Bioid; Proximity labeling; proximity-labeling; turboid |  |
+| PXD061911 | — | proximity labeling; Turboid |  |
+| PXD062002 | DSG | — |  |
+| PXD062101 | — | Proximity Labeling; proximity-labeling; turboid |  |
+| PXD062203 | Formaldehyde | BioID; TurboID |  |
+| PXD062293 | — | proximity labeling; TurboID |  |
+| PXD062479 | Azide-A-DSBSO | — |  |
+| PXD062557 | — | Proximity labeling; TurboID |  |
+| PXD062600 | — | proximity labeling |  |
+| PXD062688 | — | — | NATURAL_OR_ENZYMATIC_XL: TG2/FXIIIA transglutaminase ENZYMES catalyzing natural fibrin clot crosslinks. |
+| PXD062741 | — | Proximity labeling |  |
+| PXD062870 | — | Proximity labeling |  |
+| PXD062890 | — | proximity labeling; TurboID | TurboID + co-IP comparison study (U2AF2-TurboID-HA); no chemical crosslinker. |
+| PXD063033 | (unverified) BNBA; HMNB-NHS | — |  |
+| PXD063145 | — | Proximity LabEling |  |
+| PXD063191 | DSP | proximity labeling |  |
+| PXD063192 | DSP | proximity labeling |  |
+| PXD063709 | EDC + sulfo-NHS | — |  |
+| PXD063736 | Benzoyl | — |  |
+| PXD063786 | DSSO; Formaldehyde | — |  |
+| PXD063825 | (unverified) TSTO | — |  |
+| PXD063839 | — | — | REAL_MISS: VTT (vinyl thianthrenium tetrafluoroborate) explicitly named ('Cells were treated with VTT') - brand-new 2025 reagent (Hartmann et al., JACS), bare unexpanded abbreviation, not yet in our reference DB. |
+| PXD063858 | DSS | — |  |
+| PXD063968 | Formaldehyde | — |  |
+| PXD064535 | DSSO | — |  |
+| PXD064557 | — | Apex; biotin-phenol; Proximity labeling |  |
+| PXD064792 | Formaldehyde | — |  |
+| PXD064795 | DSBU | — |  |
+| PXD064931 | DSSO | — |  |
+| PXD064932 | DSSO | — |  |
+| PXD065410 | — | Proximity labeling |  |
+| PXD065739 | — | bioid; Proximity dependent; proximity labeling |  |
+| PXD065858 | DSBSO | — |  |
+| PXD065859 | DSBSO | — |  |
+| PXD065869 | DSBSO | — |  |
+| PXD065870 | DSBSO | — |  |
+| PXD065871 | DSBSO | — |  |
+| PXD065905 | Azide-A-DSBSO | — |  |
+| PXD065912 | DSBSO | — |  |
+| PXD065946 | DSBSO | — |  |
+| PXD065949 | DSBSO | — |  |
+| PXD065956 | DSBSO | — |  |
+| PXD065958 | DSBSO | — |  |
+| PXD065961 | DSBSO | — |  |
+| PXD066067 | — | Proximity labeling |  |
+| PXD066251 | — | — |  |
+| PXD066655 | — | — |  |
+| PXD066874 | — | Proximity labeling; TurboID |  |
+| PXD067296 | BS3 | — |  |
+| PXD067324 | BS3 | — |  |
+| PXD067352 | — | Proximity labeling; Turboid |  |
+| PXD067354 | — | Proximity labeling; Turboid |  |
+| PXD068129 | — | — | CORRECT_REJECT_NO_TEXT: Genuine clinical XL-MS feasibility study (human muscle biopsy, mitochondrial interactome) confirmed via keywords, but no specific reagent named anywhere in the available (no-PMC, 4458-char) text. |
+| PXD069219 | — | Proximity labeling |  |
+| PXD069360 | — | proximity labeling; Turboid |  |
+| PXD069512 | Formaldehyde | — |  |
+| PXD069844 | — | Bioid; proximity-dependent |  |
