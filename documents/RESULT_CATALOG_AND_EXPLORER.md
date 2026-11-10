@@ -21,8 +21,17 @@ server, credentials, R2 bucket, or additional package. Run this from the
 repository root to create or update `xhamlet-results.sqlite3`:
 
 ```bash
-python scripts/sync_result_database.py --config configs/config.yaml
+python scripts/sync_result_database.py --config configs/config.yaml --pxd-file done_pxds.txt
 ```
+
+Choose a scope explicitly: `--pxd-file` accepts whitespace/comma-separated PXD
+accessions and `#` comments; `--pxd` accepts accessions or masks and can be
+combined with the file. Full-store synchronization requires `--all`, which
+cannot be combined with either selector. An empty file or omitted scope is
+an error, not a request to scan the full store. `--snapshot-only` needs no scope
+because it reads the existing catalog without scanning stored outputs.
+The command prints the selected count, per-PXD progress, and PPI-index refresh
+immediately rather than buffering these messages.
 
 Choose a different local database path when needed, for example to keep a
 separate test catalog:
@@ -30,7 +39,8 @@ separate test catalog:
 ```bash
 python scripts/sync_result_database.py \
   --config configs/config.yaml \
-  --database-path databases/test-results.sqlite3
+  --database-path databases/test-results.sqlite3 \
+  --all
 ```
 
 To use a shared PostgreSQL database instead, install the optional driver and
@@ -38,7 +48,7 @@ set a connection URL explicitly:
 
 ```bash
 python -m pip install -r requirements.txt
-python scripts/sync_result_database.py \
+python scripts/sync_result_database.py --all \
   --config configs/config.yaml \
   --database-url 'postgresql://USER:PASSWORD@HOST:5432/xhamlet'
 ```
@@ -47,7 +57,7 @@ Synchronize the selected database and write the GitHub Pages snapshot in one
 command:
 
 ```bash
-python scripts/sync_result_database.py \
+python scripts/sync_result_database.py --all \
   --config configs/config.yaml \
   --static-snap
 ```
@@ -88,7 +98,10 @@ surfaces needed to audit a PXD:
   software, spectrum-result count, spectrum-item count, passing-item count,
   parse-completion status, source RAW roster, and file-clustering assignments.
 
-For each passing cross-link observation, the catalog stores the source RAW
+Only paired, rank-1, FDR-passing cross-link observations without referenced
+decoy peptide evidence enter the catalog and downstream AF3 selection.
+Existing entries require a forced scoped sync to apply changes to this rule.
+For each accepted cross-link observation, the catalog stores the source RAW
 filename when resolvable, spectrum and scan identifiers, alpha/beta peptide
 sequences, protein accessions and positions, charge, xi score, and cross-link
 group identifier. The static snapshot groups those observations by PXD, ReLink
@@ -106,13 +119,13 @@ JavaScript so it can be hosted on GitHub Pages. Its catalog is generated from
 the PostgreSQL results database, after the selected PXD records are updated:
 
 ```bash
-python scripts/sync_result_database.py --config configs/config.yaml --static-snap
+python scripts/sync_result_database.py --config configs/config.yaml --all --static-snap
 ```
 
 For a focused local preview using the complete test fixtures:
 
 ```bash
-python scripts/sync_result_database.py \
+python scripts/sync_result_database.py --all \
   --config configs/config.yaml \
   --data-dir test_data \
   --static-snap web/results-explorer/data/catalog.json
@@ -146,7 +159,7 @@ custom domain or a Worker endpoint, then build the catalog with that public
 root:
 
 ```bash
-python scripts/sync_result_database.py \
+python scripts/sync_result_database.py --all \
   --config configs/config.yaml \
   --static-snap \
   --artifact-base-url https://results.example.org

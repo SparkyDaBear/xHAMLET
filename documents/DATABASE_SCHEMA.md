@@ -42,7 +42,10 @@ The implementation stores project/run provenance; complete LLM JSON and parsed r
 fields; all non-binary artifact checksums and metadata; compact textual SDRF, TSV, CSV,
 and Xi config outputs; source RAW identifiers plus their file-clustering assignments;
 ReLink run context; document-level mzIdentML validation counts and header provenance;
-and compact passing cross-link records grouped to their source RAW files.
+and compact rank-1, FDR-passing, non-decoy cross-link records grouped to their
+source RAW files. Both peptide sides must have rank 1 and pass the threshold;
+rank ties are retained. The importer enforces this rule before PPI indexing
+and AF3 job selection.
 
 The detailed normalized mzIdentML tables below remain the Phase 2 target. Until that
 streaming loader is implemented, individual PSMs, peptides, protein evidence, and every
@@ -797,3 +800,23 @@ Before implementation, decide:
 The minimum implementation is PostgreSQL containing the complete LLM JSON plus normalized
 LLM and mzIdentML result tables. RAW, mzML, FASTA, and workflow files remain outside the
 database and are not part of this result store.
+
+## 12. Reference PPI Tables
+
+`scripts/sync_reference_ppis.py` adds reference data (not xHAMLET results) used to validate
+crosslinked protein pairs. All four tables cascade-delete from `reference_source`.
+
+| Table | Key | Purpose |
+|---|---|---|
+| `reference_source` | `(name, release)` | Source name, release, URL, SHA-256, license, citation, counts. |
+| `reference_complex` | `(reference_source_id, complex_id)` | One complex: name, taxid, hu.MAP `confidence_tier` or Complex Portal `evidence_code`, `member_count`, `dropped_participants`. |
+| `reference_complex_member` | `(reference_complex_id, accession)` | Base UniProt accession and stoichiometry (NULL if unknown). |
+| `reference_ppi` | `(reference_source_id, accession_a, accession_b)` | Unordered co-complex pair, `accession_a < accession_b`; `complex_ids` (JSON), `best_tier`, `evidence_codes`. |
+| `crosslink_match_ppi` | `(crosslink_match_id, accession_a, accession_b)` | Each ReLink match expanded to its candidate pairs (UniProt isoform/chain suffixes removed), with peptides and residue ranges oriented to A/B and an `is_ambiguous` flag. Derived from `crosslink_match`; rebuilt by `refresh_ppi_index`. |
+| `ppi` | `(accession_a, accession_b)` | Hub: every pair seen in ReLink or a reference source, with ReLink counts and best xi score and Complex Portal / hu.MAP 3.0 complex counts, evidence codes and best tier. Derived; rebuilt by `refresh_ppi_index`. |
+
+Views: `ppi_relink_detail` (one row per ReLink observation of a pair) and
+`ppi_reference_detail` (one row per reference complex containing a pair).
+
+Pairs are co-complex membership, not direct contact. Complex Portal and hu.MAP 3.0 are not
+independent evidence because hu.MAP 3.0 was trained and tested on Complex Portal.

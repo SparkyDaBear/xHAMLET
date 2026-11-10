@@ -133,6 +133,15 @@ force-refreshed, and temporary assessment mzML files are cleaned. RAW files are
 retained for ReLink. Log directories are created **before** `sbatch` so Slurm
 can open them immediately.
 
+After successful ReLink searches, `search_results/` contains compact
+`linear.csv`, `crosslinks.csv`, and `scan_map.csv` files, each strictly below
+50 MB. Linear exports contain rank-1 targets (not FDR-validated); crosslink
+exports and the AF3 catalog use rank-1, FDR-passing non-decoy matches.
+Backfill with `python scripts/export_search_results.py --all
+--completed-pxd-file /tmp/exported_pxds.txt`, then refresh only successful PXDs
+with `python scripts/sync_result_database.py --pxd-file /tmp/exported_pxds.txt
+--force`. See the store-layout document for column definitions and failure handling.
+
 ReLink uses a separate `.nextflow-run` launch directory per output group, avoiding
 shared Nextflow history/cache locks between PXDs. Under Slurm,
 `assets/relink_slurm_resources.config` caps local ReLink tasks to the allocation's

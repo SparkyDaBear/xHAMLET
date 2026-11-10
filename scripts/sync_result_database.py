@@ -7,12 +7,12 @@ SQLite database stores their checksums, locations, metadata, and queryable
 result summaries. PostgreSQL remains available with ``--database-url``.
 
 Examples:
-    python scripts/sync_result_database.py --config configs/config.yaml
-    python scripts/sync_result_database.py --database-path xhamlet-results.sqlite3
+    python scripts/sync_result_database.py --pxd-file done_pxds.txt
+    python scripts/sync_result_database.py --all --database-path xhamlet-results.sqlite3
     export XHAMLET_DATABASE_URL='postgresql://user:password@localhost/xhamlet'
-    python scripts/sync_result_database.py --database-url "$XHAMLET_DATABASE_URL" --static-snap
+    python scripts/sync_result_database.py --all --database-url "$XHAMLET_DATABASE_URL" --static-snap
     python scripts/sync_result_database.py --pxd PXD042173 'PXD05*' --force
-    python scripts/sync_result_database.py --exclude-pxd 'PXD00*' --dry-run
+    python scripts/sync_result_database.py --all --exclude-pxd 'PXD00*' --dry-run
 """
 
 from __future__ import annotations
@@ -423,6 +423,23 @@ class SQLiteConnection:
             self.connection.commit()
 
 
+def read_pxds(positional: list[str], pxd_file: Path | None) -> list[str]:
+    tokens = list(positional)
+    if pxd_file:
+        for line in pxd_file.read_text(encoding="utf-8").splitlines():
+            tokens += re.split(r"[\s,]+", line.split("#", 1)[0].strip())
+    pxds: list[str] = []
+    for token in tokens:
+        token = token.strip().upper()
+        if not token:
+            continue
+        if not re.fullmatch(r"PXD\d{6}", token):
+            raise SystemExit(f"Not a PXD accession: {token!r}")
+        if token not in pxds:
+            pxds.append(token)
+    return pxds
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", default="configs/config.yaml", help="xHAMLET YAML configuration")
@@ -441,8 +458,14 @@ def parse_args() -> argparse.Namespace:
         "--pxd",
         nargs="+",
         metavar="PXD_OR_MASK",
-        help="PXD accessions or shell-style masks to include; default: all PXD directories",
+        help="PXD accessions or shell-style masks to include",
     )
+    parser.add_argument(
+        "--pxd-file",
+        type=Path,
+        help="Text file of PXD accessions (whitespace/comma separated; # comments); combines with --pxd",
+    )
+    parser.add_argument("--all", dest="all_pxds", action="store_true", help="Explicitly synchronize all PXD directories")
     parser.add_argument(
         "--exclude-pxd",
         nargs="+",
@@ -480,6 +503,18 @@ def parse_args() -> argparse.Namespace:
         ),
     )
     args = parser.parse_args()
+    if args.all_pxds and (args.pxd or args.pxd_file):
+        parser.error("--all cannot be combined with --pxd or --pxd-file")
+    if args.pxd_file:
+        try:
+            file_pxds = read_pxds([], args.pxd_file)
+        except OSError as exc:
+            parser.error(f"Cannot read --pxd-file: {exc}")
+        if not file_pxds:
+            parser.error("--pxd-file contains no PXD accessions")
+        args.pxd = list(dict.fromkeys([*(args.pxd or []), *file_pxds]))
+    if not args.snapshot_only and not (args.all_pxds or args.pxd):
+        parser.error("Choose --pxd, --pxd-file, or --all; full-store synchronization is never implicit")
     if args.database_url is None and args.database_path is None:
         args.database_url = os.getenv("XHAMLET_DATABASE_URL")
         if args.database_url is None:
@@ -618,6 +653,7 @@ def parse_mzid(path: Path) -> dict[str, Any]:
     }
     proteins: dict[str, str] = {}
     peptides: dict[str, str] = {}
+    peptide_details: dict[str, dict[str, list[dict[str, str]]]] = {}
     evidence: dict[str, list[dict[str, str]]] = {}
     evidence_by_id: dict[str, dict[str, str]] = {}
     spectra_data: dict[str, str] = {}
@@ -644,6 +680,16 @@ def parse_mzid(path: Path) -> dict[str, Any]:
                 proteins[element.get("id", "")] = element.get("accession", "")
             elif tag == "Peptide":
                 peptides[element.get("id", "")] = element.findtext("{*}PeptideSequence", default="")
+                details: dict[str, list[dict[str, str]]] = {"links": [], "modifications": []}
+                for modification in element.findall("{*}Modification"):
+                    parameters = modification.findall("{*}cvParam")
+                    entry = dict(modification.attrib)
+                    if any(p.get("accession") in {"MS:1002509", "MS:1002510"}
+                           for p in parameters):
+                        details["links"].append(entry)
+                    else:
+                        details["modifications"].append(entry)
+                peptide_details[element.get("id", "")] = details
             elif tag == "PeptideEvidence":
                 peptide_id = element.get("peptide_ref", "")
                 mapping = {
@@ -665,7 +711,7 @@ def parse_mzid(path: Path) -> dict[str, Any]:
                     if is_passing:
                         summary["passing_item_count"] += 1
                     group_key = item_group_key(item)
-                    if is_passing and group_key:
+                    if is_passing and group_key and item.get("rank") == "1":
                         grouped_items.setdefault(group_key, []).append(item)
                 for group_key, items in grouped_items.items():
                     sides = {peptide_side(item.get("peptide_ref", "")): item for item in items}
@@ -680,6 +726,10 @@ def parse_mzid(path: Path) -> dict[str, Any]:
                     for side in ("alpha", "beta"):
                         item = sides[side]
                         peptide_id = item.get("peptide_ref", "")
+                        match[f"{side}_link_sites"] = [
+                            entry.get("location", "") for entry in peptide_details[peptide_id]["links"]
+                        ]
+                        match[f"{side}_modifications"] = peptide_details[peptide_id]["modifications"]
                         mappings = evidence.get(peptide_id, [])
                         match[f"{side}_sequence"] = peptides.get(peptide_id)
                         match[f"{side}_proteins"] = sorted(
@@ -1467,13 +1517,15 @@ def main() -> int:
         if not base_dir.is_dir():
             raise FileNotFoundError(f"storage.base_dir does not exist: {base_dir}")
         pxds = select_pxds(base_dir, args.pxd, args.exclude_pxd)
+        print(f"Selected {len(pxds)} PXD(s) from {base_dir}", flush=True)
         plans = [(pxd_dir, catalog_files(pxd_dir)) for pxd_dir in pxds]
 
     if args.dry_run:
         if args.snapshot_only:
             raise SystemExit("--dry-run cannot be combined with --snapshot-only")
         print(f"Data directory: {base_dir}")
-        for pxd_dir, files in plans:
+        for index, (pxd_dir, files) in enumerate(plans, 1):
+            print(f"[{index}/{len(plans)}] Checking {pxd_dir.name}...", flush=True)
             print(f"{pxd_dir.name}: {len(files)} catalogable artifacts")
         print(f"Dry run: {len(plans)} PXD(s) selected")
         if args.static_snap:
@@ -1494,12 +1546,18 @@ def main() -> int:
         for pxd_dir, files in plans:
             signature = source_signature(pxd_dir, files)
             if not args.force and synchronizer.is_current(pxd_dir.name.upper(), signature):
-                print(f"{pxd_dir.name}: unchanged, skipped")
+                print(f"{pxd_dir.name}: unchanged, skipped", flush=True)
                 skipped += 1
                 continue
             status = synchronizer.sync_pxd(pxd_dir, signature, files)
-            print(f"{pxd_dir.name}: {status}")
+            print(f"{pxd_dir.name}: {status}", flush=True)
             imported += 1
+        if imported:
+            # Keep the unified PPI index (ppi, crosslink_match_ppi) in step with the new crosslinks.
+            from ppi_index import refresh_ppi_index, summary_text
+
+            print("Refreshing PPI index...", flush=True)
+            print(summary_text(refresh_ppi_index(connection)), flush=True)
         if args.static_snap:
             selected_accessions = (
                 [pxd_dir.name.upper() for pxd_dir, _ in plans]

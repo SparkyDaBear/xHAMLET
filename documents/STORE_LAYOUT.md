@@ -24,6 +24,7 @@ store/<PXD>/
 ├── configs/           tracked   xiSEARCH crosslink/linear search configs
 ├── enhanced/          tracked   Final merged metadata for the PXD
 ├── af3_predictions/   tracked   Promoted AlphaFold3 models for supported PPIs
+├── search_results/    tracked   Compact rank-1 linear and crosslink CSVs, plus spectrum map
 ├── work/              IGNORED   Downloaded vendor RAW files (up to GBs each)
 └── relink/            IGNORED   ReLink FASTA and Nextflow search/FDR outputs
 ```
@@ -52,6 +53,53 @@ Cached JSON files written through `DataStore`
 | `af3_predictions/<job>/` | `scripts/promote_af3_predictions.py` | See below |
 
 Temporary assessment mzML files are deleted after stage 4.
+
+### `search_results/`
+
+`scripts/export_search_results.py` runs after all current ReLink search groups
+finish successfully. It can also backfill existing results:
+
+```bash
+python scripts/export_search_results.py --pxd PXD009641
+python scripts/export_search_results.py --all --completed-pxd-file /tmp/exported_pxds.txt
+python scripts/sync_result_database.py --pxd-file /tmp/exported_pxds.txt --force
+```
+
+The backfill reports and skips PXDs with incomplete result groups and exits
+nonzero if any PXD fails. Only successfully exported PXDs are written to the
+requested list. The automatic hook exports the current run's groups; the
+standalone default checks every existing result group, including stale attempts.
+
+Each file must be **strictly below 50,000,000 bytes**. The exporter validates
+inputs and sizes in a temporary directory before replacing existing outputs;
+oversized results are reported rather than truncated. A valid search with zero
+accepted crosslinks produces a header-only crosslink CSV.
+
+| File | Columns and filtering |
+|---|---|
+| `linear.csv` | `scan_id,charge,peptide,modified_peptide,protein_accessions,peptide_starts,xi_score`; only original xiSEARCH `MatchRank=1`, `decoy=0` rows, retaining ties. These are **not linear-FDR validated**. `modified_peptide` preserves xiSEARCH notation including flanking residues. |
+| `crosslinks.csv` | `scan_id,charge,alpha_peptide,alpha_modifications,alpha_positions,alpha_link_sites,beta_peptide,beta_modifications,beta_positions,beta_link_sites,xi_score`; paired mzIdentML rank-1, FDR-passing matches without referenced decoy evidence. Includes intra-protein as well as inter-protein links. |
+| `scan_map.csv` | `scan_id,search_group,search_stage,run,scan,scan_title`; maps PXD-local numeric IDs to source spectra and search groups (taxid/chemistry). Stages distinguish original linear spectra from recalibrated crosslink spectra. |
+
+Protein ambiguity is preserved, not expanded into separate candidate-pair rows.
+Linear accession/start lists retain xiSEARCH's original encoding and ordering.
+Crosslink positions use `accession:start-end` entries separated by semicolons.
+Link sites are 1-based positions within the peptide (terminal positions follow
+mzIdentML conventions); protein sites require combining the peptide start with
+the link position. Modifications are compact JSON arrays of mzIdentML attributes
+(location, mass delta and residues when supplied), excluding donor/acceptor
+crosslink markers. Those markers supply the separate link-site columns.
+
+Spectrum IDs are deterministic for unchanged input ordering, but should only be
+joined within the same PXD export. `scan` preserves the source's value: xiSEARCH's
+`Scan` can differ from the native scan number recorded in `scan_title`. For
+mzIdentML, `scan` is extracted from the native spectrum ID when available;
+`scan_title` always retains the full native ID.
+
+The catalog importer uses the same rank-1 crosslink filter, so future AF3 jobs
+draw only from rank-1 passing evidence. Existing catalog entries need a forced
+scoped refresh to apply the new rule; previously generated AF3 models are not
+removed or rerun.
 
 ### `af3_predictions/<job>/`
 

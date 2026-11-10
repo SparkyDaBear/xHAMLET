@@ -16,6 +16,7 @@ import os
 import re
 import shutil
 import subprocess
+import sys
 import time
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Set
@@ -237,6 +238,15 @@ class ReLinkRunner:
             raise RuntimeError(
                 f"ReLink failed for taxid(s): {', '.join(failed_taxids)}"
             )
+
+        export_command = [
+            sys.executable,
+            str(Path(__file__).resolve().parents[2] / "scripts" / "export_search_results.py"),
+            "--data-dir", str(pxd_dir.parent), "--pxd", pxd,
+        ]
+        for result in all_results.values():
+            export_command.extend(["--result-dir", str(result["outdir"])])
+        subprocess.run(export_command, check=True)
 
         return {
             "status": "success",
