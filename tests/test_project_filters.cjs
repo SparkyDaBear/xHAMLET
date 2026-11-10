@@ -30,6 +30,10 @@ function explorer(projects, loading = false) {
     count: () => nodes.get("#project-count").textContent,
     list: () => nodes.get("#project-list").innerHTML,
     load() { vm.runInContext("state.catalog = catalog; renderProjects();", context); },
+    crosslinks(project) {
+      context.projectToRender = project;
+      return vm.runInContext("renderCrosslinks(projectToRender)", context);
+    },
     change(selector, value) {
       const event = selector === "#project-search" ? "input" : "change";
       nodes.get(selector).listeners[event]({ target: { checked: value, value } });
@@ -47,6 +51,28 @@ test("filters can be selected before the catalog finishes loading", () => {
   assert.equal(app.count(), "1 of 2 projects");
   assert.match(app.list(), /PXD000002/);
   assert.doesNotMatch(app.list(), /PXD000001/);
+});
+
+test("crosslink tables identify chemistry groups rather than taxid", () => {
+  const app = explorer([]);
+  const html = app.crosslinks({
+    accession: "PXD000001",
+    relink_runs: [
+      { path: "relink/taxid_9606/bs3", crosslinks: [{}] },
+      { path: "relink/taxid_9606/sulfo_sda", crosslinks: [{}] },
+      { path: "relink/taxid_562", crosslinkers: [
+        "crosslinker:NonCovalentBound:Name:NonCovalent",
+        "crosslinker:SymetricSingleAminoAcidRestrictedCrossLinker:Name:DSSO;MASS:158",
+      ], crosslinks: [{}] },
+      { path: "relink/taxid_9606/results", crosslinks: [{}] },
+    ],
+  });
+  assert.match(html, /<h2>Cross-linker: BS3<\/h2>/);
+  assert.match(html, /<h2>Cross-linker: SULFO SDA<\/h2>/);
+  assert.match(html, /<h2>Cross-linker: DSSO<\/h2>/);
+  assert.match(html, /<h2>Cross-linker: Not recorded<\/h2>/);
+  assert.doesNotMatch(html, /<h2>Taxid/);
+  assert.match(html, /relink\/taxid_562/);
 });
 
 test("quick filters combine with each other and search, preserving zero-hit completed results", () => {

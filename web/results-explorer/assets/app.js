@@ -180,6 +180,16 @@ function renderSearches(project) {
   }).join("");
 }
 
+function crosslinkerLabel(run) {
+  const group = run.path?.match(/(?:^|\/)taxid_[^/]+\/([^/]+)(?:\/|$)/)?.[1];
+  if (group && group !== "results") return group.replaceAll("_", " ").toUpperCase();
+  const names = (run.crosslinkers || [])
+    .filter((line) => /^crosslinker:/i.test(line))
+    .map((line) => line.match(/(?:^|:)Name:([^;]+)/i)?.[1])
+    .filter((name) => name && name.toLowerCase() !== "noncovalent");
+  return [...new Set(names)].join(", ") || "Not recorded";
+}
+
 function renderCrosslinks(project) {
   const runs = project.relink_runs.filter((run) => run.crosslinks?.length);
   if (!runs.length) return empty("No compact cross-link records were included in this catalog.");
@@ -201,7 +211,7 @@ function renderCrosslinks(project) {
         </button>`;
       },
     };
-    return `<article class="run"><div class="run-heading"><h2>Taxid ${escapeHtml(run.taxid || "unknown")}</h2><span class="run-path">${escapeHtml(run.path)}</span></div>
+    return `<article class="run"><div class="run-heading"><h2>Cross-linker: ${escapeHtml(crosslinkerLabel(run))}</h2><span class="run-path">${escapeHtml(run.path)}</span></div>
       ${renderFilterableTable(`crosslinks-${project.accession}-${run.path.replaceAll(/[^a-z0-9]+/gi, "-")}`, columns, rows, "search-table", cellRenderers)}
     </article>`;
   }).join("");

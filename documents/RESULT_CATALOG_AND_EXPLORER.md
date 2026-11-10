@@ -176,6 +176,12 @@ search and with each other (AND): completed ReLink results requires at least one
 complete mzIdentML result document, including valid zero-hit results; AF3
 structures requires at least one prediction with a static structure path.
 An incomplete group does not hide another group's completed results.
+Cross-links tables are headed by their assigned crosslinker search group rather
+than taxid. The original run path remains visible to distinguish organisms or
+other separate searches using the same chemistry. For older ungrouped runs the
+heading uses configured crosslinker names, excluding the NonCovalent helper;
+missing chemistry is explicitly shown as "Not recorded". A group label describes
+the assigned search group, not independent validation of its chemistry configuration.
 
 A browser hosted on GitHub Pages should **not** connect directly to PostgreSQL.
 PostgreSQL credentials cannot be kept secret in client-side code, and exposing a
