@@ -88,6 +88,7 @@ function statusClass(status) {
 }
 
 function renderProjects() {
+  if (!state.catalog) return;
   const projects = state.catalog.projects.filter((project) =>
     `${project.accession} ${project.title}`.toLowerCase().includes(state.filter)
     && (!state.relinkOnly || project.relink_runs?.some((run) => run.mzid_documents?.some((document) => document.complete === true)))
@@ -308,8 +309,6 @@ fetch("data/catalog.json")
   .then((response) => response.ok ? response.json() : Promise.reject(new Error(`HTTP ${response.status}`)))
   .then((catalog) => {
     state.catalog = catalog;
-    elements.relinkFilter.disabled = false;
-    elements.af3Filter.disabled = false;
     elements.stamp.textContent = `${catalog.project_count} projects | generated ${new Date(catalog.generated_at).toLocaleString()}`;
     selectProject(catalog.projects[0]?.accession);
   })

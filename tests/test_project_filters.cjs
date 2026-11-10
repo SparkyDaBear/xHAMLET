@@ -4,7 +4,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const vm = require("node:vm");
 
-function explorer(projects) {
+function explorer(projects, loading = false) {
   const nodes = new Map();
   const context = vm.createContext({
     Intl,
@@ -25,16 +25,29 @@ function explorer(projects) {
   const source = fs.readFileSync(path.join(__dirname, "../web/results-explorer/assets/app.js"), "utf8");
   vm.runInContext(source, context);
   context.catalog = { projects, project_count: projects.length };
-  vm.runInContext("state.catalog = catalog; renderProjects();", context);
+  if (!loading) vm.runInContext("state.catalog = catalog; renderProjects();", context);
   return {
     count: () => nodes.get("#project-count").textContent,
     list: () => nodes.get("#project-list").innerHTML,
+    load() { vm.runInContext("state.catalog = catalog; renderProjects();", context); },
     change(selector, value) {
       const event = selector === "#project-search" ? "input" : "change";
       nodes.get(selector).listeners[event]({ target: { checked: value, value } });
     },
   };
 }
+
+test("filters can be selected before the catalog finishes loading", () => {
+  const app = explorer([
+    { accession: "PXD000001", title: "No model" },
+    { accession: "PXD000002", title: "Model", predicted_complexes: [{ structure_path: "model.cif" }] },
+  ], true);
+  app.change("#filter-af3", true);
+  app.load();
+  assert.equal(app.count(), "1 of 2 projects");
+  assert.match(app.list(), /PXD000002/);
+  assert.doesNotMatch(app.list(), /PXD000001/);
+});
 
 test("quick filters combine with each other and search, preserving zero-hit completed results", () => {
   const app = explorer([
