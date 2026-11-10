@@ -1,10 +1,12 @@
-const state = { catalog: null, project: null, tab: "overview", filter: "" };
+const state = { catalog: null, project: null, tab: "overview", filter: "", relinkOnly: false, af3Only: false };
 
 const elements = {
   stamp: document.querySelector("#catalog-stamp"),
   list: document.querySelector("#project-list"),
   count: document.querySelector("#project-count"),
   search: document.querySelector("#project-search"),
+  relinkFilter: document.querySelector("#filter-relink"),
+  af3Filter: document.querySelector("#filter-af3"),
   view: document.querySelector("#project-view"),
   empty: document.querySelector("#empty-state"),
   accession: document.querySelector("#project-accession"),
@@ -86,7 +88,11 @@ function statusClass(status) {
 }
 
 function renderProjects() {
-  const projects = state.catalog.projects.filter((project) => `${project.accession} ${project.title}`.toLowerCase().includes(state.filter));
+  const projects = state.catalog.projects.filter((project) =>
+    `${project.accession} ${project.title}`.toLowerCase().includes(state.filter)
+    && (!state.relinkOnly || project.relink_runs?.some((run) => run.mzid_documents?.some((document) => document.complete === true)))
+    && (!state.af3Only || project.predicted_complexes?.some((prediction) => prediction.structure_path))
+  );
   elements.count.textContent = `${projects.length} of ${state.catalog.project_count} projects`;
   elements.list.innerHTML = projects.map((project) => `
     <button class="project-link ${state.project?.accession === project.accession ? "is-active" : ""}" data-pxd="${escapeHtml(project.accession)}">
@@ -295,11 +301,15 @@ document.addEventListener("keydown", (event) => {
 
 document.querySelectorAll(".tab").forEach((tab) => tab.addEventListener("click", () => { state.tab = tab.dataset.tab; renderProject(); }));
 elements.search.addEventListener("input", (event) => { state.filter = event.target.value.trim().toLowerCase(); renderProjects(); });
+elements.relinkFilter.addEventListener("change", (event) => { state.relinkOnly = event.target.checked; renderProjects(); });
+elements.af3Filter.addEventListener("change", (event) => { state.af3Only = event.target.checked; renderProjects(); });
 
 fetch("data/catalog.json")
   .then((response) => response.ok ? response.json() : Promise.reject(new Error(`HTTP ${response.status}`)))
   .then((catalog) => {
     state.catalog = catalog;
+    elements.relinkFilter.disabled = false;
+    elements.af3Filter.disabled = false;
     elements.stamp.textContent = `${catalog.project_count} projects | generated ${new Date(catalog.generated_at).toLocaleString()}`;
     selectProject(catalog.projects[0]?.accession);
   })

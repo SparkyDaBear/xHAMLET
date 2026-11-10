@@ -171,6 +171,12 @@ directory layout below each PXD. If artifacts are not public, put a Cloudflare
 Worker in front of R2 to authenticate the request and return short-lived signed
 URLs. Never place R2 access keys in the static catalog or browser JavaScript.
 
+The project list has two optional quick filters that combine with accession/title
+search and with each other (AND): completed ReLink results requires at least one
+complete mzIdentML result document, including valid zero-hit results; AF3
+structures requires at least one prediction with a static structure path.
+An incomplete group does not hide another group's completed results.
+
 A browser hosted on GitHub Pages should **not** connect directly to PostgreSQL.
 PostgreSQL credentials cannot be kept secret in client-side code, and exposing a
 database socket publicly is unsafe. To read live database results, expose a
