@@ -17,7 +17,7 @@ from .data_store import DataStore
 from .llm_client import LLMClient
 from .prompt_templates import PromptTemplates
 from .xi_config_generator import XiConfigGenerator
-from .raw_processor import RawFileProcessor
+from .raw_processor import RawFileProcessor, is_complete_raw
 from .assessor_runner import AssessorRunner
 from .sdrf_writer import SDRFWriter
 from .relink_runner import ReLinkRunner
@@ -103,6 +103,7 @@ class PXDMetadataEnhancer:
         clean_mzml: bool = False,
         limit: Optional[int] = None,
         aria2c_connections: int = 16,
+        download_backend: str = "aria2c",
         nproc: int = 1,
         skip_sdrf: bool = False,
         skip_xi: bool = False,
@@ -111,6 +112,7 @@ class PXDMetadataEnhancer:
         relink_resume: bool = False,
         relink_work_dir: Optional[str] = None,
         relink_queue_size: Optional[int] = None,
+        force_taxid: Optional[str] = None,
     ) -> Dict[str, Any]:
         """
         Main workflow: Process a single PXD end-to-end (staged pipeline).
@@ -138,6 +140,7 @@ class PXDMetadataEnhancer:
             clean_mzml:                 Delete .mzML files after mzML_assessor completes.
             limit:                      Cap the number of raw files processed in Stage 3.
             aria2c_connections:         TCP connections per file for aria2c (default: 16).
+            download_backend:           RAW download tool, "aria2c" or "wget" (default: aria2c).
             nproc:                      Parallel workers for Phase 1 per-file processing (default: 1).
             skip_sdrf:                  Skip Stage 6 (SDRF generation).
             skip_xi:                    Skip Stage 8 (Xi config generation).
@@ -337,11 +340,13 @@ class PXDMetadataEnhancer:
                         pxd=pxd,
                         pxd_dir=pxd_dir,
                         aria2c_connections=aria2c_connections,
+                        download_backend=download_backend,
                         clean_raw=clean_raw,
                         clean_mzml=clean_mzml,
                         skip_spectral=skip_spectral,
                         limit=limit,
                         nproc=nproc,
+                        require_raw=relink,
                     )
                     raw_result = processor.run(file_list)
                     result["stages"]["raw_processing"] = (
@@ -606,21 +611,19 @@ class PXDMetadataEnhancer:
                         f.get("fileName", "") for f in all_files
                         if str(f.get("fileName", "")).lower().endswith(".raw")
                     ]
-                    empty_raw_names = [
-                        raw_name for raw_name in raw_names
-                        if (pxd_dir / "work" / raw_name).exists()
-                        and (pxd_dir / "work" / raw_name).stat().st_size == 0
+                    if limit is not None:
+                        raw_names = raw_names[:limit]
+                    incomplete_raw_names = [
+                        name for name in raw_names
+                        if not is_complete_raw(pxd_dir / "work" / name)
                     ]
-                    if empty_raw_names:
-                        logger.warning(
-                            "Excluding %d empty local RAW file(s) from ReLink: %s",
-                            len(empty_raw_names),
-                            ", ".join(empty_raw_names),
+                    if incomplete_raw_names:
+                        raise FileNotFoundError(
+                            "ReLink requires all selected RAW downloads to be complete; "
+                            "missing, empty, or interrupted: " + ", ".join(incomplete_raw_names)
                         )
                     raw_paths = [
                         pxd_dir / "work" / raw_name for raw_name in raw_names
-                        if (pxd_dir / "work" / raw_name).is_file()
-                        and (pxd_dir / "work" / raw_name).stat().st_size > 0
                     ]
 
                     if not raw_paths:
@@ -657,6 +660,7 @@ class PXDMetadataEnhancer:
                         profile=relink_profile,
                         resume=relink_resume,
                         extra_args=relink_extra_args or None,
+                        force_taxid=force_taxid,
                     )
                     result["stages"]["relink"] = "success"
                     result["relink"] = relink_result

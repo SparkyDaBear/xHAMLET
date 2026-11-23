@@ -9,6 +9,7 @@ via Nextflow.
 from __future__ import annotations
 
 import csv
+import fcntl
 import hashlib
 import json
 import logging
@@ -18,10 +19,14 @@ import shutil
 import subprocess
 import sys
 import time
+from contextlib import contextmanager
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Set
 
 import requests
+
+from .raw_processor import is_complete_raw
 
 logger = logging.getLogger(__name__)
 
@@ -30,6 +35,7 @@ class ReLinkRunner:
     """Run the ReLink Nextflow pipeline for a single PXD."""
 
     UNIPROT_FASTA_URL = "https://rest.uniprot.org/uniprotkb/stream"
+    DEFAULT_UNIPROT_CACHE = Path(__file__).resolve().parents[2] / "reference_data" / "uniprot_fasta"
 
     @staticmethod
     def _paths_share_device(first: Path, second: Path) -> bool:
@@ -39,9 +45,14 @@ class ReLinkRunner:
         self,
         relink_dir: str = "./tools/relink",
         requests_timeout: int = 600,
+        uniprot_cache_dir: Optional[str] = None,
     ) -> None:
         self.relink_dir = Path(relink_dir).resolve()
         self.requests_timeout = requests_timeout
+        # Shared across all runs; override with XHAMLET_UNIPROT_FASTA_CACHE or the argument.
+        self.uniprot_cache_dir = Path(
+            uniprot_cache_dir or os.environ.get("XHAMLET_UNIPROT_FASTA_CACHE") or self.DEFAULT_UNIPROT_CACHE
+        ).expanduser().resolve()
 
     def run_for_pxd(
         self,
@@ -57,8 +68,18 @@ class ReLinkRunner:
         profile: str = "docker",
         resume: bool = False,
         extra_args: Optional[Sequence[str]] = None,
+        force_taxid: Optional[str] = None,
     ) -> Dict[str, Any]:
-        """Execute ReLink for a single PXD."""
+        """Execute ReLink for a single PXD.
+
+        ``force_taxid`` replaces every SDRF-derived taxid with a single NCBITaxon ID.
+        """
+        incomplete = [str(path) for path in raw_paths if not is_complete_raw(path)]
+        if not raw_paths or incomplete:
+            raise ValueError(
+                "ReLink requires complete RAW files (no .aria2 markers): "
+                + (", ".join(incomplete) if incomplete else "no RAW files supplied")
+            )
         if not self.relink_dir.exists():
             raise FileNotFoundError(
                 f"ReLink submodule not found at {self.relink_dir}. "
@@ -71,6 +92,18 @@ class ReLinkRunner:
         # Extract organisms from SDRF (dataset-level organism/taxid resolution,
         # see SDRFWriter._resolve_organisms_list / _assign_organisms_per_file).
         taxids: Set[str] = set(self.extract_taxids_from_sdrf(sdrf_path))
+
+        if force_taxid is not None:
+            force_taxid = str(force_taxid).strip()
+            if not force_taxid.isdigit():
+                raise ValueError(f"force_taxid must be a numeric NCBITaxon ID: {force_taxid!r}")
+            logger.info(
+                "%s: Forcing taxid %s (SDRF taxids: %s)",
+                pxd,
+                force_taxid,
+                ", ".join(sorted(taxids)) or "none",
+            )
+            taxids = {force_taxid}
 
         if not taxids:
             # Default to human (file clustering, which previously supplied an
@@ -151,11 +184,12 @@ class ReLinkRunner:
                 for taxid in sorted(taxids)
             }
 
+        project_fasta = self.fetch_project_fasta(project_files, fasta_dir)
         all_results = {}
         for (taxid, crosslinker_name), group_raw_paths in sorted(crosslinker_groups.items()):
             run_label = f"taxid {taxid} ({crosslinker_name})" if crosslinker_name else f"taxid {taxid}"
             logger.info("Running ReLink for %s", run_label)
-            fasta_path = self.fetch_project_fasta(project_files, fasta_dir)
+            fasta_path = project_fasta
             if fasta_path is None:
                 fasta_path = self.fetch_fasta_for_taxid(taxid, fasta_dir)
 
@@ -350,7 +384,7 @@ class ReLinkRunner:
         project_files: Optional[Sequence[Dict[str, Any]]],
         output_dir: Path,
     ) -> Optional[Path]:
-        """Download and cache the single FASTA supplied with a PRIDE project."""
+        """Use all supplied FASTAs, concatenating multiple databases for search."""
         candidates = [
             file_info
             for file_info in project_files or []
@@ -360,14 +394,59 @@ class ReLinkRunner:
         ]
         if not candidates:
             return None
+        candidates.sort(key=lambda info: str(info["fileName"]))
+        names = [Path(str(info["fileName"])).name for info in candidates]
+        if len(set(names)) != len(names):
+            raise ValueError("PRIDE FASTA filenames must be unique within the project")
+        paths = [self._download_project_fasta(info, output_dir) for info in candidates]
+        for path in paths:
+            self._normalize_fasta(path)
+            with path.open("rb") as handle:
+                if not handle.read(4096).lstrip().startswith(b">"):
+                    raise RuntimeError(f"PRIDE FASTA '{path.name}' is not a FASTA file")
         if len(candidates) > 1:
-            names = ", ".join(str(file_info.get("fileName", "")) for file_info in candidates)
-            raise ValueError(
-                "Multiple FASTA files were supplied by PRIDE; cannot select one safely: "
-                f"{names}"
+            signature = json.dumps(
+                [(str(info["fileName"]), str(info.get("ftpUrl") or "")) for info in candidates]
             )
+            digest = hashlib.sha256(signature.encode()).hexdigest()[:16]
+            combined = output_dir / f"combined_pride_{digest}.fasta"
+            temporary = combined.with_suffix(".fasta.tmp")
+            try:
+                with temporary.open("wb") as output:
+                    for path in paths:
+                        with path.open("rb") as source:
+                            shutil.copyfileobj(source, output)
+                        output.write(b"\n")
+                temporary.replace(combined)
+            except Exception:
+                temporary.unlink(missing_ok=True)
+                raise
+            logger.info("Combined %d PRIDE-supplied FASTAs into %s", len(paths), combined)
+            return combined
+        return paths[0]
 
-        file_info = candidates[0]
+    @staticmethod
+    def _normalize_fasta(path: Path) -> None:
+        """Strip a UTF-8 BOM and convert CRLF line endings, rewriting only if needed."""
+        with path.open("rb") as handle:
+            head = handle.read(1 << 20)
+        if not (head.startswith(b"\xef\xbb\xbf") or b"\r" in head):
+            return
+        temporary = path.with_suffix(path.suffix + ".norm.tmp")
+        try:
+            with path.open("rb") as source, temporary.open("wb") as output:
+                for index, line in enumerate(source):
+                    if index == 0 and line.startswith(b"\xef\xbb\xbf"):
+                        line = line[3:]
+                    output.write(line.rstrip(b"\r\n") + b"\n" if line.endswith((b"\n", b"\r")) else line)
+            temporary.replace(path)
+        except Exception:
+            temporary.unlink(missing_ok=True)
+            raise
+        logger.info("Normalized FASTA line endings/BOM: %s", path)
+
+    def _download_project_fasta(self, file_info: Dict[str, Any], output_dir: Path) -> Path:
+        """Download one source database atomically, reusing its cached copy."""
         filename = Path(str(file_info["fileName"])).name
         source_url = str(file_info.get("ftpUrl") or "")
         if not source_url:
@@ -395,7 +474,7 @@ class ReLinkRunner:
                     if not chunk:
                         continue
                     if not first_chunk_checked:
-                        if not chunk.lstrip().startswith(b">"):
+                        if not chunk.removeprefix(b"\xef\xbb\xbf").lstrip().startswith(b">"):
                             raise RuntimeError(
                                 f"PRIDE download for '{filename}' is not a FASTA file"
                             )
@@ -412,13 +491,102 @@ class ReLinkRunner:
         return fasta_path
 
     def fetch_fasta_for_taxid(self, taxid: str, output_dir: Path) -> Path:
-        """Download a UniProt FASTA stream for a taxonomy ID with retry logic."""
+        """Return <output_dir>/taxid_<taxid>.fasta, downloading UniProt only if no run has before.
+
+        Downloads go to a cache shared by every run (``uniprot_cache_dir``); the per-PXD file is a
+        hard link (or copy) so each PXD directory stays self-contained for downstream scripts.
+        """
         output_dir.mkdir(parents=True, exist_ok=True)
         fasta_path = output_dir / f"taxid_{taxid}.fasta"
 
         if fasta_path.exists() and fasta_path.stat().st_size > 0:
             logger.info("Using cached FASTA for taxid %s: %s", taxid, fasta_path)
             return fasta_path
+
+        cache_path = self.uniprot_cache_dir / f"taxid_{taxid}_reviewed.fasta"
+        self.uniprot_cache_dir.mkdir(parents=True, exist_ok=True)
+        if not (cache_path.exists() and cache_path.stat().st_size > 0):
+            with self._cache_lock(cache_path):
+                # Another run may have finished the download while this one waited for the lock.
+                if cache_path.exists() and cache_path.stat().st_size > 0:
+                    logger.info("UniProt FASTA for taxid %s was cached by another run", taxid)
+                else:
+                    self._download_uniprot_fasta(taxid, cache_path)
+        else:
+            logger.info("Using shared UniProt FASTA cache for taxid %s: %s", taxid, cache_path)
+
+        self._link_or_copy(cache_path, fasta_path)
+        return fasta_path
+
+    @staticmethod
+    @contextmanager
+    def _cache_lock(cache_path: Path):
+        """Serialize downloads of one cache file across concurrent jobs (best effort on NFS)."""
+        lock_path = cache_path.with_suffix(cache_path.suffix + ".lock")
+        with open(lock_path, "a") as lock_file:
+            try:
+                fcntl.flock(lock_file, fcntl.LOCK_EX)
+            except OSError:
+                logger.warning("Could not lock %s; continuing without a lock", lock_path)
+            try:
+                yield
+            finally:
+                try:
+                    fcntl.flock(lock_file, fcntl.LOCK_UN)
+                except OSError:
+                    pass
+
+    @staticmethod
+    def _link_or_copy(source: Path, destination: Path) -> None:
+        temporary = destination.with_name(destination.name + f".{os.getpid()}.link")
+        temporary.unlink(missing_ok=True)
+        try:
+            try:
+                os.link(source, temporary)
+            except OSError:
+                shutil.copy2(source, temporary)
+            temporary.replace(destination)
+        finally:
+            temporary.unlink(missing_ok=True)
+
+    def _download_uniprot_fasta(self, taxid: str, cache_path: Path) -> None:
+        """Download into the cache, restarting the whole download if the stream breaks mid-way."""
+        attempts, base_delay = 3, 5
+        for attempt in range(1, attempts + 1):
+            try:
+                self._download_uniprot_fasta_once(taxid, cache_path)
+                break
+            except (
+                requests.exceptions.ChunkedEncodingError,
+                requests.exceptions.ConnectionError,
+                requests.exceptions.Timeout,
+            ) as error:
+                if attempt == attempts:
+                    raise RuntimeError(
+                        f"UniProt FASTA stream for taxid {taxid} failed {attempts} times: {error}"
+                    ) from error
+                delay = base_delay * (2 ** (attempt - 1))
+                logger.warning(
+                    "UniProt FASTA stream for taxid %s broke (attempt %d/%d): %s. Retrying in %ds",
+                    taxid, attempt, attempts, error, delay,
+                )
+                time.sleep(delay)
+        digest = hashlib.sha256()
+        sequences = 0
+        with cache_path.open("rb") as handle:
+            for line in handle:
+                digest.update(line)
+                sequences += line.startswith(b">")
+        cache_path.with_suffix(".json").write_text(json.dumps({
+            "taxid": taxid, "url": self.UNIPROT_FASTA_URL,
+            "query": f"taxonomy_id:{taxid} AND reviewed:true",
+            "downloaded_at": datetime.now(timezone.utc).isoformat(),
+            "bytes": cache_path.stat().st_size, "sequences": sequences, "sha256": digest.hexdigest(),
+        }, indent=2) + "\n", encoding="utf-8")
+
+    def _download_uniprot_fasta_once(self, taxid: str, fasta_path: Path) -> None:
+        """Download a UniProt FASTA stream for a taxonomy ID with retry logic for the connection."""
+        fasta_path.parent.mkdir(parents=True, exist_ok=True)
 
         # Use reviewed:true (SwissProt only) to keep the FASTA small enough for
         # XiSearch to load into memory.  The full TrEMBL proteome for taxid 9606
@@ -502,7 +670,7 @@ class ReLinkRunner:
 
         # Stream response to disk in chunks to avoid loading large proteomes into RAM.
         # Use a temp file so an incomplete download never leaves a corrupt FASTA behind.
-        tmp_path = fasta_path.with_suffix(".fasta.tmp")
+        tmp_path = fasta_path.with_suffix(f".fasta.{os.getpid()}.tmp")
         bytes_written = 0
         first_chunk_checked = False
         chunk_size = 1 << 20  # 1 MiB
@@ -534,7 +702,6 @@ class ReLinkRunner:
             raise
 
         logger.info("FASTA for taxid %s saved: %s (%.1f MB)", taxid, fasta_path, bytes_written / (1 << 20))
-        return fasta_path
 
     # Path to the custom Nextflow config that fixes Singularity container pulls.
     # Relative to the repo root (two levels above tools/relink).
@@ -562,24 +729,24 @@ class ReLinkRunner:
         / "relink_js2_m3_xl.config"
     )
 
-    def _clean_nextflow_state(self, preserve_cache: bool = False) -> None:
-        """Remove stale Nextflow session files from the ReLink submodule directory.
+    def _clean_nextflow_state(self, launch_dir: Path, preserve_cache: bool = False) -> None:
+        """Remove stale session files from this group's private launch directory.
 
         Nextflow writes .nextflow/, .nextflow.log*, and .nextflow.pid into the
-        directory where `nextflow run .` is executed (tools/relink/).
+        directory where Nextflow is executed.
         `.nextflow` holds cache metadata needed by `-resume`, so it is retained
         when resuming and otherwise cleared to avoid accidental cross-run reuse.
         """
         import shutil
 
-        nf_dir = self.relink_dir / ".nextflow"
+        nf_dir = launch_dir / ".nextflow"
         if nf_dir.exists() and not preserve_cache:
             shutil.rmtree(nf_dir)
             logger.info("Cleaned stale Nextflow session state: %s", nf_dir)
         elif nf_dir.exists():
             logger.info("Preserving Nextflow session state for -resume: %s", nf_dir)
 
-        for log_file in self.relink_dir.glob(".nextflow.log*"):
+        for log_file in launch_dir.glob(".nextflow.log*"):
             log_file.unlink()
             logger.debug("Removed stale Nextflow log: %s", log_file)
 
@@ -596,11 +763,13 @@ class ReLinkRunner:
         run_name: str,
         extra_args: Optional[Iterable[str]] = None,
     ) -> Dict[str, Any]:
-        """Run local ReLink checkout via nextflow run ."""
+        """Run the ReLink checkout with session state isolated per output group."""
         outdir.mkdir(parents=True, exist_ok=True)
+        launch_dir = outdir.resolve() / ".nextflow-run"
+        launch_dir.mkdir(parents=True, exist_ok=True)
 
         # Cache metadata is required to reuse completed tasks with `-resume`.
-        self._clean_nextflow_state(preserve_cache=resume)
+        self._clean_nextflow_state(launch_dir, preserve_cache=resume)
 
         profile_key = profile.lower()
         js2_resource_configs = {
@@ -611,12 +780,18 @@ class ReLinkRunner:
         cmd: List[str] = [
             "nextflow",
             "run",
-            ".",
+            str(self.relink_dir),
             "-name",
             run_name,
             "-profile",
             "conda,local" if profile_key == "conda" else nextflow_profile,
         ]
+
+        if os.environ.get("SLURM_JOB_ID"):
+            for variable in ("SLURM_CPUS_PER_TASK", "SLURM_MEM_PER_NODE"):
+                if int(os.environ.get(variable, "0")) <= 0:
+                    raise ValueError(f"{variable} must be positive for a ReLink Slurm run")
+            cmd += ["-c", str(self._LOCAL_RESOURCE_CONFIG.with_name("relink_slurm_resources.config"))]
 
         if profile_key == "conda":
             resource_config = self._LOCAL_RESOURCE_CONFIG
@@ -699,22 +874,28 @@ class ReLinkRunner:
                 entry for entry in env.get("PATH", "").split(os.pathsep)
                 if entry != virtualenv_bin
             )
-        proc = subprocess.run(
-            cmd,
-            cwd=str(self.relink_dir),
-            stdout=subprocess.PIPE,
-            stderr=subprocess.STDOUT,  # merge stderr into stdout
-            text=True,
-            env=env,
-        )
+        stdout_path = launch_dir / f"{run_name}.stdout.log"
+        logger.info("Live Nextflow output: %s", stdout_path)
+        with stdout_path.open("w") as stdout_file:
+            proc = subprocess.run(
+                cmd,
+                cwd=str(launch_dir),
+                stdout=stdout_file,
+                stderr=subprocess.STDOUT,
+                text=True,
+                env=env,
+            )
+        with stdout_path.open("rb") as stdout_file:
+            stdout_file.seek(max(0, stdout_path.stat().st_size - 4000))
+            stdout_tail = stdout_file.read().decode("utf-8", errors="replace")
 
         if proc.returncode != 0:
-            logger.error("Nextflow stdout/stderr:\n%s", (proc.stdout or "")[-4000:])
+            logger.error("Nextflow stdout/stderr (%s):\n%s", stdout_path, stdout_tail)
 
         cleanup_cmd = ["nextflow", "clean", run_name, "-f"]
         cleanup_proc = subprocess.run(
             cleanup_cmd,
-            cwd=str(self.relink_dir),
+            cwd=str(launch_dir),
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
             text=True,
@@ -738,7 +919,8 @@ class ReLinkRunner:
             "returncode": proc.returncode,
             "run_name": run_name,
             "command": cmd,
-            "stdout_tail": (proc.stdout or "")[-2000:],
+            "stdout_tail": stdout_tail[-2000:],
+            "stdout_log": str(stdout_path),
             "stderr_tail": "",
             "cleanup": cleanup_result,
         }

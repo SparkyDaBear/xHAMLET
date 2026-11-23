@@ -157,6 +157,14 @@ Examples:
     )
 
     parser.add_argument(
+        "--download-backend",
+        choices=["aria2c", "wget"],
+        default=os.environ.get("XHAMLET_DOWNLOAD_BACKEND", "aria2c"),
+        help="Tool used to download RAW files (default: $XHAMLET_DOWNLOAD_BACKEND or "
+             "aria2c). wget uses one connection per file and ignores --aria2c-connections."
+    )
+
+    parser.add_argument(
         "--nproc",
         default="1",
         metavar="N|auto",
@@ -211,6 +219,17 @@ Examples:
         default=None,
         metavar="N",
         help="Max concurrent Nextflow tasks for ReLink (-qs). Default: Nextflow default."
+    )
+
+    parser.add_argument(
+        "--force-taxid",
+        default=None,
+        metavar="TAXID",
+        help=(
+            "Run ReLink against this single NCBITaxon ID (e.g. 9606) instead of the "
+            "organisms in the SDRF. Only affects the UniProt FASTA fallback when "
+            "PRIDE supplies no FASTA. Default: use SDRF organisms."
+        )
     )
 
     parser.add_argument(
@@ -288,6 +307,8 @@ def main():
     """Main CLI entry point"""
     parser = create_parser()
     args = parser.parse_args()
+    if args.force_taxid is not None and not args.force_taxid.strip().isdigit():
+        parser.error("--force-taxid must be a numeric NCBITaxon ID (e.g. 9606)")
 
     # Setup logging
     log_level = "DEBUG" if args.verbose else "INFO"
@@ -413,6 +434,7 @@ def main():
         logger.info("  Clean .raw       : %s", args.clean_raw)
         logger.info("  Clean .mzML      : %s", args.clean_mzml)
         logger.info("  File limit       : %s", args.limit or "unlimited")
+        logger.info("  Download backend : %s", args.download_backend)
         logger.info("  aria2c conns     : %d", args.aria2c_connections)
         logger.info("  nproc            : %d", nproc)
         logger.info("  Skip SDRF        : %s", args.skip_sdrf)
@@ -422,6 +444,7 @@ def main():
         logger.info("  ReLink resume    : %s", args.relink_resume)
         logger.info("  ReLink work dir  : %s", args.relink_work_dir or "(default)")
         logger.info("  ReLink queue size: %s", args.relink_queue_size or "(default)")
+        logger.info("  Forced taxid     : %s", args.force_taxid or "(from SDRF)")
     logger.info("-" * 80)
 
     # Create enhancer
@@ -458,6 +481,7 @@ def main():
                     clean_mzml=args.clean_mzml,
                     limit=args.limit,
                     aria2c_connections=args.aria2c_connections,
+                    download_backend=args.download_backend,
                     nproc=nproc,
                     skip_sdrf=args.skip_sdrf,
                     skip_xi=args.skip_xi,
@@ -466,6 +490,7 @@ def main():
                     relink_resume=args.relink_resume,
                     relink_work_dir=args.relink_work_dir,
                     relink_queue_size=args.relink_queue_size,
+                    force_taxid=args.force_taxid,
                 )
             stages = result.get("stages", {})
             if args.relink and stages.get("relink") == "failed":

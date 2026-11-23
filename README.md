@@ -10,6 +10,19 @@ xHAMLET processes PRIDE XL-MS studies and produces:
 
 ## What The Pipeline Does
 
+The [subunit coverage notebook](src/analysis/subunit_xl_coverage.ipynb) uses
+accepted catalog observations and their source mzIdentML files to compare
+crosslinkable-residue coverage by UniProt subunit count. It uses the cached
+reviewed FASTA and the [UniProt subunit annotation snapshot](assets/uniprot_9606_reviewed_subunits.tsv).
+It also plots the subunit-count distribution of unique XL-associated proteins
+and a linear-search baseline that includes zero coverage for proteins with no
+accepted XL in the same completed search groups.
+Plot 4 uses seven panels in one column with a shared x-axis (subunit counts
+1–6). The top panel shows the fraction of linear-search proteins with zero
+localized unique XLs; the others show the fraction with at least N.
+Plot 5 is a stacked bar chart of linear-search proteins split into linear-only
+and those with at least one accepted ReLink XL, by subunit count 1–6.
+
 For each PXD accession, xHAMLET runs a staged workflow:
 
 1. PRIDE metadata fetch
@@ -127,6 +140,39 @@ The submission manifest records scheduler acceptance, not pipeline success.
 Use a fresh output directory for an intentional retry of failed or cancelled jobs;
 the previous directory remains an audit trail and is not resubmitted automatically.
 
+For the remaining-candidate ReLink batch, see
+[`assets/slurm/remaining394/batch_manifest.csv`](assets/slurm/remaining394/batch_manifest.csv).
+The `pride_single` and `pride_multiple` jobs keep SDRF-derived taxids and use
+the supplied FASTA directly or concatenate all supplied FASTAs, respectively.
+The `human_reviewed` jobs force taxid 9606 and verify the shared reviewed UniProt
+cache and any existing per-PXD copy before launch. Do not submit `hold_no_raw`
+scripts: the cached PRIDE manifests list no `.raw` inputs for those datasets,
+and the launcher currently requires them. The batch manifest records prior
+job IDs from the PRIDE FASTA batch so retries can be reviewed before submission.
+
+To retry this batch as one throttled array, build the manifest immediately
+before submission and submit the command it prints:
+
+```bash
+python scripts/build_relink_retry_array.py
+sbatch --array=1-N%10 assets/slurm/remaining394/retry_array.slurm \
+  assets/slurm/remaining394/retry_array_manifest.tsv
+```
+
+The builder includes submitted or cancelled PXDs (`cancelled_pending_20261118.csv`)
+that have not completed, not queued or running, not listed in `retry_exclusions.csv`, and whose newest log shows no
+xiSEARCH divide-by-zero. Skipped PXDs and reasons go to
+`retry_array_manifest_skipped.tsv`. A PXD counts as completed only when its newest
+`runs/PXD*/slurm_*.log` reports `Processing complete: N succeeded, 0 failed` and
+every taxid/crosslinker group that log ran has a non-empty
+`relink/taxid_*/<crosslinker>/results/fdr/results.mzid`. A `results.mzid` alone is
+not proof: one is written per group as the run progresses, and files from earlier
+or failed runs are kept. Each array task runs the existing per-PXD
+script and logs to `runs/PXD*/slurm_<arrayjob>_<task>.log`. Array tasks download
+RAW files with wget (`XHAMLET_DOWNLOAD_BACKEND=wget`, one connection per file);
+export `XHAMLET_DOWNLOAD_BACKEND=aria2c` before `sbatch` to use aria2c instead. Do not rebuild while
+an array is running, since array tasks are not matched by PXD job name.
+
 Results continue to use `store/PXD*/` (layout and git-tracking policy:
 [documents/STORE_LAYOUT.md](documents/STORE_LAYOUT.md)). Existing caches are reused rather than
 force-refreshed, and temporary assessment mzML files are cleaned. RAW files are
@@ -160,10 +206,19 @@ when a job terminates abruptly.
 Nextflow container images also use a private per-PXD cache, seeded with links to
 existing shared images, to avoid concurrent image-promotion races. PRIDE FTP RAW
 links use the equivalent HTTPS endpoint, with one RAW worker and two connections
-per file in this template. Transfers retry transient failures up to three process
-attempts, with 10/20-second backoff and a 20-minute timeout per attempt. aria2
-also uses a bounded internal retry count; HTTP 429/5xx responses and transient
-connection errors trigger the outer backoff.
+per file in this template. Transfers retry transient failures up to six process
+attempts, with jittered exponential backoff (30 s doubling, capped at 10 min) and
+a 20-minute timeout per attempt. aria2 also uses a bounded internal retry count;
+HTTP 429/5xx responses, aria2 bad-HTTP-response exits (rc=22), and transient
+connection errors trigger the outer backoff. `--download-backend wget` (or
+`XHAMLET_DOWNLOAD_BACKEND=wget`) uses wget with one connection per file instead;
+it downloads to `<file>.part` and renames only on success, retrying wget network
+failures (rc=4) and HTTP 429/5xx with the same backoff. An aria2c partial cannot
+be resumed by wget and is discarded. Three consecutive failed files no
+longer abort the download phase: the downloader cools down for 10 minutes and
+continues, aborting only after three cooldowns without any successful file.
+Files that still failed get one final pass after another cooldown. RAW files are
+downloaded once into `store/PXD*/work/` and reused by later runs.
 Interrupted `.aria2` downloads are resumed rather than treated as
 complete RAW files, and ReLink runs restore missing RAWs even when assessment
 metadata is already cached. ReLink refuses to launch when any selected RAW is
@@ -472,6 +527,12 @@ Key flags:
   jobs, the cached `reference_data/uniprot_fasta/taxid_9606_reviewed.fasta`
   provides canonical human sequences rather than arbitrarily choosing an isoform.
 - `--pxd <accession_or_mask...>`: restrict to matching PXDs
+- `--pair-file TSV`: generate only catalog-indexed pairs listed in a TSV with
+  `accession_a`/`accession_b` columns, e.g. a negative-control set from
+  `scripts/sample_negative_ppis.py`. That script draws ReLink pairs absent from
+  both Complex Portal and hu.MAP 3.0, size-matched to a positive batch manifest
+  (`--reference-manifest`, `--seed`), optionally restricted to listed PXDs
+  (`--pxd-file`) and to accessions in `--sequence-fasta` (`--require-sequence-fasta`).
 - `--min-supporting N`: minimum distinct supporting crosslinks required (default: 1)
 - `--include-self-links`: also emit homodimer jobs
 - `--expand-ambiguous`: enumerate candidate pairs when a crosslink's alpha/beta

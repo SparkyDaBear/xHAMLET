@@ -28,6 +28,7 @@ Examples:
     python scripts/promote_af3_predictions.py --pxd PXD031827
     python scripts/promote_af3_predictions.py --dry-run
     python scripts/promote_af3_predictions.py --force
+    python scripts/promote_af3_predictions.py --manifest af3_ppi_jobs/complex_portal100/manifest.tsv
 """
 
 from __future__ import annotations
@@ -82,6 +83,11 @@ def load_manifest_rows(manifest: Path, pxd_filter: list[str] | None) -> list[dic
 def promote_one(row: dict[str, str], af3_jobs_dir: Path, data_dir: Path, force: bool, dry_run: bool) -> str:
     pxd, job_name = row["pxd"], row["job_name"]
     model_cif = find_model_cif(af3_jobs_dir, pxd, job_name)
+    if model_cif is None and row.get("json_path"):
+        job_dir = Path(row["json_path"]).parent / job_name
+        candidate = job_dir / sanitized(job_name) / f"{sanitized(job_name)}_model.cif"
+        if candidate.is_file():
+            model_cif = candidate
     if model_cif is None:
         return "not_completed"
 
@@ -89,15 +95,26 @@ def promote_one(row: dict[str, str], af3_jobs_dir: Path, data_dir: Path, force: 
     source_dir = model_cif.parent
     dest_dir = data_dir / pxd / "af3_predictions" / job_name
 
-    if dest_dir.exists() and not force:
+    required = {
+        "model.cif": model_cif,
+        "summary_confidences.json": source_dir / f"{sanitized_name}_summary_confidences.json",
+        "ranking_scores.csv": source_dir / f"{sanitized_name}_ranking_scores.csv",
+    }
+    for source in required.values():
+        if not source.is_file() or source.stat().st_size == 0:
+            raise ValueError(f"Incomplete AF3 prediction: missing or empty {source}")
+    summary = json.loads(required["summary_confidences.json"].read_text(encoding="utf-8"))
+    if "iptm" not in summary or "ptm" not in summary:
+        raise ValueError(f"Invalid AF3 confidence summary: {required['summary_confidences.json']}")
+    if all((dest_dir / name).is_file() and (dest_dir / name).stat().st_size > 0
+           for name in (*required, "pair.json")) and not force:
         return "already_promoted"
     if dry_run:
         return "would_promote"
 
     dest_dir.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(model_cif, dest_dir / "model.cif")
-    shutil.copy2(source_dir / f"{sanitized_name}_summary_confidences.json", dest_dir / "summary_confidences.json")
-    shutil.copy2(source_dir / f"{sanitized_name}_ranking_scores.csv", dest_dir / "ranking_scores.csv")
+    for name, source in required.items():
+        shutil.copy2(source, dest_dir / name)
 
     pair = {
         "job_name": job_name,

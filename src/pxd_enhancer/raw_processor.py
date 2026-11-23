@@ -17,17 +17,47 @@ Phase 2 (once, after all Phase 1 files):
 
 import json
 import logging
+import random
+import re
 import subprocess
 import threading
+import time
 import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Any, Dict, List, Optional
+from urllib.parse import urlsplit, urlunsplit
 
 logger = logging.getLogger(__name__)
 
-# Maximum consecutive per-file failures before aborting Phase 1
+# Consecutive per-file failures that trigger a cooldown before continuing.
 MAX_CONSECUTIVE_FAILURES = 3
+# Cooldowns without an intervening success before Phase 1 is aborted.
+MAX_COOLDOWNS = 3
+FAILURE_COOLDOWN_SECONDS = 600
+
+DOWNLOAD_ATTEMPTS = 6
+RETRY_BACKOFF_SECONDS = 30
+RETRY_BACKOFF_MAX_SECONDS = 600
+# aria2c exit codes worth retrying; 22 (bad HTTP response) occurs when PRIDE is overloaded.
+TRANSIENT_ARIA2C_CODES = {1, 2, 5, 6, 7, 19, 22, 29}
+# wget exit code 4 = network failure (refused/reset/timeout); 8 = server error, retried only for 429/5xx.
+TRANSIENT_WGET_CODES = {4}
+DOWNLOAD_BACKENDS = ("aria2c", "wget")
+
+
+def retry_delay(attempt: int) -> float:
+    """Exponential backoff with jitter so concurrent jobs do not retry in lockstep."""
+    delay = min(RETRY_BACKOFF_MAX_SECONDS, RETRY_BACKOFF_SECONDS * 2 ** (attempt - 1))
+    return delay + random.uniform(0, delay / 4)
+
+
+def is_complete_raw(path: Path) -> bool:
+    return (
+        path.is_file()
+        and path.stat().st_size > 0
+        and not path.with_name(path.name + ".aria2").exists()
+    )
 
 
 class RawFileProcessor:
@@ -50,23 +80,29 @@ class RawFileProcessor:
         pxd: str,
         pxd_dir: Path,
         aria2c_connections: int = 16,
+        download_backend: str = "aria2c",
         clean_raw: bool = False,
         clean_mzml: bool = False,
         skip_spectral: bool = False,
         limit: Optional[int] = None,
         nproc: int = 1,
         assessor_script: Optional[Path] = None,
+        require_raw: bool = False,
     ) -> None:
         self.pxd = pxd
         self.pxd_dir = Path(pxd_dir)
         self.work_dir = self.pxd_dir / "work"
         self.assessment_dir = self.pxd_dir / "assessment"
         self.aria2c_connections = aria2c_connections
+        if download_backend not in DOWNLOAD_BACKENDS:
+            raise ValueError(f"Unknown download backend: {download_backend}")
+        self.download_backend = download_backend
         self.clean_raw = clean_raw
         self.clean_mzml = clean_mzml
         self.skip_spectral = skip_spectral
         self.limit = limit
         self.nproc = max(1, nproc)
+        self.require_raw = require_raw
 
         # Resolve assessor script path
         if assessor_script is None:
@@ -140,6 +176,7 @@ class RawFileProcessor:
         # Thread-safe failure tracking (consecutive abort only used in serial mode)
         _lock = threading.Lock()
         _consec = [0]  # mutable container for thread-safe increment
+        _cooldowns = [0]
         _abort = [False]
 
         def _process(args_tuple):
@@ -160,19 +197,33 @@ class RawFileProcessor:
 
             result = self._process_single_file(filename, ftp_url, idx, total, files_to_assess)
 
-            # Serial mode only: track consecutive failures and abort early
+            # Serial mode only: cool down after consecutive failures; abort only
+            # when repeated cooldowns bring no successful file.
+            cooldown = False
             if self.nproc == 1:
                 with _lock:
                     if result["status"] == "failed":
                         _consec[0] += 1
                         if _consec[0] >= MAX_CONSECUTIVE_FAILURES:
-                            logger.error(
-                                "%d consecutive failures — aborting Phase 1 early",
-                                MAX_CONSECUTIVE_FAILURES,
-                            )
-                            _abort[0] = True
+                            _consec[0] = 0
+                            _cooldowns[0] += 1
+                            if _cooldowns[0] > MAX_COOLDOWNS:
+                                logger.error(
+                                    "%d cooldowns without a successful file — aborting Phase 1 early",
+                                    MAX_COOLDOWNS,
+                                )
+                                _abort[0] = True
+                            else:
+                                cooldown = True
                     else:
                         _consec[0] = 0
+                        _cooldowns[0] = 0
+            if cooldown:
+                logger.warning(
+                    "%d consecutive failures — cooling down %ds before continuing (%d/%d)",
+                    MAX_CONSECUTIVE_FAILURES, FAILURE_COOLDOWN_SECONDS, _cooldowns[0], MAX_COOLDOWNS,
+                )
+                time.sleep(FAILURE_COOLDOWN_SECONDS)
 
             return idx, result
 
@@ -199,6 +250,26 @@ class RawFileProcessor:
                                 failed_count += 1
                     except Exception as exc:
                         logger.error("Unexpected error in Phase 1 worker: %s", exc)
+
+        # A single missing RAW blocks ReLink, so give failed files one more pass.
+        retry_slots = [
+            i for i, r in enumerate(per_file_results) if r is not None and r["status"] == "failed"
+        ]
+        if retry_slots and not _abort[0]:
+            logger.warning(
+                "Retrying %d failed file(s) after a %ds cooldown",
+                len(retry_slots), FAILURE_COOLDOWN_SECONDS,
+            )
+            time.sleep(FAILURE_COOLDOWN_SECONDS)
+            for i in retry_slots:
+                idx, file_info = indexed_files[i]
+                result = self._process_single_file(
+                    file_info.get("fileName", ""), file_info.get("ftpUrl", ""),
+                    idx, total, files_to_assess,
+                )
+                per_file_results[i] = result
+                if result["status"] != "failed":
+                    failed_count -= 1
 
         # Filter out any None slots (aborted entries)
         per_file_results = [r for r in per_file_results if r is not None]
@@ -265,15 +336,16 @@ class RawFileProcessor:
             return result
 
         # Resume support: skip if metadata already produced
-        if metadata_json.exists():
+        raw_complete = is_complete_raw(raw_path)
+        if metadata_json.exists() and (not self.require_raw or raw_complete):
             logger.info("[%d/%d] %s: metadata already exists — skipping", idx, total, filename)
             result["status"] = "skipped_existing"
             result["metadata_json"] = str(metadata_json)
             return result
 
-        # ① Download with aria2c unless the RAW is already present locally
+        # ① Download unless the RAW is already present locally
         # (for example, because it was extracted from a PRIDE ZIP archive).
-        if raw_path.exists() and raw_path.stat().st_size > 0:
+        if raw_complete:
             logger.info(
                 "[%d/%d] Using existing local RAW file %s",
                 idx, total, filename,
@@ -322,47 +394,100 @@ class RawFileProcessor:
     # ------------------------------------------------------------------
 
     def _download_file(self, ftp_url: str, filename: str) -> bool:
-        """Download a single file using aria2c with multiple TCP connections."""
-        n = self.aria2c_connections
-        cmd = [
-            "aria2c",
-            f"--max-connection-per-server={n}",
-            f"--split={n}",
-            "--min-split-size=1M",
-            "--allow-overwrite=true",
-            "--auto-file-renaming=false",
-            f"--dir={self.work_dir}",
-            f"--out={filename}",
-            ftp_url,
-        ]
-        logger.debug("aria2c: %s", " ".join(cmd))
-        try:
-            proc = subprocess.run(
-                cmd,
-                stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE,
-                text=True,
-                timeout=3600,
-            )
-            if proc.returncode != 0:
-                logger.error(
-                    "aria2c failed (rc=%d): %s", proc.returncode, proc.stderr[-500:]
+        """Download a single file with the configured backend, retrying transient failures."""
+        url = urlsplit(ftp_url)
+        if url.scheme == "ftp" and url.hostname == "ftp.pride.ebi.ac.uk":
+            ftp_url = urlunsplit(url._replace(scheme="https"))
+        dest = self.work_dir / filename
+        tool = self.download_backend
+        if tool == "wget":
+            # wget leaves no resume marker, so download to .part and rename on success;
+            # a bare RAW therefore always means a complete download.
+            part = dest.with_name(dest.name + ".part")
+            marker = dest.with_name(dest.name + ".aria2")
+            if marker.exists():
+                # aria2c preallocates, so its partial file cannot be resumed by wget.
+                self._safe_delete(dest)
+                self._safe_delete(marker)
+            cmd = [
+                "wget",
+                "--continue",
+                "--no-verbose",
+                "--tries=3",
+                "--retry-connrefused",
+                "--waitretry=10",
+                "--timeout=60",
+                f"--output-document={part}",
+                ftp_url,
+            ]
+            timeout = 7200
+        else:
+            n = self.aria2c_connections
+            cmd = [
+                "aria2c",
+                f"--max-connection-per-server={n}",
+                f"--split={n}",
+                "--min-split-size=1M",
+                "--allow-overwrite=true",
+                "--auto-file-renaming=false",
+                "--continue=true",
+                "--connect-timeout=30",
+                "--timeout=60",
+                "--max-tries=3",
+                "--retry-wait=10",
+                f"--dir={self.work_dir}",
+                f"--out={filename}",
+                ftp_url,
+            ]
+            timeout = 1200
+        logger.debug("%s: %s", tool, " ".join(cmd))
+        for attempt in range(1, DOWNLOAD_ATTEMPTS + 1):
+            try:
+                proc = subprocess.run(
+                    cmd,
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.PIPE,
+                    text=True,
+                    timeout=timeout,
                 )
+            except subprocess.TimeoutExpired:
+                logger.error(
+                    "%s timed out for %s (attempt %d/%d)", tool, filename, attempt, DOWNLOAD_ATTEMPTS
+                )
+            except OSError as exc:
+                logger.error("Could not execute %s for %s: %s", tool, filename, exc)
                 return False
-            dest = self.work_dir / filename
-            if not dest.exists() or dest.stat().st_size == 0:
-                logger.error("Downloaded file missing or empty: %s", dest)
-                return False
-            logger.info(
-                "Downloaded %s (%.1f MB)", filename, dest.stat().st_size / 1024 / 1024
-            )
-            return True
-        except subprocess.TimeoutExpired:
-            logger.error("aria2c timed out for %s", filename)
-            return False
-        except Exception as exc:
-            logger.error("aria2c error for %s: %s", filename, exc)
-            return False
+            else:
+                if proc.returncode == 0:
+                    if tool == "wget":
+                        if not part.is_file() or part.stat().st_size == 0:
+                            logger.error("wget produced no data for %s", filename)
+                            return False
+                        part.replace(dest)
+                    if not is_complete_raw(dest):
+                        logger.error("Downloaded file missing, empty, or incomplete: %s", dest)
+                        return False
+                    logger.info(
+                        "Downloaded %s (%.1f MB)", filename, dest.stat().st_size / 1024 / 1024
+                    )
+                    return True
+                output = proc.stdout + "\n" + proc.stderr
+                logger.error(
+                    "%s failed (rc=%d, attempt %d/%d): %s", tool, proc.returncode, attempt,
+                    DOWNLOAD_ATTEMPTS, output[-2000:],
+                )
+                transient_http = re.search(
+                    r"(?:status[=: ]+|HTTP/\S+\s+|ERROR\s+)(429|500|502|503|504)\b",
+                    output, re.IGNORECASE,
+                )
+                codes = TRANSIENT_WGET_CODES if tool == "wget" else TRANSIENT_ARIA2C_CODES
+                if proc.returncode not in codes and not transient_http:
+                    return False
+            if attempt < DOWNLOAD_ATTEMPTS:
+                delay = retry_delay(attempt)
+                logger.warning("Retrying download of %s in %.0fs", filename, delay)
+                time.sleep(delay)
+        return False
 
     def _run_thermorawfileparser_metadata(self, raw_path: Path) -> bool:
         """
