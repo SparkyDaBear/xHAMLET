@@ -171,6 +171,8 @@ CREATE TABLE IF NOT EXISTS crosslink_match (
     crosslink_group_key TEXT NOT NULL,
     alpha_sequence TEXT,
     beta_sequence TEXT,
+    alpha_link_sites JSONB,
+    beta_link_sites JSONB,
     alpha_proteins JSONB NOT NULL DEFAULT '[]'::jsonb,
     beta_proteins JSONB NOT NULL DEFAULT '[]'::jsonb,
     alpha_positions JSONB NOT NULL DEFAULT '[]'::jsonb,
@@ -318,6 +320,8 @@ CREATE TABLE IF NOT EXISTS crosslink_match (
     crosslink_group_key TEXT NOT NULL,
     alpha_sequence TEXT,
     beta_sequence TEXT,
+    alpha_link_sites TEXT,
+    beta_link_sites TEXT,
     alpha_proteins TEXT NOT NULL DEFAULT '[]',
     beta_proteins TEXT NOT NULL DEFAULT '[]',
     alpha_positions TEXT NOT NULL DEFAULT '[]',
@@ -956,9 +960,15 @@ class DatabaseSynchronizer:
     def create_schema(self) -> None:
         if getattr(self.connection, "is_sqlite", False):
             self.connection.execute_script(SQLITE_DDL)
+            existing = {row[1] for row in self.connection.connection.execute("PRAGMA table_info(crosslink_match)")}
+            for name in ("alpha_link_sites", "beta_link_sites"):
+                if name not in existing:
+                    self.connection.connection.execute(f"ALTER TABLE crosslink_match ADD COLUMN {name} TEXT")
         with self.connection.cursor() as cursor:
             if not getattr(self.connection, "is_sqlite", False):
                 cursor.execute(DDL)
+                cursor.execute("ALTER TABLE crosslink_match ADD COLUMN IF NOT EXISTS alpha_link_sites JSONB")
+                cursor.execute("ALTER TABLE crosslink_match ADD COLUMN IF NOT EXISTS beta_link_sites JSONB")
             cursor.execute(
                 "INSERT INTO catalog_schema_version (version) VALUES (%s) ON CONFLICT (version) DO NOTHING",
                 (SCHEMA_VERSION,),
@@ -1172,9 +1182,10 @@ class DatabaseSynchronizer:
                 """
                 INSERT INTO crosslink_match
                 (mzid_document_id, source_file, spectrum_native_id, scan_number, crosslink_group_key,
-                 alpha_sequence, beta_sequence, alpha_proteins, beta_proteins, alpha_positions,
+                 alpha_sequence, beta_sequence, alpha_link_sites, beta_link_sites,
+                 alpha_proteins, beta_proteins, alpha_positions,
                  beta_positions, charge_state, xi_score, pass_threshold)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s::jsonb, %s::jsonb, %s::jsonb, %s::jsonb, %s, %s, true)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s::jsonb, %s::jsonb, %s::jsonb, %s::jsonb, %s::jsonb, %s::jsonb, %s, %s, true)
                 """,
                 (
                     mzid_document_id,
@@ -1184,6 +1195,8 @@ class DatabaseSynchronizer:
                     match["crosslink_group_key"],
                     match.get("alpha_sequence"),
                     match.get("beta_sequence"),
+                    json.dumps(match["alpha_link_sites"]),
+                    json.dumps(match["beta_link_sites"]),
                     json.dumps(match.get("alpha_proteins", [])),
                     json.dumps(match.get("beta_proteins", [])),
                     json.dumps(match.get("alpha_positions", [])),
@@ -1229,7 +1242,14 @@ def database_catalog(
 ) -> dict[str, Any]:
     """Build the compact static explorer catalog from the accepted database rows."""
     artifact_base_url = artifact_base_url.rstrip("/")
+    is_sqlite = bool(getattr(connection, "is_sqlite", False))
     with connection.cursor() as cursor:
+        if is_sqlite:
+            cursor.execute("SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name IN "
+                           "('xp_observation', 'xp_model_result')")
+            has_xp = cursor.fetchone()[0] == 2
+        else:
+            has_xp = False
         if accessions is not None and not accessions:
             pipeline_rows: list[Any] = []
         else:
@@ -1383,15 +1403,19 @@ def database_catalog(
                     }
                     for document_id, path, spectra, items, passing, complete in cursor.fetchall()
                 ]
+                ids_aggregate = ("group_concat(match.crosslink_match_id, ',')" if is_sqlite
+                                 else "string_agg(match.crosslink_match_id::text, ',')")
                 cursor.execute(
-                    """
+                    f"""
                     SELECT coalesce(match.source_file, '[unresolved RAW]'), match.alpha_sequence, match.beta_sequence,
+                           match.alpha_link_sites, match.beta_link_sites,
                            match.alpha_proteins, match.beta_proteins, match.alpha_positions, match.beta_positions,
-                           count(*), max(match.xi_score)
+                           count(*), max(match.xi_score), {ids_aggregate}
                     FROM crosslink_match match
                     JOIN mzid_document document USING (mzid_document_id)
                     WHERE document.search_run_id = %s AND match.pass_threshold
-                    GROUP BY match.source_file, match.alpha_sequence, match.beta_sequence, match.alpha_proteins,
+                    GROUP BY match.source_file, match.alpha_sequence, match.beta_sequence,
+                             match.alpha_link_sites, match.beta_link_sites, match.alpha_proteins,
                              match.beta_proteins, match.alpha_positions, match.beta_positions
                     ORDER BY count(*) DESC, max(match.xi_score) DESC
                     """,
@@ -1402,22 +1426,57 @@ def database_catalog(
                         "source_file": source_file,
                         "alpha_sequence": alpha_sequence,
                         "beta_sequence": beta_sequence,
+                        "alpha_link_sites": json_value(alpha_link_sites),
+                        "beta_link_sites": json_value(beta_link_sites),
                         "alpha_proteins": json_value(alpha_proteins),
                         "beta_proteins": json_value(beta_proteins),
                         "alpha_positions": json_value(alpha_positions),
                         "beta_positions": json_value(beta_positions),
                         "observations": observations,
                         "best_xi_score": best_score,
+                        "_match_ids": [int(item) for item in ids.split(",")],
+                        "candidate_scores": [],
                         "predicted_complex": match_predicted_complex(
                             json_value(alpha_proteins), json_value(beta_proteins), predictions_by_pair
                         ),
                     }
-                    for source_file, alpha_sequence, beta_sequence, alpha_proteins, beta_proteins,
-                    alpha_positions, beta_positions, observations, best_score in cursor.fetchall()
+                    for source_file, alpha_sequence, beta_sequence, alpha_link_sites, beta_link_sites,
+                    alpha_proteins, beta_proteins,
+                    alpha_positions, beta_positions, observations, best_score, ids in cursor.fetchall()
                     # The public snapshot omits target-decoy or otherwise unresolved pairs.
                     # The original compact rows remain available in the SQL catalog for QC.
                     if json_value(alpha_proteins) and json_value(beta_proteins)
                 ]
+                if has_xp:
+                    by_match = {match_id: row for row in crosslinks for match_id in row["_match_ids"]}
+                    cursor.execute(
+                        """
+                        SELECT x.crosslink_match_id, x.sasd_A, x.xp_exploratory, x.score_status,
+                               x.result_json, model.model_pxd, model.model_job
+                        FROM xp_observation x
+                        JOIN xp_model_result model ON model.xp_calculation_id=x.xp_calculation_id
+                                                  AND model.staged_job=x.staged_job
+                        JOIN crosslink_match match ON match.crosslink_match_id=x.crosslink_match_id
+                        JOIN mzid_document doc ON doc.mzid_document_id=match.mzid_document_id
+                        WHERE doc.search_run_id=%s AND doc.source_sha256=x.source_mzid_sha256
+                          AND match.spectrum_native_id=x.spectrum_native_id
+                          AND match.crosslink_group_key=x.crosslink_group_key
+                        """, (search_run_id,),
+                    )
+                    for match_id, sasd, score, status, result_json, model_pxd, model_job in cursor.fetchall():
+                        result = json_value(result_json)
+                        if match_id not in by_match or result.get("site_assignment") != "HYPOTHETICAL":
+                            continue
+                        by_match[match_id]["candidate_scores"].append({
+                            "model_pxd": model_pxd, "model_job": model_job,
+                            "protein_a": result.get("protein_a"), "protein_a_site": result.get("protein_a_site"),
+                            "protein_a_aa": result.get("protein_a_aa"), "protein_b": result.get("protein_b"),
+                            "protein_b_site": result.get("protein_b_site"), "protein_b_aa": result.get("protein_b_aa"),
+                            "sasd_A": sasd, "xp_exploratory": score, "status": status,
+                            "candidate_chemistry_status": result.get("candidate_chemistry_status"),
+                        })
+                for row in crosslinks:
+                    del row["_match_ids"]
                 runs.append(
                     {
                         "path": run_path,

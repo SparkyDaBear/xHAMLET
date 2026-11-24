@@ -136,6 +136,34 @@ Open `http://localhost:8000`. The explorer provides PXD filtering, project and
 pipeline status, selected LLM metadata, ReLink/mzIdentML counts and chemistry
 configuration, plus a per-PXD artifact browser.
 
+### Linear Search Results
+
+The project's **Linear search** tab displays 100 rows per page, with previous,
+next, and page-number navigation. It loads only the required compressed chunk
+on demand, rather than loading all projects' linear matches with the catalog.
+Each row retains peptide, modified peptide, protein accessions and starts,
+xi score, charge, search group, source run, scan and spectrum identifiers.
+These are rank-1 target matches from the linear search, not necessarily
+FDR-filtered PSMs. The protein-accession explorer currently indexes cross-links
+and AF3 models, not these linear results.
+
+Generate the chunks from existing `store/PXD*/search_results/linear.csv` and
+`scan_map.csv` exports after generating the catalog snapshot:
+
+```bash
+python scripts/export_linear_website.py
+```
+
+Only PXDs represented in the snapshot may be exported. The command checks scan
+provenance and source checksums, writes deterministic gzip chunks of up to
+5,000 rows, and replaces the index only after every project succeeds. It does
+not synchronize the SQLite catalog. Empty exports are represented explicitly;
+projects without a linear export are shown as unavailable. Browsers must support
+gzip `DecompressionStream` unless the host already decompresses the response.
+Commit the index and referenced chunks to publish them. Old content-addressed
+chunks are not automatically deleted on regeneration; review obsolete files
+before removing them.
+
 Recommended additional publishable artifacts are already included when they
 exist: PRIDE project metadata, LLM responses and evidence, enhanced result
 metadata, file-assignment maps, spectral summaries, SDRF files and validation

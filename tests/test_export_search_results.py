@@ -1,4 +1,6 @@
 import csv
+import gzip
+import json
 import sys
 import unittest
 from pathlib import Path
@@ -6,6 +8,7 @@ from tempfile import TemporaryDirectory
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 from export_search_results import REQUIRED_LINEAR, export_pxd
+from export_linear_website import export as export_linear_website
 from sync_result_database import parse_mzid
 
 
@@ -142,6 +145,51 @@ class ExportTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "missing columns"):
                 export_pxd(pxd)
             self.assertFalse((pxd / "search_results").exists())
+
+    def test_linear_website_chunks_preserve_provenance_and_page_boundaries(self):
+        with TemporaryDirectory() as temp:
+            root = Path(temp)
+            store = root / "store"
+            pxd, _ = self.prepare(store)
+            export_pxd(pxd)
+            linear = pxd / "search_results/linear.csv"
+            with linear.open(newline="") as handle:
+                reader = csv.DictReader(handle)
+                fields, rows = reader.fieldnames, list(reader)
+            with linear.open("w", newline="") as handle:
+                writer = csv.DictWriter(handle, fieldnames=fields)
+                writer.writeheader()
+                writer.writerows([rows[0]] * 201)
+            catalog = root / "catalog.json"
+            catalog.write_text(json.dumps({"projects": [{"accession": pxd.name}]}))
+            output = root / "web/data/linear"
+            index = export_linear_website(store, catalog, output, chunk_size=100)
+            entry = index["projects"][pxd.name]
+            self.assertEqual(entry["row_count"], 201)
+            self.assertEqual(len(entry["chunks"]), 3)
+            chunks = [json.loads(gzip.decompress((output / path).read_bytes())) for path in entry["chunks"]]
+            self.assertEqual([len(chunk) for chunk in chunks], [100, 100, 1])
+            self.assertEqual(chunks[0][0], ["P12345;Q12345", "AK", "A.AK.G", "10;30", "12", "3",
+                                          "taxid_9606/dss", "raw.mzML", "6", "scan=7", "1"])
+            self.assertEqual(index, export_linear_website(store, catalog, output, chunk_size=100))
+            self.assertEqual(json.loads((output / "index.json").read_text()), index)
+
+    def test_linear_website_invalid_provenance_preserves_previous_index(self):
+        with TemporaryDirectory() as temp:
+            root = Path(temp)
+            store = root / "store"
+            pxd, _ = self.prepare(store)
+            export_pxd(pxd)
+            catalog = root / "catalog.json"
+            catalog.write_text(json.dumps({"projects": [{"accession": pxd.name}]}))
+            output = root / "web/data/linear"
+            export_linear_website(store, catalog, output)
+            previous = (output / "index.json").read_bytes()
+            mapping = pxd / "search_results/scan_map.csv"
+            mapping.write_text("scan_id,search_group,search_stage,run,scan,scan_title\n")
+            with self.assertRaisesRegex(ValueError, "no linear provenance"):
+                export_linear_website(store, catalog, output)
+            self.assertEqual((output / "index.json").read_bytes(), previous)
 
 
 if __name__ == "__main__":

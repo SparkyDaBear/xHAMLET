@@ -1,4 +1,4 @@
-const state = { catalog: null, project: null, tab: "overview", filter: "", relinkOnly: false, af3Only: false };
+const state = { catalog: null, project: null, protein: null, proteinIndex: null, mode: "project", tab: "overview", filter: "", relinkOnly: false, af3Only: false };
 
 const elements = {
   stamp: document.querySelector("#catalog-stamp"),
@@ -26,6 +26,33 @@ const formatNumber = (value) => new Intl.NumberFormat().format(Number(value || 0
 const formatBytes = (value) => value < 1024 ? `${value} B` : value < 1024 ** 2 ? `${(value / 1024).toFixed(1)} KB` : `${(value / 1024 ** 2).toFixed(1)} MB`;
 const formatValue = (value) => Array.isArray(value) ? value.join("; ") : value ?? "-";
 const empty = (text) => `<p class="empty-copy">${escapeHtml(text)}</p>`;
+
+function formatLinkSites(sites, peptide) {
+  if (sites == null) return "Not available";
+  if (!Array.isArray(sites) || sites.length === 0) return "Not recorded";
+  return sites.map((site) => {
+    const text = String(site);
+    if (text === "-1") return "Unlocalized";
+    if (text === "0") return "N-terminus";
+    const position = Number(text);
+    if (peptide && position === peptide.length + 1) return "C-terminus";
+    if (peptide && Number.isInteger(position) && position > 0 && position <= peptide.length) {
+      return `${peptide[position - 1]}${position}`;
+    }
+    return text;
+  }).join("; ");
+}
+
+function formatCandidateScores(candidates) {
+  if (!candidates?.length) return "No candidate results";
+  return candidates.map((candidate) => {
+    const a = `${candidate.protein_a || "?"} ${candidate.protein_a_aa || "?"}${candidate.protein_a_site || "?"}`;
+    const b = `${candidate.protein_b || "?"} ${candidate.protein_b_aa || "?"}${candidate.protein_b_site || "?"}`;
+    const score = candidate.xp_exploratory == null ? "XP unavailable" : `exploratory XP ${candidate.xp_exploratory}`;
+    const distance = candidate.sasd_A == null ? "SASD unavailable" : `SASD ${candidate.sasd_A} A`;
+    return `Hypothesis: ${a} - ${b}; ${score}; ${distance}; ${candidate.status}; ${candidate.model_pxd}/${candidate.model_job}`;
+  }).join("\n");
+}
 
 function parseTsv(text) {
   const rows = [];
@@ -89,6 +116,7 @@ function statusClass(status) {
 
 function renderProjects() {
   if (!state.catalog) return;
+  if (state.mode === "protein") return renderProteins();
   const projects = state.catalog.projects.filter((project) =>
     `${project.accession} ${project.title}`.toLowerCase().includes(state.filter)
     && (!state.relinkOnly || project.relink_runs?.some((run) => run.mzid_documents?.some((document) => document.complete === true)))
@@ -103,16 +131,90 @@ function renderProjects() {
   elements.list.querySelectorAll("[data-pxd]").forEach((button) => button.addEventListener("click", () => selectProject(button.dataset.pxd)));
 }
 
+function buildProteinIndex() {
+  const index = new Map();
+  const entry = (accession) => {
+    if (!index.has(accession)) index.set(accession, { accession, projects: new Set(), partners: new Set(), groups: 0, structures: 0 });
+    return index.get(accession);
+  };
+  for (const project of state.catalog.projects) {
+    for (const run of project.relink_runs || []) {
+      for (const crosslink of run.crosslinks || []) {
+        const alpha = crosslink.alpha_proteins || [];
+        const beta = crosslink.beta_proteins || [];
+        for (const accession of new Set([...alpha, ...beta].filter(Boolean))) {
+          const protein = entry(accession);
+          protein.projects.add(project.accession);
+          protein.groups += 1;
+          if (alpha.includes(accession)) beta.filter(Boolean).forEach((partner) => protein.partners.add(partner));
+          if (beta.includes(accession)) alpha.filter(Boolean).forEach((partner) => protein.partners.add(partner));
+        }
+      }
+    }
+    for (const model of project.predicted_complexes || []) {
+      for (const accession of new Set([model.protein_a, model.protein_b].filter(Boolean))) {
+        const protein = entry(accession);
+        protein.projects.add(project.accession);
+        if (model.structure_path) protein.structures += 1;
+      }
+    }
+  }
+  return index;
+}
+
+function renderProteins() {
+  if (!state.proteinIndex) state.proteinIndex = buildProteinIndex();
+  const matches = [...state.proteinIndex.values()].filter((protein) => protein.accession.toLowerCase().includes(state.filter))
+    .sort((a, b) => a.accession.localeCompare(b.accession));
+  const shown = matches.slice(0, 100);
+  elements.count.textContent = `${formatNumber(matches.length)} matching protein accessions${matches.length > shown.length ? " (first 100 shown)" : ""}`;
+  elements.list.innerHTML = shown.map((protein) => `
+    <button class="project-link ${state.protein === protein.accession ? "is-active" : ""}" data-protein="${escapeHtml(protein.accession)}">
+      <span class="project-link-id">${escapeHtml(protein.accession)}</span>
+      <span class="project-link-title">${formatNumber(protein.projects.size)} projects</span>
+    </button>`).join("") || empty("No matching protein accessions in the catalog.");
+  elements.list.querySelectorAll("[data-protein]").forEach((button) => button.addEventListener("click", () => selectProtein(button.dataset.protein)));
+}
+
+function setSearchMode(mode) {
+  state.mode = mode;
+  state.filter = "";
+  elements.search.value = "";
+  elements.search.placeholder = mode === "protein" ? "Filter protein accessions" : "Filter PXDs or titles";
+  document.querySelector(`input[name="search-mode"][value="${mode}"]`).checked = true;
+  elements.relinkFilter.disabled = mode === "protein";
+  elements.af3Filter.disabled = mode === "protein";
+  renderProjects();
+}
+
+function selectProtein(accession) {
+  if (!state.proteinIndex) state.proteinIndex = buildProteinIndex();
+  if (!state.proteinIndex.has(accession)) return;
+  state.protein = accession;
+  state.project = null;
+  state.tab = "overview";
+  if (state.mode !== "protein") setSearchMode("protein");
+  renderProjects();
+  renderProject();
+}
+
 function selectProject(accession) {
+  if (state.mode !== "project") setSearchMode("project");
   state.project = state.catalog.projects.find((project) => project.accession === accession) || null;
+  state.protein = null;
   renderProjects();
   renderProject();
 }
 
 function renderProject() {
   const project = state.project;
-  elements.view.hidden = !project;
-  elements.empty.hidden = Boolean(project);
+  const protein = state.protein && state.proteinIndex?.get(state.protein);
+  elements.view.hidden = !project && !protein;
+  elements.empty.hidden = Boolean(project || protein);
+  document.querySelectorAll(".tab").forEach((tab) => {
+    tab.hidden = Boolean(protein) && !["overview", "crosslinks"].includes(tab.dataset.tab);
+  });
+  if (protein) return renderProtein(protein);
   if (!project) return;
   elements.accession.textContent = project.accession;
   elements.title.textContent = project.title || project.accession;
@@ -132,16 +234,166 @@ function renderProject() {
   });
   elements.panel.innerHTML = renderTab(project);
   wireFilterableTables();
-  wireStructureButtons(project);
+  wireStructureButtons();
+  wireNavigationButtons();
+  if (state.tab === "linear") loadLinearPage(project.accession, 1);
   window.lucide?.createIcons();
+}
+
+function renderProtein(protein) {
+  const projects = state.catalog.projects.filter((project) => protein.projects.has(project.accession));
+  elements.accession.textContent = "Protein accession";
+  elements.title.textContent = protein.accession;
+  elements.description.textContent = "Exact accession reported in cross-links or AF3 models. Isoforms and ambiguous protein mappings are not merged; linear search results are not included.";
+  const metrics = [["Projects", projects.length], ["Cross-link groups", protein.groups], ["Reported partners", protein.partners.size], ["AF3 structures", protein.structures]];
+  elements.metrics.innerHTML = metrics.map(([label, value]) => `<article class="metric"><span class="metric-label">${label}</span><strong class="metric-value">${formatNumber(value)}</strong></article>`).join("");
+  document.querySelectorAll(".tab").forEach((tab) => {
+    const active = tab.dataset.tab === state.tab;
+    tab.classList.toggle("is-active", active);
+    tab.setAttribute("aria-selected", active);
+  });
+  if (state.tab === "crosslinks") {
+    elements.panel.innerHTML = projects.map((project) => {
+      const runs = project.relink_runs.map((run) => ({
+        ...run,
+        crosslinks: (run.crosslinks || []).filter((link) => [...(link.alpha_proteins || []), ...(link.beta_proteins || [])].includes(protein.accession)),
+      })).filter((run) => run.crosslinks.length);
+      if (!runs.length) return "";
+      return `<section class="protein-project"><h2><button class="project-jump" data-pxd="${escapeHtml(project.accession)}">${escapeHtml(project.accession)}</button></h2>${renderCrosslinks({ ...project, relink_runs: runs })}</section>`;
+    }).join("") || empty("No cross-link records were found for this accession.");
+  } else {
+    const rows = projects.map((project) => {
+      const models = (project.predicted_complexes || []).filter((model) => model.structure_path && [model.protein_a, model.protein_b].includes(protein.accession));
+      const structures = models.map((model) => `<button type="button" class="structure-button" data-pxd="${escapeHtml(project.accession)}" data-job-name="${escapeHtml(model.job_name)}">View ${escapeHtml(model.protein_a)} &times; ${escapeHtml(model.protein_b)}</button>`).join(" ");
+      return `<tr><td><button class="project-jump" data-pxd="${escapeHtml(project.accession)}">${escapeHtml(project.accession)}</button></td><td>${escapeHtml(project.title)}</td><td>${structures || "-"}</td></tr>`;
+    }).join("");
+    elements.panel.innerHTML = `<div class="panel-heading"><h2 class="section-title">Projects and structures</h2><p>Cross-link partners reflect reported mappings, including ambiguous mappings; they do not establish an interaction.</p></div><div class="table-wrap"><table class="search-table"><thead><tr><th>PXD</th><th>Project</th><th>AF3 structures</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+  }
+  wireFilterableTables();
+  wireStructureButtons();
+  wireNavigationButtons();
+  window.lucide?.createIcons();
+}
+
+function wireNavigationButtons() {
+  elements.panel.querySelectorAll(".project-jump").forEach((button) => button.addEventListener("click", () => selectProject(button.dataset.pxd)));
+  elements.panel.querySelectorAll(".protein-button").forEach((button) => button.addEventListener("click", () => selectProtein(button.dataset.protein)));
 }
 
 function renderTab(project) {
   if (state.tab === "metadata") return renderMetadata(project);
   if (state.tab === "searches") return renderSearches(project);
   if (state.tab === "crosslinks") return renderCrosslinks(project);
+  if (state.tab === "linear") return renderLinear();
   if (state.tab === "files") return renderFiles(project);
   return renderOverview(project);
+}
+
+const linearState = { indexPromise: null, accession: null, chunkIndex: null, chunk: null, request: 0 };
+
+function renderLinear() {
+  return `<div class="panel-heading"><h2 class="section-title">Linear search results</h2>
+    <p>Rank-1 target matches from the linear search; these are not necessarily FDR-filtered. Results are in source order.</p></div>
+    <div id="linear-results">Loading linear results...</div>`;
+}
+
+async function linearIndex() {
+  if (!linearState.indexPromise) {
+    linearState.indexPromise = fetch("data/linear/index.json").then((response) => {
+      if (!response.ok) throw new Error(`Linear index: HTTP ${response.status}`);
+      return response.json();
+    }).then((index) => {
+      if (index.version !== 1 || index.page_size !== 100 || !Number.isInteger(index.chunk_size)
+          || index.chunk_size < index.page_size || index.chunk_size % index.page_size || !index.projects) {
+        throw new Error("Unsupported or invalid linear index");
+      }
+      return index;
+    }).catch((error) => {
+      linearState.indexPromise = null;
+      throw error;
+    });
+  }
+  return linearState.indexPromise;
+}
+
+async function readLinearChunk(path) {
+  const response = await fetch(`data/linear/${path}`);
+  if (!response.ok) throw new Error(`Linear chunk: HTTP ${response.status}`);
+  const bytes = new Uint8Array(await response.arrayBuffer());
+  let text;
+  if (bytes[0] === 0x1f && bytes[1] === 0x8b) {
+    if (typeof DecompressionStream !== "function") throw new Error("This browser cannot decompress linear results.");
+    text = await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"))).text();
+  } else {
+    text = new TextDecoder().decode(bytes);
+  }
+  const rows = JSON.parse(text);
+  if (!Array.isArray(rows)) throw new Error("Invalid linear result chunk");
+  return rows;
+}
+
+async function loadLinearPage(accession, page) {
+  const request = ++linearState.request;
+  const active = () => request === linearState.request && state.project?.accession === accession && state.tab === "linear";
+  const results = elements.panel.querySelector("#linear-results");
+  if (!results) return;
+  results.textContent = "Loading linear results...";
+  try {
+    const index = await linearIndex();
+    if (!active()) return;
+    const project = index.projects[accession];
+    if (!project) {
+      results.innerHTML = empty("No linear search export is available for this project.");
+      return;
+    }
+    if (!project.row_count) {
+      results.innerHTML = empty("This linear search export contains no rank-1 target matches.");
+      return;
+    }
+    const pages = Math.ceil(project.row_count / index.page_size);
+    if (!Number.isSafeInteger(page) || page < 1 || page > pages) throw new Error(`Page must be between 1 and ${pages}.`);
+    const offset = (page - 1) * index.page_size;
+    const chunkIndex = Math.floor(offset / index.chunk_size);
+    if (linearState.accession !== accession || linearState.chunkIndex !== chunkIndex) {
+      const path = project.chunks[chunkIndex];
+      if (!path) throw new Error("The requested linear chunk is missing from the index.");
+      const chunk = await readLinearChunk(path);
+      if (!active()) return;
+      linearState.accession = accession;
+      linearState.chunkIndex = chunkIndex;
+      linearState.chunk = chunk;
+    }
+    const start = offset % index.chunk_size;
+    const rows = linearState.chunk.slice(start, start + index.page_size);
+    const expected = Math.min(index.page_size, project.row_count - offset);
+    if (rows.length !== expected || rows.some((row) => !Array.isArray(row) || row.length !== 11)) {
+      throw new Error("Linear chunk does not match the index.");
+    }
+    if (!active()) return;
+    const columns = ["Protein", "Peptide", "Modified peptide", "Start", "xi score", "Charge", "Search group", "Source run", "Scan", "Scan ID", "Spectrum title"];
+    const body = rows.map((row) => {
+      const displayed = [...row.slice(0, 9), row[10], row[9]];
+      return `<tr>${displayed.map((value, i) => `<td>${i === 1 || i === 2 ? `<span class="peptide-scroll" tabindex="0">${escapeHtml(value)}</span>` : escapeHtml(value)}</td>`).join("")}</tr>`;
+    }).join("");
+    results.innerHTML = `<div class="linear-pagination" aria-label="Linear result pages">
+      <button type="button" data-linear-page="${page - 1}" ${page === 1 ? "disabled" : ""}>Previous</button>
+      <span role="status">Page ${formatNumber(page)} of ${formatNumber(pages)} | rows ${formatNumber(offset + 1)}-${formatNumber(offset + rows.length)} of ${formatNumber(project.row_count)}</span>
+      <button type="button" data-linear-page="${page + 1}" ${page === pages ? "disabled" : ""}>Next</button>
+      <form class="linear-jump"><label>Go to page <input type="number" name="page" min="1" max="${pages}" required></label> <button type="submit">Go</button></form>
+    </div>
+    <div class="table-wrap interactive-table-wrap"><table class="search-table linear-table"><thead><tr>${columns.map((column) => `<th scope="col">${escapeHtml(column)}</th>`).join("")}</tr></thead><tbody>${body}</tbody></table></div>`;
+    results.querySelectorAll("[data-linear-page]").forEach((button) => button.addEventListener("click", () => loadLinearPage(accession, Number(button.dataset.linearPage))));
+    results.querySelector(".linear-jump").addEventListener("submit", (event) => {
+      event.preventDefault();
+      loadLinearPage(accession, Number(event.currentTarget.elements.page.value));
+    });
+  } catch (error) {
+    if (active()) {
+      results.innerHTML = `<p class="linear-error">Could not load linear results: ${escapeHtml(error.message)}</p>
+        <button type="button" class="linear-retry">Try again</button>`;
+      results.querySelector(".linear-retry").addEventListener("click", () => loadLinearPage(accession, page));
+    }
+  }
 }
 
 function renderOverview(project) {
@@ -195,24 +447,32 @@ function renderCrosslinks(project) {
   if (!runs.length) return empty("No compact cross-link records were included in this catalog.");
   const predictionsByJob = new Map((project.predicted_complexes || []).map((prediction) => [prediction.job_name, prediction]));
   return runs.map((run) => {
-    const columns = ["Source RAW", "Alpha peptide", "Beta peptide", "Alpha proteins", "Beta proteins", "Alpha positions", "Beta positions", "PSMs", "Best xi score", "Structure"];
+    const columns = ["Protein A", "Protein B", "Structure", "Alpha peptide", "Beta peptide", "Alpha positions", "Beta positions", "Alpha site (peptide)", "Beta site (peptide)", "PSMs", "Best xi score", "Hypothetical site scores", "Source RAW"];
     const rows = run.crosslinks.map((crosslink) => [
-      crosslink.source_file || "[unresolved RAW]", crosslink.alpha_sequence || "-", crosslink.beta_sequence || "-",
-      formatValue(crosslink.alpha_proteins), formatValue(crosslink.beta_proteins),
+      crosslink.alpha_proteins || [], crosslink.beta_proteins || [], crosslink.predicted_complex || "",
+      crosslink.alpha_sequence || "-", crosslink.beta_sequence || "-",
       formatValue(crosslink.alpha_positions), formatValue(crosslink.beta_positions),
+      formatLinkSites(crosslink.alpha_link_sites, crosslink.alpha_sequence), formatLinkSites(crosslink.beta_link_sites, crosslink.beta_sequence),
       formatNumber(crosslink.observations), crosslink.best_xi_score ?? "-",
-      crosslink.predicted_complex || "",
+      formatCandidateScores(crosslink.candidate_scores), crosslink.source_file || "[unresolved RAW]",
     ]);
+    const proteinCell = (accessions) => accessions.map((accession) => `<button type="button" class="protein-button" data-protein="${escapeHtml(accession)}">${escapeHtml(accession)}</button>`).join("; ") || "-";
+    const peptideCell = (value) => `<span class="peptide-scroll" tabindex="0" aria-label="Peptide sequence, scroll horizontally if needed">${escapeHtml(value)}</span>`;
     const cellRenderers = {
-      [columns.length - 1]: (jobName) => {
+      0: proteinCell,
+      1: proteinCell,
+      2: (jobName) => {
         if (!jobName || !predictionsByJob.has(jobName)) return `<span class="structure-unavailable">-</span>`;
-        return `<button type="button" class="structure-button" data-job-name="${escapeHtml(jobName)}">
-          <i data-lucide="box" aria-hidden="true"></i> View structure
+        return `<button type="button" class="structure-button" data-pxd="${escapeHtml(project.accession)}" data-job-name="${escapeHtml(jobName)}">
+          <i data-lucide="box" aria-hidden="true"></i> View
         </button>`;
       },
+      3: peptideCell,
+      4: peptideCell,
     };
     return `<article class="run"><div class="run-heading"><h2>Cross-linker: ${escapeHtml(crosslinkerLabel(run))}</h2><span class="run-path">${escapeHtml(run.path)}</span></div>
-      ${renderFilterableTable(`crosslinks-${project.accession}-${run.path.replaceAll(/[^a-z0-9]+/gi, "-")}`, columns, rows, "search-table", cellRenderers)}
+      <p>Link sites are peptide-relative. Hypothetical site scores are exploratory and do not establish an observed site or covalent link.</p>
+      ${renderFilterableTable(`crosslinks-${project.accession}-${run.path.replaceAll(/[^a-z0-9]+/gi, "-")}`, columns, rows, "search-table crosslink-table", cellRenderers)}
     </article>`;
   }).join("");
 }
@@ -222,15 +482,49 @@ function renderFiles(project) {
   return `<div class="table-wrap"><table class="file-table"><thead><tr><th>Type</th><th>Artifact</th><th>Size</th><th>Modified</th></tr></thead><tbody>${rows || `<tr><td colspan="4">No artifacts were indexed.</td></tr>`}</tbody></table></div>`;
 }
 
-function wireStructureButtons(project) {
+function wireStructureButtons() {
   elements.panel.querySelectorAll(".structure-button").forEach((button) => {
-    button.addEventListener("click", () => openStructureViewer(project, button.dataset.jobName));
+    button.addEventListener("click", () => {
+      const project = state.catalog.projects.find((item) => item.accession === button.dataset.pxd);
+      if (project) openStructureViewer(project, button.dataset.jobName);
+    });
   });
 }
 
 const molstarState = { assetsPromise: null, viewer: null };
 
 const MOLSTAR_VERSION = "5.13.1";
+
+function registerChainConfidenceTheme(viewer) {
+  const registry = viewer.plugin.representation.structure.themes.colorThemeRegistry;
+  const confidence = registry.get("plddt-confidence");
+  if (confidence.name !== "plddt-confidence") throw new Error("Mol* pLDDT confidence theme is unavailable.");
+  const shades = new Map([
+    [0xff7d45, [0xffd5d0, 0xd5e8ff]],
+    [0xffdb13, [0xf79589, 0x8dbbf2]],
+    [0x65cbf3, [0xdc5048, 0x397ed0]],
+    [0x0053d6, [0x9c1c25, 0x10458f]],
+  ]);
+  const factory = (context, props) => {
+    const base = confidence.factory(context, props);
+    return {
+      ...base,
+      factory,
+      legend: undefined,
+      color: (location, isSecondary) => {
+        const unit = location.kind === "element-location" ? location.unit : location.aUnit;
+        const element = location.kind === "element-location" ? location.element : unit?.elements[location.aIndex];
+        if (!unit || unit.kind !== 0 || element == null) return 0xaaaaaa;
+        const hierarchy = unit.model.atomicHierarchy;
+        const chain = hierarchy.chains.label_asym_id.value(hierarchy.chainAtomSegments.index[element]);
+        const palette = shades.get(base.color(location, isSecondary));
+        if (!palette || (chain !== "A" && chain !== "B")) return 0xaaaaaa;
+        return palette[chain === "A" ? 0 : 1];
+      },
+    };
+  };
+  registry.add({ ...confidence, name: "xhamlet-chain-confidence", label: "Chain and pLDDT", factory });
+}
 
 function loadMolstarAssets() {
   if (molstarState.assetsPromise) return molstarState.assetsPromise;
@@ -266,6 +560,7 @@ async function getFreshMolstarViewer() {
     viewportShowSelectionMode: false,
     viewportShowAnimation: false,
   });
+  registerChainConfidenceTheme(molstarState.viewer);
   return molstarState.viewer;
 }
 
@@ -288,9 +583,11 @@ async function openStructureViewer(project, jobName) {
   elements.structureModalStatus.textContent = "Loading structure\u2026";
   try {
     const viewer = await getFreshMolstarViewer();
-    await viewer.loadStructureFromUrl(prediction.structure_path, "mmcif", false, {
-      representationParams: { theme: { globalName: "plddt-confidence" } },
-      label: jobName,
+    const data = await viewer.plugin.builders.data.download({ url: prediction.structure_path, isBinary: false, label: jobName });
+    const trajectory = await viewer.plugin.builders.structure.parseTrajectory(data, "mmcif");
+    await viewer.plugin.builders.structure.hierarchy.applyPreset(trajectory, "default", {
+      representationPreset: "auto",
+      representationPresetParams: { theme: { globalName: "xhamlet-chain-confidence" } },
     });
     elements.structureModalStatus.textContent = "";
   } catch (error) {
@@ -311,6 +608,7 @@ document.addEventListener("keydown", (event) => {
 });
 
 document.querySelectorAll(".tab").forEach((tab) => tab.addEventListener("click", () => { state.tab = tab.dataset.tab; renderProject(); }));
+document.querySelectorAll('input[name="search-mode"]').forEach((input) => input.addEventListener("change", () => setSearchMode(input.value)));
 elements.search.addEventListener("input", (event) => { state.filter = event.target.value.trim().toLowerCase(); renderProjects(); });
 elements.relinkFilter.addEventListener("change", (event) => { state.relinkOnly = event.target.checked; renderProjects(); });
 elements.af3Filter.addEventListener("change", (event) => { state.af3Only = event.target.checked; renderProjects(); });

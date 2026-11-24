@@ -17,18 +17,23 @@
       <div class="catalog-stamp" id="catalog-stamp">Loading catalog</div>
     </header>
     <main class="shell">
-      <aside class="project-rail" aria-label="Projects">
+      <aside class="project-rail" aria-label="Catalog search">
         <label class="search-field" for="project-search">
           <i data-lucide="search" aria-hidden="true"></i>
-          <input id="project-search" type="search" placeholder="Filter PXDs" autocomplete="off">
+          <input id="project-search" type="search" aria-label="Search projects or protein accessions" placeholder="Filter PXDs or titles" autocomplete="off">
         </label>
+        <fieldset class="search-mode">
+          <legend>Search by</legend>
+          <label><input type="radio" name="search-mode" value="project" checked> PXD</label>
+          <label><input type="radio" name="search-mode" value="protein"> Protein accession</label>
+        </fieldset>
         <fieldset class="project-filters">
-          <legend>Show projects with</legend>
+          <legend>Show PXDs with</legend>
           <label><input id="filter-relink" type="checkbox"> Completed ReLink results</label>
           <label><input id="filter-af3" type="checkbox"> AF3 structures</label>
         </fieldset>
         <div class="project-count" id="project-count" role="status">Loading projects. Filters apply when ready.</div>
-        <nav id="project-list" class="project-list" aria-label="PXD projects"></nav>
+        <nav id="project-list" class="project-list" aria-label="Search results"></nav>
       </aside>
       <section class="workspace" aria-live="polite">
         <div id="empty-state" class="empty-state" hidden>
@@ -47,6 +52,7 @@
             <button class="tab" id="tab-metadata" role="tab" aria-selected="false" data-tab="metadata">Metadata</button>
             <button class="tab" id="tab-searches" role="tab" aria-selected="false" data-tab="searches">Searches</button>
             <button class="tab" id="tab-crosslinks" role="tab" aria-selected="false" data-tab="crosslinks">Cross-links</button>
+            <button class="tab" id="tab-linear" role="tab" aria-selected="false" data-tab="linear">Linear search</button>
             <button class="tab" id="tab-files" role="tab" aria-selected="false" data-tab="files">Files</button>
           </div>
           <section id="tab-panel" class="tab-panel" role="tabpanel"></section>
@@ -66,6 +72,7 @@
           </button>
         </header>
         <div class="structure-modal-scores" id="structure-modal-scores"></div>
+        <p class="structure-legend">Chain A: red; chain B: blue. Darker shades indicate higher pLDDT (&le;50, &gt;50-70, &gt;70-90, &gt;90); gray indicates unavailable confidence or another chain.</p>
         <p class="structure-modal-status" id="structure-modal-status"></p>
         <div id="structure-viewer" class="structure-viewer"></div>
       </div>

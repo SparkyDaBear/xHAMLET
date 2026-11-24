@@ -56,6 +56,9 @@ sqlite3 xhamlet-results.sqlite3</code></pre>
             </div>
           </div>
           <p>To regenerate only the public JSON snapshot from an already-populated database, without scanning pipeline outputs, run <code>python scripts/sync_result_database.py --snapshot-only --static-snap</code>.</p>
+          <p>In the explorer, choose PXD or protein accession search. Protein results use exact accessions reported in cross-links or AF3 models, including isoforms and ambiguous mappings, and link back to their source projects. Linear search results are not included. Protein A and B in the cross-link table correspond to the reported alpha and beta peptides. Long peptide sequences scroll within their cells.</p>
+          <p>AF3 structures use red for chain A and blue for chain B. Darker shades indicate higher residue pLDDT; gray indicates unavailable confidence or another chain. These shades describe model confidence, not cross-link or interaction validity.</p>
+          <p>The Linear search tab loads project-specific compressed chunks on demand and shows 100 rows per page. These are rank-1 target matches, not necessarily FDR-filtered; each row retains its search group and spectrum provenance.</p>
         </section>
 
         <section id="model">
@@ -177,6 +180,7 @@ sqlite3 xhamlet-results.sqlite3</code></pre>
                 <tr><td><code>source_file</code>, <code>spectrum_native_id</code>, <code>scan_number</code></td><td>TEXT, BIGINT</td><td>Resolved RAW name and source-spectrum identifiers.</td></tr>
                 <tr><td><code>crosslink_group_key</code></td><td>TEXT</td><td>xiFDR cross-link group within the source spectrum.</td></tr>
                 <tr><td><code>alpha_sequence</code>, <code>beta_sequence</code></td><td>TEXT</td><td>Paired peptide sequences.</td></tr>
+                <tr><td><code>alpha_link_sites</code>, <code>beta_link_sites</code></td><td>JSONB</td><td>Peptide-relative source locations; -1 is unlocalized and null means unavailable.</td></tr>
                 <tr><td><code>alpha_proteins</code>, <code>beta_proteins</code></td><td>JSONB</td><td>Non-decoy protein accession mappings.</td></tr>
                 <tr><td><code>alpha_positions</code>, <code>beta_positions</code></td><td>JSONB</td><td>Protein coordinate mappings aligned to the peptide sides.</td></tr>
                 <tr><td><code>charge_state</code>, <code>xi_score</code>, <code>pass_threshold</code></td><td>INTEGER, DOUBLE PRECISION, BOOLEAN</td><td>Search measurements and threshold result.</td></tr>
