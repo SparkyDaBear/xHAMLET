@@ -1,0 +1,171 @@
+NCEMS XP v3.3 — installation and rerunning previous XP datasets
+============================================================
+
+Purpose
+-------
+This queue repeats XP analysis for PXDs found in your previous XP run records.
+It includes prior completed, failed, partial and reference-blocked attempts.
+Each PXD is run once per plan, with at most two PXD jobs at the same time.
+It performs fresh intake and geometry so old v3.2 filtering does not silently
+remove observations from the new analysis. Old results remain available.
+
+This does not run or reinstall xHAMLET/ReLink. It uses the existing XP Conda
+environment and the existing, hash-verified legacy distance engine. No API-key
+export is needed for this XP rerun workflow; do not paste secret keys into chat.
+
+The new package, plan, logs, ledger and results are stored on the existing fixed
+volume /media/volume/xhamlet-data-5. The installer and queue check that it is a
+real mounted filesystem before creating project output directories. They never
+create a substitute directory when the volume is absent.
+
+1. LOCAL Windows WSL — upload, then connect
+----------------------------------------
+Save NCEMS_XP_v3_3_2026-11-19.zip in your Windows Downloads directory. Paste these commands
+in the LOCAL WSL terminal (the prompt may say rmahib@Mahib):
+
+scp -i ~/.ssh/id_ed25519 "/mnt/c/Users/rmahi/Downloads/NCEMS_XP_v3_3_2026-11-19.zip" exouser@149.165.151.247:~/
+ssh -i ~/.ssh/id_ed25519 exouser@149.165.151.247
+
+The address is the previously supplied Jetstream address, not a claim that this
+session has verified a live connection. If the connection fails, stop here.
+
+2. JETSTREAM — confirm the host and mounted volume
+------------------------------------------------
+hostname
+whoami
+findmnt --mountpoint /media/volume/xhamlet-data-5
+test -x "$HOME/miniconda3/envs/ncems-xp-test/bin/python"
+
+Confirm you are on your intended Jetstream host, logged in as exouser, and that
+findmnt prints a mount for xhamlet-data-5. If no mount is printed, stop: the
+volume must be attached/mounted before these instructions can continue.
+
+3. JETSTREAM — enter tmux
+------------------------
+tmux new-session -A -s ncems_xp_v33
+
+Run the remaining commands INSIDE this tmux session.
+
+4. JETSTREAM, inside tmux — activate the existing XP environment
+-------------------------------------------------------------
+source "$HOME/miniconda3/etc/profile.d/conda.sh"
+conda activate "$HOME/miniconda3/envs/ncems-xp-test"
+python -c 'import sys; print(sys.executable)'
+
+The printed Python path should be inside the existing ncems-xp-test environment.
+These commands activate that environment; they do not install or upgrade it.
+
+5. JETSTREAM, inside tmux — stage and install the new separate package
+------------------------------------------------------------------
+xp_stage="$(mktemp -d "$HOME/ncems_xp_v33_stage_XXXXXXXX")"
+"$HOME/miniconda3/envs/ncems-xp-test/bin/python" -m zipfile -e "$HOME/NCEMS_XP_v3_3_2026-11-19.zip" "$xp_stage"
+"$HOME/miniconda3/envs/ncems-xp-test/bin/python" "$xp_stage/NCEMS_XP_v3_3/install_v33.py" --destination /media/volume/xhamlet-data-5/NCEMS_XP_v33/NCEMS_XP_v3_3
+
+Expected state: NEW_SEPARATE_PACKAGE_INSTALLED. An identical existing package can
+return IDENTICAL_EXISTING_VERSION_REUSED. If different files already exist, the
+installer stops and does not replace them. Do not delete prior research files.
+
+Run the software checks in the newly installed package:
+
+cd /media/volume/xhamlet-data-5/NCEMS_XP_v33/NCEMS_XP_v3_3
+bash self_test.sh
+
+Continue after SOFTWARE CHECKS PASSED. These tests include clearly labelled
+synthetic fixtures; they do not count as completed real PXDs or experimental
+validation. If a check fails, keep its output and stop before launching the queue.
+
+6. JETSTREAM, inside tmux — inventory prior XP attempts and save the plan
+---------------------------------------------------------------------
+xp_project="/media/volume/xhamlet-data-5/NCEMS_XP_v33"
+xp_plan="$xp_project/rerun_plan_$(date -u +%Y%m%dT%H%M%SZ).json"
+bash "$xp_project/NCEMS_XP_v3_3/run_rerun_all.sh" --plan "$xp_plan" --ref main --out-root "$xp_project/runs" --ncpus 1 --model-timeout 3600
+
+This command only inventories existing run records and writes the plan. It does
+not score a PXD. --ref main resolves the GitHub main branch ONCE to an immutable
+40-character commit. Every PXD in this plan then uses that same commit.
+The plan also freezes every production Python/JSON source and profile file.
+Those hashes are checked before execution and before each PXD subprocess.
+A changed, missing or added production file blocks launch and is recorded in
+the ledger; the queue never silently creates a replacement plan.
+
+Check the printed VERIFIED PRIOR PXDS count/list, PINNED SOURCE, and LAUNCH READY.
+The full plan records each old state and version without changing old records.
+If LAUNCH READY is NO, the reason is printed; do not launch until it is resolved.
+
+The inventory defines the scope of this rerun. Review UNCERTAIN candidates and
+archive coverage warnings before describing it as all historical PXDs; unobserved
+or missing run records cannot be reconstructed by guessing accessions.
+
+Default scan roots are existing directories under ~/ncems-xp-test-work named
+pxd_xp_*, including pxd_xp_paper_runs and pxd_xp_reference_runs. Missing default
+directories are reported, never created. The existing NCEMS_XP_* project/archive
+directories at the top of mounted Volume 5 are also inspected, including the
+previous NCEMS_XP_v32_Ian_review directory. Directory names containing a PXD but
+without trustworthy run_summary.json or launch_manifest.json evidence are
+reported as uncertain and are not automatically launched. Test fixtures,
+structure/model subdirectories, symlink directories and raw files are skipped.
+
+Coverage is limited to the scan roots printed in the plan. ZIP, TAR and TAR.GZ
+archives are opened read-only to inspect named run_summary.json and
+launch_manifest.json members; nothing is extracted. The plan records archive
+hashes, member paths, sizes and any incomplete scans. Each archive is limited to
+256 MiB compressed, 256 MiB expanded for TAR streams, 30,000 members, 4 MiB per
+metadata file and 32 MiB of selected metadata. Limits or unreadable archives are
+reported as coverage gaps, never interpreted as no prior runs. Unmounted volumes
+are not scanned. If prior results were moved to another existing directory,
+create a new plan with --scan-root repeated for ALL
+desired roots. Explicit --scan-root arguments replace the defaults. Example
+form (replace the last path with an actual existing prior-XP run directory):
+
+bash "$xp_project/NCEMS_XP_v3_3/run_rerun_all.sh" --plan "$xp_project/another_new_plan.json" --ref main --scan-root "$HOME/ncems-xp-test-work/pxd_xp_paper_runs" --scan-root "$HOME/ncems-xp-test-work/pxd_xp_reference_runs" --scan-root /actual/existing/old_XP_runs --out-root "$xp_project/runs"
+
+The original 535-PXD list and Ian's 112-assignment exclusion rules apply to NEW dataset selection. This
+explicitly authorized rerun uses prior XP records, so those selection lists do
+not remove a previously attempted PXD from this rerun inventory.
+
+If a reviewed experimental-reagent context JSON has been prepared separately,
+add --experimental-context /actual/path/to/context.json while creating the plan.
+The queue copies an immutable, hash-identified snapshot into the project and
+forwards the same evidence file to every run. It does not invent missing
+experiment metadata, approve a reagent, or approve numerical parameters.
+The file must use schema NCEMS_EXPERIMENTAL_CONTEXT_V1 with an entries list.
+Each entry requires an exact PXD accession, search_group and nonblank
+chemistry_evidence citation/record; duplicate PXD/search-group entries are rejected
+at planning. These syntax checks do not establish scientific validity.
+
+7. JETSTREAM, inside tmux — run the saved plan, two PXDs at a time
+--------------------------------------------------------------
+bash "$xp_project/NCEMS_XP_v3_3/run_rerun_all.sh" --execute "$xp_plan" --workers 2
+
+Both concurrent jobs are managed by this one command. A shared queue lock
+prevents another queue in this project from doubling the concurrency. Each PXD
+also has its own queue lock, log and NEW attempt directory.
+
+Detach safely while it runs: press Ctrl+B, release both keys, then press D.
+To return later on Jetstream:
+
+tmux attach-session -t ncems_xp_v33
+
+8. Outputs and truthful status
+------------------------------
+Plans:   /media/volume/xhamlet-data-5/NCEMS_XP_v33/rerun_plan_*.json
+Ledger:  /media/volume/xhamlet-data-5/NCEMS_XP_v33/xp_v33_attempts.jsonl
+Logs:    /media/volume/xhamlet-data-5/NCEMS_XP_v33/queue_logs/
+Results: /media/volume/xhamlet-data-5/NCEMS_XP_v33/runs/<PXD>/<new attempt>/
+
+The runner reports actual process exit codes and reads new v3.3 run summaries.
+COMPUTATION_COMPLETED means software execution completed. It does not mean
+every row has a score, the identification is correct, or the XP is calibrated.
+POLICY_OR_PREFLIGHT_STOP, PARTIAL_OR_FAILED, RUN_ERROR and missing-status cases
+remain separate in the ledger. Zero numeric XP is not reported as XP=0 for each
+input row. Read the per-run scoring/exclusion summaries for scientific scope.
+
+If the same plan is executed again, already settled attempts are skipped,
+including old blocked/failed attempts in that plan. --retry-incomplete is an
+explicit option to repeat those unsuccessful/unverified new-version attempts
+after their cause has been addressed. It never reruns already completed entries
+in the same plan. A fresh plan is required for a changed source commit or runner.
+
+Operational tests bundled with this package use synthetic files and fake child
+processes. They do not establish live Jetstream access, full Jwalk validation,
+empirical crosslinker parameters, or success of the user’s actual reruns.

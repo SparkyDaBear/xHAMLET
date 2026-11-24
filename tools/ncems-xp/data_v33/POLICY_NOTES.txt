@@ -1,0 +1,68 @@
+v3.3 chemistry and scoring policy
+
+Input contract
+- protein_a_aa/protein_b_aa: standard one-letter residue identities.
+- protein_a_site/protein_b_site: positive canonical sequence positions.
+- chain_a/chain_b and pdb_site_a/pdb_site_b: mapped coordinates needed for score evaluation.
+- chemistry/search_group: reported reagent identity; conflicting labels remain conflicting.
+- endpoint_a_kind/endpoint_b_kind: explicit SIDECHAIN, functional sidechain group,
+  PROTEIN_NTERM/PEPTIDE_NTERM/PROTEIN_CTERM/PEPTIDE_CTERM where supported by evidence.
+- endpoint_a_blocked/endpoint_b_blocked: true, false or unspecified.
+- endpoint_a_evidence/endpoint_b_evidence: source text/reference for terminal assignments.
+- endpoint_a_modifications/endpoint_b_modifications (or *_mods): modifications already
+  oriented and localized to the specified endpoint. Do not pass an entire peptide's
+  unrelated modifications here. Unknown locations use endpoint_localization=UNRESOLVED.
+- chemistry_evidence_status=EXPERIMENT_REAGENT_CONFIRMED plus a nonempty chemistry_evidence
+  record is required for primary scores. This is a declaration, not independent validation.
+
+Outputs
+- xp and xp_primary are identical aliases and are populated only for source-scoped,
+  chemistry-supported K-K profiles with confirmed reagent declaration and passed geometry.
+- DSBU K-K uses the literal published19.7/6.4/34.1 angstrom source coefficients.
+- DSS/BS3 K-K uses18.62/sqrt(35.94)/33 angstrom. Its zero-above-cutoff adaptation is
+  explicitly XP_ZERO_CUTOFF_ADAPTATION_OF_MNXL2016, not the complete original MNXL model.
+  mnxl2016_contribution separately retains the original -0.1 above-cutoff penalty.
+- Scoped DSS/BS3 K-K rows also report mnxl2016_violation_count and
+  mnxl2016_violation_excess_A, using a strict distance >33 angstrom threshold.
+  With no usable SASD these quantities remain blank. An explicit installed-backend
+  accessibility rejection, passed coordinate checks and confirmed reagent scope may
+  give mnxl2016_contribution=-0.1 and mnxl2016_nonaccessible_count=1. This is an
+  algorithmic nonaccessibility result, not measured distance or experimental evidence.
+  Finite-search missing paths and unknown failure reasons never receive that penalty.
+  XP and reference geometry stay blank whenever no usable SASD is available.
+- xp_exploratory includes known-profile scores under an unconfirmed reagent hypothesis,
+  conditional nonprimary chemistry and separately identified source-equation estimates.
+- reference_geometry_score is the same fixed normal-density reference for every usable
+  mapped candidate, including unsupported reagent/pair profiles. It is counterfactual,
+  not that reagent's calibrated XP, reaction probability, or proof of a covalent link.
+  Chemical conflicts are retained for audit and excluded from the discovery shortlist.
+- Every populated score records its profile, mean, SD, variance, cutoff, source,
+  convention and parameter basis. Different numerical fields must not be pooled as XP.
+- Missing/invalid mappings, incomplete engines, missing/negative/nonfinite SASD,
+  identical physical endpoints or failed coordinate/Euclidean checks yield blank scores.
+  A numeric zero is emitted only after successful gating and an applicable function cutoff.
+
+Interpretation
+- Supported chemistry is a documented reaction rule, not identification validation.
+- Missing endpoint metadata can imply only a labelled unmodified-sidechain assumption.
+  Position1 does not identify an unblocked N terminus or identify which reactive atom was used.
+- M is never interpreted as N-terminal solely from its amino-acid letter. Explicit free
+  terminal M candidates may get exploratory source-model values, with the original
+  endpoint convention still requiring author confirmation. Other N-terminal residue types
+  do not borrow a sidechain length constant.
+- Standard deviations transferred by the source algebra are model parameters, not new
+  empirical fits, standard errors, or uncertainty in a single predicted structure.
+- DSSO exploratory transfers use the 10.3 angstrom spacer convention explicitly listed
+  in Thermo MAN0016303 Rev. B.0, page 1; DSBU uses 12.5 angstrom from the same page.
+  Legacy DSSO 10.1 angstrom is not attributed to that manual and is not reused here.
+  Manufacturer spacer lengths do not establish chemistry-specific Gaussian calibration.
+- validation_status always remains REQUIRES_EXPERIMENTAL_VALIDATION.
+- Discovery mode requests geometry for every localized candidate regardless of parameter
+  availability; strict mode requests only primary-eligible geometry. All rows retain status.
+
+Limitations
+The curated rules cover specified reagent families and explicitly retain unknown ones.
+No claim is made that this registry covers every known reagent, every side reaction,
+every chemical product, or all post-translational and sample-preparation modifications.
+Conditional rules require experiment- and spectrum-specific review. Reagent-reference
+metadata and software tests cannot certify FDR, site localization, PPI or AF3 correctness.

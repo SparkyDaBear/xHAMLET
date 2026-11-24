@@ -1,0 +1,123 @@
+NCEMS XP v3.3 — Changes and validation
+Prepared November 19, 2026
+
+WHAT IS READY
+A separate general XP package for previously attempted PXDs, with a frozen-input
+rerun queue running two datasets concurrently. The input remains the PXD and its
+published ReLink/AF3 source files. No ReLink reinstallation or new spectral search
+is part of this package. No live Jetstream deployment or real PXD rerun has yet
+been performed from this session.
+
+THE CENTRAL SCIENTIFIC CHANGE
+Valid covalent combinations are assessed from the reagent and reactive endpoint
+groups. The list of amino-acid label pairs is not treated as a universal set of
+valid reactions. Every observation is preserved; missing parameters do not stop
+geometry calculation for an observed, localized, correctly mapped candidate.
+
+THREE OUTPUTS, KEPT SEPARATE
+1. xp_primary (also exported as xp): source-scoped known chemistry and parameters,
+   declared experimental reagent evidence, and passed geometry checks. This is
+   still not experimental identification validation.
+2. xp_exploratory: a known profile under an unconfirmed search-chemistry assumption,
+   conditional chemistry, or a documented model transfer. All assumptions remain
+   in the result. No invented effective lengths for the remaining amino acids.
+3. reference_geometry_score: a common reference function for geometrically usable
+   candidates without chemistry-specific parameters, including unknown chemistry.
+   It is not calibrated XP for that reaction, a P-value, or proof of a true link.
+   Known conflicts retain a diagnostic but are excluded from chemistry-supported
+   discovery shortlists. They remain in the review queue.
+
+The common reference uses mean 18.62 Å, SD sqrt(35.94) Å, cutoff 33 Å and a Gaussian
+positive component with zero beyond that reference cutoff. It is a deliberate
+common ruler, not evidence that all linkers share these parameters. A short or
+high-scoring AF3 distance cannot establish a new covalent reaction.
+
+KNOWN PARAMETER CONVENTIONS
+DSBU K-K retains literal source coefficients 19.7/6.4/34.1 Å (mean/SD/cutoff).
+DSS/BS3 K-K uses 18.62/sqrt(35.94)/33 Å, explicitly an XP zero-cutoff adaptation
+of MNXL's positive component. Original MNXL -0.1 contributions and scoped
+violation/nonaccessibility diagnostics remain separate. Missing finite-search
+paths are never automatically converted to nonaccessibility penalties or XP=0.
+DSSO exploratory transfer now uses manufacturer spacer 10.3 Å, with the older
+10.1 Å convention explicitly recorded. The transfer is not empirical calibration.
+
+Mean, SD, variance, cutoff, parameter source, profile and convention are exported.
+Sample SD across unique scored contexts is reported separately from model sigma.
+It is descriptive and is not uncertainty, an SE or a confidence interval for a link.
+
+MAPPING AND EVIDENCE FIXES
+- Preserve exact isoform suffixes; do not invent canonical coordinate projections.
+- Check the full peptide's sequence and residue numbering, not only its link site.
+- Orient alpha/beta modifications correctly with the matched proteins.
+- Keep modified and unmodified endpoint contexts separate at the same coordinates.
+- Separate endpoint-localized modifications from unrelated peptide modifications.
+- Do not infer a free N terminus from M or position 1 alone; contradictory terminal
+  annotations and unresolved modification locations remain review cases.
+- Retain ambiguous, unlocalized, unmatched, failed and missing-distance observations.
+- Reconcile every original source row; model-observation copies are counted separately.
+- Write no legacy XP in the distance adapter. Only the new policy creates scores.
+- Preserve raw source evidence and hashes for review.
+
+OPERATIONS
+A new installer verifies package bytes and requires the actual fixed volume.
+It does not overwrite a different installed package or modify Conda/ReLink.
+A plan inventories old XP attempts, including failed/reference-blocked attempts,
+and bounded ZIP/TAR archive metadata. It reports missing/uncertain records.
+One Git commit, engine hash, production package and optional evidence snapshot
+are fixed for the queue. Every run receives a fresh output directory and ledger
+record. Resume does not silently repeat settled attempts. Timeouts and interruption
+terminate model subprocess families. The queue defaults to at most two PXDs.
+
+The original 535-PXD/Ian's 112/attempted exclusion rules still apply to NEW ReLink
+selection. This explicitly authorized XP rerun uses prior XP attempts instead.
+Published GitHub exports alone are not proof of a fully verified ReLink success
+cohort; that provenance limitation is recorded in each launch manifest.
+
+VERIFICATION PERFORMED
+115 automated tests passed; zero failures, errors or skips.
+- 21 chemistry rules tests
+- 29 equation/policy tests
+- 20 installation, inventory, queue and integrity tests
+- 6 intake declaration/type tests
+- 5 subprocess CLI tests covering six actual CLI invocations
+- 2 model timeout/process-family tests
+- 32 independent adversarial mapping/scoring/accounting tests
+All tested source files remained unchanged during the recorded run.
+All bundled shell launchers passed bash syntax checks.
+
+The full synthetic cases exercised run_v33 -> source_worker -> mapping -> adapter
+-> analyzer. Their backend distances were explicitly fabricated, not real Jwalk.
+Each of two synthetic PXDs retained seven source rows as six model observations
+plus one unmatched row, with four distinct contexts. Under unconfirmed search
+chemistry: primary 0, exploratory 1, reference geometry 3. A separate synthetic
+confirmed-reagent declaration produced primary 1, exploratory 0, reference geometry 3.
+No validated experimental-link count was invented in either case. Empty/no-model
+inputs, preflight-only behavior and missing distances were also checked.
+
+NOT YET ESTABLISHED
+- Live Jetstream operation of this new release and actual rerun outcomes.
+- Accuracy of real Jwalk paths for the user's new PXD runs.
+- Spectrum-level identity, localization, FDR or biochemical truth of a novel link.
+- An exhaustive or empirically calibrated library for every possible reagent.
+
+The direct SSH check stopped at this workspace's SSH client configuration
+permissions before a remote connection was established. Existing Jetstream files
+were not accessed or altered. Use the included sequential setup/rerun commands.
+
+WHAT STILL SUPPORTS A TRUE NOVEL CROSS-LINK CLAIM
+Appropriate precursor/product mass agreement, spectrum and localization evidence,
+false-discovery control, alternative assignment checks, compatible chemistry and
+suitable experimental confirmation/controls. AF3 and geometry can prioritize
+candidates, but do not replace those checks. The present XP package does not
+re-search raw spectra or estimate missing FDR from xi_score alone.
+
+KEY REFERENCES
+Bullock et al. 2016: https://doi.org/10.1074/mcp.M116.058560
+Supplied DSBU table reconciled to 2025 Table S2: https://doi.org/10.1126/sciadv.ads7379
+Pinned NCLEdetector source:
+https://github.com/obrien-lab-psu/NCLEdetector/blob/9e3d4ed198c45e04b9aae6f53ec6f0e3e920cd4a/NCLEdetector/order_params.py
+DSSO/DSBU manufacturer reference:
+https://documents.thermofisher.com/TFS-Assets/LSG/manuals/MAN0016303_MSCleavableCrosslinkers_PI.pdf
+The complete source catalog, profile values, test log and tested-file hashes are
+included in the package. Read README.md, data_v33/POLICY_NOTES.txt and
+VALIDATION_REPORT.json for the exact methods and implementation contract.
